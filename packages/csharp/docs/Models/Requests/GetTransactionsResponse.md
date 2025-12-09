@@ -1,0 +1,9 @@
+# GetTransactionsResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                            | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                               | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `TransactionDetailsPaginatedResponse`                                                                 | [TransactionDetailsPaginatedResponse](../../Models/Components/TransactionDetailsPaginatedResponse.md) | :heavy_minus_sign:                                                                                    | Successfully retrieved a Paginated list of Transactions in event.                                     |

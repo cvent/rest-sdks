@@ -1,0 +1,9 @@
+# GetEventEmailStatusResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                              | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                 | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `SendEmailEventResponse`                                                                                | [SendEmailEventResponse](../../Models/Components/SendEmailEventResponse.md)                             | :heavy_minus_sign:                                                                                      | Successfully retrieved a list of event email send statuses associated with particular email request ID. |

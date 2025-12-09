@@ -1,0 +1,12 @@
+# AppointmentCheckedIn
+
+Appointment checked-in activity.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Appointment`                                                                         | [ActivityAppointmentJson](../../Models/Components/ActivityAppointmentJson.md)         | :heavy_minus_sign:                                                                    | An activity appointment.                                                              |                                                                                       |
+| `Contact`                                                                             | [ActivityContactJson](../../Models/Components/ActivityContactJson.md)                 | :heavy_minus_sign:                                                                    | An activity contact.                                                                  |                                                                                       |
+| `CheckedIn`                                                                           | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | ISO 8601 date and time when an attendee checked in to the appointment.                | 2020-02-03T13:00:00.000Z                                                              |

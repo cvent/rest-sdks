@@ -1,0 +1,17 @@
+# LeadAddressJson
+
+Schema for address information
+
+
+## Fields
+
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `Address1`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The first line of an address                                  | Cvent Inc.                                                    |
+| `Address2`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The second line of an address                                 | 4001 West Parmer Lane                                         |
+| `City`                                                        | *string*                                                      | :heavy_minus_sign:                                            | The name of the city.                                         | Austin                                                        |
+| `Region`                                                      | *string*                                                      | :heavy_minus_sign:                                            | The name of the state/province/region of the address.         | Texas                                                         |
+| `RegionCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | The abbreviation of the state/province/region of the address. | TX                                                            |
+| `PostalCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | postal code (also known as zipcode) of the address            | 78727                                                         |
+| `Country`                                                     | *string*                                                      | :heavy_minus_sign:                                            | Name of the country for example, 'United States'              | United States of America                                      |
+| `CountryCode`                                                 | *string*                                                      | :heavy_minus_sign:                                            | ISO 3166 two-letter (alpha-2) country code                    | US                                                            |

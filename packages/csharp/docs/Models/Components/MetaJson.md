@@ -1,0 +1,13 @@
+# MetaJson
+
+Metadata of the resource.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `ResourceType`                                                                        | *string*                                                                              | :heavy_minus_sign:                                                                    | The type of the resource.                                                             | user                                                                                  |
+| `Location`                                                                            | *string*                                                                              | :heavy_minus_sign:                                                                    | The location (URI) of the resource.                                                   | https://<account>/scim/v2/Users/2                                                     |
+| `Created`                                                                             | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 zoned date time when this record was created.                            | 2021-12-16T00:59:14.570Z                                                              |
+| `LastModified`                                                                        | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 zoned date time when this record was modified.                           | 2021-12-16T00:59:14.570Z                                                              |

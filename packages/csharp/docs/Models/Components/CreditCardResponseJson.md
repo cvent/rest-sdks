@@ -1,0 +1,15 @@
+# CreditCardResponseJson
+
+Credit Card Response Object
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `CardType`                                                          | [CreditCardTypeJson](../../Models/Components/CreditCardTypeJson.md) | :heavy_minus_sign:                                                  | Credit Card Type                                                    | VISA                                                                |
+| `Last4Digits`                                                       | *string*                                                            | :heavy_minus_sign:                                                  | Last 4 digits of the credit card.                                   | 4444                                                                |
+| `AccountHolderName`                                                 | *string*                                                            | :heavy_minus_sign:                                                  | Name on the credit card.                                            | John Doe                                                            |
+| `ExpMonth`                                                          | *long*                                                              | :heavy_minus_sign:                                                  | Credit card expiration month.                                       | 11                                                                  |
+| `ExpYear`                                                           | *long*                                                              | :heavy_minus_sign:                                                  | Credit card expiration year.                                        | 2026                                                                |
+| `Number`                                                            | *string*                                                            | :heavy_minus_sign:                                                  | Masked credit card number.                                          | ************1111                                                    |

@@ -1,0 +1,12 @@
+# TransactionJson1
+
+The latest transaction that took place on a given proposal
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Id`                                                                                  | *string*                                                                              | :heavy_minus_sign:                                                                    | The unique ID of a specific transaction.                                              | cf5fd2cc-3d09-11ee-be56-0242ac120002                                                  |
+| `Type`                                                                                | [TransactionTypeJson](../../Models/Components/TransactionTypeJson.md)                 | :heavy_minus_sign:                                                                    | The proposal transaction type                                                         |                                                                                       |
+| `Time`                                                                                | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 zoned date time when this record was updated.                            | 2023-02-12T03:00:00Z                                                                  |

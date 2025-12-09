@@ -1,0 +1,9 @@
+# ListAppointmentEventsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                        | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                           | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `AppointmentEventPaginatedResponse`                                                               | [AppointmentEventPaginatedResponse](../../Models/Components/AppointmentEventPaginatedResponse.md) | :heavy_minus_sign:                                                                                | Successfully retrieved a paginated list of appointment events.                                    |

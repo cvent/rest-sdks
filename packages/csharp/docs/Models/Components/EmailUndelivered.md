@@ -1,0 +1,12 @@
+# EmailUndelivered
+
+An email-undelivered activity.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Type`                                                                                | *string*                                                                              | :heavy_minus_sign:                                                                    | Type of the email.                                                                    | Invitation Reminder                                                                   |
+| `Contact`                                                                             | [ActivityContactJson](../../Models/Components/ActivityContactJson.md)                 | :heavy_minus_sign:                                                                    | An activity contact.                                                                  |                                                                                       |
+| `Undelivered`                                                                         | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | ISO 8601 date and time when an email was undelivered.                                 | 2020-02-03T13:00:00.000Z                                                              |

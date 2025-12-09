@@ -1,0 +1,12 @@
+# TravelMeetingRoomBasicInfoJson
+
+Meeting room basic information.
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `LargestMeetingRoom`                                                                            | *long*                                                                                          | :heavy_minus_sign:                                                                              | Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field. | 1000                                                                                            |
+| `UnitOfMeasurement`                                                                             | *string*                                                                                        | :heavy_minus_sign:                                                                              | Unit of measurement of the `largestMeetingRoom`'s size.                                         | sq.ft.                                                                                          |
+| `MeetingRooms`                                                                                  | *long*                                                                                          | :heavy_minus_sign:                                                                              | Total number of meeting rooms.                                                                  | 10                                                                                              |

@@ -1,0 +1,9 @@
+# GetEventTableAssignmentsResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                         | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `TableAssignmentPaginatedResponse`                                                              | [TableAssignmentPaginatedResponse](../../Models/Components/TableAssignmentPaginatedResponse.md) | :heavy_minus_sign:                                                                              | Successfully retrieved a paginated list of table assignments for the given event.               |

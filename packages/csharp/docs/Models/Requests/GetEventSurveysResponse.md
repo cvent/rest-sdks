@@ -1,0 +1,9 @@
+# GetEventSurveysResponse
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                                        | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                           | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `EventSurveysPaginatedResponse`                                                                                   | [EventSurveysPaginatedResponse](../../Models/Components/EventSurveysPaginatedResponse.md)                         | :heavy_minus_sign:                                                                                                | Successfully retrieved a paginated list of event surveys (id refers to chapter id and parentId is the survey id). |

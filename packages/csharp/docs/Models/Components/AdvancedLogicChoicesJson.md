@@ -1,0 +1,11 @@
+# AdvancedLogicChoicesJson
+
+This is used to denote which custom field choices to display when a source custom field choice is selected.
+
+
+## Fields
+
+| Field                                                                                                                      | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `SourceCustomFieldChoice`                                                                                                  | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | The ID of a choice of the source custom field.                                                                             |
+| `Choices`                                                                                                                  | List<*string*>                                                                                                             | :heavy_minus_sign:                                                                                                         | The choices to display if the associated source custom field choice is selected. Leave empty to have no choices displayed. |

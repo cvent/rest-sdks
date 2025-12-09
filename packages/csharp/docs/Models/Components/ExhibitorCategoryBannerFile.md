@@ -1,0 +1,11 @@
+# ExhibitorCategoryBannerFile
+
+A JSON schema for the exhibitor category banner file.
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `File`                                                                                        | [ExhibitorCategoryBannerFileFile](../../Models/Components/ExhibitorCategoryBannerFileFile.md) | :heavy_minus_sign:                                                                            | File properties for the exhibitor category banner file.                                       |                                                                                               |
+| `Href`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | URL of a exhibitor category banner image                                                      | https://images.cvent.com/pt/production/account_123/event_123/CategoryImage.png                |

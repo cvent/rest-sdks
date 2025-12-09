@@ -1,0 +1,13 @@
+# EventWeblinkJson
+
+Metadata for an event weblink.
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `Name`                                                                         | *string*                                                                       | :heavy_minus_sign:                                                             | Name of the weblink, used by planners to identify the weblinks in their event. | VIP Registration                                                               |
+| `Url`                                                                          | *string*                                                                       | :heavy_minus_sign:                                                             | Short URL of the webpage.                                                      | https://cvent.me/XX51b9                                                        |
+| `LandingPage`                                                                  | *string*                                                                       | :heavy_minus_sign:                                                             | The name of the webpage attendees will be directed to when using the weblink.  | Registration                                                                   |
+| `Locale`                                                                       | *string*                                                                       | :heavy_minus_sign:                                                             | Locale code                                                                    | en-US                                                                          |

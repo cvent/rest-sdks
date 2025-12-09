@@ -1,0 +1,13 @@
+# EventAttendeeHubVisited
+
+An event attendee-hub-visited activity.
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `Browser`                                                                       | *string*                                                                        | :heavy_minus_sign:                                                              | The name of the web browser.                                                    | firefox                                                                         |
+| `OperatingSystem`                                                               | *string*                                                                        | :heavy_minus_sign:                                                              | The name of the operating system.                                               | windows                                                                         |
+| `PageName`                                                                      | *string*                                                                        | :heavy_minus_sign:                                                              | The name of the event website page before the attendee arrived in Attendee Hub. | event website visits                                                            |
+| `ButtonText`                                                                    | *string*                                                                        | :heavy_minus_sign:                                                              | Text on the button.                                                             | Go to My Event 11                                                               |

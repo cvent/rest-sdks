@@ -1,0 +1,12 @@
+# ExhibitorWeblinkOpened
+
+An exhibitor weblink-opened activity.
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             | Example                                                                                 |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `Exhibitor`                                                                             | [ExhibitorJson1](../../Models/Components/ExhibitorJson1.md)                             | :heavy_minus_sign:                                                                      | An exhibitor.                                                                           |                                                                                         |
+| `Platform`                                                                              | *string*                                                                                | :heavy_minus_sign:                                                                      | The platform used by the user.                                                          | Attendee Hub                                                                            |
+| `Weblink`                                                                               | [ActivityExhibitorWebLinkJson](../../Models/Components/ActivityExhibitorWebLinkJson.md) | :heavy_minus_sign:                                                                      | A web-link for an activity exhibitor.                                                   |                                                                                         |

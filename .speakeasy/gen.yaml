@@ -136,9 +136,8 @@ typescript:
   baseErrorName: CventSDKError
   clientServerStatusCodesAsErrors: true
   compileCommand:
-    - sh
-    - -c
-    - cd ../.. && pnpm install --frozen-lockfile && cd packages/typescript && pnpm run build
+    - pnpm
+    - install
   constFieldsAlwaysOptional: false
   defaultErrorName: APIError
   enableCustomCodeRegions: false

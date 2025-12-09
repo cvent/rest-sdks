@@ -1,0 +1,9 @@
+# GetSessionProgramSpeakersResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                            | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                               | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `ProgramItemSpeakerPaginatedResponse`                                                                 | [ProgramItemSpeakerPaginatedResponse](../../Models/Components/ProgramItemSpeakerPaginatedResponse.md) | :heavy_minus_sign:                                                                                    | Successfully retrieved a list of session program item and speaker associations.                       |

@@ -1,0 +1,9 @@
+# GetExhibitorCategoriesResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                              | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                 | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `ExhibitorCategoriesPaginatedResponse`                                                                  | [ExhibitorCategoriesPaginatedResponse](../../Models/Components/ExhibitorCategoriesPaginatedResponse.md) | :heavy_minus_sign:                                                                                      | Successfully retrieved exhibitor categories.                                                            |

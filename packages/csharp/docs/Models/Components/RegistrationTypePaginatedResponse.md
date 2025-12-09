@@ -1,0 +1,11 @@
+# RegistrationTypePaginatedResponse
+
+Represents a paginated collection of registration types.
+
+
+## Fields
+
+| Field                                                                                                                                   | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `Paging`                                                                                                                                | [PagingJson](../../Models/Components/PagingJson.md)                                                                                     | :heavy_check_mark:                                                                                                                      | Represents pagination information for a collection of resources.                                                                        |
+| `Data`                                                                                                                                  | List<[ExistingRegistrationTypeWithAssociatedRegPathJson](../../Models/Components/ExistingRegistrationTypeWithAssociatedRegPathJson.md)> | :heavy_check_mark:                                                                                                                      | Collection of registration types.                                                                                                       |

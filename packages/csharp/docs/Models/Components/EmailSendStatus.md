@@ -1,0 +1,13 @@
+# EmailSendStatus
+
+The response from a request to get the list of recipients with email status.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `EmailRequestId`                                                                      | *string*                                                                              | :heavy_check_mark:                                                                    | ID of the send email request.                                                         | 3A541E55-3367-4C50-B21B-B6A7613DFB23                                                  |
+| `RequestedDate`                                                                       | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_check_mark:                                                                    | The ISO 8601 zoned date time (in UTC) when this request was made.                     | 2017-01-02T02:00:00Z                                                                  |
+| `RequestedBy`                                                                         | *string*                                                                              | :heavy_check_mark:                                                                    | The identifier of the user that requested this record.                                | Requester                                                                             |
+| `RecipientStatus`                                                                     | List<[RecipientsDataJson](../../Models/Components/RecipientsDataJson.md)>             | :heavy_check_mark:                                                                    | A list of recipients to whom emails were tried to send.                               |                                                                                       |

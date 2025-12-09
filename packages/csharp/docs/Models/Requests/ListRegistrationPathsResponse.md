@@ -1,0 +1,9 @@
+# ListRegistrationPathsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                        | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                           | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `RegistrationPathPaginatedResponse`                                                               | [RegistrationPathPaginatedResponse](../../Models/Components/RegistrationPathPaginatedResponse.md) | :heavy_minus_sign:                                                                                | Successfully retrieved a paginated list of registration paths.                                    |

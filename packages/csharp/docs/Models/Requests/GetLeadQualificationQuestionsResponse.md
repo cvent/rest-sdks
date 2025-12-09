@@ -1,0 +1,9 @@
+# GetLeadQualificationQuestionsResponse
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                                  | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                     | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `LeadQualificationQuestionsListResponse`                                                                    | [LeadQualificationQuestionsListResponse](../../Models/Components/LeadQualificationQuestionsListResponse.md) | :heavy_minus_sign:                                                                                          | Successfully retrieved a list of Lead Qualification Questions.                                              |

@@ -1,0 +1,12 @@
+# TravelDepartureArrivalJson
+
+Common object that holds travel departure/arrival information.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Time`                                                                                | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 formatted date.                                                          | 2024-12-01T00:00:00Z                                                                  |
+| `Carrier`                                                                             | *string*                                                                              | :heavy_minus_sign:                                                                    | ICAO code.                                                                            | JBU                                                                                   |
+| `CarrierNumber`                                                                       | *string*                                                                              | :heavy_minus_sign:                                                                    | Carrier number.                                                                       | 12345                                                                                 |

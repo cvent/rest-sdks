@@ -1,0 +1,12 @@
+# ExhibitorDocumentOpened
+
+An exhibitor document-opened activity.
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `Exhibitor`                                                                               | [ExhibitorJson1](../../Models/Components/ExhibitorJson1.md)                               | :heavy_minus_sign:                                                                        | An exhibitor.                                                                             |                                                                                           |
+| `Platform`                                                                                | *string*                                                                                  | :heavy_minus_sign:                                                                        | The platform used by the user.                                                            | Attendee Hub                                                                              |
+| `Document`                                                                                | [ActivityExhibitorDocumentJson](../../Models/Components/ActivityExhibitorDocumentJson.md) | :heavy_minus_sign:                                                                        | Document for an activity exhibitor.                                                       |                                                                                           |

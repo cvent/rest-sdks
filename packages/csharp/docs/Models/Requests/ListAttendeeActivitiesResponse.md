@@ -1,0 +1,9 @@
+# ListAttendeeActivitiesResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                            | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                               | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `AttendeeActivitiesPaginatedResponse`                                                                 | [AttendeeActivitiesPaginatedResponse](../../Models/Components/AttendeeActivitiesPaginatedResponse.md) | :heavy_minus_sign:                                                                                    | Successfully retrieved a paginated list of attendee activities and their related details.             |

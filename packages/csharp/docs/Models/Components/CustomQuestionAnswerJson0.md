@@ -1,0 +1,11 @@
+# CustomQuestionAnswerJson0
+
+Represents custom question associated with a travel proposal.
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Question`                                                                                        | [CustomQuestionAnswerJson0Question](../../Models/Components/CustomQuestionAnswerJson0Question.md) | :heavy_minus_sign:                                                                                | Travel account that the proposal is responding to.                                                |                                                                                                   |
+| `Answer`                                                                                          | *string*                                                                                          | :heavy_minus_sign:                                                                                | Hotel's answer to the program's custom question.                                                  | No.                                                                                               |

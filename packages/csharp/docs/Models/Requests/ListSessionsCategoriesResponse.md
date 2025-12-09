@@ -1,0 +1,9 @@
+# ListSessionsCategoriesResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                         | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `SessionCategoryPaginatedResponse`                                                              | [SessionCategoryPaginatedResponse](../../Models/Components/SessionCategoryPaginatedResponse.md) | :heavy_minus_sign:                                                                              | Successfully retrieved a paginated list of sessions categories.                                 |

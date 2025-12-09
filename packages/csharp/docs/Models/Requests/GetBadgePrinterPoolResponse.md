@@ -1,0 +1,9 @@
+# GetBadgePrinterPoolResponse
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                         | :heavy_check_mark:                                                              | N/A                                                                             |
+| `ExistingBadgePrinterPool`                                                      | [ExistingBadgePrinterPool](../../Models/Components/ExistingBadgePrinterPool.md) | :heavy_minus_sign:                                                              | Successfully retrieved a single badge printer pool.                             |
