@@ -1,0 +1,25 @@
+name: Publish PUBLIC-CSHARP
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+  id-token: write
+"on":
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Enable test mode (dry-run only)'
+        type: boolean
+        default: true
+        required: false
+jobs:
+  publish:
+    uses: ./.github/workflows/sdk-publish.yaml
+    with:
+      target: public-csharp
+      test_mode: ${{ inputs.test_mode }}
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      nuget_api_key: ${{ secrets.NUGET_API_KEY }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}

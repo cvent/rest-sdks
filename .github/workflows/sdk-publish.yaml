@@ -1,0 +1,411 @@
+name: Publish SDKs to Public Registries
+
+# This workflow handles publishing all SDK languages to public registries
+# It detects SDK regeneration through gen.lock files but doesn't regenerate SDKs
+# It's can be triggered through:
+#  - a call from other workflow
+#  - manual trigger via workflow_dispatch in Github UI
+
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+  id-token: write
+
+on:
+  workflow_call:
+    inputs:
+      target:
+        description: 'Target SDK to publish'
+        type: string
+        required: false
+      runs-on:
+        description: |-
+          Define the type of machine to run the job on. This can be a single
+          string value or a JSON-encoded string value
+          to define a runs-on compatible array/object, such as '["one", "two"]'.
+        default: ubuntu-latest-gh-x86_64-large
+        required: false
+        type: string
+      dotnet_version:
+        description: "The version of dotnet to use when compiling the C# SDK"
+        required: false
+        type: string
+        default: "5.x"
+      enable_sdk_changelog:
+        description: "Enable the new SDK changelog feature"
+        default: true
+        required: false
+        type: boolean
+      node_options:
+        description: "Options to pass to Node.js when running npm commands"
+        required: false
+        type: string
+      # CVENT: Defining our custom input to be able to run in test mode (dry-run only)
+      test_mode:
+        description: 'Enable test mode (dry-run only)'
+        type: boolean
+        required: false
+        default: false
+    secrets:
+      github_access_token:
+        required: true
+      java_gpg_passphrase:
+        required: false
+      java_gpg_secret_key:
+        required: false
+      ossrh_password:
+        required: false
+      ossrh_username:
+        required: false
+      npm_token:
+        required: false
+      nuget_api_key:
+        required: false
+      speakeasy_api_key:
+        required: true
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    outputs:
+      typescript_regenerated: ${{ steps.release.outputs.typescript_regenerated }}
+      java_regenerated: ${{ steps.release.outputs.java_regenerated }}
+      csharp_regenerated: ${{ steps.release.outputs.csharp_regenerated }}
+      publish_typescript: ${{ steps.release.outputs.publish_typescript }}
+      publish_java: ${{ steps.release.outputs.publish_java }}
+      publish_csharp: ${{ steps.release.outputs.publish_csharp }}
+      typescript_directory: ${{ steps.release.outputs.typescript_directory }}
+      java_directory: ${{ steps.release.outputs.java_directory }}
+      csharp_directory: ${{ steps.release.outputs.csharp_directory }}
+      use_sonatype_legacy: ${{ steps.release.outputs.use_sonatype_legacy }}
+    steps:
+      - name: Checkout repository
+        # CVENT: Pinning to specific commit as per SRE guidance to avoid unexpected supply-chain issues
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      - id: release
+        name: Create GitHub Release
+        # CVENT: Pinning to specific commit as per SRE guidance to avoid unexpected supply-chain issues
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "release"
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+          target: ${{ inputs.target }}
+          enable_sdk_changelog: ${{ inputs.enable_sdk_changelog }}
+
+      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
+      # - name: Notify on failure
+      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
+      #   uses: ravsamhq/notify-slack-action@v2
+      #   with:
+      #     status: ${{ job.status }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     notify_when: "failure"
+      #     notification_title: "Failed to create GitHub Release"
+      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
+      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - id: log-result
+        name: Log release results
+        # CVENT: Pinning to specific commit SHA as per SRE guidance to avoid unexpected supply-chain issues
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: log-result
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+          GH_ACTION_STEP: ${{ github.job }}
+          TARGET_TYPE: "sdk"
+
+  # TypeScript SDK Publishing Job
+  publish-npm:
+    needs: release
+    if: ${{ needs.release.outputs.publish_typescript == 'true' }}
+    name: Publish TypeScript SDK to NPM
+    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    defaults:
+      run:
+        working-directory: ${{ needs.release.outputs.typescript_directory }}
+    steps:
+      - name: Checkout repository
+        # CVENT: Pinning to specific commit SHA as per SRE guidance to avoid unexpected supply-chain issues
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+
+      - name: Setup Node.js
+        # CVENT: Pinning to specific commit SHA as per SRE guidance to avoid unexpected supply-chain issues
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Setup Bun (for MCP server if needed)
+        run: npm rebuild bun
+
+      - name: Publish to NPM
+        # CVENT: Customized this publish step to dry-run in test mode
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_OPTIONS: ${{ inputs.node_options }}
+          TEST_MODE: ${{ inputs.test_mode || false }}
+        run: |
+          # Set registry based on test mode
+          if [[ "$TEST_MODE" == "true" ]]; then
+            echo "Test mode enabled - using dry-run"
+            DRY_RUN_FLAG="--dry-run"
+          else
+            echo "Production mode - publishing to npm"
+            DRY_RUN_FLAG=""
+          fi
+
+          VERSION=$(npm pkg get version | tr -d '"')
+          echo "Detected version: $VERSION"
+
+          if [[ "$VERSION" == *"-"* ]]; then
+            PRERELEASE=${VERSION#*-}
+            TAG=${PRERELEASE%%.*}
+            echo "Prerelease detected; publishing under dist-tag: $TAG"
+            npm publish --tag "$TAG" --access public $DRY_RUN_FLAG
+          else
+            echo "Official release detected; publishing under 'latest'"
+            npm publish --access public $DRY_RUN_FLAG
+          fi
+
+      # CVENT: Removed the MCP publishing section from here from original speakeasy's workflow as we don't plan to enable MCPs for public SDKs yet.
+
+      - id: publish-event
+        name: Record TypeScript publish event
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: publish-event
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+          target_directory: ${{ needs.release.outputs.typescript_directory }}
+          registry_name: "npm"
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+
+      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
+      # - name: Notify on failure
+      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
+      #   uses: ravsamhq/notify-slack-action@v2
+      #   with:
+      #     status: ${{ job.status }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     notify_when: "failure"
+      #     notification_title: "Failed to publish TypeScript SDK"
+      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
+      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - id: log-result
+        name: Log TypeScript publishing results
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: log-result
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+          GH_ACTION_STEP: ${{ github.job }}
+          TARGET_TYPE: "sdk"
+
+  # Java SDK Publishing Job
+  publish-java:
+    needs: release
+    if: ${{ needs.release.outputs.publish_java == 'true' }}
+    name: Publish Java SDK to Maven Central
+    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    defaults:
+      run:
+        working-directory: ${{ needs.release.outputs.java_directory }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+
+      - name: Setup Java
+        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00
+        with:
+          distribution: "corretto"
+          java-version: "11"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3
+        with:
+          gradle-version: "8.14"
+
+      - name: Publish to Sonatype (legacy method)
+        if: ${{ needs.release.outputs.use_sonatype_legacy == 'true' }}
+        # CVENT: Customized this publish step to dry-run in test mode
+        run: |
+          pwd
+          if [[ "$TEST_MODE" == "true" ]]; then
+            echo "Test mode enabled - performing dry-run publish"
+            ./gradlew publish --dry-run --no-daemon
+          else
+            echo "Production mode - publishing to Sonatype"
+            ./gradlew publish --no-daemon
+          fi
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.JAVA_GPG_SECRET_KEY }}
+          ORG_GRADLE_PROJECT_signingPassphrase: ${{ secrets.JAVA_GPG_PASSPHRASE }}
+
+      - name: Publish to Sonatype Central (modern method)
+        if: ${{ needs.release.outputs.use_sonatype_legacy != 'true' }}
+        # CVENT: Customized this publish step to dry-run in test mode
+        run: |
+          pwd
+          if [[ "$TEST_MODE" == "true" ]]; then
+            echo "Test mode enabled - performing dry-run publish"
+            ./gradlew build sonatypeCentralUpload --dry-run --no-daemon
+          else
+            echo "Production mode - publishing to Sonatype Central"
+            ./gradlew build sonatypeCentralUpload --no-daemon
+          fi
+
+        env:
+          SONATYPE_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          SONATYPE_SIGNING_KEY: ${{ secrets.JAVA_GPG_SECRET_KEY }}
+          SIGNING_KEY_PASSPHRASE: ${{ secrets.JAVA_GPG_PASSPHRASE }}
+
+      - id: publish-event
+        name: Record Java publish event
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: publish-event
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+          target_directory: ${{ needs.release.outputs.java_directory }}
+          registry_name: "sonatype"
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+
+      # CVENT: Removed the MCP publishing section from here from original speakeasy's workflow as we don't plan to enable MCPs for public SDKs yet.
+
+      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
+      # - name: Notify on failure
+      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
+      #   uses: ravsamhq/notify-slack-action@v2
+      #   with:
+      #     status: ${{ job.status }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     notify_when: "failure"
+      #     notification_title: "Failed to publish Java SDK"
+      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
+      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - id: log-result
+        name: Log Java publishing results
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: log-result
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+          GH_ACTION_STEP: ${{ github.job }}
+          TARGET_TYPE: "sdk"
+
+  # C# SDK Publishing Job
+  publish-nuget:
+    needs: release
+    if: ${{ needs.release.outputs.publish_csharp == 'true' }}
+    name: Publish C# SDK to NuGet
+    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    defaults:
+      run:
+        working-directory: ${{ needs.release.outputs.csharp_directory }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@ea9897a6e57642ca932850b656df2880bc7cd2a8 # v3.4.2
+        with:
+          dotnet-version: ${{ inputs.dotnet_version }}
+
+      - name: Pack and publish to NuGet
+        # CVENT: Customized this publish step to dry-run in test mode
+        run: |
+          dotnet pack -c Release -o .
+
+          if [[ "$TEST_MODE" == "true" ]]; then
+            echo "Test mode enabled - skipping actual publish"
+            for nupkg in *.nupkg; do
+              echo "Would publish package: $nupkg"
+            done
+          else
+            echo "Production mode - publishing to NuGet (Testing only)"
+            for nupkg in *.nupkg; do
+              echo "Publishing package: $nupkg"
+            done
+            dotnet nuget push *.nupkg --api-key ${{ secrets.nuget_api_key }} --source https://api.nuget.org/v3/index.json
+          fi
+      - id: publish-event
+        name: Record C# publish event
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: publish-event
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+          target_directory: ${{ needs.release.outputs.csharp_directory }}
+          registry_name: "nuget"
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+
+      # CVENT: Removed the MCP publishing section from here from original speakeasy's workflow as we don't plan to enable MCPs for public SDKs yet.
+
+      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
+      # - name: Notify on failure
+      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
+      #   uses: ravsamhq/notify-slack-action@v2
+      #   with:
+      #     status: ${{ job.status }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     notify_when: "failure"
+      #     notification_title: "Failed to publish C# SDK"
+      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
+      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - id: log-result
+        name: Log C# publishing results
+        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        if: always()
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          action: log-result
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+        env:
+          GH_ACTION_RESULT: ${{ job.status }}
+          GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
+          GH_ACTION_STEP: ${{ github.job }}
+          TARGET_TYPE: "sdk"
