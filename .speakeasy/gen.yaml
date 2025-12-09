@@ -30,7 +30,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 0.0.22
+  version: 0.0.1
   additionalDependencies: []
   author: Cvent
   baseErrorName: CventSDKException
@@ -64,7 +64,7 @@ csharp:
   sourceDirectory: src
   useNodatime: false
 java:
-  version: 0.0.23
+  version: 0.0.1
   additionalDependencies:
     - testImplementation:org.junit.jupiter:junit-jupiter:5.7.1
     - testRuntimeOnly:org.junit.platform:junit-platform-launcher
@@ -84,7 +84,7 @@ java:
   flattenGlobalSecurity: false
   generateOptionalUnionAccessors: false
   generateSpringBootStarter: false
-  githubURL: https://github.com/cvent-internal/rest-sdks-internal
+  githubURL: https://github.com/cvent/rest-sdks
   groupID: com.cvent
   imports:
     option: openapi
@@ -112,7 +112,7 @@ java:
   templateVersion: v2
   unionStrategy: populated-fields
 typescript:
-  version: 0.0.35
+  version: 0.0.1
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -125,17 +125,12 @@ typescript:
     license: MIT
     main: ./dist/commonjs/index.js
     module: ./dist/esm/index.js
-    nx:
-      includedScripts: []
-    publishConfig:
-      registry: https://nexus.core.cvent.org/nexus/content/repositories/npm-local/
     types: ./dist/commonjs/index.d.ts
     typesVersions:
       '*':
         '*':
           - dist/esm/*
-  additionalScripts:
-    release:publish: pnpm-cvent release:publish
+  additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
   author: Cvent
   baseErrorName: CventSDKError

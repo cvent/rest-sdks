@@ -9,7 +9,7 @@ sources:
             - location: ./overlays/operation_level_pagination_overlay.yaml
             - location: ./overlays/pagination_overlay.yaml
         registry:
-            location: registry.speakeasyapi.dev/cvent/universal-api-platform/public
+            location: registry.speakeasyapi.dev/cvent/rest-sdks/public
 targets:
     public-csharp:
         target: csharp
@@ -20,7 +20,7 @@ targets:
                 apiKey: $nuget_api_key
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-csharp-code-samples
+                location: registry.speakeasyapi.dev/cvent/rest-sdks/csharp
             labelOverride:
                 fixedValue: CSharp (SDK)
             blocking: false
@@ -36,7 +36,7 @@ targets:
                 gpgPassPhrase: $java_gpg_passphrase
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-java-code-samples
+                location: registry.speakeasyapi.dev/cvent/rest-sdks/java
             labelOverride:
                 fixedValue: Java (SDK)
             blocking: false
@@ -49,7 +49,7 @@ targets:
                 token: $npm_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-typescript-code-samples
+                location: registry.speakeasyapi.dev/cvent/rest-sdks/typescript
             labelOverride:
                 fixedValue: Typescript (SDK)
             blocking: false
