@@ -1,0 +1,21 @@
+# AdvancedLogic
+
+Describes the advanced logic for a custom field.
+
+## Example Usage
+
+```typescript
+import { AdvancedLogic } from "@cvent/sdk/models/components";
+
+let value: AdvancedLogic = {
+  sourceCustomFieldId: "168e7620-fb7e-49d2-bb80-f2048d856ae9",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                         | Type                                                                                                                                                                                          | Required                                                                                                                                                                                      | Description                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sourceCustomFieldId`                                                                                                                                                                         | *string*                                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                            | The ID of the source custom field.                                                                                                                                                            |
+| `defaultChoices`                                                                                                                                                                              | *string*[]                                                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                                            | The choices of this custom field to display by default (when no choice is selected for the source custom field), specified by choice ID. Leave empty to have no choices displayed by default. |
+| `sourceChoices`                                                                                                                                                                               | [components.AdvancedLogicChoicesJson](../../models/components/advancedlogicchoicesjson.md)[]                                                                                                  | :heavy_minus_sign:                                                                                                                                                                            | The choices of this custom field to display based on the choice selected for the source custom field, specified by choice ID.                                                                 |

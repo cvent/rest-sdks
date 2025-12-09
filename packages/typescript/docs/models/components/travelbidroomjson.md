@@ -1,0 +1,27 @@
+# TravelBidRoomJson
+
+A room in a travel bid.
+
+## Example Usage
+
+```typescript
+import { TravelBidRoomJson } from "@cvent/sdk/models/components";
+
+let value: TravelBidRoomJson = {
+  propertyRoom: {
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+  },
+  allocation: 10,
+  order: 1,
+  status: "requested",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                              | Type                                                                                                                                                               | Required                                                                                                                                                           | Description                                                                                                                                                        | Example                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `propertyRoom`                                                                                                                                                     | [components.TravelBidRoomJsonPropertyRoom](../../models/components/travelbidroomjsonpropertyroom.md)                                                               | :heavy_minus_sign:                                                                                                                                                 | ID of the property's room.                                                                                                                                         |                                                                                                                                                                    |
+| `allocation`                                                                                                                                                       | *number*                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                 | The number of rooms allocated to the bid.                                                                                                                          | 10                                                                                                                                                                 |
+| `order`                                                                                                                                                            | *number*                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                 | The order of the room in the bid.                                                                                                                                  | 1                                                                                                                                                                  |
+| `status`                                                                                                                                                           | [components.BidItemStatusTypeJson](../../models/components/biditemstatustypejson.md)                                                                               | :heavy_minus_sign:                                                                                                                                                 | The status of the item in negotiation.  e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. | requested                                                                                                                                                          |

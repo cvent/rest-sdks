@@ -1,0 +1,45 @@
+# TravelBidFairSeasonJson
+
+The fair season for a travel bid.
+
+## Example Usage
+
+```typescript
+import { TravelBidFairSeasonJson } from "@cvent/sdk/models/components";
+import { RFCDate } from "@cvent/sdk/types";
+
+let value: TravelBidFairSeasonJson = {
+  name: "Fair season 1",
+  startDate: new RFCDate("2021-07-13"),
+  endDate: new RFCDate("2021-07-13"),
+  minLengthOfStay: 1,
+  releasePeriod: 1,
+  rates: [
+    {
+      propertyRoom: {
+        id: "9ea95519-2fc5-49d8-991b-e954f49044fe",
+      },
+      singleRate: 100,
+      doubleRate: 101,
+      tripleRate: 102,
+      quadRate: 103,
+      allotment: 100,
+      status: "requested",
+    },
+  ],
+  status: "requested",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                              | Type                                                                                                                                                               | Required                                                                                                                                                           | Description                                                                                                                                                        | Example                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`                                                                                                                                                             | [components.FairSeasonTypeJson](../../models/components/fairseasontypejson.md)                                                                                     | :heavy_minus_sign:                                                                                                                                                 | Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply                                              |                                                                                                                                                                    |
+| `name`                                                                                                                                                             | *string*                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                 | Fair season name.                                                                                                                                                  | Fair season 1                                                                                                                                                      |
+| `startDate`                                                                                                                                                        | [RFCDate](../../types/rfcdate.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                 | The ISO 8601 start date of the fair season.                                                                                                                        | 2021-07-13                                                                                                                                                         |
+| `endDate`                                                                                                                                                          | [RFCDate](../../types/rfcdate.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                 | The ISO 8601 end date of the fair season.                                                                                                                          | 2021-07-13                                                                                                                                                         |
+| `minLengthOfStay`                                                                                                                                                  | *number*                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                 | Minimum length of stay for the fair season.                                                                                                                        | 1                                                                                                                                                                  |
+| `releasePeriod`                                                                                                                                                    | *number*                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                 | Release period for the fair season. Release period is the minimum number of days between the booking being made and the earliest arrival date.                     | 1                                                                                                                                                                  |
+| `rates`                                                                                                                                                            | [components.TravelBidFairSeasonRateJson](../../models/components/travelbidfairseasonratejson.md)[]                                                                 | :heavy_minus_sign:                                                                                                                                                 | Collection of rates for the fair season.                                                                                                                           |                                                                                                                                                                    |
+| `status`                                                                                                                                                           | [components.BidItemStatusTypeJson](../../models/components/biditemstatustypejson.md)                                                                               | :heavy_minus_sign:                                                                                                                                                 | The status of the item in negotiation.  e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. | requested                                                                                                                                                          |

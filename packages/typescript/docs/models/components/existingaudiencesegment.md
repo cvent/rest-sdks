@@ -1,0 +1,38 @@
+# ExistingAudienceSegment
+
+Details of an audience segment.
+
+## Example Usage
+
+```typescript
+import { ExistingAudienceSegment } from "@cvent/sdk/models/components";
+
+let value: ExistingAudienceSegment = {
+  created: new Date("2017-01-02T02:00:00Z"),
+  createdBy: "hporter",
+  lastModified: new Date("2019-02-12T03:00:00Z"),
+  lastModifiedBy: "hporter",
+  event: {
+    id: "103097a4-143d-11e5-9f99-d0a637ee0032",
+  },
+  name: "VIP Attendees",
+  description: "A group of VIP attendees.",
+  id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+  deleted: true,
+};
+```
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              | Example                                                                                                  |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `created`                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)            | :heavy_minus_sign:                                                                                       | The ISO 8601 zoned date time when this record was created.                                               | 2017-01-02T02:00:00Z                                                                                     |
+| `createdBy`                                                                                              | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | The identifier of the user that created this record.                                                     | hporter                                                                                                  |
+| `lastModified`                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)            | :heavy_minus_sign:                                                                                       | The ISO 8601 zoned date time when this record was updated.                                               | 2019-02-12T03:00:00Z                                                                                     |
+| `lastModifiedBy`                                                                                         | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | The identifier of the user that last updated this record.                                                | hporter                                                                                                  |
+| `event`                                                                                                  | [components.EventJson2](../../models/components/eventjson2.md)                                           | :heavy_minus_sign:                                                                                       | ID of the event.                                                                                         |                                                                                                          |
+| `name`                                                                                                   | *string*                                                                                                 | :heavy_check_mark:                                                                                       | Name of the audience segment. Must be unique in the event where the segment exists.                      | VIP Attendees                                                                                            |
+| `description`                                                                                            | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | Description of the audience segment.                                                                     | A group of VIP attendees.                                                                                |
+| `id`                                                                                                     | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | ID of the audience segment.                                                                              | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                                                     |
+| `creationType`                                                                                           | [components.AudienceSegmentCreationTypeJson](../../models/components/audiencesegmentcreationtypejson.md) | :heavy_minus_sign:                                                                                       | Creation type of the audience segment.                                                                   | MANUAL                                                                                                   |
+| `deleted`                                                                                                | *boolean*                                                                                                | :heavy_minus_sign:                                                                                       | Boolean representing whether segment is deleted or not.                                                  | true                                                                                                     |

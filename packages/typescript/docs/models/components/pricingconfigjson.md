@@ -1,0 +1,33 @@
+# PricingConfigJson
+
+Represents the configuration of the event's pricing feature.
+
+## Example Usage
+
+```typescript
+import { PricingConfigJson } from "@cvent/sdk/models/components";
+
+let value: PricingConfigJson = {
+  enabled: true,
+  invoicePrefix: "EVE001",
+  revenueGoal: 10000,
+  merchantAccount: "Event merchant account - USD",
+  currency: "USD",
+  allowedPaymentMethods: [
+    "Visa",
+    "Diners Club",
+    "Mastercard",
+  ],
+};
+```
+
+## Fields
+
+| Field                                                                                                                                              | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        | Example                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`                                                                                                                                          | *boolean*                                                                                                                                          | :heavy_check_mark:                                                                                                                                 | True enables pricing for the event.                                                                                                                | true                                                                                                                                               |
+| `invoicePrefix`                                                                                                                                    | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | A prefix helps distinguish invoices for this event from those of other events.                                                                     | EVE001                                                                                                                                             |
+| `revenueGoal`                                                                                                                                      | *number*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | Revenue goal for the event.                                                                                                                        | 10000                                                                                                                                              |
+| `merchantAccount`                                                                                                                                  | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | Name of the merchant account associated with the event. This merchant account is where all event payments are deposited and refunds are withdrawn. | Event merchant account - USD                                                                                                                       |
+| `currency`                                                                                                                                         | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | The ISO 4217 standard format currency code representing the currency used for event pricing.                                                       | USD                                                                                                                                                |
+| `allowedPaymentMethods`                                                                                                                            | [components.PaymentMethodTypeJson](../../models/components/paymentmethodtypejson.md)[]                                                             | :heavy_minus_sign:                                                                                                                                 | Names of allowed payment methods for the merchant account. Not all options are valid for all merchants.                                            | [<br/>"Visa",<br/>"Diners Club",<br/>"Mastercard"<br/>]                                                                                            |

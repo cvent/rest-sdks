@@ -1,0 +1,20 @@
+# CreateMeetingRequestRequest
+
+## Example Usage
+
+```typescript
+import { CreateMeetingRequestRequest } from "@cvent/sdk/models/operations";
+
+let value: CreateMeetingRequestRequest = {
+  id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+  requestBody: [],
+};
+```
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `id`                                                                                         | *string*                                                                                     | :heavy_check_mark:                                                                           | Meeting request form ID.                                                                     | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                                         |
+| `skipRequiredQuestionValidation`                                                             | *boolean*                                                                                    | :heavy_minus_sign:                                                                           | Flag `true` to skip required field validation.                                               |                                                                                              |
+| `requestBody`                                                                                | [components.MeetingRequestCreateJson](../../models/components/meetingrequestcreatejson.md)[] | :heavy_check_mark:                                                                           | Up to **5 meeting requests** can be created per call.                                        |                                                                                              |

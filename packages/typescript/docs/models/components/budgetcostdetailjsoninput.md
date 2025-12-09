@@ -1,0 +1,35 @@
+# BudgetCostDetailJsonInput
+
+Budget item cost details.
+
+## Example Usage
+
+```typescript
+import { BudgetCostDetailJsonInput } from "@cvent/sdk/models/components";
+
+let value: BudgetCostDetailJsonInput = {
+  id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+  units: 5.2,
+  cost: 100.5,
+  gratuityDetail: {
+    gratuity: 5.2,
+  },
+  taxDetail: [
+    {
+      id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+      taxType: "PERCENTAGE",
+      tax: 5.2,
+    },
+  ],
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                       | Type                                                                                                                                                                                        | Required                                                                                                                                                                                    | Description                                                                                                                                                                                 | Example                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                                                        | *string*                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                          | A string that has to be a format matching the industry standard uuid                                                                                                                        | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                                                                                                                                        |
+| `units`                                                                                                                                                                                     | *number*                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                          | The number of units associated with a budget item. This field can be any number if the budget item is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1. | 5.2                                                                                                                                                                                         |
+| `cost`                                                                                                                                                                                      | *number*                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                          | Budget item cost amount.                                                                                                                                                                    | 100.5                                                                                                                                                                                       |
+| `gratuityDetail`                                                                                                                                                                            | [components.BudgetGratuityJsonInput](../../models/components/budgetgratuityjsoninput.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                                          | Budget item gratuity details.                                                                                                                                                               |                                                                                                                                                                                             |
+| `taxDetail`                                                                                                                                                                                 | [components.BudgetTaxJsonInput](../../models/components/budgettaxjsoninput.md)[]                                                                                                            | :heavy_minus_sign:                                                                                                                                                                          | Collection of tax related information.                                                                                                                                                      |                                                                                                                                                                                             |
