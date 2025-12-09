@@ -1,0 +1,12 @@
+# TravelBidDispositionJson
+
+Represents bid disposition details.
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `bid`                                                                                                          | [Optional\<TravelProposalBidIdJson>](../../models/components/TravelProposalBidIdJson.md)                       | :heavy_minus_sign:                                                                                             | A travel proposal bid.                                                                                         |
+| `acceptedBidRooms`                                                                                             | List\<[TravelBidDispositionAcceptedRoomJson](../../models/components/TravelBidDispositionAcceptedRoomJson.md)> | :heavy_minus_sign:                                                                                             | List of accepted bid rooms.                                                                                    |
+| `rateType`                                                                                                     | [Optional\<RateTypeJson>](../../models/components/RateTypeJson.md)                                             | :heavy_minus_sign:                                                                                             | Rate type.                                                                                                     |

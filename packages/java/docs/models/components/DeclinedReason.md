@@ -1,0 +1,26 @@
+# DeclinedReason
+
+The set of decline reasons available for proposals
+
+
+## Values
+
+| Name                                       | Value                                      |
+| ------------------------------------------ | ------------------------------------------ |
+| `DID_NOT_MEET_REQUIREMENTS`                | DID_NOT_MEET_REQUIREMENTS                  |
+| `EVENT_CANCELLED`                          | EVENT_CANCELLED                            |
+| `FOOD_AND_BEVERAGE_MINIMUM_TOO_HIGH`       | FOOD_AND_BEVERAGE_MINIMUM_TOO_HIGH         |
+| `INCOMPLETE_RFP`                           | INCOMPLETE_RFP                             |
+| `LATE_RESPONSE`                            | LATE_RESPONSE                              |
+| `MEETING_ROOM_RENTAL_TOO_HIGH`             | MEETING_ROOM_RENTAL_TOO_HIGH               |
+| `MEETING_SPACE_CEILING_HEIGHT`             | MEETING_SPACE_CEILING_HEIGHT               |
+| `OTHER`                                    | OTHER                                      |
+| `PREFERRED_OR_ALTERNATE_DATES_UNAVAILABLE` | PREFERRED_OR_ALTERNATE_DATES_UNAVAILABLE   |
+| `PROPERTY_AMENITIES_OR_SERVICES`           | PROPERTY_AMENITIES_OR_SERVICES             |
+| `PROPERTY_LOCATION`                        | PROPERTY_LOCATION                          |
+| `RENOVATIONS`                              | RENOVATIONS                                |
+| `SELECTED_OTHER_CITY`                      | SELECTED_OTHER_CITY                        |
+| `SELECTED_OTHER_HOTEL_OR_VENUE`            | SELECTED_OTHER_HOTEL_OR_VENUE              |
+| `SIZE_OF_MEETING_SPACE`                    | SIZE_OF_MEETING_SPACE                      |
+| `SLEEPING_ROOM_RATE_TOO_HIGH`              | SLEEPING_ROOM_RATE_TOO_HIGH                |
+| `SUITE_AVAILABILITY`                       | SUITE_AVAILABILITY                         |

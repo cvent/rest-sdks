@@ -1,0 +1,12 @@
+# EventAdViewed
+
+Viewed an Event Ad.
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              | Example                                                                                  |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `event`                                                                                  | [Optional\<ActivityDataJsonEvent10>](../../models/components/ActivityDataJsonEvent10.md) | :heavy_minus_sign:                                                                       | The event in which this activity occurred.                                               |                                                                                          |
+| `platform`                                                                               | *Optional\<String>*                                                                      | :heavy_minus_sign:                                                                       | The platform used by the user.                                                           | UserPlatform                                                                             |
+| `ad`                                                                                     | [Optional\<ActivityAdJson>](../../models/components/ActivityAdJson.md)                   | :heavy_minus_sign:                                                                       | The details of the advertisement.                                                        |                                                                                          |

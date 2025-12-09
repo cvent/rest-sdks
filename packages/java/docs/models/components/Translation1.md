@@ -1,0 +1,11 @@
+# Translation1
+
+A custom-field translation for a particular language.
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `translation`                                                                                                | [Translation](../../models/components/Translation.md)                                                        | :heavy_check_mark:                                                                                           | This is used to denote the translation of the custom field, including its name, help text, and choice texts. |                                                                                                              |
+| `language`                                                                                                   | [LanguageJson](../../models/components/LanguageJson.md)                                                      | :heavy_check_mark:                                                                                           | IETF language code used to specify a target language for the translation.                                    | es-ES                                                                                                        |

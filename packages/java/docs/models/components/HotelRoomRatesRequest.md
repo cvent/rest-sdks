@@ -1,0 +1,14 @@
+# HotelRoomRatesRequest
+
+Represents hotel room rates request.
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `rateCode`                                                                      | *Optional\<String>*                                                             | :heavy_minus_sign:                                                              | The rate code.                                                                  | VIPRATE                                                                         |
+| `startDate`                                                                     | [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) | :heavy_check_mark:                                                              | The start of the date range the rate applies. Date is in ISO 8601 format.       | 2025-03-25                                                                      |
+| `endDate`                                                                       | [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) | :heavy_check_mark:                                                              | The end of the date range the rate applies. Date is in ISO 8601 format.         | 2025-03-25                                                                      |
+| `roomRate`                                                                      | *double*                                                                        | :heavy_check_mark:                                                              | Cost of room per night.                                                         | 150                                                                             |
+| `currencyCode`                                                                  | *Optional\<String>*                                                             | :heavy_minus_sign:                                                              | ISO 4217 currency code.                                                         | USD                                                                             |

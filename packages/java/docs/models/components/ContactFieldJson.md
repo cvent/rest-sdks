@@ -1,0 +1,14 @@
+# ContactFieldJson
+
+Contains contact data. For example, a User's email address.
+
+
+## Fields
+
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             | Example                                                                 |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `id`                                                                    | *String*                                                                | :heavy_check_mark:                                                      | The unique ID of the field supported by Cvent.                          |                                                                         |
+| `name`                                                                  | *String*                                                                | :heavy_check_mark:                                                      | The name of the field.                                                  | Email Address                                                           |
+| `maximumLength`                                                         | *long*                                                                  | :heavy_check_mark:                                                      | The maximum length allowed for a value.                                 | 80                                                                      |
+| `type`                                                                  | [ContactFieldJsonType](../../models/components/ContactFieldJsonType.md) | :heavy_check_mark:                                                      | The type of the field.                                                  | String                                                                  |
+| `value`                                                                 | List\<*String*>                                                         | :heavy_minus_sign:                                                      | The value(s) of the field.                                              |                                                                         |

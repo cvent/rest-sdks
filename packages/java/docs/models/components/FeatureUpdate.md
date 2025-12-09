@@ -1,0 +1,13 @@
+# FeatureUpdate
+
+Representation of an event feature update request
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `type`                                                                           | [FeatureTypeJson](../../models/components/FeatureTypeJson.md)                    | :heavy_check_mark:                                                               | These are the types of features used in the event container events.              | Registration                                                                     |
+| `enabled`                                                                        | *boolean*                                                                        | :heavy_check_mark:                                                               | If a particular feature is enabled for the event                                 | true                                                                             |
+| `enabledTier`                                                                    | [Optional\<TierJson>](../../models/components/TierJson.md)                       | :heavy_minus_sign:                                                               | Represents the type of license that the user can choose.                         | PREMIER                                                                          |
+| `config`                                                                         | [Optional\<FeatureUpdateConfig>](../../models/components/FeatureUpdateConfig.md) | :heavy_minus_sign:                                                               | Feature configuration.                                                           |                                                                                  |

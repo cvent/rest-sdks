@@ -1,0 +1,12 @@
+# MessageRecipientsResponseJsonAttendee
+
+The attendee object
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `id`                                                                                      | *String*                                                                                  | :heavy_check_mark:                                                                        | Unique identifier for the attendee.                                                       | 0a459133-1f5e-43b2-8694-7da9541b3f58                                                      |
+| `active`                                                                                  | *boolean*                                                                                 | :heavy_check_mark:                                                                        | True indicates the recipient is active in the channel.                                    | false                                                                                     |
+| `leftChannelAt`                                                                           | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | ISO 8601 formatted timestamp when the attendee left the channel, if applicable.           | 2025-03-13T18:00:00.000Z                                                                  |

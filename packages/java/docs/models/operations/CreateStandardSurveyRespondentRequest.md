@@ -1,0 +1,9 @@
+# CreateStandardSurveyRespondentRequest
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `surveyId`                                                                                | *String*                                                                                  | :heavy_check_mark:                                                                        | Id of a survey or Id of a chapter in event survey                                         | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                                      |
+| `standardSurveyRespondent`                                                                | [StandardSurveyRespondentInput](../../models/components/StandardSurveyRespondentInput.md) | :heavy_check_mark:                                                                        | Used to create respondent for a standalone survey.                                        |                                                                                           |

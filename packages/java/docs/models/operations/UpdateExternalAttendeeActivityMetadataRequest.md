@@ -1,0 +1,9 @@
+# UpdateExternalAttendeeActivityMetadataRequest
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `id`                                                                                      | *String*                                                                                  | :heavy_check_mark:                                                                        | ID of the activity metadata.                                                              | 9463c74e-18c6-401a-a710-ae0f485bf059                                                      |
+| `externalActivityMetadata`                                                                | [ExternalActivityMetadataInput](../../models/components/ExternalActivityMetadataInput.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |                                                                                           |

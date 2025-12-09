@@ -1,0 +1,9 @@
+# Security
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `oAuth2ClientCredentials`                                                                            | [Optional\<SchemeOAuth2ClientCredentials>](../../models/components/SchemeOAuth2ClientCredentials.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `oAuth2AuthorizationCode`                                                                            | *Optional\<String>*                                                                                  | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

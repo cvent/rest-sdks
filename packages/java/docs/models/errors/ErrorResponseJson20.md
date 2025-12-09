@@ -1,0 +1,13 @@
+# ErrorResponseJson20
+
+The error response.
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `schemas`                                                                    | List\<*String*>                                                              | :heavy_minus_sign:                                                           | The collection of error schemas.                                             |                                                                              |
+| `status`                                                                     | *long*                                                                       | :heavy_check_mark:                                                           | Status code for error.                                                       | 400                                                                          |
+| `detail`                                                                     | *String*                                                                     | :heavy_check_mark:                                                           | Details of the error.                                                        | Request is unparsable, syntactically incorrect, or violates schema.          |
+| `scimType`                                                                   | [Optional\<ErrorScimTypeJson>](../../models/components/ErrorScimTypeJson.md) | :heavy_minus_sign:                                                           | This is used to denote the scim type of the error.                           | invalidSyntax                                                                |

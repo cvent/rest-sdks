@@ -1,0 +1,9 @@
+# CreateCurrencyConversionRateRequest
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `currency`                                                                  | *String*                                                                    | :heavy_check_mark:                                                          | The ISO 4217 standard format currency code.                                 | USD                                                                         |
+| `currencyConversionRate`                                                    | [CurrencyConversionRate](../../models/components/CurrencyConversionRate.md) | :heavy_check_mark:                                                          | Currency conversion rate to be created.                                     |                                                                             |

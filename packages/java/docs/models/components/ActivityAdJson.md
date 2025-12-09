@@ -1,0 +1,14 @@
+# ActivityAdJson
+
+The details of the advertisement.
+
+
+## Fields
+
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `id`                                                                   | *Optional\<String>*                                                    | :heavy_minus_sign:                                                     | The unique identifier of the ad.                                       | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                   |
+| `name`                                                                 | *Optional\<String>*                                                    | :heavy_minus_sign:                                                     | The name of the ad.                                                    | New Year Sale                                                          |
+| `product`                                                              | *Optional\<String>*                                                    | :heavy_minus_sign:                                                     | The product for which ad is created                                    | ATTENDEE_HUB                                                           |
+| `location`                                                             | [Optional\<AdLocationJson>](../../models/components/AdLocationJson.md) | :heavy_minus_sign:                                                     | The placement of the ad within the specific product.                   | Home Page                                                              |
+| `attribution`                                                          | [Optional\<Attribution>](../../models/components/Attribution.md)       | :heavy_minus_sign:                                                     | The entity to which the ad is associated.                              |                                                                        |

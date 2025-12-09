@@ -1,0 +1,4 @@
+# EventFeaturesResponseConfig
+
+Feature configuration.
+
