@@ -1,0 +1,12 @@
+# AudienceSegment
+
+Represents an audience segment. Audience segments are assigned to events and provide the ability for planners to segment their attendees into groups and better manage the attendee experience based on their defined segments.
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         | Example                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `Event`                                                                             | [EventJson2](../../Models/Components/EventJson2.md)                                 | :heavy_minus_sign:                                                                  | ID of the event.                                                                    |                                                                                     |
+| `Name`                                                                              | *string*                                                                            | :heavy_check_mark:                                                                  | Name of the audience segment. Must be unique in the event where the segment exists. | VIP Attendees                                                                       |
+| `Description`                                                                       | *string*                                                                            | :heavy_minus_sign:                                                                  | Description of the audience segment.                                                | A group of VIP attendees.                                                           |

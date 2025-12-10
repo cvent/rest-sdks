@@ -1,0 +1,9 @@
+# GetChangeHistoryForASpecificContactResponse
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                    | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `ContactHistoryPaginatedResponse`                                                             | [ContactHistoryPaginatedResponse](../../Models/Components/ContactHistoryPaginatedResponse.md) | :heavy_minus_sign:                                                                            | Successfully retrieved change history for the given contact.                                  |

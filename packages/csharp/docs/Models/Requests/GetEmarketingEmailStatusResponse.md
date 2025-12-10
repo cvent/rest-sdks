@@ -1,0 +1,9 @@
+# GetEmarketingEmailStatusResponse
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `HttpMeta`                                                                                                   | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                      | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `SendEmailEmarketingResponse`                                                                                | [SendEmailEmarketingResponse](../../Models/Components/SendEmailEmarketingResponse.md)                        | :heavy_minus_sign:                                                                                           | Successfully retrieved a list of emarketing email send statuses associated with particular email request ID. |

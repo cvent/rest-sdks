@@ -1,0 +1,20 @@
+# VideoRenditionJsonLink
+
+Location where the rendition is stored.
+
+## Example Usage
+
+```typescript
+import { VideoRenditionJsonLink } from "@cvent/sdk/models/components";
+
+let value: VideoRenditionJsonLink = {
+  href:
+    "https://example.com/M8/7f378243-2c62-49fa-82e9-90e5498d30c3?Policy=eyJTdGF0ZW1lbnUysx5cE4-KWfUQ__&Key-Pair-Id=K6XDZ8UJY4Q0X",
+};
+```
+
+## Fields
+
+| Field                                                                                                                       | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 | Example                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `href`                                                                                                                      | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | A pre-signed URL with an expiration of 2 hours that provides the location.                                                  | https://example.com/M8/7f378243-2c62-49fa-82e9-90e5498d30c3?Policy=eyJTdGF0ZW1lbnUysx5cE4-KWfUQ__&Key-Pair-Id=K6XDZ8UJY4Q0X |

@@ -1,0 +1,11 @@
+# BudgetGratuityJson
+
+Budget item gratuity details.
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              | Example                                                                                                  |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `Gratuity`                                                                                               | *double*                                                                                                 | :heavy_check_mark:                                                                                       | Gratuity applied to the budget item. This value can be a percentage of the cost or a flat dollar amount. | 5.2                                                                                                      |
+| `AppliedGratuityValue`                                                                                   | *double*                                                                                                 | :heavy_minus_sign:                                                                                       | Calculated gratuity amount based on gratuity field.                                                      | 25.2                                                                                                     |

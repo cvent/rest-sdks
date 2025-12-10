@@ -1,0 +1,13 @@
+# TravelBidRateJson
+
+The rate (cost) information for a travel bid.
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `level`                                                                      | [Optional\<RateLevelTypeJson>](../../models/components/RateLevelTypeJson.md) | :heavy_minus_sign:                                                           | Rate level                                                                   | corporate                                                                    |
+| `type`                                                                       | [Optional\<RateTypeJson>](../../models/components/RateTypeJson.md)           | :heavy_minus_sign:                                                           | Rate type.                                                                   |                                                                              |
+| `planCode`                                                                   | *Optional\<String>*                                                          | :heavy_minus_sign:                                                           | The code given to the bid (also called rate plan) by the supplier.           | rp123                                                                        |
+| `tier`                                                                       | *Optional\<String>*                                                          | :heavy_minus_sign:                                                           | The rate tier given to the bid (also called rate plan) by the supplier.      | tier1                                                                        |

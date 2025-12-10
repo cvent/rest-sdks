@@ -1,0 +1,16 @@
+# AddressJson6
+
+Address
+
+
+## Fields
+
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `Type`                                                          | [AddressTypeJson1](../../Models/Components/AddressTypeJson1.md) | :heavy_check_mark:                                              | The type of the address.                                        | work                                                            |
+| `StreetAddress`                                                 | *string*                                                        | :heavy_minus_sign:                                              | The street address of the user.                                 | 100 Universal City Plaza                                        |
+| `Locality`                                                      | *string*                                                        | :heavy_minus_sign:                                              | The locality/city of the user.                                  | Hollywood                                                       |
+| `Region`                                                        | *string*                                                        | :heavy_minus_sign:                                              | The region/state/province of the user.                          | CA                                                              |
+| `PostalCode`                                                    | *string*                                                        | :heavy_minus_sign:                                              | Postal code (also known as zipcode) of the user.                | 91608                                                           |
+| `Country`                                                       | *string*                                                        | :heavy_minus_sign:                                              | The country of the user.                                        | USA                                                             |
+| `Primary`                                                       | *bool*                                                          | :heavy_minus_sign:                                              | True indicates the address is primary.                          | true                                                            |

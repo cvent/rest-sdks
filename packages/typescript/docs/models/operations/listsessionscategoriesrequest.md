@@ -1,0 +1,18 @@
+# ListSessionsCategoriesRequest
+
+## Example Usage
+
+```typescript
+import { ListSessionsCategoriesRequest } from "@cvent/sdk/models/operations";
+
+let value: ListSessionsCategoriesRequest = {
+  token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                        | Type                                                                                                                                                         | Required                                                                                                                                                     | Description                                                                                                                                                  | Example                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `limit`                                                                                                                                                      | *number*                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                           | The maximum number of records to return per page.                                                                                                            | 100                                                                                                                                                          |
+| `token`                                                                                                                                                      | *string*                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                           | The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>This will override any other pageable parameters provided.<br/> | 0e28af57-511f-47ab-ae46-46cd1ca51a1a                                                                                                                         |

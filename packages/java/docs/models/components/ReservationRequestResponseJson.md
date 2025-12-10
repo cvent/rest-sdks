@@ -1,0 +1,12 @@
+# ReservationRequestResponseJson
+
+Representation of the reservation request response.
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `attendee`                                                                                | [Optional\<AttendeeJson4>](../../models/components/AttendeeJson4.md)                      | :heavy_minus_sign:                                                                        | Representation of the attendee                                                            |                                                                                           |
+| `reservationRequest`                                                                      | [Optional\<ReservationRequestJson>](../../models/components/ReservationRequestJson.md)    | :heavy_minus_sign:                                                                        | Representation of the housing reservation details.                                        |                                                                                           |
+| `lastModified`                                                                            | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | The ISO 8601 zoned date time when this record was updated.                                | 2019-02-12T03:00:00Z                                                                      |

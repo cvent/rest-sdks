@@ -1,0 +1,12 @@
+# AppointmentCheckedIn
+
+Appointment checked-in activity.
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `appointment`                                                                             | [Optional\<ActivityAppointmentJson>](../../models/components/ActivityAppointmentJson.md)  | :heavy_minus_sign:                                                                        | An activity appointment.                                                                  |                                                                                           |
+| `contact`                                                                                 | [Optional\<ActivityContactJson>](../../models/components/ActivityContactJson.md)          | :heavy_minus_sign:                                                                        | An activity contact.                                                                      |                                                                                           |
+| `checkedIn`                                                                               | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | ISO 8601 date and time when an attendee checked in to the appointment.                    | 2020-02-03T13:00:00.000Z                                                                  |

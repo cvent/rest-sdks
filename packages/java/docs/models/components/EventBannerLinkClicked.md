@@ -1,0 +1,13 @@
+# EventBannerLinkClicked
+
+The link on the banner clicked by an attendee.
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `exhibitor`                                                                        | [Optional\<ExhibitorJson1>](../../models/components/ExhibitorJson1.md)             | :heavy_minus_sign:                                                                 | An exhibitor.                                                                      |                                                                                    |
+| `platform`                                                                         | *Optional\<String>*                                                                | :heavy_minus_sign:                                                                 | The platform used by the user.                                                     | Attendee Hub                                                                       |
+| `banner`                                                                           | [Optional\<Banner>](../../models/components/Banner.md)                             | :heavy_minus_sign:                                                                 | The related banner                                                                 |                                                                                    |
+| `target`                                                                           | [Optional\<BannerLinkTargetJson>](../../models/components/BannerLinkTargetJson.md) | :heavy_minus_sign:                                                                 | The target of the link clicked on the banner.                                      |                                                                                    |

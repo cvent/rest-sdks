@@ -1,0 +1,13 @@
+# SessionCheckinBaseJson
+
+Base model for a session check-in.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Id`                                                                                  | *string*                                                                              | :heavy_check_mark:                                                                    | ID of an attendee to be checked in to a session.                                      | 9463c74e-18c6-401a-a710-ae0f485bf059                                                  |
+| `CheckOut`                                                                            | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 zoned date and time when the attendee checked out of a session.          | 2018-01-13T02:00:00Z                                                                  |
+| `Device`                                                                              | *string*                                                                              | :heavy_minus_sign:                                                                    | Name of the device used for check-in.                                                 | Mobile App                                                                            |
+| `Duration`                                                                            | *long*                                                                                | :heavy_minus_sign:                                                                    | Duration (in milliseconds) of attendance in the session.                              | 4000                                                                                  |

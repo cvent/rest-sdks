@@ -1,0 +1,12 @@
+# EmailUndelivered
+
+An email-undelivered activity.
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `type`                                                                                    | *Optional\<String>*                                                                       | :heavy_minus_sign:                                                                        | Type of the email.                                                                        | Invitation Reminder                                                                       |
+| `contact`                                                                                 | [Optional\<ActivityContactJson>](../../models/components/ActivityContactJson.md)          | :heavy_minus_sign:                                                                        | An activity contact.                                                                      |                                                                                           |
+| `undelivered`                                                                             | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | ISO 8601 date and time when an email was undelivered.                                     | 2020-02-03T13:00:00.000Z                                                                  |

@@ -1,0 +1,12 @@
+# ReservationRequestResponseJson
+
+Representation of the reservation request response.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Attendee`                                                                            | [AttendeeJson4](../../Models/Components/AttendeeJson4.md)                             | :heavy_minus_sign:                                                                    | Representation of the attendee                                                        |                                                                                       |
+| `ReservationRequest`                                                                  | [ReservationRequestJson](../../Models/Components/ReservationRequestJson.md)           | :heavy_minus_sign:                                                                    | Representation of the housing reservation details.                                    |                                                                                       |
+| `LastModified`                                                                        | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 zoned date time when this record was updated.                            | 2019-02-12T03:00:00Z                                                                  |

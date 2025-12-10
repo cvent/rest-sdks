@@ -1,0 +1,9 @@
+# GetHousingEventHotelsResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                          | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                             | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `HousingEventHotelsList`                                                                            | [HousingEventHotelsList](../../Models/Components/HousingEventHotelsList.md)                         | :heavy_minus_sign:                                                                                  | Successfully retrieved a paginated list of hotels for the housing event, and their related details. |

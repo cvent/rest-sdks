@@ -1,0 +1,11 @@
+# ExhibitorBannerLogoFile
+
+JSON Schema for Exhibitor Banner/Logo File
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      | Example                                                                                          |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `file`                                                                                           | [Optional\<ExhibitorBannerLogoFileFile>](../../models/components/ExhibitorBannerLogoFileFile.md) | :heavy_minus_sign:                                                                               | File object containing UUID                                                                      |                                                                                                  |
+| `href`                                                                                           | *Optional\<String>*                                                                              | :heavy_minus_sign:                                                                               | URL of a exhibitor banner/logo image                                                             | https://images.cvent.com/pt/production/account_123/event_123/ExhibitorLogo.png                   |

@@ -1,0 +1,13 @@
+# ExistingRegistrationPackJson
+
+Schema for existing registration pack object
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `Id`                                                                          | *string*                                                                      | :heavy_check_mark:                                                            | Registration pack id                                                          | 50f4f0df-0c2d-4e6b-8e68-e1413b6917f5                                          |
+| `Event`                                                                       | [EventJson5](../../Models/Components/EventJson5.md)                           | :heavy_check_mark:                                                            | The Associated Event.                                                         |                                                                               |
+| `Exhibitor`                                                                   | [ExhibitorJson](../../Models/Components/ExhibitorJson.md)                     | :heavy_check_mark:                                                            | The Associated Exhibitor.                                                     |                                                                               |
+| `Capacities`                                                                  | List<[ExistingCapacityJson](../../Models/Components/ExistingCapacityJson.md)> | :heavy_check_mark:                                                            | Array of capacities                                                           |                                                                               |

@@ -1,0 +1,9 @@
+# GetBudgetAllocationsResponse
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                                  | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                     | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `BudgetAllocationsPaginatedListResponse`                                                                    | [BudgetAllocationsPaginatedListResponse](../../Models/Components/BudgetAllocationsPaginatedListResponse.md) | :heavy_minus_sign:                                                                                          | Successfully retrieved a paginated list of budget allocations for all budget items within an event.         |

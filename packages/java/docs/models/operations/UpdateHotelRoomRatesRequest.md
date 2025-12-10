@@ -1,0 +1,10 @@
+# UpdateHotelRoomRatesRequest
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               | Example                                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `hotelCode`                                                               | *String*                                                                  | :heavy_check_mark:                                                        | The hotel code.                                                           | HOTELCODE                                                                 |
+| `roomCode`                                                                | *String*                                                                  | :heavy_check_mark:                                                        | The room code.                                                            | VLR                                                                       |
+| `hotelRoomRatesRequest`                                                   | [HotelRoomRatesRequest](../../models/components/HotelRoomRatesRequest.md) | :heavy_check_mark:                                                        | Hotel room rates request.                                                 |                                                                           |

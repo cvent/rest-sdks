@@ -1,0 +1,12 @@
+# TravelDetailsJson
+
+Common object that holds travel details information.
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `arrival`                                                                                      | [Optional\<TravelDepartureArrivalJson>](../../models/components/TravelDepartureArrivalJson.md) | :heavy_minus_sign:                                                                             | Common object that holds travel departure/arrival information.                                 |                                                                                                |
+| `departure`                                                                                    | [Optional\<TravelDepartureArrivalJson>](../../models/components/TravelDepartureArrivalJson.md) | :heavy_minus_sign:                                                                             | Common object that holds travel departure/arrival information.                                 |                                                                                                |
+| `additionalInformation`                                                                        | *Optional\<String>*                                                                            | :heavy_minus_sign:                                                                             | Additional information about travel.                                                           | Additional Information                                                                         |

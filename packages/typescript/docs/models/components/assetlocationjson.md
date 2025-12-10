@@ -1,0 +1,20 @@
+# AssetLocationJson
+
+A URL associated with the asset.
+
+## Example Usage
+
+```typescript
+import { AssetLocationJson } from "@cvent/sdk/models/components";
+
+let value: AssetLocationJson = {
+  href:
+    "https://ap-southeast-2.example.com/sign2-bucket-hchq3nwuo8ns/sign-demo.json?X-Exa-Date=20170125T044127Z&X-Exa-Expires=60&X-Exa-Signature=24db05",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                           | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     | Example                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `href`                                                                                                                                          | *string*                                                                                                                                        | :heavy_check_mark:                                                                                                                              | A pre-signed URL with an expiration of 2 hours to the asset's location.                                                                         | https://ap-southeast-2.example.com/sign2-bucket-hchq3nwuo8ns/sign-demo.json?X-Exa-Date=20170125T044127Z&X-Exa-Expires=60&X-Exa-Signature=24db05 |

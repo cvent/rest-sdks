@@ -1,0 +1,12 @@
+# EliteratureDocumentJson
+
+A JSON schema representing an E-literature Document
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `id`                                                                                  | *String*                                                                              | :heavy_check_mark:                                                                    | Document identifier                                                                   | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                                  |
+| `displayName`                                                                         | *String*                                                                              | :heavy_check_mark:                                                                    | Document display name                                                                 | Marketing Material                                                                    |
+| `type`                                                                                | [EliteratureDocumentJsonType](../../models/components/EliteratureDocumentJsonType.md) | :heavy_check_mark:                                                                    | Type of eliterature document                                                          | FILE                                                                                  |

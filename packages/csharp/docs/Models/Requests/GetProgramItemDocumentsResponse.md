@@ -1,0 +1,9 @@
+# GetProgramItemDocumentsResponse
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `HttpMeta`                                                                                                         | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                            | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `ProgramItemSessionDocuments`                                                                                      | [ProgramItemSessionDocuments](../../Models/Components/ProgramItemSessionDocuments.md)                              | :heavy_minus_sign:                                                                                                 | Successfully retrieved a list of program item to session document relationships for the specified program item ID. |

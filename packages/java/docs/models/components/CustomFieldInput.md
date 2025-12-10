@@ -1,0 +1,12 @@
+# CustomFieldInput
+
+A Custom Field
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `id`                                                                                           | *String*                                                                                       | :heavy_check_mark:                                                                             | The unique ID representing this custom field.                                                  |                                                                                                |
+| `type`                                                                                         | [Optional\<CustomFieldCustomFieldType>](../../models/components/CustomFieldCustomFieldType.md) | :heavy_minus_sign:                                                                             | The type of data collected by a custom field.                                                  | General                                                                                        |
+| `value`                                                                                        | List\<*String*>                                                                                | :heavy_check_mark:                                                                             | The set of answers or possible answers to a question.                                          | [<br/>"Choice C",<br/>"Choice A"<br/>]                                                         |

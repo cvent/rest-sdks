@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "sdk:generate": "pnpm run sdk:generate:typescript && pnpm run sdk:generate:java && pnpm run sdk:generate:csharp",
+    "sdk:generate:all": "speakeasy run -t all --skip-versioning",
+    "sdk:generate:csharp": "speakeasy run -t public-csharp --skip-versioning",
+    "sdk:generate:java": "speakeasy run -t public-java --skip-versioning",
+    "sdk:generate:typescript": "speakeasy run -t public-typescript --skip-versioning"
+  }
+}

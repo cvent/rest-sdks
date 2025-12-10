@@ -1,0 +1,634 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Pagination overlay
+  version: 0.0.0
+actions:
+  - target: $.paths["/events/surveys/responses"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * respondent.id (eq|ne)
+              * session.id (eq|ne)
+              * speaker.id (eq|ne)
+              * question.id (eq|ne)
+              * event.id (eq|ne)
+          schema:
+            type: string
+            example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
+  - target: $.paths["/events/surveys/responses"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/budget-items/allocations"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id4"
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators.  The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+            There are six comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+              * greater than: gt
+              * greater or equal: ge
+              * less than: lt
+              * less than or equal: le
+
+            The following fields are filterable:
+               * budgetVersion.id (eq)
+               * budgetItem.id (eq)
+               * category.id (eq|ne)
+               * subcategory.id (eq|ne)
+               * generalLedger.id (eq|ne)
+               * value (lt|le|gt|ge|eq)
+
+            The following operators are available:
+              * and
+              * or
+          schema:
+            type: string
+            example: category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000
+  - target: $.paths["/events/{id}/budget-items/allocations"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/event-travel/air-actuals"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/expandAirActualQuestionAnswer"
+        - $ref: "#/components/parameters/sortForAirActual"
+        - $ref: "#/components/parameters/filter1"
+        - $ref: "#/components/parameters/id2"
+  - target: $.paths["/events/{id}/event-travel/air-actuals"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/event-travel/air-requests"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/sortForAirRequest"
+        - $ref: "#/components/parameters/filter1"
+        - $ref: "#/components/parameters/id2"
+        - $ref: "#/components/parameters/expandAirRequestQuestionAnswer"
+  - target: $.paths["/events/{id}/event-travel/air-requests"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/event-travel/hotel-requests"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/expandHotelRequestQuestionAnswer"
+        - $ref: "#/components/parameters/sortForHotelRequest"
+        - $ref: "#/components/parameters/filter1"
+        - $ref: "#/components/parameters/id2"
+  - target: $.paths["/events/{id}/event-travel/hotel-requests"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/event-travel/housing-reservation-requests"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id2"
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/filter1"
+  - target: $.paths["/events/{id}/event-travel/housing-reservation-requests"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/features"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id10"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/locale1"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators.
+
+            The filter adheres to the pattern filter='field' comparisonType 'value'.
+
+
+            It has only one comparison types that can be used in filter expressions:
+              * equal: eq
+
+            The following fields are filterable:
+              * enabled (eq)
+          schema:
+            type: string
+            example: enabled eq 'true'
+  - target: $.paths["/events/{id}/features"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/surveys"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id7"
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+            In case user wants to filter on multiple session IDs, they can use 'or' operator.
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+
+            The following fields are filterable:
+              * id (eq|ne) [chapter id of the event survey]
+              * type (eq|ne)
+              * sessions (eq|ne)
+          schema:
+            type: string
+            example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and type eq 'Session Feedback' and sessions
+              eq  '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or sessions eq
+              '05ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
+  - target: $.paths["/events/{id}/surveys"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/surveys/{surveyId}/questions"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id7"
+        - $ref: "#/components/parameters/surveyId"
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+  - target: $.paths["/events/{id}/surveys/{surveyId}/questions"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/surveys/{surveyId}/responses"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id7"
+        - $ref: "#/components/parameters/surveyId"
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * respondent.id (eq|ne)
+              * session.id (eq|ne)
+              * speaker.id (eq|ne)
+              * question.id (eq|ne)
+          schema:
+            type: string
+            example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
+  - target: $.paths["/events/{id}/surveys/{surveyId}/responses"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/weblinks"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/id10"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/locale1"
+        - $ref: "#/components/parameters/limit-100"
+  - target: $.paths["/events/{id}/weblinks"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/large-choices"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * question.id (eq|ne)
+          schema:
+            type: string
+            example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
+  - target: $.paths["/large-choices"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/questions"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+              * greater than: gt
+              * greater or equal: ge
+              * less than: lt
+              * less than or equal: le
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * survey.id (eq|ne)
+              * code (eq|ne)
+              * type (eq|ne)
+              * chapter.id (eq|ne)
+              * maxScore (eq|ne|gt|ge|lt|le)
+          schema:
+            type: string
+            example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
+  - target: $.paths["/questions"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/responses"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * survey.id (eq)
+              * respondent.id (eq|ne)
+              * event.id (eq)
+              * session.id (eq)
+              * question.id (eq)
+              * chapter.id (eq)
+              * attempt (eq)
+
+            Usage:
+
+            1. Use only survey.id to get responses for all questions in the survey.
+
+            2. Use only question.id to get responses for specific questions, which may belong to one
+            or more surveys.
+
+            3. Use only chapter.id to get responses for all questions in the chapter of a particular
+            survey.
+
+            4. Use only respondent.id to get responses for specific respondents.
+
+            5. chapter.id and survey.id cannot be used in combination with any other fields.
+
+            6. Multiple chapter.id or survey.id must be separated by 'OR'. For example:
+            filter=chapter.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or chapter.id eq
+            '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'
+
+            7. question.id can be used in combination with any other field by 'AND' operator only.
+          schema:
+            type: string
+            example: question.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or question.id eq
+              '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'
+  - target: $.paths["/responses"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/standard-surveys"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+              * greater than: gt
+              * greater or equal: ge
+              * less than: lt
+              * less than or equal: le
+
+            The following fields are filterable:
+              * status (eq|ne)
+              * created (eq|ne|gt|ge|lt|le)
+              * title (eq|ne)
+              * code (eq|ne)
+          schema:
+            type: string
+            example: status eq 'active' and created gt '2020-12-12T11:30:37.909Z' and title eq 'Survey Demo' and
+              code ne 'NFWHF5DW46A'
+  - target: $.paths["/standard-surveys"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/standard-surveys/responses"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+
+            The following fields are filterable:
+              * survey.id (eq)
+              * question.id (eq)
+              * respondent.id (eq)
+
+            Following are the limits for the number of fields that can be passed in filter:
+              * survey.id (1)
+              * question.id (100)
+              * respondent.id (100)
+
+            Usage:
+              * Use only survey.id to get responses for all questions in the survey.
+              * Use only question.id to get responses for specific questions, which may belong to different surveys or same survey.
+              * Use only respondent.id to get responses for specific respondents.
+              * Multiple question.id/respondent.id must be separated by 'or'. Eg, filter=question.id eq
+                '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or question.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'
+              * question.id can be used in combination with respondent.id by 'AND' operator only.
+          schema:
+            type: string
+            example: question.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or question.id eq
+              '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'
+  - target: $.paths["/standard-surveys/responses"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/standard-surveys/{surveyId}/email-templates"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/surveyId"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+  - target: $.paths["/standard-surveys/{surveyId}/email-templates"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/standard-surveys/{surveyId}/questions"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/surveyId"
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+  - target: $.paths["/standard-surveys/{surveyId}/questions"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
+  - target: $.paths["/surveys"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - name: filter
+          in: query
+          required: false
+          description: >
+            A filter query string narrows search results and supports the combination of logical and
+            comparison operators. The filter adheres to the pattern filter='field' comparisonType
+            'value'.
+
+            In case user wants to filter on multiple survey IDs, they can use 'or' operator.
+
+            Following are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * type (eq|ne)
+          schema:
+            type: string
+            example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and type eq 'Standalone'
+  - target: $.paths["/surveys"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken

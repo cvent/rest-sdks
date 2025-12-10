@@ -1,0 +1,17 @@
+# DeclinedReason
+
+The set of decline reasons available for proposals
+
+## Example Usage
+
+```typescript
+import { DeclinedReason } from "@cvent/sdk/models/components";
+
+let value: DeclinedReason = "DID_NOT_MEET_REQUIREMENTS";
+```
+
+## Values
+
+```typescript
+"DID_NOT_MEET_REQUIREMENTS" | "EVENT_CANCELLED" | "FOOD_AND_BEVERAGE_MINIMUM_TOO_HIGH" | "INCOMPLETE_RFP" | "LATE_RESPONSE" | "MEETING_ROOM_RENTAL_TOO_HIGH" | "MEETING_SPACE_CEILING_HEIGHT" | "OTHER" | "PREFERRED_OR_ALTERNATE_DATES_UNAVAILABLE" | "PROPERTY_AMENITIES_OR_SERVICES" | "PROPERTY_LOCATION" | "RENOVATIONS" | "SELECTED_OTHER_CITY" | "SELECTED_OTHER_HOTEL_OR_VENUE" | "SIZE_OF_MEETING_SPACE" | "SLEEPING_ROOM_RATE_TOO_HIGH" | "SUITE_AVAILABILITY"
+```

@@ -1,0 +1,9 @@
+# GetCardTransactionsResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                         | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `CardTransactionPaginatedResponse`                                                              | [CardTransactionPaginatedResponse](../../Models/Components/CardTransactionPaginatedResponse.md) | :heavy_minus_sign:                                                                              | Successfully retrieved a paginated list of card transactions.                                   |

@@ -1,0 +1,11 @@
+# EmailTemplatePaginatedResponse
+
+The response from a request to get the list of email templates. This includes the paging object as well as the collection of email template.
+
+
+## Fields
+
+| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `paging`                                                                                                                | [PagingJson](../../models/components/PagingJson.md)                                                                     | :heavy_check_mark:                                                                                                      | Represents pagination information for a collection of resources.                                                        |
+| `data`                                                                                                                  | List\<[EmailTemplateDataJson](../../models/components/EmailTemplateDataJson.md)>                                        | :heavy_check_mark:                                                                                                      | A list of all email templates data for an unique campaign that will help the planner to select specific email and send. |

@@ -1,0 +1,25 @@
+name: Publish PUBLIC-TYPESCRIPT
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+  id-token: write
+"on":
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Enable test mode (dry-run only)'
+        type: boolean
+        default: true
+        required: false
+jobs:
+  publish:
+    uses: ./.github/workflows/sdk-publish.yaml
+    with:
+      target: public-typescript
+      test_mode: ${{ inputs.test_mode }}
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      npm_token: ${{ secrets.NPM_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}

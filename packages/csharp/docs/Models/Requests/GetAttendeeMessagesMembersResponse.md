@@ -1,0 +1,9 @@
+# GetAttendeeMessagesMembersResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                          | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                             | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `MessageRecipientsPaginatedResponse`                                                                | [MessageRecipientsPaginatedResponse](../../Models/Components/MessageRecipientsPaginatedResponse.md) | :heavy_minus_sign:                                                                                  | Successfully retrieved the list of members.                                                         |

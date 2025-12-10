@@ -1,0 +1,9 @@
+# GetStandardSurveyResponsesResponse
+
+
+## Fields
+
+| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                         | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
+| `StandardSurveyResponsesPaginatedResponse`                                                                      | [StandardSurveyResponsesPaginatedResponse](../../Models/Components/StandardSurveyResponsesPaginatedResponse.md) | :heavy_minus_sign:                                                                                              | Successfully retrieved a paginated response of all the standalone survey responses.                             |

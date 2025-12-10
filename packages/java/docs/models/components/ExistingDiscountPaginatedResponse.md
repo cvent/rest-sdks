@@ -1,0 +1,11 @@
+# ExistingDiscountPaginatedResponse
+
+Returns a paginated list of all discounts used in an event, including both event-specific and account-level discount codes used in an event.
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `paging`                                                                                                         | [PagingJson](../../models/components/PagingJson.md)                                                              | :heavy_check_mark:                                                                                               | Represents pagination information for a collection of resources.                                                 |
+| `data`                                                                                                           | List\<[ExistingDiscountPaginatedResponseData](../../models/components/ExistingDiscountPaginatedResponseData.md)> | :heavy_check_mark:                                                                                               | Collection of discounts.                                                                                         |

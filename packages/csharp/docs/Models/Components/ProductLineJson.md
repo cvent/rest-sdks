@@ -1,0 +1,40 @@
+# ProductLineJson
+
+Cvent product lines or additional features.
+
+
+## Values
+
+| Name                     | Value                    |
+| ------------------------ | ------------------------ |
+| `AbstractManagement`     | ABSTRACT_MANAGEMENT      |
+| `Admin`                  | ADMIN                    |
+| `ApiPlatform`            | API_PLATFORM             |
+| `Appointments`           | APPOINTMENTS             |
+| `AutoBlock`              | AUTO_BLOCK               |
+| `Book`                   | BOOK                     |
+| `ChannelPublisher`       | CHANNEL_PUBLISHER        |
+| `Contact`                | CONTACT                  |
+| `CrowdCompass`           | CROWD_COMPASS            |
+| `Csn`                    | CSN                      |
+| `Dashboard`              | DASHBOARD                |
+| `Default`                | DEFAULT                  |
+| `EMarketing`             | E_MARKETING              |
+| `EngagementsAndProjects` | ENGAGEMENTS_AND_PROJECTS |
+| `Event`                  | EVENT                    |
+| `LegacySurvey`           | LEGACY_SURVEY            |
+| `Membership`             | MEMBERSHIP               |
+| `OptIn`                  | OPT_IN                   |
+| `Organization`           | ORGANIZATION             |
+| `Oss`                    | OSS                      |
+| `Portal`                 | PORTAL                   |
+| `RateIntegrity`          | RATE_INTEGRITY           |
+| `ResDesk`                | RES_DESK                 |
+| `ReverseAuction`         | REVERSE_AUCTION          |
+| `Rfp`                    | RFP                      |
+| `RfpAlerts`              | RFP_ALERTS               |
+| `RfpPublisher`           | RFP_PUBLISHER            |
+| `Stargate`               | STARGATE                 |
+| `Survey`                 | SURVEY                   |
+| `UserAdministration`     | USER_ADMINISTRATION      |
+| `VaultMail`              | VAULT_MAIL               |

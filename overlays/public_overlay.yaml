@@ -1,0 +1,321 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: example overlay
+  version: 0.0.0
+actions:
+  - target: $
+    update:
+      security:
+  - target: $["security"]
+    update:
+      - OAuth2.clientCredentials: []
+      - OAuth2.authorizationCode: []
+  - target: $["components"]["securitySchemes"]
+    update:
+      basicHttpAuthentication:
+        description: Basic HTTP Authentication
+        type: http
+        scheme: Basic
+  - target: $["paths"]["/oauth2/token"]["post"]
+    update:
+      security:
+        - basicHttpAuthentication: []
+  - target: $["paths"]["/program-items/{programItemId}/docs/{fileId}"]["put"]["responses"]["409"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["paths"]["/program-items/{programItemId}/speakers/{id}"]["put"]["responses"]["409"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["schemas"]["program-item-copy-responses"]["properties"]["data"]["anyOf"][1]["allOf"][0]["$ref"]
+    update: "#/components/schemas/error-response/allOf/0"
+  - target: $["components"]["schemas"]["program-item-copy-responses"]["properties"]["data"]["anyOf"][1]["properties"]["details"]["items"]["$ref"]
+    update: "#/components/schemas/error-response/allOf/0"
+  - target: $["components"]["schemas"]["baseErrorResponse"]
+    remove: true
+  - target: $["components"]["responses"]["BadRequest33"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["DataLimitExceeded"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["Forbidden33"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["JobLimitExceeded"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["NotFound33"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["TooManyRequests33"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["Unauthorized33"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["schemas"]["ErrorResponse"]
+    remove: true
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]
+    update:
+      $ref: "#/components/schemas/venue-summary"
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]["description"]
+    remove: true
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]["type"]
+    remove: true
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]["title"]
+    remove: true
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]["allOf"]
+    remove: true
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]["properties"]
+    remove: true
+  - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["discriminator"]["mapping"]["VENUE"]
+    update: "#/components/schemas/venue-summary"
+  - target: $["components"]["schemas"]
+    update:
+      venue-summary:
+        description: Represents a summary of venue information associated with current proposal.
+        type: object
+        title: VenueSummary
+        allOf:
+          - description: Represents a supplier object.
+            type: object
+            title: Supplier
+            properties:
+              type:
+                $ref: "#/components/schemas/supplier-type.json1"
+        properties:
+          id:
+            type: string
+            description: The unique ID of the venue.
+            example: bedc1f8e-f68b-40cf-b901-487e407f637a
+          name:
+            type: string
+            description: The name of the venue.
+            example: Hotel Grand San Francisco.
+  - target: $["components"]["schemas"]["sleeping-room-requirement.json"]["properties"]["double"]
+    remove: true
+  - target: $["components"]["schemas"]["sleeping-room-requirement.json"]["properties"]
+    update:
+      doubleBeds:
+        type: integer
+        description: The number of 2 beds sleeping rooms.
+        example: 10
+  - target: $.components.securitySchemes["OAuth2.clientCredentials"].flows.clientCredentials
+    update:
+      x-speakeasy-token-endpoint-authentication: client_secret_basic
+      x-speakeasy-overridable-scopes: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]
+    update:
+      $ref: "#/components/schemas/create-update-discount-code"
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]["title"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]["description"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]["type"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]["allOf"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]["properties"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][0]["required"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["discriminator"]["mapping"]["DISCOUNT_CODE"]
+    update: "#/components/schemas/create-update-discount-code"
+  - target: $["components"]["schemas"]
+    update:
+      create-update-discount-code:
+        title: Create Update Discount Code
+        description: Representation of a discount code to be created or updated.
+        type: object
+        required:
+          - type
+        allOf:
+          - title: Discount Code Base
+            description: Base Representation/Model of a discount to be created or updated.
+            type: object
+            required:
+              - code
+            allOf:
+              - title: Discount Base
+                description: Representation of a base discount.
+                type: object
+                required:
+                  - name
+                  - method
+                allOf:
+                  - $ref: "#/components/schemas/fee-item.json/allOf/0"
+                properties:
+                  name:
+                    type: string
+                    description: Name of the discount.
+                    example: 10% off
+                    maxLength: 50
+                  active:
+                    type: boolean
+                    description: True indicates that the discount is active.
+                    default: true
+                    example: true
+                  stackable:
+                    type: boolean
+                    description: True indicates that the discount can be clubbed together with other stackable discounts
+                    default: true
+                    example: true
+                  method:
+                    $ref: "#/components/schemas/discount-method.json"
+                  effectiveFrom:
+                    type: string
+                    format: date
+                    description: The ISO 8601 formatted date from which the discount is effective.
+                    example: "2025-01-01"
+                  effectiveTo:
+                    type: string
+                    format: date
+                    description: The ISO 8601 formatted date to which the discount is effective.
+                    example: "2025-02-01"
+                  note:
+                    type: string
+                    description: Note about the discount.
+                    example: 10% off for early birds.
+                    maxLength: 300
+            properties:
+              code:
+                type: string
+                description: Code of the discount.
+                example: 10OFF
+                maxLength: 30
+              audienceType:
+                $ref: "#/components/schemas/discount-audience-type.json"
+              includeGuestsTowardsCapacity:
+                type: boolean
+                description: True indicates that guests will be included along with primary registrants towards the discount code's capacity.
+                default: false
+                example: true
+              autoApply:
+                type: boolean
+                description: True indicates that the discount is auto-applied to registrants.
+                default: false
+                example: true
+              applyToAllAgendaItems:
+                type: boolean
+                description: True indicates that the discount is applied to all agenda items and requires at least one item to be associated. False indicates that the discount is applied to the final total. this is specific to event level discount.
+                default: false
+                example: false
+        properties:
+          type:
+            type: string
+            description: "The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased."
+            enum:
+              - DISCOUNT_CODE
+            example: DISCOUNT_CODE
+          capacity:
+            $ref: "#/components/schemas/discount-capacity-input.json"
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]
+    update:
+      $ref: "#/components/schemas/create-update-volume-discount"
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]["title"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]["description"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]["type"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]["allOf"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]["properties"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["oneOf"][1]["required"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount"]["discriminator"]["mapping"]["VOLUME_DISCOUNT"]
+    update: "#/components/schemas/create-update-volume-discount"
+  - target: $["components"]["schemas"]["existing-volume-discount.json"]["allOf"][0]["$ref"]
+    update: "#/components/schemas/create-update-volume-discount/allOf/0"
+  - target: $["components"]["schemas"]
+    update:
+      create-update-volume-discount:
+        title: Create Update Volume Discount
+        description: Representation of a volume based discount to be created or updated.
+        type: object
+        required:
+          - type
+        allOf:
+          - title: Volume Discount
+            description: Representation of a volume based discount.
+            type: object
+            required:
+              - thresholdLimit
+            allOf:
+              - $ref: "#/components/schemas/create-update-discount-code/allOf/0/allOf/0"
+            properties:
+              thresholdType:
+                $ref: "#/components/schemas/volume-discount-threshold-type.json"
+              thresholdLimit:
+                type: integer
+                description: Defines the threshold limit for the volume discount.
+                example: 10
+              interval:
+                type: integer
+                description: Defines the interval for the volume discount when threshold type is EVERY_NTH_REGISTRANT. Every Nth registration counting from the threshold receives a discount.
+                default: 1
+                minimum: 1
+                maximum: 10
+                example: 1
+              includePrimaryRegistrant:
+                type: boolean
+                description: True indicates if the primary registrant is included in evaluating if threshold is met for the volume discount when threshold type is BEFORE_THRESHOLD_LIMIT.
+                default: false
+                example: true
+        properties:
+          type:
+            type: string
+            description: "The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased."
+            enum:
+              - VOLUME_DISCOUNT
+            example: VOLUME_DISCOUNT
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]
+    update:
+      $ref: "#/components/schemas/create-update-discount-code-response"
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]["title"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]["description"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]["type"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]["allOf"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]["properties"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount-response"]["oneOf"][0]["required"]
+    remove: true
+  - target: $["components"]["schemas"]["create-update-discount-response"]["discriminator"]["mapping"]["DISCOUNT_CODE"]
+    update: "#/components/schemas/create-update-discount-code-response"
+  - target: $["components"]["schemas"]["existing-discount-code.json"]["allOf"][0]["$ref"]
+    update: "#/components/schemas/create-update-discount-code-response/allOf/0"
+  - target: $["components"]["schemas"]
+    update:
+      create-update-discount-code-response:
+        title: Create Update Discount Code Response
+        description: Representation of an existing discount code response.
+        type: object
+        required:
+          - type
+        allOf:
+          - title: Discount Code
+            description: Representation of a code based discount.
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/create-update-discount-code/allOf/0"
+            properties:
+              id:
+                type: string
+                format: uuid
+                description: A unique identifier of the discount.
+                example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+                readOnly: true
+              level:
+                type: string
+                description: Whether the discount is created at event level or account level.
+                enum:
+                  - EVENT
+                  - ACCOUNT
+                example: EVENT
+                readOnly: true
+              capacity:
+                $ref: "#/components/schemas/discount-capacity.json"
+        properties:
+          type:
+            type: string
+            description: "The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased."
+            enum:
+              - DISCOUNT_CODE
+            example: DISCOUNT_CODE

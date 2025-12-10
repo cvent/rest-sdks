@@ -1,0 +1,12 @@
+# TransactionJson1
+
+The latest transaction that took place on a given proposal
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `id`                                                                                      | *Optional\<String>*                                                                       | :heavy_minus_sign:                                                                        | The unique ID of a specific transaction.                                                  | cf5fd2cc-3d09-11ee-be56-0242ac120002                                                      |
+| `type`                                                                                    | [Optional\<TransactionTypeJson>](../../models/components/TransactionTypeJson.md)          | :heavy_minus_sign:                                                                        | The proposal transaction type                                                             |                                                                                           |
+| `time`                                                                                    | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | The ISO 8601 zoned date time when this record was updated.                                | 2023-02-12T03:00:00Z                                                                      |

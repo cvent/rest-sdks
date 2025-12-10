@@ -1,0 +1,4 @@
+# EventFeatureJsonConfig
+
+Feature configuration.
+

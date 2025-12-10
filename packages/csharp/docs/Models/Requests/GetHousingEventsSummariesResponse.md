@@ -1,0 +1,9 @@
+# GetHousingEventsSummariesResponse
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                         | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                            | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `HousingEventSummaryList`                                                                          | [HousingEventSummaryList](../../Models/Components/HousingEventSummaryList.md)                      | :heavy_minus_sign:                                                                                 | Successfully retrieved a paginated list of summary information for your individual housing events. |

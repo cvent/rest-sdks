@@ -1,0 +1,17 @@
+# CancelReservationRequestRequest
+
+## Example Usage
+
+```typescript
+import { CancelReservationRequestRequest } from "@cvent/sdk/models/operations";
+
+let value: CancelReservationRequestRequest = {
+  reservationRequestsId: "D6A63423-G796",
+};
+```
+
+## Fields
+
+| Field                               | Type                                | Required                            | Description                         | Example                             |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| `reservationRequestsId`             | *string*                            | :heavy_check_mark:                  | Unique room reservation request ID. | D6A63423-G796                       |

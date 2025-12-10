@@ -1,0 +1,13 @@
+# ReservationNightJson
+
+Reservation night details.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `StayDate`                                                                            | [DateOnly](https://learn.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) | :heavy_check_mark:                                                                    | Night date.                                                                           | 2024-12-01                                                                            |
+| `Status`                                                                              | [ReservationNightJsonStatus](../../Models/Components/ReservationNightJsonStatus.md)   | :heavy_check_mark:                                                                    | Indicator of night's status.                                                          |                                                                                       |
+| `HideRates`                                                                           | *bool*                                                                                | :heavy_minus_sign:                                                                    | True indicates the rates are hidden for this night.                                   | false                                                                                 |
+| `Rate`                                                                                | [ReservationNightRateJson](../../Models/Components/ReservationNightRateJson.md)       | :heavy_check_mark:                                                                    | Rate details for a single reservation night.                                          |                                                                                       |

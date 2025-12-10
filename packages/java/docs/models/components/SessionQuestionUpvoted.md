@@ -1,0 +1,13 @@
+# SessionQuestionUpvoted
+
+This denotes the question asked in the session.
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `session`                                                                      | [Optional\<SessionActivity8>](../../models/components/SessionActivity8.md)     | :heavy_minus_sign:                                                             | The activity session.                                                          |                                                                                |
+| `question`                                                                     | [Optional\<QuestionDetailJson>](../../models/components/QuestionDetailJson.md) | :heavy_minus_sign:                                                             | The question asked in a session.                                               |                                                                                |
+| `platform`                                                                     | *Optional\<String>*                                                            | :heavy_minus_sign:                                                             | The platform used by the user.                                                 | Attendee Hub                                                                   |
+| `votes`                                                                        | *Optional\<Long>*                                                              | :heavy_minus_sign:                                                             | The number of votes for a question.                                            | 0                                                                              |

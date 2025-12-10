@@ -1,0 +1,9 @@
+# GetMeetingInterestByIdResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                          | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                             | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `AttendeeAppointmentMeetingInterest`                                                                | [AttendeeAppointmentMeetingInterest](../../Models/Components/AttendeeAppointmentMeetingInterest.md) | :heavy_minus_sign:                                                                                  | Successfully retrieved an attendees appointment meeting interests in the given event.               |

@@ -1,0 +1,9 @@
+# UpdateSessionCheckInRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `id`                                                                               | *String*                                                                           | :heavy_check_mark:                                                                 | Unique ID of a session.                                                            | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                               |
+| `requestBody`                                                                      | List\<[SessionCheckinBaseJson](../../models/components/SessionCheckinBaseJson.md)> | :heavy_check_mark:                                                                 | Attendee check-in to be updated. Up to **100 attendees** can be updated per call.  |                                                                                    |
