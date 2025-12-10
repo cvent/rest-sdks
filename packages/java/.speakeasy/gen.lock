@@ -3,15 +3,15 @@ id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
   docChecksum: 77cf6187962c9e0f559db78c0ed280a2
   docVersion: ea
-  speakeasyVersion: 1.673.1
-  generationVersion: 2.776.3
+  speakeasyVersion: 1.675.1
+  generationVersion: 2.778.0
   releaseVersion: 1.0.0
   configChecksum: 6b4501053c399687cd01bae0def5208e
   published: true
 persistentEdits:
-  generation_id: 8e305067-9852-4e49-8a84-47ccffb902fc
-  pristine_commit_hash: c52d7084548a4f5d64c6059320bf2a1b176900f8
-  pristine_tree_hash: fdda67b1d7735690f035ca11694405fa6e2d71ae
+  generation_id: d8ba9a8c-260f-464e-93c8-ced9a392ce6c
+  pristine_commit_hash: 70056b9932dced66984823610196edae7155c643
+  pristine_tree_hash: b5cbd9166962265ddf1295a3cacc5e843b12edcd
 features:
   java:
     additionalDependencies: 0.1.0
@@ -9482,8 +9482,8 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:d62fb40e3f5fc5e0aa13be23856947c52c2dc50b
-    pristine_git_object: f572949eb97d752818be511c1d973086a857da5e
+    last_write_checksum: sha1:1650507736f740b93a1c8c6df7f3acc80ee4a1f9
+    pristine_git_object: 90c7cb8392d2e2e9484ad0e90778625b55f9f8cf
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
     last_write_checksum: sha1:b90583bea1d84086886c8571def758e8988938ad

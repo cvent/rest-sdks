@@ -42,7 +42,6 @@ on:
         description: "Options to pass to Node.js when running npm commands"
         required: false
         type: string
-      # CVENT: Defining our custom input to be able to run in test mode (dry-run only)
       test_mode:
         description: 'Enable test mode (dry-run only)'
         type: boolean
@@ -83,12 +82,10 @@ jobs:
       use_sonatype_legacy: ${{ steps.release.outputs.use_sonatype_legacy }}
     steps:
       - name: Checkout repository
-        # CVENT: Pinning to specific commit as per SRE guidance to avoid unexpected supply-chain issues
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - id: release
         name: Create GitHub Release
-        # CVENT: Pinning to specific commit as per SRE guidance to avoid unexpected supply-chain issues
         uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -97,23 +94,8 @@ jobs:
           target: ${{ inputs.target }}
           enable_sdk_changelog: ${{ inputs.enable_sdk_changelog }}
 
-      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
-      # - name: Notify on failure
-      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
-      #   uses: ravsamhq/notify-slack-action@v2
-      #   with:
-      #     status: ${{ job.status }}
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     notify_when: "failure"
-      #     notification_title: "Failed to create GitHub Release"
-      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
-      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
       - id: log-result
         name: Log release results
-        # CVENT: Pinning to specific commit SHA as per SRE guidance to avoid unexpected supply-chain issues
         uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
         if: always()
         with:
@@ -137,11 +119,9 @@ jobs:
         working-directory: ${{ needs.release.outputs.typescript_directory }}
     steps:
       - name: Checkout repository
-        # CVENT: Pinning to specific commit SHA as per SRE guidance to avoid unexpected supply-chain issues
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - name: Setup Node.js
-        # CVENT: Pinning to specific commit SHA as per SRE guidance to avoid unexpected supply-chain issues
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: "16.x"
@@ -154,7 +134,6 @@ jobs:
         run: npm rebuild bun
 
       - name: Publish to NPM
-        # CVENT: Customized this publish step to dry-run in test mode
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_OPTIONS: ${{ inputs.node_options }}
@@ -182,8 +161,6 @@ jobs:
             npm publish --access public $DRY_RUN_FLAG
           fi
 
-      # CVENT: Removed the MCP publishing section from here from original speakeasy's workflow as we don't plan to enable MCPs for public SDKs yet.
-
       - id: publish-event
         name: Record TypeScript publish event
         uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
@@ -198,19 +175,6 @@ jobs:
           GH_ACTION_RESULT: ${{ job.status }}
           GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
 
-      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
-      # - name: Notify on failure
-      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
-      #   uses: ravsamhq/notify-slack-action@v2
-      #   with:
-      #     status: ${{ job.status }}
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     notify_when: "failure"
-      #     notification_title: "Failed to publish TypeScript SDK"
-      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
-      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - id: log-result
         name: Log TypeScript publishing results
@@ -252,7 +216,6 @@ jobs:
 
       - name: Publish to Sonatype (legacy method)
         if: ${{ needs.release.outputs.use_sonatype_legacy == 'true' }}
-        # CVENT: Customized this publish step to dry-run in test mode
         run: |
           pwd
           if [[ "$TEST_MODE" == "true" ]]; then
@@ -270,7 +233,6 @@ jobs:
 
       - name: Publish to Sonatype Central (modern method)
         if: ${{ needs.release.outputs.use_sonatype_legacy != 'true' }}
-        # CVENT: Customized this publish step to dry-run in test mode
         run: |
           pwd
           if [[ "$TEST_MODE" == "true" ]]; then
@@ -300,22 +262,6 @@ jobs:
         env:
           GH_ACTION_RESULT: ${{ job.status }}
           GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
-
-      # CVENT: Removed the MCP publishing section from here from original speakeasy's workflow as we don't plan to enable MCPs for public SDKs yet.
-
-      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
-      # - name: Notify on failure
-      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
-      #   uses: ravsamhq/notify-slack-action@v2
-      #   with:
-      #     status: ${{ job.status }}
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     notify_when: "failure"
-      #     notification_title: "Failed to publish Java SDK"
-      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
-      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - id: log-result
         name: Log Java publishing results
@@ -350,7 +296,6 @@ jobs:
           dotnet-version: ${{ inputs.dotnet_version }}
 
       - name: Pack and publish to NuGet
-        # CVENT: Customized this publish step to dry-run in test mode
         run: |
           dotnet pack -c Release -o .
 
@@ -379,22 +324,6 @@ jobs:
         env:
           GH_ACTION_RESULT: ${{ job.status }}
           GH_ACTION_VERSION: "dff4e1d86e25561f0496a0f1b87eeeffe6e48b19"
-
-      # CVENT: Removed the MCP publishing section from here from original speakeasy's workflow as we don't plan to enable MCPs for public SDKs yet.
-
-      #TODO: Enable Incoming webhook for our slack app and set SLACK_WEBHOOK_URL secret in repo settings. Uncomment below block.
-      # - name: Notify on failure
-      #   if: failure() && env.SLACK_WEBHOOK_URL != ''
-      #   uses: ravsamhq/notify-slack-action@v2
-      #   with:
-      #     status: ${{ job.status }}
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     notify_when: "failure"
-      #     notification_title: "Failed to publish C# SDK"
-      #     message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>"
-      #     footer: "Linked Repo <{repo_url}|{repo}> | <{run_url}|View Run>"
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - id: log-result
         name: Log C# publishing results
