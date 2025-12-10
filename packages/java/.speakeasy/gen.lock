@@ -5,13 +5,13 @@ management:
   docVersion: ea
   speakeasyVersion: 1.673.1
   generationVersion: 2.776.3
-  releaseVersion: 0.0.1
-  configChecksum: 492b318a9b7da3feef97be74989ba066
+  releaseVersion: 1.0.0
+  configChecksum: 6b4501053c399687cd01bae0def5208e
   published: true
 persistentEdits:
-  generation_id: dd492ebd-a7f5-44d0-b5fd-6870de05a8ad
-  pristine_commit_hash: 2a141369fa6f2c50beaa56f1891a637cc3c05331
-  pristine_tree_hash: 9c33c529c26aed0d1c4b8965382d3546076d11f6
+  generation_id: 8e305067-9852-4e49-8a84-47ccffb902fc
+  pristine_commit_hash: c52d7084548a4f5d64c6059320bf2a1b176900f8
+  pristine_tree_hash: fdda67b1d7735690f035ca11694405fa6e2d71ae
 features:
   java:
     additionalDependencies: 0.1.0
@@ -9114,8 +9114,8 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:31e6458350a82a9f9ec6b25484963473faa8f292
-    pristine_git_object: c32f68f1eba16e600f6c696440084a6b75dde9f3
+    last_write_checksum: sha1:80cdf29de41e3de71aac15df82dffe39eeb319f8
+    pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
     last_write_checksum: sha1:f725fb1467084142d74fd7cd8eab691ab3442611
@@ -9482,8 +9482,8 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:9dd3181b5b3e8f5e0ff62a4ee08a7f6f9ad350f6
-    pristine_git_object: f3393d2979597b058a7a87bc13e39188fc991af7
+    last_write_checksum: sha1:d62fb40e3f5fc5e0aa13be23856947c52c2dc50b
+    pristine_git_object: f572949eb97d752818be511c1d973086a857da5e
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
     last_write_checksum: sha1:b90583bea1d84086886c8571def758e8988938ad

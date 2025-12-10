@@ -1,6 +1,6 @@
 {
   "name": "@cvent/sdk",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Cvent",
   "files": [
     "dist/",

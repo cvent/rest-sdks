@@ -25,7 +25,7 @@ namespace Cvent.SDK.Hooks.CventUserAgent
     /// Extracts the SDK version and OpenAPI version from the default User-Agent string and returns them in an array of size 2.
     /// </summary>
     /// <param name="userAgent">The default User-Agent string.</param>
-    /// <returns>An array of size 2 where the first element is the SDK version and the second is the OpenAPI version.</returns>  
+    /// <returns>An array of size 2 where the first element is the SDK version and the second is the OpenAPI version.</returns>
     /// <remarks>
     /// Example User-Agent: "speakeasy-sdk/csharp 0.0.1 2.698.4 ea Cvent.SDK"
     /// Returns: [ "0.0.1", "ea" ]

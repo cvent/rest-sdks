@@ -30,7 +30,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 0.0.1
+  version: 1.0.0
   additionalDependencies: []
   author: Cvent
   baseErrorName: CventSDKException
@@ -64,7 +64,7 @@ csharp:
   sourceDirectory: src
   useNodatime: false
 java:
-  version: 0.0.1
+  version: 1.0.0
   additionalDependencies:
     - testImplementation:org.junit.jupiter:junit-jupiter:5.7.1
     - testRuntimeOnly:org.junit.platform:junit-platform-launcher
@@ -112,7 +112,7 @@ java:
   templateVersion: v2
   unionStrategy: populated-fields
 typescript:
-  version: 0.0.1
+  version: 1.0.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}

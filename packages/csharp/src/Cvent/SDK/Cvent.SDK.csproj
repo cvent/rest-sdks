@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Cvent.SDK</PackageId>
-    <Version>0.0.1</Version>
+    <Version>1.0.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Cvent</Authors>
     <Copyright>Copyright (c) Cvent 2025</Copyright>
@@ -236,10 +236,12 @@ Learn more about our <a href="/docs/rest-api/reference/api-standards">API Standa
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\..\NUGET.md" Pack="true" PackagePath="README.md"/>
+    <None Include="..\..\..\LICENSE.txt" Pack="true" PackagePath="\"/>
     <None Include="..\..\..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
   </ItemGroup>
 
