@@ -3,15 +3,15 @@ id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
   docChecksum: 77cf6187962c9e0f559db78c0ed280a2
   docVersion: ea
-  speakeasyVersion: 1.675.1
-  generationVersion: 2.778.0
+  speakeasyVersion: 1.675.2
+  generationVersion: 2.778.5
   releaseVersion: 1.0.0
-  configChecksum: 6b4501053c399687cd01bae0def5208e
+  configChecksum: ea2d77675b6a1498e4980c882536179c
   published: true
 persistentEdits:
-  generation_id: d8ba9a8c-260f-464e-93c8-ced9a392ce6c
-  pristine_commit_hash: 70056b9932dced66984823610196edae7155c643
-  pristine_tree_hash: b5cbd9166962265ddf1295a3cacc5e843b12edcd
+  generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
+  pristine_commit_hash: af3043b0af300d1c4aef6751bfae7fc352378104
+  pristine_tree_hash: 42f92029fad3c4f272c9c959d288fc21be7e354a
 features:
   java:
     additionalDependencies: 0.1.0
@@ -42,8 +42,8 @@ trackedFiles:
     pristine_git_object: 64ca45f0e194b8d11762df766cbd18b31df502e2
   build.gradle:
     id: f07866736216
-    last_write_checksum: sha1:039b1bbd597c6997ab0748114eba1e388ca0c8ae
-    pristine_git_object: 95a3d830307c6cc3a19f01cac5005ac7004f2d36
+    last_write_checksum: sha1:fe4d4cca39860ab15f849a5da05561a08610b2b3
+    pristine_git_object: 3c184430a0dc1eb082258669b43407069bb80acc
   docs/models/callbacks/CreateContactHookContactTransactionCallbackResponse.md:
     id: 86a67b0330fd
     last_write_checksum: sha1:d2da37485bf2d1f3775cedff57447afe526b5b4e
@@ -9482,8 +9482,8 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:1650507736f740b93a1c8c6df7f3acc80ee4a1f9
-    pristine_git_object: 90c7cb8392d2e2e9484ad0e90778625b55f9f8cf
+    last_write_checksum: sha1:31bf08855452fd49a36756ee20fcbfb884ae0492
+    pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
     last_write_checksum: sha1:b90583bea1d84086886c8571def758e8988938ad
