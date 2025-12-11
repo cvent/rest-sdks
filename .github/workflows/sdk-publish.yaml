@@ -25,7 +25,7 @@ on:
           Define the type of machine to run the job on. This can be a single
           string value or a JSON-encoded string value
           to define a runs-on compatible array/object, such as '["one", "two"]'.
-        default: ubuntu-latest-gh-x86_64-large
+        default: ubuntu-22.04-medium-arm64
         required: false
         type: string
       dotnet_version:
@@ -68,7 +68,7 @@ on:
 jobs:
   release:
     name: Create GitHub Release
-    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    runs-on: ubuntu-22.04-medium-arm64
     outputs:
       typescript_regenerated: ${{ steps.release.outputs.typescript_regenerated }}
       java_regenerated: ${{ steps.release.outputs.java_regenerated }}
@@ -113,7 +113,7 @@ jobs:
     needs: release
     if: ${{ needs.release.outputs.publish_typescript == 'true' }}
     name: Publish TypeScript SDK to NPM
-    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    runs-on: ubuntu-22.04-medium-arm64
     defaults:
       run:
         working-directory: ${{ needs.release.outputs.typescript_directory }}
@@ -195,7 +195,7 @@ jobs:
     needs: release
     if: ${{ needs.release.outputs.publish_java == 'true' }}
     name: Publish Java SDK to Maven Central
-    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    runs-on: ubuntu-22.04-medium-arm64
     defaults:
       run:
         working-directory: ${{ needs.release.outputs.java_directory }}
@@ -282,7 +282,7 @@ jobs:
     needs: release
     if: ${{ needs.release.outputs.publish_csharp == 'true' }}
     name: Publish C# SDK to NuGet
-    runs-on: ${{ ((startsWith(inputs.runs-on, '[') || startsWith(inputs.runs-on, '{') || startsWith(inputs.runs-on, '"')) && fromJSON(inputs.runs-on)) || inputs.runs-on }}
+    runs-on: ubuntu-22.04-medium-arm64
     defaults:
       run:
         working-directory: ${{ needs.release.outputs.csharp_directory }}

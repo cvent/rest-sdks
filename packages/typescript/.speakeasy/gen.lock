@@ -3,10 +3,10 @@ id: fd015893-3730-4721-bf8d-bb6d3730cc0f
 management:
   docChecksum: 77cf6187962c9e0f559db78c0ed280a2
   docVersion: ea
-  speakeasyVersion: 1.675.2
-  generationVersion: 2.778.5
+  speakeasyVersion: 1.675.4
+  generationVersion: 2.779.2
   releaseVersion: 1.0.0
-  configChecksum: ea2d77675b6a1498e4980c882536179c
+  configChecksum: 9d4397eb0399f60a37f64c9ce3317a16
   published: true
 persistentEdits:
   generation_id: c8f2bd28-d942-4072-855e-a3944f191f23
@@ -9783,7 +9783,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:974dc3751693cf4796b4b1097f167a278ea66fd7
+    last_write_checksum: sha1:d8fb1a3acc5f5279c63ebb481d124a7b7eb2617e
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a
