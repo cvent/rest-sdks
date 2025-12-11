@@ -24,7 +24,8 @@ generation:
   requestBodyFieldName: ""
   mockServer:
     disabled: false
-  persistentEdits: {}
+  persistentEdits:
+    enabled: never
   tests:
     generateTests: true
     generateNewTests: true

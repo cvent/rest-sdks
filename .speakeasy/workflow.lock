@@ -1,4 +1,4 @@
-speakeasyVersion: 1.675.2
+speakeasyVersion: 1.675.4
 sources: {}
 targets:
     public-csharp:
@@ -9,7 +9,7 @@ targets:
         source: Public
 workflow:
     workflowVersion: 1.0.0
-    speakeasyVersion: 1.675.2
+    speakeasyVersion: 1.675.4
     sources:
         Public:
             inputs:
