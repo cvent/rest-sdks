@@ -13,7 +13,6 @@ permissions:
         type: boolean
         default: true
         required: false
-
 jobs:
   publish:
     uses: ./.github/workflows/sdk-publish.yaml
