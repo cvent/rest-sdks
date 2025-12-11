@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/sdk-publish.yaml
     with:
       target: public-java
-      test_mode: ${{ github.event.inputs.test_mode }}
+      test_mode: ${{ inputs.test_mode }}
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       java_gpg_passphrase: ${{ secrets.JAVA_GPG_PASSPHRASE }}

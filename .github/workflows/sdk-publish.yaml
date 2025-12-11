@@ -27,11 +27,6 @@ on:
         default: ubuntu-22.04-medium-arm64
         required: false
         type: string
-      dotnet_version:
-        description: "The version of dotnet to use when compiling the C# SDK"
-        required: false
-        type: string
-        default: "8.x"
       enable_sdk_changelog:
         description: "Enable the new SDK changelog feature"
         default: true
@@ -291,7 +286,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@ea9897a6e57642ca932850b656df2880bc7cd2a8
         with:
-          dotnet-version: ${{ inputs.dotnet_version }}
+          dotnet-version: "8.x"
 
       - name: Pack and publish to NuGet
         run: |
