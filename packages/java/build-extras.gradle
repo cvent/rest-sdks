@@ -1,4 +1,24 @@
-// This file 
+// This file
 // * is referred to in an `apply from` command in `build.gradle`
 // * can be used to customise `build.gradle`
 // * is generated once and not overwritten in SDK generation updates
+
+/*
+Speakeasy generates the Sonatype publishing config in packages/java/publishing.gradle without the `publishingType` prop.
+According to the plugin's documentation, we can also set a property called `publishingType = MANUAL` to indicate not to publish to Maven Central automatically
+and only do a deployment to the namespace. If we don't specify this prop, it defaults to AUTOMATIC
+See: https://github.com/Im-Fran/SonatypeCentralUpload
+*/
+sonatypeCentralUpload {
+    publishingType = "MANUAL"
+}
+
+// Include LICENSE and THIRD_PARTY_NOTICES in the JAR's META-INF directory
+jar {
+    into("META-INF") {
+        from("${projectDir}") {
+            include "LICENSE.txt"
+            include "THIRD_PARTY_NOTICES"
+        }
+    }
+}
