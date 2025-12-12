@@ -3,8 +3,7 @@ name: Publish SDKs to Public Registries
 # This workflow handles publishing all SDK languages to public registries
 # It detects SDK regeneration through gen.lock files but doesn't regenerate SDKs
 # It's can be triggered through:
-#  - a call from other workflow
-#  - manual trigger via workflow_dispatch in Github UI
+#  - a call from other workflows only
 
 permissions:
   checks: write
@@ -28,11 +27,6 @@ on:
         default: ubuntu-22.04-medium-arm64
         required: false
         type: string
-      dotnet_version:
-        description: "The version of dotnet to use when compiling the C# SDK"
-        required: false
-        type: string
-        default: "5.x"
       enable_sdk_changelog:
         description: "Enable the new SDK changelog feature"
         default: true
@@ -82,7 +76,7 @@ jobs:
       use_sonatype_legacy: ${{ steps.release.outputs.use_sonatype_legacy }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - id: release
         name: Create GitHub Release
@@ -122,9 +116,9 @@ jobs:
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - name: Setup Node.js
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
-          node-version: "16.x"
+          node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
@@ -139,7 +133,6 @@ jobs:
           NODE_OPTIONS: ${{ inputs.node_options }}
           TEST_MODE: ${{ inputs.test_mode || false }}
         run: |
-          # Set registry based on test mode
           if [[ "$TEST_MODE" == "true" ]]; then
             echo "Test mode enabled - using dry-run"
             DRY_RUN_FLAG="--dry-run"
@@ -291,9 +284,9 @@ jobs:
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@ea9897a6e57642ca932850b656df2880bc7cd2a8 # v3.4.2
+        uses: actions/setup-dotnet@ea9897a6e57642ca932850b656df2880bc7cd2a8
         with:
-          dotnet-version: ${{ inputs.dotnet_version }}
+          dotnet-version: "8.x"
 
       - name: Pack and publish to NuGet
         run: |
