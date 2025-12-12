@@ -7,7 +7,7 @@
 Disable automatic publishing to Sonatype Central
 */
 sonatypeCentralUpload {
-    publishingType = "MANUAL"
+    publishingType = "AUTOMATIC"
 }
 
 // Include LICENSE and THIRD_PARTY_NOTICES in the JAR's META-INF directory
