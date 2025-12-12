@@ -2,10 +2,6 @@
 
 Developer-friendly & type-safe Csharp SDK specifically catered to leverage *Cvent.SDK* API.
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=cvent-sdk&utm_campaign=csharp)
-[![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
-
-
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -250,6 +246,7 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
+  * [License](#license)
 * [Development](#development)
   * [Maturity](#maturity)
   * [Contributions](#contributions)
@@ -1368,7 +1365,13 @@ The SDK also provides built-in hook support through the `SDKConfiguration.Hooks`
 `BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.
 <!-- End Custom HTTP Client [http-client] -->
 
-<!-- Placeholder for Future Speakeasy SDK Sections -->
+<!-- Start License [license] -->
+## License
+
+This SDK is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for the full license text and third party notices.
+
+Use of this SDK is subject to [Cvent's Product Terms of Use](https://www.cvent.com/en/product-terms-of-use).
+<!-- End License [license] -->
 
 # Development
 
@@ -1384,3 +1387,97 @@ While we value open-source contributions to this SDK, this library is generated 
 We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
 
 ### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=cvent-sdk&utm_campaign=csharp)
+
+<style>
+  :root {
+    --badge-gray-bg: #f3f4f6;
+    --badge-gray-border: #d1d5db;
+    --badge-gray-text: #374151;
+    --badge-blue-bg: #eff6ff;
+    --badge-blue-border: #3b82f6;
+    --badge-blue-text: #3b82f6;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --badge-gray-bg: #374151;
+      --badge-gray-border: #4b5563;
+      --badge-gray-text: #f3f4f6;
+      --badge-blue-bg: #1e3a8a;
+      --badge-blue-border: #3b82f6;
+      --badge-blue-text: #93c5fd;
+    }
+  }
+
+  h1 {
+    border-bottom: none !important;
+    margin-bottom: 4px;
+    margin-top: 0;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  .badge-text {
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
+  .badge-container {
+    display: inline-flex;
+    align-items: center;
+    background: var(--badge-gray-bg);
+    border: 1px solid var(--badge-gray-border);
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+  .badge-container.blue {
+    background: var(--badge-blue-bg);
+    border-color: var(--badge-blue-border);
+  }
+
+  .badge-icon-section {
+    padding: 4px 8px;
+    border-right: 1px solid var(--badge-gray-border);
+    display: flex;
+    align-items: center;
+  }
+
+  .badge-text-section {
+    padding: 4px 10px;
+    color: var(--badge-gray-text);
+    font-weight: 400;
+  }
+
+  .badge-container.blue .badge-text-section {
+    color: var(--badge-blue-text);
+  }
+
+  .badge-link {
+    text-decoration: none;
+    margin-left: 8px;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
+  .badge-link:hover {
+    text-decoration: none;
+  }
+
+  .badge-link:first-child {
+    margin-left: 0;
+  }
+
+  .badge-icon-section svg {
+    color: var(--badge-gray-text);
+  }
+
+  .badge-container.blue .badge-icon-section svg {
+    color: var(--badge-blue-text);
+  }
+</style>
+<!-- Placeholder for Future Speakeasy SDK Sections -->
