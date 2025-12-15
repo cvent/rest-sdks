@@ -14,6 +14,6 @@ Based on:
 - Early adopter release - breaking changes may occur
 - Authorization Code Flow custom authentication not supported
 ### Generated
-- [typescript v1.0.0] packages/typescript
+- [typescript v1.0.1] packages/typescript
 ### Releases
-- [NPM v1.0.0] https://www.npmjs.com/package/@cvent/sdk/v/1.0.0 - packages/typescript
+- [NPM v1.0.1] https://www.npmjs.com/package/@cvent/sdk/v/1.0.1 - packages/typescript
