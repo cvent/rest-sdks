@@ -82,11 +82,11 @@ BulkJobWithDataInput req = new BulkJobWithDataInput() {
                 { "header2", "header2Value" },
             },
             DataRecord = new Dictionary<string, BulkDataRecordJson>() {
+                { "status", new BulkDataRecordJson() {} },
+                { "event", new BulkDataRecordJson() {} },
                 { "title", new BulkDataRecordJson() {} },
                 { "start", new BulkDataRecordJson() {} },
                 { "end", new BulkDataRecordJson() {} },
-                { "status", new BulkDataRecordJson() {} },
-                { "event", new BulkDataRecordJson() {} },
             },
         },
     },
@@ -249,8 +249,8 @@ UploadBulkJobDataRequest req = new UploadBulkJobDataRequest() {
                     { "param2", "param2Value" },
                 },
                 Headers = new Dictionary<string, string>() {
-                    { "header1", "header1Value" },
                     { "header2", "header2Value" },
+                    { "header1", "header1Value" },
                 },
                 DataRecord = new Dictionary<string, BulkDataRecordJson>() {
                     { "start", new BulkDataRecordJson() {} },

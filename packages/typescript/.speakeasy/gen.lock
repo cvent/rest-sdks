@@ -5,8 +5,8 @@ management:
   docVersion: ea
   speakeasyVersion: 1.676.1
   generationVersion: 2.781.2
-  releaseVersion: 1.0.1
-  configChecksum: e6d4c266d3e0e0abe59799fda77aef66
+  releaseVersion: 1.0.0
+  configChecksum: 418c240b1b44e3f971c59877a7ed3b8d
   published: true
 persistentEdits:
   generation_id: c8f2bd28-d942-4072-855e-a3944f191f23
@@ -8051,11 +8051,11 @@ trackedFiles:
     pristine_git_object: 80795a72645811f07559dbfd91e59131f127b3d4
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:4c1db7115ab966c9fa207199c29965e25f887cce
+    last_write_checksum: sha1:cc0e1ef02a6ba3f3789d373726d5cf0c3cf95aa2
     pristine_git_object: 3f8c18265e80f8c46d349b3a7d92f1a61f1d2dc9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:27826d99423fe4e8d45125392e88ede4d52a7256
+    last_write_checksum: sha1:4e2752afc8bfd3ecb5309f96d37e0c9d9a7bbe2f
     pristine_git_object: 3474c00ef1d014883367c7bbeca6cbe6e330ca41
   src/core.ts:
     id: f431fdbcd144
@@ -9783,7 +9783,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:1c682e8e91884de16b5ae2f63aa40b3f135dea9d
+    last_write_checksum: sha1:30aadbdba47e7e91b2cd8ec1e3e7d017f3881d8f
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a

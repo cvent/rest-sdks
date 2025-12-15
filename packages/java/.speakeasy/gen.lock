@@ -5,8 +5,8 @@ management:
   docVersion: ea
   speakeasyVersion: 1.676.1
   generationVersion: 2.781.2
-  releaseVersion: 1.0.1
-  configChecksum: b7f3382f91379ab764daeaae56fe0eb7
+  releaseVersion: 1.0.0
+  configChecksum: dfc1da16bcd6e3df1a58b90772e7881c
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -9114,7 +9114,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:825c46fc90eaa968a3da107eb39c7c5c007f69a7
+    last_write_checksum: sha1:80cdf29de41e3de71aac15df82dffe39eeb319f8
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -9482,7 +9482,7 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:4b552dc058719b0bdcf567c7d377ad70881ef293
+    last_write_checksum: sha1:9b0a41c7c445e5e8de9509301bb3ec4a0262bacc
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
