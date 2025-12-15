@@ -125,53 +125,6 @@ namespace Cvent.SDK
     /// Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See <br/>
     /// <a href="/docs/rest-api/guides/handling-rate-limits">handling rate limits</a> for best practices on how to handle this.<br/>
     /// <br/>
-    /// ## Pagination  <br/>
-    /// <br/>
-    /// Some APIs use pagination to manage records. Each page of records has a token associated to identify it. <br/>
-    ///   <br/>
-    /// If an API uses pagination, you’ll find up to three tokens in the response:  <br/>
-    /// - **currentToken**: Describes the token of the current page.  <br/>
-    /// - **nextToken**: Provides a token for the next page of records, if one exists.  <br/>
-    /// - **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return <br/>
-    ///   this token.  <br/>
-    ///   <br/>
-    /// You specify which page of records to view via the `token` parameter in your API call. To navigate through pages, <br/>
-    /// take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the <br/>
-    /// respective page of records. For example, if you made this request:  <br/>
-    ///   <br/>
-    /// ```bash  <br/>
-    /// curl -X GET {hostname}/{version}/contacts?limit=100 \  <br/>
-    /// -H &apos;Accept: application/json&apos; \  <br/>
-    /// -H &apos;Authorization: Bearer {accessToken}&apos;  <br/>
-    /// ```  <br/>
-    ///   <br/>
-    /// The response contains a paging array where you&apos;ll find the token information.  <br/>
-    ///   <br/>
-    /// ```json  <br/>
-    /// {  <br/>
-    ///   &quot;paging&quot;: {  <br/>
-    ///     &quot;currentToken&quot;: &quot;90c5f062-76ad-4ea4-aa53-00eb698d9262&quot;,  <br/>
-    ///     &quot;nextToken&quot;: &quot;3b2359a7-4583-40ed-8afd-67e5f15373d3&quot;,  <br/>
-    ///     &quot;limit&quot;: 100,  <br/>
-    ///     &quot;totalCount&quot;: 102,  <br/>
-    ///     &quot;_links&quot;: {...}  <br/>
-    ///   },  <br/>
-    ///   &quot;data&quot;: [...]  <br/>
-    /// }  <br/>
-    /// ```  <br/>
-    ///   <br/>
-    /// Take the `nextToken` and use it in the `token` parameter on your subsequent call. <br/>
-    ///   <br/>
-    /// ```bash  <br/>
-    /// curl -X GET {hostname}/{version}/contacts?limit=100&amp;token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \  <br/>
-    /// -H &apos;Accept: application/json&apos; \  <br/>
-    /// -H &apos;Authorization: Bearer {accessToken}&apos;  <br/>
-    /// ```  <br/>
-    ///   <br/>
-    /// When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might <br/>
-    /// encounter an empty page at the end of results. This typically happens when the results were evenly divisible. <br/>
-    /// Ensure your client code handles the possibility of receiving an empty data array when using the `nextToken`.<br/>
-    /// <br/>
     /// ## Filtering<br/>
     /// <br/>
     /// Use filters to narrow down results. The filter follows the pattern<br/>
@@ -758,53 +711,6 @@ namespace Cvent.SDK
     /// <br/>
     /// Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See <br/>
     /// <a href="/docs/rest-api/guides/handling-rate-limits">handling rate limits</a> for best practices on how to handle this.<br/>
-    /// <br/>
-    /// ## Pagination  <br/>
-    /// <br/>
-    /// Some APIs use pagination to manage records. Each page of records has a token associated to identify it. <br/>
-    ///   <br/>
-    /// If an API uses pagination, you’ll find up to three tokens in the response:  <br/>
-    /// - **currentToken**: Describes the token of the current page.  <br/>
-    /// - **nextToken**: Provides a token for the next page of records, if one exists.  <br/>
-    /// - **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return <br/>
-    ///   this token.  <br/>
-    ///   <br/>
-    /// You specify which page of records to view via the `token` parameter in your API call. To navigate through pages, <br/>
-    /// take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the <br/>
-    /// respective page of records. For example, if you made this request:  <br/>
-    ///   <br/>
-    /// ```bash  <br/>
-    /// curl -X GET {hostname}/{version}/contacts?limit=100 \  <br/>
-    /// -H &apos;Accept: application/json&apos; \  <br/>
-    /// -H &apos;Authorization: Bearer {accessToken}&apos;  <br/>
-    /// ```  <br/>
-    ///   <br/>
-    /// The response contains a paging array where you&apos;ll find the token information.  <br/>
-    ///   <br/>
-    /// ```json  <br/>
-    /// {  <br/>
-    ///   &quot;paging&quot;: {  <br/>
-    ///     &quot;currentToken&quot;: &quot;90c5f062-76ad-4ea4-aa53-00eb698d9262&quot;,  <br/>
-    ///     &quot;nextToken&quot;: &quot;3b2359a7-4583-40ed-8afd-67e5f15373d3&quot;,  <br/>
-    ///     &quot;limit&quot;: 100,  <br/>
-    ///     &quot;totalCount&quot;: 102,  <br/>
-    ///     &quot;_links&quot;: {...}  <br/>
-    ///   },  <br/>
-    ///   &quot;data&quot;: [...]  <br/>
-    /// }  <br/>
-    /// ```  <br/>
-    ///   <br/>
-    /// Take the `nextToken` and use it in the `token` parameter on your subsequent call. <br/>
-    ///   <br/>
-    /// ```bash  <br/>
-    /// curl -X GET {hostname}/{version}/contacts?limit=100&amp;token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \  <br/>
-    /// -H &apos;Accept: application/json&apos; \  <br/>
-    /// -H &apos;Authorization: Bearer {accessToken}&apos;  <br/>
-    /// ```  <br/>
-    ///   <br/>
-    /// When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might <br/>
-    /// encounter an empty page at the end of results. This typically happens when the results were evenly divisible. <br/>
-    /// Ensure your client code handles the possibility of receiving an empty data array when using the `nextToken`.<br/>
     /// <br/>
     /// ## Filtering<br/>
     /// <br/>

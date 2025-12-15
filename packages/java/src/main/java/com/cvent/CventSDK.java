@@ -136,60 +136,6 @@ import java.util.function.Consumer;
  * [handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to
  * handle this.
  * 
- * <p>## Pagination
- * 
- * <p>Some APIs use pagination to manage records. Each page of records has a token associated to identify
- * it.
- * 
- * <p>If an API uses pagination, you’ll find up to three tokens in the response:
- * - **currentToken**: Describes the token of the current page.
- * - **nextToken**: Provides a token for the next page of records, if one exists.
- * - **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs
- * will return
- * this token.
- * 
- * <p>You specify which page of records to view via the `token` parameter in your API call. To navigate
- * through pages,
- * take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to
- * get the
- * respective page of records. For example, if you made this request:
- * 
- * <p>```bash
- * curl -X GET {hostname}/{version}/contacts?limit=100 \
- * -H 'Accept: application/json' \
- * -H 'Authorization: Bearer {accessToken}'
- * ```
- * 
- * <p>The response contains a paging array where you'll find the token information.
- * 
- * <p>```json
- * {
- * "paging": {
- * "currentToken": "90c5f062-76ad-4ea4-aa53-00eb698d9262",
- * "nextToken": "3b2359a7-4583-40ed-8afd-67e5f15373d3",
- * "limit": 100,
- * "totalCount": 102,
- * "_links": {...}
- * },
- * "data": [...]
- * }
- * ```
- * 
- * <p>Take the `nextToken` and use it in the `token` parameter on your subsequent call.
- * 
- * <p>```bash
- * curl -X GET {hostname}/{version}/contacts?limit=100&amp;token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \
- * -H 'Accept: application/json' \
- * -H 'Authorization: Bearer {accessToken}'
- * ```
- * 
- * <p>When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally,
- * you might
- * encounter an empty page at the end of results. This typically happens when the results were evenly
- * divisible.
- * Ensure your client code handles the possibility of receiving an empty data array when using the
- * `nextToken`.
- * 
  * <p>## Filtering
  * 
  * <p>Use filters to narrow down results. The filter follows the pattern
