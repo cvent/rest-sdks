@@ -125,8 +125,8 @@ ExternalActivityInput req = new ExternalActivityInput() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
             ExternalActivityDate = System.DateTime.Parse("2019-08-24T14:15:22Z"),
             AdditionalFields = new Dictionary<string, string>() {
-                { "venue", "tokyo" },
                 { "submitted", "true" },
+                { "venue", "tokyo" },
             },
         }
     ),

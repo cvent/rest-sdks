@@ -1322,4 +1322,83 @@ This SDK is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for t
 Use of this SDK is subject to [Cvent's Product Terms of Use](https://www.cvent.com/en/product-terms-of-use).
 <!-- End License [license] -->
 
+<style>
+  :root {
+    --badge-gray-bg: #f3f4f6;
+    --badge-gray-border: #d1d5db;
+    --badge-gray-text: #374151;
+    --badge-blue-bg: #eff6ff;
+    --badge-blue-border: #3b82f6;
+    --badge-blue-text: #3b82f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --badge-gray-bg: #374151;
+      --badge-gray-border: #4b5563;
+      --badge-gray-text: #f3f4f6;
+      --badge-blue-bg: #1e3a8a;
+      --badge-blue-border: #3b82f6;
+      --badge-blue-text: #93c5fd;
+    }
+  }
+  h1 {
+    border-bottom: none !important;
+    margin-bottom: 4px;
+    margin-top: 0;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .badge-text {
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  .badge-container {
+    display: inline-flex;
+    align-items: center;
+    background: var(--badge-gray-bg);
+    border: 1px solid var(--badge-gray-border);
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  .badge-container.blue {
+    background: var(--badge-blue-bg);
+    border-color: var(--badge-blue-border);
+  }
+  .badge-icon-section {
+    padding: 4px 8px;
+    border-right: 1px solid var(--badge-gray-border);
+    display: flex;
+    align-items: center;
+  }
+  .badge-text-section {
+    padding: 4px 10px;
+    color: var(--badge-gray-text);
+    font-weight: 400;
+  }
+  .badge-container.blue .badge-text-section {
+    color: var(--badge-blue-text);
+  }
+  .badge-link {
+    text-decoration: none;
+    margin-left: 8px;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  .badge-link:hover {
+    text-decoration: none;
+  }
+  .badge-link:first-child {
+    margin-left: 0;
+  }
+  .badge-icon-section svg {
+    color: var(--badge-gray-text);
+  }
+  .badge-container.blue .badge-icon-section svg {
+    color: var(--badge-blue-text);
+  }
+</style>
 <!-- Placeholder for Future Speakeasy SDK Sections -->

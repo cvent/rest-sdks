@@ -245,19 +245,19 @@ UploadBulkJobDataRequest req = new UploadBulkJobDataRequest() {
                     { "id", "11111111-0dc3-487b-953e-86d6abbdf7d3" },
                 },
                 QueryParams = new Dictionary<string, string>() {
-                    { "param2", "param2Value" },
                     { "param1", "param1Value" },
+                    { "param2", "param2Value" },
                 },
                 Headers = new Dictionary<string, string>() {
                     { "header1", "header1Value" },
                     { "header2", "header2Value" },
                 },
                 DataRecord = new Dictionary<string, BulkDataRecordJson>() {
+                    { "event", new BulkDataRecordJson() {} },
                     { "title", new BulkDataRecordJson() {} },
                     { "start", new BulkDataRecordJson() {} },
                     { "end", new BulkDataRecordJson() {} },
                     { "status", new BulkDataRecordJson() {} },
-                    { "event", new BulkDataRecordJson() {} },
                 },
             },
         },
