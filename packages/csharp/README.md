@@ -107,53 +107,6 @@ Please note that these limits may change as the Cvent API Platform evolves.
 Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See 
 [handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.
 
-## Pagination  
-
-Some APIs use pagination to manage records. Each page of records has a token associated to identify it. 
-  
-If an API uses pagination, you’ll find up to three tokens in the response:  
-- **currentToken**: Describes the token of the current page.  
-- **nextToken**: Provides a token for the next page of records, if one exists.  
-- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return 
-  this token.  
-  
-You specify which page of records to view via the `token` parameter in your API call. To navigate through pages, 
-take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the 
-respective page of records. For example, if you made this request:  
-  
-```bash  
-curl -X GET {hostname}/{version}/contacts?limit=100 \  
--H 'Accept: application/json' \  
--H 'Authorization: Bearer {accessToken}'  
-```  
-  
-The response contains a paging array where you'll find the token information.  
-  
-```json  
-{  
-  "paging": {  
-    "currentToken": "90c5f062-76ad-4ea4-aa53-00eb698d9262",  
-    "nextToken": "3b2359a7-4583-40ed-8afd-67e5f15373d3",  
-    "limit": 100,  
-    "totalCount": 102,  
-    "_links": {...}  
-  },  
-  "data": [...]  
-}  
-```  
-  
-Take the `nextToken` and use it in the `token` parameter on your subsequent call. 
-  
-```bash  
-curl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \  
--H 'Accept: application/json' \  
--H 'Authorization: Bearer {accessToken}'  
-```  
-  
-When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might 
-encounter an empty page at the end of results. This typically happens when the results were evenly divisible. 
-Ensure your client code handles the possibility of receiving an empty data array when using the `nextToken`.
-
 ## Filtering
 
 Use filters to narrow down results. The filter follows the pattern
@@ -234,7 +187,6 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Authentication](#authentication)
   * [Endpoints](#endpoints)
   * [Rate Limits](#rate-limits)
-  * [Pagination](#pagination)
   * [Filtering](#filtering)
   * [Versioning](#versioning)
   * [Standards](#standards)
@@ -242,7 +194,7 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication-1)
   * [Available Resources and Operations](#available-resources-and-operations)
-  * [Pagination](#pagination-1)
+  * [Pagination](#pagination)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)

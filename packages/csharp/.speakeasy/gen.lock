@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f6b1580-b75b-44d2-a95a-1b74729f1d26
 management:
-  docChecksum: 77cf6187962c9e0f559db78c0ed280a2
+  docChecksum: 5c9f1b67bc482f697569086ac06a0246
   docVersion: ea
   speakeasyVersion: 1.676.1
   generationVersion: 2.781.2
-  releaseVersion: 1.0.0
-  configChecksum: f26d83e6c5b978cff409942abd33cdb4
+  releaseVersion: 1.0.1
+  configChecksum: dfc1da16bcd6e3df1a58b90772e7881c
   published: true
 persistentEdits:
   generation_id: c50843e4-e393-4964-8f45-57aa92ab8994
@@ -8968,7 +8968,7 @@ trackedFiles:
     pristine_git_object: 53a91b2b68035039b16cd37290f8d218462eab15
   docs/sdks/bulk/README.md:
     id: fa4bd7a4682a
-    last_write_checksum: sha1:1a69662a3448e8809ae05d01347ef40ac215e54d
+    last_write_checksum: sha1:d6fb244558da7e1b02b04d1d68469f330b0c31b3
     pristine_git_object: 4d706fcb345914cfb1fa370fcb0fec8fae121e10
   docs/sdks/campaigns/README.md:
     id: 18dcc3c717ca
@@ -9188,11 +9188,11 @@ trackedFiles:
     pristine_git_object: 977cd7381c7598682830d6e4a64a85cb14130b98
   src/Cvent/SDK/Cvent.SDK.csproj:
     id: 7a55759bc2f0
-    last_write_checksum: sha1:17e5ad5693462c6df829b95d5fc63fbd467b4e62
+    last_write_checksum: sha1:c29b8bdc78968f1f7f8931553c53c3c441da31e6
     pristine_git_object: 711013944bc0505858b0b7cf177f166071b47593
   src/Cvent/SDK/CventSDK.cs:
     id: f7e1ad22cd8f
-    last_write_checksum: sha1:29e0e6987238c98c91ab17d79e5dd41f6f06ce3e
+    last_write_checksum: sha1:75f07798b1570e8a1fcf67d1ab14ab8c9dcf4183
     pristine_git_object: 73b691f7e3fc8c29322c3bac6169519066a92685
   src/Cvent/SDK/Discounts.cs:
     id: 65ff3d7f6c89
@@ -18176,7 +18176,7 @@ trackedFiles:
     pristine_git_object: 58003eaf89fe1986cc662177f443175c4da22c63
   src/Cvent/SDK/SDKConfig.cs:
     id: 7ad7086454a8
-    last_write_checksum: sha1:3613595f9562fda80f678a943959acbbbaa70542
+    last_write_checksum: sha1:dc9ca2cb66ca3b04030fff5f2911d98d0ac5c7d3
     pristine_git_object: 796c23cd551fbe87f613d89d60ed25ac5fe0c54b
   src/Cvent/SDK/Seating.cs:
     id: 01c249fc2746
@@ -18232,7 +18232,7 @@ trackedFiles:
     pristine_git_object: a75f770b33edd25c0fa4d4a77ab523da12d269ba
   src/Cvent/SDK/Utils/Constants.cs:
     id: 231d94d8a5dc
-    last_write_checksum: sha1:c3a9e8cf703fdd771c0fc62672e21d595d20025c
+    last_write_checksum: sha1:d2e8c7c88a2c75c96bb853ed23c81ccaebbe5f46
     pristine_git_object: 0a54932893793a10e459afbc15920803cff3ed1e
   src/Cvent/SDK/Utils/CventSDKHttpClient.cs:
     id: 374fee4fdbaf
