@@ -31,7 +31,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 1.0.0
+  version: 1.0.1
   additionalDependencies: []
   author: Cvent
   baseErrorName: CventSDKException
@@ -65,7 +65,7 @@ csharp:
   sourceDirectory: src
   useNodatime: false
 java:
-  version: 1.0.0
+  version: 1.0.1
   additionalDependencies: []
   additionalPlugins: []
   artifactID: sdk
@@ -80,6 +80,7 @@ java:
   enableSlf4jLogging: false
   enableStreamingUploads: false
   flattenGlobalSecurity: false
+  forwardCompatibleEnumsByDefault: false
   generateOptionalUnionAccessors: false
   generateSpringBootStarter: false
   githubURL: https://github.com/cvent/rest-sdks
@@ -110,7 +111,7 @@ java:
   templateVersion: v2
   unionStrategy: populated-fields
 typescript:
-  version: 1.0.0
+  version: 1.0.1
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}

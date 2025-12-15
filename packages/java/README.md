@@ -6,30 +6,30 @@ Developer-friendly & type-safe Java SDK specifically catered to leverage *cvent-
 ## Summary
 
 Cvent REST APIs: # Introduction
-The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily
-discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here
-use JSON-encoded request and response format, along with HTTP codes, to convey processing status of
+The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily 
+discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here 
+use JSON-encoded request and response format, along with HTTP codes, to convey processing status of 
 requests received. The Cvent resources are protected using OAuth2.
 
 # Getting Started
 
-If you're new to the Cvent API Platform, start by reading our
-[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will
+If you're new to the Cvent API Platform, start by reading our 
+[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will 
 give you an overview of how to authenticate and make requests using our APIs.
 
 ## Authentication
 
-The Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client
+The Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client 
 credentials authorization flow is supported.
 
 <a name="oauth2-auth-code-planner-admin"></a>
 
-Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users
+Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users 
 cannot use authorization code flow.
 
 <!-- ReDoc-Inject: <security-definitions> -->
 
-Here's an example of using client credential flow to authorize. You'll supply your application's id and secret to
+Here's an example of using client credential flow to authorize. You'll supply your application's id and secret to 
 make a [Token](#operation/oauth2Token) request.
 
 ```bash
@@ -43,11 +43,11 @@ curl --location --request POST '{hostName}/{version}/oauth2/token' \
 | Key               | Description                                          | Value                                                                                                        |
 | :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
 | {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |
-|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |
-| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       |
-| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      |
-| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                |
-| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            |
+|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   | 
+| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       | 
+| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      | 
+| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                | 
+| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            | 
 
 On a successful call, you'll receive the following response:
 
@@ -63,9 +63,9 @@ This bearer token is valid for 3600 seconds (60 minutes) and must be used in sub
 
 ## Endpoints
 
-Endpoints start with `hostName` and `version`.
+Endpoints start with `hostName` and `version`. 
 
-The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table
+The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table 
 below to identify which hostname you should be using.
 
 | Region        |	Hostname                           |
@@ -104,54 +104,54 @@ Please note that these limits may change as the Cvent API Platform evolves.
 
 ### Handling Rate Limits
 
-Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See
+Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See 
 [handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.
 
-## Pagination
+## Pagination  
 
-Some APIs use pagination to manage records. Each page of records has a token associated to identify it.
-
-If an API uses pagination, you’ll find up to three tokens in the response:
-- **currentToken**: Describes the token of the current page.
-- **nextToken**: Provides a token for the next page of records, if one exists.
-- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return
-  this token.
-
-You specify which page of records to view via the `token` parameter in your API call. To navigate through pages,
-take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the
-respective page of records. For example, if you made this request:
-
-```bash
-curl -X GET {hostname}/{version}/contacts?limit=100 \
--H 'Accept: application/json' \
--H 'Authorization: Bearer {accessToken}'
-```
-
-The response contains a paging array where you'll find the token information.
-
-```json
-{
-  "paging": {
-    "currentToken": "90c5f062-76ad-4ea4-aa53-00eb698d9262",
-    "nextToken": "3b2359a7-4583-40ed-8afd-67e5f15373d3",
-    "limit": 100,
-    "totalCount": 102,
-    "_links": {...}
-  },
-  "data": [...]
-}
-```
-
-Take the `nextToken` and use it in the `token` parameter on your subsequent call.
-
-```bash
-curl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \
--H 'Accept: application/json' \
--H 'Authorization: Bearer {accessToken}'
-```
-
-When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might
-encounter an empty page at the end of results. This typically happens when the results were evenly divisible.
+Some APIs use pagination to manage records. Each page of records has a token associated to identify it. 
+  
+If an API uses pagination, you’ll find up to three tokens in the response:  
+- **currentToken**: Describes the token of the current page.  
+- **nextToken**: Provides a token for the next page of records, if one exists.  
+- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return 
+  this token.  
+  
+You specify which page of records to view via the `token` parameter in your API call. To navigate through pages, 
+take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the 
+respective page of records. For example, if you made this request:  
+  
+```bash  
+curl -X GET {hostname}/{version}/contacts?limit=100 \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Bearer {accessToken}'  
+```  
+  
+The response contains a paging array where you'll find the token information.  
+  
+```json  
+{  
+  "paging": {  
+    "currentToken": "90c5f062-76ad-4ea4-aa53-00eb698d9262",  
+    "nextToken": "3b2359a7-4583-40ed-8afd-67e5f15373d3",  
+    "limit": 100,  
+    "totalCount": 102,  
+    "_links": {...}  
+  },  
+  "data": [...]  
+}  
+```  
+  
+Take the `nextToken` and use it in the `token` parameter on your subsequent call. 
+  
+```bash  
+curl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Bearer {accessToken}'  
+```  
+  
+When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might 
+encounter an empty page at the end of results. This typically happens when the results were evenly divisible. 
 Ensure your client code handles the possibility of receiving an empty data array when using the `nextToken`.
 
 ## Filtering
@@ -196,11 +196,11 @@ can be added over time. We consider the following changes backward-compatible:
 - Adding new resources
 - Adding new optional request parameters to existing operations
 - Adding new attributes to requests or responses
-- Changing the length or format (not type) of resource identifiers. For example, an ID can change from
+- Changing the length or format (not type) of resource identifiers. For example, an ID can change from 
   "1234/1234" to "1234::1234".
 - Increasing the length of string fields
 
-<br />
+<br />    
 
 ### Backward Incompatible Changes
 
@@ -218,8 +218,8 @@ limited period of time. We consider the following backward-incompatible changes:
 - Changing the data type on any parameter or attribute
 
 ## Standards
-As you begin working with our APIs, it's essential to be aware of standards around
-country codes, time formats, and other important details that ensure smooth integration.
+As you begin working with our APIs, it's essential to be aware of standards around 
+country codes, time formats, and other important details that ensure smooth integration. 
 Learn more about our [API Standards](/docs/rest-api/reference/api-standards)
 
 
@@ -263,7 +263,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.0.0'
+implementation 'com.cvent:sdk:1.0.1'
 ```
 
 Maven:
@@ -271,7 +271,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -1326,7 +1326,7 @@ public class Application {
             int statusCode = ex.code();
             Optional<byte[]> responseBody = ex.body();
 
-            // different error subclasses may be thrown
+            // different error subclasses may be thrown 
             // depending on the service call
             if (ex instanceof ErrorResponse) {
                 var e = (ErrorResponse) ex;
@@ -1338,8 +1338,8 @@ public class Application {
                 });
             }
 
-            // An underlying cause may be provided. If the error payload
-            // cannot be deserialized then the deserialization exception
+            // An underlying cause may be provided. If the error payload 
+            // cannot be deserialized then the deserialization exception 
             // will be set as the cause.
             if (ex.getCause() != null) {
                 var cause = ex.getCause();
@@ -1575,7 +1575,7 @@ public class Application {
         // Create a custom HTTP client with hooks
         HTTPClient httpClient = new HTTPClient() {
             private final HTTPClient defaultClient = new SpeakeasyHTTPClient();
-
+            
             @Override
             public HttpResponse<InputStream> send(HttpRequest request) throws IOException, URISyntaxException, InterruptedException {
                 // Add custom header and timeout using Utils.copy()
@@ -1583,7 +1583,7 @@ public class Application {
                     .header("x-custom-header", "custom value")
                     .timeout(Duration.ofSeconds(30))
                     .build();
-
+                    
                 try {
                     HttpResponse<InputStream> response = defaultClient.send(modifiedRequest);
                     // Log successful response
@@ -1698,7 +1698,7 @@ Received response: (GET http://localhost:35123/bearer#global) 200
 Response headers: {access-control-allow-credentials=[true], access-control-allow-origin=[*], connection=[keep-alive], content-length=[50], content-type=[application/json], date=[Wed, 09 Apr 2025 01:43:29 GMT], server=[gunicorn/19.9.0]}
 Response body:
 {
-  "authenticated": true,
+  "authenticated": true, 
   "token": "global"
 }
 ```
@@ -1719,4 +1719,5 @@ For information about third-party dependencies and their licenses, see [THIRD_PA
 
 Use of this SDK is subject to [Cvent's Product Terms of Use](https://www.cvent.com/en/product-terms-of-use).
 <!-- End License [license] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->

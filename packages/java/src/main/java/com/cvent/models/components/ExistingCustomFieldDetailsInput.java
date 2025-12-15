@@ -96,10 +96,10 @@ public class ExistingCustomFieldDetailsInput {
 
         public _Deserializer() {
             super(ExistingCustomFieldDetailsInput.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<OneOneOf>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<ZeroOneOf1>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ThreeInput>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<Two>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<OneOneOf>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Two>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<ThreeInput>() {}, JsonShape.DEFAULT));
         }
     }
     

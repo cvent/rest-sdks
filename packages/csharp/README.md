@@ -6,30 +6,30 @@ Developer-friendly & type-safe Csharp SDK specifically catered to leverage *Cven
 ## Summary
 
 Cvent REST APIs: # Introduction
-The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily
-discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here
-use JSON-encoded request and response format, along with HTTP codes, to convey processing status of
+The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily 
+discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here 
+use JSON-encoded request and response format, along with HTTP codes, to convey processing status of 
 requests received. The Cvent resources are protected using OAuth2.
 
 # Getting Started
 
-If you're new to the Cvent API Platform, start by reading our
-[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will
+If you're new to the Cvent API Platform, start by reading our 
+[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will 
 give you an overview of how to authenticate and make requests using our APIs.
 
 ## Authentication
 
-The Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client
+The Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client 
 credentials authorization flow is supported.
 
 <a name="oauth2-auth-code-planner-admin"></a>
 
-Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users
+Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users 
 cannot use authorization code flow.
 
 <!-- ReDoc-Inject: <security-definitions> -->
 
-Here's an example of using client credential flow to authorize. You'll supply your application's id and secret to
+Here's an example of using client credential flow to authorize. You'll supply your application's id and secret to 
 make a [Token](#operation/oauth2Token) request.
 
 ```bash
@@ -43,11 +43,11 @@ curl --location --request POST '{hostName}/{version}/oauth2/token' \
 | Key               | Description                                          | Value                                                                                                        |
 | :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
 | {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |
-|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |
-| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       |
-| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      |
-| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                |
-| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            |
+|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   | 
+| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       | 
+| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      | 
+| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                | 
+| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            | 
 
 On a successful call, you'll receive the following response:
 
@@ -63,9 +63,9 @@ This bearer token is valid for 3600 seconds (60 minutes) and must be used in sub
 
 ## Endpoints
 
-Endpoints start with `hostName` and `version`.
+Endpoints start with `hostName` and `version`. 
 
-The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table
+The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table 
 below to identify which hostname you should be using.
 
 | Region        |	Hostname                           |
@@ -104,54 +104,54 @@ Please note that these limits may change as the Cvent API Platform evolves.
 
 ### Handling Rate Limits
 
-Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See
+Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See 
 [handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.
 
-## Pagination
+## Pagination  
 
-Some APIs use pagination to manage records. Each page of records has a token associated to identify it.
-
-If an API uses pagination, you’ll find up to three tokens in the response:
-- **currentToken**: Describes the token of the current page.
-- **nextToken**: Provides a token for the next page of records, if one exists.
-- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return
-  this token.
-
-You specify which page of records to view via the `token` parameter in your API call. To navigate through pages,
-take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the
-respective page of records. For example, if you made this request:
-
-```bash
-curl -X GET {hostname}/{version}/contacts?limit=100 \
--H 'Accept: application/json' \
--H 'Authorization: Bearer {accessToken}'
-```
-
-The response contains a paging array where you'll find the token information.
-
-```json
-{
-  "paging": {
-    "currentToken": "90c5f062-76ad-4ea4-aa53-00eb698d9262",
-    "nextToken": "3b2359a7-4583-40ed-8afd-67e5f15373d3",
-    "limit": 100,
-    "totalCount": 102,
-    "_links": {...}
-  },
-  "data": [...]
-}
-```
-
-Take the `nextToken` and use it in the `token` parameter on your subsequent call.
-
-```bash
-curl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \
--H 'Accept: application/json' \
--H 'Authorization: Bearer {accessToken}'
-```
-
-When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might
-encounter an empty page at the end of results. This typically happens when the results were evenly divisible.
+Some APIs use pagination to manage records. Each page of records has a token associated to identify it. 
+  
+If an API uses pagination, you’ll find up to three tokens in the response:  
+- **currentToken**: Describes the token of the current page.  
+- **nextToken**: Provides a token for the next page of records, if one exists.  
+- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return 
+  this token.  
+  
+You specify which page of records to view via the `token` parameter in your API call. To navigate through pages, 
+take the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the 
+respective page of records. For example, if you made this request:  
+  
+```bash  
+curl -X GET {hostname}/{version}/contacts?limit=100 \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Bearer {accessToken}'  
+```  
+  
+The response contains a paging array where you'll find the token information.  
+  
+```json  
+{  
+  "paging": {  
+    "currentToken": "90c5f062-76ad-4ea4-aa53-00eb698d9262",  
+    "nextToken": "3b2359a7-4583-40ed-8afd-67e5f15373d3",  
+    "limit": 100,  
+    "totalCount": 102,  
+    "_links": {...}  
+  },  
+  "data": [...]  
+}  
+```  
+  
+Take the `nextToken` and use it in the `token` parameter on your subsequent call. 
+  
+```bash  
+curl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Bearer {accessToken}'  
+```  
+  
+When the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might 
+encounter an empty page at the end of results. This typically happens when the results were evenly divisible. 
 Ensure your client code handles the possibility of receiving an empty data array when using the `nextToken`.
 
 ## Filtering
@@ -196,11 +196,11 @@ can be added over time. We consider the following changes backward-compatible:
 - Adding new resources
 - Adding new optional request parameters to existing operations
 - Adding new attributes to requests or responses
-- Changing the length or format (not type) of resource identifiers. For example, an ID can change from
+- Changing the length or format (not type) of resource identifiers. For example, an ID can change from 
   "1234/1234" to "1234::1234".
 - Increasing the length of string fields
 
-<br />
+<br />    
 
 ### Backward Incompatible Changes
 
@@ -218,8 +218,8 @@ limited period of time. We consider the following backward-incompatible changes:
 - Changing the data type on any parameter or attribute
 
 ## Standards
-As you begin working with our APIs, it's essential to be aware of standards around
-country codes, time formats, and other important details that ensure smooth integration.
+As you begin working with our APIs, it's essential to be aware of standards around 
+country codes, time formats, and other important details that ensure smooth integration. 
 Learn more about our [API Standards](/docs/rest-api/reference/api-standards)
 
 
@@ -247,9 +247,6 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
   * [License](#license)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
 
 <!-- End Table of Contents [toc] -->
 
@@ -1255,7 +1252,7 @@ public class CustomHttpClient : ISpeakeasyHttpClient
         // Add custom header and timeout
         request.Headers.Add("x-custom-header", "custom value");
         request.Headers.Add("x-request-timeout", "30");
-
+        
         try
         {
             var response = await _defaultClient.SendAsync(request, cancellationToken);
@@ -1345,12 +1342,12 @@ public class LoggingHttpClient : ISpeakeasyHttpClient
     {
         // Log request
         Console.WriteLine($"Sending {request.Method} request to {request.RequestUri}");
-
+        
         var response = await _innerClient.SendAsync(request, cancellationToken);
-
+        
         // Log response
         Console.WriteLine($"Received {response.StatusCode} response");
-
+        
         return response;
     }
 
@@ -1373,111 +1370,4 @@ This SDK is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for t
 Use of this SDK is subject to [Cvent's Product Terms of Use](https://www.cvent.com/en/product-terms-of-use).
 <!-- End License [license] -->
 
-# Development
-
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
-
-## Contributions
-
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation.
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
-
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=cvent-sdk&utm_campaign=csharp)
-
-<style>
-  :root {
-    --badge-gray-bg: #f3f4f6;
-    --badge-gray-border: #d1d5db;
-    --badge-gray-text: #374151;
-    --badge-blue-bg: #eff6ff;
-    --badge-blue-border: #3b82f6;
-    --badge-blue-text: #3b82f6;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --badge-gray-bg: #374151;
-      --badge-gray-border: #4b5563;
-      --badge-gray-text: #f3f4f6;
-      --badge-blue-bg: #1e3a8a;
-      --badge-blue-border: #3b82f6;
-      --badge-blue-text: #93c5fd;
-    }
-  }
-
-  h1 {
-    border-bottom: none !important;
-    margin-bottom: 4px;
-    margin-top: 0;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-  }
-
-  .badge-text {
-    letter-spacing: 1px;
-    font-weight: 300;
-  }
-
-  .badge-container {
-    display: inline-flex;
-    align-items: center;
-    background: var(--badge-gray-bg);
-    border: 1px solid var(--badge-gray-border);
-    border-radius: 6px;
-    overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 11px;
-    text-decoration: none;
-    vertical-align: middle;
-  }
-
-  .badge-container.blue {
-    background: var(--badge-blue-bg);
-    border-color: var(--badge-blue-border);
-  }
-
-  .badge-icon-section {
-    padding: 4px 8px;
-    border-right: 1px solid var(--badge-gray-border);
-    display: flex;
-    align-items: center;
-  }
-
-  .badge-text-section {
-    padding: 4px 10px;
-    color: var(--badge-gray-text);
-    font-weight: 400;
-  }
-
-  .badge-container.blue .badge-text-section {
-    color: var(--badge-blue-text);
-  }
-
-  .badge-link {
-    text-decoration: none;
-    margin-left: 8px;
-    display: inline-flex;
-    vertical-align: middle;
-  }
-
-  .badge-link:hover {
-    text-decoration: none;
-  }
-
-  .badge-link:first-child {
-    margin-left: 0;
-  }
-
-  .badge-icon-section svg {
-    color: var(--badge-gray-text);
-  }
-
-  .badge-container.blue .badge-icon-section svg {
-    color: var(--badge-blue-text);
-  }
-</style>
 <!-- Placeholder for Future Speakeasy SDK Sections -->
