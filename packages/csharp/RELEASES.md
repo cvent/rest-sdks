@@ -1,7 +1,7 @@
 ## 2024-12-15 00:00:00
 ### Changes
 Based on:
-- OpenAPI Doc  
+- OpenAPI Doc
 - Speakeasy CLI 1.675.4 (2.779.2) https://github.com/speakeasy-api/speakeasy
 ### Added
 - Type-safe methods and models for all API operations

@@ -79,8 +79,8 @@ public class Attendees {
 
         public _Deserializer() {
             super(Attendees.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddBulkItemErrorResponse>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddResponse>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddResponse>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddBulkItemErrorResponse>() {}, JsonShape.DEFAULT));
         }
     }
     

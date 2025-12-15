@@ -2,14 +2,6 @@
 
 Developer-friendly & type-safe Csharp SDK specifically catered to leverage *Cvent.SDK* API.
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=cvent-sdk&utm_campaign=csharp)
-[![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
-
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/cvent/universal-api-platform). Delete this section before > publishing to a package manager.
-
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -254,9 +246,7 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
+  * [License](#license)
 
 <!-- End Table of Contents [toc] -->
 
@@ -1372,19 +1362,12 @@ The SDK also provides built-in hook support through the `SDKConfiguration.Hooks`
 `BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.
 <!-- End Custom HTTP Client [http-client] -->
 
+<!-- Start License [license] -->
+## License
+
+This SDK is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for the full license text and third party notices.
+
+Use of this SDK is subject to [Cvent's Product Terms of Use](https://www.cvent.com/en/product-terms-of-use).
+<!-- End License [license] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-
-# Development
-
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
-
-## Contributions
-
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
-
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=cvent-sdk&utm_campaign=csharp)

@@ -96,10 +96,10 @@ public class ExternalActivityDataJson {
 
         public _Deserializer() {
             super(ExternalActivityDataJson.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonExhibitorExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonAppointmentExternal>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonEventExternal>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonSessionExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonEventExternal>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonAppointmentExternal>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonExhibitorExternal>() {}, JsonShape.DEFAULT));
         }
     }
     

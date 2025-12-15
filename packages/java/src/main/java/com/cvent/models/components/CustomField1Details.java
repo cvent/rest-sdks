@@ -96,10 +96,10 @@ public class CustomField1Details {
 
         public _Deserializer() {
             super(CustomField1Details.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<OpenEndedOneLine>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<Choices>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<OpenEndedCommentBox>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<OpenEndedCommentBox>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<Choices>() {}, JsonShape.DEFAULT));
         }
     }
     

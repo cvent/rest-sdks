@@ -90,9 +90,9 @@ public class Message {
 
         public _Deserializer() {
             super(Message.class, false,
+                  TypeReferenceWithShape.of(new TypeReference<EmailMessage>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<ChatMessage>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionQaMessage>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EmailMessage>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<SessionQaMessage>() {}, JsonShape.DEFAULT));
         }
     }
     

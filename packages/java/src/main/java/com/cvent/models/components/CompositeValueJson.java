@@ -96,9 +96,9 @@ public class CompositeValueJson {
 
         public _Deserializer() {
             super(CompositeValueJson.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<List<BudgetEstimateJson>>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<List<MeetingRoomRequirementJson>>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<List<SleepingRoomRequirementJson>>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<List<MeetingRoomRequirementJson>>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<List<BudgetEstimateJson>>() {}, JsonShape.DEFAULT));
         }
     }
     

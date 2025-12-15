@@ -79,8 +79,8 @@ public class AttendeeAddBulkItemEventJsonData {
 
         public _Deserializer() {
             super(AttendeeAddBulkItemEventJsonData.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddBulkItemEventJsonErrorResponse>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ZeroOneOf2>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<ZeroOneOf2>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddBulkItemEventJsonErrorResponse>() {}, JsonShape.DEFAULT));
         }
     }
     

@@ -84,8 +84,8 @@ public class ResponseReason {
 
         public _Deserializer() {
             super(ResponseReason.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<CancelledReason>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<DeclinedReason>() {}, JsonShape.DEFAULT));
+                  TypeReferenceWithShape.of(new TypeReference<DeclinedReason>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<CancelledReason>() {}, JsonShape.DEFAULT));
         }
     }
     

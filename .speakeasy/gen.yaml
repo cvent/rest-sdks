@@ -80,6 +80,7 @@ java:
   enableSlf4jLogging: false
   enableStreamingUploads: false
   flattenGlobalSecurity: false
+  forwardCompatibleEnumsByDefault: false
   generateOptionalUnionAccessors: false
   generateSpringBootStarter: false
   githubURL: https://github.com/cvent/rest-sdks
