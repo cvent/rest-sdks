@@ -1,6 +1,6 @@
 {
   "name": "@cvent/sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Cvent",
   "files": [
     "dist/",
@@ -24,6 +24,10 @@
     }
   },
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cvent/rest-sdks"
+  },
   "scripts": {
     "lint": "eslint --cache --max-warnings=0 src",
     "build": "tshy",
