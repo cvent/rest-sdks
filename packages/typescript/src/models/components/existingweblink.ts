@@ -48,7 +48,7 @@ export type ExistingWeblink = {
   /**
    * True indicates the weblink is hidden from attendees.
    */
-  hidden?: boolean | undefined;
+  hidden: boolean;
   /**
    * Display order for exhibitor weblink content.
    */

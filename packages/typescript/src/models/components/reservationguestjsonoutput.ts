@@ -99,11 +99,11 @@ export type ReservationGuestJsonOutput = {
   /**
    * Code that specifies if the guest is an adult or child. (10 - adult, 8 - child)
    */
-  ageQualifyingCode?: AgeQualifyingCode | undefined;
+  ageQualifyingCode: AgeQualifyingCode;
   /**
    * True indicates this guest is the primary guest for the reservation.
    */
-  primary?: boolean | undefined;
+  primary: boolean;
   /**
    * Locale code in IETF language tag format.
    */

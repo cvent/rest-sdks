@@ -64,7 +64,7 @@ export type PropertyRoom = {
   /**
    * True indicates the property room is deleted.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * Code representing the bed type.
    */

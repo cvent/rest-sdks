@@ -28,7 +28,7 @@ export type HubLoginJson = {
   /**
    * Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic link' provided via email. Magic links are unique for each member, allowing the member to log in without requiring credentials. SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub. BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
    */
-  type?: HubLoginJsonType | undefined;
+  type: HubLoginJsonType;
   /**
    * Organization identifier of a Cvent identity provider when SSO login type is selected. This value is provided by Cvent when an account is first configured to support SSO. To read more about Cvent SSO support, see https://developers.cvent.com/docs/sso/overview.
    */

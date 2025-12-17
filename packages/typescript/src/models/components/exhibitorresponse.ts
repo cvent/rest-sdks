@@ -95,19 +95,19 @@ export type ExhibitorResponse = {
   /**
    * A boolean indicating whether the exhibitor is deleted or not
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * True indicates that the exhibitor is hidden.
    */
-  hidden?: boolean | undefined;
+  hidden: boolean;
   /**
    * A boolean indicating whether the exhibitor is an event sponsor or not
    */
-  eventSponsor?: boolean | undefined;
+  eventSponsor: boolean;
   /**
    * A boolean indicating whether the exhibitor is designated as featured or not
    */
-  featured?: boolean | undefined;
+  featured: boolean;
   /**
    * Associated sponsorship level for an exhibitor
    */

@@ -43,7 +43,7 @@ export type Brand = {
   /**
    * True indicates the brand is deleted.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
 };
 
 /** @internal */

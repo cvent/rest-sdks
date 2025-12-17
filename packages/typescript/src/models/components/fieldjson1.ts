@@ -51,7 +51,7 @@ export type FieldJson1 = {
   /**
    * Is this a mandatory field
    */
-  required?: boolean | undefined;
+  required: boolean;
 };
 
 /** @internal */

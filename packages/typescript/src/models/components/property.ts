@@ -75,11 +75,11 @@ export type Property = {
   /**
    * True indicates that the property is deleted.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * The ISO 4217 standard format currency code specified for the property.
    */
-  currencyCode?: string | undefined;
+  currencyCode: string;
   /**
    * A physical address.
    */

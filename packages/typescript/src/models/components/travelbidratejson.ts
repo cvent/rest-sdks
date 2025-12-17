@@ -23,7 +23,7 @@ export type TravelBidRateJson = {
   /**
    * Rate type.
    */
-  type?: RateTypeJson | undefined;
+  type: RateTypeJson;
   /**
    * The code given to the bid (also called rate plan) by the supplier.
    */

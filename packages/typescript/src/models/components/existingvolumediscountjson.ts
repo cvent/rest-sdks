@@ -58,11 +58,11 @@ export type ExistingVolumeDiscountJson = {
   /**
    * True indicates that the discount is active.
    */
-  active?: boolean | undefined;
+  active: boolean;
   /**
    * True indicates that the discount can be clubbed together with other stackable discounts
    */
-  stackable?: boolean | undefined;
+  stackable: boolean;
   /**
    * Details about how the discount applies.
    */
@@ -82,7 +82,7 @@ export type ExistingVolumeDiscountJson = {
   /**
    * Specifies who will receive the discount once the threshold for the number of ordered items is met or exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount. `BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted. Further registrations are at full price. If primaryRegistrant is not included then the first registrant is full price. Every registration afterward, up to and including the threshold, are discounted. Any additional registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth registration counting from the threshold recieves a discount, where N is defined by the `interval` field.
    */
-  thresholdType?: VolumeDiscountThresholdTypeJson | undefined;
+  thresholdType: VolumeDiscountThresholdTypeJson;
   /**
    * Defines the threshold limit for the volume discount.
    */
@@ -90,11 +90,11 @@ export type ExistingVolumeDiscountJson = {
   /**
    * Defines the interval for the volume discount when threshold type is EVERY_NTH_REGISTRANT. Every Nth registration counting from the threshold receives a discount.
    */
-  interval?: number | undefined;
+  interval: number;
   /**
    * True indicates if the primary registrant is included in evaluating if threshold is met for the volume discount when threshold type is BEFORE_THRESHOLD_LIMIT.
    */
-  includePrimaryRegistrant?: boolean | undefined;
+  includePrimaryRegistrant: boolean;
   /**
    * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
    */

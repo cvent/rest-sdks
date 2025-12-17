@@ -67,7 +67,7 @@ export type ExistingCustomField = {
   /**
    * Whether answer to custom field is mandatory or not.
    */
-  required?: boolean | undefined;
+  required: boolean;
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
@@ -87,7 +87,7 @@ export type ExistingCustomField = {
   /**
    * This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
    */
-  displayInDataTag?: DisplayInDataTagJson | undefined;
+  displayInDataTag: DisplayInDataTagJson;
   /**
    * Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
    */
@@ -95,15 +95,15 @@ export type ExistingCustomField = {
   /**
    * True means that this is a consent field. Only applicable to contact custom fields.
    */
-  consentField?: boolean | undefined;
+  consentField: boolean;
   /**
    * True means that this custom field is active. Determines visibility for event custom fields.
    */
-  active?: boolean | undefined;
+  active: boolean;
   /**
    * True means that the field will be displayed in the event creation wizard. Only applicable to event custom fields.
    */
-  displayInEventCreationWizard?: boolean | undefined;
+  displayInEventCreationWizard: boolean;
   /**
    * Visibility of the custom field on various pages/forms.
    */

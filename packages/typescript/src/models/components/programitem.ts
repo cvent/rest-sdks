@@ -54,7 +54,7 @@ export type ProgramItem = {
   /**
    * The duration of the program item in minutes.
    */
-  duration?: number | undefined;
+  duration: number;
   /**
    * Description of the program item.
    */

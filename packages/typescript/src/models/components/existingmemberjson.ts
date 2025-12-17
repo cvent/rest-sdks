@@ -104,7 +104,7 @@ export type ExistingMemberJson = {
   /**
    * True indicates member profile is visible to other members.
    */
-  visible?: boolean | undefined;
+  visible: boolean;
   /**
    * The unique ID of the member.
    */

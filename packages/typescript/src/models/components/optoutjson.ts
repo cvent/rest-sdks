@@ -15,7 +15,7 @@ export type OptOutJson = {
   /**
    * Used to denote if a contact has opted-out of receiving system generated emails.
    */
-  optedOut?: boolean | undefined;
+  optedOut: boolean;
   /**
    * The ISO 8601 zoned date time when this contact was opted-out. This value can change if the contact opts out multiple times.
    */

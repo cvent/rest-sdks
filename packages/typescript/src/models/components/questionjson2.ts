@@ -94,7 +94,7 @@ export type QuestionJson2 = {
   /**
    * Is this a mandatory question
    */
-  required?: boolean | undefined;
+  required: boolean;
   /**
    * List of fields for form/matrix questions
    */

@@ -94,7 +94,7 @@ export type Oauth2TokenResponse = {
   /**
    * The lifetime in seconds of the access token.
    */
-  expiresIn?: number | undefined;
+  expiresIn: number;
 };
 
 /** @internal */

@@ -80,15 +80,15 @@ export type TravelProposalBid = {
   /**
    * Bid stay type.
    */
-  stayType?: BidStayTypeJson | undefined;
+  stayType: BidStayTypeJson;
   /**
    * The order of the bid compared to other bids of the same stay type. This is used to distinguish between extended stay 1 vs extended stay 2.
    */
-  order?: number | undefined;
+  order: number;
   /**
    * Bid stay type.
    */
-  status?: BidStatusTypeJson | undefined;
+  status: BidStatusTypeJson;
   /**
    * Name given to the bid.
    */
@@ -112,15 +112,15 @@ export type TravelProposalBid = {
   /**
    * Does the bid include LRA (Last Room Availability) rates?
    */
-  lra?: boolean | undefined;
+  lra: boolean;
   /**
    * Does the bid include non-LRA rates?
    */
-  nlra?: boolean | undefined;
+  nlra: boolean;
   /**
    * Are the fair date rates LRA (Last Room Availability)?
    */
-  fairDateLra?: boolean | undefined;
+  fairDateLra: boolean;
   /**
    * Additional comments passed from the domain-level rate plan.
    */

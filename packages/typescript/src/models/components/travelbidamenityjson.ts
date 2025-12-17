@@ -34,7 +34,7 @@ export type TravelBidAmenityJson = {
   /**
    * True indicates the amenity price is included in the rate.
    */
-  included?: boolean | undefined;
+  included: boolean;
   /**
    * The price of the amenity.
    */

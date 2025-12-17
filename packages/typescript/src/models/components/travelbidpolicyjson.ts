@@ -38,7 +38,7 @@ export type TravelBidPolicyJson = {
   /**
    * True indicates the policy fee included in the rate. Only applies to policies with a value type of money or percent.
    */
-  included?: boolean | undefined;
+  included: boolean;
   /**
    * Additional notes on the policy.
    */

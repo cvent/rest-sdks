@@ -95,7 +95,7 @@ export type ExistingExhibitorQuestion = {
   /**
    * The unique display order of the exhibitor question.
    */
-  displayOrder?: number | undefined;
+  displayOrder: number;
 };
 
 /** @internal */

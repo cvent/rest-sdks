@@ -167,11 +167,11 @@ export type Contact = {
   /**
    * True indicates a contact is deleted. Deleted contacts still have their data retained, but the contact is inactive.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * True indicates a contact is purged. Purged contacts have only partial data retained, and will be permanently deleted in 30 days.
    */
-  purged?: boolean | undefined;
+  purged: boolean;
   /**
    * Details of an opt-out for a Contact.
    */

@@ -102,7 +102,7 @@ export type TravelProposal = {
   /**
    * True indicates the proposal is deleted.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * The rate review status of the proposal
    */
@@ -118,7 +118,7 @@ export type TravelProposal = {
   /**
    * True indicates the documents been read by the supply-side.
    */
-  documentRead?: boolean | undefined;
+  documentRead: boolean;
   /**
    * Reason the reject/decline action was performed. Used for certain actions/statuses.
    */

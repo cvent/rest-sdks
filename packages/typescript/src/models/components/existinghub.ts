@@ -71,7 +71,7 @@ export type ExistingHub = {
   /**
    * True guarantees that controls shown on the page will contrast with the background color.
    */
-  themeSafeMode?: boolean | undefined;
+  themeSafeMode: boolean;
   /**
    * The logo for the Events+ hub.
    */
@@ -103,7 +103,7 @@ export type ExistingHub = {
   /**
    * Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose of identifying and tracking traffic) settings will override passed in items.
    */
-  utmOverride?: UtmOverrideJson | undefined;
+  utmOverride: UtmOverrideJson;
   /**
    * The fonts of the Events+ hub.
    */

@@ -14,11 +14,11 @@ export type ExhibitorAnswerLimitsJson = {
   /**
    * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to maxLength.
    */
-  minLength?: number | undefined;
+  minLength: number;
   /**
    * Maximum length of the answer for OpenEndedTextCommentBox questions.
    */
-  maxLength?: number | undefined;
+  maxLength: number;
   /**
    * Minimum number of choices required for MultiChoice questions. It must be less than or equal to maxSelections.
    */

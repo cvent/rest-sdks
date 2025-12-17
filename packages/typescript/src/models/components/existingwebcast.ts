@@ -87,7 +87,7 @@ export type ExistingWebcast = {
   /**
    * This is used to denote the format of a webcast
    */
-  format?: FormatJson | undefined;
+  format: FormatJson;
   /**
    * This is used to denote the type of a webcast
    */
@@ -115,7 +115,7 @@ export type ExistingWebcast = {
   /**
    * Indicates if the live stream recording will be added to the library automatically
    */
-  autoAddToLibrary?: boolean | undefined;
+  autoAddToLibrary: boolean;
   /**
    * Indicates if the on demand video is available
    */

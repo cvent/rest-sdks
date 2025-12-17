@@ -45,7 +45,7 @@ export type UserJson = {
   /**
    * True indicates the user is active.
    */
-  active?: boolean | undefined;
+  active: boolean;
   /**
    * The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
    */
@@ -69,7 +69,7 @@ export type UserJson = {
   /**
    * List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
    */
-  timezone?: string | undefined;
+  timezone: string;
   /**
    * The locale of the user. The IETF Language Tag format is used.
    */
