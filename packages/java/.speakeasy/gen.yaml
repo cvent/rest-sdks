@@ -1,0 +1,78 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: CventSDK
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: false
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: false
+  inferSSEOverload: true
+  sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  mockServer:
+    disabled: false
+  persistentEdits:
+    enabled: never
+  tests:
+    generateTests: true
+    generateNewTests: true
+    skipResponseBodyAssertions: false
+java:
+  version: 1.0.1
+  additionalDependencies: []
+  additionalPlugins: []
+  artifactID: sdk
+  asyncMode: enabled
+  baseErrorName: CventSDKError
+  clientServerStatusCodesAsErrors: true
+  companyEmail: info@cvent.com
+  companyName: Cvent
+  companyURL: www.cvent.com
+  defaultErrorName: APIException
+  enableCustomCodeRegions: false
+  enableSlf4jLogging: false
+  enableStreamingUploads: false
+  flattenGlobalSecurity: false
+  forwardCompatibleEnumsByDefault: false
+  generateOptionalUnionAccessors: false
+  generateSpringBootStarter: false
+  githubURL: https://github.com/cvent/rest-sdks
+  groupID: com.cvent
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inferUnionDiscriminators: false
+  inputModelSuffix: input
+  languageVersion: 11
+  license:
+    name: MIT
+    shortName: MIT
+    url: https://opensource.org/licenses/MIT
+  maxMethodParams: 0
+  multipartArrayFormat: legacy
+  nullFriendlyParameters: true
+  openUnions: true
+  operationScopedParams: true
+  outputModelSuffix: output
+  packageName: com.cvent
+  projectName: cvent-sdk
+  templateVersion: v2
+  unionStrategy: populated-fields
