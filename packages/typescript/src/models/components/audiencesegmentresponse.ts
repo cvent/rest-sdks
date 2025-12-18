@@ -51,11 +51,11 @@ export type AudienceSegmentResponse = {
   /**
    * Creation type of the audience segment.
    */
-  creationType?: ExistingAudienceSegmentCreationTypeJson | undefined;
+  creationType: ExistingAudienceSegmentCreationTypeJson;
   /**
    * Boolean representing whether segment is deleted or not.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
 };
 
 /** @internal */

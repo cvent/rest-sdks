@@ -109,7 +109,7 @@ export type ExistingSpeaker = {
   /**
    * Indicates if a given speaker should be displayed on Event Website
    */
-  visibility?: boolean | undefined;
+  visibility: boolean;
   /**
    * The speaker's biography
    */
@@ -121,7 +121,7 @@ export type ExistingSpeaker = {
   /**
    * Indicates if a given speaker is a featured speaker
    */
-  featured?: boolean | undefined;
+  featured: boolean;
   /**
    * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to the search result. Larger numbers represent higher relevance with respect to other search results in the request. Null if no `match` filter is provided.
    */

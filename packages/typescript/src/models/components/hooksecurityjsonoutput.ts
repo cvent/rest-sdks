@@ -57,11 +57,11 @@ export type APIKeyAuthenticationOutput = {
   /**
    * The header key for which API Key will be sent in callback requests. If this field is not set, the API key is sent in the 'Authorization' header.
    */
-  authHeaderKey?: string | undefined;
+  authHeaderKey: string;
   /**
    * Whether API Key Value is prefixed by 'api_key'. When set to true, the authorization header's value in callback requests will be 'api_key 2b3cc2bf083ff11206ce6b2f3ee09591'
    */
-  apiKeyPrefix?: boolean | undefined;
+  apiKeyPrefix: boolean;
 };
 
 /**

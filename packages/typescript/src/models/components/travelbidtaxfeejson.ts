@@ -27,11 +27,11 @@ export type TravelBidTaxFeeJson = {
   /**
    * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
    */
-  percent?: boolean | undefined;
+  percent: boolean;
   /**
    * True indicates the tax/fee included in the negotiated rate.
    */
-  included?: boolean | undefined;
+  included: boolean;
   /**
    * Additional notes on the tax/fee.
    */

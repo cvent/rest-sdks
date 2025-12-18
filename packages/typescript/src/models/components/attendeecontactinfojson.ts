@@ -38,7 +38,7 @@ export type OptOut = {
   /**
    * True indicates a contact has opted-out of receiving system generated emails.
    */
-  optedOut?: boolean | undefined;
+  optedOut: boolean;
 };
 
 /**
@@ -182,7 +182,7 @@ export type AttendeeContactInfoJson = {
   /**
    * True indicates a contact is deleted.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * The headline of the contact's profile, which summarizes their professional experience and qualities.
    */

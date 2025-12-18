@@ -175,7 +175,7 @@ export type Session = {
   /**
    * Indicates whether to display the session on Agenda.
    */
-  displayOnAgenda?: boolean | undefined;
+  displayOnAgenda: boolean;
   /**
    * Indicates if the session is featured
    */
@@ -223,7 +223,7 @@ export type Session = {
   /**
    * Indicator to specify if this session was automatically included with the event.
    */
-  includedSession?: boolean | undefined;
+  includedSession: boolean;
   /**
    * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to the search result. Larger numbers represent higher relevance with respect to other search results in the request. Null if no `match` filter is provided.
    */

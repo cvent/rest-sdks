@@ -44,7 +44,7 @@ export type ExistingFile = {
   /**
    * True indicates the file is hidden from attendees.
    */
-  hidden?: boolean | undefined;
+  hidden: boolean;
   /**
    * Display order for exhibitor file content.
    */

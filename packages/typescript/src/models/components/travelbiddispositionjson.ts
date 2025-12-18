@@ -31,7 +31,7 @@ export type TravelBidDispositionJson = {
   /**
    * Rate type.
    */
-  rateType?: RateTypeJson | undefined;
+  rateType: RateTypeJson;
 };
 
 /** @internal */

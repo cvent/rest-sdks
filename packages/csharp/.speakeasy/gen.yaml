@@ -1,0 +1,66 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: CventSDK
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: false
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: false
+  inferSSEOverload: true
+  sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  mockServer:
+    disabled: false
+  persistentEdits:
+    enabled: never
+  tests:
+    generateTests: true
+    generateNewTests: true
+    skipResponseBodyAssertions: false
+csharp:
+  version: 1.0.3
+  additionalDependencies: []
+  author: Cvent
+  baseErrorName: CventSDKException
+  clientServerStatusCodesAsErrors: true
+  defaultErrorName: APIException
+  disableNamespacePascalCasingApr2024: true
+  dotnetVersion: net8.0
+  enableCancellationToken: false
+  enableSourceLink: true
+  flattenGlobalSecurity: false
+  flatteningOrder: parameters-first
+  httpClientPrefix: ""
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Requests
+      shared: Models/Components
+      webhooks: Models/Webhooks
+  includeDebugSymbols: true
+  inferUnionDiscriminators: false
+  inputModelSuffix: input
+  maxMethodParams: 0
+  methodArguments: infer-optional-args
+  multipartArrayFormat: legacy
+  outputModelSuffix: output
+  packageName: Cvent.SDK
+  packageTags: Cvent
+  responseFormat: envelope-http
+  sourceDirectory: src
+  useNodatime: false

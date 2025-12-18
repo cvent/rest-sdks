@@ -20,8 +20,8 @@ public class SDKConfiguration {
 
     private static final String LANGUAGE = "java";
     public static final String OPENAPI_DOC_VERSION = "ea";
-    public static final String SDK_VERSION = "1.0.1";
-    public static final String GEN_VERSION = "2.781.2";
+    public static final String SDK_VERSION = "1.0.2";
+    public static final String GEN_VERSION = "2.788.5";
     private static final String BASE_PACKAGE = "com.cvent";
     public static final String USER_AGENT = 
             String.format("speakeasy-sdk/%s %s %s %s %s",

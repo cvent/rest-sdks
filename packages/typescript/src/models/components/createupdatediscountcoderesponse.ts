@@ -62,11 +62,11 @@ export type CreateUpdateDiscountCodeResponse = {
   /**
    * True indicates that the discount is active.
    */
-  active?: boolean | undefined;
+  active: boolean;
   /**
    * True indicates that the discount can be clubbed together with other stackable discounts
    */
-  stackable?: boolean | undefined;
+  stackable: boolean;
   /**
    * Details about how the discount applies.
    */
@@ -90,19 +90,19 @@ export type CreateUpdateDiscountCodeResponse = {
   /**
    * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants and their guests. `GUEST`: Any attendee invited to the event. `ALL`: An attendee who's the guest of a primary registrant.
    */
-  audienceType?: DiscountAudienceTypeJson | undefined;
+  audienceType: DiscountAudienceTypeJson;
   /**
    * True indicates that guests will be included along with primary registrants towards the discount code's capacity.
    */
-  includeGuestsTowardsCapacity?: boolean | undefined;
+  includeGuestsTowardsCapacity: boolean;
   /**
    * True indicates that the discount is auto-applied to registrants.
    */
-  autoApply?: boolean | undefined;
+  autoApply: boolean;
   /**
    * True indicates that the discount is applied to all agenda items and requires at least one item to be associated. False indicates that the discount is applied to the final total. this is specific to event level discount.
    */
-  applyToAllAgendaItems?: boolean | undefined;
+  applyToAllAgendaItems: boolean;
   /**
    * A unique identifier of the discount.
    */

@@ -142,7 +142,7 @@ export type ProposalResponse = {
   /**
    * The type of the proposal.
    */
-  type?: ProposalTypeJson | undefined;
+  type: ProposalTypeJson;
   /**
    * Represents a summary of supplier information associated with current proposal.
    */
@@ -238,7 +238,7 @@ export type ProposalResponse = {
   /**
    * The status of the proposal. See [definitions of proposal statuses](https://support.cvent.com/s/communityarticle/Understanding-RFP-and-Proposal-Statuses)
    */
-  status?: ProposalStatusJson | undefined;
+  status: ProposalStatusJson;
   /**
    * The version number associated with the proposal.
    */

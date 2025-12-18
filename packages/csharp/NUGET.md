@@ -230,7 +230,7 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs): The base class for HTTP error responses.
   * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common exceptions (4)</summary>
+**Less common exceptions (4)**
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
@@ -238,7 +238,6 @@ catch (System.Net.Http.HttpRequestException ex)
   * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 423 methods.*
   * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 423 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
-</details>
 
 \* Refer to the [relevant documentation](#available-resources-and-operations) to determine whether an exception applies to a specific operation.
 <!-- End Error Handling [errors] -->
@@ -433,8 +432,7 @@ var customHttpClient = new CustomHttpClient();
 var sdk = new CventSDK(client: customHttpClient);
 ```
 
-<details>
-<summary>You can also provide a completely custom HTTP client with your own configuration:</summary>
+**You can also provide a completely custom HTTP client with your own configuration:**
 
 ```csharp
 using Cvent.SDK.Utils;
@@ -476,10 +474,8 @@ var sdk = CventSDK.Builder()
     .WithClient(new AdvancedHttpClient())
     .Build();
 ```
-</details>
 
-<details>
-<summary>For simple debugging, you can enable request/response logging by implementing a custom client:</summary>
+**For simple debugging, you can enable request/response logging by implementing a custom client:**
 
 ```csharp
 public class LoggingHttpClient : ISpeakeasyHttpClient
@@ -509,7 +505,6 @@ public class LoggingHttpClient : ISpeakeasyHttpClient
 
 var sdk = new CventSDK(client: new LoggingHttpClient());
 ```
-</details>
 
 The SDK also provides built-in hook support through the `SDKConfiguration.Hooks` system, which automatically handles
 `BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.

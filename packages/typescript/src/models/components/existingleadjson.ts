@@ -179,11 +179,11 @@ export type ExistingLeadJson = {
   /**
    * The type of lead.
    */
-  type?: ExistingLeadJsonType | undefined;
+  type: ExistingLeadJsonType;
   /**
    * The application used to capture lead.
    */
-  application?: Application | undefined;
+  application: Application;
   /**
    * The source of entry for the lead
    */
@@ -191,7 +191,7 @@ export type ExistingLeadJson = {
   /**
    * A boolean indicating whether a lead is deleted or not
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * Comments about the lead
    */

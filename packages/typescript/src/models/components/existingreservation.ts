@@ -161,7 +161,7 @@ export type ExistingReservation = {
   /**
    * True indicates an email acknowledgement after reservation creation will be sent.
    */
-  sendAcknowledgement?: boolean | undefined;
+  sendAcknowledgement: boolean;
   /**
    * True indicates each guest in this reservation would pay separately.
    */
@@ -207,23 +207,23 @@ export type ExistingReservation = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  isCancelled?: boolean | undefined;
+  isCancelled: boolean;
   /**
    * True indicates this reservation is cancelled.
    */
-  isCanceled?: boolean | undefined;
+  isCanceled: boolean;
   /**
    * True indicates this reservation is a NO SHOW.
    */
-  noShow?: boolean | undefined;
+  noShow: boolean;
   /**
    * True indicates this reservation was modified.
    */
-  isModified?: boolean | undefined;
+  isModified: boolean;
   /**
    * True indicates this reservation is on the wait list.
    */
-  isWaitListed?: boolean | undefined;
+  isWaitListed: boolean;
   /**
    * The ISO 8601 zoned date time when the reservation was cancelled.
    */

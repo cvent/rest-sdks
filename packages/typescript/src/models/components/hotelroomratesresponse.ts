@@ -31,7 +31,7 @@ export type HotelRoomRatesResponse = {
   /**
    * ISO 4217 currency code.
    */
-  currencyCode?: string | undefined;
+  currencyCode: string;
   /**
    * The hotel code.
    */

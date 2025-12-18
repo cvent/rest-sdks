@@ -54,7 +54,7 @@ export type ContactGroup = {
   /**
    * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events. `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to. `STANDARD` is a multi-purpose group for organizing contacts.
    */
-  type?: ContactGroupTypeJson | undefined;
+  type: ContactGroupTypeJson;
   /**
    * Moved to internalNote in the DistributionListInfo object. The note field only applies to Distribution List.
    *

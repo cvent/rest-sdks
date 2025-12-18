@@ -26,7 +26,7 @@ export type CategoryJson2 = {
   /**
    * is the category mandatory for answer
    */
-  required?: boolean | undefined;
+  required: boolean;
 };
 
 /** @internal */

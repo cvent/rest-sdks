@@ -22,7 +22,7 @@ export type ProductOrderItemJson = {
   /**
    * This is used to denote the product type.
    */
-  type?: OrderItemTypeJson | undefined;
+  type: OrderItemTypeJson;
 };
 
 /** @internal */

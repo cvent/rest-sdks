@@ -71,7 +71,7 @@ export type FeeItemJson = {
   /**
    * True indicates that the fee is active.
    */
-  active?: boolean | undefined;
+  active: boolean;
   /**
    * True indicates that the fee displays in the fee widget.
    */

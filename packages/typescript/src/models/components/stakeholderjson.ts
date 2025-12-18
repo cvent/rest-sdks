@@ -74,7 +74,7 @@ export type StakeholderJsonContactOptOut = {
   /**
    * Used to denote if a contact has opted-out of receiving system generated emails.
    */
-  optedOut?: boolean | undefined;
+  optedOut: boolean;
   /**
    * The ISO 8601 zoned date time when this contact was opted-out. This value can change if the contact opts out multiple times.
    */
@@ -332,7 +332,7 @@ export type StakeholderJson = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
   /**
    * The middle name of the contact.
    *

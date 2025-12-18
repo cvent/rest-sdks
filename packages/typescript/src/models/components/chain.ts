@@ -61,7 +61,7 @@ export type Chain = {
   /**
    * True indicates the chain is deleted.
    */
-  deleted?: boolean | undefined;
+  deleted: boolean;
 };
 
 /** @internal */

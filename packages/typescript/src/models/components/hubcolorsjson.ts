@@ -26,7 +26,7 @@ export type HubColorsJson = {
   /**
    * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main color.
    */
-  mood?: string | undefined;
+  mood: string;
 };
 
 /** @internal */

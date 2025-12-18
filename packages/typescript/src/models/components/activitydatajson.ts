@@ -1227,7 +1227,7 @@ export type EmailBounced = {
   /**
    * Used to denote if a recipient has opted-out of receiving emails.
    */
-  optOut?: boolean | undefined;
+  optOut: boolean;
 };
 
 /**

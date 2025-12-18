@@ -14,15 +14,15 @@ export type AttendeeInsightsStats = {
   /**
    * Average engagement score across all attendees.
    */
-  averageAttendeeScore?: number | undefined;
+  averageAttendeeScore: number;
   /**
    * Count of attendees who've participated in an engagement score.
    */
-  attendeeCount?: number | undefined;
+  attendeeCount: number;
   /**
    * Count of all activities included in an engagement score.
    */
-  activityCount?: number | undefined;
+  activityCount: number;
 };
 
 /** @internal */

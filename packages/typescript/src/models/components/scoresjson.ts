@@ -49,11 +49,11 @@ export type ScoresJson = {
   /**
    * The number of points earned by an attendee in this engagement score.
    */
-  points?: number | undefined;
+  points: number;
   /**
    * Attendees rank amongst other attendees in terms of points scored.
    */
-  rank?: number | undefined;
+  rank: number;
 };
 
 /** @internal */
