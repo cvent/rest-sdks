@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:5235e9ef8056250b8e17a7b7d5e2703ca7d1e9584dcdbe1d6e18c129eb74963f
         sourceBlobDigest: sha256:96bd13a8d10b42a6edb5bac9fb46062a4e3b312e2229e4501113b31cee8d28d6
         codeSamplesNamespace: csharp
-        codeSamplesRevisionDigest: sha256:80c3fe4aced9e327e133861011b015b65b1068ff4f38189f799d0a6ea3ffd171
+        codeSamplesRevisionDigest: sha256:c3adb887af27251c2313847a77c9e9a5403c7fd6a748118393ff9bc0c8e1c7e1
     public-java:
         source: Public
         sourceNamespace: public

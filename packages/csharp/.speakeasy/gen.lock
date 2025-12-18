@@ -5,8 +5,8 @@ management:
   docVersion: ea
   speakeasyVersion: 1.680.1
   generationVersion: 2.788.5
-  releaseVersion: 1.0.3
-  configChecksum: 50f62e84a19262885079582810d444cc
+  releaseVersion: 1.0.4
+  configChecksum: 1de7de9c446ca48c190c16c42d044c47
   published: true
 persistentEdits:
   generation_id: c50843e4-e393-4964-8f45-57aa92ab8994
@@ -44,7 +44,7 @@ trackedFiles:
     pristine_git_object: ec6bbb4bbe2f8ad9230b01a2da715a63475f5e3d
   NUGET.md:
     id: f4c8a442a6e5
-    last_write_checksum: sha1:0c53d357e9e5f2212f271ad70fd05084a22d4541
+    last_write_checksum: sha1:a964c4c1fc2f836734a536ea60a2052a78a70dae
     pristine_git_object: 7a318ebe39215ade31d133b8f5920eb190ea74e3
   USAGE.md:
     id: 3aed33ce6e6f
@@ -8968,7 +8968,7 @@ trackedFiles:
     pristine_git_object: 53a91b2b68035039b16cd37290f8d218462eab15
   docs/sdks/bulk/README.md:
     id: fa4bd7a4682a
-    last_write_checksum: sha1:a62d0391428cad9aa38a057fd144b11962b783e9
+    last_write_checksum: sha1:8630e732aca52cd4eccd140bbdbd28de9b866aea
     pristine_git_object: 4d706fcb345914cfb1fa370fcb0fec8fae121e10
   docs/sdks/campaigns/README.md:
     id: 18dcc3c717ca
@@ -9188,7 +9188,7 @@ trackedFiles:
     pristine_git_object: 977cd7381c7598682830d6e4a64a85cb14130b98
   src/Cvent/SDK/Cvent.SDK.csproj:
     id: 7a55759bc2f0
-    last_write_checksum: sha1:821cdcecfd921d4bfb20c66fbd15ef6199d19a19
+    last_write_checksum: sha1:dae5fbe7e862b0e991a42fe9bc8bdb04308a9b9b
     pristine_git_object: 711013944bc0505858b0b7cf177f166071b47593
   src/Cvent/SDK/CventSDK.cs:
     id: f7e1ad22cd8f
@@ -18176,7 +18176,7 @@ trackedFiles:
     pristine_git_object: 58003eaf89fe1986cc662177f443175c4da22c63
   src/Cvent/SDK/SDKConfig.cs:
     id: 7ad7086454a8
-    last_write_checksum: sha1:150d56c7d50cc5a349f54a950da986a065b7213e
+    last_write_checksum: sha1:423c8b79b79049f4bead62486e13c40ff4a61255
     pristine_git_object: 796c23cd551fbe87f613d89d60ed25ac5fe0c54b
   src/Cvent/SDK/Seating.cs:
     id: 01c249fc2746
@@ -18232,7 +18232,7 @@ trackedFiles:
     pristine_git_object: a75f770b33edd25c0fa4d4a77ab523da12d269ba
   src/Cvent/SDK/Utils/Constants.cs:
     id: 231d94d8a5dc
-    last_write_checksum: sha1:365e612701b47a6d50be11df08e9c9659de18489
+    last_write_checksum: sha1:f5a96a7659f6f436ee6d7d934ec75314037d0f75
     pristine_git_object: 0a54932893793a10e459afbc15920803cff3ed1e
   src/Cvent/SDK/Utils/CventSDKHttpClient.cs:
     id: 374fee4fdbaf

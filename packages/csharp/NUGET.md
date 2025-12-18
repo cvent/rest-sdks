@@ -404,7 +404,7 @@ public class CustomHttpClient : ISpeakeasyHttpClient
         // Add custom header and timeout
         request.Headers.Add("x-custom-header", "custom value");
         request.Headers.Add("x-request-timeout", "30");
-
+        
         try
         {
             var response = await _defaultClient.SendAsync(request, cancellationToken);
@@ -491,12 +491,12 @@ public class LoggingHttpClient : ISpeakeasyHttpClient
     {
         // Log request
         Console.WriteLine($"Sending {request.Method} request to {request.RequestUri}");
-
+        
         var response = await _innerClient.SendAsync(request, cancellationToken);
-
+        
         // Log response
         Console.WriteLine($"Received {response.StatusCode} response");
-
+        
         return response;
     }
 
