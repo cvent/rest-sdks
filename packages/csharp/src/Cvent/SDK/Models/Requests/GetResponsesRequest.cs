@@ -51,10 +51,12 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Following are the comparison types that can be used in filter expressions:<br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         ///   * id (eq|ne)<br/>
         ///   * survey.id (eq)<br/>

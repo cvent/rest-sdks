@@ -61,8 +61,8 @@ BulkJobWithDataInput req = new BulkJobWithDataInput() {
     Url = "/contacts/{id}",
     Operation = BulkJobWithDataOperation.Put,
     Headers = new Dictionary<string, string>() {
-        { "header1", "header1Value" },
         { "header2", "header2Value" },
+        { "header1", "header1Value" },
     },
     QueryParams = new Dictionary<string, string>() {
         { "param1", "param1Value" },
@@ -82,11 +82,11 @@ BulkJobWithDataInput req = new BulkJobWithDataInput() {
                 { "header2", "header2Value" },
             },
             DataRecord = new Dictionary<string, BulkDataRecordJson>() {
+                { "end", new BulkDataRecordJson() {} },
+                { "status", new BulkDataRecordJson() {} },
                 { "event", new BulkDataRecordJson() {} },
                 { "title", new BulkDataRecordJson() {} },
                 { "start", new BulkDataRecordJson() {} },
-                { "end", new BulkDataRecordJson() {} },
-                { "status", new BulkDataRecordJson() {} },
             },
         },
     },
@@ -253,11 +253,11 @@ UploadBulkJobDataRequest req = new UploadBulkJobDataRequest() {
                     { "header2", "header2Value" },
                 },
                 DataRecord = new Dictionary<string, BulkDataRecordJson>() {
+                    { "event", new BulkDataRecordJson() {} },
+                    { "title", new BulkDataRecordJson() {} },
                     { "start", new BulkDataRecordJson() {} },
                     { "end", new BulkDataRecordJson() {} },
                     { "status", new BulkDataRecordJson() {} },
-                    { "event", new BulkDataRecordJson() {} },
-                    { "title", new BulkDataRecordJson() {} },
                 },
             },
         },

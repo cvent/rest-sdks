@@ -51,9 +51,11 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Following are the comparison types that can be used in filter expressions:<br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         ///   * survey.id (eq)<br/>
         ///   * question.id (eq)<br/>
@@ -61,11 +63,13 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Following are the limits for the number of fields that can be passed in filter:<br/>
         /// <br/>
+        /// <br/>
         ///   * survey.id (1)<br/>
         ///   * question.id (100)<br/>
         ///   * respondent.id (100)<br/>
         /// <br/>
         /// Usage:<br/>
+        /// <br/>
         /// <br/>
         ///   * Use only survey.id to get responses for all questions in the survey.<br/>
         ///   * Use only question.id to get responses for specific questions, which may belong to different surveys or same survey.<br/>

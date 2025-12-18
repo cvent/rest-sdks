@@ -51,9 +51,11 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// It has only one comparison types that can be used in filter expressions:<br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         ///   * enabled (eq)<br/>
         /// 

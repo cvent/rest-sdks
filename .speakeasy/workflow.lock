@@ -2,8 +2,8 @@ speakeasyVersion: 1.680.1
 sources:
     Public:
         sourceNamespace: public
-        sourceRevisionDigest: sha256:5235e9ef8056250b8e17a7b7d5e2703ca7d1e9584dcdbe1d6e18c129eb74963f
-        sourceBlobDigest: sha256:96bd13a8d10b42a6edb5bac9fb46062a4e3b312e2229e4501113b31cee8d28d6
+        sourceRevisionDigest: sha256:48800830ed05313ddb352f9cb449ad3893838211e1e3e4a33d4718d182200d62
+        sourceBlobDigest: sha256:2d8f47928bf145cbe2074f75ebb782d87d36bce718a2ded027ab224fae8bd79c
         tags:
             - latest
             - ea
@@ -11,24 +11,24 @@ targets:
     public-csharp:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:5235e9ef8056250b8e17a7b7d5e2703ca7d1e9584dcdbe1d6e18c129eb74963f
-        sourceBlobDigest: sha256:96bd13a8d10b42a6edb5bac9fb46062a4e3b312e2229e4501113b31cee8d28d6
+        sourceRevisionDigest: sha256:48800830ed05313ddb352f9cb449ad3893838211e1e3e4a33d4718d182200d62
+        sourceBlobDigest: sha256:2d8f47928bf145cbe2074f75ebb782d87d36bce718a2ded027ab224fae8bd79c
         codeSamplesNamespace: csharp
-        codeSamplesRevisionDigest: sha256:c3adb887af27251c2313847a77c9e9a5403c7fd6a748118393ff9bc0c8e1c7e1
+        codeSamplesRevisionDigest: sha256:b65d82e5e411f4fdd76771285727270eddefd1c35e0ab044769adf4f7a030e9a
     public-java:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:5235e9ef8056250b8e17a7b7d5e2703ca7d1e9584dcdbe1d6e18c129eb74963f
-        sourceBlobDigest: sha256:96bd13a8d10b42a6edb5bac9fb46062a4e3b312e2229e4501113b31cee8d28d6
+        sourceRevisionDigest: sha256:48800830ed05313ddb352f9cb449ad3893838211e1e3e4a33d4718d182200d62
+        sourceBlobDigest: sha256:2d8f47928bf145cbe2074f75ebb782d87d36bce718a2ded027ab224fae8bd79c
         codeSamplesNamespace: java
-        codeSamplesRevisionDigest: sha256:cefe6b8b72b2c94f2957adafec320d371d467b893e44e154b0b7150b35fc97ff
+        codeSamplesRevisionDigest: sha256:fc66ea928aab8773e5b7f7bed90a8e62a4e8a0b74e5b362f00e396116b7da2ae
     public-typescript:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:5235e9ef8056250b8e17a7b7d5e2703ca7d1e9584dcdbe1d6e18c129eb74963f
-        sourceBlobDigest: sha256:96bd13a8d10b42a6edb5bac9fb46062a4e3b312e2229e4501113b31cee8d28d6
+        sourceRevisionDigest: sha256:48800830ed05313ddb352f9cb449ad3893838211e1e3e4a33d4718d182200d62
+        sourceBlobDigest: sha256:2d8f47928bf145cbe2074f75ebb782d87d36bce718a2ded027ab224fae8bd79c
         codeSamplesNamespace: typescript
-        codeSamplesRevisionDigest: sha256:bf8d7b19880d7fc3319559937b474af57beb96275c1d504dbd38f78b5566db0f
+        codeSamplesRevisionDigest: sha256:1a3fd300045bc6373ef3b14b5d0fadd383cc52e3441b5557801a14d8f7780aa4
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.680.1
@@ -40,6 +40,7 @@ workflow:
                 - location: ./overlays/public_overlay.yaml
                 - location: ./overlays/operation_level_pagination_overlay.yaml
                 - location: ./overlays/pagination_overlay.yaml
+                - location: ./overlays/description_overlay.yaml
             registry:
                 location: registry.speakeasyapi.dev/cvent/rest-sdks/public
     targets:
