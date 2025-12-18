@@ -3,11 +3,12 @@ id: fd015893-3730-4721-bf8d-bb6d3730cc0f
 management:
   docChecksum: 5c9f1b67bc482f697569086ac06a0246
   docVersion: ea
-  speakeasyVersion: 1.680.0
-  generationVersion: 2.788.4
+  speakeasyVersion: 1.680.1
+  generationVersion: 2.788.5
   releaseVersion: 1.0.4
   configChecksum: 4c1aee0f4a065a2259e4fe871aa27dc9
   repoURL: https://github.com/cvent/rest-sdks
+  repoSubDirectory: packages/typescript
   published: true
 persistentEdits:
   generation_id: c8f2bd28-d942-4072-855e-a3944f191f23
@@ -8056,7 +8057,7 @@ trackedFiles:
     pristine_git_object: 3f8c18265e80f8c46d349b3a7d92f1a61f1d2dc9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:6f6ecb8631301f617ab2f1828f9449e43bca4fb0
+    last_write_checksum: sha1:dc075547325553677a7b9dfa7780d245fa13ac3f
     pristine_git_object: 3474c00ef1d014883367c7bbeca6cbe6e330ca41
   src/core.ts:
     id: f431fdbcd144
@@ -9784,7 +9785,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:acff2b2b77d1e020728bd38c9a16a1fcbf3692b2
+    last_write_checksum: sha1:819bf27146af70ffcaa6826c1ddb58f2740343bf
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a
