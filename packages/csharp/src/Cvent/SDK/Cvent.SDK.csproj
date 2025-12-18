@@ -9,176 +9,37 @@
     <Copyright>Copyright (c) Cvent 2025</Copyright>
     <PackageTags>Cvent</PackageTags>
     <PackageProjectUrl>https://developers.cvent.com/docs</PackageProjectUrl>
-    <Description>Cvent REST APIs: # Introduction<br/>
-The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily <br/>
-discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here <br/>
-use JSON-encoded request and response format, along with HTTP codes, to convey processing status of <br/>
-requests received. The Cvent resources are protected using OAuth2.<br/>
+    <Description>Developer-friendly &amp; type-safe C# SDK for the Cvent API Platform (REST/JSON over HTTPS).<br/>
 <br/>
-# Getting Started<br/>
+Documentation: https://developers.cvent.com/docs<br/>
+Quickstart: https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart<br/>
+API standards: https://developers.cvent.com/docs/rest-api/reference/api-standards<br/>
 <br/>
-If you&apos;re new to the Cvent API Platform, start by reading our <br/>
-<a href="/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> guide. This will <br/>
-give you an overview of how to authenticate and make requests using our APIs.<br/>
+Authentication (OAuth2):<br/>
+- Client credentials flow is supported for server-to-server integrations.<br/>
+- Authorization code flow is supported only for planner users with the administrator role (developer users cannot use auth code flow).<br/>
 <br/>
-## Authentication<br/>
+Endpoints:<br/>
+- North America: https://api-platform.cvent.com<br/>
+- Europe: https://api-platform-eur.cvent.com<br/>
+- Version: ea<br/>
 <br/>
-The Cvent REST API uses <a href="https://oauth.net/2/">OAuth2</a> to authorize requests to the platform. The client <br/>
-credentials authorization flow is supported.<br/>
+Rate limits:<br/>
+Cvent APIs enforce tier-based rate limits to ensure platform stability. If you exceed the limit, the API returns 429 Too Many Requests. Apply retry/backoff and follow the guidance in the rate limit docs.<br/>
 <br/>
-&lt;a name=&quot;oauth2-auth-code-planner-admin&quot;&gt;&lt;/a&gt;<br/>
+Pagination (cursor-based):<br/>
+Some endpoints return a paginated response. The SDK exposes a Next method to retrieve the next page using the cursor; when Next returns null, there are no more pages.<br/>
 <br/>
-Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users <br/>
-cannot use authorization code flow.<br/>
+Example:<br/>
+var res = await sdk.Users.GetAccountUserGroupsAsync(req);<br/>
+while (res != null) { res = await res.Next!(); }<br/>
 <br/>
-&lt;!-- ReDoc-Inject: &lt;security-definitions&gt; --&gt;<br/>
+Filtering:<br/>
+Many list endpoints support filter expressions. Example: filter=lastName eq &apos;Smith&apos; (use double quotes when the value contains a single quote).<br/>
 <br/>
-Here&apos;s an example of using client credential flow to authorize. You&apos;ll supply your application&apos;s id and secret to <br/>
-make a <a href="#operation/oauth2Token">Token</a> request.<br/>
-<br/>
-```bash<br/>
-curl --location --request POST &apos;{hostName}/{version}/oauth2/token&apos; \<br/>
---header &apos;Content-Type: application/x-www-form-urlencoded&apos; \<br/>
---header &apos;Authorization: Basic {api_credentials}&apos; \<br/>
---data-urlencode &apos;grant_type=client_credentials&apos; \<br/>
---data-urlencode &apos;client_id={client_id}&apos;<br/>
-```<br/>
-<br/>
-| Key               | Description                                          | Value                                                                                                        |<br/>
-| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |<br/>
-| {hostName}        | https://api-platform.cvent.com                       | Location if you&apos;re account is in the North American datacenter                                               |<br/>
-|                   | https://api-platform-eur.cvent.com                   | Location if you&apos;re account is in the European data center.                                                   | <br/>
-| {version}         | ea                                                   | The version of the API you&apos;re using. Only `ea` is currently supported.                                       | <br/>
-| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id &amp; client credentials in a base 64 encoded format.                                      | <br/>
-| {client_id}       | Retrieved from your application                      | Your application&apos;s client id.                                                                                | <br/>
-| {client_secret}   | Retrieved from your application                      | Your application&apos;s client secret.                                                                            | <br/>
-<br/>
-On a successful call, you&apos;ll receive the following response:<br/>
-<br/>
-```json<br/>
-{<br/>
-  &quot;access_token&quot;: &quot;{accessToken}&quot;,<br/>
-  &quot;expires_in&quot;: 3600,<br/>
-  &quot;token_type&quot;: &quot;Bearer&quot;<br/>
-}<br/>
-```<br/>
-<br/>
-This bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.<br/>
-<br/>
-## Endpoints<br/>
-<br/>
-Endpoints start with `hostName` and `version`. <br/>
-<br/>
-The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table <br/>
-below to identify which hostname you should be using.<br/>
-<br/>
-| Region        |	Hostname                           |<br/>
-|:--------------|:-----------------------------------|<br/>
-| North America	| https://api-platform.cvent.com     |<br/>
-| Europe        | https://api-platform-eur.cvent.com |<br/>
-<br/>
-The current `version` of the Cvent API is `ea`.<br/>
-<br/>
-## Rate Limits<br/>
-<br/>
-Cvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,<br/>
-Standard, or Premium.<br/>
-<br/>
-&lt;br /&gt;<br/>
-<br/>
-### Usage Tiers<br/>
-<br/>
-| Tier     | Daily Calls | Calls per Second | Max Burst |<br/>
-| -------- | ----------- | ---------------- | --------- |<br/>
-| Free     | 1,000       | 2                | 1         |<br/>
-| Standard | 15,000      | 10               | 10        |<br/>
-| Premium  | 500,000     | 25               | 25        |<br/>
-<br/>
-- **Daily calls** define how many requests you can make in a 24-hour period. Quota<br/>
-  resets at 12 midnight (+0 GMT).<br/>
-- **Calls per second** define how many requests you can make in a 1-second window.<br/>
-- **Max Burst** defines how many requests you can make at once.<br/>
-<br/>
-If you are unsure what usage tier applies to your account, you can check via<br/>
-<a href="#operation/getUsageTier">Get Current Usage Tier</a>.<br/>
-<br/>
-Please note that these limits may change as the Cvent API Platform evolves.<br/>
-<br/>
-&lt;br /&gt;<br/>
-<br/>
-### Handling Rate Limits<br/>
-<br/>
-Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See <br/>
-<a href="/docs/rest-api/guides/handling-rate-limits">handling rate limits</a> for best practices on how to handle this.<br/>
-<br/>
-## Filtering<br/>
-<br/>
-Use filters to narrow down results. The filter follows the pattern<br/>
-`filter=&apos;field&apos; comparisonType &apos;value&apos;`. The value can be enclosed with single<br/>
-quotes (&apos;) or double quotes (&quot;).<br/>
-<br/>
-```bash<br/>
-GET {hostName}/{version}/contacts?filter=lastName eq &apos;Smith&apos;<br/>
-````<br/>
-<br/>
-To correctly pass a single quote in the filter&apos;s value, use double quotes around<br/>
-the string.<br/>
-<br/>
-```bash<br/>
-GET {hostName}/{version}/contacts?filter=lastName eq &quot;O&apos;Keenan&quot;<br/>
-```<br/>
-<br/>
-To correctly pass a double quote in the filter&apos;s value, use double quotes around<br/>
-the string and add an escape character `\` to each quote that is part of the<br/>
-string.<br/>
-<br/>
-```bash<br/>
-GET {hostName}/{version}/events?filter=eventName eq &quot;\&quot;Yearly\&quot; Conference&quot;<br/>
-```<br/>
-<br/>
-## Versioning<br/>
-<br/>
-Change is inevitable in API development. Planning for it is crucial. We track<br/>
-both backward-compatible and backward-incompatible changes.<br/>
-<br/>
-&lt;br /&gt;<br/>
-<br/>
-### Backward Compatible Changes<br/>
-<br/>
-Backward compatible changes will be made often and are intended to avoid<br/>
-any adverse impact on our customers. It is highly advisable that when reading<br/>
-JSON payloads from Cvent, you are able to handle &quot;unknown&quot; attributes that<br/>
-can be added over time. We consider the following changes backward-compatible:<br/>
-<br/>
-- Adding new resources<br/>
-- Adding new optional request parameters to existing operations<br/>
-- Adding new attributes to requests or responses<br/>
-- Changing the length or format (not type) of resource identifiers. For example, an ID can change from <br/>
-  &quot;1234/1234&quot; to &quot;1234::1234&quot;.<br/>
-- Increasing the length of string fields<br/>
-<br/>
-&lt;br /&gt;    <br/>
-<br/>
-### Backward Incompatible Changes<br/>
-<br/>
-Backward-incompatible changes are made infrequently, however, they can be<br/>
-disruptive to consumers. Due to this, our APIs are versioned to avoid<br/>
-disruptions to customers. We leverage a URI-based versioning scheme,<br/>
-which means that a version value is included in the Cvent API URL.<br/>
-When breaking changes occur, a new version of the API is made available<br/>
-while the existing version is deprecated but remains available for a<br/>
-limited period of time. We consider the following backward-incompatible changes:<br/>
-<br/>
-- Adding a new required parameter (query string param or payload attribute)<br/>
-- Deleting API resources<br/>
-- Deleting any attribute from API responses<br/>
-- Changing the data type on any parameter or attribute<br/>
-<br/>
-## Standards<br/>
-As you begin working with our APIs, it&apos;s essential to be aware of standards around <br/>
-country codes, time formats, and other important details that ensure smooth integration. <br/>
-Learn more about our <a href="/docs/rest-api/reference/api-standards">API Standards</a><br/>
-</Description>
+Versioning:<br/>
+Expect backward-compatible changes to add new optional fields and parameters. Breaking changes are delivered via new API versions with deprecation periods for older versions.<br/>
+    </Description>
   </PropertyGroup>
 
   <PropertyGroup>
