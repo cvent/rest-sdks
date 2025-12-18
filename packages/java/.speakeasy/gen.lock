@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
-  docChecksum: aedf7a2cab582868f14e5ae42c510a02
+  docChecksum: 7efdec69ab925a3f8f13d99eee709219
   docVersion: ea
   speakeasyVersion: 1.680.1
   generationVersion: 2.788.5
-  releaseVersion: 1.0.3
-  configChecksum: c934b07d86e5e5858bf3734ec14e0ef2
+  releaseVersion: 1.0.4
+  configChecksum: b30a256b7a99c6d5abbf5bb880e1cdc0
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -9114,7 +9114,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:b9c063f590301ece952d83c4dc79034e7849ec05
+    last_write_checksum: sha1:601e205ae3c9fbcf6480b5dbb7be578e7e594345
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -9210,7 +9210,7 @@ trackedFiles:
     pristine_git_object: d2750f4c1dd063e160ac8b42105e3350a77b9192
   src/main/java/com/cvent/AsyncCventSDK.java:
     id: 3d41ccbb3604
-    last_write_checksum: sha1:e0d7e2adf79e4b66e5a98c22e4e93ad0d688bfdc
+    last_write_checksum: sha1:e5167310242a212e2e7dce4af9827a74f686f6e6
     pristine_git_object: 91ab4b576419398d5dfa7189f6dbf60c8f32176b
   src/main/java/com/cvent/AsyncDiscounts.java:
     id: 0e60d514801e
@@ -9402,7 +9402,7 @@ trackedFiles:
     pristine_git_object: fba7bb77908632105cf2fcbe226b002da7001b0e
   src/main/java/com/cvent/CventSDK.java:
     id: 4a420697fa3d
-    last_write_checksum: sha1:c66765a54b2c66ad455f5a2189e4fc73ff140268
+    last_write_checksum: sha1:53d0b9394c765f633b88f740500dafcdd56f2822
     pristine_git_object: 80c41313e2060978bc5d97ac0b629a1ec05252db
   src/main/java/com/cvent/Discounts.java:
     id: b320961e983a
@@ -9482,7 +9482,7 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:20cee2b5c0943bc35eebd23711a3af70f00ddab7
+    last_write_checksum: sha1:889d585d338842b7b6c941aa25f38e6eadda266f
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
