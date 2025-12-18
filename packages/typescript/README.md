@@ -5,31 +5,33 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Cvent REST APIs: # Introduction
-The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily 
-discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here 
-use JSON-encoded request and response format, along with HTTP codes, to convey processing status of 
+Cvent REST APIs
+
+## Introduction
+The Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily
+discovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here
+use JSON-encoded request and response format, along with HTTP codes, to convey processing status of
 requests received. The Cvent resources are protected using OAuth2.
 
-# Getting Started
+## Getting Started
 
-If you're new to the Cvent API Platform, start by reading our 
-[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will 
+If you're new to the Cvent API Platform, start by reading our
+[Developer Quickstart](docs/rest-api/tutorials/developer-quickstart) guide. This will
 give you an overview of how to authenticate and make requests using our APIs.
 
 ## Authentication
 
-The Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client 
+The Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client
 credentials authorization flow is supported.
 
 <a name="oauth2-auth-code-planner-admin"></a>
 
-Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users 
+Authorization code flow is only supported for planner users with the administrator role in Cvent. Developer users
 cannot use authorization code flow.
 
 <!-- ReDoc-Inject: <security-definitions> -->
 
-Here's an example of using client credential flow to authorize. You'll supply your application's id and secret to 
+Here's an example of using client credential flow to authorize. You'll supply your application's id and secret to
 make a [Token](#operation/oauth2Token) request.
 
 ```bash
@@ -43,11 +45,11 @@ curl --location --request POST '{hostName}/{version}/oauth2/token' \
 | Key               | Description                                          | Value                                                                                                        |
 | :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
 | {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |
-|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   | 
-| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       | 
-| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      | 
-| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                | 
-| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            | 
+|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |
+| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       |
+| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      |
+| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                |
+| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            |
 
 On a successful call, you'll receive the following response:
 
@@ -63,9 +65,9 @@ This bearer token is valid for 3600 seconds (60 minutes) and must be used in sub
 
 ## Endpoints
 
-Endpoints start with `hostName` and `version`. 
+Endpoints start with `hostName` and `version`.
 
-The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table 
+The `hostname` will depend on the region that your Cvent account is hosted in. Please see the table
 below to identify which hostname you should be using.
 
 | Region        |	Hostname                           |
@@ -104,8 +106,8 @@ Please note that these limits may change as the Cvent API Platform evolves.
 
 ### Handling Rate Limits
 
-Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See 
-[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.
+Sometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See
+[handling rate limits](docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.
 
 ## Filtering
 
@@ -149,11 +151,11 @@ can be added over time. We consider the following changes backward-compatible:
 - Adding new resources
 - Adding new optional request parameters to existing operations
 - Adding new attributes to requests or responses
-- Changing the length or format (not type) of resource identifiers. For example, an ID can change from 
+- Changing the length or format (not type) of resource identifiers. For example, an ID can change from
   "1234/1234" to "1234::1234".
 - Increasing the length of string fields
 
-<br />    
+<br />
 
 ### Backward Incompatible Changes
 
@@ -171,9 +173,9 @@ limited period of time. We consider the following backward-incompatible changes:
 - Changing the data type on any parameter or attribute
 
 ## Standards
-As you begin working with our APIs, it's essential to be aware of standards around 
-country codes, time formats, and other important details that ensure smooth integration. 
-Learn more about our [API Standards](/docs/rest-api/reference/api-standards)
+As you begin working with our APIs, it's essential to be aware of standards around
+country codes, time formats, and other important details that ensure smooth integration.
+Learn more about our [API Standards](docs/rest-api/reference/api-standards)
 
 
 For more information about the API: [Cvent Developer Documentation](https://developers.cvent.com/docs)
