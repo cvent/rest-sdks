@@ -51,6 +51,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Following are the comparison types that can be used in filter expressions:<br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
         ///   * greater than: gt<br/>
@@ -59,6 +60,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * less than or equal: le<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         ///   * status (eq|ne)<br/>
         ///   * created (eq|ne|gt|ge|lt|le)<br/>

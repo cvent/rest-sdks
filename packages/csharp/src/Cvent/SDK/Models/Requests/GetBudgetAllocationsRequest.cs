@@ -56,6 +56,7 @@ namespace Cvent.SDK.Models.Requests
         /// <remarks>
         /// There are six comparison types that can be used in filter expressions:<br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
         ///   * greater than: gt<br/>
@@ -65,6 +66,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following fields are filterable:<br/>
         /// <br/>
+        /// <br/>
         ///    * budgetVersion.id (eq)<br/>
         ///    * budgetItem.id (eq)<br/>
         ///    * category.id (eq|ne)<br/>
@@ -73,6 +75,7 @@ namespace Cvent.SDK.Models.Requests
         ///    * value (lt|le|gt|ge|eq)<br/>
         /// <br/>
         /// The following operators are available:<br/>
+        /// <br/>
         /// <br/>
         ///   * and<br/>
         ///   * or<br/>

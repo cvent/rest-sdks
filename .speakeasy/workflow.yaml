@@ -8,6 +8,7 @@ sources:
             - location: ./overlays/public_overlay.yaml
             - location: ./overlays/operation_level_pagination_overlay.yaml
             - location: ./overlays/pagination_overlay.yaml
+            - location: ./overlays/description_overlay.yaml
         registry:
             location: registry.speakeasyapi.dev/cvent/rest-sdks/public
 targets:
