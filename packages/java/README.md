@@ -88,7 +88,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.0.4'
+implementation 'com.cvent:sdk:1.0.5'
 ```
 
 Maven:
@@ -96,7 +96,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
@@ -601,6 +601,7 @@ public class Application {
 
 * [getAirActualDetail](docs/sdks/eventtravel/README.md#getairactualdetail) - Get Air Actual
 * [getAirRequests](docs/sdks/eventtravel/README.md#getairrequests) - Get Air Requests
+* [getAlternateTravelAnswers](docs/sdks/eventtravel/README.md#getalternatetravelanswers) - Get Alternate Travel Answers
 * [getHotelRequests](docs/sdks/eventtravel/README.md#gethotelrequests) - Get Hotel Requests
 * [getHousingReservationRequests](docs/sdks/eventtravel/README.md#gethousingreservationrequests) - Get Housing Requests
 
@@ -1190,8 +1191,8 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponseJson20`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson20.java): The error response. Applicable to 11 of 423 methods.*
-* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 423 methods.*
+* [`com.cvent.models.errors.ErrorResponseJson20`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson20.java): The error response. Applicable to 11 of 424 methods.*
+* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 424 methods.*
 
 
 </details>

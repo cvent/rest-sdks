@@ -186,6 +186,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "event/air-request:read"
   /**
+   * Allow reading the alternate travel answers for attendees.
+   */
+  | "event/alternate-travel:read"
+  /**
    * Allows the read of Duration records
    */
   | "event/attendance-durations:read"
@@ -957,6 +961,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allow reading the air request or air actual detail for attendees.
    */
   | "event/air-request:read"
+  /**
+   * Allow reading the alternate travel answers for attendees.
+   */
+  | "event/alternate-travel:read"
   /**
    * Allows the read of Duration records
    */

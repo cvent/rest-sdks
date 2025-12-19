@@ -73,7 +73,7 @@ public class HotelRequestJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("requesterType")
-    private RequesterType requesterType;
+    private HotelRequestJsonRequesterType requesterType;
 
     /**
      * First name of the hotel requester.
@@ -318,7 +318,7 @@ public class HotelRequestJson {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("hotelRequestId") @Nullable String hotelRequestId,
             @JsonProperty("requesterId") @Nullable String requesterId,
-            @JsonProperty("requesterType") @Nullable RequesterType requesterType,
+            @JsonProperty("requesterType") @Nullable HotelRequestJsonRequesterType requesterType,
             @JsonProperty("requesterFirstName") @Nullable String requesterFirstName,
             @JsonProperty("requesterLastName") @Nullable String requesterLastName,
             @JsonProperty("hotelName") @Nullable String hotelName,
@@ -458,7 +458,7 @@ public class HotelRequestJson {
      * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
      * means the attendee is accompanying another attendee.
      */
-    public Optional<RequesterType> requesterType() {
+    public Optional<HotelRequestJsonRequesterType> requesterType() {
         return Optional.ofNullable(this.requesterType);
     }
 
@@ -761,7 +761,7 @@ public class HotelRequestJson {
      * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
      * means the attendee is accompanying another attendee.
      */
-    public HotelRequestJson withRequesterType(@Nullable RequesterType requesterType) {
+    public HotelRequestJson withRequesterType(@Nullable HotelRequestJsonRequesterType requesterType) {
         this.requesterType = requesterType;
         return this;
     }
@@ -1199,7 +1199,7 @@ public class HotelRequestJson {
 
         private String requesterId;
 
-        private RequesterType requesterType;
+        private HotelRequestJsonRequesterType requesterType;
 
         private String requesterFirstName;
 
@@ -1324,7 +1324,7 @@ public class HotelRequestJson {
          * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
          * means the attendee is accompanying another attendee.
          */
-        public Builder requesterType(@Nullable RequesterType requesterType) {
+        public Builder requesterType(@Nullable HotelRequestJsonRequesterType requesterType) {
             this.requesterType = requesterType;
             return this;
         }

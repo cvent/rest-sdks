@@ -287,6 +287,12 @@ namespace Cvent.SDK.Hooks
         EventAirRequestRead,
 
         /// <summary>
+        /// Allow reading the alternate travel answers for attendees.
+        /// </summary>
+        [JsonProperty("event/alternate-travel:read")]
+        EventAlternateTravelRead,
+
+        /// <summary>
         /// Allows the read of Duration records
         /// </summary>
         [JsonProperty("event/attendance-durations:read")]
@@ -1476,6 +1482,12 @@ namespace Cvent.SDK.Hooks
         /// </summary>
         [JsonProperty("event/air-request:read")]
         EventAirRequestRead,
+
+        /// <summary>
+        /// Allow reading the alternate travel answers for attendees.
+        /// </summary>
+        [JsonProperty("event/alternate-travel:read")]
+        EventAlternateTravelRead,
 
         /// <summary>
         /// Allows the read of Duration records

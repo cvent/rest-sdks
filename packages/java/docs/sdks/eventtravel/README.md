@@ -8,6 +8,7 @@ Event travel lets planners capture air & hotel requests from attendees and track
 
 * [getAirActualDetail](#getairactualdetail) - Get Air Actual
 * [getAirRequests](#getairrequests) - Get Air Requests
+* [getAlternateTravelAnswers](#getalternatetravelanswers) - Get Alternate Travel Answers
 * [getHotelRequests](#gethotelrequests) - Get Hotel Requests
 * [getHousingReservationRequests](#gethousingreservationrequests) - Get Housing Requests
 
@@ -149,6 +150,78 @@ public class Application {
 ### Response
 
 **[GetAirRequestsResponse](../../models/operations/GetAirRequestsResponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
+| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+
+## getAlternateTravelAnswers
+
+Get alternate travel answers submitted by attendees who opt out of air
+or hotel bookings for an event.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="getAlternateTravelAnswers" method="get" path="/events/{id}/event-travel/alternate-answers" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.operations.GetAlternateTravelAnswersRequest;
+import com.cvent.models.operations.GetAlternateTravelAnswersResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetAlternateTravelAnswersRequest req = GetAlternateTravelAnswersRequest.builder()
+                .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .filter("(attendee.id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (attendee.id eq '16322408-bae8-4b29-a559-702d2023e13a')")
+                .build();
+
+        GetAlternateTravelAnswersResponse res = sdk.eventTravel().getAlternateTravelAnswers()
+                .request(req)
+                .call();
+
+        if (res.alternateTravelPaginatedResponse().isPresent()) {
+            // handle response
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [GetAlternateTravelAnswersRequest](../../models/operations/GetAlternateTravelAnswersRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[GetAlternateTravelAnswersResponse](../../models/operations/GetAlternateTravelAnswersResponse.md)**
 
 ### Errors
 

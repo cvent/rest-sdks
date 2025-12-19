@@ -237,6 +237,11 @@ public final class OAuth2Scopes {
         EventAirRequestRead("event/air-request:read"),
 
         /**
+         * Allow reading the alternate travel answers for attendees.
+         */
+        EventAlternateTravelRead("event/alternate-travel:read"),
+
+        /**
          * Allows the read of Duration records
          */
         EventAttendanceDurationsRead("event/attendance-durations:read"),
@@ -1217,6 +1222,11 @@ public final class OAuth2Scopes {
          * Allow reading the air request or air actual detail for attendees.
          */
         EventAirRequestRead("event/air-request:read"),
+
+        /**
+         * Allow reading the alternate travel answers for attendees.
+         */
+        EventAlternateTravelRead("event/alternate-travel:read"),
 
         /**
          * Allows the read of Duration records

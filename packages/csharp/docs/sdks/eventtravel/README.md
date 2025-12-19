@@ -8,6 +8,7 @@ Event travel lets planners capture air & hotel requests from attendees and track
 
 * [GetAirActualDetail](#getairactualdetail) - Get Air Actual
 * [GetAirRequests](#getairrequests) - Get Air Requests
+* [GetAlternateTravelAnswers](#getalternatetravelanswers) - Get Alternate Travel Answers
 * [GetHotelRequests](#gethotelrequests) - Get Hotel Requests
 * [GetHousingReservationRequests](#gethousingreservationrequests) - Get Housing Requests
 
@@ -127,6 +128,59 @@ while(res != null)
 ### Response
 
 **[GetAirRequestsResponse](../../Models/Requests/GetAirRequestsResponse.md)**
+
+### Errors
+
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
+| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+
+## GetAlternateTravelAnswers
+
+Get alternate travel answers submitted by attendees who opt out of air
+or hotel bookings for an event.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getAlternateTravelAnswers" method="get" path="/events/{id}/event-travel/alternate-answers" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetAlternateTravelAnswersRequest req = new GetAlternateTravelAnswersRequest() {
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "(attendee.id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (attendee.id eq '16322408-bae8-4b29-a559-702d2023e13a')",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+};
+
+var res = await sdk.EventTravel.GetAlternateTravelAnswersAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetAlternateTravelAnswersRequest](../../Models/Requests/GetAlternateTravelAnswersRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[GetAlternateTravelAnswersResponse](../../Models/Requests/GetAlternateTravelAnswersResponse.md)**
 
 ### Errors
 

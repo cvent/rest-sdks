@@ -446,6 +446,7 @@ run();
 
 * [getAirActualDetail](docs/sdks/eventtravel/README.md#getairactualdetail) - Get Air Actual
 * [getAirRequests](docs/sdks/eventtravel/README.md#getairrequests) - Get Air Requests
+* [getAlternateTravelAnswers](docs/sdks/eventtravel/README.md#getalternatetravelanswers) - Get Alternate Travel Answers
 * [getHotelRequests](docs/sdks/eventtravel/README.md#gethotelrequests) - Get Hotel Requests
 * [getHousingReservationRequests](docs/sdks/eventtravel/README.md#gethousingreservationrequests) - Get Housing Requests
 
@@ -1016,6 +1017,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsUpdateSessionCheckIn`](docs/sdks/events/README.md#updatesessioncheckin) - Update Session Check-In
 - [`eventTravelGetAirActualDetail`](docs/sdks/eventtravel/README.md#getairactualdetail) - Get Air Actual
 - [`eventTravelGetAirRequests`](docs/sdks/eventtravel/README.md#getairrequests) - Get Air Requests
+- [`eventTravelGetAlternateTravelAnswers`](docs/sdks/eventtravel/README.md#getalternatetravelanswers) - Get Alternate Travel Answers
 - [`eventTravelGetHotelRequests`](docs/sdks/eventtravel/README.md#gethotelrequests) - Get Hotel Requests
 - [`eventTravelGetHousingReservationRequests`](docs/sdks/eventtravel/README.md#gethousingreservationrequests) - Get Housing Requests
 - [`exhibitorAddExhibitorToExhibitorCategory`](docs/sdks/exhibitor/README.md#addexhibitortoexhibitorcategory) - Assign Exhibitor to Category
@@ -1503,8 +1505,8 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 423 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 423 methods.*
+* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 424 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 424 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

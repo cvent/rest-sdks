@@ -21,7 +21,7 @@ namespace Cvent.SDK.Models.Components
     {
 
         [JsonProperty("paging")]
-        public Paging Paging { get; set; } = default!;
+        public EventWeblinksPaginatedResponsePaging Paging { get; set; } = default!;
 
         /// <summary>
         /// Collection of event weblinks.

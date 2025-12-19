@@ -61,7 +61,7 @@ namespace Cvent.SDK.Models.Components
         /// Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
         /// </summary>
         [JsonProperty("requesterType")]
-        public RequesterType? RequesterType { get; set; }
+        public HotelRequestJsonRequesterType? RequesterType { get; set; }
 
         /// <summary>
         /// First name of the hotel requester.

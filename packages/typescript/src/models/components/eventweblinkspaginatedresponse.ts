@@ -19,7 +19,7 @@ import {
 /**
  * Represents pagination information for a collection of resources.
  */
-export type Paging = {
+export type EventWeblinksPaginatedResponsePaging = {
   /**
    * The number of records to return on the page. Not to exceed 200.
    */
@@ -50,7 +50,7 @@ export type Paging = {
  * Paginated collection of event weblinks.
  */
 export type EventWeblinksPaginatedResponse = {
-  paging: Paging;
+  paging: EventWeblinksPaginatedResponsePaging;
   /**
    * Collection of event weblinks.
    */
@@ -58,27 +58,31 @@ export type EventWeblinksPaginatedResponse = {
 };
 
 /** @internal */
-export const Paging$inboundSchema: z.ZodType<Paging, z.ZodTypeDef, unknown> = z
-  .object({
-    limit: z.number().int().optional(),
-    previousToken: z.string().optional(),
-    nextToken: z.string().optional(),
-    currentToken: z.string().optional(),
-    totalCount: z.number().int().optional(),
-    _links: PaginationLinksJson$inboundSchema,
-  }).transform((v) => {
-    return remap$(v, {
-      "_links": "links",
-    });
+export const EventWeblinksPaginatedResponsePaging$inboundSchema: z.ZodType<
+  EventWeblinksPaginatedResponsePaging,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  limit: z.number().int().optional(),
+  previousToken: z.string().optional(),
+  nextToken: z.string().optional(),
+  currentToken: z.string().optional(),
+  totalCount: z.number().int().optional(),
+  _links: PaginationLinksJson$inboundSchema,
+}).transform((v) => {
+  return remap$(v, {
+    "_links": "links",
   });
+});
 
-export function pagingFromJSON(
+export function eventWeblinksPaginatedResponsePagingFromJSON(
   jsonString: string,
-): SafeParseResult<Paging, SDKValidationError> {
+): SafeParseResult<EventWeblinksPaginatedResponsePaging, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Paging$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Paging' from JSON`,
+    (x) =>
+      EventWeblinksPaginatedResponsePaging$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventWeblinksPaginatedResponsePaging' from JSON`,
   );
 }
 
@@ -88,7 +92,7 @@ export const EventWeblinksPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: z.lazy(() => Paging$inboundSchema),
+  paging: z.lazy(() => EventWeblinksPaginatedResponsePaging$inboundSchema),
   data: z.array(EventWeblinkJson$inboundSchema),
 });
 

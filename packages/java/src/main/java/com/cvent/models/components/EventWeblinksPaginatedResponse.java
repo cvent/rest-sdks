@@ -20,7 +20,7 @@ import java.util.Optional;
 public class EventWeblinksPaginatedResponse {
 
     @JsonProperty("paging")
-    private Paging paging;
+    private EventWeblinksPaginatedResponsePaging paging;
 
     /**
      * Collection of event weblinks.
@@ -30,7 +30,7 @@ public class EventWeblinksPaginatedResponse {
 
     @JsonCreator
     public EventWeblinksPaginatedResponse(
-            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("paging") @Nonnull EventWeblinksPaginatedResponsePaging paging,
             @JsonProperty("data") @Nonnull List<EventWeblinkJson> data) {
         this.paging = Optional.ofNullable(paging)
             .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
@@ -38,7 +38,7 @@ public class EventWeblinksPaginatedResponse {
             .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
-    public Paging paging() {
+    public EventWeblinksPaginatedResponsePaging paging() {
         return this.paging;
     }
 
@@ -54,7 +54,7 @@ public class EventWeblinksPaginatedResponse {
     }
 
 
-    public EventWeblinksPaginatedResponse withPaging(@Nonnull Paging paging) {
+    public EventWeblinksPaginatedResponse withPaging(@Nonnull EventWeblinksPaginatedResponsePaging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -99,7 +99,7 @@ public class EventWeblinksPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public final static class Builder {
 
-        private Paging paging;
+        private EventWeblinksPaginatedResponsePaging paging;
 
         private List<EventWeblinkJson> data;
 
@@ -107,7 +107,7 @@ public class EventWeblinksPaginatedResponse {
           // force use of static builder() method
         }
 
-        public Builder paging(@Nonnull Paging paging) {
+        public Builder paging(@Nonnull EventWeblinksPaginatedResponsePaging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
