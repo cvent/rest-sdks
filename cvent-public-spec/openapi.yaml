@@ -7583,6 +7583,45 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests1'
       deprecated: false
+  /events/{id}/event-travel/alternate-answers:
+    parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/before'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/token'
+      - $ref: '#/components/parameters/filter1'
+      - $ref: '#/components/parameters/id2'
+    get:
+      summary: Get Alternate Travel Answers
+      description: |-
+        Get alternate travel answers submitted by attendees who opt out of air
+        or hotel bookings for an event.
+      operationId: getAlternateTravelAnswers
+      tags:
+        - Event Travel
+      security:
+        - OAuth2.clientCredentials:
+            - event/alternate-travel:read
+        - OAuth2.authorizationCode:
+            - event/alternate-travel:read
+      responses:
+        '200':
+          description: Successfully retrieved the alternate travel answers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/alternate-travel-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      deprecated: false
   /events/{id}/event-travel/hotel-requests:
     parameters:
       - $ref: '#/components/parameters/after'
@@ -22238,7 +22277,7 @@ components:
       description: Representation of an air actual.
       type: object
       allOf:
-        - $ref: '#/components/schemas/air-request.json/allOf/0'
+        - $ref: '#/components/schemas/alternate-travel-detail.json/allOf/0'
       properties:
         airActualId:
           type: string
@@ -22305,32 +22344,7 @@ components:
       description: Representation of an air request.
       type: object
       allOf:
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
+        - $ref: '#/components/schemas/alternate-travel-detail.json/allOf/0'
       properties:
         airRequestId:
           type: string
@@ -22532,6 +22546,127 @@ components:
           type: string
           format: uuid
           example: b2f194bd-a62c-4e27-a713-48b08196b8a7
+    alternate-answer.json:
+      title: AlternateAnswer
+      description: >-
+        Represents the answer(s) to an alternate travel question submitted by an
+        attendee.
+      type: object
+      properties:
+        value:
+          type: array
+          description: The set of answers to a single alternate travel question.
+          maxItems: 50
+          items:
+            type: string
+            description: A single answer to the alternate travel question.
+            example: '1234'
+          example:
+            - '1234'
+    alternate-question.json:
+      title: AlternateQuestion
+      description: >-
+        Represents a reference to an alternate travel question entity,
+        containing only the question ID and text.
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the question entity.
+          example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        text:
+          type: string
+          description: Text of the alternate travel question.
+          example: Why are you not booking a hotel with us?
+    alternate-travel-detail.json:
+      title: AlternateTravelDetail
+      description: >-
+        Details of an alternate travel answer submitted by an attendee who opted
+        out of air or hotel bookings.
+      type: object
+      allOf:
+        - title: Audit
+          description: Audit information
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+              description: The ISO 8601 zoned date time when this record was created.
+              readOnly: true
+              example: '2017-01-02T02:00:00Z'
+            createdBy:
+              type: string
+              description: The identifier of the user that created this record.
+              readOnly: true
+              example: hporter
+            lastModified:
+              type: string
+              format: date-time
+              description: The ISO 8601 zoned date time when this record was updated.
+              readOnly: true
+              example: '2019-02-12T03:00:00Z'
+            lastModifiedBy:
+              type: string
+              description: The identifier of the user that last updated this record.
+              readOnly: true
+              example: hporter
+      properties:
+        attendee:
+          $ref: '#/components/schemas/attendee.json4'
+        requesterId:
+          type: string
+          format: uuid
+          description: >-
+            ID of the entity this alternate travel belongs to. For an event
+            attendee, this field is contact ID. For guest, this field is guest
+            ID.
+          example: 3b2359a7-4583-40ed-8afd-67e5f15373d3
+        requesterType:
+          type: string
+          description: >-
+            Attendee type of the entity this alternate travel belongs to.
+            Contact means the requester is an independent attendee. Guest means
+            the attendee is accompanying another attendee.
+          enum:
+            - Contact
+            - Guest
+          example: Contact
+        travelType:
+          type: string
+          description: Type of travel alternate question
+          enum:
+            - AirRequest
+            - HotelRequest
+            - AirActual
+            - GroupFlight
+          example: AirRequest
+        question:
+          $ref: '#/components/schemas/alternate-question.json'
+        answer:
+          $ref: '#/components/schemas/alternate-answer.json'
+    alternate-travel-paginated-response:
+      title: AlternateTravelPaginatedResponse
+      description: >-
+        Paginated response containing alternate travel answers submitted by
+        attendees who opt out of air or hotel bookings.
+      type: object
+      required:
+        - paging
+        - data
+      properties:
+        paging:
+          type: object
+          description: Represents pagination information for the list of results.
+          allOf:
+            - $ref: '#/components/schemas/paging.json'
+        data:
+          type: array
+          maxItems: 200
+          description: Collection of alternate travel answers for attendees.
+          items:
+            $ref: '#/components/schemas/alternate-travel-detail.json'
     amenity-type.json:
       title: Amenity Type
       enum:
@@ -50633,6 +50768,7 @@ components:
             eMarketing/eMarketing-send-emails:write: Allows the writing of eMarketing emails.
             event/admission-items:read: Allows the reading of admission items
             event/air-request:read: Allow reading the air request or air actual detail for attendees.
+            event/alternate-travel:read: Allow reading the alternate travel answers for attendees.
             event/attendance-durations:read: Allows the read of Duration records
             event/attendee-activities-metadata:delete: Allows the deletion of attendees activities metadata.
             event/attendee-activities-metadata:read: Allows the reading of attendee activities metadata.
@@ -50831,6 +50967,7 @@ components:
             eMarketing/eMarketing-send-emails:write: Allows the writing of eMarketing emails.
             event/admission-items:read: Allows the reading of admission items
             event/air-request:read: Allow reading the air request or air actual detail for attendees.
+            event/alternate-travel:read: Allow reading the alternate travel answers for attendees.
             event/attendance-durations:read: Allows the read of Duration records
             event/attendee-activities-metadata:delete: Allows the deletion of attendees activities metadata.
             event/attendee-activities-metadata:read: Allows the reading of attendee activities metadata.
