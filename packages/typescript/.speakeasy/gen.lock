@@ -3,8 +3,8 @@ id: fd015893-3730-4721-bf8d-bb6d3730cc0f
 management:
   docChecksum: 4f84d906d3a74438202ec00a8235db4e
   docVersion: ea
-  speakeasyVersion: 1.680.3
-  generationVersion: 2.788.5
+  speakeasyVersion: 1.680.12
+  generationVersion: 2.788.15
   releaseVersion: 1.0.7
   configChecksum: d9d760c8391a56556dee8014aac5346b
   repoURL: https://github.com/cvent/rest-sdks
@@ -19,7 +19,7 @@ features:
     additionalDependencies: 0.1.0
     callbacks: 1.0.1
     constsAndDefaults: 0.1.12
-    core: 3.26.16
+    core: 3.26.17
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -27,7 +27,7 @@ features:
     globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.83.0
-    inputOutputModels: 2.82.0
+    inputOutputModels: 2.82.1
     methodSecurity: 2.82.6
     methodServerURLs: 2.82.1
     nullables: 0.1.1
@@ -2001,7 +2001,7 @@ trackedFiles:
     pristine_git_object: a68467071a70cd66337b71f38a59154b2c742405
   docs/models/components/emailtemplatedatajson.md:
     id: c5a2b6cd2110
-    last_write_checksum: sha1:b0edd23bbf0a323a548b164a977be5a68e21c72a
+    last_write_checksum: sha1:af46cd0296b35a92cb0ef8db5369f754f41d5057
     pristine_git_object: 7881bdfd993e6c1a6d897c0e47b3231863f4d8a5
   docs/models/components/emailtemplatepaginatedresponse.md:
     id: 01b4d09f474e
@@ -2141,11 +2141,11 @@ trackedFiles:
     pristine_git_object: 7f4ba4572a05514751a695d646e6fd79851909d0
   docs/models/components/eventemailjson.md:
     id: 908aea44388d
-    last_write_checksum: sha1:5396db8ef96679b7c664ab3358cae92ca3897855
+    last_write_checksum: sha1:f8b6f5ac5a025066cd8e896dfdf60ccebcc07766
     pristine_git_object: 78735c8d48b49366a111502626e494145a1ae8fd
   docs/models/components/eventemailspaginatedresponse.md:
     id: f88549a2ce97
-    last_write_checksum: sha1:2f3b1ae83b16fc9cb97fec1d93beee67ed28909b
+    last_write_checksum: sha1:33b68b26dcebdbed58ef413f7f76fd4062dc9dc5
     pristine_git_object: f907a1d911d3ea12332d1ebc685de7f22a6b439b
   docs/models/components/eventfeaturejson.md:
     id: 05a61a868114
@@ -4845,11 +4845,11 @@ trackedFiles:
     pristine_git_object: d0beae92ea348962683922c76e9a51b94ee4bd07
   docs/models/components/standardsurveyemailtemplatejson.md:
     id: 6aa77c73ae06
-    last_write_checksum: sha1:f06f729fc9f72a7ef86c5fc6d539a671394fce8f
+    last_write_checksum: sha1:c5ab0a7d81733296755b87b5bcd8f668ec3a012b
     pristine_git_object: 21cc31b0007ff1f4db63d4d8d6800fda2b5185c0
   docs/models/components/standardsurveyemailtemplatespaginatedresponse.md:
     id: 7de51c335368
-    last_write_checksum: sha1:1129cd7ba11b444d92928ff5ab041823fc8a83a5
+    last_write_checksum: sha1:b852ae8bc97aea43c8391551d907ade8b79ec430
     pristine_git_object: 5395c043e5b2a74aa0ebc5880820027ac7364e83
   docs/models/components/standardsurveyjson.md:
     id: c4957c64226e
@@ -6717,7 +6717,7 @@ trackedFiles:
     pristine_git_object: 7065d474df5c037d23acd68ec5ae997d7377d345
   docs/models/operations/getstandardsurveyemailtemplatesresponse.md:
     id: 23a8d362c396
-    last_write_checksum: sha1:b836b3a2efb45a09aa3354224820b1085a6c4ed6
+    last_write_checksum: sha1:644da1b369f6b88bbe0ee47b23061bea615548e1
     pristine_git_object: 2a382a2b3a092759bb64108dcb27afa772e4eebb
   docs/models/operations/getstandardsurveyquestionsrequest.md:
     id: e9c5362f4108
@@ -9799,7 +9799,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:7f8e2897ffa279d1c7f893ee1f61b6600843cd8c
+    last_write_checksum: sha1:b620bc518ab646dbd81860089c4a404137e32cb8
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a

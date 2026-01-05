@@ -3,8 +3,8 @@ id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
   docChecksum: 4f84d906d3a74438202ec00a8235db4e
   docVersion: ea
-  speakeasyVersion: 1.680.3
-  generationVersion: 2.788.5
+  speakeasyVersion: 1.680.12
+  generationVersion: 2.788.15
   releaseVersion: 1.0.5
   configChecksum: 4b168f26c99f2343a3616e97d607b2dd
   published: true
@@ -9496,7 +9496,7 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:268b0aeb0f2df4a737d08dbf37226cceca8a1fe4
+    last_write_checksum: sha1:f6d893a9c0bd046d9a04f7db56fe0f245537a949
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
