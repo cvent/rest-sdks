@@ -9,19 +9,19 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * RequesterType
+ * HotelRequestJsonRequesterType
  * 
  * <p>Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
  * means the attendee is accompanying another attendee.
  */
-public enum RequesterType {
+public enum HotelRequestJsonRequesterType {
     CONTACT("Contact"),
     GUEST("Guest");
 
     @JsonValue
     private final String value;
 
-    RequesterType(String value) {
+    HotelRequestJsonRequesterType(String value) {
         this.value = value;
     }
     
@@ -29,8 +29,8 @@ public enum RequesterType {
         return value;
     }
     
-    public static Optional<RequesterType> fromValue(String value) {
-        for (RequesterType o: RequesterType.values()) {
+    public static Optional<HotelRequestJsonRequesterType> fromValue(String value) {
+        for (HotelRequestJsonRequesterType o: HotelRequestJsonRequesterType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }

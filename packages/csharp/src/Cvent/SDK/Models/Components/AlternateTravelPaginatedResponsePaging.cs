@@ -14,16 +14,10 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Represents pagination information for a collection of resources.
+    /// Represents pagination information for the list of results.
     /// </summary>
-    public class Paging
+    public class AlternateTravelPaginatedResponsePaging
     {
-
-        /// <summary>
-        /// The number of records to return on the page. Not to exceed 200.
-        /// </summary>
-        [JsonProperty("limit")]
-        public long? Limit { get; set; }
 
         /// <summary>
         /// The pagination token for the previous page, if one exists. You can use this token to navigate to the previous page of data.
@@ -42,6 +36,12 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("currentToken")]
         public string? CurrentToken { get; set; }
+
+        /// <summary>
+        /// The number of records to return on the page. Not to exceed 200.
+        /// </summary>
+        [JsonProperty("limit")]
+        public long? Limit { get; set; }
 
         /// <summary>
         /// The total number of records available. This field may return blank, even if there are more records. To confirm if there are more records, check the `nextToken` field.

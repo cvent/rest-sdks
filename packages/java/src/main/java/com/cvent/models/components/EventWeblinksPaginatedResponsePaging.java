@@ -16,11 +16,11 @@ import java.lang.String;
 import java.util.Optional;
 
 /**
- * Paging
+ * EventWeblinksPaginatedResponsePaging
  * 
  * <p>Represents pagination information for a collection of resources.
  */
-public class Paging {
+public class EventWeblinksPaginatedResponsePaging {
     /**
      * The number of records to return on the page. Not to exceed 200.
      */
@@ -66,7 +66,7 @@ public class Paging {
     private PaginationLinksJson links;
 
     @JsonCreator
-    public Paging(
+    public EventWeblinksPaginatedResponsePaging(
             @JsonProperty("limit") @Nullable Long limit,
             @JsonProperty("previousToken") @Nullable String previousToken,
             @JsonProperty("nextToken") @Nullable String nextToken,
@@ -82,7 +82,7 @@ public class Paging {
             .orElseThrow(() -> new IllegalArgumentException("links cannot be null"));
     }
     
-    public Paging(
+    public EventWeblinksPaginatedResponsePaging(
             @Nonnull PaginationLinksJson links) {
         this(null, null, null,
             null, null, links);
@@ -141,7 +141,7 @@ public class Paging {
     /**
      * The number of records to return on the page. Not to exceed 200.
      */
-    public Paging withLimit(@Nullable Long limit) {
+    public EventWeblinksPaginatedResponsePaging withLimit(@Nullable Long limit) {
         this.limit = limit;
         return this;
     }
@@ -151,7 +151,7 @@ public class Paging {
      * The pagination token for the previous page, if one exists. You can use this token to navigate to the
      * previous page of data.
      */
-    public Paging withPreviousToken(@Nullable String previousToken) {
+    public EventWeblinksPaginatedResponsePaging withPreviousToken(@Nullable String previousToken) {
         this.previousToken = previousToken;
         return this;
     }
@@ -161,7 +161,7 @@ public class Paging {
      * The pagination token for the next page. If this value is present in the response, there is another
      * page of data you can fetch.
      */
-    public Paging withNextToken(@Nullable String nextToken) {
+    public EventWeblinksPaginatedResponsePaging withNextToken(@Nullable String nextToken) {
         this.nextToken = nextToken;
         return this;
     }
@@ -170,7 +170,7 @@ public class Paging {
     /**
      * The pagination token for the current page.
      */
-    public Paging withCurrentToken(@Nullable String currentToken) {
+    public EventWeblinksPaginatedResponsePaging withCurrentToken(@Nullable String currentToken) {
         this.currentToken = currentToken;
         return this;
     }
@@ -180,7 +180,7 @@ public class Paging {
      * The total number of records available. This field may return blank, even if there are more records.
      * To confirm if there are more records, check the `nextToken` field.
      */
-    public Paging withTotalCount(@Nullable Long totalCount) {
+    public EventWeblinksPaginatedResponsePaging withTotalCount(@Nullable Long totalCount) {
         this.totalCount = totalCount;
         return this;
     }
@@ -189,7 +189,7 @@ public class Paging {
     /**
      * Represents pagination links for navigating between pages of data.
      */
-    public Paging withLinks(@Nonnull PaginationLinksJson links) {
+    public EventWeblinksPaginatedResponsePaging withLinks(@Nonnull PaginationLinksJson links) {
         this.links = Utils.checkNotNull(links, "links");
         return this;
     }
@@ -203,7 +203,7 @@ public class Paging {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Paging other = (Paging) o;
+        EventWeblinksPaginatedResponsePaging other = (EventWeblinksPaginatedResponsePaging) o;
         return 
             Utils.enhancedDeepEquals(this.limit, other.limit) &&
             Utils.enhancedDeepEquals(this.previousToken, other.previousToken) &&
@@ -222,7 +222,7 @@ public class Paging {
     
     @Override
     public String toString() {
-        return Utils.toString(Paging.class,
+        return Utils.toString(EventWeblinksPaginatedResponsePaging.class,
                 "limit", limit,
                 "previousToken", previousToken,
                 "nextToken", nextToken,
@@ -301,8 +301,8 @@ public class Paging {
             return this;
         }
 
-        public Paging build() {
-            return new Paging(
+        public EventWeblinksPaginatedResponsePaging build() {
+            return new EventWeblinksPaginatedResponsePaging(
                 limit, previousToken, nextToken,
                 currentToken, totalCount, links);
         }

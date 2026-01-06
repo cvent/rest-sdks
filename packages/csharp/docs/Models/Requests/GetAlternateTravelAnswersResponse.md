@@ -1,0 +1,9 @@
+# GetAlternateTravelAnswersResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                         | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `AlternateTravelPaginatedResponse`                                                              | [AlternateTravelPaginatedResponse](../../Models/Components/AlternateTravelPaginatedResponse.md) | :heavy_minus_sign:                                                                              | Successfully retrieved the alternate travel answers.                                            |

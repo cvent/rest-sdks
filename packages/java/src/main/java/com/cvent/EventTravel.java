@@ -11,6 +11,9 @@ import com.cvent.models.operations.GetAirActualDetailResponse;
 import com.cvent.models.operations.GetAirRequestsRequest;
 import com.cvent.models.operations.GetAirRequestsRequestBuilder;
 import com.cvent.models.operations.GetAirRequestsResponse;
+import com.cvent.models.operations.GetAlternateTravelAnswersRequest;
+import com.cvent.models.operations.GetAlternateTravelAnswersRequestBuilder;
+import com.cvent.models.operations.GetAlternateTravelAnswersResponse;
 import com.cvent.models.operations.GetHotelRequestsRequest;
 import com.cvent.models.operations.GetHotelRequestsRequestBuilder;
 import com.cvent.models.operations.GetHotelRequestsResponse;
@@ -19,6 +22,7 @@ import com.cvent.models.operations.GetHousingReservationRequestsRequestBuilder;
 import com.cvent.models.operations.GetHousingReservationRequestsResponse;
 import com.cvent.operations.GetAirActualDetail;
 import com.cvent.operations.GetAirRequests;
+import com.cvent.operations.GetAlternateTravelAnswers;
 import com.cvent.operations.GetHotelRequests;
 import com.cvent.operations.GetHousingReservationRequests;
 import com.cvent.utils.Headers;
@@ -100,6 +104,34 @@ public class EventTravel {
     public GetAirRequestsResponse getAirRequests(@Nonnull GetAirRequestsRequest request) {
         RequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation
               = new GetAirRequests.Sync(sdkConfiguration, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Alternate Travel Answers
+     * 
+     * <p>Get alternate travel answers submitted by attendees who opt out of air
+     * or hotel bookings for an event.
+     * 
+     * @return The call builder
+     */
+    public GetAlternateTravelAnswersRequestBuilder getAlternateTravelAnswers() {
+        return new GetAlternateTravelAnswersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Alternate Travel Answers
+     * 
+     * <p>Get alternate travel answers submitted by attendees who opt out of air
+     * or hotel bookings for an event.
+     * 
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAlternateTravelAnswersResponse getAlternateTravelAnswers(@Nonnull GetAlternateTravelAnswersRequest request) {
+        RequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation
+              = new GetAlternateTravelAnswers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

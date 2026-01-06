@@ -1,13 +1,13 @@
-# Paging
+# EventWeblinksPaginatedResponsePaging
 
 Represents pagination information for a collection of resources.
 
 ## Example Usage
 
 ```typescript
-import { Paging } from "@cvent/sdk/models/components";
+import { EventWeblinksPaginatedResponsePaging } from "@cvent/sdk/models/components";
 
-let value: Paging = {
+let value: EventWeblinksPaginatedResponsePaging = {
   limit: 100,
   previousToken: "1a2b3c4d5e6f7g8h9i10j11k",
   nextToken: "1a2b3c4d5e6f7g8h9i10j11k",

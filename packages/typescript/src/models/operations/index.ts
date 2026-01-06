@@ -97,6 +97,7 @@ export * from "./getaccountusergroups.js";
 export * from "./getairactualdetail.js";
 export * from "./getairrequests.js";
 export * from "./getalleventsurveyresponses.js";
+export * from "./getalternatetravelanswers.js";
 export * from "./getappointmentattendeebyid.js";
 export * from "./getappointmentbyid.js";
 export * from "./getappointmenteventbyid.js";

@@ -7,18 +7,22 @@ import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.models.operations.GetAirActualDetailRequest;
 import com.cvent.models.operations.GetAirRequestsRequest;
+import com.cvent.models.operations.GetAlternateTravelAnswersRequest;
 import com.cvent.models.operations.GetHotelRequestsRequest;
 import com.cvent.models.operations.GetHousingReservationRequestsRequest;
 import com.cvent.models.operations.async.GetAirActualDetailRequestBuilder;
 import com.cvent.models.operations.async.GetAirActualDetailResponse;
 import com.cvent.models.operations.async.GetAirRequestsRequestBuilder;
 import com.cvent.models.operations.async.GetAirRequestsResponse;
+import com.cvent.models.operations.async.GetAlternateTravelAnswersRequestBuilder;
+import com.cvent.models.operations.async.GetAlternateTravelAnswersResponse;
 import com.cvent.models.operations.async.GetHotelRequestsRequestBuilder;
 import com.cvent.models.operations.async.GetHotelRequestsResponse;
 import com.cvent.models.operations.async.GetHousingReservationRequestsRequestBuilder;
 import com.cvent.models.operations.async.GetHousingReservationRequestsResponse;
 import com.cvent.operations.GetAirActualDetail;
 import com.cvent.operations.GetAirRequests;
+import com.cvent.operations.GetAlternateTravelAnswers;
 import com.cvent.operations.GetHotelRequests;
 import com.cvent.operations.GetHousingReservationRequests;
 import com.cvent.utils.Headers;
@@ -102,6 +106,35 @@ public class AsyncEventTravel {
     public CompletableFuture<GetAirRequestsResponse> getAirRequests(@Nonnull GetAirRequestsRequest request) {
         AsyncRequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation
               = new GetAirRequests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request)
+            .thenCompose(operation::handleResponse);
+    }
+
+
+    /**
+     * Get Alternate Travel Answers
+     * 
+     * <p>Get alternate travel answers submitted by attendees who opt out of air
+     * or hotel bookings for an event.
+     * 
+     * @return The async call builder
+     */
+    public GetAlternateTravelAnswersRequestBuilder getAlternateTravelAnswers() {
+        return new GetAlternateTravelAnswersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Alternate Travel Answers
+     * 
+     * <p>Get alternate travel answers submitted by attendees who opt out of air
+     * or hotel bookings for an event.
+     * 
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetAlternateTravelAnswersResponse>} - The async response
+     */
+    public CompletableFuture<GetAlternateTravelAnswersResponse> getAlternateTravelAnswers(@Nonnull GetAlternateTravelAnswersRequest request) {
+        AsyncRequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation
+              = new GetAlternateTravelAnswers.Async(sdkConfiguration, _headers);
         return operation.doRequest(request)
             .thenCompose(operation::handleResponse);
     }

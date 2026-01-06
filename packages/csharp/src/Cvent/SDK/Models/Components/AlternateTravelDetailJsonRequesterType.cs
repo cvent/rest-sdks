@@ -14,9 +14,9 @@ namespace Cvent.SDK.Models.Components
     using System;
     
     /// <summary>
-    /// Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
+    /// Attendee type of the entity this alternate travel belongs to. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
     /// </summary>
-    public enum RequesterType
+    public enum AlternateTravelDetailJsonRequesterType
     {
         [JsonProperty("Contact")]
         Contact,
@@ -24,16 +24,16 @@ namespace Cvent.SDK.Models.Components
         Guest,
     }
 
-    public static class RequesterTypeExtension
+    public static class AlternateTravelDetailJsonRequesterTypeExtension
     {
-        public static string Value(this RequesterType value)
+        public static string Value(this AlternateTravelDetailJsonRequesterType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static RequesterType ToEnum(this string value)
+        public static AlternateTravelDetailJsonRequesterType ToEnum(this string value)
         {
-            foreach(var field in typeof(RequesterType).GetFields())
+            foreach(var field in typeof(AlternateTravelDetailJsonRequesterType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -46,14 +46,14 @@ namespace Cvent.SDK.Models.Components
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is RequesterType)
+                    if (enumVal is AlternateTravelDetailJsonRequesterType)
                     {
-                        return (RequesterType)enumVal;
+                        return (AlternateTravelDetailJsonRequesterType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum RequesterType");
+            throw new Exception($"Unknown value {value} for enum AlternateTravelDetailJsonRequesterType");
         }
     }
 

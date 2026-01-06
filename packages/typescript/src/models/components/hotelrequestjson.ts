@@ -28,14 +28,16 @@ import {
 /**
  * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
  */
-export const RequesterType = {
+export const HotelRequestJsonRequesterType = {
   Contact: "Contact",
   Guest: "Guest",
 } as const;
 /**
  * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
  */
-export type RequesterType = ClosedEnum<typeof RequesterType>;
+export type HotelRequestJsonRequesterType = ClosedEnum<
+  typeof HotelRequestJsonRequesterType
+>;
 
 /**
  * Representation of a hotel request.
@@ -68,7 +70,7 @@ export type HotelRequestJson = {
   /**
    * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
    */
-  requesterType?: RequesterType | undefined;
+  requesterType?: HotelRequestJsonRequesterType | undefined;
   /**
    * First name of the hotel requester.
    */
@@ -204,9 +206,9 @@ export type HotelRequestJson = {
 };
 
 /** @internal */
-export const RequesterType$inboundSchema: z.ZodNativeEnum<
-  typeof RequesterType
-> = z.nativeEnum(RequesterType);
+export const HotelRequestJsonRequesterType$inboundSchema: z.ZodNativeEnum<
+  typeof HotelRequestJsonRequesterType
+> = z.nativeEnum(HotelRequestJsonRequesterType);
 
 /** @internal */
 export const HotelRequestJson$inboundSchema: z.ZodType<
@@ -223,7 +225,7 @@ export const HotelRequestJson$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   hotelRequestId: z.string().optional(),
   requesterId: z.string().optional(),
-  requesterType: RequesterType$inboundSchema.optional(),
+  requesterType: HotelRequestJsonRequesterType$inboundSchema.optional(),
   requesterFirstName: z.string().optional(),
   requesterLastName: z.string().optional(),
   hotelName: z.string().optional(),

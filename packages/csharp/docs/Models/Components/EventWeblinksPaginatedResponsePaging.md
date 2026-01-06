@@ -1,4 +1,4 @@
-# Paging
+# EventWeblinksPaginatedResponsePaging
 
 Represents pagination information for a collection of resources.
 
