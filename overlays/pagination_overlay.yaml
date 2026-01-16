@@ -134,6 +134,25 @@ actions:
             type: cursor
         outputs:
           nextCursor: $.paging.nextToken
+  - target: $.paths["/events/{id}/event-travel/alternate-answers"].get
+    update:
+      parameters:
+        - $ref: "#/components/parameters/after"
+        - $ref: "#/components/parameters/before"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/filter1"
+        - $ref: "#/components/parameters/id2"
+  - target: $.paths["/events/{id}/event-travel/alternate-answers"].get
+    update:
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: token
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.paging.nextToken
   - target: $.paths["/events/{id}/event-travel/hotel-requests"].get
     update:
       parameters:
