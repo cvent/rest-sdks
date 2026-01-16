@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### `components.ZeroAllOf6`
+### `components.ZeroAllOf7`
 
 ```typescript
-const value: components.ZeroAllOf6 = {
+const value: components.ZeroAllOf7 = {
   created: new Date("2017-01-02T02:00:00Z"),
   createdBy: "hporter",
   lastModified: new Date("2019-02-12T03:00:00Z"),

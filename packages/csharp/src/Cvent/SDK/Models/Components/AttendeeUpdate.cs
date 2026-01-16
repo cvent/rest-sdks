@@ -64,7 +64,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Unsubscribed { get; set; }
 
         /// <summary>
-        /// The ID of the attendee&apos;s admission item. Required when registering or cancelling an attendee.
+        /// The ID of the attendee&apos;s admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
         /// </summary>
         [JsonProperty("admissionItem")]
         public AttendeeUpdateAdmissionItem? AdmissionItem { get; set; }

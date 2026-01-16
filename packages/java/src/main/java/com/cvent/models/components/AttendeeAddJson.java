@@ -75,7 +75,8 @@ public class AttendeeAddJson {
     private Boolean unsubscribed;
 
     /**
-     * The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+     * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
+     * or cancelling an attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("admissionItem")
@@ -289,7 +290,8 @@ public class AttendeeAddJson {
     }
 
     /**
-     * The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+     * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
+     * or cancelling an attendee.
      */
     public Optional<AttendeeAddJsonAdmissionItem> admissionItem() {
         return Optional.ofNullable(this.admissionItem);
@@ -468,7 +470,8 @@ public class AttendeeAddJson {
 
 
     /**
-     * The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+     * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
+     * or cancelling an attendee.
      */
     public AttendeeAddJson withAdmissionItem(@Nullable AttendeeAddJsonAdmissionItem admissionItem) {
         this.admissionItem = admissionItem;
@@ -764,7 +767,8 @@ public class AttendeeAddJson {
         }
 
         /**
-         * The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+         * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
+         * or cancelling an attendee.
          */
         public Builder admissionItem(@Nullable AttendeeAddJsonAdmissionItem admissionItem) {
             this.admissionItem = admissionItem;

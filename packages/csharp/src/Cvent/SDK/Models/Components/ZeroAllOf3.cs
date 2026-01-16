@@ -9,37 +9,131 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
     
     /// <summary>
-    /// Booth staff for an activity.
+    /// Details of an event appointment.
     /// </summary>
     public class ZeroAllOf3
     {
 
         /// <summary>
-        /// The unique identifier of the exhibitor booth staff.
+        /// The unique ID representing the appointment.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The first name of the booth staff that captured the lead.
+        /// The unique appointment code in Cvent or unique reference id of an appointment in the external systems.
         /// </summary>
-        [JsonProperty("firstName")]
-        public string? FirstName { get; set; }
+        [JsonProperty("code")]
+        public string? Code { get; set; }
 
         /// <summary>
-        /// The last name of the booth staff that captured the lead.
+        /// The name of the appointment.
         /// </summary>
-        [JsonProperty("lastName")]
-        public string? LastName { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; } = default!;
 
         /// <summary>
-        /// The email address of the booth staff that captured the lead.
+        /// The description of the appointment.
         /// </summary>
-        [JsonProperty("email")]
-        public string? Email { get; set; }
+        [JsonProperty("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 formatted start date/time of the appointment.
+        /// </summary>
+        [JsonProperty("start")]
+        public DateTime Start { get; set; } = default!;
+
+        /// <summary>
+        /// The ISO 8601 formatted end date/time of the appointment.
+        /// </summary>
+        [JsonProperty("end")]
+        public DateTime End { get; set; } = default!;
+
+        /// <summary>
+        /// Denotes the status of an appointment.
+        /// </summary>
+        [JsonProperty("status")]
+        public AppointmentStatusJson? Status { get; set; }
+
+        /// <summary>
+        /// The location of the appointment.
+        /// </summary>
+        [JsonProperty("location")]
+        public LocationAllOf? Location { get; set; }
+
+        /// <summary>
+        /// The type of the appointment.
+        /// </summary>
+        [JsonProperty("type")]
+        public TypeAllOf Type { get; set; } = default!;
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was created.
+        /// </summary>
+        [JsonProperty("created")]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that created this record.
+        /// </summary>
+        [JsonProperty("createdBy")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was updated.
+        /// </summary>
+        [JsonProperty("lastModified")]
+        public DateTime? LastModified { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that last updated this record.
+        /// </summary>
+        [JsonProperty("lastModifiedBy")]
+        public string? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("appointmentEvent")]
+        public UuidJson? AppointmentEvent { get; set; }
+
+        /// <summary>
+        /// Collection of attendees participating in this appointment, and their related details.
+        /// </summary>
+        [JsonProperty("participants")]
+        public List<AppointmentParticipantJson>? Participants { get; set; }
+
+        /// <summary>
+        /// True indicates participants will be automatically marked as accepted for the appointment.
+        /// </summary>
+        [JsonProperty("autoAcceptAttendees")]
+        public bool? AutoAcceptAttendees { get; set; }
+
+        /// <summary>
+        /// True indicates that existing schedule rules were enforced when the appointment was created.
+        /// </summary>
+        [JsonProperty("enforceScheduleRules")]
+        public bool? EnforceScheduleRules { get; set; }
+
+        /// <summary>
+        /// This field is deprecated please use - lastModified
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("modified")]
+        public DateTime? Modified { get; set; }
+
+        /// <summary>
+        /// True indicates the appointment has been logically deleted.
+        /// </summary>
+        [JsonProperty("deleted")]
+        public bool? Deleted { get; set; }
     }
 }

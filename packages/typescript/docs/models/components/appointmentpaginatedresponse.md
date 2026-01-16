@@ -32,7 +32,7 @@ let value: AppointmentPaginatedResponse = {
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `paging`                                                           | [components.PagingJson](../../models/components/pagingjson.md)     | :heavy_check_mark:                                                 | Represents pagination information for a collection of resources.   |
-| `data`                                                             | [components.Appointment](../../models/components/appointment.md)[] | :heavy_check_mark:                                                 | Collection of appointments and their related details.              |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [components.PagingJson](../../models/components/pagingjson.md)   | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | [components.ZeroAllOf3](../../models/components/zeroallof3.md)[] | :heavy_check_mark:                                               | Collection of appointments and their related details.            |

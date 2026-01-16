@@ -16,47 +16,80 @@ import java.util.Optional;
 /**
  * ZeroAllOf4
  * 
- * <p>The question that was answered.
+ * <p>Booth staff for an activity.
  */
 public class ZeroAllOf4 {
     /**
-     * The unique identifier of the question.
+     * The unique identifier of the exhibitor booth staff.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Question text.
+     * The first name of the booth staff that captured the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("text")
-    private String text;
+    @JsonProperty("firstName")
+    private String firstName;
+
+    /**
+     * The last name of the booth staff that captured the lead.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastName")
+    private String lastName;
+
+    /**
+     * The email address of the booth staff that captured the lead.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("email")
+    private String email;
 
     @JsonCreator
     public ZeroAllOf4(
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text) {
+            @JsonProperty("firstName") @Nullable String firstName,
+            @JsonProperty("lastName") @Nullable String lastName,
+            @JsonProperty("email") @Nullable String email) {
         this.id = id;
-        this.text = text;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
     
     public ZeroAllOf4() {
-        this(null, null);
+        this(null, null, null,
+            null);
     }
 
     /**
-     * The unique identifier of the question.
+     * The unique identifier of the exhibitor booth staff.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Question text.
+     * The first name of the booth staff that captured the lead.
      */
-    public Optional<String> text() {
-        return Optional.ofNullable(this.text);
+    public Optional<String> firstName() {
+        return Optional.ofNullable(this.firstName);
+    }
+
+    /**
+     * The last name of the booth staff that captured the lead.
+     */
+    public Optional<String> lastName() {
+        return Optional.ofNullable(this.lastName);
+    }
+
+    /**
+     * The email address of the booth staff that captured the lead.
+     */
+    public Optional<String> email() {
+        return Optional.ofNullable(this.email);
     }
 
     public static Builder builder() {
@@ -65,7 +98,7 @@ public class ZeroAllOf4 {
 
 
     /**
-     * The unique identifier of the question.
+     * The unique identifier of the exhibitor booth staff.
      */
     public ZeroAllOf4 withId(@Nullable String id) {
         this.id = id;
@@ -74,10 +107,28 @@ public class ZeroAllOf4 {
 
 
     /**
-     * Question text.
+     * The first name of the booth staff that captured the lead.
      */
-    public ZeroAllOf4 withText(@Nullable String text) {
-        this.text = text;
+    public ZeroAllOf4 withFirstName(@Nullable String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+
+    /**
+     * The last name of the booth staff that captured the lead.
+     */
+    public ZeroAllOf4 withLastName(@Nullable String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+
+    /**
+     * The email address of the booth staff that captured the lead.
+     */
+    public ZeroAllOf4 withEmail(@Nullable String email) {
+        this.email = email;
         return this;
     }
 
@@ -93,20 +144,25 @@ public class ZeroAllOf4 {
         ZeroAllOf4 other = (ZeroAllOf4) o;
         return 
             Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
+            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
+            Utils.enhancedDeepEquals(this.email, other.email);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, text);
+            id, firstName, lastName,
+            email);
     }
     
     @Override
     public String toString() {
         return Utils.toString(ZeroAllOf4.class,
                 "id", id,
-                "text", text);
+                "firstName", firstName,
+                "lastName", lastName,
+                "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -114,14 +170,18 @@ public class ZeroAllOf4 {
 
         private String id;
 
-        private String text;
+        private String firstName;
+
+        private String lastName;
+
+        private String email;
 
         private Builder() {
           // force use of static builder() method
         }
 
         /**
-         * The unique identifier of the question.
+         * The unique identifier of the exhibitor booth staff.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -129,16 +189,33 @@ public class ZeroAllOf4 {
         }
 
         /**
-         * Question text.
+         * The first name of the booth staff that captured the lead.
          */
-        public Builder text(@Nullable String text) {
-            this.text = text;
+        public Builder firstName(@Nullable String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        /**
+         * The last name of the booth staff that captured the lead.
+         */
+        public Builder lastName(@Nullable String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        /**
+         * The email address of the booth staff that captured the lead.
+         */
+        public Builder email(@Nullable String email) {
+            this.email = email;
             return this;
         }
 
         public ZeroAllOf4 build() {
             return new ZeroAllOf4(
-                id, text);
+                id, firstName, lastName,
+                email);
         }
 
     }

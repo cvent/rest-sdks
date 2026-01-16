@@ -201,7 +201,7 @@ export class Appointments extends ClientSDK {
   async createAppointment(
     request: operations.CreateAppointmentRequest,
     options?: RequestOptions,
-  ): Promise<components.Appointment> {
+  ): Promise<components.AppointmentWithQuestions> {
     return unwrapAsync(appointmentsCreateAppointment(
       this,
       request,
@@ -220,7 +220,7 @@ export class Appointments extends ClientSDK {
   async updateAppointment(
     request: operations.UpdateAppointmentRequest,
     options?: RequestOptions,
-  ): Promise<components.Appointment> {
+  ): Promise<components.AppointmentWithQuestions> {
     return unwrapAsync(appointmentsUpdateAppointment(
       this,
       request,
@@ -340,7 +340,7 @@ export class Appointments extends ClientSDK {
   async getAppointmentById(
     request: operations.GetAppointmentByIdRequest,
     options?: RequestOptions,
-  ): Promise<components.Appointment> {
+  ): Promise<components.AppointmentWithQuestions> {
     return unwrapAsync(appointmentsGetAppointmentById(
       this,
       request,

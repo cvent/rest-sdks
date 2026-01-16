@@ -44,6 +44,7 @@ let value: GetEventQuestionsResponse = {
         admissionItem: {
           id: "06ca5ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
+        internalNote: "This question is for the event registration form.",
       },
     ],
   },

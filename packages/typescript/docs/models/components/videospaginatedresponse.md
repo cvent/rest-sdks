@@ -110,7 +110,8 @@ let value: VideosPaginatedResponse = {
       warnings: [
         {
           code: 700,
-          message: "Input video is scaled down to 1080p resolution.",
+          message:
+            "Video with ID: 5779387f-3f50-4685-8641-b25a2909845f has a bitrate of 586 kbps, which is lower than the minimum allowed bitrate of 3500 kbps.",
         },
       ],
     },

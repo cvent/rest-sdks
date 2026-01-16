@@ -9,37 +9,313 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
     
     /// <summary>
-    /// Represents an error response for the checkin APIs that includes a unique id.
+    /// Represents a contact that has been created and has an id.
     /// </summary>
     public class ZeroAllOf7
     {
 
         /// <summary>
-        /// The unique identifier for the error response.
+        /// The ISO 8601 zoned date time when this record was created.
+        /// </summary>
+        [JsonProperty("created")]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that created this record.
+        /// </summary>
+        [JsonProperty("createdBy")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was updated.
+        /// </summary>
+        [JsonProperty("lastModified")]
+        public DateTime? LastModified { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that last updated this record.
+        /// </summary>
+        [JsonProperty("lastModifiedBy")]
+        public string? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The first name of the contact.
+        /// </summary>
+        [JsonProperty("firstName")]
+        public string? FirstName { get; set; }
+
+        /// <summary>
+        /// The last name of the contact.
+        /// </summary>
+        [JsonProperty("lastName")]
+        public string? LastName { get; set; }
+
+        /// <summary>
+        /// The middle name of the contact.
+        /// </summary>
+        [JsonProperty("middleName")]
+        public string? MiddleName { get; set; }
+
+        /// <summary>
+        /// The nickname of the contact.
+        /// </summary>
+        [JsonProperty("nickname")]
+        public string? Nickname { get; set; }
+
+        /// <summary>
+        /// The email address of the contact.
+        /// </summary>
+        [JsonProperty("email")]
+        public string? Email { get; set; }
+
+        /// <summary>
+        /// An alternate email address of the contact that can be cc&apos;d on email communications.
+        /// </summary>
+        [JsonProperty("ccEmail")]
+        public string? CcEmail { get; set; }
+
+        /// <summary>
+        /// The gender of the contact.
+        /// </summary>
+        [JsonProperty("gender")]
+        public GenderJson? Gender { get; set; }
+
+        /// <summary>
+        /// The company/organization the contact belongs to.
+        /// </summary>
+        [JsonProperty("company")]
+        public string? Company { get; set; }
+
+        /// <summary>
+        /// The designation of the contact, typically an award or credential.
+        /// </summary>
+        [JsonProperty("designation")]
+        public string? Designation { get; set; }
+
+        /// <summary>
+        /// The job title of the contact.
+        /// </summary>
+        [JsonProperty("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
+        /// Contains details related to the attendee&apos;s contact type.
+        /// </summary>
+        [JsonProperty("type")]
+        public AttendeeContactTypeJson? Type { get; set; }
+
+        /// <summary>
+        /// Contact Membership information
+        /// </summary>
+        [JsonProperty("membership")]
+        public MembershipJson? Membership { get; set; }
+
+        /// <summary>
+        /// The type of address.
+        /// </summary>
+        [JsonProperty("primaryAddressType")]
+        public AddressTypeJson? PrimaryAddressType { get; set; }
+
+        /// <summary>
+        /// Contact address details.
+        /// </summary>
+        [JsonProperty("homeAddress")]
+        public AddressJson? HomeAddress { get; set; }
+
+        /// <summary>
+        /// The phone number of the contact at their place of residence.
+        /// </summary>
+        [JsonProperty("homePhone")]
+        public string? HomePhone { get; set; }
+
+        /// <summary>
+        /// The fax number of the contact at their place of residence.
+        /// </summary>
+        [JsonProperty("homeFax")]
+        public string? HomeFax { get; set; }
+
+        /// <summary>
+        /// Contact address details.
+        /// </summary>
+        [JsonProperty("workAddress")]
+        public AddressJson? WorkAddress { get; set; }
+
+        /// <summary>
+        /// The phone number of the contact at their place of work.
+        /// </summary>
+        [JsonProperty("workPhone")]
+        public string? WorkPhone { get; set; }
+
+        /// <summary>
+        /// The fax number of the contact at their place of work.
+        /// </summary>
+        [JsonProperty("workFax")]
+        public string? WorkFax { get; set; }
+
+        /// <summary>
+        /// Collection of custom fields.
+        /// </summary>
+        [JsonProperty("customFields")]
+        public List<CustomField>? CustomFields { get; set; }
+
+        /// <summary>
+        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+        /// </summary>
+        [JsonProperty("sourceId")]
+        public string? SourceId { get; set; }
+
+        /// <summary>
+        /// The contact&apos;s mobile phone number.
+        /// </summary>
+        [JsonProperty("mobilePhone")]
+        public string? MobilePhone { get; set; }
+
+        /// <summary>
+        /// Detail related to compliance with the contact&apos;s privacy rights under various legislation.
+        /// </summary>
+        [JsonProperty("compliance")]
+        public List<ComplianceJson>? Compliance { get; set; }
+
+        /// <summary>
+        /// Denotes what is traditionally a title of an individual.
+        /// </summary>
+        [JsonProperty("prefix")]
+        public string? Prefix { get; set; }
+
+        /// <summary>
+        /// The pager number of the contact.
+        /// </summary>
+        [JsonProperty("pager")]
+        public string? Pager { get; set; }
+
+        /// <summary>
+        /// True indicates a contact is deleted. Deleted contacts still have their data retained, but the contact is inactive.
+        /// </summary>
+        [JsonProperty("deleted")]
+        public bool? Deleted { get; set; } = false;
+
+        /// <summary>
+        /// True indicates a contact is purged. Purged contacts have only partial data retained, and will be permanently deleted in 30 days.
+        /// </summary>
+        [JsonProperty("purged")]
+        public bool? Purged { get; set; } = false;
+
+        /// <summary>
+        /// Details of an opt-out for a Contact.
+        /// </summary>
+        [JsonProperty("optOut")]
+        public OptOutJson? OptOut { get; set; }
+
+        /// <summary>
+        /// Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
+        /// </summary>
+        [JsonProperty("npi")]
+        public string? Npi { get; set; }
+
+        /// <summary>
+        /// Collection of social media links for the contact.
+        /// </summary>
+        [JsonProperty("_links")]
+        public ContactLinksJson? Links { get; set; }
+
+        /// <summary>
+        /// The date of birth of the contact.<br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+        /// </remarks>
+        /// </summary>
+        [JsonProperty("dateOfBirth")]
+        public DateOnly? DateOfBirth { get; set; }
+
+        /// <summary>
+        /// The passport number of the contact.<br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use the passport.number field.
+        /// </remarks>
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("passportNumber")]
+        public string? PassportNumber { get; set; }
+
+        /// <summary>
+        /// This entity represents a contact&apos;s passport information.
+        /// </summary>
+        [JsonProperty("passport")]
+        public PassportJson? Passport { get; set; }
+
+        /// <summary>
+        /// The social security number of the contact.<br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+        /// </remarks>
+        /// </summary>
+        [JsonProperty("socialSecurityNumber")]
+        public string? SocialSecurityNumber { get; set; }
+
+        /// <summary>
+        /// The national identification number of the contact.<br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+        /// </remarks>
+        /// </summary>
+        [JsonProperty("nationalIdentificationNumber")]
+        public string? NationalIdentificationNumber { get; set; }
+
+        /// <summary>
+        /// The headline of the contact&apos;s profile, which summarizes their professional experience and qualities.
+        /// </summary>
+        [JsonProperty("headline")]
+        public string? Headline { get; set; }
+
+        /// <summary>
+        /// A contact&apos;s personal website URL.
+        /// </summary>
+        [JsonProperty("personalWebsite")]
+        public string? PersonalWebsite { get; set; }
+
+        /// <summary>
+        /// A contact&apos;s biographical writeup.
+        /// </summary>
+        [JsonProperty("biography")]
+        public string? Biography { get; set; }
+
+        /// <summary>
+        /// Represents the preferred pronouns of a contact.
+        /// </summary>
+        [JsonProperty("pronouns")]
+        public string? Pronouns { get; set; }
+
+        /// <summary>
+        /// The ID of the contact.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The HTTP status code representing the error.
+        /// ID of the parent contact, applicable with contact snapshot.
         /// </summary>
-        [JsonProperty("code")]
-        public long Code { get; set; } = default!;
+        [JsonProperty("parentId")]
+        public string? ParentId { get; set; }
 
         /// <summary>
-        /// A brief description of the error.
+        /// Event ID
         /// </summary>
-        [JsonProperty("message")]
-        public string Message { get; set; } = default!;
-
-        /// <summary>
-        /// The target resource of the error.
-        /// </summary>
-        [JsonProperty("target")]
-        public string? Target { get; set; }
+        [JsonProperty("event")]
+        public EventAllOf? Event { get; set; }
     }
 }

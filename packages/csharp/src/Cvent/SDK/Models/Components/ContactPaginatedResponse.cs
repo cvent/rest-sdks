@@ -30,6 +30,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of contacts.
         /// </summary>
         [JsonProperty("data")]
-        public List<ZeroAllOf6> Data { get; set; } = default!;
+        public List<ZeroAllOf7> Data { get; set; } = default!;
     }
 }

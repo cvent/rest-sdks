@@ -91,5 +91,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("type")]
         public QuestionTypeJson3? Type { get; set; }
+
+        /// <summary>
+        /// Optional description to provide additional context of the question.
+        /// </summary>
+        [JsonProperty("internalNote")]
+        public string? InternalNote { get; set; }
     }
 }

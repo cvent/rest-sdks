@@ -24,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         /// The question that was answered.
         /// </summary>
         [JsonProperty("question")]
-        public ZeroAllOf4? Question { get; set; }
+        public ZeroAllOf5? Question { get; set; }
 
         /// <summary>
         /// List of answers.

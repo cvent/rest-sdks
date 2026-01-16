@@ -1,11 +1,13 @@
 # ZeroAllOf4
 
-The question that was answered.
+Booth staff for an activity.
 
 
 ## Fields
 
-| Field                                  | Type                                   | Required                               | Description                            | Example                                |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| `Id`                                   | *string*                               | :heavy_minus_sign:                     | The unique identifier of the question. | 861b51ec-aa7e-475f-b38d-4c8e35c47d63   |
-| `Text`                                 | *string*                               | :heavy_minus_sign:                     | Question text.                         | How would you rate this session?       |
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `Id`                                                         | *string*                                                     | :heavy_minus_sign:                                           | The unique identifier of the exhibitor booth staff.          |                                                              |
+| `FirstName`                                                  | *string*                                                     | :heavy_minus_sign:                                           | The first name of the booth staff that captured the lead.    | John                                                         |
+| `LastName`                                                   | *string*                                                     | :heavy_minus_sign:                                           | The last name of the booth staff that captured the lead.     | Doe                                                          |
+| `Email`                                                      | *string*                                                     | :heavy_minus_sign:                                           | The email address of the booth staff that captured the lead. | h.potterfield@test.com                                       |

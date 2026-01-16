@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### ZeroAllOf6
+### ZeroAllOf7
 
 ```csharp
-ContactBulkItemJsonData.CreateZeroAllOf6(/* values here */);
+ContactBulkItemJsonData.CreateZeroAllOf7(/* values here */);
 ```
 
 ### ErrorResponse

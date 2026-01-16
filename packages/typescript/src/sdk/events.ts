@@ -33,6 +33,7 @@ import { eventsListDonationItemsPostFilter } from "../funcs/eventsListDonationIt
 import { eventsListEventEmails } from "../funcs/eventsListEventEmails.js";
 import { eventsListEventUserGroups } from "../funcs/eventsListEventUserGroups.js";
 import { eventsListFeeItems } from "../funcs/eventsListFeeItems.js";
+import { eventsListMembershipItems } from "../funcs/eventsListMembershipItems.js";
 import { eventsListQuantityItems } from "../funcs/eventsListQuantityItems.js";
 import { eventsListQuantityItemsPostFilter } from "../funcs/eventsListQuantityItemsPostFilter.js";
 import { eventsListRegistrationPaths } from "../funcs/eventsListRegistrationPaths.js";
@@ -490,6 +491,25 @@ export class Events extends ClientSDK {
     PageIterator<operations.GetInvitationListResponse, { cursor: string }>
   > {
     return unwrapResultIterator(eventsGetInvitationList(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Membership Items
+   *
+   * @remarks
+   * Gets a paginated list of membership items. [Membership items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased during registration.
+   */
+  async listMembershipItems(
+    request: operations.ListMembershipItemsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<operations.ListMembershipItemsResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(eventsListMembershipItems(
       this,
       request,
       options,

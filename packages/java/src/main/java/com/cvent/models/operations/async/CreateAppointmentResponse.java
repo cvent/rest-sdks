@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.Appointment;
+import com.cvent.models.components.AppointmentWithQuestions;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -36,20 +36,20 @@ public class CreateAppointmentResponse implements AsyncResponse {
     /**
      * Successfully created an appointment.
      */
-    private Appointment appointment;
+    private AppointmentWithQuestions appointmentWithQuestions;
 
     @JsonCreator
     public CreateAppointmentResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable Appointment appointment) {
+            @Nullable AppointmentWithQuestions appointmentWithQuestions) {
         this.contentType = Optional.ofNullable(contentType)
             .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
             .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.appointment = appointment;
+        this.appointmentWithQuestions = appointmentWithQuestions;
     }
     
     public CreateAppointmentResponse(
@@ -84,8 +84,8 @@ public class CreateAppointmentResponse implements AsyncResponse {
     /**
      * Successfully created an appointment.
      */
-    public Optional<Appointment> appointment() {
-        return Optional.ofNullable(this.appointment);
+    public Optional<AppointmentWithQuestions> appointmentWithQuestions() {
+        return Optional.ofNullable(this.appointmentWithQuestions);
     }
 
     public static Builder builder() {
@@ -123,8 +123,8 @@ public class CreateAppointmentResponse implements AsyncResponse {
     /**
      * Successfully created an appointment.
      */
-    public CreateAppointmentResponse withAppointment(@Nullable Appointment appointment) {
-        this.appointment = appointment;
+    public CreateAppointmentResponse withAppointmentWithQuestions(@Nullable AppointmentWithQuestions appointmentWithQuestions) {
+        this.appointmentWithQuestions = appointmentWithQuestions;
         return this;
     }
 
@@ -142,14 +142,14 @@ public class CreateAppointmentResponse implements AsyncResponse {
             Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
             Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
             Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.appointment, other.appointment);
+            Utils.enhancedDeepEquals(this.appointmentWithQuestions, other.appointmentWithQuestions);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
             contentType, statusCode, rawResponse,
-            appointment);
+            appointmentWithQuestions);
     }
     
     @Override
@@ -158,7 +158,7 @@ public class CreateAppointmentResponse implements AsyncResponse {
                 "contentType", contentType,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse,
-                "appointment", appointment);
+                "appointmentWithQuestions", appointmentWithQuestions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -170,7 +170,7 @@ public class CreateAppointmentResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private Appointment appointment;
+        private AppointmentWithQuestions appointmentWithQuestions;
 
         private Builder() {
           // force use of static builder() method
@@ -203,15 +203,15 @@ public class CreateAppointmentResponse implements AsyncResponse {
         /**
          * Successfully created an appointment.
          */
-        public Builder appointment(@Nullable Appointment appointment) {
-            this.appointment = appointment;
+        public Builder appointmentWithQuestions(@Nullable AppointmentWithQuestions appointmentWithQuestions) {
+            this.appointmentWithQuestions = appointmentWithQuestions;
             return this;
         }
 
         public CreateAppointmentResponse build() {
             return new CreateAppointmentResponse(
                 contentType, statusCode, rawResponse,
-                appointment);
+                appointmentWithQuestions);
         }
 
     }

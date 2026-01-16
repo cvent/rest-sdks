@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ZeroAllOf3, ZeroAllOf3$inboundSchema } from "./zeroallof3.js";
+import { ZeroAllOf4, ZeroAllOf4$inboundSchema } from "./zeroallof4.js";
 
 /**
  * An activity lead.
@@ -27,7 +27,7 @@ export type ActivityLeadJson = {
   /**
    * Booth staff for an activity.
    */
-  boothStaff?: ZeroAllOf3 | undefined;
+  boothStaff?: ZeroAllOf4 | undefined;
 };
 
 /** @internal */
@@ -39,7 +39,7 @@ export const ActivityLeadJson$inboundSchema: z.ZodType<
   id: z.string().optional(),
   deviceId: z.string().optional(),
   deviceName: z.string().optional(),
-  boothStaff: ZeroAllOf3$inboundSchema.optional(),
+  boothStaff: ZeroAllOf4$inboundSchema.optional(),
 });
 
 export function activityLeadJsonFromJSON(

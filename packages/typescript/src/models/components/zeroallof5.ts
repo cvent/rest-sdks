@@ -6,65 +6,20 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ReconciliationStatusJson,
-  ReconciliationStatusJson$inboundSchema,
-} from "./reconciliationstatusjson.js";
 
 /**
- * The identifier of reconciled budget item.
- */
-export type BudgetItemAllOf = {
-  /**
-   * The budget item ID.
-   */
-  id?: string | undefined;
-};
-
-/**
- * A transaction reconciliation record.
+ * The question that was answered.
  */
 export type ZeroAllOf5 = {
   /**
-   * The identifier of reconciled budget item.
+   * The unique identifier of the question.
    */
-  budgetItem?: BudgetItemAllOf | undefined;
+  id?: string | undefined;
   /**
-   * This is used to denote the reconciliation status for a transaction.
+   * Question text.
    */
-  status?: ReconciliationStatusJson | undefined;
-  /**
-   * Reconciliation amount.
-   */
-  amount?: number | undefined;
-  /**
-   * Reconciled by user.
-   */
-  reconciledBy?: string | undefined;
-  /**
-   * The ISO 8601 zoned date and time for Reconciled date.
-   */
-  reconciledDate?: Date | undefined;
+  text?: string | undefined;
 };
-
-/** @internal */
-export const BudgetItemAllOf$inboundSchema: z.ZodType<
-  BudgetItemAllOf,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-});
-
-export function budgetItemAllOfFromJSON(
-  jsonString: string,
-): SafeParseResult<BudgetItemAllOf, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BudgetItemAllOf$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BudgetItemAllOf' from JSON`,
-  );
-}
 
 /** @internal */
 export const ZeroAllOf5$inboundSchema: z.ZodType<
@@ -72,13 +27,8 @@ export const ZeroAllOf5$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  budgetItem: z.lazy(() => BudgetItemAllOf$inboundSchema).optional(),
-  status: ReconciliationStatusJson$inboundSchema.optional(),
-  amount: z.number().optional(),
-  reconciledBy: z.string().optional(),
-  reconciledDate: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ).optional(),
+  id: z.string().optional(),
+  text: z.string().optional(),
 });
 
 export function zeroAllOf5FromJSON(

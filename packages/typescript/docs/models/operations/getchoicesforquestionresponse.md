@@ -25,7 +25,7 @@ let value: GetChoicesForQuestionResponse = {
         },
       },
     },
-    choices: [],
+    data: [],
   },
 };
 ```

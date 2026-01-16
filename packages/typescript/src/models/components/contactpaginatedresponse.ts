@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { ZeroAllOf6, ZeroAllOf6$inboundSchema } from "./zeroallof6.js";
+import { ZeroAllOf7, ZeroAllOf7$inboundSchema } from "./zeroallof7.js";
 
 /**
  * The response from a request to get the list of contacts.  This includes the paging object as well as the collection of contacts.
@@ -20,7 +20,7 @@ export type ContactPaginatedResponse = {
   /**
    * Collection of contacts.
    */
-  data: Array<ZeroAllOf6>;
+  data: Array<ZeroAllOf7>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const ContactPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: PagingJson$inboundSchema,
-  data: z.array(ZeroAllOf6$inboundSchema),
+  data: z.array(ZeroAllOf7$inboundSchema),
 });
 
 export function contactPaginatedResponseFromJSON(

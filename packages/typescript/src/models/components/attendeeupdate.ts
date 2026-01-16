@@ -66,7 +66,7 @@ export type AttendeeUpdateAdministrator = {
 };
 
 /**
- * The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+ * The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
  */
 export type AttendeeUpdateAdmissionItem = {
   /**
@@ -118,7 +118,7 @@ export type AttendeeUpdate = {
    */
   unsubscribed?: boolean | undefined;
   /**
-   * The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+   * The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
    */
   admissionItem?: AttendeeUpdateAdmissionItem | undefined;
   /**

@@ -40,7 +40,7 @@ export function appointmentsCreateAppointment(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.Appointment,
+    components.AppointmentWithQuestions,
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.Appointment,
+      components.AppointmentWithQuestions,
       | errors.ErrorResponse
       | CventSDKError
       | ResponseValidationError
@@ -161,7 +161,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.Appointment,
+    components.AppointmentWithQuestions,
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -172,7 +172,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, components.Appointment$inboundSchema),
+    M.json(201, components.AppointmentWithQuestions$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 404, 422, 429],
       errors.ErrorResponse$inboundSchema,

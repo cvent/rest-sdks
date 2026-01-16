@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved an appointment.
         /// </summary>
-        public Appointment? Appointment { get; set; }
+        public AppointmentWithQuestions? AppointmentWithQuestions { get; set; }
     }
 }

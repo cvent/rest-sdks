@@ -99,6 +99,9 @@ import com.cvent.models.operations.ListEventUserGroupsResponse;
 import com.cvent.models.operations.ListFeeItemsRequest;
 import com.cvent.models.operations.ListFeeItemsRequestBuilder;
 import com.cvent.models.operations.ListFeeItemsResponse;
+import com.cvent.models.operations.ListMembershipItemsRequest;
+import com.cvent.models.operations.ListMembershipItemsRequestBuilder;
+import com.cvent.models.operations.ListMembershipItemsResponse;
 import com.cvent.models.operations.ListQuantityItemsPostFilterRequest;
 import com.cvent.models.operations.ListQuantityItemsPostFilterRequestBuilder;
 import com.cvent.models.operations.ListQuantityItemsPostFilterResponse;
@@ -171,6 +174,7 @@ import com.cvent.operations.ListDonationItemsPostFilter;
 import com.cvent.operations.ListEventEmails;
 import com.cvent.operations.ListEventUserGroups;
 import com.cvent.operations.ListFeeItems;
+import com.cvent.operations.ListMembershipItems;
 import com.cvent.operations.ListQuantityItems;
 import com.cvent.operations.ListQuantityItemsPostFilter;
 import com.cvent.operations.ListRegistrationPaths;
@@ -896,6 +900,38 @@ public class Events {
     public GetInvitationListResponse getInvitationList(@Nonnull GetInvitationListRequest request) {
         RequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation
               = new GetInvitationList.Sync(sdkConfiguration, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Membership Items
+     * 
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     * 
+     * @return The call builder
+     */
+    public ListMembershipItemsRequestBuilder listMembershipItems() {
+        return new ListMembershipItemsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Membership Items
+     * 
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     * 
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListMembershipItemsResponse listMembershipItems(@Nonnull ListMembershipItemsRequest request) {
+        RequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation
+              = new ListMembershipItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

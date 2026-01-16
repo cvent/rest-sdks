@@ -31,21 +31,21 @@ public class EventQuestionChoicesResponse {
     /**
      * Collection of choices for a choice question.
      */
-    @JsonProperty("choices")
-    private List<ChoiceJson4> choices;
+    @JsonProperty("data")
+    private List<EventQuestionChoiceJson> data;
 
     @JsonCreator
     public EventQuestionChoicesResponse(
             @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("choices") @Nonnull List<ChoiceJson4> choices) {
+            @JsonProperty("data") @Nonnull List<EventQuestionChoiceJson> data) {
         this.paging = paging;
-        this.choices = Optional.ofNullable(choices)
-            .orElseThrow(() -> new IllegalArgumentException("choices cannot be null"));
+        this.data = Optional.ofNullable(data)
+            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
     
     public EventQuestionChoicesResponse(
-            @Nonnull List<ChoiceJson4> choices) {
-        this(null, choices);
+            @Nonnull List<EventQuestionChoiceJson> data) {
+        this(null, data);
     }
 
     /**
@@ -58,8 +58,8 @@ public class EventQuestionChoicesResponse {
     /**
      * Collection of choices for a choice question.
      */
-    public List<ChoiceJson4> choices() {
-        return this.choices;
+    public List<EventQuestionChoiceJson> data() {
+        return this.data;
     }
 
     public static Builder builder() {
@@ -79,8 +79,8 @@ public class EventQuestionChoicesResponse {
     /**
      * Collection of choices for a choice question.
      */
-    public EventQuestionChoicesResponse withChoices(@Nonnull List<ChoiceJson4> choices) {
-        this.choices = Utils.checkNotNull(choices, "choices");
+    public EventQuestionChoicesResponse withData(@Nonnull List<EventQuestionChoiceJson> data) {
+        this.data = Utils.checkNotNull(data, "data");
         return this;
     }
 
@@ -96,20 +96,20 @@ public class EventQuestionChoicesResponse {
         EventQuestionChoicesResponse other = (EventQuestionChoicesResponse) o;
         return 
             Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.choices, other.choices);
+            Utils.enhancedDeepEquals(this.data, other.data);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            paging, choices);
+            paging, data);
     }
     
     @Override
     public String toString() {
         return Utils.toString(EventQuestionChoicesResponse.class,
                 "paging", paging,
-                "choices", choices);
+                "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -117,7 +117,7 @@ public class EventQuestionChoicesResponse {
 
         private PagingJson paging;
 
-        private List<ChoiceJson4> choices;
+        private List<EventQuestionChoiceJson> data;
 
         private Builder() {
           // force use of static builder() method
@@ -134,14 +134,14 @@ public class EventQuestionChoicesResponse {
         /**
          * Collection of choices for a choice question.
          */
-        public Builder choices(@Nonnull List<ChoiceJson4> choices) {
-            this.choices = Utils.checkNotNull(choices, "choices");
+        public Builder data(@Nonnull List<EventQuestionChoiceJson> data) {
+            this.data = Utils.checkNotNull(data, "data");
             return this;
         }
 
         public EventQuestionChoicesResponse build() {
             return new EventQuestionChoicesResponse(
-                paging, choices);
+                paging, data);
         }
 
     }

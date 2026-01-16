@@ -279,6 +279,7 @@ export * from "./listlocations.js";
 export * from "./listmeetinginterests.js";
 export * from "./listmeetingrequest.js";
 export * from "./listmeetingrequestdocuments.js";
+export * from "./listmembershipitems.js";
 export * from "./listmrf.js";
 export * from "./listplayers.js";
 export * from "./listprocessformsubmission.js";

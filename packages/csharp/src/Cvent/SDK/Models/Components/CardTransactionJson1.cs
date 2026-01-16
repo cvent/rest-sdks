@@ -76,7 +76,7 @@ namespace Cvent.SDK.Models.Components
         /// The list of reconciled item.
         /// </summary>
         [JsonProperty("reconciliations")]
-        public List<ZeroAllOf5>? Reconciliations { get; set; }
+        public List<ZeroAllOf6>? Reconciliations { get; set; }
 
         /// <summary>
         /// The list of transaction description.

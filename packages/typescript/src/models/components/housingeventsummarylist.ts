@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { ZeroAllOf8, ZeroAllOf8$inboundSchema } from "./zeroallof8.js";
+import { ZeroAllOf9, ZeroAllOf9$inboundSchema } from "./zeroallof9.js";
 
 /**
  * List of housing events with key information, providing a summarized view of each event.
@@ -20,7 +20,7 @@ export type HousingEventSummaryList = {
   /**
    * List of housing events with key information, providing a summarized view of each event.
    */
-  data: Array<ZeroAllOf8>;
+  data: Array<ZeroAllOf9>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const HousingEventSummaryList$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: PagingJson$inboundSchema,
-  data: z.array(ZeroAllOf8$inboundSchema),
+  data: z.array(ZeroAllOf9$inboundSchema),
 });
 
 export function housingEventSummaryListFromJSON(

@@ -25,7 +25,7 @@ namespace Cvent.SDK
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals and hotel reservations at your event. Use these endpoints to retrieve your air, hotel and housing reservation request data from your events. **Housing Reservation Request** - An association between an attendee&apos;s information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
+    /// Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals, hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your air, hotel, housing reservation request and alternate travel answers data from your events. **Housing Reservation Request** - An association between an attendee&apos;s information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
     /// </summary>
     public interface IEventTravel
     {
@@ -52,8 +52,7 @@ namespace Cvent.SDK
         /// Get Alternate Travel Answers
         /// 
         /// <remarks>
-        /// Get alternate travel answers submitted by attendees who opt out of air<br/>
-        /// or hotel bookings for an event.
+        /// Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
         /// </remarks>
         /// </summary>
         Task<GetAlternateTravelAnswersResponse> GetAlternateTravelAnswersAsync(GetAlternateTravelAnswersRequest request);
@@ -78,7 +77,7 @@ namespace Cvent.SDK
     }
 
     /// <summary>
-    /// Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals and hotel reservations at your event. Use these endpoints to retrieve your air, hotel and housing reservation request data from your events. **Housing Reservation Request** - An association between an attendee&apos;s information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
+    /// Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals, hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your air, hotel, housing reservation request and alternate travel answers data from your events. **Housing Reservation Request** - An association between an attendee&apos;s information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
     /// </summary>
     public class EventTravel: IEventTravel
     {
@@ -427,6 +426,36 @@ namespace Cvent.SDK
 
             httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
 
+            Func<Task<GetAlternateTravelAnswersResponse?>> nextFunc = async delegate()
+            {
+                var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
+                var nextCursorToken = body.SelectToken("$.paging.nextToken");
+
+                if(nextCursorToken == null)
+                {
+                    return null;
+                }
+                var nextCursor = nextCursorToken.Value<string>();
+                if (string.IsNullOrWhiteSpace(nextCursor))
+                {
+                    return null;
+                }
+
+                var newRequest = new GetAlternateTravelAnswersRequest
+                {
+                    After = request.After,
+                    Before = request.Before,
+                    Limit = request.Limit,
+                    Token = nextCursor,
+                    Filter = request.Filter,
+                    Id = request.Id
+                };
+
+                return await GetAlternateTravelAnswersAsync (
+                    request: newRequest
+                );
+            };
+
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
             if(responseStatusCode == 200)
@@ -450,7 +479,8 @@ namespace Cvent.SDK
                         {
                             Response = httpResponse,
                             Request = httpRequest
-                        }
+                        },
+                        Next = nextFunc
                     };
                     response.AlternateTravelPaginatedResponse = obj;
                     return response;

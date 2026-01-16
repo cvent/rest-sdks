@@ -1,6 +1,6 @@
 # ZeroAllOf4
 
-The question that was answered.
+Booth staff for an activity.
 
 ## Example Usage
 
@@ -8,14 +8,17 @@ The question that was answered.
 import { ZeroAllOf4 } from "@cvent/sdk/models/components";
 
 let value: ZeroAllOf4 = {
-  id: "861b51ec-aa7e-475f-b38d-4c8e35c47d63",
-  text: "How would you rate this session?",
+  firstName: "John",
+  lastName: "Doe",
+  email: "h.potterfield@test.com",
 };
 ```
 
 ## Fields
 
-| Field                                  | Type                                   | Required                               | Description                            | Example                                |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| `id`                                   | *string*                               | :heavy_minus_sign:                     | The unique identifier of the question. | 861b51ec-aa7e-475f-b38d-4c8e35c47d63   |
-| `text`                                 | *string*                               | :heavy_minus_sign:                     | Question text.                         | How would you rate this session?       |
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `id`                                                         | *string*                                                     | :heavy_minus_sign:                                           | The unique identifier of the exhibitor booth staff.          |                                                              |
+| `firstName`                                                  | *string*                                                     | :heavy_minus_sign:                                           | The first name of the booth staff that captured the lead.    | John                                                         |
+| `lastName`                                                   | *string*                                                     | :heavy_minus_sign:                                           | The last name of the booth staff that captured the lead.     | Doe                                                          |
+| `email`                                                      | *string*                                                     | :heavy_minus_sign:                                           | The email address of the booth staff that captured the lead. | h.potterfield@test.com                                       |

@@ -107,6 +107,13 @@ public class EventQuestionJson {
     @JsonProperty("type")
     private QuestionTypeJson3 type;
 
+    /**
+     * Optional description to provide additional context of the question.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("internalNote")
+    private String internalNote;
+
     @JsonCreator
     public EventQuestionJson(
             @JsonProperty("created") @Nullable OffsetDateTime created,
@@ -120,7 +127,8 @@ public class EventQuestionJson {
             @JsonProperty("tag") @Nullable String tag,
             @JsonProperty("session") @Nullable EventQuestionJsonSession session,
             @JsonProperty("admissionItem") @Nullable EventQuestionJsonAdmissionItem admissionItem,
-            @JsonProperty("type") @Nullable QuestionTypeJson3 type) {
+            @JsonProperty("type") @Nullable QuestionTypeJson3 type,
+            @JsonProperty("internalNote") @Nullable String internalNote) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -133,13 +141,15 @@ public class EventQuestionJson {
         this.session = session;
         this.admissionItem = admissionItem;
         this.type = type;
+        this.internalNote = internalNote;
     }
     
     public EventQuestionJson() {
         this(null, null, null,
             null, null, null,
             null, null, null,
-            null, null, null);
+            null, null, null,
+            null);
     }
 
     /**
@@ -227,6 +237,13 @@ public class EventQuestionJson {
      */
     public Optional<QuestionTypeJson3> type() {
         return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * Optional description to provide additional context of the question.
+     */
+    public Optional<String> internalNote() {
+        return Optional.ofNullable(this.internalNote);
     }
 
     public static Builder builder() {
@@ -345,6 +362,15 @@ public class EventQuestionJson {
     }
 
 
+    /**
+     * Optional description to provide additional context of the question.
+     */
+    public EventQuestionJson withInternalNote(@Nullable String internalNote) {
+        this.internalNote = internalNote;
+        return this;
+    }
+
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -366,7 +392,8 @@ public class EventQuestionJson {
             Utils.enhancedDeepEquals(this.tag, other.tag) &&
             Utils.enhancedDeepEquals(this.session, other.session) &&
             Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+            Utils.enhancedDeepEquals(this.type, other.type) &&
+            Utils.enhancedDeepEquals(this.internalNote, other.internalNote);
     }
     
     @Override
@@ -375,7 +402,8 @@ public class EventQuestionJson {
             created, createdBy, lastModified,
             lastModifiedBy, id, event,
             text, code, tag,
-            session, admissionItem, type);
+            session, admissionItem, type,
+            internalNote);
     }
     
     @Override
@@ -392,7 +420,8 @@ public class EventQuestionJson {
                 "tag", tag,
                 "session", session,
                 "admissionItem", admissionItem,
-                "type", type);
+                "type", type,
+                "internalNote", internalNote);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -421,6 +450,8 @@ public class EventQuestionJson {
         private EventQuestionJsonAdmissionItem admissionItem;
 
         private QuestionTypeJson3 type;
+
+        private String internalNote;
 
         private Builder() {
           // force use of static builder() method
@@ -525,12 +556,21 @@ public class EventQuestionJson {
             return this;
         }
 
+        /**
+         * Optional description to provide additional context of the question.
+         */
+        public Builder internalNote(@Nullable String internalNote) {
+            this.internalNote = internalNote;
+            return this;
+        }
+
         public EventQuestionJson build() {
             return new EventQuestionJson(
                 created, createdBy, lastModified,
                 lastModifiedBy, id, event,
                 text, code, tag,
-                session, admissionItem, type);
+                session, admissionItem, type,
+                internalNote);
         }
 
     }

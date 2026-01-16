@@ -26,13 +26,13 @@ let value: EventQuestionChoicesResponse = {
       },
     },
   },
-  choices: [],
+  data: [],
 };
 ```
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `paging`                                                           | [components.PagingJson](../../models/components/pagingjson.md)     | :heavy_minus_sign:                                                 | Represents pagination information for a collection of resources.   |
-| `choices`                                                          | [components.ChoiceJson4](../../models/components/choicejson4.md)[] | :heavy_check_mark:                                                 | Collection of choices for a choice question.                       |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `paging`                                                                                   | [components.PagingJson](../../models/components/pagingjson.md)                             | :heavy_minus_sign:                                                                         | Represents pagination information for a collection of resources.                           |
+| `data`                                                                                     | [components.EventQuestionChoiceJson](../../models/components/eventquestionchoicejson.md)[] | :heavy_check_mark:                                                                         | Collection of choices for a choice question.                                               |

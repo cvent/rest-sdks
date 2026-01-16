@@ -457,6 +457,11 @@ public final class OAuth2Scopes {
         EventMeetingRequestsWrite("event/meeting-requests:write"),
 
         /**
+         * Allows reading of membership items.
+         */
+        EventMembershipItemsRead("event/membership-items:read"),
+
+        /**
          * Allows the reading of orders
          */
         EventOrdersRead("event/orders:read"),
@@ -1442,6 +1447,11 @@ public final class OAuth2Scopes {
          * Allows the creation/updating of meeting requests.
          */
         EventMeetingRequestsWrite("event/meeting-requests:write"),
+
+        /**
+         * Allows reading of membership items.
+         */
+        EventMembershipItemsRead("event/membership-items:read"),
 
         /**
          * Allows the reading of orders
