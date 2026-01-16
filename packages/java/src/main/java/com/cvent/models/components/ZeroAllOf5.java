@@ -9,105 +9,54 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
-import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
-import java.time.OffsetDateTime;
 import java.util.Optional;
 
 /**
  * ZeroAllOf5
  * 
- * <p>A transaction reconciliation record.
+ * <p>The question that was answered.
  */
 public class ZeroAllOf5 {
     /**
-     * The identifier of reconciled budget item.
+     * The unique identifier of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("budgetItem")
-    private BudgetItemAllOf budgetItem;
+    @JsonProperty("id")
+    private String id;
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Question text.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("status")
-    private ReconciliationStatusJson status;
-
-    /**
-     * Reconciliation amount.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("amount")
-    private Double amount;
-
-    /**
-     * Reconciled by user.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("reconciledBy")
-    private String reconciledBy;
-
-    /**
-     * The ISO 8601 zoned date and time for Reconciled date.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("reconciledDate")
-    private OffsetDateTime reconciledDate;
+    @JsonProperty("text")
+    private String text;
 
     @JsonCreator
     public ZeroAllOf5(
-            @JsonProperty("budgetItem") @Nullable BudgetItemAllOf budgetItem,
-            @JsonProperty("status") @Nullable ReconciliationStatusJson status,
-            @JsonProperty("amount") @Nullable Double amount,
-            @JsonProperty("reconciledBy") @Nullable String reconciledBy,
-            @JsonProperty("reconciledDate") @Nullable OffsetDateTime reconciledDate) {
-        this.budgetItem = budgetItem;
-        this.status = status;
-        this.amount = amount;
-        this.reconciledBy = reconciledBy;
-        this.reconciledDate = reconciledDate;
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("text") @Nullable String text) {
+        this.id = id;
+        this.text = text;
     }
     
     public ZeroAllOf5() {
-        this(null, null, null,
-            null, null);
+        this(null, null);
     }
 
     /**
-     * The identifier of reconciled budget item.
+     * The unique identifier of the question.
      */
-    public Optional<BudgetItemAllOf> budgetItem() {
-        return Optional.ofNullable(this.budgetItem);
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Question text.
      */
-    public Optional<ReconciliationStatusJson> status() {
-        return Optional.ofNullable(this.status);
-    }
-
-    /**
-     * Reconciliation amount.
-     */
-    public Optional<Double> amount() {
-        return Optional.ofNullable(this.amount);
-    }
-
-    /**
-     * Reconciled by user.
-     */
-    public Optional<String> reconciledBy() {
-        return Optional.ofNullable(this.reconciledBy);
-    }
-
-    /**
-     * The ISO 8601 zoned date and time for Reconciled date.
-     */
-    public Optional<OffsetDateTime> reconciledDate() {
-        return Optional.ofNullable(this.reconciledDate);
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     public static Builder builder() {
@@ -116,46 +65,19 @@ public class ZeroAllOf5 {
 
 
     /**
-     * The identifier of reconciled budget item.
+     * The unique identifier of the question.
      */
-    public ZeroAllOf5 withBudgetItem(@Nullable BudgetItemAllOf budgetItem) {
-        this.budgetItem = budgetItem;
+    public ZeroAllOf5 withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Question text.
      */
-    public ZeroAllOf5 withStatus(@Nullable ReconciliationStatusJson status) {
-        this.status = status;
-        return this;
-    }
-
-
-    /**
-     * Reconciliation amount.
-     */
-    public ZeroAllOf5 withAmount(@Nullable Double amount) {
-        this.amount = amount;
-        return this;
-    }
-
-
-    /**
-     * Reconciled by user.
-     */
-    public ZeroAllOf5 withReconciledBy(@Nullable String reconciledBy) {
-        this.reconciledBy = reconciledBy;
-        return this;
-    }
-
-
-    /**
-     * The ISO 8601 zoned date and time for Reconciled date.
-     */
-    public ZeroAllOf5 withReconciledDate(@Nullable OffsetDateTime reconciledDate) {
-        this.reconciledDate = reconciledDate;
+    public ZeroAllOf5 withText(@Nullable String text) {
+        this.text = text;
         return this;
     }
 
@@ -170,91 +92,53 @@ public class ZeroAllOf5 {
         }
         ZeroAllOf5 other = (ZeroAllOf5) o;
         return 
-            Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy) &&
-            Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
+            Utils.enhancedDeepEquals(this.id, other.id) &&
+            Utils.enhancedDeepEquals(this.text, other.text);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            budgetItem, status, amount,
-            reconciledBy, reconciledDate);
+            id, text);
     }
     
     @Override
     public String toString() {
         return Utils.toString(ZeroAllOf5.class,
-                "budgetItem", budgetItem,
-                "status", status,
-                "amount", amount,
-                "reconciledBy", reconciledBy,
-                "reconciledDate", reconciledDate);
+                "id", id,
+                "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public final static class Builder {
 
-        private BudgetItemAllOf budgetItem;
+        private String id;
 
-        private ReconciliationStatusJson status;
-
-        private Double amount;
-
-        private String reconciledBy;
-
-        private OffsetDateTime reconciledDate;
+        private String text;
 
         private Builder() {
           // force use of static builder() method
         }
 
         /**
-         * The identifier of reconciled budget item.
+         * The unique identifier of the question.
          */
-        public Builder budgetItem(@Nullable BudgetItemAllOf budgetItem) {
-            this.budgetItem = budgetItem;
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * This is used to denote the reconciliation status for a transaction.
+         * Question text.
          */
-        public Builder status(@Nullable ReconciliationStatusJson status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * Reconciliation amount.
-         */
-        public Builder amount(@Nullable Double amount) {
-            this.amount = amount;
-            return this;
-        }
-
-        /**
-         * Reconciled by user.
-         */
-        public Builder reconciledBy(@Nullable String reconciledBy) {
-            this.reconciledBy = reconciledBy;
-            return this;
-        }
-
-        /**
-         * The ISO 8601 zoned date and time for Reconciled date.
-         */
-        public Builder reconciledDate(@Nullable OffsetDateTime reconciledDate) {
-            this.reconciledDate = reconciledDate;
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
 
         public ZeroAllOf5 build() {
             return new ZeroAllOf5(
-                budgetItem, status, amount,
-                reconciledBy, reconciledDate);
+                id, text);
         }
 
     }

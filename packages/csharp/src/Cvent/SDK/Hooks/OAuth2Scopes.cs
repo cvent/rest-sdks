@@ -551,6 +551,12 @@ namespace Cvent.SDK.Hooks
         EventMeetingRequestsWrite,
 
         /// <summary>
+        /// Allows reading of membership items.
+        /// </summary>
+        [JsonProperty("event/membership-items:read")]
+        EventMembershipItemsRead,
+
+        /// <summary>
         /// Allows the reading of orders
         /// </summary>
         [JsonProperty("event/orders:read")]
@@ -1746,6 +1752,12 @@ namespace Cvent.SDK.Hooks
         /// </summary>
         [JsonProperty("event/meeting-requests:write")]
         EventMeetingRequestsWrite,
+
+        /// <summary>
+        /// Allows reading of membership items.
+        /// </summary>
+        [JsonProperty("event/membership-items:read")]
+        EventMembershipItemsRead,
 
         /// <summary>
         /// Allows the reading of orders

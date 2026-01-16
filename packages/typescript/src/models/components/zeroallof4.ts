@@ -8,17 +8,25 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The question that was answered.
+ * Booth staff for an activity.
  */
 export type ZeroAllOf4 = {
   /**
-   * The unique identifier of the question.
+   * The unique identifier of the exhibitor booth staff.
    */
   id?: string | undefined;
   /**
-   * Question text.
+   * The first name of the booth staff that captured the lead.
    */
-  text?: string | undefined;
+  firstName?: string | undefined;
+  /**
+   * The last name of the booth staff that captured the lead.
+   */
+  lastName?: string | undefined;
+  /**
+   * The email address of the booth staff that captured the lead.
+   */
+  email?: string | undefined;
 };
 
 /** @internal */
@@ -28,7 +36,9 @@ export const ZeroAllOf4$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  text: z.string().optional(),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+  email: z.string().optional(),
 });
 
 export function zeroAllOf4FromJSON(

@@ -25,7 +25,7 @@ public class BaseQuestionResponseJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
-    private ZeroAllOf4 question;
+    private ZeroAllOf5 question;
 
     /**
      * List of answers.
@@ -36,7 +36,7 @@ public class BaseQuestionResponseJson {
 
     @JsonCreator
     public BaseQuestionResponseJson(
-            @JsonProperty("question") @Nullable ZeroAllOf4 question,
+            @JsonProperty("question") @Nullable ZeroAllOf5 question,
             @JsonProperty("answers") @Nullable List<BaseAnswerJson> answers) {
         this.question = question;
         this.answers = answers;
@@ -49,7 +49,7 @@ public class BaseQuestionResponseJson {
     /**
      * The question that was answered.
      */
-    public Optional<ZeroAllOf4> question() {
+    public Optional<ZeroAllOf5> question() {
         return Optional.ofNullable(this.question);
     }
 
@@ -68,7 +68,7 @@ public class BaseQuestionResponseJson {
     /**
      * The question that was answered.
      */
-    public BaseQuestionResponseJson withQuestion(@Nullable ZeroAllOf4 question) {
+    public BaseQuestionResponseJson withQuestion(@Nullable ZeroAllOf5 question) {
         this.question = question;
         return this;
     }
@@ -113,7 +113,7 @@ public class BaseQuestionResponseJson {
     @SuppressWarnings("UnusedReturnValue")
     public final static class Builder {
 
-        private ZeroAllOf4 question;
+        private ZeroAllOf5 question;
 
         private List<BaseAnswerJson> answers;
 
@@ -124,7 +124,7 @@ public class BaseQuestionResponseJson {
         /**
          * The question that was answered.
          */
-        public Builder question(@Nullable ZeroAllOf4 question) {
+        public Builder question(@Nullable ZeroAllOf5 question) {
             this.question = question;
             return this;
         }

@@ -1,9 +1,9 @@
-speakeasyVersion: 1.680.12
+speakeasyVersion: 1.685.0
 sources:
     Public:
         sourceNamespace: public
-        sourceRevisionDigest: sha256:6bd503a9f5cea50532b8296cca904f5ba277535f4d413c97f33b1064df56ac24
-        sourceBlobDigest: sha256:97ca90e20cf50b4000b96e7d2b0fb14e4f9ce9bae4461f3deb8f591898df9983
+        sourceRevisionDigest: sha256:b8c886c275d8a0d7504a5f32f39a5991c2598b4c17d06b2eacfd5feeb80a59f6
+        sourceBlobDigest: sha256:a2e4e7a501f9bd1ae07434b99d9a1a358c1412326527e26067400549b72ccd59
         tags:
             - latest
             - ea
@@ -11,27 +11,27 @@ targets:
     public-csharp:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:6bd503a9f5cea50532b8296cca904f5ba277535f4d413c97f33b1064df56ac24
-        sourceBlobDigest: sha256:97ca90e20cf50b4000b96e7d2b0fb14e4f9ce9bae4461f3deb8f591898df9983
+        sourceRevisionDigest: sha256:b8c886c275d8a0d7504a5f32f39a5991c2598b4c17d06b2eacfd5feeb80a59f6
+        sourceBlobDigest: sha256:a2e4e7a501f9bd1ae07434b99d9a1a358c1412326527e26067400549b72ccd59
         codeSamplesNamespace: csharp
-        codeSamplesRevisionDigest: sha256:866f531651ab479b4dbcfda185a8b4d7b6dfb59d8e6e1b3b94c97566aeaba290
+        codeSamplesRevisionDigest: sha256:6004abeb92d6b5369d50c8585f663b9c696076765c9a974349160e2216c5d6a8
     public-java:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:6bd503a9f5cea50532b8296cca904f5ba277535f4d413c97f33b1064df56ac24
-        sourceBlobDigest: sha256:97ca90e20cf50b4000b96e7d2b0fb14e4f9ce9bae4461f3deb8f591898df9983
+        sourceRevisionDigest: sha256:b8c886c275d8a0d7504a5f32f39a5991c2598b4c17d06b2eacfd5feeb80a59f6
+        sourceBlobDigest: sha256:a2e4e7a501f9bd1ae07434b99d9a1a358c1412326527e26067400549b72ccd59
         codeSamplesNamespace: java
-        codeSamplesRevisionDigest: sha256:db838c378c0559f260dc75bbd6bc75fc6e2b3e7cd8790b8feec5ae1376014683
+        codeSamplesRevisionDigest: sha256:86683383139bd86e65f818b784d378eb40c74a305368c35d882370314665493a
     public-typescript:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:6bd503a9f5cea50532b8296cca904f5ba277535f4d413c97f33b1064df56ac24
-        sourceBlobDigest: sha256:97ca90e20cf50b4000b96e7d2b0fb14e4f9ce9bae4461f3deb8f591898df9983
+        sourceRevisionDigest: sha256:b8c886c275d8a0d7504a5f32f39a5991c2598b4c17d06b2eacfd5feeb80a59f6
+        sourceBlobDigest: sha256:a2e4e7a501f9bd1ae07434b99d9a1a358c1412326527e26067400549b72ccd59
         codeSamplesNamespace: typescript
-        codeSamplesRevisionDigest: sha256:3dc7bb64889e00d45bf795090c77436cfbe6bc574c4c4a2d54ab6b43b1309fcd
+        codeSamplesRevisionDigest: sha256:4baf43e812e035efb43c5413d74591b9d6e5885a1502d913dc213ec9421c82f0
 workflow:
     workflowVersion: 1.0.0
-    speakeasyVersion: 1.680.12
+    speakeasyVersion: 1.685.0
     sources:
         Public:
             inputs:

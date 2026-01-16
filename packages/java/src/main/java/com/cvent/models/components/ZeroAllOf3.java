@@ -8,88 +8,351 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
+import java.lang.Deprecated;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * ZeroAllOf3
  * 
- * <p>Booth staff for an activity.
+ * <p>Details of an event appointment.
  */
 public class ZeroAllOf3 {
     /**
-     * The unique identifier of the exhibitor booth staff.
+     * The unique ID representing the appointment.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * The first name of the booth staff that captured the lead.
+     * The unique appointment code in Cvent or unique reference id of an appointment in the external
+     * systems.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("firstName")
-    private String firstName;
+    @JsonProperty("code")
+    private String code;
 
     /**
-     * The last name of the booth staff that captured the lead.
+     * The name of the appointment.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("lastName")
-    private String lastName;
+    @JsonProperty("name")
+    private String name;
 
     /**
-     * The email address of the booth staff that captured the lead.
+     * The description of the appointment.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("description")
+    private String description;
+
+    /**
+     * The ISO 8601 formatted start date/time of the appointment.
+     */
+    @JsonProperty("start")
+    private OffsetDateTime start;
+
+    /**
+     * The ISO 8601 formatted end date/time of the appointment.
+     */
+    @JsonProperty("end")
+    private OffsetDateTime end;
+
+    /**
+     * Denotes the status of an appointment.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("status")
+    private AppointmentStatusJson status;
+
+    /**
+     * The location of the appointment.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("location")
+    private LocationAllOf location;
+
+    /**
+     * The type of the appointment.
+     */
+    @JsonProperty("type")
+    private TypeAllOf type;
+
+    /**
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("created")
+    private OffsetDateTime created;
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("createdBy")
+    private String createdBy;
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModified")
+    private OffsetDateTime lastModified;
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModifiedBy")
+    private String lastModifiedBy;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("appointmentEvent")
+    private UuidJson appointmentEvent;
+
+    /**
+     * Collection of attendees participating in this appointment, and their related details.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("participants")
+    private List<AppointmentParticipantJson> participants;
+
+    /**
+     * True indicates participants will be automatically marked as accepted for the appointment.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("autoAcceptAttendees")
+    private Boolean autoAcceptAttendees;
+
+    /**
+     * True indicates that existing schedule rules were enforced when the appointment was created.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("enforceScheduleRules")
+    private Boolean enforceScheduleRules;
+
+    /**
+     * This field is deprecated please use - lastModified
+     * 
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("modified")
+    @Deprecated
+    private OffsetDateTime modified;
+
+    /**
+     * True indicates the appointment has been logically deleted.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("deleted")
+    private Boolean deleted;
 
     @JsonCreator
     public ZeroAllOf3(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("firstName") @Nullable String firstName,
-            @JsonProperty("lastName") @Nullable String lastName,
-            @JsonProperty("email") @Nullable String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+            @JsonProperty("id") @Nonnull String id,
+            @JsonProperty("code") @Nullable String code,
+            @JsonProperty("name") @Nonnull String name,
+            @JsonProperty("description") @Nullable String description,
+            @JsonProperty("start") @Nonnull OffsetDateTime start,
+            @JsonProperty("end") @Nonnull OffsetDateTime end,
+            @JsonProperty("status") @Nullable AppointmentStatusJson status,
+            @JsonProperty("location") @Nullable LocationAllOf location,
+            @JsonProperty("type") @Nonnull TypeAllOf type,
+            @JsonProperty("created") @Nullable OffsetDateTime created,
+            @JsonProperty("createdBy") @Nullable String createdBy,
+            @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
+            @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
+            @JsonProperty("appointmentEvent") @Nullable UuidJson appointmentEvent,
+            @JsonProperty("participants") @Nullable List<AppointmentParticipantJson> participants,
+            @JsonProperty("autoAcceptAttendees") @Nullable Boolean autoAcceptAttendees,
+            @JsonProperty("enforceScheduleRules") @Nullable Boolean enforceScheduleRules,
+            @JsonProperty("modified") @Nullable OffsetDateTime modified,
+            @JsonProperty("deleted") @Nullable Boolean deleted) {
+        this.id = Optional.ofNullable(id)
+            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.code = code;
+        this.name = Optional.ofNullable(name)
+            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.description = description;
+        this.start = Optional.ofNullable(start)
+            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end)
+            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.status = status;
+        this.location = location;
+        this.type = Optional.ofNullable(type)
+            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.created = created;
+        this.createdBy = createdBy;
+        this.lastModified = lastModified;
+        this.lastModifiedBy = lastModifiedBy;
+        this.appointmentEvent = appointmentEvent;
+        this.participants = participants;
+        this.autoAcceptAttendees = autoAcceptAttendees;
+        this.enforceScheduleRules = enforceScheduleRules;
+        this.modified = modified;
+        this.deleted = deleted;
     }
     
-    public ZeroAllOf3() {
-        this(null, null, null,
+    public ZeroAllOf3(
+            @Nonnull String id,
+            @Nonnull String name,
+            @Nonnull OffsetDateTime start,
+            @Nonnull OffsetDateTime end,
+            @Nonnull TypeAllOf type) {
+        this(id, null, name,
+            null, start, end,
+            null, null, type,
+            null, null, null,
+            null, null, null,
+            null, null, null,
             null);
     }
 
     /**
-     * The unique identifier of the exhibitor booth staff.
+     * The unique ID representing the appointment.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
 
     /**
-     * The first name of the booth staff that captured the lead.
+     * The unique appointment code in Cvent or unique reference id of an appointment in the external
+     * systems.
      */
-    public Optional<String> firstName() {
-        return Optional.ofNullable(this.firstName);
+    public Optional<String> code() {
+        return Optional.ofNullable(this.code);
     }
 
     /**
-     * The last name of the booth staff that captured the lead.
+     * The name of the appointment.
      */
-    public Optional<String> lastName() {
-        return Optional.ofNullable(this.lastName);
+    public String name() {
+        return this.name;
     }
 
     /**
-     * The email address of the booth staff that captured the lead.
+     * The description of the appointment.
      */
-    public Optional<String> email() {
-        return Optional.ofNullable(this.email);
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * The ISO 8601 formatted start date/time of the appointment.
+     */
+    public OffsetDateTime start() {
+        return this.start;
+    }
+
+    /**
+     * The ISO 8601 formatted end date/time of the appointment.
+     */
+    public OffsetDateTime end() {
+        return this.end;
+    }
+
+    /**
+     * Denotes the status of an appointment.
+     */
+    public Optional<AppointmentStatusJson> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
+     * The location of the appointment.
+     */
+    public Optional<LocationAllOf> location() {
+        return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * The type of the appointment.
+     */
+    public TypeAllOf type() {
+        return this.type;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Optional<OffsetDateTime> created() {
+        return Optional.ofNullable(this.created);
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Optional<OffsetDateTime> lastModified() {
+        return Optional.ofNullable(this.lastModified);
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Optional<String> lastModifiedBy() {
+        return Optional.ofNullable(this.lastModifiedBy);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<UuidJson> appointmentEvent() {
+        return Optional.ofNullable(this.appointmentEvent);
+    }
+
+    /**
+     * Collection of attendees participating in this appointment, and their related details.
+     */
+    public Optional<List<AppointmentParticipantJson>> participants() {
+        return Optional.ofNullable(this.participants);
+    }
+
+    /**
+     * True indicates participants will be automatically marked as accepted for the appointment.
+     */
+    public Optional<Boolean> autoAcceptAttendees() {
+        return Optional.ofNullable(this.autoAcceptAttendees);
+    }
+
+    /**
+     * True indicates that existing schedule rules were enforced when the appointment was created.
+     */
+    public Optional<Boolean> enforceScheduleRules() {
+        return Optional.ofNullable(this.enforceScheduleRules);
+    }
+
+    /**
+     * This field is deprecated please use - lastModified
+     * 
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Optional<OffsetDateTime> modified() {
+        return Optional.ofNullable(this.modified);
+    }
+
+    /**
+     * True indicates the appointment has been logically deleted.
+     */
+    public Optional<Boolean> deleted() {
+        return Optional.ofNullable(this.deleted);
     }
 
     public static Builder builder() {
@@ -98,37 +361,176 @@ public class ZeroAllOf3 {
 
 
     /**
-     * The unique identifier of the exhibitor booth staff.
+     * The unique ID representing the appointment.
      */
-    public ZeroAllOf3 withId(@Nullable String id) {
-        this.id = id;
+    public ZeroAllOf3 withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
 
     /**
-     * The first name of the booth staff that captured the lead.
+     * The unique appointment code in Cvent or unique reference id of an appointment in the external
+     * systems.
      */
-    public ZeroAllOf3 withFirstName(@Nullable String firstName) {
-        this.firstName = firstName;
+    public ZeroAllOf3 withCode(@Nullable String code) {
+        this.code = code;
         return this;
     }
 
 
     /**
-     * The last name of the booth staff that captured the lead.
+     * The name of the appointment.
      */
-    public ZeroAllOf3 withLastName(@Nullable String lastName) {
-        this.lastName = lastName;
+    public ZeroAllOf3 withName(@Nonnull String name) {
+        this.name = Utils.checkNotNull(name, "name");
         return this;
     }
 
 
     /**
-     * The email address of the booth staff that captured the lead.
+     * The description of the appointment.
      */
-    public ZeroAllOf3 withEmail(@Nullable String email) {
-        this.email = email;
+    public ZeroAllOf3 withDescription(@Nullable String description) {
+        this.description = description;
+        return this;
+    }
+
+
+    /**
+     * The ISO 8601 formatted start date/time of the appointment.
+     */
+    public ZeroAllOf3 withStart(@Nonnull OffsetDateTime start) {
+        this.start = Utils.checkNotNull(start, "start");
+        return this;
+    }
+
+
+    /**
+     * The ISO 8601 formatted end date/time of the appointment.
+     */
+    public ZeroAllOf3 withEnd(@Nonnull OffsetDateTime end) {
+        this.end = Utils.checkNotNull(end, "end");
+        return this;
+    }
+
+
+    /**
+     * Denotes the status of an appointment.
+     */
+    public ZeroAllOf3 withStatus(@Nullable AppointmentStatusJson status) {
+        this.status = status;
+        return this;
+    }
+
+
+    /**
+     * The location of the appointment.
+     */
+    public ZeroAllOf3 withLocation(@Nullable LocationAllOf location) {
+        this.location = location;
+        return this;
+    }
+
+
+    /**
+     * The type of the appointment.
+     */
+    public ZeroAllOf3 withType(@Nonnull TypeAllOf type) {
+        this.type = Utils.checkNotNull(type, "type");
+        return this;
+    }
+
+
+    /**
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public ZeroAllOf3 withCreated(@Nullable OffsetDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public ZeroAllOf3 withCreatedBy(@Nullable String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public ZeroAllOf3 withLastModified(@Nullable OffsetDateTime lastModified) {
+        this.lastModified = lastModified;
+        return this;
+    }
+
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public ZeroAllOf3 withLastModifiedBy(@Nullable String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+        return this;
+    }
+
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public ZeroAllOf3 withAppointmentEvent(@Nullable UuidJson appointmentEvent) {
+        this.appointmentEvent = appointmentEvent;
+        return this;
+    }
+
+
+    /**
+     * Collection of attendees participating in this appointment, and their related details.
+     */
+    public ZeroAllOf3 withParticipants(@Nullable List<AppointmentParticipantJson> participants) {
+        this.participants = participants;
+        return this;
+    }
+
+
+    /**
+     * True indicates participants will be automatically marked as accepted for the appointment.
+     */
+    public ZeroAllOf3 withAutoAcceptAttendees(@Nullable Boolean autoAcceptAttendees) {
+        this.autoAcceptAttendees = autoAcceptAttendees;
+        return this;
+    }
+
+
+    /**
+     * True indicates that existing schedule rules were enforced when the appointment was created.
+     */
+    public ZeroAllOf3 withEnforceScheduleRules(@Nullable Boolean enforceScheduleRules) {
+        this.enforceScheduleRules = enforceScheduleRules;
+        return this;
+    }
+
+
+    /**
+     * This field is deprecated please use - lastModified
+     * 
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public ZeroAllOf3 withModified(@Nullable OffsetDateTime modified) {
+        this.modified = modified;
+        return this;
+    }
+
+
+    /**
+     * True indicates the appointment has been logically deleted.
+     */
+    public ZeroAllOf3 withDeleted(@Nullable Boolean deleted) {
+        this.deleted = deleted;
         return this;
     }
 
@@ -144,25 +546,60 @@ public class ZeroAllOf3 {
         ZeroAllOf3 other = (ZeroAllOf3) o;
         return 
             Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+            Utils.enhancedDeepEquals(this.code, other.code) &&
+            Utils.enhancedDeepEquals(this.name, other.name) &&
+            Utils.enhancedDeepEquals(this.description, other.description) &&
+            Utils.enhancedDeepEquals(this.start, other.start) &&
+            Utils.enhancedDeepEquals(this.end, other.end) &&
+            Utils.enhancedDeepEquals(this.status, other.status) &&
+            Utils.enhancedDeepEquals(this.location, other.location) &&
+            Utils.enhancedDeepEquals(this.type, other.type) &&
+            Utils.enhancedDeepEquals(this.created, other.created) &&
+            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
+            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
+            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
+            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
+            Utils.enhancedDeepEquals(this.participants, other.participants) &&
+            Utils.enhancedDeepEquals(this.autoAcceptAttendees, other.autoAcceptAttendees) &&
+            Utils.enhancedDeepEquals(this.enforceScheduleRules, other.enforceScheduleRules) &&
+            Utils.enhancedDeepEquals(this.modified, other.modified) &&
+            Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, firstName, lastName,
-            email);
+            id, code, name,
+            description, start, end,
+            status, location, type,
+            created, createdBy, lastModified,
+            lastModifiedBy, appointmentEvent, participants,
+            autoAcceptAttendees, enforceScheduleRules, modified,
+            deleted);
     }
     
     @Override
     public String toString() {
         return Utils.toString(ZeroAllOf3.class,
                 "id", id,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+                "code", code,
+                "name", name,
+                "description", description,
+                "start", start,
+                "end", end,
+                "status", status,
+                "location", location,
+                "type", type,
+                "created", created,
+                "createdBy", createdBy,
+                "lastModified", lastModified,
+                "lastModifiedBy", lastModifiedBy,
+                "appointmentEvent", appointmentEvent,
+                "participants", participants,
+                "autoAcceptAttendees", autoAcceptAttendees,
+                "enforceScheduleRules", enforceScheduleRules,
+                "modified", modified,
+                "deleted", deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -170,52 +607,212 @@ public class ZeroAllOf3 {
 
         private String id;
 
-        private String firstName;
+        private String code;
 
-        private String lastName;
+        private String name;
 
-        private String email;
+        private String description;
+
+        private OffsetDateTime start;
+
+        private OffsetDateTime end;
+
+        private AppointmentStatusJson status;
+
+        private LocationAllOf location;
+
+        private TypeAllOf type;
+
+        private OffsetDateTime created;
+
+        private String createdBy;
+
+        private OffsetDateTime lastModified;
+
+        private String lastModifiedBy;
+
+        private UuidJson appointmentEvent;
+
+        private List<AppointmentParticipantJson> participants;
+
+        private Boolean autoAcceptAttendees;
+
+        private Boolean enforceScheduleRules;
+
+        @Deprecated
+        private OffsetDateTime modified;
+
+        private Boolean deleted;
 
         private Builder() {
           // force use of static builder() method
         }
 
         /**
-         * The unique identifier of the exhibitor booth staff.
+         * The unique ID representing the appointment.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 
         /**
-         * The first name of the booth staff that captured the lead.
+         * The unique appointment code in Cvent or unique reference id of an appointment in the external
+         * systems.
          */
-        public Builder firstName(@Nullable String firstName) {
-            this.firstName = firstName;
+        public Builder code(@Nullable String code) {
+            this.code = code;
             return this;
         }
 
         /**
-         * The last name of the booth staff that captured the lead.
+         * The name of the appointment.
          */
-        public Builder lastName(@Nullable String lastName) {
-            this.lastName = lastName;
+        public Builder name(@Nonnull String name) {
+            this.name = Utils.checkNotNull(name, "name");
             return this;
         }
 
         /**
-         * The email address of the booth staff that captured the lead.
+         * The description of the appointment.
          */
-        public Builder email(@Nullable String email) {
-            this.email = email;
+        public Builder description(@Nullable String description) {
+            this.description = description;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 formatted start date/time of the appointment.
+         */
+        public Builder start(@Nonnull OffsetDateTime start) {
+            this.start = Utils.checkNotNull(start, "start");
+            return this;
+        }
+
+        /**
+         * The ISO 8601 formatted end date/time of the appointment.
+         */
+        public Builder end(@Nonnull OffsetDateTime end) {
+            this.end = Utils.checkNotNull(end, "end");
+            return this;
+        }
+
+        /**
+         * Denotes the status of an appointment.
+         */
+        public Builder status(@Nullable AppointmentStatusJson status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * The location of the appointment.
+         */
+        public Builder location(@Nullable LocationAllOf location) {
+            this.location = location;
+            return this;
+        }
+
+        /**
+         * The type of the appointment.
+         */
+        public Builder type(@Nonnull TypeAllOf type) {
+            this.type = Utils.checkNotNull(type, "type");
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was created.
+         */
+        public Builder created(@Nullable OffsetDateTime created) {
+            this.created = created;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that created this record.
+         */
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was updated.
+         */
+        public Builder lastModified(@Nullable OffsetDateTime lastModified) {
+            this.lastModified = lastModified;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that last updated this record.
+         */
+        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder appointmentEvent(@Nullable UuidJson appointmentEvent) {
+            this.appointmentEvent = appointmentEvent;
+            return this;
+        }
+
+        /**
+         * Collection of attendees participating in this appointment, and their related details.
+         */
+        public Builder participants(@Nullable List<AppointmentParticipantJson> participants) {
+            this.participants = participants;
+            return this;
+        }
+
+        /**
+         * True indicates participants will be automatically marked as accepted for the appointment.
+         */
+        public Builder autoAcceptAttendees(@Nullable Boolean autoAcceptAttendees) {
+            this.autoAcceptAttendees = autoAcceptAttendees;
+            return this;
+        }
+
+        /**
+         * True indicates that existing schedule rules were enforced when the appointment was created.
+         */
+        public Builder enforceScheduleRules(@Nullable Boolean enforceScheduleRules) {
+            this.enforceScheduleRules = enforceScheduleRules;
+            return this;
+        }
+
+        /**
+         * This field is deprecated please use - lastModified
+         * 
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+         */
+        @Deprecated
+        public Builder modified(@Nullable OffsetDateTime modified) {
+            this.modified = modified;
+            return this;
+        }
+
+        /**
+         * True indicates the appointment has been logically deleted.
+         */
+        public Builder deleted(@Nullable Boolean deleted) {
+            this.deleted = deleted;
             return this;
         }
 
         public ZeroAllOf3 build() {
             return new ZeroAllOf3(
-                id, firstName, lastName,
-                email);
+                id, code, name,
+                description, start, end,
+                status, location, type,
+                created, createdBy, lastModified,
+                lastModifiedBy, appointmentEvent, participants,
+                autoAcceptAttendees, enforceScheduleRules, modified,
+                deleted);
         }
 
     }

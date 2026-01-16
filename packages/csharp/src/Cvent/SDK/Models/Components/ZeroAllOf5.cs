@@ -9,45 +9,25 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System;
     
     /// <summary>
-    /// A transaction reconciliation record.
+    /// The question that was answered.
     /// </summary>
     public class ZeroAllOf5
     {
 
         /// <summary>
-        /// The identifier of reconciled budget item.
+        /// The unique identifier of the question.
         /// </summary>
-        [JsonProperty("budgetItem")]
-        public BudgetItemAllOf? BudgetItem { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// This is used to denote the reconciliation status for a transaction.
+        /// Question text.
         /// </summary>
-        [JsonProperty("status")]
-        public ReconciliationStatusJson? Status { get; set; }
-
-        /// <summary>
-        /// Reconciliation amount.
-        /// </summary>
-        [JsonProperty("amount")]
-        public double? Amount { get; set; }
-
-        /// <summary>
-        /// Reconciled by user.
-        /// </summary>
-        [JsonProperty("reconciledBy")]
-        public string? ReconciledBy { get; set; }
-
-        /// <summary>
-        /// The ISO 8601 zoned date and time for Reconciled date.
-        /// </summary>
-        [JsonProperty("reconciledDate")]
-        public DateTime? ReconciledDate { get; set; }
+        [JsonProperty("text")]
+        public string? Text { get; set; }
     }
 }

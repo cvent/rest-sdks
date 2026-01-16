@@ -1,6 +1,6 @@
 # ZeroAllOf8
 
-Information about housing event with key information, providing a summarized view.
+Represents an error response for the checkin APIs that includes a unique id.
 
 ## Example Usage
 
@@ -8,40 +8,18 @@ Information about housing event with key information, providing a summarized vie
 import { ZeroAllOf8 } from "@cvent/sdk/models/components";
 
 let value: ZeroAllOf8 = {
-  id: 21738574,
-  name: "Summit 2027",
-  start: new Date("2027-01-13T05:00:00Z"),
-  end: new Date("2027-01-15T05:00:00Z"),
-  cutOff: new Date("2026-10-13T04:00:00Z"),
-  timeZone: "America/New_York",
-  venue: {
-    name: "Holiday Inn",
-    address: {
-      address1: "West St. 1",
-      address2: "Apt. 16",
-      city: "Austin",
-      region: "Texas",
-      regionCode: "TX",
-      postalCode: "23452AB",
-      country: "United States of America",
-      countryCode: "US",
-      latitude: 2342.23423,
-      longitude: 231234.23423,
-    },
-  },
-  status: "PreOpen",
+  id: "a96e7faa-b23e-49de-9040-c908473ba7ac",
+  code: 400,
+  message: "Bad Request",
+  target: "example target",
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                                                                             | Type                                                                                                                                                                              | Required                                                                                                                                                                          | Description                                                                                                                                                                       | Example                                                                                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                                                                              | *number*                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                | The unique ID of the housing event.                                                                                                                                               | 21738574                                                                                                                                                                          |
-| `name`                                                                                                                                                                            | *string*                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                | Event name.                                                                                                                                                                       | Summit 2027                                                                                                                                                                       |
-| `start`                                                                                                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                     | :heavy_check_mark:                                                                                                                                                                | The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.                                                                             | 2027-01-13T05:00:00Z                                                                                                                                                              |
-| `end`                                                                                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                     | :heavy_check_mark:                                                                                                                                                                | The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.                                                                                        | 2027-01-15T05:00:00Z                                                                                                                                                              |
-| `cutOff`                                                                                                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                     | :heavy_check_mark:                                                                                                                                                                | The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability. | 2026-10-13T04:00:00Z                                                                                                                                                              |
-| `timeZone`                                                                                                                                                                        | *string*                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                | The event timezone from the Olson specification.                                                                                                                                  | America/New_York                                                                                                                                                                  |
-| `venue`                                                                                                                                                                           | [components.VenueJson1](../../models/components/venuejson1.md)                                                                                                                    | :heavy_check_mark:                                                                                                                                                                | Event venue details.                                                                                                                                                              |                                                                                                                                                                                   |
-| `status`                                                                                                                                                                          | [components.HousingEventStatusesJson](../../models/components/housingeventstatusesjson.md)                                                                                        | :heavy_check_mark:                                                                                                                                                                | Housing event status.                                                                                                                                                             |                                                                                                                                                                                   |
+| Field                                         | Type                                          | Required                                      | Description                                   | Example                                       |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| `id`                                          | *string*                                      | :heavy_minus_sign:                            | The unique identifier for the error response. | a96e7faa-b23e-49de-9040-c908473ba7ac          |
+| `code`                                        | *number*                                      | :heavy_check_mark:                            | The HTTP status code representing the error.  | 400                                           |
+| `message`                                     | *string*                                      | :heavy_check_mark:                            | A brief description of the error.             | Bad Request                                   |
+| `target`                                      | *string*                                      | :heavy_minus_sign:                            | The target resource of the error.             | example target                                |

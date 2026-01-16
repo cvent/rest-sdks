@@ -24,7 +24,7 @@ namespace Cvent.SDK.Models.Components
 
         public string Value { get; private set; }
 
-        public static ContactBulkItemJsonDataType ZeroAllOf6 { get { return new ContactBulkItemJsonDataType("0_AllOf_6"); } }
+        public static ContactBulkItemJsonDataType ZeroAllOf7 { get { return new ContactBulkItemJsonDataType("0_AllOf_7"); } }
 
         public static ContactBulkItemJsonDataType ErrorResponse { get { return new ContactBulkItemJsonDataType("error-response"); } }
 
@@ -32,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         public static implicit operator String(ContactBulkItemJsonDataType v) { return v.Value; }
         public static ContactBulkItemJsonDataType FromString(string v) {
             switch(v) {
-                case "0_AllOf_6": return ZeroAllOf6;
+                case "0_AllOf_7": return ZeroAllOf7;
                 case "error-response": return ErrorResponse;
                 default: throw new ArgumentException("Invalid value for ContactBulkItemJsonDataType");
             }
@@ -62,18 +62,18 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ZeroAllOf6? ZeroAllOf6 { get; set; }
+        public ZeroAllOf7? ZeroAllOf7 { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
         public Models.Components.ErrorResponse? ErrorResponse { get; set; }
 
         public ContactBulkItemJsonDataType Type { get; set; }
-        public static ContactBulkItemJsonData CreateZeroAllOf6(ZeroAllOf6 zeroAllOf6)
+        public static ContactBulkItemJsonData CreateZeroAllOf7(ZeroAllOf7 zeroAllOf7)
         {
-            ContactBulkItemJsonDataType typ = ContactBulkItemJsonDataType.ZeroAllOf6;
+            ContactBulkItemJsonDataType typ = ContactBulkItemJsonDataType.ZeroAllOf7;
 
             ContactBulkItemJsonData res = new ContactBulkItemJsonData(typ);
-            res.ZeroAllOf6 = zeroAllOf6;
+            res.ZeroAllOf7 = zeroAllOf7;
             return res;
         }
         public static ContactBulkItemJsonData CreateErrorResponse(Models.Components.ErrorResponse errorResponse)
@@ -123,14 +123,14 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ZeroAllOf6)
+                    return new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ZeroAllOf7)
                     {
-                        ZeroAllOf6 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroAllOf6>(json)
+                        ZeroAllOf7 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroAllOf7>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(ZeroAllOf6), new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ZeroAllOf6), "ZeroAllOf6"));
+                    fallbackCandidates.Add((typeof(ZeroAllOf7), new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ZeroAllOf7), "ZeroAllOf7"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -173,9 +173,9 @@ namespace Cvent.SDK.Models.Components
 
                 ContactBulkItemJsonData res = (ContactBulkItemJsonData)value;
 
-                if (res.ZeroAllOf6 != null)
+                if (res.ZeroAllOf7 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroAllOf6));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroAllOf7));
                     return;
                 }
 

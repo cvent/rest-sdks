@@ -41,6 +41,6 @@ namespace Cvent.SDK.Models.Components
         /// Booth staff for an activity.
         /// </summary>
         [JsonProperty("boothStaff")]
-        public ZeroAllOf3? BoothStaff { get; set; }
+        public ZeroAllOf4? BoothStaff { get; set; }
     }
 }

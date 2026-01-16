@@ -71,18 +71,6 @@ let value: ListAppointmentsResponse = {
             status: "confirmed",
           },
         ],
-        questions: [
-          {
-            id: "026fc146-141d-4608-9329-da02f231c3ad",
-            name: "What is a your favorite color?",
-            type: "General",
-            value: [
-              "Choice C",
-              "Choice A",
-            ],
-            order: 1,
-          },
-        ],
         autoAcceptAttendees: false,
         enforceScheduleRules: false,
         deleted: false,

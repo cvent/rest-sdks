@@ -53,7 +53,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("details")
-    private List<ZeroAllOf7> details;
+    private List<ZeroAllOf8> details;
 
     @JsonCreator
     public AttendeeAddBulkItemEventJsonErrorResponse(
@@ -61,7 +61,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
             @JsonProperty("code") long code,
             @JsonProperty("message") @Nonnull String message,
             @JsonProperty("target") @Nullable String target,
-            @JsonProperty("details") @Nullable List<ZeroAllOf7> details) {
+            @JsonProperty("details") @Nullable List<ZeroAllOf8> details) {
         this.id = id;
         this.code = code;
         this.message = Optional.ofNullable(message)
@@ -108,7 +108,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
     /**
      * Additional details of cascading error messages.
      */
-    public Optional<List<ZeroAllOf7>> details() {
+    public Optional<List<ZeroAllOf8>> details() {
         return Optional.ofNullable(this.details);
     }
 
@@ -156,7 +156,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
     /**
      * Additional details of cascading error messages.
      */
-    public AttendeeAddBulkItemEventJsonErrorResponse withDetails(@Nullable List<ZeroAllOf7> details) {
+    public AttendeeAddBulkItemEventJsonErrorResponse withDetails(@Nullable List<ZeroAllOf8> details) {
         this.details = details;
         return this;
     }
@@ -207,7 +207,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
 
         private String target;
 
-        private List<ZeroAllOf7> details;
+        private List<ZeroAllOf8> details;
 
         private Builder() {
           // force use of static builder() method
@@ -248,7 +248,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         /**
          * Additional details of cascading error messages.
          */
-        public Builder details(@Nullable List<ZeroAllOf7> details) {
+        public Builder details(@Nullable List<ZeroAllOf8> details) {
             this.details = details;
             return this;
         }

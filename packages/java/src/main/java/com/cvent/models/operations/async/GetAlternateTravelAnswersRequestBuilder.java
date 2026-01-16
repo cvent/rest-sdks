@@ -4,14 +4,24 @@
 package com.cvent.models.operations.async;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
+import static com.cvent.utils.reactive.ReactiveUtils.mapAsync;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetAlternateTravelAnswersRequest;
 import com.cvent.operations.GetAlternateTravelAnswers;
+import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Utils;
+import com.cvent.utils.pagination.AsyncPaginator;
+import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import java.lang.String;
+import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Flow;
+import org.reactivestreams.FlowAdapters;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
 
 public class GetAlternateTravelAnswersRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
@@ -48,5 +58,36 @@ public class GetAlternateTravelAnswersRequestBuilder {
               = new GetAlternateTravelAnswers.Async(sdkConfiguration, _headers);
         return operation.doRequest(this._buildRequest())
             .thenCompose(operation::handleResponse);
+    }
+    
+    /**
+     * Returns a {@link Publisher} that performs next page calls till no more pages
+     * are returned.
+     *
+     * <p>The returned {@link Publisher} can be used with reactive frameworks:
+     * <pre><code>
+     * Publisher&lt;GetAlternateTravelAnswersResponse&gt; publisher = builder.callAsPublisher();
+     * publisher.subscribe(new Subscriber&lt;GetAlternateTravelAnswersResponse&gt;() {
+     *     // Handle onNext, onError, onComplete
+     * });
+     * </code></pre>
+     *
+     * @return A {@link Publisher} that emits pages asynchronously
+     */
+    public Publisher<GetAlternateTravelAnswersResponse> callAsPublisher() {
+        GetAlternateTravelAnswersRequest request = this.request;
+        AsyncRequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation
+              = new GetAlternateTravelAnswers.Async(sdkConfiguration, _headers);
+
+        Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
+            request,
+            new CursorTracker<>("$.paging.nextToken", String.class),
+            GetAlternateTravelAnswersRequest::withToken,
+            operation::doRequest);
+
+        Flow.Publisher<GetAlternateTravelAnswersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+
+        // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
+        return FlowAdapters.toPublisher(flowPublisher);
     }
 }

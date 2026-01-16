@@ -45,14 +45,14 @@ public class ActivityLeadJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("boothStaff")
-    private ZeroAllOf3 boothStaff;
+    private ZeroAllOf4 boothStaff;
 
     @JsonCreator
     public ActivityLeadJson(
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("deviceId") @Nullable String deviceId,
             @JsonProperty("deviceName") @Nullable String deviceName,
-            @JsonProperty("boothStaff") @Nullable ZeroAllOf3 boothStaff) {
+            @JsonProperty("boothStaff") @Nullable ZeroAllOf4 boothStaff) {
         this.id = id;
         this.deviceId = deviceId;
         this.deviceName = deviceName;
@@ -88,7 +88,7 @@ public class ActivityLeadJson {
     /**
      * Booth staff for an activity.
      */
-    public Optional<ZeroAllOf3> boothStaff() {
+    public Optional<ZeroAllOf4> boothStaff() {
         return Optional.ofNullable(this.boothStaff);
     }
 
@@ -127,7 +127,7 @@ public class ActivityLeadJson {
     /**
      * Booth staff for an activity.
      */
-    public ActivityLeadJson withBoothStaff(@Nullable ZeroAllOf3 boothStaff) {
+    public ActivityLeadJson withBoothStaff(@Nullable ZeroAllOf4 boothStaff) {
         this.boothStaff = boothStaff;
         return this;
     }
@@ -174,7 +174,7 @@ public class ActivityLeadJson {
 
         private String deviceName;
 
-        private ZeroAllOf3 boothStaff;
+        private ZeroAllOf4 boothStaff;
 
         private Builder() {
           // force use of static builder() method
@@ -207,7 +207,7 @@ public class ActivityLeadJson {
         /**
          * Booth staff for an activity.
          */
-        public Builder boothStaff(@Nullable ZeroAllOf3 boothStaff) {
+        public Builder boothStaff(@Nullable ZeroAllOf4 boothStaff) {
             this.boothStaff = boothStaff;
             return this;
         }

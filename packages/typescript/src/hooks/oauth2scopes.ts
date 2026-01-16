@@ -362,6 +362,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "event/meeting-requests:write"
   /**
+   * Allows reading of membership items.
+   */
+  | "event/membership-items:read"
+  /**
    * Allows the reading of orders
    */
   | "event/orders:read"
@@ -1137,6 +1141,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the creation/updating of meeting requests.
    */
   | "event/meeting-requests:write"
+  /**
+   * Allows reading of membership items.
+   */
+  | "event/membership-items:read"
   /**
    * Allows the reading of orders
    */

@@ -84,6 +84,10 @@ export type EventQuestionJson = {
    * This object represents the type of a question
    */
   type?: QuestionTypeJson3 | undefined;
+  /**
+   * Optional description to provide additional context of the question.
+   */
+  internalNote?: string | undefined;
 };
 
 /** @internal */
@@ -146,6 +150,7 @@ export const EventQuestionJson$inboundSchema: z.ZodType<
   admissionItem: z.lazy(() => EventQuestionJsonAdmissionItem$inboundSchema)
     .optional(),
   type: QuestionTypeJson3$inboundSchema.optional(),
+  internalNote: z.string().optional(),
 });
 
 export function eventQuestionJsonFromJSON(

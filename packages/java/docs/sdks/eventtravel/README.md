@@ -2,7 +2,7 @@
 
 ## Overview
 
-Event travel lets planners capture air & hotel requests from attendees and track air actuals and hotel reservations at your event. Use these endpoints to retrieve your air, hotel and housing reservation request data from your events. **Housing Reservation Request** - An association between an attendee's information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
+Event travel lets planners capture air & hotel requests from attendees and track air actuals, hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your air, hotel, housing reservation request and alternate travel answers data from your events. **Housing Reservation Request** - An association between an attendee's information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
 
 ### Available Operations
 
@@ -160,8 +160,7 @@ public class Application {
 
 ## getAlternateTravelAnswers
 
-Get alternate travel answers submitted by attendees who opt out of air
-or hotel bookings for an event.
+Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
 
 ### Example Usage
 
@@ -202,13 +201,13 @@ public class Application {
                 .filter("(attendee.id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (attendee.id eq '16322408-bae8-4b29-a559-702d2023e13a')")
                 .build();
 
-        GetAlternateTravelAnswersResponse res = sdk.eventTravel().getAlternateTravelAnswers()
-                .request(req)
-                .call();
 
-        if (res.alternateTravelPaginatedResponse().isPresent()) {
-            // handle response
-        }
+        sdk.eventTravel().getAlternateTravelAnswers()
+                .callAsStream()
+                .forEach((GetAlternateTravelAnswersResponse item) -> {
+                   // handle page
+                });
+
     }
 }
 ```

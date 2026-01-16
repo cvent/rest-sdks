@@ -25,7 +25,7 @@ public class ContactBulkItemJsonData {
         this.value = value;
     }
 
-    public static ContactBulkItemJsonData of(ZeroAllOf6 value) {
+    public static ContactBulkItemJsonData of(ZeroAllOf7 value) {
         Utils.checkNotNull(value, "value");
         return new ContactBulkItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
     }
@@ -38,7 +38,7 @@ public class ContactBulkItemJsonData {
     /**
      * Returns an instance of one of these types:
      * <ul>
-     * <li>{@code com.cvent.models.components.ZeroAllOf6}</li>
+     * <li>{@code com.cvent.models.components.ZeroAllOf7}</li>
      * <li>{@code com.cvent.models.components.ErrorResponse}</li>
      * </ul>
      * 
@@ -79,7 +79,7 @@ public class ContactBulkItemJsonData {
 
         public _Deserializer() {
             super(ContactBulkItemJsonData.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<ZeroAllOf6>() {}, JsonShape.DEFAULT),
+                  TypeReferenceWithShape.of(new TypeReference<ZeroAllOf7>() {}, JsonShape.DEFAULT),
                   TypeReferenceWithShape.of(new TypeReference<ErrorResponse>() {}, JsonShape.DEFAULT));
         }
     }

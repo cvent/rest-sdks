@@ -10,7 +10,7 @@ import {
   BaseAnswerJson,
   BaseAnswerJson$inboundSchema,
 } from "./baseanswerjson.js";
-import { ZeroAllOf4, ZeroAllOf4$inboundSchema } from "./zeroallof4.js";
+import { ZeroAllOf5, ZeroAllOf5$inboundSchema } from "./zeroallof5.js";
 
 /**
  * Base entity for a question response.
@@ -19,7 +19,7 @@ export type BaseQuestionResponseJson = {
   /**
    * The question that was answered.
    */
-  question?: ZeroAllOf4 | undefined;
+  question?: ZeroAllOf5 | undefined;
   /**
    * List of answers.
    */
@@ -32,7 +32,7 @@ export const BaseQuestionResponseJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  question: ZeroAllOf4$inboundSchema.optional(),
+  question: ZeroAllOf5$inboundSchema.optional(),
   answers: z.array(BaseAnswerJson$inboundSchema).optional(),
 });
 

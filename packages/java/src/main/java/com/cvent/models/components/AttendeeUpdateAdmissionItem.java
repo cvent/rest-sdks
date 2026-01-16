@@ -16,7 +16,8 @@ import java.util.Optional;
 /**
  * AttendeeUpdateAdmissionItem
  * 
- * <p>The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+ * <p>The ID of the attendee's admission item. Required when registering, updating a registered attendee,
+ * or cancelling an attendee.
  */
 public class AttendeeUpdateAdmissionItem {
     /**

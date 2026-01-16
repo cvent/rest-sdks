@@ -29,12 +29,12 @@ public class ContactPaginatedResponse {
      * Collection of contacts.
      */
     @JsonProperty("data")
-    private List<ZeroAllOf6> data;
+    private List<ZeroAllOf7> data;
 
     @JsonCreator
     public ContactPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ZeroAllOf6> data) {
+            @JsonProperty("data") @Nonnull List<ZeroAllOf7> data) {
         this.paging = Optional.ofNullable(paging)
             .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data)
@@ -51,7 +51,7 @@ public class ContactPaginatedResponse {
     /**
      * Collection of contacts.
      */
-    public List<ZeroAllOf6> data() {
+    public List<ZeroAllOf7> data() {
         return this.data;
     }
 
@@ -72,7 +72,7 @@ public class ContactPaginatedResponse {
     /**
      * Collection of contacts.
      */
-    public ContactPaginatedResponse withData(@Nonnull List<ZeroAllOf6> data) {
+    public ContactPaginatedResponse withData(@Nonnull List<ZeroAllOf7> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -110,7 +110,7 @@ public class ContactPaginatedResponse {
 
         private PagingJson paging;
 
-        private List<ZeroAllOf6> data;
+        private List<ZeroAllOf7> data;
 
         private Builder() {
           // force use of static builder() method
@@ -127,7 +127,7 @@ public class ContactPaginatedResponse {
         /**
          * Collection of contacts.
          */
-        public Builder data(@Nonnull List<ZeroAllOf6> data) {
+        public Builder data(@Nonnull List<ZeroAllOf7> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

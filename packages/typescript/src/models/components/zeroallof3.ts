@@ -6,28 +6,157 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AppointmentParticipantJson,
+  AppointmentParticipantJson$inboundSchema,
+} from "./appointmentparticipantjson.js";
+import {
+  AppointmentStatusJson,
+  AppointmentStatusJson$inboundSchema,
+} from "./appointmentstatusjson.js";
+import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
 /**
- * Booth staff for an activity.
+ * The location of the appointment.
+ */
+export type LocationAllOf = {
+  /**
+   * The name of the location.
+   */
+  name?: string | undefined;
+};
+
+/**
+ * The type of the appointment.
+ */
+export type TypeAllOf = {
+  /**
+   * The name of the appointment type.
+   */
+  name?: string | undefined;
+};
+
+/**
+ * Details of an event appointment.
  */
 export type ZeroAllOf3 = {
   /**
-   * The unique identifier of the exhibitor booth staff.
+   * The unique ID representing the appointment.
    */
-  id?: string | undefined;
+  id: string;
   /**
-   * The first name of the booth staff that captured the lead.
+   * The unique appointment code in Cvent or unique reference id of an appointment in the external systems.
    */
-  firstName?: string | undefined;
+  code?: string | undefined;
   /**
-   * The last name of the booth staff that captured the lead.
+   * The name of the appointment.
    */
-  lastName?: string | undefined;
+  name: string;
   /**
-   * The email address of the booth staff that captured the lead.
+   * The description of the appointment.
    */
-  email?: string | undefined;
+  description?: string | undefined;
+  /**
+   * The ISO 8601 formatted start date/time of the appointment.
+   */
+  start: Date;
+  /**
+   * The ISO 8601 formatted end date/time of the appointment.
+   */
+  end: Date;
+  /**
+   * Denotes the status of an appointment.
+   */
+  status?: AppointmentStatusJson | undefined;
+  /**
+   * The location of the appointment.
+   */
+  location?: LocationAllOf | undefined;
+  /**
+   * The type of the appointment.
+   */
+  type: TypeAllOf;
+  /**
+   * The ISO 8601 zoned date time when this record was created.
+   */
+  created?: Date | undefined;
+  /**
+   * The identifier of the user that created this record.
+   */
+  createdBy?: string | undefined;
+  /**
+   * The ISO 8601 zoned date time when this record was updated.
+   */
+  lastModified?: Date | undefined;
+  /**
+   * The identifier of the user that last updated this record.
+   */
+  lastModifiedBy?: string | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  appointmentEvent?: UuidJson | undefined;
+  /**
+   * Collection of attendees participating in this appointment, and their related details.
+   */
+  participants?: Array<AppointmentParticipantJson> | undefined;
+  /**
+   * True indicates participants will be automatically marked as accepted for the appointment.
+   */
+  autoAcceptAttendees?: boolean | undefined;
+  /**
+   * True indicates that existing schedule rules were enforced when the appointment was created.
+   */
+  enforceScheduleRules?: boolean | undefined;
+  /**
+   * This field is deprecated please use - lastModified
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  modified?: Date | undefined;
+  /**
+   * True indicates the appointment has been logically deleted.
+   */
+  deleted?: boolean | undefined;
 };
+
+/** @internal */
+export const LocationAllOf$inboundSchema: z.ZodType<
+  LocationAllOf,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  name: z.string().optional(),
+});
+
+export function locationAllOfFromJSON(
+  jsonString: string,
+): SafeParseResult<LocationAllOf, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LocationAllOf$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LocationAllOf' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAllOf$inboundSchema: z.ZodType<
+  TypeAllOf,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  name: z.string().optional(),
+});
+
+export function typeAllOfFromJSON(
+  jsonString: string,
+): SafeParseResult<TypeAllOf, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TypeAllOf$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TypeAllOf' from JSON`,
+  );
+}
 
 /** @internal */
 export const ZeroAllOf3$inboundSchema: z.ZodType<
@@ -35,10 +164,29 @@ export const ZeroAllOf3$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  firstName: z.string().optional(),
-  lastName: z.string().optional(),
-  email: z.string().optional(),
+  id: z.string(),
+  code: z.string().optional(),
+  name: z.string(),
+  description: z.string().optional(),
+  start: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  status: AppointmentStatusJson$inboundSchema.optional(),
+  location: z.lazy(() => LocationAllOf$inboundSchema).optional(),
+  type: z.lazy(() => TypeAllOf$inboundSchema),
+  created: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  createdBy: z.string().optional(),
+  lastModified: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  lastModifiedBy: z.string().optional(),
+  appointmentEvent: UuidJson$inboundSchema.optional(),
+  participants: z.array(AppointmentParticipantJson$inboundSchema).optional(),
+  autoAcceptAttendees: z.boolean().optional(),
+  enforceScheduleRules: z.boolean().optional(),
+  modified: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  deleted: z.boolean().optional(),
 });
 
 export function zeroAllOf3FromJSON(

@@ -235,8 +235,8 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 424 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 424 methods.*
+  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 425 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 425 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 
 \* Refer to the [relevant documentation](#available-resources-and-operations) to determine whether an exception applies to a specific operation.

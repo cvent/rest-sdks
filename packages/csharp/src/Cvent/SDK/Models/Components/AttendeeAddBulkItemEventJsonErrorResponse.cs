@@ -48,6 +48,6 @@ namespace Cvent.SDK.Models.Components
         /// Additional details of cascading error messages.
         /// </summary>
         [JsonProperty("details")]
-        public List<ZeroAllOf7>? Details { get; set; }
+        public List<ZeroAllOf8>? Details { get; set; }
     }
 }

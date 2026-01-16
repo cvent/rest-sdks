@@ -1,0 +1,9 @@
+# ListMembershipItemsResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                      | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                         | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `MembershipItemsPaginatedResponse`                                                              | [MembershipItemsPaginatedResponse](../../Models/Components/MembershipItemsPaginatedResponse.md) | :heavy_minus_sign:                                                                              | Successfully retrieved a paginated list of membership items.                                    |

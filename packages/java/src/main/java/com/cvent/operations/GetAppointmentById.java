@@ -9,7 +9,7 @@ import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.Appointment;
+import com.cvent.models.components.AppointmentWithQuestions;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.GetAppointmentByIdRequest;
@@ -156,7 +156,7 @@ public class GetAppointmentById {
             
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withAppointment(Utils.unmarshal(response, new TypeReference<Appointment>() {}));
+                    return res.withAppointmentWithQuestions(Utils.unmarshal(response, new TypeReference<AppointmentWithQuestions>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -233,8 +233,8 @@ public class GetAppointmentById {
             
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<Appointment>() {})
-                            .thenApply(res::withAppointment);
+                    return Utils.unmarshalAsync(response, new TypeReference<AppointmentWithQuestions>() {})
+                            .thenApply(res::withAppointmentWithQuestions);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

@@ -933,7 +933,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Appointment](../../models/components/appointment.md)\>**
+**Promise\<[components.AppointmentWithQuestions](../../models/components/appointmentwithquestions.md)\>**
 
 ### Errors
 
@@ -1064,7 +1064,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Appointment](../../models/components/appointment.md)\>**
+**Promise\<[components.AppointmentWithQuestions](../../models/components/appointmentwithquestions.md)\>**
 
 ### Errors
 
@@ -1638,7 +1638,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Appointment](../../models/components/appointment.md)\>**
+**Promise\<[components.AppointmentWithQuestions](../../models/components/appointmentwithquestions.md)\>**
 
 ### Errors
 

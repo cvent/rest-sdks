@@ -3,6 +3,11 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAlternateTravelAnswersRequest = {
   /**
@@ -48,6 +53,10 @@ export type GetAlternateTravelAnswersRequest = {
   id: string;
 };
 
+export type GetAlternateTravelAnswersResponse = {
+  result: components.AlternateTravelPaginatedResponse;
+};
+
 /** @internal */
 export type GetAlternateTravelAnswersRequest$Outbound = {
   after?: string | undefined;
@@ -79,5 +88,28 @@ export function getAlternateTravelAnswersRequestToJSON(
     GetAlternateTravelAnswersRequest$outboundSchema.parse(
       getAlternateTravelAnswersRequest,
     ),
+  );
+}
+
+/** @internal */
+export const GetAlternateTravelAnswersResponse$inboundSchema: z.ZodType<
+  GetAlternateTravelAnswersResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  Result: components.AlternateTravelPaginatedResponse$inboundSchema,
+}).transform((v) => {
+  return remap$(v, {
+    "Result": "result",
+  });
+});
+
+export function getAlternateTravelAnswersResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAlternateTravelAnswersResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAlternateTravelAnswersResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAlternateTravelAnswersResponse' from JSON`,
   );
 }

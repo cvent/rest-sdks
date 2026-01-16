@@ -668,7 +668,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.appointment().isPresent()) {
+        if (res.appointmentWithQuestions().isPresent()) {
             // handle response
         }
     }
@@ -755,7 +755,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.appointment().isPresent()) {
+        if (res.appointmentWithQuestions().isPresent()) {
             // handle response
         }
     }
@@ -1177,7 +1177,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.appointment().isPresent()) {
+        if (res.appointmentWithQuestions().isPresent()) {
             // handle response
         }
     }

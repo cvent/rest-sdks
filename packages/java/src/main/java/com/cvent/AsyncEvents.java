@@ -37,6 +37,7 @@ import com.cvent.models.operations.ListDonationItemsRequest;
 import com.cvent.models.operations.ListEventEmailsRequest;
 import com.cvent.models.operations.ListEventUserGroupsRequest;
 import com.cvent.models.operations.ListFeeItemsRequest;
+import com.cvent.models.operations.ListMembershipItemsRequest;
 import com.cvent.models.operations.ListQuantityItemsPostFilterRequest;
 import com.cvent.models.operations.ListQuantityItemsRequest;
 import com.cvent.models.operations.ListRegistrationPathsRequest;
@@ -112,6 +113,8 @@ import com.cvent.models.operations.async.ListEventUserGroupsRequestBuilder;
 import com.cvent.models.operations.async.ListEventUserGroupsResponse;
 import com.cvent.models.operations.async.ListFeeItemsRequestBuilder;
 import com.cvent.models.operations.async.ListFeeItemsResponse;
+import com.cvent.models.operations.async.ListMembershipItemsRequestBuilder;
+import com.cvent.models.operations.async.ListMembershipItemsResponse;
 import com.cvent.models.operations.async.ListQuantityItemsPostFilterRequestBuilder;
 import com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse;
 import com.cvent.models.operations.async.ListQuantityItemsRequestBuilder;
@@ -171,6 +174,7 @@ import com.cvent.operations.ListDonationItemsPostFilter;
 import com.cvent.operations.ListEventEmails;
 import com.cvent.operations.ListEventUserGroups;
 import com.cvent.operations.ListFeeItems;
+import com.cvent.operations.ListMembershipItems;
 import com.cvent.operations.ListQuantityItems;
 import com.cvent.operations.ListQuantityItemsPostFilter;
 import com.cvent.operations.ListRegistrationPaths;
@@ -917,6 +921,39 @@ public class AsyncEvents {
     public CompletableFuture<GetInvitationListResponse> getInvitationList(@Nonnull GetInvitationListRequest request) {
         AsyncRequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation
               = new GetInvitationList.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request)
+            .thenCompose(operation::handleResponse);
+    }
+
+
+    /**
+     * List Membership Items
+     * 
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     * 
+     * @return The async call builder
+     */
+    public ListMembershipItemsRequestBuilder listMembershipItems() {
+        return new ListMembershipItemsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Membership Items
+     * 
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     * 
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListMembershipItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListMembershipItemsResponse> listMembershipItems(@Nonnull ListMembershipItemsRequest request) {
+        AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation
+              = new ListMembershipItems.Async(sdkConfiguration, _headers);
         return operation.doRequest(request)
             .thenCompose(operation::handleResponse);
     }

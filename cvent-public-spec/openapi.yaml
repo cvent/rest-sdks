@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Cvent REST APIs
-  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily \ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here \nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of \nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our \n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will \ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client \ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users \ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to \nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   | \n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       | \n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      | \n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                | \n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            | \n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`. \n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table \nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See \n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from \n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />    \n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around \ncountry codes, time formats, and other important details that ensure smooth integration. \nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
+  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily \ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here \nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of \nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our \n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will \ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client \ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users \ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to \nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   | \n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       | \n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      | \n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                | \n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            | \n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`. \n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table \nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See \n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination  \n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it. \n  \nIf an API uses pagination, you’ll find up to three tokens in the response:  \n- **currentToken**: Describes the token of the current page.  \n- **nextToken**: Provides a token for the next page of records, if one exists.  \n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return \n  this token.  \n  \nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages, \ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the \nrespective page of records. For example, if you made this request:  \n  \n```bash  \ncurl -X GET {hostname}/{version}/contacts?limit=100 \\  \n-H 'Accept: application/json' \\  \n-H 'Authorization: Bearer {accessToken}'  \n```  \n  \nThe response contains a paging array where you'll find the token information.  \n  \n```json  \n{  \n  \"paging\": {  \n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",  \n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",  \n    \"limit\": 100,  \n    \"totalCount\": 102,  \n    \"_links\": {...}  \n  },  \n  \"data\": [...]  \n}  \n```  \n  \nTake the `nextToken` and use it in the `token` parameter on your subsequent call. \n  \n```bash  \ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\  \n-H 'Accept: application/json' \\  \n-H 'Authorization: Bearer {accessToken}'  \n```  \n  \nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might \nencounter an empty page at the end of results. This typically happens when the results were evenly divisible. \nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from \n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />    \n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around \ncountry codes, time formats, and other important details that ensure smooth integration. \nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
   contact:
     name: Cvent Development Platform
     url: https://developers.cvent.com/
@@ -742,7 +742,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/appointment'
+                $ref: '#/components/schemas/appointment-with-questions'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -787,7 +787,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/appointment'
+                $ref: '#/components/schemas/appointment-with-questions'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -1047,7 +1047,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/appointment'
+                $ref: '#/components/schemas/appointment-with-questions'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -7593,9 +7593,7 @@ paths:
       - $ref: '#/components/parameters/id2'
     get:
       summary: Get Alternate Travel Answers
-      description: |-
-        Get alternate travel answers submitted by attendees who opt out of air
-        or hotel bookings for an event.
+      description: Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
       operationId: getAlternateTravelAnswers
       tags:
         - Event Travel
@@ -9733,6 +9731,59 @@ paths:
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
+  /events/{id}/membership-items:
+    get:
+      summary: List Membership Items
+      operationId: listMembershipItems
+      tags:
+        - Events
+      security:
+        - OAuth2.clientCredentials:
+            - event/membership-items:read
+        - OAuth2.authorizationCode:
+            - event/membership-items:read
+      description: |
+        Gets a paginated list of membership items. [Membership items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased during registration.
+      parameters:
+        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            A filter query string narrows search results and supports the combination of logical and comparison operators.
+            The filter adheres to the pattern filter='field' comparisonType 'value'.
+
+            Only 'includes value(s): in' comparison type can be used in filter expression.
+
+            The following fields are filterable:
+              * id (in)
+              * registrationTypes (in)
+
+            The following operator is available:
+              * and
+          schema:
+            type: string
+            example: id in ('1b01ae34-6970-41f2-a4e8-b4f39185dc15', '1b01ae34-6970-41f2-a4e8-b4f39185dc16') and registrationTypes in ('1b01ae34-6970-41f2-a4e8-b4f39185dc28')
+      responses:
+        '200':
+          description: Successfully retrieved a paginated list of membership items.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/membership-items-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
   /events/{id}/orders:
     get:
       security:
@@ -22548,9 +22599,7 @@ components:
           example: b2f194bd-a62c-4e27-a713-48b08196b8a7
     alternate-answer.json:
       title: AlternateAnswer
-      description: >-
-        Represents the answer(s) to an alternate travel question submitted by an
-        attendee.
+      description: Represents the answer(s) to an alternate travel question submitted by an attendee.
       type: object
       properties:
         value:
@@ -22565,9 +22614,7 @@ components:
             - '1234'
     alternate-question.json:
       title: AlternateQuestion
-      description: >-
-        Represents a reference to an alternate travel question entity,
-        containing only the question ID and text.
+      description: Represents a reference to an alternate travel question entity, containing only the question ID and text.
       type: object
       properties:
         id:
@@ -22581,9 +22628,7 @@ components:
           example: Why are you not booking a hotel with us?
     alternate-travel-detail.json:
       title: AlternateTravelDetail
-      description: >-
-        Details of an alternate travel answer submitted by an attendee who opted
-        out of air or hotel bookings.
+      description: Details of an alternate travel answer submitted by an attendee who opted out of air or hotel bookings.
       type: object
       allOf:
         - title: Audit
@@ -22618,17 +22663,11 @@ components:
         requesterId:
           type: string
           format: uuid
-          description: >-
-            ID of the entity this alternate travel belongs to. For an event
-            attendee, this field is contact ID. For guest, this field is guest
-            ID.
+          description: ID of the entity this alternate travel belongs to. For an event attendee, this field is contact ID. For guest, this field is guest ID.
           example: 3b2359a7-4583-40ed-8afd-67e5f15373d3
         requesterType:
           type: string
-          description: >-
-            Attendee type of the entity this alternate travel belongs to.
-            Contact means the requester is an independent attendee. Guest means
-            the attendee is accompanying another attendee.
+          description: Attendee type of the entity this alternate travel belongs to. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
           enum:
             - Contact
             - Guest
@@ -22648,9 +22687,7 @@ components:
           $ref: '#/components/schemas/alternate-answer.json'
     alternate-travel-paginated-response:
       title: AlternateTravelPaginatedResponse
-      description: >-
-        Paginated response containing alternate travel answers submitted by
-        attendees who opt out of air or hotel bookings.
+      description: Paginated response containing alternate travel answers submitted by attendees who opt out of air or hotel bookings.
       type: object
       required:
         - paging
@@ -22676,6 +22713,110 @@ components:
       type: string
       description: Amenity type
       example: amenity
+    anniversary-membership-item.json:
+      title: Anniversary
+      description: Represents an anniversary-based membership item that renews on the anniversary date of the original purchase.
+      required:
+        - renewalType
+      allOf:
+        - title: Membership Item
+          description: Represents a membership item. Membership items are products that can be purchased during registration or on contact websites.
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/quantity-item/allOf/0'
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: A unique identifier for the membership item.
+              example: 976d53c7-e7d6-43b0-9b6e-5422d59c54b1
+              readOnly: true
+            type:
+              type: string
+              maxLength: 50
+              description: Planner specified type or category of membership being offered.
+              example: Gold Membership
+            item:
+              type: string
+              maxLength: 50
+              description: The specific membership item or product name within the membership type.
+              example: Annual Gold Membership Package
+            contactType:
+              description: The contact type associated with this membership item.
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                  description: The contact type id associated with this membership item.
+                  example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d4
+            price:
+              type: number
+              example: 100
+              description: The price charged when an invitee purchases a membership.
+            renewalPrice:
+              type: number
+              example: 100
+              description: The price charged when an invitee renews their membership.
+            description:
+              type: string
+              description: Description of the membership item.
+              maxLength: 2500
+              example: Access to exclusive webinars and networking events for Gold members.
+            code:
+              type: string
+              maxLength: 8
+              description: A planner-specified code for the membership item.
+              example: R5NP4NJYB3D
+            registrationTypes:
+              maxItems: 200
+              type: array
+              items:
+                $ref: '#/components/schemas/registration-type-id.json'
+              description: Contains unique identifiers for registration types associated with this membership item.
+            openForRegistration:
+              type: boolean
+              description: True indicates the membership item is selectable during registration.
+              example: false
+            automaticClosureDate:
+              type: string
+              format: date
+              description: The ISO 8601 formatted date when the membership item registration automatically closes. The item closes at the start (12:00 AM) of the chosen date, according to the UTC timezone.
+              example: '2026-08-12'
+            generalLedger:
+              $ref: '#/components/schemas/general-ledger.json2'
+            currency:
+              type: string
+              description: The ISO 4217 currency code for this membership item.
+              example: EUR
+              readOnly: true
+              maxLength: 3
+      type: object
+      properties:
+        renewalType:
+          type: string
+          description: The renewal type of the membership item.
+          example: Anniversary
+        duration:
+          type: string
+          enum:
+            - OneYear
+            - ThreeMonths
+            - SixMonths
+            - Custom
+            - NoExpiration
+          description: The duration of the membership item with anniversary renewal type.
+          example: OneYear
+        customDuration:
+          type: object
+          description: Represents a custom membership duration. Required when the duration property is set to 'Custom'.
+          properties:
+            days:
+              type: integer
+              minimum: 1
+              maximum: 9999
+              description: The custom duration in days for the membership.
+              example: 120
     answer-type.json:
       title: AnswerType
       enum:
@@ -22779,135 +22920,6 @@ components:
           description: 'Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.'
           example: simple
           deprecated: true
-    appointment:
-      title: Appointment
-      description: Details of an event appointment.
-      type: object
-      required:
-        - id
-        - name
-        - start
-        - end
-        - type
-        - participant
-      allOf:
-        - title: Appointment Base
-          description: Base entity for an appointment
-          type: object
-          required:
-            - id
-            - name
-            - start
-            - end
-            - type
-            - participant
-          properties:
-            id:
-              type: string
-              format: uuid
-              description: The unique ID representing the appointment.
-              readOnly: true
-              example: 0046e875-79a5-4851-8332-da105d58088a
-            code:
-              type: string
-              description: The unique appointment code in Cvent or unique reference id of an appointment in the external systems.
-              minLength: 1
-              maxLength: 36
-              example: APPT-0001
-              pattern: ^[a-zA-Z0-9-.%]+$
-            name:
-              type: string
-              description: The name of the appointment.
-              example: Meeting with Cvent
-            description:
-              type: string
-              description: The description of the appointment.
-              example: Discuss about marketing.
-            start:
-              type: string
-              format: date-time
-              description: The ISO 8601 formatted start date/time of the appointment.
-              example: '2019-04-12T15:20:00.000Z'
-            end:
-              type: string
-              format: date-time
-              description: The ISO 8601 formatted end date/time of the appointment.
-              example: '2019-04-12T15:30:00.000Z'
-            status:
-              $ref: '#/components/schemas/appointment-status.json'
-            location:
-              type: object
-              description: The location of the appointment.
-              properties:
-                name:
-                  type: string
-                  description: The name of the location.
-                  example: Hynes Convention Center
-            type:
-              type: object
-              description: The type of the appointment.
-              properties:
-                name:
-                  type: string
-                  description: The name of the appointment type.
-                  example: Customer Meeting
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
-      properties:
-        appointmentEvent:
-          $ref: '#/components/schemas/uuid.json'
-        participants:
-          type: array
-          items:
-            $ref: '#/components/schemas/appointment-participant.json'
-          description: Collection of attendees participating in this appointment, and their related details.
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/custom-field'
-          description: Collection of custom questions asked to participants of the appointment.
-        autoAcceptAttendees:
-          type: boolean
-          description: True indicates participants will be automatically marked as accepted for the appointment.
-          example: false
-        enforceScheduleRules:
-          type: boolean
-          description: True indicates that existing schedule rules were enforced when the appointment was created.
-          example: false
-        modified:
-          type: string
-          format: date-time
-          description: This field is deprecated please use - lastModified
-          deprecated: true
-          example: '2019-04-12T15:30:00.000Z'
-        deleted:
-          type: boolean
-          description: True indicates the appointment has been logically deleted.
-          example: false
     appointment-attendee:
       title: AppointmentAttendee
       description: Attendee for an event appointment.
@@ -23050,9 +23062,9 @@ components:
         - start
         - end
       x-extends:
-        $ref: '#/components/schemas/appointment/allOf/1'
+        $ref: '#/components/schemas/audit.json'
       allOf:
-        - $ref: '#/components/schemas/appointment/allOf/1'
+        - $ref: '#/components/schemas/audit.json'
       properties:
         id:
           type: string
@@ -23218,7 +23230,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/appointment'
+            $ref: '#/components/schemas/appointment-with-questions/allOf/0'
           description: Collection of appointments and their related details.
     appointment-participant.json:
       title: AppointmentParticipant
@@ -23228,9 +23240,9 @@ components:
         - attendee
         - type
       x-extends:
-        $ref: '#/components/schemas/appointment/allOf/1'
+        $ref: '#/components/schemas/audit.json'
       allOf:
-        - $ref: '#/components/schemas/appointment/allOf/1'
+        - $ref: '#/components/schemas/audit.json'
       properties:
         attendee:
           type: object
@@ -23335,6 +23347,122 @@ components:
           items:
             $ref: '#/components/schemas/appointment-type.json'
           description: The collection of appointment types object.
+    appointment-with-questions:
+      title: Appointment With Questions
+      description: Details of an event appointment including questions.
+      type: object
+      required:
+        - id
+        - name
+        - start
+        - end
+        - type
+        - participant
+      allOf:
+        - title: Appointment
+          description: Details of an event appointment.
+          type: object
+          required:
+            - id
+            - name
+            - start
+            - end
+            - type
+            - participant
+          allOf:
+            - title: Appointment Base
+              description: Base entity for an appointment
+              type: object
+              required:
+                - id
+                - name
+                - start
+                - end
+                - type
+                - participant
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                  description: The unique ID representing the appointment.
+                  readOnly: true
+                  example: 0046e875-79a5-4851-8332-da105d58088a
+                code:
+                  type: string
+                  description: The unique appointment code in Cvent or unique reference id of an appointment in the external systems.
+                  minLength: 1
+                  maxLength: 36
+                  example: APPT-0001
+                  pattern: ^[a-zA-Z0-9-.%]+$
+                name:
+                  type: string
+                  description: The name of the appointment.
+                  example: Meeting with Cvent
+                description:
+                  type: string
+                  description: The description of the appointment.
+                  example: Discuss about marketing.
+                start:
+                  type: string
+                  format: date-time
+                  description: The ISO 8601 formatted start date/time of the appointment.
+                  example: '2019-04-12T15:20:00.000Z'
+                end:
+                  type: string
+                  format: date-time
+                  description: The ISO 8601 formatted end date/time of the appointment.
+                  example: '2019-04-12T15:30:00.000Z'
+                status:
+                  $ref: '#/components/schemas/appointment-status.json'
+                location:
+                  type: object
+                  description: The location of the appointment.
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the location.
+                      example: Hynes Convention Center
+                type:
+                  type: object
+                  description: The type of the appointment.
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the appointment type.
+                      example: Customer Meeting
+            - $ref: '#/components/schemas/audit.json'
+          properties:
+            appointmentEvent:
+              $ref: '#/components/schemas/uuid.json'
+            participants:
+              type: array
+              items:
+                $ref: '#/components/schemas/appointment-participant.json'
+              description: Collection of attendees participating in this appointment, and their related details.
+            autoAcceptAttendees:
+              type: boolean
+              description: True indicates participants will be automatically marked as accepted for the appointment.
+              example: false
+            enforceScheduleRules:
+              type: boolean
+              description: True indicates that existing schedule rules were enforced when the appointment was created.
+              example: false
+            modified:
+              type: string
+              format: date-time
+              description: This field is deprecated please use - lastModified
+              deprecated: true
+              example: '2019-04-12T15:30:00.000Z'
+            deleted:
+              type: boolean
+              description: True indicates the appointment has been logically deleted.
+              example: false
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/custom-field'
+          description: Collection of custom questions asked to participants of the appointment.
     asset-location.json:
       title: Asset Location
       description: A URL associated with the asset.
@@ -24791,7 +24919,7 @@ components:
                   type: string
                   format: uuid
                   example: 7949c335-b5b2-46cf-8f5d-f6b21795df51
-              description: The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+              description: The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
             visibility:
               $ref: '#/components/schemas/attendee-visibility.json'
             answers:
@@ -27044,6 +27172,23 @@ components:
       type: string
       description: Business type.
       example: corporate
+    calendar-membership-item.json:
+      title: Calendar
+      description: Represents a calendar-based membership item that renews according to calendar periods.
+      required:
+        - renewalType
+      allOf:
+        - $ref: '#/components/schemas/anniversary-membership-item.json/allOf/0'
+      type: object
+      properties:
+        renewalType:
+          type: string
+          description: The renewal type of the membership item.
+          example: Calendar
+        proRated:
+          type: boolean
+          description: True indicates the membership item with calendar renewal type is pro-rated. The price of a pro-rated item will be reduced based on when it is purchased.
+          example: false
     call-center-link.json:
       type: object
       title: CallCenterLink
@@ -27866,6 +28011,16 @@ components:
           maxLength: 300
           description: Translation for the choice text of a custom field.
           example: Departamento de Tecnología
+    choice-type.json:
+      title: ChoiceType
+      enum:
+        - StandardChoice
+        - OtherChoice
+        - NotApplicableChoice
+      type: string
+      description: The type for the event question choice.
+      default: StandardChoice
+      example: StandardChoice
     choice.json2:
       title: Choice
       description: A schema representing a choice object
@@ -32468,19 +32623,45 @@ components:
           items:
             $ref: '#/components/schemas/event'
           description: A collection of event objects.
+    event-question-choice.json:
+      title: Choice
+      type: object
+      description: This is used to denote the choice of questions in an event.
+      required:
+        - text
+      allOf:
+        - title: Choice
+          type: object
+          description: This is used to denote the choice of question.
+          required:
+            - text
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
+              readOnly: true
+            text:
+              type: string
+              description: The text for the question choice.
+              example: What is your current designation?
+              minLength: 1
+      properties:
+        type:
+          $ref: '#/components/schemas/choice-type.json'
     event-question-choices-response:
       title: EventQuestionChoicesResponse
       description: Response to the request to get a list of event question choices.
       required:
-        - choices
+        - data
       type: object
       properties:
         paging:
           $ref: '#/components/schemas/paging.json'
-        choices:
+        data:
           type: array
           items:
-            $ref: '#/components/schemas/choice.json4'
+            $ref: '#/components/schemas/event-question-choice.json'
           description: Collection of choices for a choice question.
     event-question.json:
       title: EventQuestion
@@ -32530,6 +32711,11 @@ components:
               example: 06ca5ae2-0dc3-487b-953e-86d6abbdf7d3
         type:
           $ref: '#/components/schemas/question-type.json3'
+        internalNote:
+          type: string
+          description: Optional description to provide additional context of the question.
+          maxLength: 300
+          example: This question is for the event registration form.
     event-questions-paginated-response:
       title: EventQuestionsPaginatedResponse
       description: Represents the response from a request to get the list of event questions. This includes the paging object as well as the collection of event questions.
@@ -37265,7 +37451,7 @@ components:
       description: Representation of a hotel request.
       type: object
       allOf:
-        - $ref: '#/components/schemas/air-request.json/allOf/0'
+        - $ref: '#/components/schemas/alternate-travel-detail.json/allOf/0'
       properties:
         hotelRequestId:
           type: string
@@ -39358,6 +39544,29 @@ components:
           maxLength: 2500
           description: Planner note about the meeting room.
           example: This meeting room has the best audio quality.
+    membership-items-paginated-response:
+      title: Membership Items Paginated Response
+      required:
+        - data
+        - paging
+      type: object
+      description: A paginated response of membership items.
+      properties:
+        paging:
+          $ref: '#/components/schemas/paging.json'
+        data:
+          maxItems: 200
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/anniversary-membership-item.json'
+              - $ref: '#/components/schemas/calendar-membership-item.json'
+            discriminator:
+              propertyName: renewalType
+              mapping:
+                Anniversary: '#/components/schemas/anniversary-membership-item.json'
+                Calendar: '#/components/schemas/calendar-membership-item.json'
+          description: Collection of membership items.
     membership.json:
       title: ContactMembership
       description: Contact Membership information
@@ -50330,7 +50539,7 @@ components:
         message:
           type: string
           description: Warning message for the video. Message is a developer convenience never to be used in any context that needs localisation, subject to change at any time.
-          example: Input video is scaled down to 1080p resolution.
+          example: 'Video with ID: 5779387f-3f50-4685-8641-b25a2909845f has a bitrate of 586 kbps, which is lower than the minimum allowed bitrate of 3500 kbps.'
       required:
         - code
         - message
@@ -50812,6 +51021,7 @@ components:
             event/meeting-request-forms:read: Allows the reading of meeting request forms.
             event/meeting-requests:read: Allows the reading of meeting requests.
             event/meeting-requests:write: Allows the creation/updating of meeting requests.
+            event/membership-items:read: Allows reading of membership items.
             event/orders:read: Allows the reading of orders
             event/players:read: Allows the reading of players
             event/process-form-submissions:read: Allows the reading of process form submissions.
@@ -51011,6 +51221,7 @@ components:
             event/meeting-request-forms:read: Allows the reading of meeting request forms.
             event/meeting-requests:read: Allows the reading of meeting requests.
             event/meeting-requests:write: Allows the creation/updating of meeting requests.
+            event/membership-items:read: Allows reading of membership items.
             event/orders:read: Allows the reading of orders
             event/players:read: Allows the reading of players
             event/process-form-submissions:read: Allows the reading of process form submissions.
@@ -51235,7 +51446,7 @@ tags:
   - name: Event Role
     description: Event roles are event specific permission sets for your organization's users. Use these APIs to retrieve, create, update, and delete event role assignments to your organization's users.
   - name: Event Travel
-    description: Event travel lets planners capture air & hotel requests from attendees and track air actuals and hotel reservations at your event. Use these endpoints to retrieve your air, hotel and housing reservation request data from your events. **Housing Reservation Request** - An association between an attendee's information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
+    description: Event travel lets planners capture air & hotel requests from attendees and track air actuals, hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your air, hotel, housing reservation request and alternate travel answers data from your events. **Housing Reservation Request** - An association between an attendee's information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
   - name: Events
     description: Events are used to collect registrations and allow attendees to select their schedule. Use these APIs to get information about your events and use the event ID to get further details about the event, such as Attendees and Sessions.
   - name: Events+ Hub

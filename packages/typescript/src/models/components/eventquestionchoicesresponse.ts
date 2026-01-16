@@ -6,7 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ChoiceJson4, ChoiceJson4$inboundSchema } from "./choicejson4.js";
+import {
+  EventQuestionChoiceJson,
+  EventQuestionChoiceJson$inboundSchema,
+} from "./eventquestionchoicejson.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
 
 /**
@@ -20,7 +23,7 @@ export type EventQuestionChoicesResponse = {
   /**
    * Collection of choices for a choice question.
    */
-  choices: Array<ChoiceJson4>;
+  data: Array<EventQuestionChoiceJson>;
 };
 
 /** @internal */
@@ -30,7 +33,7 @@ export const EventQuestionChoicesResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: PagingJson$inboundSchema.optional(),
-  choices: z.array(ChoiceJson4$inboundSchema),
+  data: z.array(EventQuestionChoiceJson$inboundSchema),
 });
 
 export function eventQuestionChoicesResponseFromJSON(

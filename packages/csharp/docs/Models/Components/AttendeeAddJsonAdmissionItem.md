@@ -1,6 +1,6 @@
 # AttendeeAddJsonAdmissionItem
 
-The ID of the attendee's admission item. Required when registering or cancelling an attendee.
+The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
 
 
 ## Fields

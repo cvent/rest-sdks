@@ -29,10 +29,11 @@ import com.cvent.utils.Headers;
 import jakarta.annotation.Nonnull;
 
 /**
- * Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals and
- * hotel reservations at your event. Use these endpoints to retrieve your air, hotel and housing
- * reservation request data from your events. **Housing Reservation Request** - An association between
- * an attendee's information in a registration event and a Cvent Passkey event.
+ * Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals,
+ * hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your
+ * air, hotel, housing reservation request and alternate travel answers data from your events.
+ * **Housing Reservation Request** - An association between an attendee's information in a registration
+ * event and a Cvent Passkey event.
  * 
  * <p>Also known as a Passkey bridge.
  */
@@ -110,8 +111,8 @@ public class EventTravel {
     /**
      * Get Alternate Travel Answers
      * 
-     * <p>Get alternate travel answers submitted by attendees who opt out of air
-     * or hotel bookings for an event.
+     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
+     * event.
      * 
      * @return The call builder
      */
@@ -122,8 +123,8 @@ public class EventTravel {
     /**
      * Get Alternate Travel Answers
      * 
-     * <p>Get alternate travel answers submitted by attendees who opt out of air
-     * or hotel bookings for an event.
+     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
+     * event.
      * 
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call

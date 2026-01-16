@@ -3,271 +3,66 @@
  */
 
 import * as z from "zod/v3";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson, AddressJson$inboundSchema } from "./addressjson.js";
 import {
-  AddressTypeJson,
-  AddressTypeJson$inboundSchema,
-} from "./addresstypejson.js";
-import {
-  AttendeeContactTypeJson,
-  AttendeeContactTypeJson$inboundSchema,
-} from "./attendeecontacttypejson.js";
-import {
-  ComplianceJson,
-  ComplianceJson$inboundSchema,
-} from "./compliancejson.js";
-import {
-  ContactLinksJson,
-  ContactLinksJson$inboundSchema,
-} from "./contactlinksjson.js";
-import { CustomField, CustomField$inboundSchema } from "./customfield.js";
-import { GenderJson, GenderJson$inboundSchema } from "./genderjson.js";
-import {
-  MembershipJson,
-  MembershipJson$inboundSchema,
-} from "./membershipjson.js";
-import { OptOutJson, OptOutJson$inboundSchema } from "./optoutjson.js";
-import { PassportJson, PassportJson$inboundSchema } from "./passportjson.js";
+  ReconciliationStatusJson,
+  ReconciliationStatusJson$inboundSchema,
+} from "./reconciliationstatusjson.js";
 
 /**
- * Event ID
+ * The identifier of reconciled budget item.
  */
-export type EventAllOf = {
+export type BudgetItemAllOf = {
   /**
-   * ID of the event where the contact was created, applicable when contact snapshot is enabled for an event.
+   * The budget item ID.
    */
   id?: string | undefined;
 };
 
 /**
- * Represents a contact that has been created and has an id.
+ * A transaction reconciliation record.
  */
 export type ZeroAllOf6 = {
   /**
-   * The ISO 8601 zoned date time when this record was created.
+   * The identifier of reconciled budget item.
    */
-  created?: Date | undefined;
+  budgetItem?: BudgetItemAllOf | undefined;
   /**
-   * The identifier of the user that created this record.
+   * This is used to denote the reconciliation status for a transaction.
    */
-  createdBy?: string | undefined;
+  status?: ReconciliationStatusJson | undefined;
   /**
-   * The ISO 8601 zoned date time when this record was updated.
+   * Reconciliation amount.
    */
-  lastModified?: Date | undefined;
+  amount?: number | undefined;
   /**
-   * The identifier of the user that last updated this record.
+   * Reconciled by user.
    */
-  lastModifiedBy?: string | undefined;
+  reconciledBy?: string | undefined;
   /**
-   * The first name of the contact.
+   * The ISO 8601 zoned date and time for Reconciled date.
    */
-  firstName?: string | undefined;
-  /**
-   * The last name of the contact.
-   */
-  lastName?: string | undefined;
-  /**
-   * The middle name of the contact.
-   */
-  middleName?: string | undefined;
-  /**
-   * The nickname of the contact.
-   */
-  nickname?: string | undefined;
-  /**
-   * The email address of the contact.
-   */
-  email?: string | undefined;
-  /**
-   * An alternate email address of the contact that can be cc'd on email communications.
-   */
-  ccEmail?: string | undefined;
-  /**
-   * The gender of the contact.
-   */
-  gender?: GenderJson | undefined;
-  /**
-   * The company/organization the contact belongs to.
-   */
-  company?: string | undefined;
-  /**
-   * The designation of the contact, typically an award or credential.
-   */
-  designation?: string | undefined;
-  /**
-   * The job title of the contact.
-   */
-  title?: string | undefined;
-  /**
-   * Contains details related to the attendee's contact type.
-   */
-  type?: AttendeeContactTypeJson | undefined;
-  /**
-   * Contact Membership information
-   */
-  membership?: MembershipJson | undefined;
-  /**
-   * The type of address.
-   */
-  primaryAddressType?: AddressTypeJson | undefined;
-  /**
-   * Contact address details.
-   */
-  homeAddress?: AddressJson | undefined;
-  /**
-   * The phone number of the contact at their place of residence.
-   */
-  homePhone?: string | undefined;
-  /**
-   * The fax number of the contact at their place of residence.
-   */
-  homeFax?: string | undefined;
-  /**
-   * Contact address details.
-   */
-  workAddress?: AddressJson | undefined;
-  /**
-   * The phone number of the contact at their place of work.
-   */
-  workPhone?: string | undefined;
-  /**
-   * The fax number of the contact at their place of work.
-   */
-  workFax?: string | undefined;
-  /**
-   * Collection of custom fields.
-   */
-  customFields?: Array<CustomField> | undefined;
-  /**
-   * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
-   */
-  sourceId?: string | undefined;
-  /**
-   * The contact's mobile phone number.
-   */
-  mobilePhone?: string | undefined;
-  /**
-   * Detail related to compliance with the contact's privacy rights under various legislation.
-   */
-  compliance?: Array<ComplianceJson> | undefined;
-  /**
-   * Denotes what is traditionally a title of an individual.
-   */
-  prefix?: string | undefined;
-  /**
-   * The pager number of the contact.
-   */
-  pager?: string | undefined;
-  /**
-   * True indicates a contact is deleted. Deleted contacts still have their data retained, but the contact is inactive.
-   */
-  deleted: boolean;
-  /**
-   * True indicates a contact is purged. Purged contacts have only partial data retained, and will be permanently deleted in 30 days.
-   */
-  purged: boolean;
-  /**
-   * Details of an opt-out for a Contact.
-   */
-  optOut?: OptOutJson | undefined;
-  /**
-   * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
-   */
-  npi?: string | undefined;
-  /**
-   * Collection of social media links for the contact.
-   */
-  links?: ContactLinksJson | undefined;
-  /**
-   * The date of birth of the contact.
-   *
-   * @remarks
-   *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
-   */
-  dateOfBirth?: RFCDate | undefined;
-  /**
-   * The passport number of the contact.
-   *
-   * @remarks
-   *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use the passport.number field.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  passportNumber?: string | undefined;
-  /**
-   * This entity represents a contact's passport information.
-   */
-  passport?: PassportJson | undefined;
-  /**
-   * The social security number of the contact.
-   *
-   * @remarks
-   *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
-   */
-  socialSecurityNumber?: string | undefined;
-  /**
-   * The national identification number of the contact.
-   *
-   * @remarks
-   *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
-   */
-  nationalIdentificationNumber?: string | undefined;
-  /**
-   * The headline of the contact's profile, which summarizes their professional experience and qualities.
-   */
-  headline?: string | undefined;
-  /**
-   * A contact's personal website URL.
-   */
-  personalWebsite?: string | undefined;
-  /**
-   * A contact's biographical writeup.
-   */
-  biography?: string | undefined;
-  /**
-   * Represents the preferred pronouns of a contact.
-   */
-  pronouns?: string | undefined;
-  /**
-   * The ID of the contact.
-   */
-  id?: string | undefined;
-  /**
-   * ID of the parent contact, applicable with contact snapshot.
-   */
-  parentId?: string | undefined;
-  /**
-   * Event ID
-   */
-  event?: EventAllOf | undefined;
+  reconciledDate?: Date | undefined;
 };
 
 /** @internal */
-export const EventAllOf$inboundSchema: z.ZodType<
-  EventAllOf,
+export const BudgetItemAllOf$inboundSchema: z.ZodType<
+  BudgetItemAllOf,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string().optional(),
 });
 
-export function eventAllOfFromJSON(
+export function budgetItemAllOfFromJSON(
   jsonString: string,
-): SafeParseResult<EventAllOf, SDKValidationError> {
+): SafeParseResult<BudgetItemAllOf, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EventAllOf$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventAllOf' from JSON`,
+    (x) => BudgetItemAllOf$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BudgetItemAllOf' from JSON`,
   );
 }
 
@@ -277,59 +72,13 @@ export const ZeroAllOf6$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  created: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  createdBy: z.string().optional(),
-  lastModified: z.string().datetime({ offset: true }).transform(v =>
+  budgetItem: z.lazy(() => BudgetItemAllOf$inboundSchema).optional(),
+  status: ReconciliationStatusJson$inboundSchema.optional(),
+  amount: z.number().optional(),
+  reconciledBy: z.string().optional(),
+  reconciledDate: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  lastModifiedBy: z.string().optional(),
-  firstName: z.string().optional(),
-  lastName: z.string().optional(),
-  middleName: z.string().optional(),
-  nickname: z.string().optional(),
-  email: z.string().optional(),
-  ccEmail: z.string().optional(),
-  gender: GenderJson$inboundSchema.optional(),
-  company: z.string().optional(),
-  designation: z.string().optional(),
-  title: z.string().optional(),
-  type: AttendeeContactTypeJson$inboundSchema.optional(),
-  membership: MembershipJson$inboundSchema.optional(),
-  primaryAddressType: AddressTypeJson$inboundSchema.optional(),
-  homeAddress: AddressJson$inboundSchema.optional(),
-  homePhone: z.string().optional(),
-  homeFax: z.string().optional(),
-  workAddress: AddressJson$inboundSchema.optional(),
-  workPhone: z.string().optional(),
-  workFax: z.string().optional(),
-  customFields: z.array(CustomField$inboundSchema).optional(),
-  sourceId: z.string().optional(),
-  mobilePhone: z.string().optional(),
-  compliance: z.array(ComplianceJson$inboundSchema).optional(),
-  prefix: z.string().optional(),
-  pager: z.string().optional(),
-  deleted: z.boolean().default(false),
-  purged: z.boolean().default(false),
-  optOut: OptOutJson$inboundSchema.optional(),
-  npi: z.string().optional(),
-  _links: ContactLinksJson$inboundSchema.optional(),
-  dateOfBirth: z.string().transform(v => new RFCDate(v)).optional(),
-  passportNumber: z.string().optional(),
-  passport: PassportJson$inboundSchema.optional(),
-  socialSecurityNumber: z.string().optional(),
-  nationalIdentificationNumber: z.string().optional(),
-  headline: z.string().optional(),
-  personalWebsite: z.string().optional(),
-  biography: z.string().optional(),
-  pronouns: z.string().optional(),
-  id: z.string().optional(),
-  parentId: z.string().optional(),
-  event: z.lazy(() => EventAllOf$inboundSchema).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "_links": "links",
-  });
 });
 
 export function zeroAllOf6FromJSON(

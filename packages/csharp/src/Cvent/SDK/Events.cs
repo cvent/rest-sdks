@@ -280,6 +280,16 @@ namespace Cvent.SDK
         Task<GetInvitationListResponse> GetInvitationListAsync(GetInvitationListRequest request);
 
         /// <summary>
+        /// List Membership Items
+        /// 
+        /// <remarks>
+        /// Gets a paginated list of membership items. <a href="https://support.cvent.com/s/communityarticle/Setting-Up-Memberships">Membership items</a> are a type of <a href="https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items">optional item</a> that can be purchased during registration.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<ListMembershipItemsResponse> ListMembershipItemsAsync(ListMembershipItemsRequest request);
+
+        /// <summary>
         /// List Orders
         /// 
         /// <remarks>
@@ -3319,6 +3329,145 @@ namespace Cvent.SDK
                         Next = nextFunc
                     };
                     response.InvitationListPaginatedResponse = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Errors.ErrorResponsePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+
+            throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+        }
+
+        public async Task<ListMembershipItemsResponse> ListMembershipItemsAsync(ListMembershipItemsRequest request)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/events/{id}/membership-items", request, null);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listMembershipItems", new List<string> { "event/membership-items:read" }, SDKConfiguration.SecuritySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            Func<Task<ListMembershipItemsResponse?>> nextFunc = async delegate()
+            {
+                var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
+                var nextCursorToken = body.SelectToken("$.paging.nextToken");
+
+                if(nextCursorToken == null)
+                {
+                    return null;
+                }
+                var nextCursor = nextCursorToken.Value<string>();
+                if (string.IsNullOrWhiteSpace(nextCursor))
+                {
+                    return null;
+                }
+
+                var newRequest = new ListMembershipItemsRequest
+                {
+                    Id = request.Id,
+                    Limit = request.Limit,
+                    Token = nextCursor,
+                    Filter = request.Filter
+                };
+
+                return await ListMembershipItemsAsync (
+                    request: newRequest
+                );
+            };
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    MembershipItemsPaginatedResponse obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<MembershipItemsPaginatedResponse>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into MembershipItemsPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new ListMembershipItemsResponse()
+                    {
+                        HttpMeta = new Models.Components.HTTPMetadata()
+                        {
+                            Response = httpResponse,
+                            Request = httpRequest
+                        },
+                        Next = nextFunc
+                    };
+                    response.MembershipItemsPaginatedResponse = obj;
                     return response;
                 }
 

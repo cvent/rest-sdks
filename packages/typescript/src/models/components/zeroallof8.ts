@@ -6,48 +6,27 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  HousingEventStatusesJson,
-  HousingEventStatusesJson$inboundSchema,
-} from "./housingeventstatusesjson.js";
-import { VenueJson1, VenueJson1$inboundSchema } from "./venuejson1.js";
 
 /**
- * Information about housing event with key information, providing a summarized view.
+ * Represents an error response for the checkin APIs that includes a unique id.
  */
 export type ZeroAllOf8 = {
   /**
-   * The unique ID of the housing event.
+   * The unique identifier for the error response.
    */
-  id: number;
+  id?: string | undefined;
   /**
-   * Event name.
+   * The HTTP status code representing the error.
    */
-  name: string;
+  code: number;
   /**
-   * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.
+   * A brief description of the error.
    */
-  start: Date;
+  message: string;
   /**
-   * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
+   * The target resource of the error.
    */
-  end: Date;
-  /**
-   * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability.
-   */
-  cutOff: Date;
-  /**
-   * The event timezone from the Olson specification.
-   */
-  timeZone: string;
-  /**
-   * Event venue details.
-   */
-  venue: VenueJson1;
-  /**
-   * Housing event status.
-   */
-  status: HousingEventStatusesJson;
+  target?: string | undefined;
 };
 
 /** @internal */
@@ -56,14 +35,10 @@ export const ZeroAllOf8$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.number().int(),
-  name: z.string(),
-  start: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  cutOff: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  timeZone: z.string(),
-  venue: VenueJson1$inboundSchema,
-  status: HousingEventStatusesJson$inboundSchema,
+  id: z.string().optional(),
+  code: z.number().int(),
+  message: z.string(),
+  target: z.string().optional(),
 });
 
 export function zeroAllOf8FromJSON(

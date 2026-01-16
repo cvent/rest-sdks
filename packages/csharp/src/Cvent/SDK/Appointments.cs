@@ -1345,14 +1345,14 @@ namespace Cvent.SDK
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Appointment obj;
+                    AppointmentWithQuestions obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Appointment>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<AppointmentWithQuestions>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Appointment.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into AppointmentWithQuestions.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new CreateAppointmentResponse()
@@ -1363,7 +1363,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.Appointment = obj;
+                    response.AppointmentWithQuestions = obj;
                     return response;
                 }
 
@@ -1461,14 +1461,14 @@ namespace Cvent.SDK
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Appointment obj;
+                    AppointmentWithQuestions obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Appointment>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<AppointmentWithQuestions>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Appointment.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into AppointmentWithQuestions.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new UpdateAppointmentResponse()
@@ -1479,7 +1479,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.Appointment = obj;
+                    response.AppointmentWithQuestions = obj;
                     return response;
                 }
 
@@ -2191,14 +2191,14 @@ namespace Cvent.SDK
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Appointment obj;
+                    AppointmentWithQuestions obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Appointment>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<AppointmentWithQuestions>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Appointment.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into AppointmentWithQuestions.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new GetAppointmentByIdResponse()
@@ -2209,7 +2209,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.Appointment = obj;
+                    response.AppointmentWithQuestions = obj;
                     return response;
                 }
 

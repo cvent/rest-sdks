@@ -13,21 +13,33 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     
     /// <summary>
-    /// The question that was answered.
+    /// Booth staff for an activity.
     /// </summary>
     public class ZeroAllOf4
     {
 
         /// <summary>
-        /// The unique identifier of the question.
+        /// The unique identifier of the exhibitor booth staff.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Question text.
+        /// The first name of the booth staff that captured the lead.
         /// </summary>
-        [JsonProperty("text")]
-        public string? Text { get; set; }
+        [JsonProperty("firstName")]
+        public string? FirstName { get; set; }
+
+        /// <summary>
+        /// The last name of the booth staff that captured the lead.
+        /// </summary>
+        [JsonProperty("lastName")]
+        public string? LastName { get; set; }
+
+        /// <summary>
+        /// The email address of the booth staff that captured the lead.
+        /// </summary>
+        [JsonProperty("email")]
+        public string? Email { get; set; }
     }
 }

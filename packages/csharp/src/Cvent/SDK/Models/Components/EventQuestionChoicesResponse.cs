@@ -29,7 +29,7 @@ namespace Cvent.SDK.Models.Components
         /// <summary>
         /// Collection of choices for a choice question.
         /// </summary>
-        [JsonProperty("choices")]
-        public List<ChoiceJson4> Choices { get; set; } = default!;
+        [JsonProperty("data")]
+        public List<EventQuestionChoiceJson> Data { get; set; } = default!;
     }
 }

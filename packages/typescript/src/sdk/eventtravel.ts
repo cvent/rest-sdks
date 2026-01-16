@@ -8,9 +8,7 @@ import { eventTravelGetAlternateTravelAnswers } from "../funcs/eventTravelGetAlt
 import { eventTravelGetHotelRequests } from "../funcs/eventTravelGetHotelRequests.js";
 import { eventTravelGetHousingReservationRequests } from "../funcs/eventTravelGetHousingReservationRequests.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class EventTravel extends ClientSDK {
@@ -56,14 +54,18 @@ export class EventTravel extends ClientSDK {
    * Get Alternate Travel Answers
    *
    * @remarks
-   * Get alternate travel answers submitted by attendees who opt out of air
-   * or hotel bookings for an event.
+   * Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
    */
   async getAlternateTravelAnswers(
     request: operations.GetAlternateTravelAnswersRequest,
     options?: RequestOptions,
-  ): Promise<components.AlternateTravelPaginatedResponse> {
-    return unwrapAsync(eventTravelGetAlternateTravelAnswers(
+  ): Promise<
+    PageIterator<
+      operations.GetAlternateTravelAnswersResponse,
+      { cursor: string }
+    >
+  > {
+    return unwrapResultIterator(eventTravelGetAlternateTravelAnswers(
       this,
       request,
       options,

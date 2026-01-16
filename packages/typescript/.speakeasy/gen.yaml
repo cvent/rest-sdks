@@ -31,7 +31,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 1.0.7
+  version: 1.0.8
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -58,6 +58,7 @@ typescript:
   enumFormat: union
   envVarPrefix: CVENTSDK
   exportZodModelNamespace: false
+  flatAdditionalProperties: false
   flattenGlobalSecurity: false
   flatteningOrder: parameters-first
   formStringArrayEncodeMode: encoded-string
@@ -84,6 +85,7 @@ typescript:
   outputModelSuffix: output
   packageName: '@cvent/sdk'
   preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
