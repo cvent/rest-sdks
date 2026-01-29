@@ -1,6 +1,6 @@
 github-cli 2.43.1
 nodejs 22.19.0
-pnpm 8.15.7
+pnpm 8.15.9
 java corretto-21.0.1.12.1
 dotnet 8.0.414
 gradle 8.14.3
