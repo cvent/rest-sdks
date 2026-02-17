@@ -12,8 +12,8 @@ import { Params, pathToFunc } from "./url.js";
  * Contains the list of servers available to the SDK
  */
 export const ServerList = [
-  "https://api-platform-eur.cvent.com/ea",
   "https://api-platform.cvent.com/ea",
+  "https://api-platform-eur.cvent.com/ea",
 ] as const;
 
 export type SDKOptions = {
@@ -66,7 +66,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "ea",
-  sdkVersion: "1.0.8",
+  sdkVersion: "1.0.9",
   genVersion: "2.794.1",
-  userAgent: "speakeasy-sdk/typescript 1.0.8 2.794.1 ea @cvent/sdk",
+  userAgent: "speakeasy-sdk/typescript 1.0.9 2.794.1 ea @cvent/sdk",
 } as const;

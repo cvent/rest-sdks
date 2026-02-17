@@ -251,8 +251,8 @@ You can override the default server globally by passing a server index to the `s
 
 | #   | Server                                  | Description |
 | --- | --------------------------------------- | ----------- |
-| 0   | `https://api-platform-eur.cvent.com/ea` |             |
-| 1   | `https://api-platform.cvent.com/ea`     |             |
+| 0   | `https://api-platform.cvent.com/ea`     |             |
+| 1   | `https://api-platform-eur.cvent.com/ea` |             |
 
 #### Example
 
@@ -297,7 +297,7 @@ using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
 
 var sdk = new CventSDK(
-    serverUrl: "https://api-platform.cvent.com/ea",
+    serverUrl: "https://api-platform-eur.cvent.com/ea",
     security: new Security() {
         OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
             ClientID = "<YOUR_CLIENT_ID_HERE>",

@@ -41,7 +41,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.0.6'
+implementation 'com.cvent:sdk:1.0.7'
 ```
 
 Maven:
@@ -49,7 +49,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 </dependency>
 ```
 
@@ -1163,8 +1163,8 @@ You can override the default server globally using the `.serverIndex(int serverI
 
 | #   | Server                                  | Description |
 | --- | --------------------------------------- | ----------- |
-| 0   | `https://api-platform-eur.cvent.com/ea` |             |
-| 1   | `https://api-platform.cvent.com/ea`     |             |
+| 0   | `https://api-platform.cvent.com/ea`     |             |
+| 1   | `https://api-platform-eur.cvent.com/ea` |             |
 
 #### Example
 
@@ -1232,7 +1232,7 @@ public class Application {
     public static void main(String[] args) throws ErrorResponse, Exception {
 
         CventSDK sdk = CventSDK.builder()
-                .serverURL("https://api-platform.cvent.com/ea")
+                .serverURL("https://api-platform-eur.cvent.com/ea")
                 .security(Security.builder()
                     .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
                         .clientID("<id>")

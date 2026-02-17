@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
-  docChecksum: dd02e0fdd345329b20bb802e9c81843f
+  docChecksum: 18d3e9ce7153a480a3747c6a6e35b7e9
   docVersion: ea
   speakeasyVersion: 1.685.0
   generationVersion: 2.794.1
-  releaseVersion: 1.0.6
-  configChecksum: 5af93a1e72e0e486e7989d5ac1b79fb7
+  releaseVersion: 1.0.7
+  configChecksum: a38e687c3fcdd9fb15964a24f57bde07
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -9152,7 +9152,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:8cd00c8b489ca0c45ee2d1ebc3f4366d17b7f28c
+    last_write_checksum: sha1:f4f85ffbcac434760cd740da186319fa40c9f015
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -9440,7 +9440,7 @@ trackedFiles:
     pristine_git_object: fba7bb77908632105cf2fcbe226b002da7001b0e
   src/main/java/com/cvent/CventSDK.java:
     id: 4a420697fa3d
-    last_write_checksum: sha1:a34ac085b24045c2435bfe5626c7a8ce4102e1b7
+    last_write_checksum: sha1:cabefd626d1503fc17643034e3fee3f5e64e7ca7
     pristine_git_object: 80c41313e2060978bc5d97ac0b629a1ec05252db
   src/main/java/com/cvent/Discounts.java:
     id: b320961e983a
@@ -9520,7 +9520,7 @@ trackedFiles:
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:8e5f76b4e5cf70fb2e206cb04dddab11ce2698f7
+    last_write_checksum: sha1:84045c8e4726a8f6d7517aaed4d4ea5941e3b1f3
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
