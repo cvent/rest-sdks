@@ -31,9 +31,9 @@ public class CventSDK {
      */
     public static final String[] SERVERS = {
 
-        "https://api-platform-eur.cvent.com/ea",
-
         "https://api-platform.cvent.com/ea",
+
+        "https://api-platform-eur.cvent.com/ea",
     };
 
     /**

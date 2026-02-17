@@ -82,11 +82,11 @@ BulkJobWithDataInput req = new BulkJobWithDataInput() {
                 { "header2", "header2Value" },
             },
             DataRecord = new Dictionary<string, BulkDataRecordJson>() {
+                { "event", new BulkDataRecordJson() {} },
                 { "title", new BulkDataRecordJson() {} },
                 { "start", new BulkDataRecordJson() {} },
                 { "end", new BulkDataRecordJson() {} },
                 { "status", new BulkDataRecordJson() {} },
-                { "event", new BulkDataRecordJson() {} },
             },
         },
     },

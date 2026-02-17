@@ -21,6 +21,15 @@ actions:
     update:
       security:
         - basicHttpAuthentication: []
+  - target: $["servers"]
+    remove: true
+  - target: $
+    update:
+      servers:
+  - target: $["servers"]
+    update:
+      - url: https://api-platform.cvent.com/ea
+      - url: https://api-platform-eur.cvent.com/ea
   - target: $["paths"]["/program-items/{programItemId}/docs/{fileId}"]["put"]["responses"]["409"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
   - target: $["paths"]["/program-items/{programItemId}/speakers/{id}"]["put"]["responses"]["409"]["content"]["application/json"]["schema"]["$ref"]

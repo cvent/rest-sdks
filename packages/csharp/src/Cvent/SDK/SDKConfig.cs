@@ -23,8 +23,8 @@ namespace Cvent.SDK
         /// List of server URLs available to the SDK.
         /// </summary>
         public static readonly string[] ServerList = {
-            "https://api-platform-eur.cvent.com/ea",
             "https://api-platform.cvent.com/ea",
+            "https://api-platform-eur.cvent.com/ea",
         };
 
         public ICventSDKHttpClient Client;
@@ -43,7 +43,7 @@ namespace Cvent.SDK
             Client = client ?? new CventSDKHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 1.0.7 2.794.1 ea Cvent.SDK";
+            UserAgent = "speakeasy-sdk/csharp 1.0.8 2.794.1 ea Cvent.SDK";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

@@ -1478,8 +1478,8 @@ You can override the default server globally by passing a server index to the `s
 
 | #   | Server                                  | Description |
 | --- | --------------------------------------- | ----------- |
-| 0   | `https://api-platform-eur.cvent.com/ea` |             |
-| 1   | `https://api-platform.cvent.com/ea`     |             |
+| 0   | `https://api-platform.cvent.com/ea`     |             |
+| 1   | `https://api-platform-eur.cvent.com/ea` |             |
 
 #### Example
 
@@ -1520,7 +1520,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { CventSDK } from "@cvent/sdk";
 
 const cventSDK = new CventSDK({
-  serverURL: "https://api-platform.cvent.com/ea",
+  serverURL: "https://api-platform-eur.cvent.com/ea",
   security: {
     oAuth2ClientCredentials: {
       clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
