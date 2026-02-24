@@ -116,7 +116,7 @@ jobs:
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - name: Setup Node.js
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
+        uses: actions/setup-node@774c1d62961e73038a114d59c8847023c003194d
         with:
           node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
