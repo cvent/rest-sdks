@@ -80,7 +80,7 @@ jobs:
 
       - id: release
         name: Create GitHub Release
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           action: "release"
@@ -90,7 +90,7 @@ jobs:
 
       - id: log-result
         name: Log release results
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -156,7 +156,7 @@ jobs:
 
       - id: publish-event
         name: Record TypeScript publish event
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -171,7 +171,7 @@ jobs:
 
       - id: log-result
         name: Log TypeScript publishing results
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -244,7 +244,7 @@ jobs:
 
       - id: publish-event
         name: Record Java publish event
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -258,7 +258,7 @@ jobs:
 
       - id: log-result
         name: Log Java publishing results
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -306,7 +306,7 @@ jobs:
           fi
       - id: publish-event
         name: Record C# publish event
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -320,7 +320,7 @@ jobs:
 
       - id: log-result
         name: Log C# publishing results
-        uses: speakeasy-api/sdk-generation-action@dff4e1d86e25561f0496a0f1b87eeeffe6e48b19
+        uses: speakeasy-api/sdk-generation-action@d7716d0444fd3443964c91802e6a001e64653313
         if: always()
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
