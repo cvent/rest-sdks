@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Run of house rate information.
     /// </summary>
     public class TravelRunOfHouseRateJson
     {
-
         /// <summary>
         /// Season one run of house rate for 10-50 people.
         /// </summary>

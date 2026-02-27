@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// An event survey.
     /// </summary>
     public class EventSurveyJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,37 +45,37 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Id of the survey or Id of the chapter in case of event survey
+        /// Id of the survey or Id of the chapter in case of event survey.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Title of the survey or Title of the chapter in case of event survey
+        /// Title of the survey or Title of the chapter in case of event survey.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// Survey Code or Chapter Code in case of event survey
+        /// Survey Code or Chapter Code in case of event survey.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// Timezone of the survey
+        /// Timezone of the survey.
         /// </summary>
         [JsonProperty("timezone")]
         public string? Timezone { get; set; }
 
         /// <summary>
-        /// Author of the survey
+        /// Author of the survey.
         /// </summary>
         [JsonProperty("author")]
         public SurveyAuthorJson? Author { get; set; }
 
         /// <summary>
-        /// Survey description
+        /// Survey description.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
@@ -94,31 +93,31 @@ namespace Cvent.SDK.Models.Components
         public EventSurveyTypeJson? Type { get; set; }
 
         /// <summary>
-        /// Describes the availability of the event survey
+        /// Describes the availability of the event survey.
         /// </summary>
         [JsonProperty("availableTo")]
         public EventSurveyAvailabilityJson? AvailableTo { get; set; }
 
         /// <summary>
-        /// Audience types of event surveys
+        /// Audience types of event surveys.
         /// </summary>
         [JsonProperty("audienceType")]
         public EventSurveyAudienceTypeJson? AudienceType { get; set; }
 
         /// <summary>
-        /// What is the criteria of adding sessions to a event survey
+        /// What is the criteria of adding sessions to a event survey.
         /// </summary>
         [JsonProperty("sessionMatch")]
         public EventSurveySessionMatchJson? SessionMatch { get; set; }
 
         /// <summary>
-        /// Associated session ids of the survey, this can also be null
+        /// Associated session ids of the survey, this can also be null.
         /// </summary>
         [JsonProperty("sessions")]
         public List<string>? Sessions { get; set; }
 
         /// <summary>
-        /// Id of the parent survey
+        /// Id of the parent survey.
         /// </summary>
         [JsonProperty("parentId")]
         public string? ParentId { get; set; }

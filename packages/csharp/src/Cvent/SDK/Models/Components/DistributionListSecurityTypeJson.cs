@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Type of distribution list security. For a public list, contacts can sign up themselves. For a semi-private list, contacts can add themselves, but a planner must approve their membership before they can receive emails. For a private list, only planners can add contacts. Contacts can always remove themselves from lists on the Manage Profile page.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum DistributionListSecurityTypeJson");
         }
     }
-
 }

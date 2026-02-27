@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Object encapsulating invitation list id
+    /// Object encapsulating invitation list id.
     /// </summary>
     public class InvitationListIdJson
     {
-
         /// <summary>
         /// The unique ID of the invitation list.
         /// </summary>

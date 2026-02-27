@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Denotes the category assigned to the budget item.
     /// </summary>
     public class BudgetCategoryJson
     {
-
         /// <summary>
         /// Unique identifier of the budget category.
         /// </summary>

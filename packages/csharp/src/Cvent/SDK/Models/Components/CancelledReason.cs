@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// CancelledReason
+    /// CancelledReason.
     /// </summary>
     public enum CancelledReason
     {
@@ -72,5 +72,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum CancelledReason");
         }
     }
-
 }

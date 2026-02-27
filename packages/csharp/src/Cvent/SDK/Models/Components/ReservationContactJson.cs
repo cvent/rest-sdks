@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reservation contact details for this event.
     /// </summary>
     public class ReservationContactJson
     {
-
         /// <summary>
         /// Phone number.
         /// </summary>

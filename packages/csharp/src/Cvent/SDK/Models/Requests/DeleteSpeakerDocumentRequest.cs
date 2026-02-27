@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteSpeakerDocumentRequest
     {
-
         /// <summary>
         /// The unique identifier of a speaker.
         /// </summary>
@@ -21,7 +20,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The unique identifier of a file from &lt;a href=&quot;#operation/uploadFile&quot;&gt;file upload&lt;/a&gt; service.
+        /// The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fileId")]
         public string FileId { get; set; } = default!;

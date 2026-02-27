@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This is used to denote the status of the live stream recording job
+    /// This is used to denote the status of the live stream recording job.
     /// </summary>
     public enum LiveStreamRecordingStatusJson
     {
@@ -70,5 +70,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum LiveStreamRecordingStatusJson");
         }
     }
-
 }

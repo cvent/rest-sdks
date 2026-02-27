@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details for the supplier travel account. These details are supplier specific and only visible for supply-side clients.
     /// </summary>
     public class TravelAccountSupplierAccount
     {
-
         /// <summary>
         /// The travel account that the supplier account is associated with.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public ManagementLevelTypeJson1? ManagementLevel { get; set; }
 
         /// <summary>
-        /// Is this account active for the supplier&apos;s hotels.
+        /// Is this account active for the supplier's hotels.
         /// </summary>
         [JsonProperty("active")]
         public bool? Active { get; set; }

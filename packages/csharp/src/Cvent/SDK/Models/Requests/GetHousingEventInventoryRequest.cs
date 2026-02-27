@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetHousingEventInventoryRequest
     {
-
         /// <summary>
         /// ID for a Passkey housing event.
         /// </summary>
@@ -28,19 +27,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// &quot;A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;. If the parameter is not specified, all inventory dates will be returned.&quot;<br/>
-        /// 
-        /// <remarks>
+        /// "A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter is not specified, all inventory dates will be returned."<br/>
         /// <br/>
         /// These are the comparison types that can be used in filter expressions:<br/>
         /// * equal: eq<br/>
@@ -57,9 +50,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         /// * and<br/>
-        /// * or<br/>
-        /// 
-        /// </remarks>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

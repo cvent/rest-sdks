@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// AttendeeAddResponse
+    /// AttendeeAddResponse.
     /// </summary>
     public class AttendeeAddResponse
     {
-
         /// <summary>
         /// The unique id representing an attendee.
         /// </summary>

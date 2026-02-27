@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An attendee-substituted activity.
     /// </summary>
     public class EventAttendeeSubstituted
     {
-
         /// <summary>
         /// The event in which this activity occurred.
         /// </summary>

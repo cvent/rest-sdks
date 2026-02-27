@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The user to whom the event role is assigned. For more details, use the <a href="#tag/User-SCIM/operation/getUser">Get User</a> endpoint with the user ID.
     /// </summary>
     public class EventRoleAssignmentJsonUser
     {
-
         /// <summary>
         /// The unique ID of the user.
         /// </summary>

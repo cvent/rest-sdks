@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Link details for a webcast.
     /// </summary>
     public class WebcastLinkJson
     {
-
         /// <summary>
         /// A url to the webcast.
         /// </summary>

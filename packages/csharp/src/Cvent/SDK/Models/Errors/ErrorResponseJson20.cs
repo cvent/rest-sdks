@@ -82,5 +82,4 @@ namespace Cvent.SDK.Models.Errors
            #pragma warning restore CS0618
         }
     }
-
 }

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Schema for Exhibitor Category ID.
     /// </summary>
     public class ExhibitorCategoryIdJson
     {
-
         /// <summary>
         /// ID of exhibitor category.
         /// </summary>

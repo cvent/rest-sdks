@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Information about Passkey event for this reservation.
     /// </summary>
     public class ExistingReservationHousingEventId
     {
-
         /// <summary>
         /// The unique ID of the housing event.
         /// </summary>

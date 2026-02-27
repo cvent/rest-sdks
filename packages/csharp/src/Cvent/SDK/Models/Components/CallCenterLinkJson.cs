@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey&apos;s call center tool.
+    /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
     /// </summary>
     public class CallCenterLinkJson
     {
-
         /// <summary>
-        /// A url provided that can be followed for linking
+        /// A url provided that can be followed for linking.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

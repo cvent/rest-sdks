@@ -13,27 +13,26 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the event table for the event.
     /// </summary>
     public class ExistingTableWithSeats
     {
-
         /// <summary>
-        /// Table&apos;s plain name.
+        /// Table's plain name.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// Table&apos;s code set by the planner.
+        /// Table's code set by the planner.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// Table&apos;s seat capacity.
+        /// Table's seat capacity.
         /// </summary>
         [JsonProperty("capacity")]
         public long Capacity { get; set; } = default!;
@@ -58,11 +57,8 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// The seat IDs at the table.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is an **expandable** object and if requested will contain all the properties of a seat object.
-        /// </remarks>
         /// </summary>
         [JsonProperty("seats")]
         public List<ExpandableSeatJson>? Seats { get; set; }

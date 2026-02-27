@@ -19,7 +19,7 @@ import {
   BudgetVersionIdJson$inboundSchema,
 } from "./budgetversionidjson.js";
 import { EventJson3, EventJson3$inboundSchema } from "./eventjson3.js";
-import { RfpIdJson, RfpIdJson$inboundSchema } from "./rfpidjson.js";
+import { RfpIdJson1, RfpIdJson1$inboundSchema } from "./rfpidjson1.js";
 
 /**
  * The response from a request to retrieve list of budget items across all events linked to the account.
@@ -48,7 +48,7 @@ export type AccountBudgetItemListResponseJson = {
   /**
    * RFP ID Information.
    */
-  rfp?: RfpIdJson | undefined;
+  rfp?: RfpIdJson1 | undefined;
   /**
    * Budget Version ID Information.
    */
@@ -93,7 +93,7 @@ export const AccountBudgetItemListResponseJson$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   event: EventJson3$inboundSchema.optional(),
-  rfp: RfpIdJson$inboundSchema.optional(),
+  rfp: RfpIdJson1$inboundSchema.optional(),
   budgetVersion: BudgetVersionIdJson$inboundSchema.optional(),
   id: z.string().optional(),
   name: z.string().optional(),

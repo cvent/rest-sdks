@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An existing video text track.
     /// </summary>
     public class ExistingVideoTextTrackInput
     {
-
         /// <summary>
         /// Video that this asset was created with.
         /// </summary>

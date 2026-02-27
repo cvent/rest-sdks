@@ -18,14 +18,14 @@ export type UpdateSessionCustomFieldAnswersRequest = {
   /**
    * Contains the custom field you're updating, and the new answer.
    */
-  customField: components.CustomFieldInput;
+  customField1: components.CustomField1Input;
 };
 
 /** @internal */
 export type UpdateSessionCustomFieldAnswersRequest$Outbound = {
   id: string;
   customFieldId: string;
-  "custom-field": components.CustomFieldInput$Outbound;
+  "custom-field1": components.CustomField1Input$Outbound;
 };
 
 /** @internal */
@@ -36,10 +36,10 @@ export const UpdateSessionCustomFieldAnswersRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   customFieldId: z.string(),
-  customField: components.CustomFieldInput$outboundSchema,
+  customField1: components.CustomField1Input$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    customField: "custom-field",
+    customField1: "custom-field1",
   });
 });
 

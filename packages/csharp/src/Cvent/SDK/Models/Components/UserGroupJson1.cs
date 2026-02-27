@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Contains information about a user group associated with an event
+    /// Contains information about a user group associated with an event.
     /// </summary>
     public class UserGroupJson1
     {
-
         /// <summary>
-        /// The unique identifier of the user group
+        /// The unique identifier of the user group.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The name of the user group
+        /// The name of the user group.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;

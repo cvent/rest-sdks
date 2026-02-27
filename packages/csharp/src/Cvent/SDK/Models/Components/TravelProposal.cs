@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Represents travel proposals. Travel proposals are created by the travel supplier in response to a travel account&apos;s program.
+    /// Represents travel proposals. Travel proposals are created by the travel supplier in response to a travel account's program.
     /// </summary>
     public class TravelProposal
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -70,7 +69,7 @@ namespace Cvent.SDK.Models.Components
         public long? ContractPeriod { get; set; }
 
         /// <summary>
-        /// The status of the proposal
+        /// The status of the proposal.
         /// </summary>
         [JsonProperty("status")]
         public ProposalStatusTypeJson? Status { get; set; }
@@ -82,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Deleted { get; set; } = false;
 
         /// <summary>
-        /// The rate review status of the proposal
+        /// The rate review status of the proposal.
         /// </summary>
         [JsonProperty("rateReviewStatus")]
         public RateReviewStatusTypeJson? RateReviewStatus { get; set; }

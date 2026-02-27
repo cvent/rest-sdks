@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// General Ledger to which the budget of a budget item is allocated.
     /// </summary>
     public class AllocationGeneralLedgerJson
     {
-
         /// <summary>
         /// Identifier of a particular general ledger.
         /// </summary>

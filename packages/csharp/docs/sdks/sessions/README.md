@@ -277,8 +277,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 FilterProgramItemDocumentsRequest req = new FilterProgramItemDocumentsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = new Filter() {
         FilterValue = "property eq 'value'",
@@ -335,8 +335,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListProgramItemsPostFiltersRequest req = new ListProgramItemsPostFiltersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Locale = "en-US",
     Filter = new Filter() {
@@ -859,8 +859,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListSessionsRequest req = new ListSessionsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "start:DESC,order:ASC,title:ASC",
     Locale = "en-US",
@@ -938,8 +938,8 @@ SessionInput req = new SessionInput() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
     Description = "Keynote session to kick off the event. The dynamic and energetic Dr. Smith will be speaking about the industry.",
-    Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z"),
-    End = System.DateTime.Parse("2020-02-07T17:00:00.000Z"),
+    Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z").ToUniversalTime(),
+    End = System.DateTime.Parse("2020-02-07T17:00:00.000Z").ToUniversalTime(),
     Status = SessionStatusJson.Active,
     AutomaticallyOpensOn = DateOnly.Parse("2022-08-01"),
     AutomaticallyClosesOn = DateOnly.Parse("2022-08-12"),
@@ -992,7 +992,7 @@ var res = await sdk.Sessions.CreateSessionAsync(req);
 
 ## ListSessionsPostFilters
 
-Gets a paginated list of sessions by sending a filter in the request's body.  This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
 
 
 More about OAuth2 authorization code support for administrators
@@ -1017,8 +1017,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListSessionsPostFiltersRequest req = new ListSessionsPostFiltersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Locale = "en-US",
     Filter = new Filter() {
@@ -1150,8 +1150,8 @@ UpdateSessionRequest req = new UpdateSessionRequest() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
         Description = "Keynote session to kick off the event. The dynamic and energetic Dr. Smith will be speaking about the industry.",
-        Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z"),
-        End = System.DateTime.Parse("2020-02-07T17:00:00.000Z"),
+        Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z").ToUniversalTime(),
+        End = System.DateTime.Parse("2020-02-07T17:00:00.000Z").ToUniversalTime(),
         Status = SessionStatusJson.Active,
         AutomaticallyOpensOn = DateOnly.Parse("2022-08-01"),
         AutomaticallyClosesOn = DateOnly.Parse("2022-08-12"),
@@ -1279,13 +1279,13 @@ var sdk = new CventSDK(security: new Security() {
 UpdateSessionCustomFieldAnswersRequest req = new UpdateSessionCustomFieldAnswersRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    CustomField = new CustomFieldInput() {
+    CustomField1 = new CustomField1Input() {
         Id = "5bcc98a1-7899-448a-a52d-4fcaf9af774f",
-        Type = CustomFieldCustomFieldType.General,
         Value = new List<string>() {
             "Choice C",
             "Choice A",
         },
+        Type = CustomField1CustomFieldType.General,
     },
 };
 
@@ -1475,7 +1475,7 @@ var res = await sdk.Sessions.AddSessionDocAsync(req);
 
 ## DeleteSessionDocument
 
-Unassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

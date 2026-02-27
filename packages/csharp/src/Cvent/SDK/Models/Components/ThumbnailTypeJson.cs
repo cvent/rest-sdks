@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This is used to denote the file type of a thumbnail
+    /// This is used to denote the file type of a thumbnail.
     /// </summary>
     public enum ThumbnailTypeJson
     {
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ThumbnailTypeJson");
         }
     }
-
 }

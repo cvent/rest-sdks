@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Representation of a volume based discount to be created or updated.
     /// </summary>
     public class CreateUpdateVolumeDiscount
     {
-
         /// <summary>
         /// Name of the discount.
         /// </summary>
@@ -33,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Active { get; set; } = true;
 
         /// <summary>
-        /// True indicates that the discount can be clubbed together with other stackable discounts
+        /// True indicates that the discount can be clubbed together with other stackable discounts.
         /// </summary>
         [JsonProperty("stackable")]
         public bool? Stackable { get; set; } = true;

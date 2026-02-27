@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This is used to denote the translation of the custom field, including its name, help text, and choice texts.
     /// </summary>
     public class Translation
     {
-
         /// <summary>
-        /// Translation of the custom field&apos;s name.
+        /// Translation of the custom field's name.
         /// </summary>
         [JsonProperty("nameTranslation")]
         public string? NameTranslation { get; set; }

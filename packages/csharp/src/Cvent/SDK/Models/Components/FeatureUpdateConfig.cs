@@ -49,7 +49,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
     /// Feature configuration.
     /// </summary>

@@ -12,20 +12,15 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     public class CreateContactsRequest
     {
-
         /// <summary>
         /// This parameter determines whether the POST operation should be treated as an upsert. Upserts update existing contacts if they already exist, and otherwise create new contacts.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// True indicates that this operation creates new contacts and updates existing contacts if they exist. False means that it only creates new contacts, and attempting to create an existing contact will result in the API returning an error.<br/>
         /// <br/>
-        /// Existing contacts are matched to the upsert request via the account&apos;s <a href="https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address">match key</a>. By default, the match key for contacts is their email. The match key can also be altered to match contacts based on a combination of their first name, last name, and email.<br/>
-        /// 
-        /// </remarks>
+        /// Existing contacts are matched to the upsert request via the account's <a href="https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address">match key</a>. By default, the match key for contacts is their email. The match key can also be altered to match contacts based on a combination of their first name, last name, and email.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=upsert")]
         public bool? Upsert { get; set; } = false;

@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Request body  for creating or updating the budget allocations for the event. The soft limit for the maximum number of allocations is 100.
     /// </summary>
     public class BudgetAllocationsList
     {
-
         /// <summary>
-        /// Specifies the method of budget allocation. Select &quot;AMOUNT&quot; to allocate a fixed amount (e.g., $700 from a $1000 budget), or &quot;PERCENTAGE&quot; to allocate based on a percentage (e.g., 70% of a $1000 budget).
+        /// Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
         /// </summary>
         [JsonProperty("allocateBy")]
         public BudgetAllocatebyJson AllocateBy { get; set; } = default!;

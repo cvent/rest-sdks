@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Metadata for an event weblink.
     /// </summary>
     public class EventWeblinkJson
     {
-
         /// <summary>
         /// Name of the weblink, used by planners to identify the weblinks in their event.
         /// </summary>
@@ -37,7 +36,7 @@ namespace Cvent.SDK.Models.Components
         public string? LandingPage { get; set; }
 
         /// <summary>
-        /// Locale code
+        /// Locale code.
         /// </summary>
         [JsonProperty("locale")]
         public string? Locale { get; set; }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An existing duration.
     /// </summary>
     public class ExistingDuration
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -75,7 +74,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime LastSeen { get; set; } = default!;
 
         /// <summary>
-        /// A duration record is deleted if marked as recanted by the algorithm after determining the initial information has changed
+        /// A duration record is deleted if marked as recanted by the algorithm after determining the initial information has changed.
         /// </summary>
         [JsonProperty("deleted")]
         public bool? Deleted { get; set; }
@@ -93,13 +92,13 @@ namespace Cvent.SDK.Models.Components
         public DurationType? DurationType { get; set; }
 
         /// <summary>
-        /// The amount of time (in milliseconds) than the attendee was engaged (in person or virtually) in a session or watching a video. Note: Duration is calculated based on the time the attendee spent in the session, not just on when they were first and last seen
+        /// The amount of time (in milliseconds) than the attendee was engaged (in person or virtually) in a session or watching a video. Note: Duration is calculated based on the time the attendee spent in the session, not just on when they were first and last seen.
         /// </summary>
         [JsonProperty("duration")]
         public long Duration { get; set; } = default!;
 
         /// <summary>
-        /// internal id
+        /// internal id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

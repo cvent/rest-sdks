@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Attendee type details.
     /// </summary>
     public class AttendeeTypeJson
     {
-
         /// <summary>
         /// The unique ID of the attendee type.
         /// </summary>

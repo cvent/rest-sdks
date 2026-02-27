@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class UpdateCustomFieldAdvancedLogicResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully updated the custom field&apos;s advanced logic.
+        /// Successfully updated the custom field's advanced logic.
         /// </summary>
         public AdvancedLogic? AdvancedLogic { get; set; }
     }

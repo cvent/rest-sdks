@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class ActivityAppointmentJsonAppointmentEvent
     {
-
         /// <summary>
         /// The title of linked appointment event.
         /// </summary>

@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteCurrencyConversionRateRequest
     {
-
         /// <summary>
         /// The ISO 4217 standard format currency code.
         /// </summary>

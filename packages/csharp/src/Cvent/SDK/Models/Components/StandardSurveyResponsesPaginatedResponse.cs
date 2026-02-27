@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Response include paging and responses for a survey
+    /// Response include paging and responses for a survey.
     /// </summary>
     public class StandardSurveyResponsesPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public PagingJson Paging { get; set; } = default!;
 
         /// <summary>
-        /// Response for a survey
+        /// Response for a survey.
         /// </summary>
         [JsonProperty("data")]
         public List<StandardSurveyResponse> Data { get; set; } = default!;

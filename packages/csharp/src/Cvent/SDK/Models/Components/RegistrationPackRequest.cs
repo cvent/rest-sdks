@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A registration pack containing event, exhibitor, and capacities information.
     /// </summary>
     public class RegistrationPackRequest
     {
-
         /// <summary>
         /// The Associated Event.
         /// </summary>

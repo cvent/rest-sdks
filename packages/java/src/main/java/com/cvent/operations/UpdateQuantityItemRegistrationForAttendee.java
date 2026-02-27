@@ -9,7 +9,7 @@ import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.QuantityItemUpdate;
+import com.cvent.models.components.QuantityItemResponse;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.UpdateQuantityItemRegistrationForAttendeeRequest;
@@ -169,7 +169,7 @@ public class UpdateQuantityItemRegistrationForAttendee {
             
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withQuantityItemUpdate(Utils.unmarshal(response, new TypeReference<QuantityItemUpdate>() {}));
+                    return res.withQuantityItemResponse(Utils.unmarshal(response, new TypeReference<QuantityItemResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -246,8 +246,8 @@ public class UpdateQuantityItemRegistrationForAttendee {
             
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<QuantityItemUpdate>() {})
-                            .thenApply(res::withQuantityItemUpdate);
+                    return Utils.unmarshalAsync(response, new TypeReference<QuantityItemResponse>() {})
+                            .thenApply(res::withQuantityItemResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

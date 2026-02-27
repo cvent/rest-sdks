@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The requirement of a meeting room on the specified date.
     /// </summary>
     public class MeetingRoomRequirementJson
     {
-
         /// <summary>
         /// The date for the meeting room, in format of YYYY-MM-DD.
         /// </summary>

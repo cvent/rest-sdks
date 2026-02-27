@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Represents a single meeting request that&apos;s returned as part of a bulk request call.
+    /// Represents a single meeting request that's returned as part of a bulk request call.
     /// </summary>
     public class MeetingRequestBulkResponseItemJson
     {
-
         /// <summary>
         /// A meeting request.
         /// </summary>

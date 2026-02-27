@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Existing Exhibitor Answer schema
+    /// Existing Exhibitor Answer schema.
     /// </summary>
     public class ExistingExhibitorAnswerJsonInput
     {
-
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
@@ -39,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// List of answers
+        /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
         public List<AnswerJson0> Answers { get; set; } = default!;

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An external attendee activity.
     /// </summary>
     public class ExternalActivityInput
     {
-
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>

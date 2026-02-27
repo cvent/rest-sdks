@@ -9,7 +9,7 @@ import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.CreateTransactionRequest;
+import com.cvent.models.components.CreateTransactionResponse;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.PostTransactionsRequest;
@@ -98,7 +98,7 @@ public class PostTransactions {
                     typeReference);
             SerializedBody serializedRequestBody = Utils.serializeRequestBody(
                     convertedRequest,
-                    "createTransactionRequest",
+                    "createTransactionResponse",
                     "json",
                     false);
             req.setBody(Optional.ofNullable(serializedRequestBody));
@@ -174,7 +174,7 @@ public class PostTransactions {
             
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withCreateTransactionRequest(Utils.unmarshal(response, new TypeReference<CreateTransactionRequest>() {}));
+                    return res.withCreateTransactionResponse(Utils.unmarshal(response, new TypeReference<CreateTransactionResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -251,8 +251,8 @@ public class PostTransactions {
             
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<CreateTransactionRequest>() {})
-                            .thenApply(res::withCreateTransactionRequest);
+                    return Utils.unmarshalAsync(response, new TypeReference<CreateTransactionResponse>() {})
+                            .thenApply(res::withCreateTransactionResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

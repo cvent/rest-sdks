@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents a calendar-based membership item that renews according to calendar periods.
     /// </summary>
     public class CalendarMembershipItemJson
     {
-
         /// <summary>
         /// This text will be displayed in emails using the registration information widget.
         /// </summary>

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event calendar associated with this Events+ hub. The event calendar allows you to share multiple events and sessions in a list or calendar format.
     /// </summary>
     public class HubCalendarJson
     {
-
         /// <summary>
         /// The ID of the calendar associated to an Events+ hub.
         /// </summary>

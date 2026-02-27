@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Metadata for an activity.
     /// </summary>
     public class ExternalActivityMetadataInput
     {
-
         /// <summary>
         /// This is used to denote the type of the external attendee activity.
         /// </summary>

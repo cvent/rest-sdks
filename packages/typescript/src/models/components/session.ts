@@ -7,7 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+import {
+  CustomFieldJson2,
+  CustomFieldJson2$inboundSchema,
+} from "./customfieldjson2.js";
 import {
   IdNameJson,
   IdNameJson$inboundSchema,
@@ -211,7 +214,7 @@ export type Session = {
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomField> | undefined;
+  customFields?: Array<CustomFieldJson2> | undefined;
   /**
    * Contains unique identifiers for segments associated with this session.
    */
@@ -453,7 +456,7 @@ export const Session$inboundSchema: z.ZodType<Session, z.ZodTypeDef, unknown> =
     registrationTypes: z.array(z.string()).optional(),
     presentationType: z.string().optional(),
     dataTagCode: z.string().optional(),
-    customFields: z.array(CustomField$inboundSchema).optional(),
+    customFields: z.array(CustomFieldJson2$inboundSchema).optional(),
     segments: z.array(z.string()).optional(),
     order: z.number().int().optional(),
     includedSession: z.boolean().default(false),

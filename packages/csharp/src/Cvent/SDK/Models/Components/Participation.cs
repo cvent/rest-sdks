@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The attendee&apos;s participation status.
+    /// The attendee's participation status.
     /// </summary>
     public class Participation
     {
-
         /// <summary>
         /// True indicates the attendee was marked as a participant in the appointment.
         /// </summary>

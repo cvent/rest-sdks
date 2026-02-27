@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A file reference related to a speaker.
     /// </summary>
     public class SpeakerFileInput
     {
-
         [JsonProperty("file")]
         public SpeakerFileFile File { get; set; } = default!;
     }

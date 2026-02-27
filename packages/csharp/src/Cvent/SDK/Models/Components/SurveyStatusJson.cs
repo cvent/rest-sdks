@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Survey Status
+    /// Survey Status.
     /// </summary>
     public enum SurveyStatusJson
     {
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SurveyStatusJson");
         }
     }
-
 }

@@ -13,14 +13,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Details of an opt-out for a Contact.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class PlannerJson2ContactOptOut
     {
-
         /// <summary>
         /// Used to denote if a contact has opted-out of receiving system generated emails.
         /// </summary>
@@ -34,7 +33,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// This is used to denote how a contact is opt&apos;d out of Cvent system.
+        /// This is used to denote how a contact is opt'd out of Cvent system.
         /// </summary>
         [JsonProperty("by")]
         public OptoutByJson? By { get; set; }

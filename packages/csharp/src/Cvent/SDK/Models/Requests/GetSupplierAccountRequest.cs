@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetSupplierAccountRequest
     {
-
         /// <summary>
         /// A uuid used to uniquely identify the travel account.
         /// </summary>

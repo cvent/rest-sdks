@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This entity represents a contact type at contact level.
     /// </summary>
     public class ContactTypeJson
     {
-
         /// <summary>
         /// The ID of the contact type.
         /// </summary>

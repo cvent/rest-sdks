@@ -11,18 +11,17 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class GetEventSurveyQuestionsRequest
     {
-
         /// <summary>
-        /// Id of an event
+        /// Id of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Id of a survey or Id of a chapter in event survey
+        /// Id of a survey or Id of a chapter in event survey.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
         public string SurveyId { get; set; } = default!;
@@ -47,11 +46,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }

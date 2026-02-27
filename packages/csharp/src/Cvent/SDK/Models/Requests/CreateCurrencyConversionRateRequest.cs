@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class CreateCurrencyConversionRateRequest
     {
-
         /// <summary>
         /// The ISO 4217 standard format currency code.
         /// </summary>

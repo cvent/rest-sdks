@@ -26,13 +26,11 @@ namespace Cvent.SDK
 
     /// <summary>
     /// The Bulk API provides a simple interface to upload large amounts of data into Cvent.  The API processes the uploaded data asynchronously making API calls on behalf of the caller.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Consumers of the bulk API will do the following:<br/>
     /// * <a href="#operation/createBulkJob">Create a bulk job</a> with or without data<br/>
     /// * *(Optional)* If a bulk job was created without data, then <a href="#operation/uploadBulkJobData">upload bulk job data</a> as many times as needed<br/>
-    /// * *(Optional)* <a href="#operation/runBulkJob">Run bulk job</a><br/>
+    /// * *(Optional)* <a href="#operation/runBulkJob">Run bulk job</a>
     /// * Use <a href="#operation/getBulkJobById">get bulk job</a> to track status<br/>
     /// * Use <a href="#operation/listBulkJobResult">list bulk job results</a> to get details of items uploaded<br/>
     /// <br/>
@@ -40,16 +38,13 @@ namespace Cvent.SDK
     /// <br/>
     /// **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire<br/>
     /// 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job<br/>
-    /// will be available for 1 week after completion to get results. Right now we do NOT support bulk GET requests.<br/>
-    /// 
-    /// </remarks>
+    /// will be available for 1 week after completion to get results. Right now we do NOT support bulk GET requests.
     /// </summary>
     public interface IBulk
     {
-
         /// <summary>
-        /// Create Bulk Job
-        /// 
+        /// Create Bulk Job.
+        /// </summary>
         /// <remarks>
         /// Creates a bulk job.<br/>
         /// <br/>
@@ -58,75 +53,107 @@ namespace Cvent.SDK
         /// If data is NOT supplied then the <a href="#operation/uploadBulkJobData">upload bulk job data</a> endpoint can be called<br/>
         /// to upload data and then using <a href="#operation/runBulkJob">run bulk job</a>.<br/>
         /// In addition, if data is supplied and your account has reached its limit for concurrently running bulk jobs,<br/>
-        /// the job will not be created.<br/>
-        /// 
+        /// the job will not be created.
         /// </remarks>
-        /// </summary>
-        Task<CreateBulkJobResponse> CreateBulkJobAsync(BulkJobWithDataInput request);
+        /// <param name="request">A <see cref="BulkJobWithDataInput"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBulkJobResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateBulkJobResponse> CreateBulkJobAsync(BulkJobWithDataInput request);
 
         /// <summary>
-        /// Get Bulk Job
-        /// 
+        /// Get Bulk Job.
+        /// </summary>
         /// <remarks>
         /// Gets a bulk job by its identifier.
         /// </remarks>
-        /// </summary>
-        Task<GetBulkJobByIdResponse> GetBulkJobByIdAsync(GetBulkJobByIdRequest request);
+        /// <param name="request">A <see cref="GetBulkJobByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBulkJobByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetBulkJobByIdResponse> GetBulkJobByIdAsync(GetBulkJobByIdRequest request);
 
         /// <summary>
-        /// Cancel Bulk Job
-        /// 
+        /// Cancel Bulk Job.
+        /// </summary>
         /// <remarks>
         /// Cancels the bulk job. The job will stop processing after it finishes processing its current batch, if any.
         /// </remarks>
-        /// </summary>
-        Task<CancelBulkJobResponse> CancelBulkJobAsync(CancelBulkJobRequest request);
+        /// <param name="request">A <see cref="CancelBulkJobRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CancelBulkJobResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CancelBulkJobResponse> CancelBulkJobAsync(CancelBulkJobRequest request);
 
         /// <summary>
-        /// Upload Bulk Job Data
-        /// 
+        /// Upload Bulk Job Data.
+        /// </summary>
         /// <remarks>
         /// This will upload data to be processed by a bulk job. There is a limit on the number of records that<br/>
         /// can be uploaded per call and this endpoint can be called multiple times before starting a job run.<br/>
         /// <br/>
         /// Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.<br/>
         /// If you have a need for a greater limit, this can be increased for your account (up to a hard limit of 150,000)<br/>
-        /// by contacting Cvent support.<br/>
-        /// 
+        /// by contacting Cvent support.
         /// </remarks>
-        /// </summary>
-        Task<UploadBulkJobDataResponse> UploadBulkJobDataAsync(UploadBulkJobDataRequest request);
+        /// <param name="request">A <see cref="UploadBulkJobDataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadBulkJobDataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UploadBulkJobDataResponse> UploadBulkJobDataAsync(UploadBulkJobDataRequest request);
 
         /// <summary>
-        /// List Bulk Job Result
-        /// 
+        /// List Bulk Job Result.
+        /// </summary>
         /// <remarks>
         /// Used to list the results of a bulk Job.
         /// </remarks>
-        /// </summary>
-        Task<ListBulkJobResultResponse> ListBulkJobResultAsync(ListBulkJobResultRequest request);
+        /// <param name="request">A <see cref="ListBulkJobResultRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListBulkJobResultResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListBulkJobResultResponse> ListBulkJobResultAsync(ListBulkJobResultRequest request);
 
         /// <summary>
-        /// Run Bulk Job
-        /// 
+        /// Run Bulk Job.
+        /// </summary>
         /// <remarks>
         /// Begins the processing of data uploaded in a bulk job.<br/>
         /// <br/>
         ///  **Note**: You can have a maximum of two bulk jobs running concurrently.
         /// </remarks>
-        /// </summary>
-        Task<RunBulkJobResponse> RunBulkJobAsync(RunBulkJobRequest request);
+        /// <param name="request">A <see cref="RunBulkJobRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="RunBulkJobResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<RunBulkJobResponse> RunBulkJobAsync(RunBulkJobRequest request);
     }
 
     /// <summary>
     /// The Bulk API provides a simple interface to upload large amounts of data into Cvent.  The API processes the uploaded data asynchronously making API calls on behalf of the caller.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Consumers of the bulk API will do the following:<br/>
     /// * <a href="#operation/createBulkJob">Create a bulk job</a> with or without data<br/>
     /// * *(Optional)* If a bulk job was created without data, then <a href="#operation/uploadBulkJobData">upload bulk job data</a> as many times as needed<br/>
-    /// * *(Optional)* <a href="#operation/runBulkJob">Run bulk job</a><br/>
+    /// * *(Optional)* <a href="#operation/runBulkJob">Run bulk job</a>
     /// * Use <a href="#operation/getBulkJobById">get bulk job</a> to track status<br/>
     /// * Use <a href="#operation/listBulkJobResult">list bulk job results</a> to get details of items uploaded<br/>
     /// <br/>
@@ -134,32 +161,55 @@ namespace Cvent.SDK
     /// <br/>
     /// **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire<br/>
     /// 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job<br/>
-    /// will be available for 1 week after completion to get results. Right now we do NOT support bulk GET requests.<br/>
-    /// 
-    /// </remarks>
+    /// will be available for 1 week after completion to get results. Right now we do NOT support bulk GET requests.
     /// </summary>
     public class Bulk: IBulk
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Bulk(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<CreateBulkJobResponse> CreateBulkJobAsync(BulkJobWithDataInput request)
+        /// <summary>
+        /// Create Bulk Job.
+        /// </summary>
+        /// <remarks>
+        /// Creates a bulk job.<br/>
+        /// <br/>
+        /// **Note:** When creating a bulk job you can optionally include the data in the create request.<br/>
+        /// If data is supplied the job will be started and there is no need to call the <a href="#operation/runBulkJob">run bulk job</a> endpoint.<br/>
+        /// If data is NOT supplied then the <a href="#operation/uploadBulkJobData">upload bulk job data</a> endpoint can be called<br/>
+        /// to upload data and then using <a href="#operation/runBulkJob">run bulk job</a>.<br/>
+        /// In addition, if data is supplied and your account has reached its limit for concurrently running bulk jobs,<br/>
+        /// the job will not be created.
+        /// </remarks>
+        /// <param name="request">A <see cref="BulkJobWithDataInput"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBulkJobResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateBulkJobResponse> CreateBulkJobAsync(BulkJobWithDataInput request)
         {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            if (request == null) throw new ArgumentNullException(nameof(request));
 
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/bulk-jobs";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -182,7 +232,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -191,9 +241,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -269,13 +319,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetBulkJobByIdResponse> GetBulkJobByIdAsync(GetBulkJobByIdRequest request)
+
+        /// <summary>
+        /// Get Bulk Job.
+        /// </summary>
+        /// <remarks>
+        /// Gets a bulk job by its identifier.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetBulkJobByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBulkJobByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetBulkJobByIdResponse> GetBulkJobByIdAsync(GetBulkJobByIdRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/bulk-jobs/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -292,7 +363,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -301,9 +372,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -379,13 +450,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CancelBulkJobResponse> CancelBulkJobAsync(CancelBulkJobRequest request)
+
+        /// <summary>
+        /// Cancel Bulk Job.
+        /// </summary>
+        /// <remarks>
+        /// Cancels the bulk job. The job will stop processing after it finishes processing its current batch, if any.
+        /// </remarks>
+        /// <param name="request">A <see cref="CancelBulkJobRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CancelBulkJobResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CancelBulkJobResponse> CancelBulkJobAsync(CancelBulkJobRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/bulk-jobs/{id}/cancel", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -402,7 +494,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -411,9 +503,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -489,13 +581,39 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UploadBulkJobDataResponse> UploadBulkJobDataAsync(UploadBulkJobDataRequest request)
+
+        /// <summary>
+        /// Upload Bulk Job Data.
+        /// </summary>
+        /// <remarks>
+        /// This will upload data to be processed by a bulk job. There is a limit on the number of records that<br/>
+        /// can be uploaded per call and this endpoint can be called multiple times before starting a job run.<br/>
+        /// <br/>
+        /// Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.<br/>
+        /// If you have a need for a greater limit, this can be increased for your account (up to a hard limit of 150,000)<br/>
+        /// by contacting Cvent support.
+        /// </remarks>
+        /// <param name="request">A <see cref="UploadBulkJobDataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadBulkJobDataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UploadBulkJobDataResponse> UploadBulkJobDataAsync(UploadBulkJobDataRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/bulk-jobs/{id}/data", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "BulkData", "json", false, false);
             if (serializedBody != null)
@@ -518,7 +636,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -527,9 +645,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -605,13 +723,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListBulkJobResultResponse> ListBulkJobResultAsync(ListBulkJobResultRequest request)
+
+        /// <summary>
+        /// List Bulk Job Result.
+        /// </summary>
+        /// <remarks>
+        /// Used to list the results of a bulk Job.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListBulkJobResultRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListBulkJobResultResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListBulkJobResultResponse> ListBulkJobResultAsync(ListBulkJobResultRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/bulk-jobs/{id}/results", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -628,7 +767,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -637,9 +776,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -661,6 +800,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -746,13 +886,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<RunBulkJobResponse> RunBulkJobAsync(RunBulkJobRequest request)
+
+        /// <summary>
+        /// Run Bulk Job.
+        /// </summary>
+        /// <remarks>
+        /// Begins the processing of data uploaded in a bulk job.<br/>
+        /// <br/>
+        ///  **Note**: You can have a maximum of two bulk jobs running concurrently.
+        /// </remarks>
+        /// <param name="request">A <see cref="RunBulkJobRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="RunBulkJobResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<RunBulkJobResponse> RunBulkJobAsync(RunBulkJobRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/bulk-jobs/{id}/run", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -769,7 +932,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -778,9 +941,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -855,5 +1018,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

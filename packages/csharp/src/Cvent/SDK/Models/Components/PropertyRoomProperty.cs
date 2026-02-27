@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The property that the room belongs to.
     /// </summary>
     public class PropertyRoomProperty
     {
-
         /// <summary>
         /// The ID of the property.
         /// </summary>

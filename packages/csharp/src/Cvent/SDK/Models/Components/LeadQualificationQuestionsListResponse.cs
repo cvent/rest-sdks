@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A response containing a list of lead qualification questions.
     /// </summary>
     public class LeadQualificationQuestionsListResponse
     {
-
         /// <summary>
         /// Collection of lead qualification questions.
         /// </summary>

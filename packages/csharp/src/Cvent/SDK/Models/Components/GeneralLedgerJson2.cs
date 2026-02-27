@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the general ledger code associated with donation item.
     /// </summary>
     public class GeneralLedgerJson2
     {
-
         /// <summary>
         /// A unique identifier of the general ledger.
         /// </summary>

@@ -12,17 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Model representing an obfuscation status of a contact.
     /// </summary>
     public class ContactObfuscationStatus
     {
-
         /// <summary>
         /// Status of the request to obfuscate a contact.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// INITIATED - The obfuscation request has been received.<br/>
         /// <br/>
@@ -33,7 +30,6 @@ namespace Cvent.SDK.Models.Components
         /// COMPLETED -  The obfuscation request is complete.<br/>
         /// <br/>
         /// FAILED - The obfuscation request failed due to an error.
-        /// </remarks>
         /// </summary>
         [JsonProperty("status")]
         public ContactObfuscationStatusTypeJson? Status { get; set; }

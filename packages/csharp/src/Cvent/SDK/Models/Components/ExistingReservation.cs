@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Details about existing reservation.
     /// </summary>
     public class ExistingReservation
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -227,13 +226,13 @@ namespace Cvent.SDK.Models.Components
         public ReservationTotalCharges? TotalCharges { get; set; }
 
         /// <summary>
-        /// Unique URL for a guest to access a reservation in Passkey&apos;s booking tool.
+        /// Unique URL for a guest to access a reservation in Passkey's booking tool.
         /// </summary>
         [JsonProperty("bookingSite")]
         public BookingWebsiteLinkJson BookingSite { get; set; } = default!;
 
         /// <summary>
-        /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey&apos;s call center tool.
+        /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
         /// </summary>
         [JsonProperty("callCenter")]
         public CallCenterLinkJson? CallCenter { get; set; }

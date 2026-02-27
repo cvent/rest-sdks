@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListAudienceSegmentsPostFilterRequest
     {
-
         /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
@@ -24,19 +23,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts. By default, data is sorted by lastModified ASC.<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -47,9 +40,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * name<br/>
         ///   * lastModified<br/>
         ///   * lastModifiedBy<br/>
-        ///   * creationType<br/>
-        /// 
-        /// </remarks>
+        ///   * creationType.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
@@ -68,9 +59,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// These are comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -83,9 +72,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * event.id (eq/in) *(filters the list of all segments present in an event).*<br/>
         ///   * id (eq/in)<br/>
         ///   * deleted (eq)<br/>
-        ///   * creationType (eq/in)<br/>
-        /// 
-        /// </remarks>
+        ///   * creationType (eq/in).
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter Filter { get; set; } = default!;

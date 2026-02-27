@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An email activity.
     /// </summary>
     public class EventNoShow
     {
-
         /// <summary>
         /// The event in which this activity occurred.
         /// </summary>

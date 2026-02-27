@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A standard survey question.
     /// </summary>
     public class StandardSurveyQuestionJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -52,25 +51,25 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// text Value of the Field
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
 
         /// <summary>
-        /// Reporting value of the Category, Its like a custom abbreviation
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
         [JsonProperty("shortText")]
         public string? ShortText { get; set; }
 
         /// <summary>
-        /// Html of the question
+        /// Html of the question.
         /// </summary>
         [JsonProperty("htmlText")]
         public string? HtmlText { get; set; }
 
         /// <summary>
-        /// Question Code
+        /// Question Code.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
@@ -94,49 +93,49 @@ namespace Cvent.SDK.Models.Components
         public List<CategoryJson2>? Categories { get; set; }
 
         /// <summary>
-        /// List of sub categories for matrix side-by-side questions
+        /// List of sub categories for matrix side-by-side questions.
         /// </summary>
         [JsonProperty("subCategories")]
         public List<TextFieldJson1>? SubCategories { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice i.e N/A choice or otherAnswer choice
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
         public AdditionalChoiceJson? NotApplicableAnswer { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice i.e N/A choice or otherAnswer choice
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
         public AdditionalChoiceJson? OtherAnswer { get; set; }
 
         /// <summary>
-        /// Text Value of Comments Input box placeholder
+        /// Text Value of Comments Input box placeholder.
         /// </summary>
         [JsonProperty("comments")]
         public string? Comments { get; set; }
 
         /// <summary>
-        /// Is this a mandatory question
+        /// Is this a mandatory question.
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; } = false;
 
         /// <summary>
-        /// List of fields for form/matrix questions
+        /// List of fields for form/matrix questions.
         /// </summary>
         [JsonProperty("fields")]
         public List<FieldJson1>? Fields { get; set; }
 
         /// <summary>
-        /// Max possible score
+        /// Max possible score.
         /// </summary>
         [JsonProperty("maxScore")]
         public double? MaxScore { get; set; }
 
         /// <summary>
-        /// Total configured sum of all choices for number allocation question
+        /// Total configured sum of all choices for number allocation question.
         /// </summary>
         [JsonProperty("totalSum")]
         public long? TotalSum { get; set; }

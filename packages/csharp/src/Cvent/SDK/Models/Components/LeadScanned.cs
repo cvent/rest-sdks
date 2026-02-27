@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A lead activity
+    /// A lead activity.
     /// </summary>
     public class LeadScanned
     {
-
         /// <summary>
         /// An activity exhibitor.
         /// </summary>

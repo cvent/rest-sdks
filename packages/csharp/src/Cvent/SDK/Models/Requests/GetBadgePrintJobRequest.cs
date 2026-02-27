@@ -10,18 +10,17 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetBadgePrintJobRequest
     {
-
         /// <summary>
-        /// Id of an event
+        /// Id of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=eventId")]
         public string EventId { get; set; } = default!;
 
         /// <summary>
-        /// Id of a badge print job
+        /// Id of a badge print job.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=jobId")]
         public string JobId { get; set; } = default!;

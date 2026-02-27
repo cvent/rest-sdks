@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents updates to an event.
     /// </summary>
     public class EventUpdate
     {
-
         /// <summary>
         /// The identifier of the event.
         /// </summary>
@@ -40,7 +39,7 @@ namespace Cvent.SDK.Models.Components
         public string? Code { get; set; }
 
         /// <summary>
-        /// True indicates the event is virtual. DEPRECATED - Refer to the &apos;format&apos; field for the &apos;virtual&apos; indicator.
+        /// True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual' indicator.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("virtual")]
@@ -155,7 +154,7 @@ namespace Cvent.SDK.Models.Components
         public RegistrationStatusJson? Status { get; set; }
 
         /// <summary>
-        /// Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted. 
+        /// Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted.
         /// </summary>
         [JsonProperty("eventStatus")]
         public EventStatusJson? EventStatus { get; set; }

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Respondent chapter reference.
     /// </summary>
     public class RespondentChapterReferenceJson
     {
-
         /// <summary>
         /// Respondent chapter reference ID.
         /// </summary>
@@ -26,31 +25,31 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// In case of Event Survey this represents Survey Status and in case of Standard Survey this represents Chapter Status
+        /// In case of Event Survey this represents Survey Status and in case of Standard Survey this represents Chapter Status.
         /// </summary>
         [JsonProperty("status")]
         public StatusJson? Status { get; set; }
 
         /// <summary>
-        /// Score
+        /// Score.
         /// </summary>
         [JsonProperty("score")]
         public double? Score { get; set; }
 
         /// <summary>
-        /// Maximum Possible Score
+        /// Maximum Possible Score.
         /// </summary>
         [JsonProperty("maxPossibleScore")]
         public double? MaxPossibleScore { get; set; }
 
         /// <summary>
-        /// Percentage Score
+        /// Percentage Score.
         /// </summary>
         [JsonProperty("percentageScore")]
         public double? PercentageScore { get; set; }
 
         /// <summary>
-        /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question
+        /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question.
         /// </summary>
         [JsonProperty("loopingChoice")]
         public LoopingChoiceJson? LoopingChoice { get; set; }

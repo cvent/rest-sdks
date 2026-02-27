@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Information of the recipient.
     /// </summary>
     public class RecipientJson
     {
-
         /// <summary>
         /// Unique ID of the recipient.
         /// </summary>

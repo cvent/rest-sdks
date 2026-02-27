@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An exhibitor document-opened activity.
     /// </summary>
     public class ExhibitorDocumentOpened
     {
-
         /// <summary>
         /// An exhibitor.
         /// </summary>

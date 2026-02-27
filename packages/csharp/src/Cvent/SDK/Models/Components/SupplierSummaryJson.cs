@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a summary of supplier information associated with current proposal.
     /// </summary>
     public class SupplierSummaryJson
     {
-
         /// <summary>
         /// The supplier associated with current proposal.
         /// </summary>

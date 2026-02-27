@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A qualified lead.
     /// </summary>
     public class LeadQualified
     {
-
         /// <summary>
         /// An activity exhibitor.
         /// </summary>

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// JSON schema representing an Exhibitor Category object
+    /// JSON schema representing an Exhibitor Category object.
     /// </summary>
     public class ExhibitorCategoryRequest
     {
-
         /// <summary>
         /// The Associated Event.
         /// </summary>
@@ -26,25 +25,25 @@ namespace Cvent.SDK.Models.Components
         public EventJson5 Event { get; set; } = default!;
 
         /// <summary>
-        /// Name of the exhibitor category
+        /// Name of the exhibitor category.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Category description
+        /// Exhibitor Category description.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// order for exhibitor category
+        /// order for exhibitor category.
         /// </summary>
         [JsonProperty("order")]
         public long Order { get; set; } = default!;
 
         /// <summary>
-        /// Type of exhibitor category
+        /// Type of exhibitor category.
         /// </summary>
         [JsonProperty("type")]
         public ExhibitorCategoryRequestType Type { get; set; } = default!;

@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class RunBulkJobRequest
     {
-
         /// <summary>
         /// A uuid path parameter.
         /// </summary>

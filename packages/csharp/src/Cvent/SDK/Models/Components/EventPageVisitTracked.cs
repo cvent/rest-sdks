@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Contains Urchin Tracking Module (UTM) data.
     /// </summary>
     public class EventPageVisitTracked
     {
-
         /// <summary>
         /// The event in which this activity occurred.
         /// </summary>

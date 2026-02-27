@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetHousingEventInfoRequest
     {
-
         /// <summary>
         /// ID for a Passkey housing event.
         /// </summary>

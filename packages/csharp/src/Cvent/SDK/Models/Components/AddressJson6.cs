@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Address
+    /// Address.
     /// </summary>
     public class AddressJson6
     {
-
         /// <summary>
         /// The type of the address.
         /// </summary>

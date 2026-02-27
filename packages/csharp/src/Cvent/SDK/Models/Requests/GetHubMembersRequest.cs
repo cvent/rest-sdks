@@ -10,12 +10,11 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetHubMembersRequest
     {
-
         /// <summary>
-        /// The identifier of an Events+ Hub
+        /// The identifier of an Events+ Hub.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=hubId")]
         public string HubId { get; set; } = default!;
@@ -28,49 +27,41 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// &quot;A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.&quot;<br/>
-        /// 
-        /// <remarks>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// These are the comparison types that can be used in filter expressions:<br/>
-        /// * contains a value: contains<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        /// * firstName (contains)<br/>
-        /// * lastName (contains)<br/>
-        /// * emailAddress (contains)<br/>
-        /// * jobTitle (contains)<br/>
-        /// * companyName (contains)<br/>
-        /// * designation (contains)<br/>
-        /// * workAddress.city (contains)<br/>
-        /// * workAddress.state (contains)<br/>
-        /// * workAddress.country (contains)<br/>
+        /// | Field                   | Operators  |<br/>
+        /// |-------------------------|------------|<br/>
+        /// | firstName               | `contains` |<br/>
+        /// | lastName                | `contains` |<br/>
+        /// | emailAddress            | `contains` |<br/>
+        /// | jobTitle                | `contains` |<br/>
+        /// | companyName             | `contains` |<br/>
+        /// | designation             | `contains` |<br/>
+        /// | workAddress.city        | `contains` |<br/>
+        /// | workAddress.state       | `contains` |<br/>
+        /// | workAddress.country     | `contains` |<br/>
         /// <br/>
-        /// Limit for the number of fields that can be passed in a filter is 35<br/>
+        /// Limit for the number of fields that can be passed in a filter is 35.<br/>
         /// <br/>
-        /// The following operators are available:<br/>
+        /// The following logical operators are supported for combining filters:<br/>
         /// * and<br/>
-        /// * or<br/>
-        /// 
-        /// </remarks>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -88,9 +79,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * workAddress.country (Work Country of member)<br/>
         ///   * companyName (member company)<br/>
         ///   * registrationDate (member registration date)<br/>
-        ///   * lastLoginDate (member last login date)<br/>
-        /// 
-        /// </remarks>
+        ///   * lastLoginDate (member last login date).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sort")]
         public string? Sort { get; set; }

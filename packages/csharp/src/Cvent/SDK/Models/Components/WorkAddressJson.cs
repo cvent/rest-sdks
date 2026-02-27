@@ -11,27 +11,26 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Member&apos;s work address details.
+    /// Member's work address details.
     /// </summary>
     public class WorkAddressJson
     {
-
         /// <summary>
-        /// Member&apos;s work address city.
+        /// Member's work address city.
         /// </summary>
         [JsonProperty("city")]
         public string? City { get; set; }
 
         /// <summary>
-        /// Member&apos;s Work address state.
+        /// Member's Work address state.
         /// </summary>
         [JsonProperty("state")]
         public string? State { get; set; }
 
         /// <summary>
-        /// Member&apos;s work address country.
+        /// Member's work address country.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }

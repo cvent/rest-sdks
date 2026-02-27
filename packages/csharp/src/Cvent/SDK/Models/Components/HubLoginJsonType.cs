@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a &apos;magic link&apos; provided via email. Magic links are unique for each member, allowing the member to log in without requiring credentials. SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub. BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
+    /// Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic link' provided via email. Magic links are unique for each member, allowing the member to log in without requiring credentials. SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub. BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
     /// </summary>
     public enum HubLoginJsonType
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum HubLoginJsonType");
         }
     }
-
 }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Generic sample User. Not a real model used by any Cvent service.
     /// </summary>
     public class UserJson
     {
-
         /// <summary>
         /// The list of schemas using this resource.
         /// </summary>
@@ -69,7 +68,7 @@ namespace Cvent.SDK.Models.Components
         public List<PhoneNumberJson1>? PhoneNumbers { get; set; }
 
         /// <summary>
-        /// The address of the user. The user can have only one address. &lt;br&gt; If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
+        /// The address of the user. The user can have only one address. &lt;br&gt; If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence.
         /// </summary>
         [JsonProperty("addresses")]
         public List<AddressJson6>? Addresses { get; set; }
@@ -81,7 +80,7 @@ namespace Cvent.SDK.Models.Components
         public UserTypeJson UserType { get; set; } = default!;
 
         /// <summary>
-        /// List of &lt;a href=&quot;#section/Getting-Started/Time-Zones&quot;&gt;Timezones&lt;/a&gt; supported.
+        /// List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
         /// </summary>
         [JsonProperty("timezone")]
         public string? Timezone { get; set; } = "America/New_York";

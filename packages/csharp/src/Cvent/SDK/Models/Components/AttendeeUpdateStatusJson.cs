@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn&apos;t taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee&apos;s registration for the event is cancelled. Visited: The attendee visited the event&apos;s webpage but didn&apos;t finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. &lt;br&gt;The following status transitions are supported by this API:&lt;br&gt; * No Response -&gt; Visited &lt;br&gt; * No Response -&gt; Accepted &lt;br&gt; * No Response -&gt; Declined &lt;br&gt; * No Response -&gt; Pending Approval &lt;br&gt; * Cancelled -&gt; Accepted &lt;br&gt; * Cancelled -&gt; Pending Approval &lt;br&gt; * Visited -&gt; Accepted &lt;br&gt; * Visited -&gt; Pending Approval &lt;br&gt; * Declined -&gt; Accepted &lt;br&gt; * Declined -&gt; Pending Approval &lt;br&gt; * Accepted -&gt; Cancelled &lt;br&gt; * Pending Approval -&gt; Accepted &lt;br&gt; * Pending Approval -&gt; Denied Approval &lt;br&gt; * Denied Approval -&gt; Pending Approval
+    /// Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. &lt;br&gt;The following status transitions are supported by this API:&lt;br&gt; * No Response -&gt; Visited &lt;br&gt; * No Response -&gt; Accepted &lt;br&gt; * No Response -&gt; Declined &lt;br&gt; * No Response -&gt; Pending Approval &lt;br&gt; * Cancelled -&gt; Accepted &lt;br&gt; * Cancelled -&gt; Pending Approval &lt;br&gt; * Visited -&gt; Accepted &lt;br&gt; * Visited -&gt; Pending Approval &lt;br&gt; * Declined -&gt; Accepted &lt;br&gt; * Declined -&gt; Pending Approval &lt;br&gt; * Accepted -&gt; Cancelled &lt;br&gt; * Pending Approval -&gt; Accepted &lt;br&gt; * Pending Approval -&gt; Denied Approval &lt;br&gt; * Denied Approval -&gt; Pending Approval.
     /// </summary>
     public enum AttendeeUpdateStatusJson
     {
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AttendeeUpdateStatusJson");
         }
     }
-
 }

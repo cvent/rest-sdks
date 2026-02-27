@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A changeset of contact fields.
     /// </summary>
     public class ContactTransaction
     {
-
         /// <summary>
         /// Collection of standard contact fields.
         /// </summary>

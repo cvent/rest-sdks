@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Denotes the attendee&apos;s status in the session. Registered: The attendee is registered for the session. Waitlisted: The attendee is on a waitlist to register for the session. Cancelled: The attendee&apos;s registration for the session has been cancelled.
+    /// Denotes the attendee's status in the session. Registered: The attendee is registered for the session. Waitlisted: The attendee is on a waitlist to register for the session. Cancelled: The attendee's registration for the session has been cancelled.
     /// </summary>
     public enum SessionEnrollmentStatusJson
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SessionEnrollmentStatusJson");
         }
     }
-
 }

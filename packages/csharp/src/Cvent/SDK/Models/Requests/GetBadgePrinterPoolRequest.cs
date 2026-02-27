@@ -10,18 +10,17 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetBadgePrinterPoolRequest
     {
-
         /// <summary>
-        /// Id of an event
+        /// Id of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=eventId")]
         public string EventId { get; set; } = default!;
 
         /// <summary>
-        /// Id of a badge printer pool
+        /// Id of a badge printer pool.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=poolId")]
         public string PoolId { get; set; } = default!;

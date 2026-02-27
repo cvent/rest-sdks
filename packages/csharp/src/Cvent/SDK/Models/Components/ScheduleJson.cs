@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A scheduled action.
     /// </summary>
     public class ScheduleJson
     {
-
         /// <summary>
         /// Unique ID of the scheduled task.
         /// </summary>
@@ -27,13 +26,13 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The ISO 8601 zoned date time when the session will be moved to the next stage: provisioning, activation, deactivation or archival
+        /// The ISO 8601 zoned date time when the session will be moved to the next stage: provisioning, activation, deactivation or archival.
         /// </summary>
         [JsonProperty("scheduledExecution")]
         public DateTime? ScheduledExecution { get; set; }
 
         /// <summary>
-        /// This is used to denote the action to perform with the scheduled task
+        /// This is used to denote the action to perform with the scheduled task.
         /// </summary>
         [JsonProperty("action")]
         public ScheduleActionJson? Action { get; set; }

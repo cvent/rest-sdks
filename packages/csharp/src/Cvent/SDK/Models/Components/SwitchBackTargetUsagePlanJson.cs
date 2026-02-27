@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Object representing the target usage plan and the date when the current plan is scheduled to revert to it. This object is only present when a switch-back is scheduled.
     /// </summary>
     public class SwitchBackTargetUsagePlanJson
     {
-
         /// <summary>
         /// Name of the target usage plan to switch back to. This field is only present when the usage plan is scheduled to revert to a previous plan.
         /// </summary>

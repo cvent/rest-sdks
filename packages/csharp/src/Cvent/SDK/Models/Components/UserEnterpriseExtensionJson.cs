@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Enterprise extension model for the user.
     /// </summary>
     public class UserEnterpriseExtensionJson
     {
-
         /// <summary>
         /// Indicates if the login details are to be sent to user.
         /// </summary>
@@ -37,7 +36,7 @@ namespace Cvent.SDK.Models.Components
         public string? Company { get; set; }
 
         /// <summary>
-        /// The work fax number of the user
+        /// The work fax number of the user.
         /// </summary>
         [JsonProperty("workFax")]
         public string? WorkFax { get; set; }

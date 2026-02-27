@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { DistanceJson, DistanceJson$inboundSchema } from "./distancejson.js";
+import { DistanceJson1, DistanceJson1$inboundSchema } from "./distancejson1.js";
 
 /**
  * Proximity of the event venue to the hotel.
@@ -15,7 +15,7 @@ export type ProximityJson = {
   /**
    * Distance information.
    */
-  distance?: DistanceJson | undefined;
+  distance?: DistanceJson1 | undefined;
   /**
    * Message shown on map.
    */
@@ -28,7 +28,7 @@ export const ProximityJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  distance: DistanceJson$inboundSchema.optional(),
+  distance: DistanceJson1$inboundSchema.optional(),
   mapMessage: z.string().optional(),
 });
 

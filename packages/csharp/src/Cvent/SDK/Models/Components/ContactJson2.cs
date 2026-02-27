@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The contact details who watched a video
+    /// The contact details who watched a video.
     /// </summary>
     public class ContactJson2
     {
-
         /// <summary>
         /// The unique ID of the contact who watched a video.
         /// </summary>

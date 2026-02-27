@@ -25,49 +25,51 @@ namespace Cvent.SDK
     using System.Threading.Tasks;
 
     /// <summary>
-    /// These API&apos;s provide compliance support for regulated industries.<br/>
-    /// 
-    /// <remarks>
+    /// These API's provide compliance support for regulated industries.<br/>
     /// <br/>
     /// **Communication Compliance** lets you view communication activities across your account.<br/>
     /// Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications<br/>
-    /// can be downloaded for archival or analysis.<br/>
-    /// 
-    /// </remarks>
+    /// can be downloaded for archival or analysis.
     /// </summary>
     public interface ICompliance
     {
-
         /// <summary>
         /// Get Communication Config<br/>
-        /// 
-        /// 
-        /// <remarks>
-        /// Gets communication compliance configuration for an account. For example, gets the communication types enabled for an account.<br/>
-        /// 
-        /// </remarks>
-        /// 
+        /// <br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
-        Task<GetConfigurationResponse> GetConfigurationAsync();
+        /// <remarks>
+        /// Gets communication compliance configuration for an account. For example, gets the communication types enabled for an account.
+        /// </remarks>
+        /// <returns>An awaitable task that returns a <see cref="GetConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetConfigurationResponse> GetConfigurationAsync();
 
         /// <summary>
         /// Update Communication Config<br/>
-        /// 
-        /// 
-        /// <remarks>
-        /// Update the communication compliance configuration for an account.  For example, configure which communication types will be recorded in the communication log.<br/>
-        /// 
-        /// </remarks>
-        /// 
+        /// <br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
-        Task<UpdateConfigurationResponse> UpdateConfigurationAsync(CommunicationConfiguration request);
+        /// <remarks>
+        /// Update the communication compliance configuration for an account.  For example, configure which communication types will be recorded in the communication log.
+        /// </remarks>
+        /// <param name="request">Communication compliance configuration.  For example, the list of communication types to be recorded in the communication log.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateConfigurationResponse> UpdateConfigurationAsync(CommunicationConfiguration request);
 
         /// <summary>
         /// List Communication<br/>
-        /// 
-        /// 
+        /// <br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of communication log messages from your account. The filter is not required. If no filter<br/>
         /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
@@ -76,18 +78,23 @@ namespace Cvent.SDK
         /// <br/>
         ///   * email<br/>
         ///   * chat<br/>
-        ///   * session_qa<br/>
-        /// 
+        ///   * session_qa.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetCommunicationLogMessagesResponse> GetCommunicationLogMessagesAsync(GetCommunicationLogMessagesRequest? request = null);
+        /// <param name="request">A <see cref="GetCommunicationLogMessagesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommunicationLogMessagesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommunicationLogMessagesResponse> GetCommunicationLogMessagesAsync(
+            GetCommunicationLogMessagesRequest? request = null
+        );
 
         /// <summary>
         /// List Communication<br/>
-        /// 
-        /// 
+        /// <br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of communication log messages from your account. The filter in the request body is not required. If no filter<br/>
         /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
@@ -96,48 +103,64 @@ namespace Cvent.SDK
         /// <br/>
         ///   * email<br/>
         ///   * chat<br/>
-        ///   * session_qa<br/>
-        /// 
+        ///   * session_qa.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<FilterCommunicationLogMessagesResponse> FilterCommunicationLogMessagesAsync(FilterCommunicationLogMessagesRequest? request = null);
+        /// <param name="request">A <see cref="FilterCommunicationLogMessagesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="FilterCommunicationLogMessagesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<FilterCommunicationLogMessagesResponse> FilterCommunicationLogMessagesAsync(
+            FilterCommunicationLogMessagesRequest? request = null
+        );
     }
 
     /// <summary>
-    /// These API&apos;s provide compliance support for regulated industries.<br/>
-    /// 
-    /// <remarks>
+    /// These API's provide compliance support for regulated industries.<br/>
     /// <br/>
     /// **Communication Compliance** lets you view communication activities across your account.<br/>
     /// Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications<br/>
-    /// can be downloaded for archival or analysis.<br/>
-    /// 
-    /// </remarks>
+    /// can be downloaded for archival or analysis.
     /// </summary>
     public class Compliance: ICompliance
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Compliance(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetConfigurationResponse> GetConfigurationAsync()
+        /// <summary>
+        /// Get Communication Config<br/>
+        /// <br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets communication compliance configuration for an account. For example, gets the communication types enabled for an account.
+        /// </remarks>
+        /// <returns>An awaitable task that returns a <see cref="GetConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetConfigurationResponse> GetConfigurationAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/logs/communications/configuration";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -154,7 +177,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -163,9 +186,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -241,14 +264,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateConfigurationResponse> UpdateConfigurationAsync(CommunicationConfiguration request)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
+        /// <summary>
+        /// Update Communication Config<br/>
+        /// <br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Update the communication compliance configuration for an account.  For example, configure which communication types will be recorded in the communication log.
+        /// </remarks>
+        /// <param name="request">Communication compliance configuration.  For example, the list of communication types to be recorded in the communication log.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateConfigurationResponse> UpdateConfigurationAsync(CommunicationConfiguration request)
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/logs/communications/configuration";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -271,7 +316,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -280,9 +325,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -358,13 +403,42 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCommunicationLogMessagesResponse> GetCommunicationLogMessagesAsync(GetCommunicationLogMessagesRequest? request = null)
+
+        /// <summary>
+        /// List Communication<br/>
+        /// <br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of communication log messages from your account. The filter is not required. If no filter<br/>
+        /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
+        /// <br/>
+        /// Supported types are:<br/>
+        /// <br/>
+        ///   * email<br/>
+        ///   * chat<br/>
+        ///   * session_qa.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommunicationLogMessagesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommunicationLogMessagesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommunicationLogMessagesResponse> GetCommunicationLogMessagesAsync(
+            GetCommunicationLogMessagesRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/logs/communications/messages", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -381,7 +455,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -390,9 +464,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -414,6 +488,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -498,13 +573,42 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<FilterCommunicationLogMessagesResponse> FilterCommunicationLogMessagesAsync(FilterCommunicationLogMessagesRequest? request = null)
+
+        /// <summary>
+        /// List Communication<br/>
+        /// <br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of communication log messages from your account. The filter in the request body is not required. If no filter<br/>
+        /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
+        /// <br/>
+        /// Supported types are:<br/>
+        /// <br/>
+        ///   * email<br/>
+        ///   * chat<br/>
+        ///   * session_qa.
+        /// </remarks>
+        /// <param name="request">A <see cref="FilterCommunicationLogMessagesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="FilterCommunicationLogMessagesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<FilterCommunicationLogMessagesResponse> FilterCommunicationLogMessagesAsync(
+            FilterCommunicationLogMessagesRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/logs/communications/messages/filter", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Filter", "json", false, true);
             if (serializedBody != null)
@@ -527,7 +631,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -536,9 +640,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -560,6 +664,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -646,5 +751,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

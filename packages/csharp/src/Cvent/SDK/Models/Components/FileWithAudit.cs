@@ -13,21 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// File object that represents a file uploaded to the platform.
     /// </summary>
     public class FileWithAudit
     {
-
         /// <summary>
-        /// Unique Id of a file
+        /// Unique Id of a file.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Full Name of the file
+        /// Full Name of the file.
         /// </summary>
         [JsonProperty("friendlyName")]
         public string? FriendlyName { get; set; }

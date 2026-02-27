@@ -11,12 +11,11 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class CreateBadgePrintJobRequest
     {
-
         /// <summary>
-        /// Id of an event
+        /// Id of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=eventId")]
         public string EventId { get; set; } = default!;

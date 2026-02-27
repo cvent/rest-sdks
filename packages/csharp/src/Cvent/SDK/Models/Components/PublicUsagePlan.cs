@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Object representing an API Platform Usage Tier, including information when the usage plan is scheduled to revert to a previous plan, if any.
     /// </summary>
     public class PublicUsagePlan
     {
-
         /// <summary>
-        /// The name of the usage tier
+        /// The name of the usage tier.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
@@ -32,13 +31,13 @@ namespace Cvent.SDK.Models.Components
         public double Quota { get; set; } = default!;
 
         /// <summary>
-        /// The burst limit capacity of the usage tier
+        /// The burst limit capacity of the usage tier.
         /// </summary>
         [JsonProperty("burstLimit")]
         public double BurstLimit { get; set; } = default!;
 
         /// <summary>
-        /// The per-second steady rate-limit of the usage tier
+        /// The per-second steady rate-limit of the usage tier.
         /// </summary>
         [JsonProperty("rateLimit")]
         public double RateLimit { get; set; } = default!;

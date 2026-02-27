@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Representation of airlines based on preference
+    /// Representation of airlines based on preference.
     /// </summary>
     public class AirlinePreferenceJson
     {
-
         /// <summary>
         /// Name of preferred airline.
         /// </summary>

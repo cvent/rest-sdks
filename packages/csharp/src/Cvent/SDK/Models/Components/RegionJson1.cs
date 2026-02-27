@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Region where the live stream originates (These regions are only for Brightcove player)
+    /// Region where the live stream originates (These regions are only for Brightcove player).
     /// </summary>
     public enum RegionJson1
     {
@@ -68,5 +68,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum RegionJson1");
         }
     }
-
 }

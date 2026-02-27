@@ -10,18 +10,17 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class RemoveSpeakerFromSessionRequest
     {
-
         /// <summary>
-        /// Unique Id of a session
+        /// Unique Id of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique Id of a speaker
+        /// Unique Id of a speaker.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=speakerId")]
         public string SpeakerId { get; set; } = default!;

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Appointment created activity.
     /// </summary>
     public class AppointmentCreated
     {
-
         /// <summary>
         /// An activity appointment.
         /// </summary>

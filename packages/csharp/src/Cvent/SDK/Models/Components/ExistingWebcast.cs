@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An existing webcast.
     /// </summary>
     public class ExistingWebcast
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public UuidJson? Appointment { get; set; }
 
         /// <summary>
-        /// This is used to denote the solution type to be used for webcast. The &apos;Cvent Video Conferencing&apos; refers to the video experience which links out the Attendee hub whereas &apos;Embedded Cvent Video Conferencing&apos; refers to the video experience within the Attendee hub.
+        /// This is used to denote the solution type to be used for webcast. The 'Cvent Video Conferencing' refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video Conferencing' refers to the video experience within the Attendee hub.
         /// </summary>
         [JsonProperty("solutionType")]
         public SolutionTypeJson? SolutionType { get; set; }
@@ -75,13 +74,13 @@ namespace Cvent.SDK.Models.Components
         public UuidJson? Exhibitor { get; set; }
 
         /// <summary>
-        /// This is used to denote the format of a webcast
+        /// This is used to denote the format of a webcast.
         /// </summary>
         [JsonProperty("format")]
         public FormatJson? Format { get; set; } = Cvent.SDK.Models.Components.FormatJson.Live;
 
         /// <summary>
-        /// This is used to denote the type of a webcast
+        /// This is used to denote the type of a webcast.
         /// </summary>
         [JsonProperty("type")]
         public WebcastTypeJson? Type { get; set; }
@@ -93,49 +92,49 @@ namespace Cvent.SDK.Models.Components
         public WebcastProviderJson? Provider { get; set; }
 
         /// <summary>
-        /// This is used to denote the status of a webcast
+        /// This is used to denote the status of a webcast.
         /// </summary>
         [JsonProperty("status")]
         public WebcastStatusJson? Status { get; set; }
 
         /// <summary>
-        /// This is used to denote the type of a video player
+        /// This is used to denote the type of a video player.
         /// </summary>
         [JsonProperty("playerType")]
         public PlayerTypeJson? PlayerType { get; set; }
 
         /// <summary>
-        /// Indicates if the webcast is simulated live or not
+        /// Indicates if the webcast is simulated live or not.
         /// </summary>
         [JsonProperty("simulatedLive")]
         public bool? SimulatedLive { get; set; }
 
         /// <summary>
-        /// Indicates if the live stream recording is enabled
+        /// Indicates if the live stream recording is enabled.
         /// </summary>
         [JsonProperty("recordLiveStream")]
         public bool? RecordLiveStream { get; set; }
 
         /// <summary>
-        /// Indicates if the live stream recording will be added to the library automatically
+        /// Indicates if the live stream recording will be added to the library automatically.
         /// </summary>
         [JsonProperty("autoAddToLibrary")]
         public bool? AutoAddToLibrary { get; set; } = false;
 
         /// <summary>
-        /// Indicates if the on demand video is available
+        /// Indicates if the on demand video is available.
         /// </summary>
         [JsonProperty("onDemandVideo")]
         public bool? OnDemandVideo { get; set; }
 
         /// <summary>
-        /// Source Id of the webcast provider
+        /// Source Id of the webcast provider.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
 
         /// <summary>
-        /// Title of the webcast
+        /// Title of the webcast.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
@@ -147,13 +146,13 @@ namespace Cvent.SDK.Models.Components
         public string? MeetingId { get; set; }
 
         /// <summary>
-        /// webcast link references
+        /// webcast link references.
         /// </summary>
         [JsonProperty("_links")]
         public WebcastLinksJson? Links { get; set; }
 
         /// <summary>
-        /// Additional information related to the webcast
+        /// Additional information related to the webcast.
         /// </summary>
         [JsonProperty("details")]
         public string? Details { get; set; }
@@ -165,7 +164,7 @@ namespace Cvent.SDK.Models.Components
         public Models.Components.Video? Video { get; set; }
 
         /// <summary>
-        /// Webcast ID
+        /// Webcast ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

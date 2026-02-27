@@ -14,6 +14,7 @@ import com.cvent.models.operations.ListAttendeesRequest;
 import com.cvent.models.operations.ListDurationsRequest;
 import com.cvent.models.operations.PostBadgeRequest;
 import com.cvent.models.operations.UpdateAttendeeRequest;
+import com.cvent.models.operations.UpdateAttendeeSubscriptionStatusRequest;
 import com.cvent.models.operations.UpdateBadgeRequest;
 import com.cvent.models.operations.UpdateInternalInfoAnswersRequest;
 import com.cvent.models.operations.async.CreateAttendeeRequestBuilder;
@@ -34,6 +35,8 @@ import com.cvent.models.operations.async.PostBadgeRequestBuilder;
 import com.cvent.models.operations.async.PostBadgeResponse;
 import com.cvent.models.operations.async.UpdateAttendeeRequestBuilder;
 import com.cvent.models.operations.async.UpdateAttendeeResponse;
+import com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusRequestBuilder;
+import com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse;
 import com.cvent.models.operations.async.UpdateBadgeRequestBuilder;
 import com.cvent.models.operations.async.UpdateBadgeResponse;
 import com.cvent.models.operations.async.UpdateInternalInfoAnswersRequestBuilder;
@@ -47,6 +50,7 @@ import com.cvent.operations.ListAttendeesPostFilter;
 import com.cvent.operations.ListDurations;
 import com.cvent.operations.PostBadge;
 import com.cvent.operations.UpdateAttendee;
+import com.cvent.operations.UpdateAttendeeSubscriptionStatus;
 import com.cvent.operations.UpdateBadge;
 import com.cvent.operations.UpdateInternalInfoAnswers;
 import com.cvent.utils.Headers;
@@ -267,6 +271,37 @@ public class AsyncAttendees {
     public CompletableFuture<UpdateAttendeeResponse> updateAttendee(@Nonnull UpdateAttendeeRequest request) {
         AsyncRequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation
               = new UpdateAttendee.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request)
+            .thenCompose(operation::handleResponse);
+    }
+
+
+    /**
+     * Update Email Subscription
+     * 
+     * <p>Updates an attendee's email subscription status for a specific event.
+     * 
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     * 
+     * @return The async call builder
+     */
+    public UpdateAttendeeSubscriptionStatusRequestBuilder updateAttendeeSubscriptionStatus() {
+        return new UpdateAttendeeSubscriptionStatusRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Email Subscription
+     * 
+     * <p>Updates an attendee's email subscription status for a specific event.
+     * 
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     * 
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateAttendeeSubscriptionStatusResponse>} - The async response
+     */
+    public CompletableFuture<UpdateAttendeeSubscriptionStatusResponse> updateAttendeeSubscriptionStatus(@Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
+        AsyncRequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation
+              = new UpdateAttendeeSubscriptionStatus.Async(sdkConfiguration, _headers);
         return operation.doRequest(request)
             .thenCompose(operation::handleResponse);
     }

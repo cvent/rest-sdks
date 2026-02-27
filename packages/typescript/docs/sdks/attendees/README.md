@@ -12,6 +12,7 @@ The Attendee entity primarily refers to the person throughout the lifecycle of a
 * [listAttendeesPostFilter](#listattendeespostfilter) - List Attendees
 * [getAttendeeById](#getattendeebyid) - Get Attendee
 * [updateAttendee](#updateattendee) - Update Attendee
+* [updateAttendeeSubscriptionStatus](#updateattendeesubscriptionstatus) - Update Email Subscription
 * [updateInternalInfoAnswers](#updateinternalinfoanswers) - Update Internal Information
 * [postBadge](#postbadge) - Create Badge
 * [getBadge](#getbadge) - Get Badge
@@ -162,7 +163,6 @@ async function run() {
       administrator: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
-      unsubscribed: false,
       admissionItem: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
@@ -229,7 +229,6 @@ async function run() {
       administrator: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
-      unsubscribed: false,
       admissionItem: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
@@ -650,7 +649,6 @@ async function run() {
       administrator: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
-      unsubscribed: false,
       admissionItem: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
@@ -715,7 +713,6 @@ async function run() {
       administrator: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
-      unsubscribed: false,
       admissionItem: {
         id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
       },
@@ -757,6 +754,103 @@ run();
 ### Response
 
 **Promise\<[components.Attendee](../../models/components/attendee.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## updateAttendeeSubscriptionStatus
+
+Updates an attendee's email subscription status for a specific event.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="updateAttendeeSubscriptionStatus" method="put" path="/attendees/{id}/email-subscriptions" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.attendees.updateAttendeeSubscriptionStatus({
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    attendeeSubscriptionRequest: {
+      unsubscribed: true,
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { attendeesUpdateAttendeeSubscriptionStatus } from "@cvent/sdk/funcs/attendeesUpdateAttendeeSubscriptionStatus.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await attendeesUpdateAttendeeSubscriptionStatus(cventSDK, {
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    attendeeSubscriptionRequest: {
+      unsubscribed: true,
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("attendeesUpdateAttendeeSubscriptionStatus failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateAttendeeSubscriptionStatusRequest](../../models/operations/updateattendeesubscriptionstatusrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.AttendeeSubscriptionResponse](../../models/components/attendeesubscriptionresponse.md)\>**
 
 ### Errors
 

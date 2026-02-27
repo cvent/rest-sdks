@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An event video-played activity.
     /// </summary>
     public class EventVideoPlayed
     {
-
         /// <summary>
         /// The name of the web browser.
         /// </summary>

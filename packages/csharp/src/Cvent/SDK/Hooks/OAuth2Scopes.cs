@@ -13,15 +13,13 @@ namespace Cvent.SDK.Hooks
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Available scopes for the  OAuth 2.0 scheme (authorizationCode flow).
-    /// 
-    /// <remarks>
-    /// OAuth2 Authorization Code Flow
-    /// </remarks>
+    /// Available scopes for the OAuth2.authorizationCode OAuth 2.0 scheme (authorizationCode flow).
     /// </summary>
+    /// <remarks>
+    /// OAuth2 Authorization Code Flow.
+    /// </remarks>
     public enum OAuth2AuthorizationCodeOAuth2Scope
     {
-
         /// <summary>
         /// Allows the deletion of hooks.
         /// </summary>
@@ -41,37 +39,37 @@ namespace Cvent.SDK.Hooks
         AccountHooksWrite,
 
         /// <summary>
-        /// Allows deletion for user groups
+        /// Allows deletion for user groups.
         /// </summary>
         [JsonProperty("account/user-groups:delete")]
         AccountUserGroupsDelete,
 
         /// <summary>
-        /// Allows the reading of user groups
+        /// Allows the reading of user groups.
         /// </summary>
         [JsonProperty("account/user-groups:read")]
         AccountUserGroupsRead,
 
         /// <summary>
-        /// Allows the writing of user groups
+        /// Allows the writing of user groups.
         /// </summary>
         [JsonProperty("account/user-groups:write")]
         AccountUserGroupsWrite,
 
         /// <summary>
-        /// Allows the deletion of User
+        /// Allows the deletion of User.
         /// </summary>
         [JsonProperty("account/users:delete")]
         AccountUsersDelete,
 
         /// <summary>
-        /// Allows the reading of User, User Group
+        /// Allows the reading of User, User Group.
         /// </summary>
         [JsonProperty("account/users:read")]
         AccountUsersRead,
 
         /// <summary>
-        /// Allows the creation/updating of User
+        /// Allows the creation/updating of User.
         /// </summary>
         [JsonProperty("account/users:write")]
         AccountUsersWrite,
@@ -137,31 +135,31 @@ namespace Cvent.SDK.Hooks
         AttendeeInsightsStatsRead,
 
         /// <summary>
-        /// Allows the deletion of budget items
+        /// Allows the deletion of budget items.
         /// </summary>
         [JsonProperty("budget/budget-items:delete")]
         BudgetBudgetItemsDelete,
 
         /// <summary>
-        /// Allows the reading of all budget items
+        /// Allows the reading of all budget items.
         /// </summary>
         [JsonProperty("budget/budget-items:read")]
         BudgetBudgetItemsRead,
 
         /// <summary>
-        /// Allows creation/updation of budget item
+        /// Allows creation/updation of budget item.
         /// </summary>
         [JsonProperty("budget/budget-items:write")]
         BudgetBudgetItemsWrite,
 
         /// <summary>
-        /// Allows the reading of all event budget totals
+        /// Allows the reading of all event budget totals.
         /// </summary>
         [JsonProperty("budget/budget-totals:read")]
         BudgetBudgetTotalsRead,
 
         /// <summary>
-        /// Allows the reading of cards
+        /// Allows the reading of cards.
         /// </summary>
         [JsonProperty("budget/cards:read")]
         BudgetCardsRead,
@@ -209,7 +207,7 @@ namespace Cvent.SDK.Hooks
         BudgetTransactionsDelete,
 
         /// <summary>
-        /// Allows the reading of all card&apos;s transactions
+        /// Allows the reading of all card's transactions.
         /// </summary>
         [JsonProperty("budget/transactions:read")]
         BudgetTransactionsRead,
@@ -221,13 +219,13 @@ namespace Cvent.SDK.Hooks
         BudgetTransactionsWrite,
 
         /// <summary>
-        /// Allows the reading of communication compliance
+        /// Allows the reading of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:read")]
         ComplianceCommunicationsRead,
 
         /// <summary>
-        /// Allows the writing of communication compliance
+        /// Allows the writing of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:write")]
         ComplianceCommunicationsWrite,
@@ -275,7 +273,7 @@ namespace Cvent.SDK.Hooks
         EMarketingEMarketingSendEmailsWrite,
 
         /// <summary>
-        /// Allows the reading of admission items
+        /// Allows the reading of admission items.
         /// </summary>
         [JsonProperty("event/admission-items:read")]
         EventAdmissionItemsRead,
@@ -293,7 +291,7 @@ namespace Cvent.SDK.Hooks
         EventAlternateTravelRead,
 
         /// <summary>
-        /// Allows the read of Duration records
+        /// Allows the read of Duration records.
         /// </summary>
         [JsonProperty("event/attendance-durations:read")]
         EventAttendanceDurationsRead,
@@ -335,25 +333,25 @@ namespace Cvent.SDK.Hooks
         EventAttendeeCreditsRead,
 
         /// <summary>
-        /// Allows the deletion of attendee links
+        /// Allows the deletion of attendee links.
         /// </summary>
         [JsonProperty("event/attendee-links:delete")]
         EventAttendeeLinksDelete,
 
         /// <summary>
-        /// Allows the reading of attendee links
+        /// Allows the reading of attendee links.
         /// </summary>
         [JsonProperty("event/attendee-links:read")]
         EventAttendeeLinksRead,
 
         /// <summary>
-        /// Allows the creation of attendee links
+        /// Allows the creation of attendee links.
         /// </summary>
         [JsonProperty("event/attendee-links:write")]
         EventAttendeeLinksWrite,
 
         /// <summary>
-        /// Allows the reading of attendee messages
+        /// Allows the reading of attendee messages.
         /// </summary>
         [JsonProperty("event/attendee-messages:read")]
         EventAttendeeMessagesRead,
@@ -425,19 +423,19 @@ namespace Cvent.SDK.Hooks
         EventContactsWriteSensitive,
 
         /// <summary>
-        /// Allows the reading of custom fields
+        /// Allows the reading of custom fields.
         /// </summary>
         [JsonProperty("event/custom-fields:read")]
         EventCustomFieldsRead,
 
         /// <summary>
-        /// Allows the writing of custom fields
+        /// Allows the writing of custom fields.
         /// </summary>
         [JsonProperty("event/custom-fields:write")]
         EventCustomFieldsWrite,
 
         /// <summary>
-        /// Allows the writing of discounts
+        /// Allows the writing of discounts.
         /// </summary>
         [JsonProperty("event/discounts:write")]
         EventDiscountsWrite,
@@ -467,7 +465,7 @@ namespace Cvent.SDK.Hooks
         EventEventEmailStatusRead,
 
         /// <summary>
-        /// Allows the reading of event emails
+        /// Allows the reading of event emails.
         /// </summary>
         [JsonProperty("event/event-emails:read")]
         EventEventEmailsRead,
@@ -479,37 +477,37 @@ namespace Cvent.SDK.Hooks
         EventEventEmailsWrite,
 
         /// <summary>
-        /// Allows the reading of events-features
+        /// Allows the reading of events-features.
         /// </summary>
         [JsonProperty("event/event-features:read")]
         EventEventFeaturesRead,
 
         /// <summary>
-        /// Allows updating the event-features
+        /// Allows updating the event-features.
         /// </summary>
         [JsonProperty("event/event-features:write")]
         EventEventFeaturesWrite,
 
         /// <summary>
-        /// Allows the reading of user groups
+        /// Allows the reading of user groups.
         /// </summary>
         [JsonProperty("event/event-user-groups:read")]
         EventEventUserGroupsRead,
 
         /// <summary>
-        /// Allows associating/disassociating user groups to event
+        /// Allows associating/disassociating user groups to event.
         /// </summary>
         [JsonProperty("event/event-user-groups:write")]
         EventEventUserGroupsWrite,
 
         /// <summary>
-        /// Allows the reading of events
+        /// Allows the reading of events.
         /// </summary>
         [JsonProperty("event/events:read")]
         EventEventsRead,
 
         /// <summary>
-        /// Allows the creation/updating of events
+        /// Allows the creation/updating of events.
         /// </summary>
         [JsonProperty("event/events:write")]
         EventEventsWrite,
@@ -527,7 +525,7 @@ namespace Cvent.SDK.Hooks
         EventHotelRequestRead,
 
         /// <summary>
-        /// Allows the reading of the invitation lists for an event
+        /// Allows the reading of the invitation lists for an event.
         /// </summary>
         [JsonProperty("event/invitation-lists:read")]
         EventInvitationListsRead,
@@ -557,13 +555,13 @@ namespace Cvent.SDK.Hooks
         EventMembershipItemsRead,
 
         /// <summary>
-        /// Allows the reading of orders
+        /// Allows the reading of orders.
         /// </summary>
         [JsonProperty("event/orders:read")]
         EventOrdersRead,
 
         /// <summary>
-        /// Allows the reading of players
+        /// Allows the reading of players.
         /// </summary>
         [JsonProperty("event/players:read")]
         EventPlayersRead,
@@ -575,19 +573,19 @@ namespace Cvent.SDK.Hooks
         EventProcessFormSubmissionsRead,
 
         /// <summary>
-        /// Allows deletion of session program items
+        /// Allows deletion of session program items.
         /// </summary>
         [JsonProperty("event/program-items:delete")]
         EventProgramItemsDelete,
 
         /// <summary>
-        /// Allows reading of session program items
+        /// Allows reading of session program items.
         /// </summary>
         [JsonProperty("event/program-items:read")]
         EventProgramItemsRead,
 
         /// <summary>
-        /// Allows writing of session program items
+        /// Allows writing of session program items.
         /// </summary>
         [JsonProperty("event/program-items:write")]
         EventProgramItemsWrite,
@@ -599,25 +597,25 @@ namespace Cvent.SDK.Hooks
         EventQuantityItemsRead,
 
         /// <summary>
-        /// Allows the writing of quantity items
+        /// Allows the writing of quantity items.
         /// </summary>
         [JsonProperty("event/quantity-items:write")]
         EventQuantityItemsWrite,
 
         /// <summary>
-        /// Allows the reading of registration paths
+        /// Allows the reading of registration paths.
         /// </summary>
         [JsonProperty("event/registration-paths:read")]
         EventRegistrationPathsRead,
 
         /// <summary>
-        /// Allows the reading of registration types
+        /// Allows the reading of registration types.
         /// </summary>
         [JsonProperty("event/registration-types:read")]
         EventRegistrationTypesRead,
 
         /// <summary>
-        /// Allows the writing of registration types
+        /// Allows the writing of registration types.
         /// </summary>
         [JsonProperty("event/registration-types:write")]
         EventRegistrationTypesWrite,
@@ -629,109 +627,109 @@ namespace Cvent.SDK.Hooks
         EventRoleAssignmentsRead,
 
         /// <summary>
-        /// Allows the reading of sessions attendance
+        /// Allows the reading of sessions attendance.
         /// </summary>
         [JsonProperty("event/session-attendance:read")]
         EventSessionAttendanceRead,
 
         /// <summary>
-        /// Allows the creation/updating of sessions attendance
+        /// Allows the creation/updating of sessions attendance.
         /// </summary>
         [JsonProperty("event/session-attendance:write")]
         EventSessionAttendanceWrite,
 
         /// <summary>
-        /// Allows reading of session categories
+        /// Allows reading of session categories.
         /// </summary>
         [JsonProperty("event/session-categories:read")]
         EventSessionCategoriesRead,
 
         /// <summary>
-        /// Allows writing of session categories
+        /// Allows writing of session categories.
         /// </summary>
         [JsonProperty("event/session-categories:write")]
         EventSessionCategoriesWrite,
 
         /// <summary>
-        /// Allows the deletion of session registrations
+        /// Allows the deletion of session registrations.
         /// </summary>
         [JsonProperty("event/session-enrollment:delete")]
         EventSessionEnrollmentDelete,
 
         /// <summary>
-        /// Allows the reading of sessions registrations
+        /// Allows the reading of sessions registrations.
         /// </summary>
         [JsonProperty("event/session-enrollment:read")]
         EventSessionEnrollmentRead,
 
         /// <summary>
-        /// Allows the writing of sessions registrations
+        /// Allows the writing of sessions registrations.
         /// </summary>
         [JsonProperty("event/session-enrollment:write")]
         EventSessionEnrollmentWrite,
 
         /// <summary>
-        /// Allows reading of session segments
+        /// Allows reading of session segments.
         /// </summary>
         [JsonProperty("event/session-segments:read")]
         EventSessionSegmentsRead,
 
         /// <summary>
-        /// Allows the deletion of a session in an event
+        /// Allows the deletion of a session in an event.
         /// </summary>
         [JsonProperty("event/sessions:delete")]
         EventSessionsDelete,
 
         /// <summary>
-        /// Allows the reading of sessions
+        /// Allows the reading of sessions.
         /// </summary>
         [JsonProperty("event/sessions:read")]
         EventSessionsRead,
 
         /// <summary>
-        /// Allows the creation of a session in an event
+        /// Allows the creation of a session in an event.
         /// </summary>
         [JsonProperty("event/sessions:write")]
         EventSessionsWrite,
 
         /// <summary>
-        /// Allows reading of speaker categories
+        /// Allows reading of speaker categories.
         /// </summary>
         [JsonProperty("event/speaker-categories:read")]
         EventSpeakerCategoriesRead,
 
         /// <summary>
-        /// Allows writing of speaker categories
+        /// Allows writing of speaker categories.
         /// </summary>
         [JsonProperty("event/speaker-categories:write")]
         EventSpeakerCategoriesWrite,
 
         /// <summary>
-        /// Allows the deletion of a speaker in an event
+        /// Allows the deletion of a speaker in an event.
         /// </summary>
         [JsonProperty("event/speakers:delete")]
         EventSpeakersDelete,
 
         /// <summary>
-        /// Allows the reading of speakers
+        /// Allows the reading of speakers.
         /// </summary>
         [JsonProperty("event/speakers:read")]
         EventSpeakersRead,
 
         /// <summary>
-        /// Allows the creation of a speaker in an event
+        /// Allows the creation of a speaker in an event.
         /// </summary>
         [JsonProperty("event/speakers:write")]
         EventSpeakersWrite,
 
         /// <summary>
-        /// Allows the reading of transactions
+        /// Allows the reading of transactions.
         /// </summary>
         [JsonProperty("event/transactions:read")]
         EventTransactionsRead,
 
         /// <summary>
-        /// Allows the writing of transactions
+        /// Allows the writing of transactions.
         /// </summary>
         [JsonProperty("event/transactions:write")]
         EventTransactionsWrite,
@@ -755,25 +753,25 @@ namespace Cvent.SDK.Hooks
         EventVideosWrite,
 
         /// <summary>
-        /// Allows the deletion of webcast
+        /// Allows the deletion of webcast.
         /// </summary>
         [JsonProperty("event/webcasts:delete")]
         EventWebcastsDelete,
 
         /// <summary>
-        /// Allows the reading of webcasts
+        /// Allows the reading of webcasts.
         /// </summary>
         [JsonProperty("event/webcasts:read")]
         EventWebcastsRead,
 
         /// <summary>
-        /// Allows the creation of webcast
+        /// Allows the creation of webcast.
         /// </summary>
         [JsonProperty("event/webcasts:write")]
         EventWebcastsWrite,
 
         /// <summary>
-        /// Allows the reading of event weblinks
+        /// Allows the reading of event weblinks.
         /// </summary>
         [JsonProperty("event/weblinks:read")]
         EventWeblinksRead,
@@ -785,127 +783,127 @@ namespace Cvent.SDK.Hooks
         EventsPlusHubsRead,
 
         /// <summary>
-        /// Allows reading badges
+        /// Allows reading badges.
         /// </summary>
         [JsonProperty("exhibitor/badges:read")]
         ExhibitorBadgesRead,
 
         /// <summary>
-        /// Allows creating/updating badges
+        /// Allows creating/updating badges.
         /// </summary>
         [JsonProperty("exhibitor/badges:write")]
         ExhibitorBadgesWrite,
 
         /// <summary>
-        /// Allows deleting booth staff
+        /// Allows deleting booth staff.
         /// </summary>
         [JsonProperty("exhibitor/booth-staff:delete")]
         ExhibitorBoothStaffDelete,
 
         /// <summary>
-        /// Allows reading booth staff
+        /// Allows reading booth staff.
         /// </summary>
         [JsonProperty("exhibitor/booth-staff:read")]
         ExhibitorBoothStaffRead,
 
         /// <summary>
-        /// Allows creating booth staff
+        /// Allows creating booth staff.
         /// </summary>
         [JsonProperty("exhibitor/booth-staff:write")]
         ExhibitorBoothStaffWrite,
 
         /// <summary>
-        /// Allows reading eliterature document request data
+        /// Allows reading eliterature document request data.
         /// </summary>
         [JsonProperty("exhibitor/eliterature-requests:read")]
         ExhibitorEliteratureRequestsRead,
 
         /// <summary>
-        /// Allows reading exhibitor admins
+        /// Allows reading exhibitor admins.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-admins:read")]
         ExhibitorExhibitorAdminsRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitor admins
+        /// Allows creating/updating exhibitor admins.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-admins:write")]
         ExhibitorExhibitorAdminsWrite,
 
         /// <summary>
-        /// Allows reading exhibitor answers
+        /// Allows reading exhibitor answers.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-answers:read")]
         ExhibitorExhibitorAnswersRead,
 
         /// <summary>
-        /// Allows updating exhibitor answers
+        /// Allows updating exhibitor answers.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-answers:write")]
         ExhibitorExhibitorAnswersWrite,
 
         /// <summary>
-        /// Allows deleting exhibitor categories
+        /// Allows deleting exhibitor categories.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-categories:delete")]
         ExhibitorExhibitorCategoriesDelete,
 
         /// <summary>
-        /// Allows reading exhibitor categories
+        /// Allows reading exhibitor categories.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-categories:read")]
         ExhibitorExhibitorCategoriesRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitor categories
+        /// Allows creating/updating exhibitor categories.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-categories:write")]
         ExhibitorExhibitorCategoriesWrite,
 
         /// <summary>
-        /// Allows deleting exhibitor content
+        /// Allows deleting exhibitor content.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-contents:delete")]
         ExhibitorExhibitorContentsDelete,
 
         /// <summary>
-        /// Allows reading exhibitor content
+        /// Allows reading exhibitor content.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-contents:read")]
         ExhibitorExhibitorContentsRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitor content
+        /// Allows creating/updating exhibitor content.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-contents:write")]
         ExhibitorExhibitorContentsWrite,
 
         /// <summary>
-        /// Allows reading exhibitor questions
+        /// Allows reading exhibitor questions.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-questions:read")]
         ExhibitorExhibitorQuestionsRead,
 
         /// <summary>
-        /// Allows deleting exhibitors
+        /// Allows deleting exhibitors.
         /// </summary>
         [JsonProperty("exhibitor/exhibitors:delete")]
         ExhibitorExhibitorsDelete,
 
         /// <summary>
-        /// Allows reading exhibitors
+        /// Allows reading exhibitors.
         /// </summary>
         [JsonProperty("exhibitor/exhibitors:read")]
         ExhibitorExhibitorsRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitors
+        /// Allows creating/updating exhibitors.
         /// </summary>
         [JsonProperty("exhibitor/exhibitors:write")]
         ExhibitorExhibitorsWrite,
 
         /// <summary>
-        /// Allows reading Lead Qualification Answers
+        /// Allows reading Lead Qualification Answers.
         /// </summary>
         [JsonProperty("exhibitor/lead-qualification-answers:read")]
         ExhibitorLeadQualificationAnswersRead,
@@ -923,37 +921,37 @@ namespace Cvent.SDK.Hooks
         ExhibitorLeadsRead,
 
         /// <summary>
-        /// Allows deleting registration pack
+        /// Allows deleting registration pack.
         /// </summary>
         [JsonProperty("exhibitor/registration-packs:delete")]
         ExhibitorRegistrationPacksDelete,
 
         /// <summary>
-        /// Allows reading registration pack
+        /// Allows reading registration pack.
         /// </summary>
         [JsonProperty("exhibitor/registration-packs:read")]
         ExhibitorRegistrationPacksRead,
 
         /// <summary>
-        /// Allows creating/updating registration pack
+        /// Allows creating/updating registration pack.
         /// </summary>
         [JsonProperty("exhibitor/registration-packs:write")]
         ExhibitorRegistrationPacksWrite,
 
         /// <summary>
-        /// Allows reading sponsorship level
+        /// Allows reading sponsorship level.
         /// </summary>
         [JsonProperty("exhibitor/sponsorship-levels:read")]
         ExhibitorSponsorshipLevelsRead,
 
         /// <summary>
-        /// Allows the reading of file
+        /// Allows the reading of file.
         /// </summary>
         [JsonProperty("file/file:read")]
         FileFileRead,
 
         /// <summary>
-        /// Allows the uploading of file
+        /// Allows the uploading of file.
         /// </summary>
         [JsonProperty("file/file:write")]
         FileFileWrite,
@@ -1007,103 +1005,103 @@ namespace Cvent.SDK.Hooks
         SeatingTablesRead,
 
         /// <summary>
-        /// Allows the reading of survey questions
+        /// Allows the reading of survey questions.
         /// </summary>
         [JsonProperty("survey/questions:read")]
         SurveyQuestionsRead,
 
         /// <summary>
-        /// Allows reading the survey respondents
+        /// Allows reading the survey respondents.
         /// </summary>
         [JsonProperty("survey/respondents:read")]
         SurveyRespondentsRead,
 
         /// <summary>
-        /// Allows reading the survey responses
+        /// Allows reading the survey responses.
         /// </summary>
         [JsonProperty("survey/responses:read")]
         SurveyResponsesRead,
 
         /// <summary>
-        /// Allows reading the standalone survey email templates
+        /// Allows reading the standalone survey email templates.
         /// </summary>
         [JsonProperty("survey/standard-survey-email-templates:read")]
         SurveyStandardSurveyEmailTemplatesRead,
 
         /// <summary>
-        /// Allows writing operations on standalone survey emails
+        /// Allows writing operations on standalone survey emails.
         /// </summary>
         [JsonProperty("survey/standard-survey-email:write")]
         SurveyStandardSurveyEmailWrite,
 
         /// <summary>
-        /// Allows the reading of standalone surveys questions
+        /// Allows the reading of standalone surveys questions.
         /// </summary>
         [JsonProperty("survey/standard-survey-questions:read")]
         SurveyStandardSurveyQuestionsRead,
 
         /// <summary>
-        /// Allows reading the standalone survey respondents
+        /// Allows reading the standalone survey respondents.
         /// </summary>
         [JsonProperty("survey/standard-survey-respondents:read")]
         SurveyStandardSurveyRespondentsRead,
 
         /// <summary>
-        /// Allows write operations on standalone survey respondents
+        /// Allows write operations on standalone survey respondents.
         /// </summary>
         [JsonProperty("survey/standard-survey-respondents:write")]
         SurveyStandardSurveyRespondentsWrite,
 
         /// <summary>
-        /// Allows reading the standalone survey responses
+        /// Allows reading the standalone survey responses.
         /// </summary>
         [JsonProperty("survey/standard-survey-responses:read")]
         SurveyStandardSurveyResponsesRead,
 
         /// <summary>
-        /// Allows write operations on standalone surveys respondent&apos;s responses
+        /// Allows write operations on standalone surveys respondent's responses.
         /// </summary>
         [JsonProperty("survey/standard-survey-responses:write")]
         SurveyStandardSurveyResponsesWrite,
 
         /// <summary>
-        /// Allows the reading of standalone surveys
+        /// Allows the reading of standalone surveys.
         /// </summary>
         [JsonProperty("survey/standard-surveys:read")]
         SurveyStandardSurveysRead,
 
         /// <summary>
-        /// Allows the reading of event survey questions
+        /// Allows the reading of event survey questions.
         /// </summary>
         [JsonProperty("survey/survey-questions:read")]
         SurveySurveyQuestionsRead,
 
         /// <summary>
-        /// Allows reading the event survey respondents
+        /// Allows reading the event survey respondents.
         /// </summary>
         [JsonProperty("survey/survey-respondents:read")]
         SurveySurveyRespondentsRead,
 
         /// <summary>
-        /// Allows write operations on the event survey respondents
+        /// Allows write operations on the event survey respondents.
         /// </summary>
         [JsonProperty("survey/survey-respondents:write")]
         SurveySurveyRespondentsWrite,
 
         /// <summary>
-        /// Allows reading the event survey responses
+        /// Allows reading the event survey responses.
         /// </summary>
         [JsonProperty("survey/survey-responses:read")]
         SurveySurveyResponsesRead,
 
         /// <summary>
-        /// Allows write operations on the event surveys respondent&apos;s responses
+        /// Allows write operations on the event surveys respondent's responses.
         /// </summary>
         [JsonProperty("survey/survey-responses:write")]
         SurveySurveyResponsesWrite,
 
         /// <summary>
-        /// Allows the reading of event surveys
+        /// Allows the reading of event surveys.
         /// </summary>
         [JsonProperty("survey/surveys:read")]
         SurveySurveysRead,
@@ -1144,15 +1142,13 @@ namespace Cvent.SDK.Hooks
     }
 
     /// <summary>
-    /// Available scopes for the  OAuth 2.0 scheme (clientCredentials flow).
-    /// 
-    /// <remarks>
-    /// OAuth2 Client Credentials Flow
-    /// </remarks>
+    /// Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
     /// </summary>
+    /// <remarks>
+    /// OAuth2 Client Credentials Flow.
+    /// </remarks>
     public enum OAuth2ClientCredentialsOAuth2Scope
     {
-
         /// <summary>
         /// Allows the deletion of hooks.
         /// </summary>
@@ -1172,37 +1168,37 @@ namespace Cvent.SDK.Hooks
         AccountHooksWrite,
 
         /// <summary>
-        /// Allows deletion for user groups
+        /// Allows deletion for user groups.
         /// </summary>
         [JsonProperty("account/user-groups:delete")]
         AccountUserGroupsDelete,
 
         /// <summary>
-        /// Allows the reading of user groups
+        /// Allows the reading of user groups.
         /// </summary>
         [JsonProperty("account/user-groups:read")]
         AccountUserGroupsRead,
 
         /// <summary>
-        /// Allows the writing of user groups
+        /// Allows the writing of user groups.
         /// </summary>
         [JsonProperty("account/user-groups:write")]
         AccountUserGroupsWrite,
 
         /// <summary>
-        /// Allows the deletion of User
+        /// Allows the deletion of User.
         /// </summary>
         [JsonProperty("account/users:delete")]
         AccountUsersDelete,
 
         /// <summary>
-        /// Allows the reading of User, User Group
+        /// Allows the reading of User, User Group.
         /// </summary>
         [JsonProperty("account/users:read")]
         AccountUsersRead,
 
         /// <summary>
-        /// Allows the creation/updating of User
+        /// Allows the creation/updating of User.
         /// </summary>
         [JsonProperty("account/users:write")]
         AccountUsersWrite,
@@ -1268,31 +1264,31 @@ namespace Cvent.SDK.Hooks
         AttendeeInsightsStatsRead,
 
         /// <summary>
-        /// Allows the deletion of budget items
+        /// Allows the deletion of budget items.
         /// </summary>
         [JsonProperty("budget/budget-items:delete")]
         BudgetBudgetItemsDelete,
 
         /// <summary>
-        /// Allows the reading of all budget items
+        /// Allows the reading of all budget items.
         /// </summary>
         [JsonProperty("budget/budget-items:read")]
         BudgetBudgetItemsRead,
 
         /// <summary>
-        /// Allows creation/updation of budget item
+        /// Allows creation/updation of budget item.
         /// </summary>
         [JsonProperty("budget/budget-items:write")]
         BudgetBudgetItemsWrite,
 
         /// <summary>
-        /// Allows the reading of all event budget totals
+        /// Allows the reading of all event budget totals.
         /// </summary>
         [JsonProperty("budget/budget-totals:read")]
         BudgetBudgetTotalsRead,
 
         /// <summary>
-        /// Allows the reading of cards
+        /// Allows the reading of cards.
         /// </summary>
         [JsonProperty("budget/cards:read")]
         BudgetCardsRead,
@@ -1340,7 +1336,7 @@ namespace Cvent.SDK.Hooks
         BudgetTransactionsDelete,
 
         /// <summary>
-        /// Allows the reading of all card&apos;s transactions
+        /// Allows the reading of all card's transactions.
         /// </summary>
         [JsonProperty("budget/transactions:read")]
         BudgetTransactionsRead,
@@ -1352,25 +1348,25 @@ namespace Cvent.SDK.Hooks
         BudgetTransactionsWrite,
 
         /// <summary>
-        /// Allows the reading of bulk job related entities
+        /// Allows the reading of bulk job related entities.
         /// </summary>
         [JsonProperty("bulk/bulk-jobs:read")]
         BulkBulkJobsRead,
 
         /// <summary>
-        /// Allows the creation, update and deletion of bulk job related entities
+        /// Allows the creation, update and deletion of bulk job related entities.
         /// </summary>
         [JsonProperty("bulk/bulk-jobs:write")]
         BulkBulkJobsWrite,
 
         /// <summary>
-        /// Allows the reading of BT Bid data
+        /// Allows the reading of BT Bid data.
         /// </summary>
         [JsonProperty("business-transient/bids:read")]
         BusinessTransientBidsRead,
 
         /// <summary>
-        /// Allows the reading of BT Proposal data
+        /// Allows the reading of BT Proposal data.
         /// </summary>
         [JsonProperty("business-transient/proposals:read")]
         BusinessTransientProposalsRead,
@@ -1424,13 +1420,13 @@ namespace Cvent.SDK.Hooks
         BusinessTransientTravelSupplierAccountsRead,
 
         /// <summary>
-        /// Allows the reading of communication compliance
+        /// Allows the reading of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:read")]
         ComplianceCommunicationsRead,
 
         /// <summary>
-        /// Allows the writing of communication compliance
+        /// Allows the writing of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:write")]
         ComplianceCommunicationsWrite,
@@ -1478,7 +1474,7 @@ namespace Cvent.SDK.Hooks
         EMarketingEMarketingSendEmailsWrite,
 
         /// <summary>
-        /// Allows the reading of admission items
+        /// Allows the reading of admission items.
         /// </summary>
         [JsonProperty("event/admission-items:read")]
         EventAdmissionItemsRead,
@@ -1496,7 +1492,7 @@ namespace Cvent.SDK.Hooks
         EventAlternateTravelRead,
 
         /// <summary>
-        /// Allows the read of Duration records
+        /// Allows the read of Duration records.
         /// </summary>
         [JsonProperty("event/attendance-durations:read")]
         EventAttendanceDurationsRead,
@@ -1538,25 +1534,25 @@ namespace Cvent.SDK.Hooks
         EventAttendeeCreditsRead,
 
         /// <summary>
-        /// Allows the deletion of attendee links
+        /// Allows the deletion of attendee links.
         /// </summary>
         [JsonProperty("event/attendee-links:delete")]
         EventAttendeeLinksDelete,
 
         /// <summary>
-        /// Allows the reading of attendee links
+        /// Allows the reading of attendee links.
         /// </summary>
         [JsonProperty("event/attendee-links:read")]
         EventAttendeeLinksRead,
 
         /// <summary>
-        /// Allows the creation of attendee links
+        /// Allows the creation of attendee links.
         /// </summary>
         [JsonProperty("event/attendee-links:write")]
         EventAttendeeLinksWrite,
 
         /// <summary>
-        /// Allows the reading of attendee messages
+        /// Allows the reading of attendee messages.
         /// </summary>
         [JsonProperty("event/attendee-messages:read")]
         EventAttendeeMessagesRead,
@@ -1628,19 +1624,19 @@ namespace Cvent.SDK.Hooks
         EventContactsWriteSensitive,
 
         /// <summary>
-        /// Allows the reading of custom fields
+        /// Allows the reading of custom fields.
         /// </summary>
         [JsonProperty("event/custom-fields:read")]
         EventCustomFieldsRead,
 
         /// <summary>
-        /// Allows the writing of custom fields
+        /// Allows the writing of custom fields.
         /// </summary>
         [JsonProperty("event/custom-fields:write")]
         EventCustomFieldsWrite,
 
         /// <summary>
-        /// Allows the writing of discounts
+        /// Allows the writing of discounts.
         /// </summary>
         [JsonProperty("event/discounts:write")]
         EventDiscountsWrite,
@@ -1670,7 +1666,7 @@ namespace Cvent.SDK.Hooks
         EventEventEmailStatusRead,
 
         /// <summary>
-        /// Allows the reading of event emails
+        /// Allows the reading of event emails.
         /// </summary>
         [JsonProperty("event/event-emails:read")]
         EventEventEmailsRead,
@@ -1682,37 +1678,37 @@ namespace Cvent.SDK.Hooks
         EventEventEmailsWrite,
 
         /// <summary>
-        /// Allows the reading of events-features
+        /// Allows the reading of events-features.
         /// </summary>
         [JsonProperty("event/event-features:read")]
         EventEventFeaturesRead,
 
         /// <summary>
-        /// Allows updating the event-features
+        /// Allows updating the event-features.
         /// </summary>
         [JsonProperty("event/event-features:write")]
         EventEventFeaturesWrite,
 
         /// <summary>
-        /// Allows the reading of user groups
+        /// Allows the reading of user groups.
         /// </summary>
         [JsonProperty("event/event-user-groups:read")]
         EventEventUserGroupsRead,
 
         /// <summary>
-        /// Allows associating/disassociating user groups to event
+        /// Allows associating/disassociating user groups to event.
         /// </summary>
         [JsonProperty("event/event-user-groups:write")]
         EventEventUserGroupsWrite,
 
         /// <summary>
-        /// Allows the reading of events
+        /// Allows the reading of events.
         /// </summary>
         [JsonProperty("event/events:read")]
         EventEventsRead,
 
         /// <summary>
-        /// Allows the creation/updating of events
+        /// Allows the creation/updating of events.
         /// </summary>
         [JsonProperty("event/events:write")]
         EventEventsWrite,
@@ -1730,7 +1726,7 @@ namespace Cvent.SDK.Hooks
         EventHotelRequestRead,
 
         /// <summary>
-        /// Allows the reading of the invitation lists for an event
+        /// Allows the reading of the invitation lists for an event.
         /// </summary>
         [JsonProperty("event/invitation-lists:read")]
         EventInvitationListsRead,
@@ -1760,13 +1756,13 @@ namespace Cvent.SDK.Hooks
         EventMembershipItemsRead,
 
         /// <summary>
-        /// Allows the reading of orders
+        /// Allows the reading of orders.
         /// </summary>
         [JsonProperty("event/orders:read")]
         EventOrdersRead,
 
         /// <summary>
-        /// Allows the reading of players
+        /// Allows the reading of players.
         /// </summary>
         [JsonProperty("event/players:read")]
         EventPlayersRead,
@@ -1778,19 +1774,19 @@ namespace Cvent.SDK.Hooks
         EventProcessFormSubmissionsRead,
 
         /// <summary>
-        /// Allows deletion of session program items
+        /// Allows deletion of session program items.
         /// </summary>
         [JsonProperty("event/program-items:delete")]
         EventProgramItemsDelete,
 
         /// <summary>
-        /// Allows reading of session program items
+        /// Allows reading of session program items.
         /// </summary>
         [JsonProperty("event/program-items:read")]
         EventProgramItemsRead,
 
         /// <summary>
-        /// Allows writing of session program items
+        /// Allows writing of session program items.
         /// </summary>
         [JsonProperty("event/program-items:write")]
         EventProgramItemsWrite,
@@ -1802,25 +1798,25 @@ namespace Cvent.SDK.Hooks
         EventQuantityItemsRead,
 
         /// <summary>
-        /// Allows the writing of quantity items
+        /// Allows the writing of quantity items.
         /// </summary>
         [JsonProperty("event/quantity-items:write")]
         EventQuantityItemsWrite,
 
         /// <summary>
-        /// Allows the reading of registration paths
+        /// Allows the reading of registration paths.
         /// </summary>
         [JsonProperty("event/registration-paths:read")]
         EventRegistrationPathsRead,
 
         /// <summary>
-        /// Allows the reading of registration types
+        /// Allows the reading of registration types.
         /// </summary>
         [JsonProperty("event/registration-types:read")]
         EventRegistrationTypesRead,
 
         /// <summary>
-        /// Allows the writing of registration types
+        /// Allows the writing of registration types.
         /// </summary>
         [JsonProperty("event/registration-types:write")]
         EventRegistrationTypesWrite,
@@ -1832,109 +1828,109 @@ namespace Cvent.SDK.Hooks
         EventRoleAssignmentsRead,
 
         /// <summary>
-        /// Allows the reading of sessions attendance
+        /// Allows the reading of sessions attendance.
         /// </summary>
         [JsonProperty("event/session-attendance:read")]
         EventSessionAttendanceRead,
 
         /// <summary>
-        /// Allows the creation/updating of sessions attendance
+        /// Allows the creation/updating of sessions attendance.
         /// </summary>
         [JsonProperty("event/session-attendance:write")]
         EventSessionAttendanceWrite,
 
         /// <summary>
-        /// Allows reading of session categories
+        /// Allows reading of session categories.
         /// </summary>
         [JsonProperty("event/session-categories:read")]
         EventSessionCategoriesRead,
 
         /// <summary>
-        /// Allows writing of session categories
+        /// Allows writing of session categories.
         /// </summary>
         [JsonProperty("event/session-categories:write")]
         EventSessionCategoriesWrite,
 
         /// <summary>
-        /// Allows the deletion of session registrations
+        /// Allows the deletion of session registrations.
         /// </summary>
         [JsonProperty("event/session-enrollment:delete")]
         EventSessionEnrollmentDelete,
 
         /// <summary>
-        /// Allows the reading of sessions registrations
+        /// Allows the reading of sessions registrations.
         /// </summary>
         [JsonProperty("event/session-enrollment:read")]
         EventSessionEnrollmentRead,
 
         /// <summary>
-        /// Allows the writing of sessions registrations
+        /// Allows the writing of sessions registrations.
         /// </summary>
         [JsonProperty("event/session-enrollment:write")]
         EventSessionEnrollmentWrite,
 
         /// <summary>
-        /// Allows reading of session segments
+        /// Allows reading of session segments.
         /// </summary>
         [JsonProperty("event/session-segments:read")]
         EventSessionSegmentsRead,
 
         /// <summary>
-        /// Allows the deletion of a session in an event
+        /// Allows the deletion of a session in an event.
         /// </summary>
         [JsonProperty("event/sessions:delete")]
         EventSessionsDelete,
 
         /// <summary>
-        /// Allows the reading of sessions
+        /// Allows the reading of sessions.
         /// </summary>
         [JsonProperty("event/sessions:read")]
         EventSessionsRead,
 
         /// <summary>
-        /// Allows the creation of a session in an event
+        /// Allows the creation of a session in an event.
         /// </summary>
         [JsonProperty("event/sessions:write")]
         EventSessionsWrite,
 
         /// <summary>
-        /// Allows reading of speaker categories
+        /// Allows reading of speaker categories.
         /// </summary>
         [JsonProperty("event/speaker-categories:read")]
         EventSpeakerCategoriesRead,
 
         /// <summary>
-        /// Allows writing of speaker categories
+        /// Allows writing of speaker categories.
         /// </summary>
         [JsonProperty("event/speaker-categories:write")]
         EventSpeakerCategoriesWrite,
 
         /// <summary>
-        /// Allows the deletion of a speaker in an event
+        /// Allows the deletion of a speaker in an event.
         /// </summary>
         [JsonProperty("event/speakers:delete")]
         EventSpeakersDelete,
 
         /// <summary>
-        /// Allows the reading of speakers
+        /// Allows the reading of speakers.
         /// </summary>
         [JsonProperty("event/speakers:read")]
         EventSpeakersRead,
 
         /// <summary>
-        /// Allows the creation of a speaker in an event
+        /// Allows the creation of a speaker in an event.
         /// </summary>
         [JsonProperty("event/speakers:write")]
         EventSpeakersWrite,
 
         /// <summary>
-        /// Allows the reading of transactions
+        /// Allows the reading of transactions.
         /// </summary>
         [JsonProperty("event/transactions:read")]
         EventTransactionsRead,
 
         /// <summary>
-        /// Allows the writing of transactions
+        /// Allows the writing of transactions.
         /// </summary>
         [JsonProperty("event/transactions:write")]
         EventTransactionsWrite,
@@ -1958,25 +1954,25 @@ namespace Cvent.SDK.Hooks
         EventVideosWrite,
 
         /// <summary>
-        /// Allows the deletion of webcast
+        /// Allows the deletion of webcast.
         /// </summary>
         [JsonProperty("event/webcasts:delete")]
         EventWebcastsDelete,
 
         /// <summary>
-        /// Allows the reading of webcasts
+        /// Allows the reading of webcasts.
         /// </summary>
         [JsonProperty("event/webcasts:read")]
         EventWebcastsRead,
 
         /// <summary>
-        /// Allows the creation of webcast
+        /// Allows the creation of webcast.
         /// </summary>
         [JsonProperty("event/webcasts:write")]
         EventWebcastsWrite,
 
         /// <summary>
-        /// Allows the reading of event weblinks
+        /// Allows the reading of event weblinks.
         /// </summary>
         [JsonProperty("event/weblinks:read")]
         EventWeblinksRead,
@@ -1988,127 +1984,127 @@ namespace Cvent.SDK.Hooks
         EventsPlusHubsRead,
 
         /// <summary>
-        /// Allows reading badges
+        /// Allows reading badges.
         /// </summary>
         [JsonProperty("exhibitor/badges:read")]
         ExhibitorBadgesRead,
 
         /// <summary>
-        /// Allows creating/updating badges
+        /// Allows creating/updating badges.
         /// </summary>
         [JsonProperty("exhibitor/badges:write")]
         ExhibitorBadgesWrite,
 
         /// <summary>
-        /// Allows deleting booth staff
+        /// Allows deleting booth staff.
         /// </summary>
         [JsonProperty("exhibitor/booth-staff:delete")]
         ExhibitorBoothStaffDelete,
 
         /// <summary>
-        /// Allows reading booth staff
+        /// Allows reading booth staff.
         /// </summary>
         [JsonProperty("exhibitor/booth-staff:read")]
         ExhibitorBoothStaffRead,
 
         /// <summary>
-        /// Allows creating booth staff
+        /// Allows creating booth staff.
         /// </summary>
         [JsonProperty("exhibitor/booth-staff:write")]
         ExhibitorBoothStaffWrite,
 
         /// <summary>
-        /// Allows reading eliterature document request data
+        /// Allows reading eliterature document request data.
         /// </summary>
         [JsonProperty("exhibitor/eliterature-requests:read")]
         ExhibitorEliteratureRequestsRead,
 
         /// <summary>
-        /// Allows reading exhibitor admins
+        /// Allows reading exhibitor admins.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-admins:read")]
         ExhibitorExhibitorAdminsRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitor admins
+        /// Allows creating/updating exhibitor admins.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-admins:write")]
         ExhibitorExhibitorAdminsWrite,
 
         /// <summary>
-        /// Allows reading exhibitor answers
+        /// Allows reading exhibitor answers.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-answers:read")]
         ExhibitorExhibitorAnswersRead,
 
         /// <summary>
-        /// Allows updating exhibitor answers
+        /// Allows updating exhibitor answers.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-answers:write")]
         ExhibitorExhibitorAnswersWrite,
 
         /// <summary>
-        /// Allows deleting exhibitor categories
+        /// Allows deleting exhibitor categories.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-categories:delete")]
         ExhibitorExhibitorCategoriesDelete,
 
         /// <summary>
-        /// Allows reading exhibitor categories
+        /// Allows reading exhibitor categories.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-categories:read")]
         ExhibitorExhibitorCategoriesRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitor categories
+        /// Allows creating/updating exhibitor categories.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-categories:write")]
         ExhibitorExhibitorCategoriesWrite,
 
         /// <summary>
-        /// Allows deleting exhibitor content
+        /// Allows deleting exhibitor content.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-contents:delete")]
         ExhibitorExhibitorContentsDelete,
 
         /// <summary>
-        /// Allows reading exhibitor content
+        /// Allows reading exhibitor content.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-contents:read")]
         ExhibitorExhibitorContentsRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitor content
+        /// Allows creating/updating exhibitor content.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-contents:write")]
         ExhibitorExhibitorContentsWrite,
 
         /// <summary>
-        /// Allows reading exhibitor questions
+        /// Allows reading exhibitor questions.
         /// </summary>
         [JsonProperty("exhibitor/exhibitor-questions:read")]
         ExhibitorExhibitorQuestionsRead,
 
         /// <summary>
-        /// Allows deleting exhibitors
+        /// Allows deleting exhibitors.
         /// </summary>
         [JsonProperty("exhibitor/exhibitors:delete")]
         ExhibitorExhibitorsDelete,
 
         /// <summary>
-        /// Allows reading exhibitors
+        /// Allows reading exhibitors.
         /// </summary>
         [JsonProperty("exhibitor/exhibitors:read")]
         ExhibitorExhibitorsRead,
 
         /// <summary>
-        /// Allows creating/updating exhibitors
+        /// Allows creating/updating exhibitors.
         /// </summary>
         [JsonProperty("exhibitor/exhibitors:write")]
         ExhibitorExhibitorsWrite,
 
         /// <summary>
-        /// Allows reading Lead Qualification Answers
+        /// Allows reading Lead Qualification Answers.
         /// </summary>
         [JsonProperty("exhibitor/lead-qualification-answers:read")]
         ExhibitorLeadQualificationAnswersRead,
@@ -2126,37 +2122,37 @@ namespace Cvent.SDK.Hooks
         ExhibitorLeadsRead,
 
         /// <summary>
-        /// Allows deleting registration pack
+        /// Allows deleting registration pack.
         /// </summary>
         [JsonProperty("exhibitor/registration-packs:delete")]
         ExhibitorRegistrationPacksDelete,
 
         /// <summary>
-        /// Allows reading registration pack
+        /// Allows reading registration pack.
         /// </summary>
         [JsonProperty("exhibitor/registration-packs:read")]
         ExhibitorRegistrationPacksRead,
 
         /// <summary>
-        /// Allows creating/updating registration pack
+        /// Allows creating/updating registration pack.
         /// </summary>
         [JsonProperty("exhibitor/registration-packs:write")]
         ExhibitorRegistrationPacksWrite,
 
         /// <summary>
-        /// Allows reading sponsorship level
+        /// Allows reading sponsorship level.
         /// </summary>
         [JsonProperty("exhibitor/sponsorship-levels:read")]
         ExhibitorSponsorshipLevelsRead,
 
         /// <summary>
-        /// Allows the reading of file
+        /// Allows the reading of file.
         /// </summary>
         [JsonProperty("file/file:read")]
         FileFileRead,
 
         /// <summary>
-        /// Allows the uploading of file
+        /// Allows the uploading of file.
         /// </summary>
         [JsonProperty("file/file:write")]
         FileFileWrite,
@@ -2258,7 +2254,7 @@ namespace Cvent.SDK.Hooks
         OnsiteSignaturesRead,
 
         /// <summary>
-        /// Allows the creation/writing of proposal
+        /// Allows the creation/writing of proposal.
         /// </summary>
         [JsonProperty("proposal/proposals:write")]
         ProposalProposalsWrite,
@@ -2306,109 +2302,109 @@ namespace Cvent.SDK.Hooks
         SeatingTablesRead,
 
         /// <summary>
-        /// Allows creation of credit card tokens
+        /// Allows creation of credit card tokens.
         /// </summary>
         [JsonProperty("secure-ecommerce/card-tokens:write")]
         SecureEcommerceCardTokensWrite,
 
         /// <summary>
-        /// Allows the reading of survey questions
+        /// Allows the reading of survey questions.
         /// </summary>
         [JsonProperty("survey/questions:read")]
         SurveyQuestionsRead,
 
         /// <summary>
-        /// Allows reading the survey respondents
+        /// Allows reading the survey respondents.
         /// </summary>
         [JsonProperty("survey/respondents:read")]
         SurveyRespondentsRead,
 
         /// <summary>
-        /// Allows reading the survey responses
+        /// Allows reading the survey responses.
         /// </summary>
         [JsonProperty("survey/responses:read")]
         SurveyResponsesRead,
 
         /// <summary>
-        /// Allows reading the standalone survey email templates
+        /// Allows reading the standalone survey email templates.
         /// </summary>
         [JsonProperty("survey/standard-survey-email-templates:read")]
         SurveyStandardSurveyEmailTemplatesRead,
 
         /// <summary>
-        /// Allows writing operations on standalone survey emails
+        /// Allows writing operations on standalone survey emails.
         /// </summary>
         [JsonProperty("survey/standard-survey-email:write")]
         SurveyStandardSurveyEmailWrite,
 
         /// <summary>
-        /// Allows the reading of standalone surveys questions
+        /// Allows the reading of standalone surveys questions.
         /// </summary>
         [JsonProperty("survey/standard-survey-questions:read")]
         SurveyStandardSurveyQuestionsRead,
 
         /// <summary>
-        /// Allows reading the standalone survey respondents
+        /// Allows reading the standalone survey respondents.
         /// </summary>
         [JsonProperty("survey/standard-survey-respondents:read")]
         SurveyStandardSurveyRespondentsRead,
 
         /// <summary>
-        /// Allows write operations on standalone survey respondents
+        /// Allows write operations on standalone survey respondents.
         /// </summary>
         [JsonProperty("survey/standard-survey-respondents:write")]
         SurveyStandardSurveyRespondentsWrite,
 
         /// <summary>
-        /// Allows reading the standalone survey responses
+        /// Allows reading the standalone survey responses.
         /// </summary>
         [JsonProperty("survey/standard-survey-responses:read")]
         SurveyStandardSurveyResponsesRead,
 
         /// <summary>
-        /// Allows write operations on standalone surveys respondent&apos;s responses
+        /// Allows write operations on standalone surveys respondent's responses.
         /// </summary>
         [JsonProperty("survey/standard-survey-responses:write")]
         SurveyStandardSurveyResponsesWrite,
 
         /// <summary>
-        /// Allows the reading of standalone surveys
+        /// Allows the reading of standalone surveys.
         /// </summary>
         [JsonProperty("survey/standard-surveys:read")]
         SurveyStandardSurveysRead,
 
         /// <summary>
-        /// Allows the reading of event survey questions
+        /// Allows the reading of event survey questions.
         /// </summary>
         [JsonProperty("survey/survey-questions:read")]
         SurveySurveyQuestionsRead,
 
         /// <summary>
-        /// Allows reading the event survey respondents
+        /// Allows reading the event survey respondents.
         /// </summary>
         [JsonProperty("survey/survey-respondents:read")]
         SurveySurveyRespondentsRead,
 
         /// <summary>
-        /// Allows write operations on the event survey respondents
+        /// Allows write operations on the event survey respondents.
         /// </summary>
         [JsonProperty("survey/survey-respondents:write")]
         SurveySurveyRespondentsWrite,
 
         /// <summary>
-        /// Allows reading the event survey responses
+        /// Allows reading the event survey responses.
         /// </summary>
         [JsonProperty("survey/survey-responses:read")]
         SurveySurveyResponsesRead,
 
         /// <summary>
-        /// Allows write operations on the event surveys respondent&apos;s responses
+        /// Allows write operations on the event surveys respondent's responses.
         /// </summary>
         [JsonProperty("survey/survey-responses:write")]
         SurveySurveyResponsesWrite,
 
         /// <summary>
-        /// Allows the reading of event surveys
+        /// Allows the reading of event surveys.
         /// </summary>
         [JsonProperty("survey/surveys:read")]
         SurveySurveysRead,

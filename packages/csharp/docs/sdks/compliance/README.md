@@ -145,8 +145,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetCommunicationLogMessagesRequest req = new GetCommunicationLogMessagesRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "type eq 'email'",
 };
@@ -212,8 +212,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 FilterCommunicationLogMessagesRequest req = new FilterCommunicationLogMessagesRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = new Filter() {
         FilterValue = "type eq 'email'",

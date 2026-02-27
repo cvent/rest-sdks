@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This denotes the question asked in the session.
     /// </summary>
     public class SessionQuestionUpvoted
     {
-
         /// <summary>
         /// The activity session.
         /// </summary>

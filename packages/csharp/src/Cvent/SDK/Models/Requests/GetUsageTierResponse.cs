@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetUsageTierResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// The Usage Tier assigned to the account
+        /// The Usage Tier assigned to the account.
         /// </summary>
         public PublicUsagePlan? PublicUsagePlan { get; set; }
     }

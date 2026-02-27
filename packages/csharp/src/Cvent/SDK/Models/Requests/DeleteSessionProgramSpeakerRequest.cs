@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteSessionProgramSpeakerRequest
     {
-
         /// <summary>
         /// The unique identifier of a program item.
         /// </summary>

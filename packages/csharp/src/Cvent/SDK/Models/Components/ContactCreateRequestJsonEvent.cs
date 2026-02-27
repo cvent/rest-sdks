@@ -12,14 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Event ID
+    /// Event ID.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class ContactCreateRequestJsonEvent
     {
-
         /// <summary>
         /// ID of the event where the contact was created, applicable when contact snapshot is enabled for an event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add attendees API.
         /// </summary>

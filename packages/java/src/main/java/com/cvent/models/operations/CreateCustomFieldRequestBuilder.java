@@ -6,7 +6,7 @@ package com.cvent.models.operations;
 import static com.cvent.operations.Operations.RequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.CustomField1;
+import com.cvent.models.components.CustomField2;
 import com.cvent.operations.CreateCustomField;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Utils;
@@ -15,18 +15,18 @@ import jakarta.annotation.Nonnull;
 public class CreateCustomFieldRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private CustomField1 request;
+    private CustomField2 request;
 
     public CreateCustomFieldRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public CreateCustomFieldRequestBuilder request(@Nonnull CustomField1 request) {
+    public CreateCustomFieldRequestBuilder request(@Nonnull CustomField2 request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private CustomField1 _buildRequest() {
+    private CustomField2 _buildRequest() {
         return this.request;
     }
     
@@ -43,7 +43,7 @@ public class CreateCustomFieldRequestBuilder {
     * @return The response from the server.
     */
     public CreateCustomFieldResponse call() {
-        RequestOperation<CustomField1, CreateCustomFieldResponse> operation
+        RequestOperation<CustomField2, CreateCustomFieldResponse> operation
               = new CreateCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }

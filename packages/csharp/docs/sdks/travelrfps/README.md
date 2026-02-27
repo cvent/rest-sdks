@@ -44,8 +44,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListTravelProgramsRequest req = new ListTravelProgramsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "travelAccount.id eq 3c74daaf-11af-4b43-9a4e-ed3ec60f9bd3",
 };
@@ -100,8 +100,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListTravelProgramsQuestionsRequest req = new ListTravelProgramsQuestionsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
 };
 
@@ -203,8 +203,8 @@ var sdk = new CventSDK(security: new Security() {
 
 ListTravelProgramQuestionsRequest req = new ListTravelProgramQuestionsRequest() {
     ProgramId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
 };
 
@@ -306,8 +306,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListTravelProposalsRequest req = new ListTravelProposalsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "travelProgram.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'",
 };
@@ -362,8 +362,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListTravelProposalBidsRequest req = new ListTravelProposalBidsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "proposal.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'",
 };

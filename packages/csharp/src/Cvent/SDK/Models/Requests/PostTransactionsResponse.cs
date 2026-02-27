@@ -12,16 +12,15 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class PostTransactionsResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
         /// Response of the create transaction request.
         /// </summary>
-        public CreateTransactionRequest? CreateTransactionRequest { get; set; }
+        public CreateTransactionResponse? CreateTransactionResponse { get; set; }
     }
 }

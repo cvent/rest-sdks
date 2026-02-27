@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Segment details 
+    /// Segment details.
     /// </summary>
     public class SegmentJson0
     {
-
         /// <summary>
-        /// Segment Id
+        /// Segment Id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

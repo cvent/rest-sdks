@@ -12,17 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The user action that just occurred.<br/>
-    /// 
-    /// <remarks>
     ///  `question.asked` - A question was asked.<br/>
     ///  `question.upvoted` - A question was upvoted.<br/>
     ///  `question.statusUpdated` - The status of a question was updated.<br/>
     ///  `question.answered` - Either question was answered or the earlier provided answer was updated.<br/>
     ///  `answer.deleted` - An answer was deleted.
-    /// </remarks>
     /// </summary>
     public enum SessionQaActionTypeJson
     {
@@ -70,5 +67,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SessionQaActionTypeJson");
         }
     }
-
 }

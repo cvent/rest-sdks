@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This entity is used to represent registration packs list response.
     /// </summary>
     public class ExhibitorRegistrationPackListResponse
     {
-
         /// <summary>
         /// List of registration packs for an exhibitor.
         /// </summary>

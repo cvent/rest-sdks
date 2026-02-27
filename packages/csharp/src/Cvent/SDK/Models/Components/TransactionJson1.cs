@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The latest transaction that took place on a given proposal
+    /// The latest transaction that took place on a given proposal.
     /// </summary>
     public class TransactionJson1
     {
-
         /// <summary>
         /// The unique ID of a specific transaction.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The proposal transaction type
+        /// The proposal transaction type.
         /// </summary>
         [JsonProperty("type")]
         public TransactionTypeJson? Type { get; set; }

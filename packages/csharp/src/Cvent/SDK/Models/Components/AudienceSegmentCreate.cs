@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a request to create an audience segment.
     /// </summary>
     public class AudienceSegmentCreate
     {
-
         /// <summary>
         /// ID of the event.
         /// </summary>

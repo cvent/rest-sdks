@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListSessionsRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -35,19 +34,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -62,9 +55,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * category.name<br/>
         ///   * code<br/>
         ///   * relevance<br/>
-        ///   * order<br/>
-        /// 
-        /// </remarks>
+        ///   * order.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
@@ -76,60 +67,47 @@ namespace Cvent.SDK.Models.Requests
         public string? Locale { get; set; }
 
         /// <summary>
-        /// A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.  If the &quot;match&quot; filter is passed, the endpoint will return a<br/>
-        /// relevance score for each session in the list and, by default, sort results by relevance. Higher scores represent a higher relevance to the filter string.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// There are twelve comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        ///   * greater than: gt<br/>
-        ///   * greater or equal: ge<br/>
-        ///   * less than: lt<br/>
-        ///   * less than or equal: le<br/>
-        ///   * starts with: sw<br/>
-        ///   * contains a value: contains<br/>
-        ///   * includes value(s): in<br/>
-        ///   * is empty: is empty<br/>
-        ///   * is not empty: is not empty<br/>
-        ///   * match: match<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * id (eq|ne|in)<br/>
-        ///   * status (eq|ne)<br/>
-        ///   * event.id (eq|ne)<br/>
-        ///   * title (eq|ne|contains|match)<br/>
-        ///   * code (eq|ne)<br/>
-        ///   * category.id (eq|ne)<br/>
-        ///   * category.name (eq|ne|contains)<br/>
-        ///   * start (eq|ne|lt|le|gt|ge)<br/>
-        ///   * end (eq|ne|lt|le|gt|ge)<br/>
-        ///   * description (eq|ne|contains)<br/>
-        ///   * capacity (eq|ne|lt|le|gt|ge)<br/>
-        ///   * location.id (eq|ne)<br/>
-        ///   * location.name (eq|ne|contains)<br/>
-        ///   * location.code (eq|ne)<br/>
-        ///   * includedSession (eq|ne)<br/>
-        ///   * enableWaitlist (eq|ne)<br/>
-        ///   * featured (eq|ne)<br/>
-        ///   * openForRegistration (eq|ne)<br/>
-        ///   * openForAttendeeHub (eq|ne)<br/>
-        ///   * virtual (eq|ne)<br/>
-        ///   * created (eq|ne|lt|le|gt|ge)<br/>
-        ///   * lastModified (eq|ne|lt|le|gt|ge)<br/>
-        ///   * registrationTypes (contains|in|is empty| is not empty)<br/>
-        ///   * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains|in)<br/>
-        ///   * group.id (eq|ne)<br/>
-        ///   * admissionItems (contains|is empty| is not empty)<br/>
-        ///   * segments (contains|in|is empty| is not empty)<br/>
+        /// | Field                              | Operators                                    |<br/>
+        /// |------------------------------------|----------------------------------------------|<br/>
+        /// | id                                 | `eq`, `ne`, `in`                             |<br/>
+        /// | status                             | `eq`, `ne`                                   |<br/>
+        /// | event.id                           | `eq`, `ne`                                   |<br/>
+        /// | title                              | `eq`, `ne`, `contains`, `match`              |<br/>
+        /// | code                               | `eq`, `ne`                                   |<br/>
+        /// | category.id                        | `eq`, `ne`                                   |<br/>
+        /// | category.name                      | `eq`, `ne`, `contains`                       |<br/>
+        /// | start                              | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |<br/>
+        /// | end                                | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |<br/>
+        /// | description                        | `eq`, `ne`, `contains`                       |<br/>
+        /// | capacity                           | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |<br/>
+        /// | location.id                        | `eq`, `ne`                                   |<br/>
+        /// | location.name                      | `eq`, `ne`, `contains`                       |<br/>
+        /// | location.code                      | `eq`, `ne`                                   |<br/>
+        /// | includedSession                    | `eq`, `ne`                                   |<br/>
+        /// | enableWaitlist                     | `eq`, `ne`                                   |<br/>
+        /// | featured                           | `eq`, `ne`                                   |<br/>
+        /// | openForRegistration                | `eq`, `ne`                                   |<br/>
+        /// | openForAttendeeHub                 | `eq`, `ne`                                   |<br/>
+        /// | virtual                            | `eq`, `ne`                                   |<br/>
+        /// | created                            | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |<br/>
+        /// | lastModified                       | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |<br/>
+        /// | registrationTypes                  | `contains`, `in`, `is empty`, `is not empty` |<br/>
+        /// | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains`, `in` |<br/>
+        /// | group.id                           | `eq`, `ne`                                   |<br/>
+        /// | admissionItems                     | `contains`, `is empty`, `is not empty`       |<br/>
+        /// | segments                           | `contains`, `in`, `is empty`, `is not empty` |<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
-        ///   * or<br/>
-        /// 
-        /// </remarks>
+        /// **Note:** If the "match" filter is passed, the endpoint will return a relevance score for each session in the list and, by default, sort results by relevance. Higher scores represent a higher relevance to the filter string.<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

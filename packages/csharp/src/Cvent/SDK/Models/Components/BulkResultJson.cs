@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This entity is used to represent a single item that is returned as part of a Bulk Job Result call.
     /// </summary>
     public class BulkResultJson
     {
-
         /// <summary>
         /// The response data for the bulk operation.
         /// </summary>
@@ -27,13 +26,13 @@ namespace Cvent.SDK.Models.Components
         public BulkDataProperty Data { get; set; } = default!;
 
         /// <summary>
-        /// http status code representing processing status of a single item
+        /// http status code representing processing status of a single item.
         /// </summary>
         [JsonProperty("status")]
         public long Status { get; set; } = default!;
 
         /// <summary>
-        /// Quick description of what happened with processing
+        /// Quick description of what happened with processing.
         /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; }
@@ -57,7 +56,7 @@ namespace Cvent.SDK.Models.Components
         public Job? Job { get; set; }
 
         /// <summary>
-        /// Indicator that specifies if the bulk result failed. 
+        /// Indicator that specifies if the bulk result failed.
         /// </summary>
         [JsonProperty("failed")]
         public bool? Failed { get; set; }

@@ -22,7 +22,6 @@ let value: UpdateAttendeeRequest = {
     administrator: {
       id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
     },
-    unsubscribed: false,
     admissionItem: {
       id: "7949c335-b5b2-46cf-8f5d-f6b21795df51",
     },

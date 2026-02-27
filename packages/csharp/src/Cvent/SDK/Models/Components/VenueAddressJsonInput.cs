@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Venue Address details
+    /// Venue Address details.
     /// </summary>
     public class VenueAddressJsonInput
     {
-
         /// <summary>
         /// The first line of an address.
         /// </summary>

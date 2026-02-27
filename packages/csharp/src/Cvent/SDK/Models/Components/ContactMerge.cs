@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// This entity represents a request to merge one or two contacts with another &apos;main&apos; contact.
+    /// This entity represents a request to merge one or two contacts with another 'main' contact.
     /// </summary>
     public class ContactMerge
     {
-
         /// <summary>
         /// Id of the contact(s) to be merged to the main contact.
         /// </summary>

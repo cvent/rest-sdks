@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class GetEventsPostFiltersRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -36,19 +35,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -56,19 +49,13 @@ namespace Cvent.SDK.Models.Requests
         ///   * descending: DESC<br/>
         /// <br/>
         /// The following fields are sortable:<br/>
-        ///   * start<br/>
-        /// 
-        /// </remarks>
+        ///   * start.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
 
         /// <summary>
-        /// See the filters of <a href="#operation/getEvents">GET List Events</a> for full filtering information you can pass in the request body.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// See the filters of <a href="#operation/getEvents">GET List Events</a> for full filtering information you can pass in the request body.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

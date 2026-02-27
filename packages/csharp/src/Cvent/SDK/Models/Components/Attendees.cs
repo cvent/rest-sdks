@@ -52,7 +52,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     [JsonConverter(typeof(Attendees.AttendeesConverter))]
     public class Attendees
     {

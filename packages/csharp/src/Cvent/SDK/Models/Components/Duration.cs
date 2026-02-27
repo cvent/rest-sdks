@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The duration of the membership item with anniversary renewal type.
     /// </summary>
@@ -62,5 +62,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum Duration");
         }
     }
-
 }

@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Enumeration indicating the type of data collected by an exhibitor question. &apos;MultiChoice&apos;: Respondents select multiple options from a list. &apos;SingleChoice&apos;: restricts respondents to a single option from a list, often displayed as a dropdown or radio button. &apos;OpenEndedTextOneLine&apos;: brief text responses, such as names or short answers. &apos;OpenEndedTextCommentBox&apos;: longer text responses for detailed feedback. &apos;OpenEndedDateTime&apos;: captures date and time information from respondents.
+    /// Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
     /// </summary>
     public enum ExhibitorQuestionTypeJson
     {
@@ -62,5 +62,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ExhibitorQuestionTypeJson");
         }
     }
-
 }

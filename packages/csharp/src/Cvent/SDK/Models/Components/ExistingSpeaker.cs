@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An existing, event speaker.
     /// </summary>
     public class ExistingSpeaker
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -51,25 +50,25 @@ namespace Cvent.SDK.Models.Components
         public ExistingSpeakerEvent Event { get; set; } = default!;
 
         /// <summary>
-        /// The speaker&apos;s first name.
+        /// The speaker's first name.
         /// </summary>
         [JsonProperty("firstName")]
         public string FirstName { get; set; } = default!;
 
         /// <summary>
-        /// The speaker&apos;s last name.
+        /// The speaker's last name.
         /// </summary>
         [JsonProperty("lastName")]
         public string LastName { get; set; } = default!;
 
         /// <summary>
-        /// The unique code associated with the speaker in an event
+        /// The unique code associated with the speaker in an event.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// The speaker&apos;s email address
+        /// The speaker's email address.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }
@@ -81,19 +80,19 @@ namespace Cvent.SDK.Models.Components
         public string? Prefix { get; set; }
 
         /// <summary>
-        /// The speaker&apos;s Designation
+        /// The speaker's Designation.
         /// </summary>
         [JsonProperty("designation")]
         public string? Designation { get; set; }
 
         /// <summary>
-        /// The company to which the speaker is associated
+        /// The company to which the speaker is associated.
         /// </summary>
         [JsonProperty("company")]
         public string? Company { get; set; }
 
         /// <summary>
-        /// The speaker&apos;s title
+        /// The speaker's title.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
@@ -111,25 +110,25 @@ namespace Cvent.SDK.Models.Components
         public ContactLinksJson? Links { get; set; }
 
         /// <summary>
-        /// Indicates if a given speaker should be displayed on Event Website
+        /// Indicates if a given speaker should be displayed on Event Website.
         /// </summary>
         [JsonProperty("visibility")]
         public bool? Visibility { get; set; } = true;
 
         /// <summary>
-        /// The speaker&apos;s biography
+        /// The speaker's biography.
         /// </summary>
         [JsonProperty("biography")]
         public string? Biography { get; set; }
 
         /// <summary>
-        /// The Internal Note of the speaker
+        /// The Internal Note of the speaker.
         /// </summary>
         [JsonProperty("internalNote")]
         public string? InternalNote { get; set; }
 
         /// <summary>
-        /// Indicates if a given speaker is a featured speaker
+        /// Indicates if a given speaker is a featured speaker.
         /// </summary>
         [JsonProperty("featured")]
         public bool? Featured { get; set; } = false;
@@ -141,13 +140,13 @@ namespace Cvent.SDK.Models.Components
         public double? Relevance { get; set; }
 
         /// <summary>
-        /// The ID of the speaker
+        /// The ID of the speaker.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The order of speaker
+        /// The order of speaker.
         /// </summary>
         [JsonProperty("order")]
         public long? Order { get; set; }

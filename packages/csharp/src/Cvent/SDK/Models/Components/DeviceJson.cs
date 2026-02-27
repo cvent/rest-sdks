@@ -13,14 +13,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The device details used to watched a video. This field has been deprecated.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class DeviceJson
     {
-
         /// <summary>
         /// The unique ID of the device the viewer used to watch the video.
         /// </summary>
@@ -34,7 +33,7 @@ namespace Cvent.SDK.Models.Components
         public DeviceTypeJson? Type { get; set; }
 
         /// <summary>
-        /// The device&apos;s operating system.
+        /// The device's operating system.
         /// </summary>
         [JsonProperty("operatingSystem")]
         public string? OperatingSystem { get; set; }

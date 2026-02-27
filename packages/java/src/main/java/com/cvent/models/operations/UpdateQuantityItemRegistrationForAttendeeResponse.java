@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.QuantityItemUpdate;
+import com.cvent.models.components.QuantityItemResponse;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,20 +35,20 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
     /**
      * Successfully updated quantity item for the attendee.
      */
-    private QuantityItemUpdate quantityItemUpdate;
+    private QuantityItemResponse quantityItemResponse;
 
     @JsonCreator
     public UpdateQuantityItemRegistrationForAttendeeResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable QuantityItemUpdate quantityItemUpdate) {
+            @Nullable QuantityItemResponse quantityItemResponse) {
         this.contentType = Optional.ofNullable(contentType)
             .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
             .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.quantityItemUpdate = quantityItemUpdate;
+        this.quantityItemResponse = quantityItemResponse;
     }
     
     public UpdateQuantityItemRegistrationForAttendeeResponse(
@@ -83,8 +83,8 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
     /**
      * Successfully updated quantity item for the attendee.
      */
-    public Optional<QuantityItemUpdate> quantityItemUpdate() {
-        return Optional.ofNullable(this.quantityItemUpdate);
+    public Optional<QuantityItemResponse> quantityItemResponse() {
+        return Optional.ofNullable(this.quantityItemResponse);
     }
 
     public static Builder builder() {
@@ -122,8 +122,8 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
     /**
      * Successfully updated quantity item for the attendee.
      */
-    public UpdateQuantityItemRegistrationForAttendeeResponse withQuantityItemUpdate(@Nullable QuantityItemUpdate quantityItemUpdate) {
-        this.quantityItemUpdate = quantityItemUpdate;
+    public UpdateQuantityItemRegistrationForAttendeeResponse withQuantityItemResponse(@Nullable QuantityItemResponse quantityItemResponse) {
+        this.quantityItemResponse = quantityItemResponse;
         return this;
     }
 
@@ -141,14 +141,14 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
             Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
             Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
             Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.quantityItemUpdate, other.quantityItemUpdate);
+            Utils.enhancedDeepEquals(this.quantityItemResponse, other.quantityItemResponse);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
             contentType, statusCode, rawResponse,
-            quantityItemUpdate);
+            quantityItemResponse);
     }
     
     @Override
@@ -157,7 +157,7 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
                 "contentType", contentType,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse,
-                "quantityItemUpdate", quantityItemUpdate);
+                "quantityItemResponse", quantityItemResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -169,7 +169,7 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
 
         private HttpResponse<InputStream> rawResponse;
 
-        private QuantityItemUpdate quantityItemUpdate;
+        private QuantityItemResponse quantityItemResponse;
 
         private Builder() {
           // force use of static builder() method
@@ -202,15 +202,15 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
         /**
          * Successfully updated quantity item for the attendee.
          */
-        public Builder quantityItemUpdate(@Nullable QuantityItemUpdate quantityItemUpdate) {
-            this.quantityItemUpdate = quantityItemUpdate;
+        public Builder quantityItemResponse(@Nullable QuantityItemResponse quantityItemResponse) {
+            this.quantityItemResponse = quantityItemResponse;
             return this;
         }
 
         public UpdateQuantityItemRegistrationForAttendeeResponse build() {
             return new UpdateQuantityItemRegistrationForAttendeeResponse(
                 contentType, statusCode, rawResponse,
-                quantityItemUpdate);
+                quantityItemResponse);
         }
 
     }

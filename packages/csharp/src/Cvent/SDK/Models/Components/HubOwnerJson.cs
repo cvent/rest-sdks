@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The owner of the Events+ hub and their information.
     /// </summary>
     public class HubOwnerJson
     {
-
         /// <summary>
         /// First name of the Events+ hub owner.
         /// </summary>

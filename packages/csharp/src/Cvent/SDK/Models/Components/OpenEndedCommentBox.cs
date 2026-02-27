@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the open ended comment box type of custom field.
     /// </summary>
     public class OpenEndedCommentBox
     {
-
         /// <summary>
         /// Minimum number/characters allowed.
         /// </summary>

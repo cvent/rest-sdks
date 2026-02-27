@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a reference to an alternate travel question entity, containing only the question ID and text.
     /// </summary>
     public class AlternateQuestionJson
     {
-
         /// <summary>
         /// Unique identifier for the question entity.
         /// </summary>

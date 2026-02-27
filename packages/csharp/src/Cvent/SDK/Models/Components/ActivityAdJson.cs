@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The details of the advertisement.
     /// </summary>
     public class ActivityAdJson
     {
-
         /// <summary>
         /// The unique identifier of the ad.
         /// </summary>
@@ -32,7 +31,7 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// The product for which ad is created
+        /// The product for which ad is created.
         /// </summary>
         [JsonProperty("product")]
         public string? Product { get; set; }

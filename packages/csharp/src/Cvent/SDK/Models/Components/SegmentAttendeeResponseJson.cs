@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Represents the attendees that are associated/disassociated to/from a segment
+    /// Represents the attendees that are associated/disassociated to/from a segment.
     /// </summary>
     public class SegmentAttendeeResponseJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -45,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Segment details 
+        /// Segment details.
         /// </summary>
         [JsonProperty("segment")]
         public SegmentJson0? Segment { get; set; }

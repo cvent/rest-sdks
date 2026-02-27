@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Attendee for an event appointment.
     /// </summary>
     public class AppointmentAttendee
     {
-
         /// <summary>
         /// The unique ID representing the attendee.
         /// </summary>

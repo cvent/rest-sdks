@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This is used to denote the details of the transaction made by an attendee.
     /// </summary>
     public class TransactionDetailJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -82,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public string? JournalNumber { get; set; }
 
         /// <summary>
-        /// Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder&apos;s bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee&apos;s order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
+        /// Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
         /// </summary>
         [JsonProperty("paymentType")]
         public PaymentTypeJson? PaymentType { get; set; }
@@ -142,13 +141,13 @@ namespace Cvent.SDK.Models.Components
         public string? NameOnCreditCard { get; set; }
 
         /// <summary>
-        /// The expiration date of the attendee&apos;s credit card.
+        /// The expiration date of the attendee's credit card.
         /// </summary>
         [JsonProperty("expirationDateOfCreditCard")]
         public DateTime? ExpirationDateOfCreditCard { get; set; }
 
         /// <summary>
-        /// Billing Address Details
+        /// Billing Address Details.
         /// </summary>
         [JsonProperty("billingAddress")]
         public BillingAddressJson? BillingAddress { get; set; }

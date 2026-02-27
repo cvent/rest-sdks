@@ -289,7 +289,7 @@ public class Attendee {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
     @Deprecated
-    private List<CustomField> questions;
+    private List<CustomFieldJson3> questions;
 
     /**
      * The list of answers to the registration questions.
@@ -421,7 +421,7 @@ public class Attendee {
             @JsonProperty("registrationCancelledAt") @Nullable OffsetDateTime registrationCancelledAt,
             @JsonProperty("invitedBy") @Nullable AttendeeInvitedByJson invitedBy,
             @JsonProperty("responseMethod") @Nullable AttendeeResponseMethodJson responseMethod,
-            @JsonProperty("questions") @Nullable List<CustomField> questions,
+            @JsonProperty("questions") @Nullable List<CustomFieldJson3> questions,
             @JsonProperty("answers") @Nullable List<AttendeeAnswerJson> answers,
             @JsonProperty("admissionItem") @Nullable AttendeeLookup admissionItem,
             @JsonProperty("visibility") @Nullable AttendeeVisibilityJson visibility,
@@ -761,7 +761,7 @@ public class Attendee {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<List<CustomField>> questions() {
+    public Optional<List<CustomFieldJson3>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -1192,7 +1192,7 @@ public class Attendee {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Attendee withQuestions(@Nullable List<CustomField> questions) {
+    public Attendee withQuestions(@Nullable List<CustomFieldJson3> questions) {
         this.questions = questions;
         return this;
     }
@@ -1514,7 +1514,7 @@ public class Attendee {
         private AttendeeResponseMethodJson responseMethod;
 
         @Deprecated
-        private List<CustomField> questions;
+        private List<CustomFieldJson3> questions;
 
         private List<AttendeeAnswerJson> answers;
 
@@ -1839,7 +1839,7 @@ public class Attendee {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder questions(@Nullable List<CustomField> questions) {
+        public Builder questions(@Nullable List<CustomFieldJson3> questions) {
             this.questions = questions;
             return this;
         }

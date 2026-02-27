@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The reference to the guest. Contains only the ID of the guest.
     /// </summary>
     public class GuestDetailJson
     {
-
         /// <summary>
         /// Unique identifier of a guest.
         /// </summary>

@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateAudienceSegmentRequest
     {
-
         /// <summary>
         /// ID of an audience segment.
         /// </summary>

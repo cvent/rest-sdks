@@ -14,15 +14,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents the planner of an event.
     /// </summary>
     public class PlannerJson2
     {
-
         /// <summary>
-        /// An honorific prefixing a planner&apos;s name.
+        /// An honorific prefixing a planner's name.
         /// </summary>
         [JsonProperty("prefix")]
         public string? Prefix { get; set; }
@@ -69,7 +68,7 @@ namespace Cvent.SDK.Models.Components
         public PlannerJson2ContactOptOut? OptOut { get; set; }
 
         /// <summary>
-        /// Planner&apos;s pager number.
+        /// Planner's pager number.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("pager")]
@@ -94,7 +93,7 @@ namespace Cvent.SDK.Models.Components
         public string? MiddleName { get; set; }
 
         /// <summary>
-        /// An alternate email address of the contact that will be cc&apos;d on all email communications.
+        /// An alternate email address of the contact that will be cc'd on all email communications.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("ccEmail")]

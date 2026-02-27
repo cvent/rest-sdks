@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Fee for a product.
     /// </summary>
     public class FeeJson
     {
-
         /// <summary>
         /// A unique ID representing the fee.
         /// </summary>

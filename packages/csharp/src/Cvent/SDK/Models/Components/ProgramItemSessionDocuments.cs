@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents an array of session document IDs associated with the given program item ID.
     /// </summary>
     public class ProgramItemSessionDocuments
     {
-
         /// <summary>
         /// List of program item session documents.
         /// </summary>

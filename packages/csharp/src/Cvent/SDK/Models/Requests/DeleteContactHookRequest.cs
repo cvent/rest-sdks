@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteContactHookRequest
     {
-
         /// <summary>
         /// Unique ID of the contact hook.
         /// </summary>

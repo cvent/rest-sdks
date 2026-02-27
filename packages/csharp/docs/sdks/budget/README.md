@@ -56,8 +56,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetAccountBudgetItemsRequest req = new GetAccountBudgetItemsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "event.id eq 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.id ne 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5'",
 };
@@ -171,8 +171,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetCardTransactionsRequest req = new GetCardTransactionsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "event.id eq 'E05029A8-39F5-49DF-8450-2EB41B302421' and type ne 'Virtual' and status eq 'Active' or status eq 'Inactive'",
 };
@@ -233,7 +233,7 @@ CardTransactionCreate req = new CardTransactionCreate() {
     EventId = "9463c74e-18c6-401a-a710-ae0f485bf959",
     CardDescription = "API Card Transaction",
     TransactionAmount = 1000.87D,
-    TransactionDate = System.DateTime.Parse("2020-02-07T00:00:00.00Z"),
+    TransactionDate = System.DateTime.Parse("2020-02-07T00:00:00.00Z").ToUniversalTime(),
     TransactionCurrency = "USD",
     TransactionMerchant = "API Merchant",
 };
@@ -342,7 +342,7 @@ UpdateCardTransactionRequest req = new UpdateCardTransactionRequest() {
         EventId = "9463c74e-18c6-401a-a710-ae0f485bf959",
         CardDescription = "API Card Transaction",
         TransactionAmount = 1000.87D,
-        TransactionDate = System.DateTime.Parse("2020-02-07T00:00:00.00Z"),
+        TransactionDate = System.DateTime.Parse("2020-02-07T00:00:00.00Z").ToUniversalTime(),
         TransactionCurrency = "USD",
         TransactionMerchant = "API Merchant",
     },
@@ -398,8 +398,8 @@ var sdk = new CventSDK(security: new Security() {
 GetCurrencyConversionRateRequest req = new GetCurrencyConversionRateRequest() {
     Currency = "USD",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "startDate eq '2020-02-07' ",
 };
 
@@ -622,8 +622,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetBudgetItemsRequest req = new GetBudgetItemsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "category.name eq 'Accommodation' and status ne 'Estimated'",
 };
@@ -697,7 +697,7 @@ CreateBudgetItemRequest req = new CreateBudgetItemRequest() {
         Vendor = new BudgetVendorJsonInput() {
             Id = "d64380fd-3631-43e9-aac7-bd6bb6eccf6b",
         },
-        Date = System.DateTime.Parse("2020-02-07T00:00:00.00Z"),
+        Date = System.DateTime.Parse("2020-02-07T00:00:00.00Z").ToUniversalTime(),
         GeneralLedger = new GeneralLedgerJson1Input() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
@@ -785,8 +785,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetBudgetAllocationsRequest req = new GetBudgetAllocationsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000",
 };
@@ -861,7 +861,7 @@ UpdateBudgetItemRequest req = new UpdateBudgetItemRequest() {
         Vendor = new BudgetVendorJsonInput() {
             Id = "d64380fd-3631-43e9-aac7-bd6bb6eccf6b",
         },
-        Date = System.DateTime.Parse("2020-02-07T00:00:00.00Z"),
+        Date = System.DateTime.Parse("2020-02-07T00:00:00.00Z").ToUniversalTime(),
         GeneralLedger = new GeneralLedgerJson1Input() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
@@ -1310,8 +1310,8 @@ var sdk = new CventSDK(security: new Security() {
 GetPaymentsRequest req = new GetPaymentsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "budgetItem.id eq '2c3a755a-d440-498d-baab-30f45dae3cf5' or id eq '1b3a755a-d440-498d-baab-30f45dae3cf5'",
 };
 
@@ -1421,8 +1421,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetEventBudgetTotalsRequest req = new GetEventBudgetTotalsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "version.name eq 'Test version' and version.id eq '1b3a755a-d440-498d-baab-30f45dae3cf5'",
 };

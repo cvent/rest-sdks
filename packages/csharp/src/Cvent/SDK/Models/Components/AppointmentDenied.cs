@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Appointment denied activity.
     /// </summary>
     public class AppointmentDenied
     {
-
         /// <summary>
         /// Base entity of an activity appointment.
         /// </summary>

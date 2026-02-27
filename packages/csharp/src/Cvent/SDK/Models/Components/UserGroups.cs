@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Groups
+    /// Groups.
     /// </summary>
     public class UserGroups
     {
-
         /// <summary>
         /// The collection of user schemas.
         /// </summary>

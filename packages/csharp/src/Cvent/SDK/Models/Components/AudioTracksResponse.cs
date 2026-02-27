@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of audio tracks.
     /// </summary>
     public class AudioTracksResponse
     {
-
         /// <summary>
         /// Collection of audio tracks.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Request object to send an email to one or more eMarketing campaign recipients.
     /// </summary>
     public class SendEmailRequest
     {
-
         /// <summary>
         /// The template ID of the eMarketing email to be sent.
         /// </summary>

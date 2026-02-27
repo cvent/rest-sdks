@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Config details for change e-tag operations.
     /// </summary>
     public class Etag
     {
-
         /// <summary>
         /// Indicates if the entity tag operation is supported.
         /// </summary>

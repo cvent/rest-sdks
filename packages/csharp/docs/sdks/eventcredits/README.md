@@ -35,12 +35,12 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetAttendeeCreditsRequest req = new GetAttendeeCreditsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "lastModified:DESC",
-    Expand = new List<Expand2>() {
-        Expand2.CreditType,
+    Expand = new List<Expand1>() {
+        Expand1.CreditType,
     },
     Filter = "attendee.id eq '{UUID}'",
 };

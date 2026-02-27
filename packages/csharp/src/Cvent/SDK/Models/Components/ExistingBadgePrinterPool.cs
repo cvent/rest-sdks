@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Badge Printer Pool.
     /// </summary>
     public class ExistingBadgePrinterPool
     {
-
         /// <summary>
         /// The name of the badge printer pool.
         /// </summary>
@@ -25,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

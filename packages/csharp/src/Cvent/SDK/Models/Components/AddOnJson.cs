@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Common object that holds add-on information.
     /// </summary>
     public class AddOnJson
     {
-
         /// <summary>
         /// Add-on identifier.
         /// </summary>

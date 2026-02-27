@@ -253,11 +253,11 @@ UploadBulkJobDataRequest req = new UploadBulkJobDataRequest() {
                     { "header2", "header2Value" },
                 },
                 DataRecord = new Dictionary<string, BulkDataRecordJson>() {
+                    { "event", new BulkDataRecordJson() {} },
                     { "title", new BulkDataRecordJson() {} },
                     { "start", new BulkDataRecordJson() {} },
                     { "end", new BulkDataRecordJson() {} },
                     { "status", new BulkDataRecordJson() {} },
-                    { "event", new BulkDataRecordJson() {} },
                 },
             },
         },
@@ -310,8 +310,8 @@ var sdk = new CventSDK(security: new Security() {
 
 ListBulkJobResultRequest req = new ListBulkJobResultRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "failed eq \"true\"",
 };

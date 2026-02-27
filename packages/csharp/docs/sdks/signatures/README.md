@@ -34,8 +34,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetSignaturesRequest req = new GetSignaturesRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "event.id:ASC,lastModified:DESC",
     Filter = "event.id eq 'a81bc81b-dead-4e5d-abff-90865d1e13b1' or session.id eq 'de14c31b-aaad-2e5d-asgf-89865d1e13b1'",

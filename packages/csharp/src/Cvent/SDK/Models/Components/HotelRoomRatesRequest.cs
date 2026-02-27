@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents hotel room rates request.
     /// </summary>
     public class HotelRoomRatesRequest
     {
-
         /// <summary>
         /// The rate code.
         /// </summary>

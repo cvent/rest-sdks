@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A survey answer.
     /// </summary>
     public class AnswerJson1
     {
-
         /// <summary>
-        /// Type of answer
+        /// Type of answer.
         /// </summary>
         [JsonProperty("type")]
         public AnswerTypeJson1 Type { get; set; } = default!;

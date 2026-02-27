@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateContactGroupRequest
     {
-
         /// <summary>
         /// ID of a contact group.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Contact Group to be updated
+        /// Contact Group to be updated.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ContactGroupInput ContactGroup { get; set; } = default!;

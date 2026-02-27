@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Group and meeting amenity info.
     /// </summary>
     public class TravelAmenityJson
     {
-
         /// <summary>
         /// True indicates a liquid crystal display (LCD) is included in the amenity.
         /// </summary>

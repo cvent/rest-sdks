@@ -41,6 +41,7 @@ export function audienceSegmentsAssociateAttendeeToSegment(
 ): APIPromise<
   Result<
     void,
+    | errors.SegmentsErrorResponse
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -67,6 +68,7 @@ async function $do(
   [
     Result<
       void,
+      | errors.SegmentsErrorResponse
       | errors.ErrorResponse
       | CventSDKError
       | ResponseValidationError
@@ -162,6 +164,7 @@ async function $do(
 
   const [result] = await M.match<
     void,
+    | errors.SegmentsErrorResponse
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -173,8 +176,9 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
+    M.jsonErr(400, errors.SegmentsErrorResponse$inboundSchema),
     M.jsonErr([401, 403, 404, 422, 429], errors.ErrorResponse$inboundSchema),
-    M.fail([400, "4XX"]),
+    M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {

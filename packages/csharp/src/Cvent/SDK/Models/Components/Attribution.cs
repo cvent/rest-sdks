@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The entity to which the ad is associated.
     /// </summary>
     public class Attribution
     {
-
         /// <summary>
         /// The unique identifier of the attribution.
         /// </summary>

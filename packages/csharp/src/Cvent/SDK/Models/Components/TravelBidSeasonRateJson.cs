@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The negotiated rates for a property room during a specific season.
     /// </summary>
     public class TravelBidSeasonRateJson
     {
-
         /// <summary>
-        /// ID of the property&apos;s room.
+        /// ID of the property's room.
         /// </summary>
         [JsonProperty("propertyRoom")]
         public TravelBidSeasonRateJsonPropertyRoom? PropertyRoom { get; set; }

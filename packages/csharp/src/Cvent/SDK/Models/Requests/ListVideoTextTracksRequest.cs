@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListVideoTextTracksRequest
     {
-
         /// <summary>
         /// The identifier of a video.
         /// </summary>

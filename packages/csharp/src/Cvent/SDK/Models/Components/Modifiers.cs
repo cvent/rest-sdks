@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Specifies reservation options for customizing reservation behavior.
     /// </summary>
     public class Modifiers
     {
-
         /// <summary>
         /// Indicates if waitlisted nights are allowed.
         /// </summary>

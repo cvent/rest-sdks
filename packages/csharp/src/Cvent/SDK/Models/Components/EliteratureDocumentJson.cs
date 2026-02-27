@@ -12,27 +12,26 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A JSON schema representing an E-literature Document
+    /// A JSON schema representing an E-literature Document.
     /// </summary>
     public class EliteratureDocumentJson
     {
-
         /// <summary>
-        /// Document identifier
+        /// Document identifier.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Document display name
+        /// Document display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string DisplayName { get; set; } = default!;
 
         /// <summary>
-        /// Type of eliterature document
+        /// Type of eliterature document.
         /// </summary>
         [JsonProperty("type")]
         public EliteratureDocumentJsonType Type { get; set; } = default!;

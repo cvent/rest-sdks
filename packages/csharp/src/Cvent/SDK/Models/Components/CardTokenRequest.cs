@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Generate a card token for a credit card.
     /// </summary>
     public class CardTokenRequest
     {
-
         /// <summary>
-        /// Credit Card Request Object
+        /// Credit Card Request Object.
         /// </summary>
         [JsonProperty("creditCard")]
         public CreditCardRequestJson CreditCard { get; set; } = default!;

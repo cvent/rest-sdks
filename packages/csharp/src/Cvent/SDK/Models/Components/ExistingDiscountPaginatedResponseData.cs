@@ -52,7 +52,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     [JsonConverter(typeof(ExistingDiscountPaginatedResponseData.ExistingDiscountPaginatedResponseDataConverter))]
     public class ExistingDiscountPaginatedResponseData
     {

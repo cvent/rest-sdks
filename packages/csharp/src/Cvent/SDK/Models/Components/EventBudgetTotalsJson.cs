@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Budget Totals for a Event.
     /// </summary>
     public class EventBudgetTotalsJson
     {
-
         /// <summary>
         /// The identifier of the Event.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Credit details for an attendee.
     /// </summary>
     public class AttendeeCreditJson
     {
-
         /// <summary>
         /// A unique identifier representing the attendee credit response. Can be the format of a string or UUID.
         /// </summary>
@@ -34,11 +33,8 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// An object that contains the associated credit type ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is an **expandable** object and if requested will contain the name of a credit type object.
-        /// </remarks>
         /// </summary>
         [JsonProperty("creditType")]
         public ExpandableCreditTypeJson? CreditType { get; set; }

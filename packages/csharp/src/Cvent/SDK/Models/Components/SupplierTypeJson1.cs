@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The supplier&apos;s type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an event.
+    /// The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an event.
     /// </summary>
     public enum SupplierTypeJson1
     {
@@ -54,5 +54,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SupplierTypeJson1");
         }
     }
-
 }

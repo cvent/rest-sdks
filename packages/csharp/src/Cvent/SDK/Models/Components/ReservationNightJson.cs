@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Reservation night details.
     /// </summary>
     public class ReservationNightJson
     {
-
         /// <summary>
         /// Night date.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public DateOnly StayDate { get; set; } = default!;
 
         /// <summary>
-        /// Indicator of night&apos;s status.
+        /// Indicator of night's status.
         /// </summary>
         [JsonProperty("status")]
         public ReservationNightJsonStatus Status { get; set; } = default!;

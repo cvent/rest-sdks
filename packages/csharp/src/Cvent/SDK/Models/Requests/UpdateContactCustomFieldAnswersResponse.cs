@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class UpdateContactCustomFieldAnswersResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully updated custom field answers for a contact
+        /// Successfully updated custom field answers for a contact.
         /// </summary>
         public CustomField? CustomField { get; set; }
     }

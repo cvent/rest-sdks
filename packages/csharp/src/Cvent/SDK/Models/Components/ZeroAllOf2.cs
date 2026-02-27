@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of a location.
     /// </summary>
     public class ZeroAllOf2
     {
-
         /// <summary>
         /// The unique ID representing the location.
         /// </summary>

@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The set of decline reasons available for proposals
+    /// The set of decline reasons available for proposals.
     /// </summary>
     public enum DeclinedReason
     {
@@ -86,5 +86,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum DeclinedReason");
         }
     }
-
 }

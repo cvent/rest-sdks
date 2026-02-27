@@ -10,18 +10,17 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetSessionDocRequest
     {
-
         /// <summary>
-        /// Unique Id of a session
+        /// Unique Id of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The unique identifier of a file from &lt;a href=&quot;#operation/uploadFile&quot;&gt;file upload&lt;/a&gt; service.
+        /// The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fileId")]
         public string FileId { get; set; } = default!;

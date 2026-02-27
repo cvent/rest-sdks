@@ -3429,7 +3429,7 @@ const cventSDK = new CventSDK({
 async function run() {
   const result = await cventSDK.events.postTransactions({
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    createTransactionRequest: {
+    createTransactionResponse: {
       event: {
         id: "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56",
       },
@@ -3484,7 +3484,7 @@ const cventSDK = new CventSDKCore({
 async function run() {
   const res = await eventsPostTransactions(cventSDK, {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    createTransactionRequest: {
+    createTransactionResponse: {
       event: {
         id: "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56",
       },
@@ -3530,7 +3530,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CreateTransactionRequest](../../models/components/createtransactionrequest.md)\>**
+**Promise\<[components.CreateTransactionResponse](../../models/components/createtransactionresponse.md)\>**
 
 ### Errors
 
@@ -4020,7 +4020,7 @@ run();
 
 ### Response
 
-**Promise\<[components.QuantityItemUpdate](../../models/components/quantityitemupdate.md)\>**
+**Promise\<[components.QuantityItemResponse](../../models/components/quantityitemresponse.md)\>**
 
 ### Errors
 

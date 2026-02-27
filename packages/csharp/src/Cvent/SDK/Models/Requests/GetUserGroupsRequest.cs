@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetUserGroupsRequest
     {
-
         /// <summary>
         /// Starting index of the response.
         /// </summary>

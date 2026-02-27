@@ -10,12 +10,11 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetAttendeeMessagesMembersRequest
     {
-
         /// <summary>
-        /// Unique ID of an event
+        /// Unique ID of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=eventId")]
         public string EventId { get; set; } = default!;
@@ -28,22 +27,16 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// Filters are used to narrow the results returned and support a combination of logical and comparison<br/>
-        /// 
-        /// <remarks>
         /// operators.<br/>
         /// <br/>
-        /// The filter adheres to the pattern `filter=&apos;field&apos; comparisonType &apos;value&apos;`.<br/>
+        /// The filter adheres to the pattern `filter='field' comparisonType 'value'`.<br/>
         /// <br/>
         /// These are the comparison types that can be used in filter expressions:<br/>
         /// - equals to: eq<br/>
@@ -57,10 +50,8 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Examples:<br/>
         /// - Filter channel IDs:<br/>
-        ///   * `filter=channel.id in (&apos;production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac&apos;, &apos;production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f&apos;)`<br/>
-        ///   * `filter=channel.id eq &apos;production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3&apos; or channel.id eq &apos;production_group_616241fd-e97d-48c5-8c4b-4b926f50e8c3&apos;`<br/>
-        /// 
-        /// </remarks>
+        ///   * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac', 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`<br/>
+        ///   * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq 'production_group_616241fd-e97d-48c5-8c4b-4b926f50e8c3'`
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string Filter { get; set; } = default!;

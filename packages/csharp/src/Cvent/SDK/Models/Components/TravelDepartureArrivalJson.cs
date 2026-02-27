@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Common object that holds travel departure/arrival information.
     /// </summary>
     public class TravelDepartureArrivalJson
     {
-
         /// <summary>
         /// The ISO 8601 formatted date.
         /// </summary>

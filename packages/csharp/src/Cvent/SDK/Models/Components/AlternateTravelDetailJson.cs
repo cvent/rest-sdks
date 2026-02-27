@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Details of an alternate travel answer submitted by an attendee who opted out of air or hotel bookings.
     /// </summary>
     public class AlternateTravelDetailJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -45,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Representation of the attendee
+        /// Representation of the attendee.
         /// </summary>
         [JsonProperty("attendee")]
         public AttendeeJson4? Attendee { get; set; }
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public AlternateTravelDetailJsonRequesterType? RequesterType { get; set; }
 
         /// <summary>
-        /// Type of travel alternate question
+        /// Type of travel alternate question.
         /// </summary>
         [JsonProperty("travelType")]
         public TravelType? TravelType { get; set; }

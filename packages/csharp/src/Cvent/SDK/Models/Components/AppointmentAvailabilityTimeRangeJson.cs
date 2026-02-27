@@ -12,21 +12,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Time range for an appointment availability.
     /// </summary>
     public class AppointmentAvailabilityTimeRangeJson
     {
-
         /// <summary>
-        /// The ISO 8601 formatted start datetime of the time range, in the event&apos;s timezone.
+        /// The ISO 8601 formatted start datetime of the time range, in the event's timezone.
         /// </summary>
         [JsonProperty("start")]
         public string? Start { get; set; }
 
         /// <summary>
-        /// The ISO 8601 formatted end datetime of the time range, in the event&apos;s timezone.
+        /// The ISO 8601 formatted end datetime of the time range, in the event's timezone.
         /// </summary>
         [JsonProperty("end")]
         public string? End { get; set; }

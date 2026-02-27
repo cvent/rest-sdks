@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An event registration-abandoned activity.
     /// </summary>
     public class EventRegistrationAbandoned
     {
-
         /// <summary>
         /// The last page where an invitee left during the registration.
         /// </summary>

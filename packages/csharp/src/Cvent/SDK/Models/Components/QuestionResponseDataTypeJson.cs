@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Code representing the expected data type of the question response.
     /// </summary>
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum QuestionResponseDataTypeJson");
         }
     }
-
 }

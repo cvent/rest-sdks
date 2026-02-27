@@ -3,15 +3,14 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Cvent.SDK</PackageId>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Cvent</Authors>
     <Copyright>Copyright (c) Cvent 2026</Copyright>
     <PackageTags>Cvent</PackageTags>
     <PackageProjectUrl>https://developers.cvent.com/docs</PackageProjectUrl>
     <Description>Cvent REST APIs: Official Cvent SDK providing typed access to Cvent REST APIs for event management, contacts, attendees, and more using OAuth2 authentication.<br/>
-For documentation, see the README and USAGE. To get credentials, visit https://developers.cvent.com/docs/rest-api/overview.<br/>
-</Description>
+For documentation, see the README and USAGE. To get credentials, visit https://developers.cvent.com/docs/rest-api/overview.</Description>
   </PropertyGroup>
 
   <PropertyGroup>

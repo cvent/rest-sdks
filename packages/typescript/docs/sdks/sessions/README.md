@@ -1776,7 +1776,7 @@ run();
 
 ## listSessionsPostFilters
 
-Gets a paginated list of sessions by sending a filter in the request's body.  This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
 
 
 More about OAuth2 authorization code support for administrators
@@ -2277,13 +2277,13 @@ async function run() {
   const result = await cventSDK.sessions.updateSessionCustomFieldAnswers({
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField: {
+    customField1: {
       id: "5bcc98a1-7899-448a-a52d-4fcaf9af774f",
-      type: "General",
       value: [
         "Choice C",
         "Choice A",
       ],
+      type: "General",
     },
   });
 
@@ -2318,13 +2318,13 @@ async function run() {
   const res = await sessionsUpdateSessionCustomFieldAnswers(cventSDK, {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField: {
+    customField1: {
       id: "5bcc98a1-7899-448a-a52d-4fcaf9af774f",
-      type: "General",
       value: [
         "Choice C",
         "Choice A",
       ],
+      type: "General",
     },
   });
   if (res.ok) {
@@ -2349,7 +2349,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomField](../../models/components/customfield.md)\>**
+**Promise\<[components.CustomField1](../../models/components/customfield1.md)\>**
 
 ### Errors
 
@@ -2648,7 +2648,7 @@ run();
 
 ## deleteSessionDocument
 
-Unassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

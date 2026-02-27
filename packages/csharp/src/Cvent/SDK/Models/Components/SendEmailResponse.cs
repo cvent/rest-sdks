@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Response object containing a request ID and a list of all email responses sent to recipients.
     /// </summary>
     public class SendEmailResponse
     {
-
         /// <summary>
         /// The request ID for the eMarketing email send request.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event the request is associated with.
     /// </summary>
     public class MeetingRequestEvent
     {
-
         /// <summary>
         /// Event ID.
         /// </summary>

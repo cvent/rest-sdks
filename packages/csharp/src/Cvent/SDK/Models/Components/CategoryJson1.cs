@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A category of items.
     /// </summary>
     public class CategoryJson1
     {
-
         /// <summary>
         /// The category type.
         /// </summary>

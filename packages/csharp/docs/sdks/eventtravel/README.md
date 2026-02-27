@@ -36,8 +36,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetAirActualDetailRequest req = new GetAirActualDetailRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Expand = new List<ExpandAirActualQuestionAnswer>() {
         ExpandAirActualQuestionAnswer.AirActualDetailsAirActualAnswersQuestion,
@@ -98,15 +98,15 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetAirRequestsRequest req = new GetAirRequestsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "airRequestDetails.requesterFirstName:DESC,airRequestDetails.requesterLastName:ASC",
     Filter = "(attendee.id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (attendee.id eq '16322408-bae8-4b29-a559-702d2023e13a')",
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Expand = new List<ExpandAirRequestQuestionAnswer>() {
         ExpandAirRequestQuestionAnswer.AirRequestDetailsAirRequestAnswersQuestion,
     },
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetAirRequestsResponse? res = await sdk.EventTravel.GetAirRequestsAsync(req);
@@ -159,8 +159,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetAlternateTravelAnswersRequest req = new GetAlternateTravelAnswersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "(attendee.id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (attendee.id eq '16322408-bae8-4b29-a559-702d2023e13a')",
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
@@ -217,8 +217,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetHotelRequestsRequest req = new GetHotelRequestsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Expand = new List<ExpandHotelRequestQuestionAnswer>() {
         ExpandHotelRequestQuestionAnswer.HotelRequestDetailsHotelRequestAnswersQuestion,
@@ -278,11 +278,11 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetHousingReservationRequestsRequest req = new GetHousingReservationRequestsRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "(attendee.id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (attendee.id eq '16322408-bae8-4b29-a559-702d2023e13a')",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetHousingReservationRequestsResponse? res = await sdk.EventTravel.GetHousingReservationRequestsAsync(req);

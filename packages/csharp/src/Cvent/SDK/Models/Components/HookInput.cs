@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A hook with a callback URI.
     /// </summary>
     public class HookInput
     {
-
         /// <summary>
         /// Name of the contact hook.
         /// </summary>

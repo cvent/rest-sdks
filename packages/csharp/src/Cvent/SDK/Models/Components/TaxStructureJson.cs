@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Details about taxes and fees applicable to a room.
     /// </summary>
     public class TaxStructureJson
     {
-
         /// <summary>
         /// Statement disclosing tax and fee information.
         /// </summary>

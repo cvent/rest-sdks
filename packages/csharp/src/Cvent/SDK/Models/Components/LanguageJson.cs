@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// IETF language code used to specify a target language for the translation.
     /// </summary>
@@ -180,5 +180,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum LanguageJson");
         }
     }
-
 }

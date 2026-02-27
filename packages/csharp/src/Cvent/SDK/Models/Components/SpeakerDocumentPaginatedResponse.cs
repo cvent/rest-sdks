@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of documents for a single speaker.  This includes the paging object as well as the collection of documents.
     /// </summary>
     public class SpeakerDocumentPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public PagingJson Paging { get; set; } = default!;
 
         /// <summary>
-        /// Collection of a speaker&apos;s documents.
+        /// Collection of a speaker's documents.
         /// </summary>
         [JsonProperty("data")]
         public List<SpeakerFile> Data { get; set; } = default!;

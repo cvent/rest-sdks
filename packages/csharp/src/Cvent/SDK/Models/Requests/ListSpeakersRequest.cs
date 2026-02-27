@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListSpeakersRequest
     {
-
         /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
@@ -22,19 +21,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -47,9 +40,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * firstName<br/>
         ///   * company<br/>
         ///   * title<br/>
-        ///   * order<br/>
-        /// 
-        /// </remarks>
+        ///   * order.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
@@ -62,9 +53,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;. If the &quot;match&quot; filter is passed,<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'. If the "match" filter is passed,<br/>
         /// the endpoint will return a relevance score for each attendee in the list. Higher scores represent a higher<br/>
         /// relevance to the filter string.<br/>
         /// <br/>
@@ -98,9 +87,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         ///   * and<br/>
-        ///   * or<br/>
-        /// 
-        /// </remarks>
+        ///   * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

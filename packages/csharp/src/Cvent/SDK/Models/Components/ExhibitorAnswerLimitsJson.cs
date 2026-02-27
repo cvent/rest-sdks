@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Defines the limits for answers to exhibitor questions.
     /// </summary>
     public class ExhibitorAnswerLimitsJson
     {
-
         /// <summary>
         /// Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to maxLength.
         /// </summary>

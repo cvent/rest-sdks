@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents a quantity item. A quantity item allows invitees to specify the amount of a particular product, such as raffle tickets, t-shirts, or tote bags, they would like to purchase.
     /// </summary>
     public class QuantityItem
     {
-
         /// <summary>
         /// This text will be displayed in emails using the registration information widget.
         /// </summary>

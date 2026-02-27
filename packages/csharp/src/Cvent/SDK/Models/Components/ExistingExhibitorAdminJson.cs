@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Existing Exhibitor Admin with an id property
+    /// Existing Exhibitor Admin with an id property.
     /// </summary>
     public class ExistingExhibitorAdminJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -52,25 +51,25 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// The first name of the exhibitor admin
+        /// The first name of the exhibitor admin.
         /// </summary>
         [JsonProperty("firstName")]
         public string FirstName { get; set; } = default!;
 
         /// <summary>
-        /// The last name of the exhibitor admin
+        /// The last name of the exhibitor admin.
         /// </summary>
         [JsonProperty("lastName")]
         public string LastName { get; set; } = default!;
 
         /// <summary>
-        /// The email address of the exhibitor admin
+        /// The email address of the exhibitor admin.
         /// </summary>
         [JsonProperty("email")]
         public string Email { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Admin id
+        /// Exhibitor Admin id.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

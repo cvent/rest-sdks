@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class ListSpeakersPostFilterRequest
     {
-
         /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
@@ -23,19 +22,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -48,9 +41,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * firstName<br/>
         ///   * company<br/>
         ///   * title<br/>
-        ///   * order<br/>
-        /// 
-        /// </remarks>
+        ///   * order.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
@@ -62,11 +53,7 @@ namespace Cvent.SDK.Models.Requests
         public string? Locale { get; set; }
 
         /// <summary>
-        /// See the filter parameter of &lt;a href=&quot;#operation/listSpeakers&quot;&gt;List Speakers&lt;/a&gt; for full filtering information<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// See the filter parameter of <a href="#operation/listSpeakers">List Speakers</a> for full filtering information.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

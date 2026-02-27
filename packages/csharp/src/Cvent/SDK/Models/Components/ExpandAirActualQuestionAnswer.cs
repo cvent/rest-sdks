@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     public enum ExpandAirActualQuestionAnswer
     {
         [JsonProperty("airActualDetails.airActualAnswers.question")]
@@ -51,5 +51,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ExpandAirActualQuestionAnswer");
         }
     }
-
 }

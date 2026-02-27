@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An individual meeting interest.
     /// </summary>
     public class AppointmentMeetingInterestJson
     {
-
         /// <summary>
         /// The name of the exhibitor in which interest is expressed.
         /// </summary>

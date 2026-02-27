@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the open ended one line type of custom field.
     /// </summary>
     public class ZeroOneOf1
     {
-
         /// <summary>
         /// The supported answer formats are: General, Number, Currency, Decimal, USPhoneNumber, and EmailAddress. Custom answer formats are also supported and can be created in the Admin section of the planner UI.
         /// </summary>

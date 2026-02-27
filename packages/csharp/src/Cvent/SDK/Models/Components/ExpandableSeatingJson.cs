@@ -11,18 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object that contains the associated seating ID.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// This is an **expandable** object and if requested will contain all the properties of a seating object.
-    /// </remarks>
     /// </summary>
     public class ExpandableSeatingJson
     {
-
         /// <summary>
         /// The unique ID of the seating.
         /// </summary>

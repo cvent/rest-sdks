@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The hotel&apos;s rating, used to classify the hotel&apos;s quality.
+    /// The hotel's rating, used to classify the hotel's quality.
     /// </summary>
     public enum HotelRatingJson
     {
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum HotelRatingJson");
         }
     }
-
 }

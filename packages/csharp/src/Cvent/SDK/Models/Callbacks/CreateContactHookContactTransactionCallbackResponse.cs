@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Callbacks
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class CreateContactHookContactTransactionCallbackResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

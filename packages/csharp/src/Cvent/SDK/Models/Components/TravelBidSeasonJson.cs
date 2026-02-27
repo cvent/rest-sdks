@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Season details for a travel bid.
     /// </summary>
     public class TravelBidSeasonJson
     {
-
         /// <summary>
         /// Season name.
         /// </summary>

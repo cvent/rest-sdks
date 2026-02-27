@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Event associated with the registration.
     /// </summary>
     public class RegistrationTypeUpdateEvent
     {
-
         /// <summary>
         /// The unique identifier of the event.
         /// </summary>

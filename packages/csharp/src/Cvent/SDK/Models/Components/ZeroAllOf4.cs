@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Booth staff for an activity.
     /// </summary>
     public class ZeroAllOf4
     {
-
         /// <summary>
         /// The unique identifier of the exhibitor booth staff.
         /// </summary>

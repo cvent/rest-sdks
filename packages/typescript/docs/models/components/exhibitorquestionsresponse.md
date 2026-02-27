@@ -18,6 +18,7 @@ let value: ExhibitorQuestionsResponse = {
         id: "3db28cfc-db22-11eb-8d19-0242ac130003",
       },
       text: "Is there a business need?",
+      code: "A001",
       type: "SingleChoice",
       required: true,
       choices: [

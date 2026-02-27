@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A Custom Field
+    /// A Custom Field.
     /// </summary>
     public class CustomFieldInput
     {
-
         /// <summary>
         /// The unique ID representing this custom field.
         /// </summary>

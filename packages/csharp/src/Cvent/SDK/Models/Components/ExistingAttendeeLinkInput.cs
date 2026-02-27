@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An existing attendee link.
     /// </summary>
     public class ExistingAttendeeLinkInput
     {
-
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
@@ -44,7 +43,7 @@ namespace Cvent.SDK.Models.Components
         public UuidJson Attendee { get; set; } = default!;
 
         /// <summary>
-        /// Source Id of the webcast provider
+        /// Source Id of the webcast provider.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }

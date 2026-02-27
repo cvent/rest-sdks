@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This schema describes the response for a list of sponsorship levels.
     /// </summary>
     public class SponsorshipLevelListResponse
     {
-
         /// <summary>
         /// List of sponsorship level.
         /// </summary>

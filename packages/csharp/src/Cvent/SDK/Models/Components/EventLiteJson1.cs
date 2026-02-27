@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The related event object.
     /// </summary>
     public class EventLiteJson1
     {
-
         /// <summary>
-        /// The unique identifier for an event
+        /// The unique identifier for an event.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

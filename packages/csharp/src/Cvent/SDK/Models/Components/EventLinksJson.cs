@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents the links associated with an event.
     /// </summary>
     public class EventLinksJson
     {
-
         /// <summary>
         /// Represents a link to a related resource.
         /// </summary>

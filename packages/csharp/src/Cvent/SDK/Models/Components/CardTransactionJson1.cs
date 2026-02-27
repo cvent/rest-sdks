@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Card transaction associated with an event.
     /// </summary>
     public class CardTransactionJson1
     {
-
         /// <summary>
         /// The identifier of the Event.
         /// </summary>

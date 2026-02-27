@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// HTTP Live Streaming input and clips.
     /// </summary>
     public class HlsInputWithClipsJson
     {
-
         /// <summary>
         /// Location for HTTP Live Streaming (HLS) recording.
         /// </summary>

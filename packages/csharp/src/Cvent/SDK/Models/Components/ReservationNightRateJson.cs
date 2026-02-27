@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Rate details for a single reservation night.
     /// </summary>
     public class ReservationNightRateJson
     {
-
         /// <summary>
         /// Base rate.
         /// </summary>

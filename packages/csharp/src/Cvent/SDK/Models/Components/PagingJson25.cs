@@ -12,33 +12,32 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents pagination information for a collection of resources.
     /// </summary>
     public class PagingJson25
     {
-
         /// <summary>
-        /// The pagination token for the next page; if available. You can use this to determine if there is additional data to fetch
+        /// The pagination token for the next page; if available. You can use this to determine if there is additional data to fetch.
         /// </summary>
         [JsonProperty("nextToken")]
         public string? NextToken { get; set; }
 
         /// <summary>
-        /// The pagination token for the current page
+        /// The pagination token for the current page.
         /// </summary>
         [JsonProperty("currentToken")]
         public string? CurrentToken { get; set; }
 
         /// <summary>
-        /// The number of records to return on the page not to exceed 200
+        /// The number of records to return on the page not to exceed 200.
         /// </summary>
         [JsonProperty("limit")]
         public long? Limit { get; set; }
 
         /// <summary>
-        /// The total number of records available
+        /// The total number of records available.
         /// </summary>
         [JsonProperty("totalCount")]
         public long? TotalCount { get; set; }

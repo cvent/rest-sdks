@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Paginated response containing alternate travel answers submitted by attendees who opt out of air or hotel bookings.
     /// </summary>
     public class AlternateTravelPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for the list of results.
         /// </summary>

@@ -52,7 +52,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
     /// The reason for the response.
     /// </summary>

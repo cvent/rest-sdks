@@ -11,38 +11,27 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Requests;
     using Cvent.SDK.Utils;
-    
+
     public class Oauth2AuthorizeRequest
     {
-
         /// <summary>
         /// The response type must be code. Indicates the client wants an authorization code (authorization code grant flow).<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// **Note:** *implicit flow* or the *token* value is not supported at this time.<br/>
-        /// 
-        /// </remarks>
+        /// **Note:** *implicit flow* or the *token* value is not supported at this time.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=response_type")]
         public ResponseType ResponseType { get; set; } = default!;
 
         /// <summary>
         /// The OAuth2 Client application ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// Must be a pre-registered client created in the developer portal.<br/>
-        /// 
-        /// </remarks>
+        /// Must be a pre-registered client created in the developer portal.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=client_id")]
         public string ClientId { get; set; } = default!;
 
         /// <summary>
         /// The URL to which the authentication server redirects the browser after authorization has been granted by the user.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// A redirect URI must:<br/>
         /// <br/>
@@ -53,38 +42,28 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Requires HTTPS over HTTP except for http://localhost for testing purposes only.<br/>
         /// <br/>
-        /// **Note:** App callback URLs such as *com.myclientapp://myclient/redirect* are also supported.<br/>
-        /// 
-        /// </remarks>
+        /// **Note:** App callback URLs such as *com.myclientapp://myclient/redirect* are also supported.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=redirect_uri")]
         public string RedirectUri { get; set; } = default!;
 
         /// <summary>
         /// An opaque value the client application adds to the initial request. The authorization server<br/>
-        /// 
-        /// <remarks>
         /// includes this value when redirecting back to the client.<br/>
         /// <br/>
         /// This value must be used by the client to prevent CSRF attacks.<br/>
         /// <br/>
-        /// **Optional** but strongly recommended.<br/>
-        /// 
-        /// </remarks>
+        /// **Optional** but strongly recommended.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=state")]
         public string? State { get; set; }
 
         /// <summary>
         /// Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.<br/>
-        /// 
-        /// <remarks>
         /// Any scope used must be pre-associated with the client or it will be ignored at runtime.<br/>
         /// <br/>
-        /// **Note:** If the client doesn&apos;t request any scopes, the authentication server uses all<br/>
-        /// scopes associated with the client.<br/>
-        /// 
-        /// </remarks>
+        /// **Note:** If the client doesn't request any scopes, the authentication server uses all<br/>
+        /// scopes associated with the client.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=scope")]
         public string? Scope { get; set; }

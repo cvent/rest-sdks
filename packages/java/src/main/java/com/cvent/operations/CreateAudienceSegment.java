@@ -13,6 +13,7 @@ import com.cvent.models.components.AudienceSegmentCreate;
 import com.cvent.models.components.ExistingAudienceSegment;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.CreateAudienceSegmentResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.HTTPClient;
@@ -97,7 +98,7 @@ public class CreateAudienceSegment {
                     typeReference);
             SerializedBody serializedRequestBody = Utils.serializeRequestBody(
                     convertedRequest,
-                    "request",
+                    "",
                     "json",
                     false);
             if (serializedRequestBody == null) {
@@ -176,6 +177,13 @@ public class CreateAudienceSegment {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
+            if (Utils.statusCodeMatches(response.statusCode(), "400")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    throw SegmentsErrorResponse.from(response);
+                } else {
+                    throw APIException.from("Unexpected content-type received: " + contentType, response);
+                }
+            }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     throw ErrorResponse.from(response);
@@ -183,7 +191,7 @@ public class CreateAudienceSegment {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "400", "4XX")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "4XX")) {
                 // no content
                 throw APIException.from("API error occurred", response);
             }
@@ -254,6 +262,14 @@ public class CreateAudienceSegment {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
+            if (Utils.statusCodeMatches(response.statusCode(), "400")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    return SegmentsErrorResponse.fromAsync(response)
+                            .thenCompose(CompletableFuture::failedFuture);
+                } else {
+                    return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
+                }
+            }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return ErrorResponse.fromAsync(response)
@@ -262,7 +278,7 @@ public class CreateAudienceSegment {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "400", "4XX")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "4XX")) {
                 // no content
                 return Utils.createAsyncApiError(response, "API error occurred");
             }

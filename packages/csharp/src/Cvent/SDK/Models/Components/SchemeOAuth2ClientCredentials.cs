@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// OAuth2 Client Credentials Flow
+    /// OAuth2 Client Credentials Flow.
     /// </summary>
     public class SchemeOAuth2ClientCredentials
     {
-
         [SpeakeasyMetadata("security:name=clientID")]
         public string ClientID { get; set; } = default!;
 

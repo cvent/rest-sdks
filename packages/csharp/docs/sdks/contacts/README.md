@@ -115,8 +115,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListContactGroupsRequest req = new ListContactGroupsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "name eq 'groupName' and type eq 'STANDARD'",
 };
@@ -550,8 +550,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListContactsRequest req = new ListContactsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "firstName eq 'John' or lastName eq 'Anderson'",
 };
@@ -880,8 +880,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListContactsPostFiltersRequest req = new ListContactsPostFiltersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = new Filter() {
         FilterValue = "firstName eq 'John' or lastName eq 'Anderson'",
@@ -992,8 +992,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetChangeHistoryForASpecificContactRequest req = new GetChangeHistoryForASpecificContactRequest() {
     ContactId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
 };
 

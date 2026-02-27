@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The attendee&apos;s registration type.
+    /// The attendee's registration type.
     /// </summary>
     public class AttendeeUpdateRegistrationType
     {
-
         /// <summary>
         /// The ID of the registration type.
         /// </summary>

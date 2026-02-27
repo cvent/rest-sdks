@@ -10,7 +10,7 @@
 namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
-    
+
     /// <summary>
     /// This is used to denote the warning codes for a video entity.
     /// </summary>
@@ -18,5 +18,4 @@ namespace Cvent.SDK.Models.Components
     {
         SevenHundred = 700,
     }
-
 }

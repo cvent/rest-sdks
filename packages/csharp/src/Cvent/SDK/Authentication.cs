@@ -27,42 +27,56 @@ namespace Cvent.SDK
     /// </summary>
     public interface IAuthentication
     {
-
         /// <summary>
-        /// Authorize
-        /// 
+        /// Authorize.
+        /// </summary>
         /// <remarks>
         /// The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request through a browser.<br/>
         /// <br/>
         /// The authorization server requires HTTPS instead of HTTP as the protocol when accessing the authorization endpoint<br/>
-        /// except for http://localhost for testing purposes only.<br/>
-        /// 
+        /// except for http://localhost for testing purposes only.
         /// </remarks>
-        /// </summary>
-        Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request);
+        /// <param name="request">A <see cref="Oauth2AuthorizeRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="Oauth2AuthorizeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request);
 
         /// <summary>
-        /// Token
-        /// 
+        /// Token.
+        /// </summary>
         /// <remarks>
         /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
         /// <br/>
-        /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.<br/>
-        /// 
+        /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
         /// </remarks>
-        /// </summary>
-        Task<Oauth2TokenResponse> Oauth2TokenAsync(Oauth2TokenSecurity security, Oauth2TokenRequest? request = null);
+        /// <param name="security">A <see cref="Oauth2TokenSecurity"/> parameter.</param>
+        /// <param name="request">A <see cref="Oauth2TokenRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="Oauth2TokenResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="security"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="BadRequestException">A bad token response. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<Oauth2TokenResponse> Oauth2TokenAsync(
+            Oauth2TokenSecurity security,
+            Oauth2TokenRequest? request = null
+        );
 
         /// <summary>
-        /// Validate Token
-        /// 
+        /// Validate Token<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Verifies presented authentication token is valid.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ValidateTokenResponse> ValidateTokenAsync();
+        /// <returns>An awaitable task that returns a <see cref="ValidateTokenResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ValidateTokenResponse> ValidateTokenAsync();
     }
 
     /// <summary>
@@ -70,25 +84,45 @@ namespace Cvent.SDK
     /// </summary>
     public class Authentication: IAuthentication
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Authentication(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request)
+        /// <summary>
+        /// Authorize.
+        /// </summary>
+        /// <remarks>
+        /// The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request through a browser.<br/>
+        /// <br/>
+        /// The authorization server requires HTTPS instead of HTTP as the protocol when accessing the authorization endpoint<br/>
+        /// except for http://localhost for testing purposes only.
+        /// </remarks>
+        /// <param name="request">A <see cref="Oauth2AuthorizeRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="Oauth2AuthorizeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/oauth2/authorize", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "*/*");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -114,9 +148,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -139,7 +173,8 @@ namespace Cvent.SDK
                     {
                         Response = httpResponse,
                         Request = httpRequest
-                    }
+                    },
+                    Headers = Utilities.CollectHeaders(httpResponse.Headers)
                 };
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500)
@@ -154,14 +189,40 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<Oauth2TokenResponse> Oauth2TokenAsync(Oauth2TokenSecurity security, Oauth2TokenRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
+        /// <summary>
+        /// Token.
+        /// </summary>
+        /// <remarks>
+        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
+        /// <br/>
+        /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
+        /// </remarks>
+        /// <param name="security">A <see cref="Oauth2TokenSecurity"/> parameter.</param>
+        /// <param name="request">A <see cref="Oauth2TokenRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="Oauth2TokenResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="security"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="BadRequestException">A bad token response. Thrown when the API returns a 400 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<Oauth2TokenResponse> Oauth2TokenAsync(
+            Oauth2TokenSecurity security,
+            Oauth2TokenRequest? request = null
+        )
+        {
+            if (security == null) throw new ArgumentNullException(nameof(security));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/oauth2/token";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "form", false, true);
             if (serializedBody != null)
@@ -185,7 +246,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -194,9 +255,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -278,14 +339,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ValidateTokenResponse> ValidateTokenAsync()
+
+        /// <summary>
+        /// Validate Token<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Verifies presented authentication token is valid.
+        /// </remarks>
+        /// <returns>An awaitable task that returns a <see cref="ValidateTokenResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ValidateTokenResponse> ValidateTokenAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/token-validation";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -302,7 +380,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -311,9 +389,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -388,5 +466,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

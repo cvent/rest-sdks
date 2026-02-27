@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents a donation item. Donation items give event invitees the option to contribute money to an association, charity, or cause during registration.
     /// </summary>
     public class DonationItemJson1
     {
-
         /// <summary>
         /// This text will be displayed in emails using the registration information widget.
         /// </summary>

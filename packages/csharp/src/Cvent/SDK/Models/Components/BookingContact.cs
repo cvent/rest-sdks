@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Booking contact information.
     /// </summary>
     public class BookingContact
     {
-
         /// <summary>
         /// Group booking ID.
         /// </summary>

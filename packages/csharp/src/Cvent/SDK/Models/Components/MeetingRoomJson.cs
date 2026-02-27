@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The meeting room.
     /// </summary>
     public class MeetingRoomJson
     {
-
         /// <summary>
         /// Planner note about the meeting room.
         /// </summary>

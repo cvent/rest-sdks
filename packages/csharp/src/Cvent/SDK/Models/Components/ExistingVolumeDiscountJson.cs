@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Representation of an existing volume based discount.
     /// </summary>
     public class ExistingVolumeDiscountJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -57,7 +56,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Active { get; set; } = true;
 
         /// <summary>
-        /// True indicates that the discount can be clubbed together with other stackable discounts
+        /// True indicates that the discount can be clubbed together with other stackable discounts.
         /// </summary>
         [JsonProperty("stackable")]
         public bool? Stackable { get; set; } = true;

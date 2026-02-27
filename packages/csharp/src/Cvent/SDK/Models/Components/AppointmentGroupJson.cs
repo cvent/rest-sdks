@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An appointment group.
     /// </summary>
     public class AppointmentGroupJson
     {
-
         /// <summary>
         /// The ID of the appointment group.
         /// </summary>

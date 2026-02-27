@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class GetBadgesPostFiltersRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -29,17 +28,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// See the filter query parameter of &lt;a href=&quot;#operation/getBadge&quot;&gt;Get Badges&lt;/a&gt; for full filtering information
+        /// See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering information.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

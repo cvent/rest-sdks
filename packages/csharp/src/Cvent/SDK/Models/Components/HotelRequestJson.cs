@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Representation of a hotel request.
     /// </summary>
     public class HotelRequestJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -118,7 +117,7 @@ namespace Cvent.SDK.Models.Components
         public string? SpecialRequest { get; set; }
 
         /// <summary>
-        /// Requesters&apos; reward code for the hotel&apos;s loyalty program.
+        /// Requesters' reward code for the hotel's loyalty program.
         /// </summary>
         [JsonProperty("rewardsCode")]
         public string? RewardsCode { get; set; }
@@ -154,7 +153,7 @@ namespace Cvent.SDK.Models.Components
         public TravelRequestStatusJson? Status { get; set; }
 
         /// <summary>
-        /// The hotel&apos;s confirmation number.
+        /// The hotel's confirmation number.
         /// </summary>
         [JsonProperty("confirmationNumber")]
         public string? ConfirmationNumber { get; set; }
@@ -202,7 +201,7 @@ namespace Cvent.SDK.Models.Components
         public bool? RoomCharge { get; set; }
 
         /// <summary>
-        /// Specifies who the hotel will charge for the room rate&apos;s tax.
+        /// Specifies who the hotel will charge for the room rate's tax.
         /// </summary>
         [JsonProperty("roomTaxBillingInstructions")]
         public string? RoomTaxBillingInstructions { get; set; }
@@ -232,7 +231,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? LatestShoulderDate { get; set; }
 
         /// <summary>
-        /// Specifies who the hotel will charge for the room rate&apos;s tax.
+        /// Specifies who the hotel will charge for the room rate's tax.
         /// </summary>
         [JsonProperty("roomTaxBillingExceptions")]
         public string? RoomTaxBillingExceptions { get; set; }

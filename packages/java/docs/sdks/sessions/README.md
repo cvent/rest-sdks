@@ -1267,7 +1267,7 @@ public class Application {
 
 ## listSessionsPostFilters
 
-Gets a paginated list of sessions by sending a filter in the request's body.  This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
 
 
 More about OAuth2 authorization code support for administrators
@@ -1630,12 +1630,12 @@ public class Application {
         UpdateSessionCustomFieldAnswersRequest req = UpdateSessionCustomFieldAnswersRequest.builder()
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .customFieldId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
-                .customField(CustomFieldInput.builder()
+                .customField1(CustomField1Input.builder()
                     .id("5bcc98a1-7899-448a-a52d-4fcaf9af774f")
                     .value(List.of(
                         "Choice C",
                         "Choice A"))
-                    .type(CustomFieldCustomFieldType.GENERAL)
+                    .type(CustomField1CustomFieldType.GENERAL)
                     .build())
                 .build();
 
@@ -1643,7 +1643,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.customField().isPresent()) {
+        if (res.customField1().isPresent()) {
             // handle response
         }
     }
@@ -1883,7 +1883,7 @@ public class Application {
 
 ## deleteSessionDocument
 
-Unassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

@@ -32,6 +32,9 @@ import com.cvent.models.operations.PostBadgeResponse;
 import com.cvent.models.operations.UpdateAttendeeRequest;
 import com.cvent.models.operations.UpdateAttendeeRequestBuilder;
 import com.cvent.models.operations.UpdateAttendeeResponse;
+import com.cvent.models.operations.UpdateAttendeeSubscriptionStatusRequest;
+import com.cvent.models.operations.UpdateAttendeeSubscriptionStatusRequestBuilder;
+import com.cvent.models.operations.UpdateAttendeeSubscriptionStatusResponse;
 import com.cvent.models.operations.UpdateBadgeRequest;
 import com.cvent.models.operations.UpdateBadgeRequestBuilder;
 import com.cvent.models.operations.UpdateBadgeResponse;
@@ -47,6 +50,7 @@ import com.cvent.operations.ListAttendeesPostFilter;
 import com.cvent.operations.ListDurations;
 import com.cvent.operations.PostBadge;
 import com.cvent.operations.UpdateAttendee;
+import com.cvent.operations.UpdateAttendeeSubscriptionStatus;
 import com.cvent.operations.UpdateBadge;
 import com.cvent.operations.UpdateInternalInfoAnswers;
 import com.cvent.utils.Headers;
@@ -261,6 +265,36 @@ public class Attendees {
     public UpdateAttendeeResponse updateAttendee(@Nonnull UpdateAttendeeRequest request) {
         RequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation
               = new UpdateAttendee.Sync(sdkConfiguration, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update Email Subscription
+     * 
+     * <p>Updates an attendee's email subscription status for a specific event.
+     * 
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     * 
+     * @return The call builder
+     */
+    public UpdateAttendeeSubscriptionStatusRequestBuilder updateAttendeeSubscriptionStatus() {
+        return new UpdateAttendeeSubscriptionStatusRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Email Subscription
+     * 
+     * <p>Updates an attendee's email subscription status for a specific event.
+     * 
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     * 
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateAttendeeSubscriptionStatusResponse updateAttendeeSubscriptionStatus(@Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
+        RequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation
+              = new UpdateAttendeeSubscriptionStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

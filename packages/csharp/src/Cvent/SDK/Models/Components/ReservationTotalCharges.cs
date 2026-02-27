@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Calculated total charges for this reservation.
     /// </summary>
     public class ReservationTotalCharges
     {
-
         /// <summary>
         /// Total charges for the given reservation without taxes.
         /// </summary>

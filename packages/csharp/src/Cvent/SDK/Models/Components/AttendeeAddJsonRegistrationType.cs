@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The attendee&apos;s registration type. Registration type controls pricing, agenda item availability, and registration experience.
+    /// The attendee's registration type. Registration type controls pricing, agenda item availability, and registration experience.
     /// </summary>
     public class AttendeeAddJsonRegistrationType
     {
-
         /// <summary>
         /// The ID of the registration type.
         /// </summary>

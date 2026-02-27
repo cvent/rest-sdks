@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A JSON Schema file for Lead.
     /// </summary>
     public class ExistingLeadJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -57,13 +56,13 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson? Exhibitor { get; set; }
 
         /// <summary>
-        /// A JSON schema representing the Attendee object
+        /// A JSON schema representing the Attendee object.
         /// </summary>
         [JsonProperty("attendee")]
         public LeadAttendeeJson? Attendee { get; set; }
 
         /// <summary>
-        /// A JSON schema representing Booth Staff entity
+        /// A JSON schema representing Booth Staff entity.
         /// </summary>
         [JsonProperty("boothStaff")]
         public LeadBoothStaffJson? BoothStaff { get; set; }
@@ -81,25 +80,25 @@ namespace Cvent.SDK.Models.Components
         public LeadAppointmentJson? Appointment { get; set; }
 
         /// <summary>
-        /// The title of the lead
+        /// The title of the lead.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// The first name of the lead
+        /// The first name of the lead.
         /// </summary>
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }
 
         /// <summary>
-        /// The last name of the lead
+        /// The last name of the lead.
         /// </summary>
         [JsonProperty("lastName")]
         public string? LastName { get; set; }
 
         /// <summary>
-        /// The email address of the lead
+        /// The email address of the lead.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }
@@ -111,31 +110,31 @@ namespace Cvent.SDK.Models.Components
         public string? Company { get; set; }
 
         /// <summary>
-        /// Mobile phone number of the lead
+        /// Mobile phone number of the lead.
         /// </summary>
         [JsonProperty("mobilePhone")]
         public string? MobilePhone { get; set; }
 
         /// <summary>
-        /// Schema for address information
+        /// Schema for address information.
         /// </summary>
         [JsonProperty("homeAddress")]
         public LeadAddressJson? HomeAddress { get; set; }
 
         /// <summary>
-        /// Home phone number of the lead
+        /// Home phone number of the lead.
         /// </summary>
         [JsonProperty("homePhone")]
         public string? HomePhone { get; set; }
 
         /// <summary>
-        /// Schema for address information
+        /// Schema for address information.
         /// </summary>
         [JsonProperty("workAddress")]
         public LeadAddressJson? WorkAddress { get; set; }
 
         /// <summary>
-        /// Work Phone number of the lead
+        /// Work Phone number of the lead.
         /// </summary>
         [JsonProperty("workPhone")]
         public string? WorkPhone { get; set; }
@@ -153,49 +152,49 @@ namespace Cvent.SDK.Models.Components
         public Application? Application { get; set; } = Cvent.SDK.Models.Components.Application.Leadcapture;
 
         /// <summary>
-        /// The source of entry for the lead
+        /// The source of entry for the lead.
         /// </summary>
         [JsonProperty("source")]
         public Source? Source { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether a lead is deleted or not
+        /// A boolean indicating whether a lead is deleted or not.
         /// </summary>
         [JsonProperty("deleted")]
         public bool? Deleted { get; set; } = false;
 
         /// <summary>
-        /// Comments about the lead
+        /// Comments about the lead.
         /// </summary>
         [JsonProperty("comments")]
         public string? Comments { get; set; }
 
         /// <summary>
-        /// License (access code) that was used to capture the lead
+        /// License (access code) that was used to capture the lead.
         /// </summary>
         [JsonProperty("licenseCode")]
         public string? LicenseCode { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the lead is matched or not
+        /// A boolean indicating whether the lead is matched or not.
         /// </summary>
         [JsonProperty("matched")]
         public bool? Matched { get; set; }
 
         /// <summary>
-        /// Current status of business card transcription
+        /// Current status of business card transcription.
         /// </summary>
         [JsonProperty("transcriptionStatus")]
         public TranscriptionStatus? TranscriptionStatus { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether a lead is qualified or not
+        /// A boolean indicating whether a lead is qualified or not.
         /// </summary>
         [JsonProperty("qualified")]
         public bool? Qualified { get; set; }
 
         /// <summary>
-        /// Map containing extra properties from badgekit provider
+        /// Map containing extra properties from badgekit provider.
         /// </summary>
         [JsonProperty("additionalBadgekitFields")]
         public AdditionalBadgekitFields? AdditionalBadgekitFields { get; set; }

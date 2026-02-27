@@ -3,11 +3,13 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -105,7 +107,8 @@ public class SessionSegment {
             .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
         this.segment = Optional.ofNullable(segment)
             .orElseThrow(() -> new IllegalArgumentException("segment cannot be null"));
-        this.active = active;
+        this.active = Optional.ofNullable(active)
+            .orElse(Builder._SINGLETON_VALUE_Active.value());
     }
     
     public SessionSegment(
@@ -413,5 +416,11 @@ public class SessionSegment {
                 session, segment, active);
         }
 
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
+                new LazySingletonValue<>(
+                        "active",
+                        "true",
+                        new TypeReference<Boolean>() {});
     }
 }

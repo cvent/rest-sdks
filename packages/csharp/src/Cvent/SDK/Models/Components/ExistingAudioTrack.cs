@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Existing audio track.
     /// </summary>
     public class ExistingAudioTrack
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public string Language { get; set; } = default!;
 
         /// <summary>
-        /// Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is a possible alternative to the main track. Commentary is a commentary on the primary audio or video track, e.g. a director&apos;s commentary. Dub is a translated version of the main audio track. Descriptive is an audio description of a video track.
+        /// Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is a possible alternative to the main track. Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is a translated version of the main audio track. Descriptive is an audio description of a video track.
         /// </summary>
         [JsonProperty("variant")]
         public AudioTrackVariantJson? Variant { get; set; } = Cvent.SDK.Models.Components.AudioTrackVariantJson.Alternate;
@@ -81,7 +80,7 @@ namespace Cvent.SDK.Models.Components
         public long? Duration { get; set; }
 
         /// <summary>
-        /// Denotes the status of an audio track. Started indicates the request to upload in the API was submitted, and the URL you&apos;ll upload an audio track to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the audio track. Available indicates the audio track is available for use.
+        /// Denotes the status of an audio track. Started indicates the request to upload in the API was submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the audio track. Available indicates the audio track is available for use.
         /// </summary>
         [JsonProperty("status")]
         public AudioTrackStatusJson? Status { get; set; }

@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     public class GetTableAssignmentRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -36,20 +35,14 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// A filter string passed in the query parameter of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// There is only one comparison type that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -62,17 +55,13 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         ///   * and<br/>
-        ///   * or<br/>
-        /// 
-        /// </remarks>
+        ///   * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
 
         /// <summary>
         /// This endpoint allows you to request additional information as an expanded response using the expand query parameter. The expanded entity is retrieved and displayed inline for each specified expand value.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// An object contains the ID of a related object in its response properties. For example, a seating assignment will have the table or seat ID associated with the assignment. You can expand these objects, along with others, in line using the expand query parameter.<br/>
         /// <br/>
@@ -83,15 +72,13 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are expandable:<br/>
         ///   * seating<br/>
         ///     * **Scope**: seating/event-seatings:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/getSeating&quot;&gt;Get Seating&lt;/a&gt;<br/>
+        ///     * **Reference**: <a href="#operation/getSeating">Get Seating</a>
         ///   * table<br/>
         ///     * **Scope**: seating/tables:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/getTable&quot;&gt;Get Table&lt;/a&gt;<br/>
+        ///     * **Reference**: <a href="#operation/getTable">Get Table</a>
         ///   * seat<br/>
         ///     * **Scope**: seating/seats:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/getSeat&quot;&gt;Get Seat&lt;/a&gt;<br/>
-        /// 
-        /// </remarks>
+        ///     * **Reference**: <a href="#operation/getSeat">Get Seat</a>
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")]
         public List<SeatingAssignmentExpand>? Expand { get; set; }

@@ -11,27 +11,26 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An existing speaker category.
     /// </summary>
     public class ExistingSpeakerCategory
     {
-
         /// <summary>
-        /// The name of the speaker category
+        /// The name of the speaker category.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The speaker category is active or not active
+        /// The speaker category is active or not active.
         /// </summary>
         [JsonProperty("active")]
         public bool? Active { get; set; }

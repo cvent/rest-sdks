@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events. `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to. `STANDARD` is a multi-purpose group for organizing contacts.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ContactGroupTypeJson");
         }
     }
-
 }

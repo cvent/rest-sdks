@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListUsersRequest
     {
-
         /// <summary>
         /// Starting index of the response.
         /// </summary>
@@ -28,9 +27,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// The following comparison types can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -51,9 +48,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         ///   * and<br/>
-        ///   * or<br/>
-        /// 
-        /// </remarks>
+        ///   * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

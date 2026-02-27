@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the category of a session.
     /// </summary>
     public class SessionCategory
     {
-
         /// <summary>
         /// A string that represents a specified session category.
         /// </summary>

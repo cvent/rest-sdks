@@ -12,34 +12,30 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Standard survey respondent.
     /// </summary>
     public class StandardSurveyRespondentInput
     {
-
         /// <summary>
-        /// Locale Id of the respondent using the IETF Language Tag format
+        /// Locale Id of the respondent using the IETF Language Tag format.
         /// </summary>
         [JsonProperty("localeId")]
         public string? LocaleId { get; set; }
 
         /// <summary>
         /// Indicates the mode by which a respondent submitted their response.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This field contains one of the enumerated, string constants listed below.<br/>
         /// <br/>
         /// Enum values:<br/>
         /// <br/>
-        /// - &quot;Not Responded&quot;: Respondent did not provide a response.<br/>
-        /// - &quot;API&quot;: Response was submitted via an API.<br/>
-        /// - &quot;Import&quot;: Response was created by a bulk import process.<br/>
-        /// - &quot;Mobile&quot; (deprecated): Historically indicated submission from a mobile device. This value is deprecated.<br/>
-        /// - &quot;Desktop&quot; (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
-        /// </remarks>
+        /// - "Not Responded": Respondent did not provide a response.<br/>
+        /// - "API": Response was submitted via an API.<br/>
+        /// - "Import": Response was created by a bulk import process.<br/>
+        /// - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is deprecated.<br/>
+        /// - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
         /// </summary>
         [JsonProperty("respondedThrough")]
         public RespondedThroughJson? RespondedThrough { get; set; }
@@ -63,13 +59,13 @@ namespace Cvent.SDK.Models.Components
         public StandardSurveyRespondentContact? Contact { get; set; }
 
         /// <summary>
-        /// Respondent Status
+        /// Respondent Status.
         /// </summary>
         [JsonProperty("status")]
         public RespondentStatusJson? Status { get; set; }
 
         /// <summary>
-        /// Invitation list of respondents
+        /// Invitation list of respondents.
         /// </summary>
         [JsonProperty("invitationList")]
         public InvitationListCommonJson? InvitationList { get; set; }

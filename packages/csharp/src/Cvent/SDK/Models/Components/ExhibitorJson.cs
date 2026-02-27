@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Associated Exhibitor.
     /// </summary>
     public class ExhibitorJson
     {
-
         /// <summary>
-        /// Exhibitor id
+        /// Exhibitor id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

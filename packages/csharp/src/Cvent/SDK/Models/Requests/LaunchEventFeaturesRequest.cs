@@ -11,12 +11,11 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class LaunchEventFeaturesRequest
     {
-
         /// <summary>
-        /// Unique Id of an event
+        /// Unique Id of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

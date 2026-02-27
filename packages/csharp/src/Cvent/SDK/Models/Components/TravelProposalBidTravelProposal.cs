@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The travel proposal that the bid belongs to.
     /// </summary>
     public class TravelProposalBidTravelProposal
     {
-
         /// <summary>
         /// The ID of the travel proposal.
         /// </summary>

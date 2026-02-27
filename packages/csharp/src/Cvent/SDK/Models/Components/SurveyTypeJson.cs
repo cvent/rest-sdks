@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Describes the survey&apos;s type. `Standalone` indicates the survey exists independent of an event. `Event` indicates the survey is an event or session feedback survey. `Assessment` indicates the survey is associated with an event and is for assessing attendees.
+    /// Describes the survey's type. `Standalone` indicates the survey exists independent of an event. `Event` indicates the survey is an event or session feedback survey. `Assessment` indicates the survey is associated with an event and is for assessing attendees.
     /// </summary>
     public enum SurveyTypeJson
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SurveyTypeJson");
         }
     }
-
 }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An assignment of an event role to a user for an event.
     /// </summary>
     public class EventRoleAssignmentJson
     {
-
         /// <summary>
         /// The unique ID of the event role assignment, which concatenates the IDs of the event, the event role, and the user assigned the role.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Config details for patch operations.
     /// </summary>
     public class Patch
     {
-
         /// <summary>
         /// Indicates if the patch operation is supported.
         /// </summary>

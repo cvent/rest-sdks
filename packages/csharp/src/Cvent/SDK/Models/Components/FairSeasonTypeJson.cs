@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply
+    /// Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply.
     /// </summary>
     public enum FairSeasonTypeJson
     {
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum FairSeasonTypeJson");
         }
     }
-
 }

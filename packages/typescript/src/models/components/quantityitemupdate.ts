@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The reference to the attendee. Contains only the ID of the attendee.
@@ -40,14 +37,6 @@ export type QuantityItemUpdate = {
 };
 
 /** @internal */
-export const QuantityItemUpdateAttendee$inboundSchema: z.ZodType<
-  QuantityItemUpdateAttendee,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-});
-/** @internal */
 export type QuantityItemUpdateAttendee$Outbound = {
   id?: string | undefined;
 };
@@ -68,27 +57,7 @@ export function quantityItemUpdateAttendeeToJSON(
     QuantityItemUpdateAttendee$outboundSchema.parse(quantityItemUpdateAttendee),
   );
 }
-export function quantityItemUpdateAttendeeFromJSON(
-  jsonString: string,
-): SafeParseResult<QuantityItemUpdateAttendee, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QuantityItemUpdateAttendee$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QuantityItemUpdateAttendee' from JSON`,
-  );
-}
 
-/** @internal */
-export const QuantityItemUpdate$inboundSchema: z.ZodType<
-  QuantityItemUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  attendee: z.lazy(() => QuantityItemUpdateAttendee$inboundSchema),
-  updatedQuantity: z.number().int(),
-  sendEmail: z.boolean().optional(),
-});
 /** @internal */
 export type QuantityItemUpdate$Outbound = {
   id: string;
@@ -114,14 +83,5 @@ export function quantityItemUpdateToJSON(
 ): string {
   return JSON.stringify(
     QuantityItemUpdate$outboundSchema.parse(quantityItemUpdate),
-  );
-}
-export function quantityItemUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<QuantityItemUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QuantityItemUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QuantityItemUpdate' from JSON`,
   );
 }

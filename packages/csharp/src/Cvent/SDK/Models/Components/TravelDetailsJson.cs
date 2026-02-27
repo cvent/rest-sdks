@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Common object that holds travel details information.
     /// </summary>
     public class TravelDetailsJson
     {
-
         /// <summary>
         /// Common object that holds travel departure/arrival information.
         /// </summary>

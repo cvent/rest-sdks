@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A survey field.
     /// </summary>
     public class FieldJson1
     {
-
         /// <summary>
         /// Text field ID.
         /// </summary>
@@ -27,19 +26,19 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// text Value of the Field
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
 
         /// <summary>
-        /// Reporting value of the Category, Its like a custom abbreviation
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
         [JsonProperty("shortText")]
         public string? ShortText { get; set; }
 
         /// <summary>
-        /// Field Type
+        /// Field Type.
         /// </summary>
         [JsonProperty("type")]
         public FieldTypeJson1? Type { get; set; }
@@ -51,19 +50,19 @@ namespace Cvent.SDK.Models.Components
         public List<ChoiceJson3>? Choices { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice i.e N/A choice or otherAnswer choice
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
         public AdditionalChoiceJson? NotApplicableAnswer { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice i.e N/A choice or otherAnswer choice
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
         public AdditionalChoiceJson? OtherAnswer { get; set; }
 
         /// <summary>
-        /// Is this a mandatory field
+        /// Is this a mandatory field.
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; } = false;

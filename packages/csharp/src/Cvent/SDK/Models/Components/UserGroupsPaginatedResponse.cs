@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Contains a paginated list of user groups associated with an event
+    /// Contains a paginated list of user groups associated with an event.
     /// </summary>
     public class UserGroupsPaginatedResponse
     {
-
         /// <summary>
-        /// List of user groups
+        /// List of user groups.
         /// </summary>
         [JsonProperty("data")]
         public List<UserGroupJson1> Data { get; set; } = default!;

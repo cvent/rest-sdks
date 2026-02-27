@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An existing attendee link.
     /// </summary>
     public class ExistingAttendeeLink
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -69,7 +68,7 @@ namespace Cvent.SDK.Models.Components
         public UuidJson Attendee { get; set; } = default!;
 
         /// <summary>
-        /// Source Id of the webcast provider
+        /// Source Id of the webcast provider.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
@@ -81,7 +80,7 @@ namespace Cvent.SDK.Models.Components
         public WebcastLinkJson? Join { get; set; }
 
         /// <summary>
-        /// Attendee-link ID
+        /// Attendee-link ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

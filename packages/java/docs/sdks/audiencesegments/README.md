@@ -105,13 +105,14 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.CreateAudienceSegmentResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws SegmentsErrorResponse, ErrorResponse, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -155,10 +156,11 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 422, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| models/errors/SegmentsErrorResponse | 400                                 | application/json                    |
+| models/errors/ErrorResponse         | 401, 403, 422, 429                  | application/json                    |
+| models/errors/APIException          | 4XX, 5XX                            | \*/\*                               |
 
 ## listAudienceSegments
 
@@ -622,6 +624,7 @@ import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
 import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.AssociateAttendeeToSegmentRequest;
 import com.cvent.models.operations.AssociateAttendeeToSegmentResponse;
 import java.lang.Exception;
@@ -629,7 +632,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws SegmentsErrorResponse, ErrorResponse, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -668,10 +671,11 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 422, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| models/errors/SegmentsErrorResponse | 400                                 | application/json                    |
+| models/errors/ErrorResponse         | 401, 403, 404, 422, 429             | application/json                    |
+| models/errors/APIException          | 4XX, 5XX                            | \*/\*                               |
 
 ## disassociateAttendeeFromAudienceSegment
 

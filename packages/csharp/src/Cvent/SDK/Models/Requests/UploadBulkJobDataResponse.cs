@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class UploadBulkJobDataResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Information regarding the uploaded data
+        /// Information regarding the uploaded data.
         /// </summary>
         public BulkDataUploadResponse? BulkDataUploadResponse { get; set; }
     }

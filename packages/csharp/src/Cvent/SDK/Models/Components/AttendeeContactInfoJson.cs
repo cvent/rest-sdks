@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Information about attendee contact added to an event.
     /// </summary>
     public class AttendeeContactInfoJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated. Please use the <a href="/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
         /// </summary>
@@ -50,25 +49,25 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The id of contact
+        /// The id of contact.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The first name of the contact
+        /// The first name of the contact.
         /// </summary>
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }
 
         /// <summary>
-        /// The last name of the contact
+        /// The last name of the contact.
         /// </summary>
         [JsonProperty("lastName")]
         public string? LastName { get; set; }
 
         /// <summary>
-        /// The middle name of the contact
+        /// The middle name of the contact.
         /// </summary>
         [JsonProperty("middleName")]
         public string? MiddleName { get; set; }
@@ -80,13 +79,13 @@ namespace Cvent.SDK.Models.Components
         public string? Nickname { get; set; }
 
         /// <summary>
-        /// The email address of the contact
+        /// The email address of the contact.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }
 
         /// <summary>
-        /// An alternate email address of the contact that will be cc&apos;d on all email communications
+        /// An alternate email address of the contact that will be cc'd on all email communications.
         /// </summary>
         [JsonProperty("ccEmail")]
         public string? CcEmail { get; set; }
@@ -104,25 +103,25 @@ namespace Cvent.SDK.Models.Components
         public string? Company { get; set; }
 
         /// <summary>
-        /// The designation of the contact
+        /// The designation of the contact.
         /// </summary>
         [JsonProperty("designation")]
         public string? Designation { get; set; }
 
         /// <summary>
-        /// The job title of the contact
+        /// The job title of the contact.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// Contains details related to the attendee&apos;s contact type.
+        /// Contains details related to the attendee's contact type.
         /// </summary>
         [JsonProperty("type")]
         public AttendeeContactTypeJson? Type { get; set; }
 
         /// <summary>
-        /// Attendee&apos;s contact membership information. Note: This field is deprecated. Previous documentation incorrectly listed support for this feature.
+        /// Attendee's contact membership information. Note: This field is deprecated. Previous documentation incorrectly listed support for this feature.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("membership")]
@@ -135,37 +134,37 @@ namespace Cvent.SDK.Models.Components
         public AddressTypeJson? PrimaryAddressType { get; set; }
 
         /// <summary>
-        /// Address details
+        /// Address details.
         /// </summary>
         [JsonProperty("homeAddress")]
         public AddressJson4? HomeAddress { get; set; }
 
         /// <summary>
-        /// Home phone number
+        /// Home phone number.
         /// </summary>
         [JsonProperty("homePhone")]
         public string? HomePhone { get; set; }
 
         /// <summary>
-        /// Home FAX number
+        /// Home FAX number.
         /// </summary>
         [JsonProperty("homeFax")]
         public string? HomeFax { get; set; }
 
         /// <summary>
-        /// Address details
+        /// Address details.
         /// </summary>
         [JsonProperty("workAddress")]
         public AddressJson4? WorkAddress { get; set; }
 
         /// <summary>
-        /// Work phone number
+        /// Work phone number.
         /// </summary>
         [JsonProperty("workPhone")]
         public string? WorkPhone { get; set; }
 
         /// <summary>
-        /// Work FAX number
+        /// Work FAX number.
         /// </summary>
         [JsonProperty("workFax")]
         public string? WorkFax { get; set; }
@@ -180,22 +179,22 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomField>? CustomFields { get; set; }
+        public List<CustomFieldJson3>? CustomFields { get; set; }
 
         /// <summary>
-        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name has part of the ID
+        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name has part of the ID.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
 
         /// <summary>
-        /// Mobile phone number
+        /// Mobile phone number.
         /// </summary>
         [JsonProperty("mobilePhone")]
         public string? MobilePhone { get; set; }
 
         /// <summary>
-        /// Detail related to compliance with the contact&apos;s privacy rights under various legislation.
+        /// Detail related to compliance with the contact's privacy rights under various legislation.
         /// </summary>
         [JsonProperty("compliance")]
         public List<ComplianceJson>? Compliance { get; set; }
@@ -219,19 +218,19 @@ namespace Cvent.SDK.Models.Components
         public bool? Deleted { get; set; } = false;
 
         /// <summary>
-        /// The headline of the contact&apos;s profile, which summarizes their professional experience and qualities.
+        /// The headline of the contact's profile, which summarizes their professional experience and qualities.
         /// </summary>
         [JsonProperty("headline")]
         public string? Headline { get; set; }
 
         /// <summary>
-        /// A contact&apos;s personal website URL.
+        /// A contact's personal website URL.
         /// </summary>
         [JsonProperty("personalWebsite")]
         public string? PersonalWebsite { get; set; }
 
         /// <summary>
-        /// A contact&apos;s biographical writeup.
+        /// A contact's biographical writeup.
         /// </summary>
         [JsonProperty("biography")]
         public string? Biography { get; set; }

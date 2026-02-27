@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The estimated budget of the Meeting Request.
     /// </summary>
     public class BudgetEstimateJson
     {
-
         /// <summary>
         /// The ISO 4217 standard format currency code used for this budget. Note: the allowed currencies are configured per account. A **BAD REQUEST (400)** error will be returned if the specified currency is not allowed for the account during the creation or update of the Meeting Request.
         /// </summary>

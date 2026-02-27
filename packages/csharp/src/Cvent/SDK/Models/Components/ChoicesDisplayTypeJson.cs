@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Display type indicating how to display the choices on UI. For &apos;Choice - Single Answer&apos; custom field type, this defaults to Dropdown. For &apos;Choice - Multiple Answers&apos; custom field type, this defaults to MultiSelectBox.
+    /// Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
     /// </summary>
     public enum ChoicesDisplayTypeJson
     {
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ChoicesDisplayTypeJson");
         }
     }
-
 }

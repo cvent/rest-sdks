@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// All the colors associated with the Events+ hub.
     /// </summary>
     public class HubColorsJson
     {
-
         /// <summary>
         /// The secondary color of an Events+ hub.
         /// </summary>

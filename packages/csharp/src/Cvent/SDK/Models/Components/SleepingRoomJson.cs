@@ -14,15 +14,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The sleeping room.
     /// </summary>
     public class SleepingRoomJson
     {
-
         /// <summary>
-        /// The date types used for the proposal, &apos;PREFERRED&apos; have the highest priority. Values prefixed with &apos;ALTERNATE_&apos; are decreasing in priority (e.g., ALTERNATE_1 has higher priority than &apos;ALTERNATE_2 and so on).
+        /// The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and so on).
         /// </summary>
         [JsonProperty("proposalDateType")]
         public DateTypeJson1? ProposalDateType { get; set; } = Cvent.SDK.Models.Components.DateTypeJson1.Preferred;
@@ -82,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public double? TotalRoomCost { get; set; }
 
         /// <summary>
-        /// The planner&apos;s budgeted room rate.
+        /// The planner's budgeted room rate.
         /// </summary>
         [JsonProperty("budgetedRoomRate")]
         public double? BudgetedRoomRate { get; set; }

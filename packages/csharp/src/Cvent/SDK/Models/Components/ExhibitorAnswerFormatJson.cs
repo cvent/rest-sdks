@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between &apos;Dropdown&apos; or &apos;RadioButton&apos;. For OpenEndedTextOneLine questions, select &apos;General&apos;, &apos;EmailAddress&apos;, or &apos;PhoneNumber&apos;. For OpenEndedDateTime questions, use &apos;DateAndTime&apos; or &apos;Date&apos;.
+    /// Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
     /// </summary>
     public enum ExhibitorAnswerFormatJson
     {
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ExhibitorAnswerFormatJson");
         }
     }
-
 }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Payment request for a budget item in an event.
     /// </summary>
     public class PaymentRequest
     {
-
         /// <summary>
         /// Name of the payment.
         /// </summary>

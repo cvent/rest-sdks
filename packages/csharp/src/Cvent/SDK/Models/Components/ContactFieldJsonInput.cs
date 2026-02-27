@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Contains contact data. For example, a User&apos;s email address.
+    /// Contains contact data. For example, a User's email address.
     /// </summary>
     public class ContactFieldJsonInput
     {
-
         /// <summary>
         /// The name of the field.
         /// </summary>

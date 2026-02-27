@@ -12,10 +12,11 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Method by which the attendee was invited to the event. Note: This field is deprecated. Previous documentation incorrectly listed support for this feature.
-    /// </summary>    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
+    /// </summary>
+    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public enum DeprecatedAttendeeInvitedByJson
     {
         [JsonProperty("Planner-Invited")]
@@ -70,5 +71,4 @@ namespace Cvent.SDK.Models.Components
         }
     }
 #pragma warning restore 0618
-
 }

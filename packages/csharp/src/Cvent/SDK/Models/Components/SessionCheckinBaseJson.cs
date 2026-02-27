@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Base model for a session check-in.
     /// </summary>
     public class SessionCheckinBaseJson
     {
-
         /// <summary>
         /// ID of an attendee to be checked in to a session.
         /// </summary>

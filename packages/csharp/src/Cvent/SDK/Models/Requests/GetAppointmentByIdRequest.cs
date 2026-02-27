@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetAppointmentByIdRequest
     {
-
         /// <summary>
         /// The unique identifier of an appointment.
         /// </summary>

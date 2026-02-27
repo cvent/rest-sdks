@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class AssignContactProfileImageRequest
     {
-
         /// <summary>
         /// ID of a contact.
         /// </summary>
@@ -22,11 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The file ID provided by the &lt;a href=&quot;#operation/uploadFile&quot;&gt;file upload&lt;/a&gt; endpoint.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ContactFileInput ContactFile { get; set; } = default!;

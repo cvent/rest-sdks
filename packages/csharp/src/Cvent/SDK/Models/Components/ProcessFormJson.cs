@@ -11,18 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object that contains the process form ID.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// This is an **expandable** object and if requested will contain the name of a process form object.
-    /// </remarks>
     /// </summary>
     public class ProcessFormJson
     {
-
         /// <summary>
         /// The ID of the process form.
         /// </summary>

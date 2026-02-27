@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Contains information about a registrant associated with a budget.
     /// </summary>
     public class BudgetAssociatedRegistrantJson
     {
-
         /// <summary>
         /// First name of associated registrant.
         /// </summary>

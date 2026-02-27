@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// An attendee&apos;s meeting interests for an event.
+    /// An attendee's meeting interests for an event.
     /// </summary>
     public class AttendeeAppointmentMeetingInterest
     {
-
         /// <summary>
         /// The unique ID of this meeting interest.
         /// </summary>
@@ -40,7 +39,7 @@ namespace Cvent.SDK.Models.Components
         public UuidJson? AppointmentEvent { get; set; }
 
         /// <summary>
-        /// An array describing each of the attendee&apos;s meeting interests for the given appointment event.
+        /// An array describing each of the attendee's meeting interests for the given appointment event.
         /// </summary>
         [JsonProperty("interests")]
         public List<AppointmentMeetingInterestJson>? Interests { get; set; }

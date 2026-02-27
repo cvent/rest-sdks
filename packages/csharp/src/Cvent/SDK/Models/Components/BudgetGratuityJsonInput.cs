@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Budget item gratuity details.
     /// </summary>
     public class BudgetGratuityJsonInput
     {
-
         /// <summary>
         /// Gratuity applied to the budget item. This value can be a percentage of the cost or a flat dollar amount.
         /// </summary>

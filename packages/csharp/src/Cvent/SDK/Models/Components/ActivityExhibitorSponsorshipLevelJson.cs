@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Sponsorship level for an activity exhibitor.
     /// </summary>
     public class ActivityExhibitorSponsorshipLevelJson
     {
-
         /// <summary>
         /// The unique identifier of the sponsorship level.
         /// </summary>

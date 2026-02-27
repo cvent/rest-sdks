@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Budget cost avoidance information.
     /// </summary>
     public class BudgetCostAvoidanceJson
     {
-
         /// <summary>
         /// Cost avoidance amount.
         /// </summary>

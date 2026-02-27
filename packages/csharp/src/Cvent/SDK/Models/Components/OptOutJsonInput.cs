@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of an opt-out for a Contact.
     /// </summary>
     public class OptOutJsonInput
     {
-
         /// <summary>
         /// Used to denote if a contact has opted-out of receiving system generated emails.
         /// </summary>

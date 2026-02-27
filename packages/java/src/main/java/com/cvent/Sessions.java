@@ -640,7 +640,7 @@ public class Sessions {
      * List Sessions
      * 
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
-     * same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+     * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
      * 
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      * 
@@ -654,7 +654,7 @@ public class Sessions {
      * List Sessions
      * 
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
-     * same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+     * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
      * 
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      * 
@@ -885,7 +885,7 @@ public class Sessions {
     /**
      * Delete Document from Session
      * 
-     * <p>Unassociates a given document from a session. Document IDs are provided after <a
+     * <p>Disassociates a given document from a session. Document IDs are provided after <a
      * href="#operation/uploadFile">file upload</a>.
      * 
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -899,7 +899,7 @@ public class Sessions {
     /**
      * Delete Document from Session
      * 
-     * <p>Unassociates a given document from a session. Document IDs are provided after <a
+     * <p>Disassociates a given document from a session. Document IDs are provided after <a
      * href="#operation/uploadFile">file upload</a>.
      * 
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>

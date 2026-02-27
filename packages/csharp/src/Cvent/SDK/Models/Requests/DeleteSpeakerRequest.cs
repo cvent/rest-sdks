@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteSpeakerRequest
     {
-
         /// <summary>
         /// The unique identifier of a speaker.
         /// </summary>

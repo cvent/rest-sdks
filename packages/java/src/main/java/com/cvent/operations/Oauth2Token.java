@@ -102,7 +102,7 @@ public class Oauth2Token {
                     typeReference);
             SerializedBody serializedRequestBody = Utils.serializeRequestBody(
                     convertedRequest,
-                    "request",
+                    "",
                     "form",
                     false);
             req.setBody(Optional.ofNullable(serializedRequestBody));

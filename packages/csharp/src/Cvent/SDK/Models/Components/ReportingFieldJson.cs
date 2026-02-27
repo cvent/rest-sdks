@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reporting fields and values for a virtual card.
     /// </summary>
     public class ReportingFieldJson
     {
-
         /// <summary>
-        /// The reporting field&apos;s name.
+        /// The reporting field's name.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

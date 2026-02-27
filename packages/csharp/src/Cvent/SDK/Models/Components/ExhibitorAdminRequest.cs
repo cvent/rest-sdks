@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object representing the exhibitor admin.
     /// </summary>
     public class ExhibitorAdminRequest
     {
-
         /// <summary>
         /// The Associated Exhibitor.
         /// </summary>
@@ -26,19 +25,19 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// The first name of the exhibitor admin
+        /// The first name of the exhibitor admin.
         /// </summary>
         [JsonProperty("firstName")]
         public string FirstName { get; set; } = default!;
 
         /// <summary>
-        /// The last name of the exhibitor admin
+        /// The last name of the exhibitor admin.
         /// </summary>
         [JsonProperty("lastName")]
         public string LastName { get; set; } = default!;
 
         /// <summary>
-        /// The email address of the exhibitor admin
+        /// The email address of the exhibitor admin.
         /// </summary>
         [JsonProperty("email")]
         public string Email { get; set; } = default!;

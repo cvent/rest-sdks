@@ -1,6 +1,6 @@
 # CustomFieldJson2
 
-A survey custom field.
+A Custom Field
 
 ## Example Usage
 
@@ -8,14 +8,14 @@ A survey custom field.
 import { CustomFieldJson2 } from "@cvent/sdk/models/components";
 
 let value: CustomFieldJson2 = {
-  id: "bd57aeda-3483-4bcf-886e-c976e9f4454a",
-  name: "What is a your favorite color?",
-  code: "FAVORITE_COLOR_CODE",
-  type: "Open Ended Text - One Line",
-  values: [
-    "Green",
-    "Blue",
+  id: "aafda261-f00a-4f9b-8520-7aa20daa5fc2",
+  name: "What is your favorite color?",
+  value: [
+    "Choice C",
+    "Choice A",
   ],
+  order: 1,
+  type: "MultiSelect",
 };
 ```
 
@@ -23,8 +23,8 @@ let value: CustomFieldJson2 = {
 
 | Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              | Example                                                                                                  |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                     | *string*                                                                                                 | :heavy_check_mark:                                                                                       | The unique id representing this custom field.                                                            | bd57aeda-3483-4bcf-886e-c976e9f4454a                                                                     |
-| `name`                                                                                                   | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | The actual text of the custom field.                                                                     | What is a your favorite color?                                                                           |
-| `code`                                                                                                   | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | Code to uniquely identify custom field.                                                                  | FAVORITE_COLOR_CODE                                                                                      |
-| `type`                                                                                                   | [components.CustomFieldJson2CustomFieldType](../../models/components/customfieldjson2customfieldtype.md) | :heavy_minus_sign:                                                                                       | N/A                                                                                                      | Open Ended Text - One Line                                                                               |
-| `values`                                                                                                 | *string*[]                                                                                               | :heavy_check_mark:                                                                                       | The set of values or possible values to a custom field.                                                  | [<br/>"Green",<br/>"Blue"<br/>]                                                                          |
+| `id`                                                                                                     | *string*                                                                                                 | :heavy_check_mark:                                                                                       | The unique ID representing this custom field.                                                            |                                                                                                          |
+| `name`                                                                                                   | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | The actual text of the custom field.                                                                     | What is your favorite color?                                                                             |
+| `value`                                                                                                  | *string*[]                                                                                               | :heavy_check_mark:                                                                                       | The set of answers or possible answers to a question.                                                    | [<br/>"Choice C",<br/>"Choice A"<br/>]                                                                   |
+| `order`                                                                                                  | *number*                                                                                                 | :heavy_minus_sign:                                                                                       | The order of this question in the bigger list of questions.                                              | 1                                                                                                        |
+| `type`                                                                                                   | [components.CustomFieldJson2CustomFieldType](../../models/components/customfieldjson2customfieldtype.md) | :heavy_minus_sign:                                                                                       | The type of data collected by a custom field.                                                            | MultiSelect                                                                                              |

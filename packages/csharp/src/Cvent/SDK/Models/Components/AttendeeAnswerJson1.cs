@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Answer for the question answered by attendee.
     /// </summary>
     public class AttendeeAnswerJson1
     {
-
         /// <summary>
         /// The reference to the question entity. Contains only the ID of the question entity.
         /// </summary>

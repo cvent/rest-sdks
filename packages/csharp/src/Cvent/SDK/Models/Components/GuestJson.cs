@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Guest details.
     /// </summary>
     public class GuestJson
     {
-
         /// <summary>
         /// Arrival date in ISO 8601 format.
         /// </summary>
@@ -93,7 +92,7 @@ namespace Cvent.SDK.Models.Components
         public string? WorkPhone { get; set; }
 
         /// <summary>
-        /// Address details. Required to create/update a guest&apos;s reservation if the hotel/event requires an address in reservations.
+        /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
         /// </summary>
         [JsonProperty("homeAddress")]
         public AddressJson3? HomeAddress { get; set; }

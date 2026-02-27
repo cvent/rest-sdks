@@ -55,20 +55,19 @@ export type GetHotelRequestsRequest = {
    */
   sort?: string | undefined;
   /**
-   * "A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
+   * Use filter query parameters to limit results
    *
    * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * These are the comparison types that can be used in filter expressions:
-   * * equal: eq
-   * * not equal: ne
+   * Supported fields and operators are listed below:
    *
-   * Field filterable:
-   * * attendee.id (Attendee Id)
+   * | Field            | Operators                          | Notes                                          |
+   * |------------------|-------------------------------------|------------------------------------------------|
+   * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a filter     |
    *
-   * Limits for the number of fields that can be passed in a filter 17
-   *
-   * The following operators are available:
+   * The following logical operators are supported for combining filters:
    * * or
    */
   filter?: string | undefined;

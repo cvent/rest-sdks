@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetEventAsyncStatusRequest
     {
-
         /// <summary>
         /// Process ID for the async process for creating events.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A filter which is sent through the body of the request.
     /// </summary>
     public class Filter
     {
-
         /// <summary>
         /// Filter included in the request.
         /// </summary>

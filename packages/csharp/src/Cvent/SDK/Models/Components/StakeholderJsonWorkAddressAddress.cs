@@ -12,14 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The work address of the stakeholder (no longer supported).
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class StakeholderJsonWorkAddressAddress
     {
-
         /// <summary>
         /// The first line of an address.
         /// </summary>

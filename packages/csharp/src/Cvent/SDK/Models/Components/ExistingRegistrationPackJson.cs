@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Schema for existing registration pack object
+    /// Schema for existing registration pack object.
     /// </summary>
     public class ExistingRegistrationPackJson
     {
-
         /// <summary>
-        /// Registration pack id
+        /// Registration pack id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -39,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// Array of capacities
+        /// Array of capacities.
         /// </summary>
         [JsonProperty("capacities")]
         public List<ExistingCapacityJson> Capacities { get; set; } = default!;

@@ -20,13 +20,13 @@ const value: string = "Example request information.";
 ### `number`
 
 ```typescript
-const value: number = NaN;
+const value: number = 1284.03;
 ```
 
 ### `number`
 
 ```typescript
-const value: number = NaN;
+const value: number = 128403;
 ```
 
 ### `boolean`

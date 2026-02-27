@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.Expand2;
+import com.cvent.models.components.Expand1;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
@@ -69,7 +69,7 @@ public class GetAttendeeCreditsRequest {
      * `creditType` is not currently provided).
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")
-    private List<Expand2> expand;
+    private List<Expand1> expand;
 
     /**
      * A filter query string narrows search
@@ -102,7 +102,7 @@ public class GetAttendeeCreditsRequest {
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String sort,
-            @Nullable List<Expand2> expand,
+            @Nullable List<Expand1> expand,
             @Nullable String filter) {
         this.after = after;
         this.before = before;
@@ -174,7 +174,7 @@ public class GetAttendeeCreditsRequest {
      * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
      * `creditType` is not currently provided).
      */
-    public Optional<List<Expand2>> expand() {
+    public Optional<List<Expand1>> expand() {
         return Optional.ofNullable(this.expand);
     }
 
@@ -272,7 +272,7 @@ public class GetAttendeeCreditsRequest {
      * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
      * `creditType` is not currently provided).
      */
-    public GetAttendeeCreditsRequest withExpand(@Nullable List<Expand2> expand) {
+    public GetAttendeeCreditsRequest withExpand(@Nullable List<Expand1> expand) {
         this.expand = expand;
         return this;
     }
@@ -357,7 +357,7 @@ public class GetAttendeeCreditsRequest {
 
         private String sort;
 
-        private List<Expand2> expand;
+        private List<Expand1> expand;
 
         private String filter;
 
@@ -424,7 +424,7 @@ public class GetAttendeeCreditsRequest {
          * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
          * `creditType` is not currently provided).
          */
-        public Builder expand(@Nullable List<Expand2> expand) {
+        public Builder expand(@Nullable List<Expand1> expand) {
             this.expand = expand;
             return this;
         }

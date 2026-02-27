@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A representation of an exhibitor including all relevant information.
     /// </summary>
     public class ExhibitorRequest
     {
-
         /// <summary>
         /// The Associated Event.
         /// </summary>
@@ -32,25 +31,25 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor description
+        /// Exhibitor description.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// Code used to identify the exhibitor
+        /// Code used to identify the exhibitor.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// Code used for marketing groupings
+        /// Code used for marketing groupings.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
 
         /// <summary>
-        /// Exhibitor location
+        /// Exhibitor location.
         /// </summary>
         [JsonProperty("location")]
         public string? Location { get; set; }
@@ -62,31 +61,31 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorAddressJson? Address { get; set; }
 
         /// <summary>
-        /// Email address of the exhibitor
+        /// Email address of the exhibitor.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }
 
         /// <summary>
-        /// Mobile Phone of the exhibitor
+        /// Mobile Phone of the exhibitor.
         /// </summary>
         [JsonProperty("mobilePhone")]
         public string? MobilePhone { get; set; }
 
         /// <summary>
-        /// Work Phone of the exhibitor
+        /// Work Phone of the exhibitor.
         /// </summary>
         [JsonProperty("workPhone")]
         public string? WorkPhone { get; set; }
 
         /// <summary>
-        /// Any other phone of the exhibitor
+        /// Any other phone of the exhibitor.
         /// </summary>
         [JsonProperty("otherPhone")]
         public string? OtherPhone { get; set; }
 
         /// <summary>
-        /// Exhibitor&apos;s website URL
+        /// Exhibitor's website URL.
         /// </summary>
         [JsonProperty("website")]
         public string? Website { get; set; }
@@ -98,7 +97,7 @@ namespace Cvent.SDK.Models.Components
         public ContactLinksJson2? ContactLinks { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the exhibitor is deleted or not
+        /// A boolean indicating whether the exhibitor is deleted or not.
         /// </summary>
         [JsonProperty("deleted")]
         public bool? Deleted { get; set; } = false;
@@ -110,19 +109,19 @@ namespace Cvent.SDK.Models.Components
         public bool? Hidden { get; set; } = false;
 
         /// <summary>
-        /// A boolean indicating whether the exhibitor is an event sponsor or not
+        /// A boolean indicating whether the exhibitor is an event sponsor or not.
         /// </summary>
         [JsonProperty("eventSponsor")]
         public bool? EventSponsor { get; set; } = false;
 
         /// <summary>
-        /// A boolean indicating whether the exhibitor is designated as featured or not
+        /// A boolean indicating whether the exhibitor is designated as featured or not.
         /// </summary>
         [JsonProperty("featured")]
         public bool? Featured { get; set; } = false;
 
         /// <summary>
-        /// Associated sponsorship level for an exhibitor
+        /// Associated sponsorship level for an exhibitor.
         /// </summary>
         [JsonProperty("sponsorshipLevel")]
         public SponsorshipLevelJson? SponsorshipLevel { get; set; }

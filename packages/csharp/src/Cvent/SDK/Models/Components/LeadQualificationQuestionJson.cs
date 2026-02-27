@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A JSON schema representing a Lead Qualification Question model
+    /// A JSON schema representing a Lead Qualification Question model.
     /// </summary>
     public class LeadQualificationQuestionJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Lead Qualification Question id
+        /// Lead Qualification Question id.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -64,43 +63,43 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson? Exhibitor { get; set; }
 
         /// <summary>
-        /// Type of question
+        /// Type of question.
         /// </summary>
         [JsonProperty("type")]
         public LeadQualificationQuestionJsonType? Type { get; set; }
 
         /// <summary>
-        /// question code
+        /// question code.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// List of available choices for the question
+        /// List of available choices for the question.
         /// </summary>
         [JsonProperty("choices")]
         public List<ChoiceJson2>? Choices { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice
+        /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
         public AdditionalChoiceJson1? NotApplicableAnswer { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice
+        /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("otherAnswers")]
         public AdditionalChoiceJson1? OtherAnswers { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the question is mandatory or not
+        /// A boolean indicating whether the question is mandatory or not.
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; }
 
         /// <summary>
-        /// text of the question
+        /// text of the question.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }

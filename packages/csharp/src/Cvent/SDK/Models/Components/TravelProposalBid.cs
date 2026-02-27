@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A travel proposal bid erate plan that is being proposed to a customer.
     /// </summary>
     public class TravelProposalBid
     {
-
         /// <summary>
         /// The travel proposal that the bid belongs to.
         /// </summary>
@@ -105,49 +104,49 @@ namespace Cvent.SDK.Models.Components
         public string? InternalNote { get; set; }
 
         /// <summary>
-        /// Additional Info
+        /// Additional Info.
         /// </summary>
         [JsonProperty("comments")]
         public List<TravelBidCommentJson>? Comments { get; set; }
 
         /// <summary>
-        /// Room Types associated with the bid
+        /// Room Types associated with the bid.
         /// </summary>
         [JsonProperty("roomTypes")]
         public List<TravelBidRoomJson>? RoomTypes { get; set; }
 
         /// <summary>
-        /// Seasons associated with the bid
+        /// Seasons associated with the bid.
         /// </summary>
         [JsonProperty("seasons")]
         public List<TravelBidSeasonJson>? Seasons { get; set; }
 
         /// <summary>
-        /// Dynamic discounts associated with the bid
+        /// Dynamic discounts associated with the bid.
         /// </summary>
         [JsonProperty("discounts")]
         public List<TravelBidDiscountJson>? Discounts { get; set; }
 
         /// <summary>
-        /// Fair seasons associated with the bid
+        /// Fair seasons associated with the bid.
         /// </summary>
         [JsonProperty("fairSeasons")]
         public List<TravelBidFairSeasonJson>? FairSeasons { get; set; }
 
         /// <summary>
-        /// Amenities associated with the bid
+        /// Amenities associated with the bid.
         /// </summary>
         [JsonProperty("amenities")]
         public List<TravelBidAmenityJson>? Amenities { get; set; }
 
         /// <summary>
-        /// Policies associated with the bid
+        /// Policies associated with the bid.
         /// </summary>
         [JsonProperty("policies")]
         public List<TravelBidPolicyJson>? Policies { get; set; }
 
         /// <summary>
-        /// Taxes &amp; fees associated with the bid
+        /// Taxes &amp; fees associated with the bid.
         /// </summary>
         [JsonProperty("taxesAndFees")]
         public List<TravelBidTaxFeeJson>? TaxesAndFees { get; set; }

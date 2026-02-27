@@ -13,10 +13,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using System;
     using System.Collections.Generic;
-    
+
     public class ListAttendeesRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -37,19 +36,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// This endpoint allows you to request additional information as an expanded response using the expand query parameter.<br/>
-        /// 
-        /// <remarks>
         /// The expanded entity is retrieved and displayed inline for each specified expand value.<br/>
         /// <br/>
         /// An object contains the ID of a related object in its response properties. You can expand these objects,<br/>
@@ -62,20 +55,16 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are expandable:<br/>
         ///   * answers.question<br/>
         ///     * **Scope**: event/events:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/getEventQuestions&quot;&gt;List Event Questions&lt;/a&gt;<br/>
+        ///     * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
         ///   * registrationType<br/>
         ///     * **Scope**: event/registration-types:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/listRegistrationTypes&quot;&gt;List Registration Types&lt;/a&gt;<br/>
-        /// 
-        /// </remarks>
+        ///     * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")]
         public List<Expand>? Expand { get; set; }
 
         /// <summary>
         /// The `sort` query parameter sorts items in the list of results and organizes them according to your preference.<br/>
-        /// 
-        /// <remarks>
         /// There are two orders:<br/>
         ///   * ascending: ASC<br/>
         ///   * descending: DESC<br/>
@@ -86,9 +75,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * contact.title<br/>
         ///   * contact.company<br/>
         ///   * registeredAt<br/>
-        ///   * checkIn<br/>
-        /// 
-        /// </remarks>
+        ///   * checkIn.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sort")]
         public string? Sort { get; set; }
@@ -101,9 +88,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// These are the comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
@@ -158,10 +143,9 @@ namespace Cvent.SDK.Models.Requests
         ///   * deletedGuest (eq|ne)<br/>
         /// <br/>
         /// Note:<br/>
-        ///   * lastModified: Will be updated when any field in the response has changed. Used by the &apos;before&apos; and &apos;after&apos; filters.<br/>
-        ///   * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not used by the &apos;before&apos; and &apos;after&apos; filters.<br/>
+        ///   * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and 'after' filters.<br/>
+        ///   * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not used by the 'before' and 'after' filters.<br/>
         ///   * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests in the response.
-        /// </remarks>
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

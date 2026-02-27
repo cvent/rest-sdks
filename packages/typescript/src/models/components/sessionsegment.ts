@@ -58,7 +58,7 @@ export type SessionSegment = {
   /**
    * True indicates the session segment is active.
    */
-  active?: boolean | undefined;
+  active: boolean;
 };
 
 /** @internal */
@@ -78,7 +78,7 @@ export const SessionSegment$inboundSchema: z.ZodType<
   event: EventLiteJson1$inboundSchema,
   session: SessionLiteJson1$inboundSchema,
   segment: SegmentLiteJson$inboundSchema,
-  active: z.boolean().optional(),
+  active: z.boolean().default(true),
 });
 
 export function sessionSegmentFromJSON(

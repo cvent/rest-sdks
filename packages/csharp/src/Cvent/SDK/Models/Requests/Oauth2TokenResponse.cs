@@ -13,10 +13,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Requests;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class Oauth2TokenResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

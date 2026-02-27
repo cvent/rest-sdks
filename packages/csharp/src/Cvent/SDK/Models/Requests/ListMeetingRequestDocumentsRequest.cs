@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListMeetingRequestDocumentsRequest
     {
-
         /// <summary>
         /// Meeting request ID.
         /// </summary>
@@ -28,11 +27,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
@@ -44,9 +39,7 @@ namespace Cvent.SDK.Models.Requests
         public bool? IncludeReferenceLink { get; set; } = true;
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// The following comparison types can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -57,9 +50,7 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are filterable:<br/>
         ///   * id (eq|ne)<br/>
         ///   * name (eq|ne)<br/>
-        ///   * lastModified (le|ge)<br/>
-        /// 
-        /// </remarks>
+        ///   * lastModified (le|ge).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

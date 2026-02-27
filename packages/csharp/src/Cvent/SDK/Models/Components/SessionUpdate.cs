@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Used to update a session.
     /// </summary>
     public class SessionUpdate
     {
-
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
@@ -40,7 +39,7 @@ namespace Cvent.SDK.Models.Components
         public string? Code { get; set; }
 
         /// <summary>
-        /// A Named object
+        /// A Named object.
         /// </summary>
         [JsonProperty("category")]
         public IdNameJson? Category { get; set; }
@@ -56,16 +55,13 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span<br/>
         /// <br/>
         /// Allowed attributes:<br/>
         /// - color on font<br/>
         /// - style on p, font, li, ul, ol, span<br/>
-        /// - href, target, rel on a
-        /// </remarks>
+        /// - href, target, rel on a.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
@@ -155,13 +151,13 @@ namespace Cvent.SDK.Models.Components
         public bool? DisplayOnAgenda { get; set; } = true;
 
         /// <summary>
-        /// Indicates if the session is featured
+        /// Indicates if the session is featured.
         /// </summary>
         [JsonProperty("featured")]
         public bool? Featured { get; set; }
 
         /// <summary>
-        /// The id of the session group, if the session belongs to one
+        /// The id of the session group, if the session belongs to one.
         /// </summary>
         [JsonProperty("group")]
         public string? Group { get; set; }
@@ -185,7 +181,7 @@ namespace Cvent.SDK.Models.Components
         public bool? OpenForAttendeeHub { get; set; }
 
         /// <summary>
-        /// Contains unique identifiers for registration types associated with this session
+        /// Contains unique identifiers for registration types associated with this session.
         /// </summary>
         [JsonProperty("registrationTypes")]
         public List<string>? RegistrationTypes { get; set; }
@@ -203,7 +199,7 @@ namespace Cvent.SDK.Models.Components
         public string? DataTagCode { get; set; }
 
         /// <summary>
-        /// The display order of session, set by planner for concurrent sessions
+        /// The display order of session, set by planner for concurrent sessions.
         /// </summary>
         [JsonProperty("order")]
         public long? Order { get; set; }

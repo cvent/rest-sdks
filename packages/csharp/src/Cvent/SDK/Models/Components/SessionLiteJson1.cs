@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The related session object.
     /// </summary>
     public class SessionLiteJson1
     {
-
         /// <summary>
-        /// The unique identifier for a session
+        /// The unique identifier for a session.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

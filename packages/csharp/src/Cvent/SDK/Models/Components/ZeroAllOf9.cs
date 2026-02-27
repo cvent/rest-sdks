@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Information about housing event with key information, providing a summarized view.
     /// </summary>
     public class ZeroAllOf9
     {
-
         /// <summary>
         /// The unique ID of the housing event.
         /// </summary>

@@ -10,7 +10,7 @@ public final class OAuth2Scopes {
     }
 
     /**
-     * Available scopes for the  OAuth 2.0 scheme (authorizationCode flow).
+     * Available scopes for the OAuth2.authorizationCode OAuth 2.0 scheme (authorizationCode flow).
      * 
      * <p>OAuth2 Authorization Code Flow
      */
@@ -942,7 +942,7 @@ public final class OAuth2Scopes {
     }
 
     /**
-     * Available scopes for the  OAuth 2.0 scheme (clientCredentials flow).
+     * Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
      * 
      * <p>OAuth2 Client Credentials Flow
      */

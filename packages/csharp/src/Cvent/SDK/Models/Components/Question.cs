@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A question, defined by the program, for the supplier to answer as part of their proposal.
     /// </summary>
     public class Question
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -82,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public QuestionResponseFormatJson? ResponseFormat { get; set; }
 
         /// <summary>
-        /// A list of options for the question.  This only applies when responseType is &apos;choice&apos;
+        /// A list of options for the question.  This only applies when responseType is 'choice'
         /// </summary>
         [JsonProperty("responseChoices")]
         public List<string>? ResponseChoices { get; set; }

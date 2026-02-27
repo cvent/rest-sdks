@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A question for a process form submission.
     /// </summary>
     public class ProcessFormSubmissionQuestionJson
     {
-
         /// <summary>
         /// The unique ID representing this question.
         /// </summary>

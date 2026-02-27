@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of an email to be send.
     /// </summary>
     public class EmailJson2
     {
-
         /// <summary>
         /// The unique ID of the email to be sent.
         /// </summary>

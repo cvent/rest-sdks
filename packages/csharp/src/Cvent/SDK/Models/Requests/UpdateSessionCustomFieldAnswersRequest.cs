@@ -11,26 +11,25 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateSessionCustomFieldAnswersRequest
     {
-
         /// <summary>
-        /// Unique Id of a session
+        /// Unique Id of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique Id of a custom field
+        /// Unique Id of a custom field.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customFieldId")]
         public string CustomFieldId { get; set; } = default!;
 
         /// <summary>
-        /// Contains the custom field you&apos;re updating, and the new answer.
+        /// Contains the custom field you're updating, and the new answer.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CustomFieldInput CustomField { get; set; } = default!;
+        public CustomField1Input CustomField1 { get; set; } = default!;
     }
 }

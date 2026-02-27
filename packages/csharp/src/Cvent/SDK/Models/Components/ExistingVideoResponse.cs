@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Response schema for GET/List endpoints, extending ExistingVideo and adding errors/warnings.
     /// </summary>
     public class ExistingVideoResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,13 +45,13 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The title of the video
+        /// The title of the video.
         /// </summary>
         [JsonProperty("title")]
         public string Title { get; set; } = default!;
 
         /// <summary>
-        /// Description of the video
+        /// Description of the video.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
@@ -64,25 +63,25 @@ namespace Cvent.SDK.Models.Components
         public string? Filename { get; set; }
 
         /// <summary>
-        /// A list of events associated with this video asset
+        /// A list of events associated with this video asset.
         /// </summary>
         [JsonProperty("events")]
         public List<string>? Events { get; set; }
 
         /// <summary>
-        /// Video duration (milliseconds)
+        /// Video duration (milliseconds).
         /// </summary>
         [JsonProperty("duration")]
         public long? Duration { get; set; }
 
         /// <summary>
-        /// Video thumbnail
+        /// Video thumbnail.
         /// </summary>
         [JsonProperty("thumbnail")]
         public VideoThumbnailJson? Thumbnail { get; set; }
 
         /// <summary>
-        /// Video thumbnail
+        /// Video thumbnail.
         /// </summary>
         [JsonProperty("generatedThumbnail")]
         public VideoThumbnailJson? GeneratedThumbnail { get; set; }
@@ -106,7 +105,7 @@ namespace Cvent.SDK.Models.Components
         public List<string>? Tags { get; set; }
 
         /// <summary>
-        /// This is used to denote type of a video
+        /// This is used to denote type of a video.
         /// </summary>
         [JsonProperty("type")]
         public VideoTypeJson? Type { get; set; }
@@ -132,7 +131,7 @@ namespace Cvent.SDK.Models.Components
         public List<HlsInputWithClipsJson>? HlsInputsWithClips { get; set; }
 
         /// <summary>
-        /// Recording details of video to be transcoded
+        /// Recording details of video to be transcoded.
         /// </summary>
         [JsonProperty("recording")]
         public RecordingDetails? Recording { get; set; }

@@ -12,42 +12,41 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Used to denote a session files attributes.
     /// </summary>
     public class SessionFile
     {
-
         [JsonProperty("file")]
         public SessionFileFile File { get; set; } = default!;
 
         /// <summary>
-        /// URL of a session&apos;s document
+        /// URL of a session's document.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;
 
         /// <summary>
-        /// Friendly name of the file
+        /// Friendly name of the file.
         /// </summary>
         [JsonProperty("friendlyName")]
         public string? FriendlyName { get; set; }
 
         /// <summary>
-        /// Mime type of the file
+        /// Mime type of the file.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
 
         /// <summary>
-        /// Size of the file in bytes
+        /// Size of the file in bytes.
         /// </summary>
         [JsonProperty("size")]
         public long? Size { get; set; }
 
         /// <summary>
-        /// Display this file to the public
+        /// Display this file to the public.
         /// </summary>
         [JsonProperty("displayEnabled")]
         public bool? DisplayEnabled { get; set; }

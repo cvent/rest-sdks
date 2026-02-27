@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An event-registered activity.
     /// </summary>
     public class EventRegistrationCancelled
     {
-
         /// <summary>
         /// The event in which this activity occurred.
         /// </summary>

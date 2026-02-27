@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DisassociateAttendeeFromAudienceSegmentsRequest
     {
-
         /// <summary>
         /// ID of an attendee.
         /// </summary>

@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This is used to denote the solution type to be used for webcast. The &apos;Cvent Video Conferencing&apos; refers to the video experience which links out the Attendee hub whereas &apos;Embedded Cvent Video Conferencing&apos; refers to the video experience within the Attendee hub.
+    /// This is used to denote the solution type to be used for webcast. The 'Cvent Video Conferencing' refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video Conferencing' refers to the video experience within the Attendee hub.
     /// </summary>
     public enum SolutionTypeJson
     {
@@ -64,5 +64,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SolutionTypeJson");
         }
     }
-
 }

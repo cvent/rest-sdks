@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Email bounce details.
     /// </summary>
     public class BounceDetailsJson
     {
-
         /// <summary>
         /// Information of the recipient.
         /// </summary>

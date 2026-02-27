@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Navigation source for an activity exhibitor.
     /// </summary>
     public class ActivityExhibitorNavigationSourceJson
     {
-
         /// <summary>
         /// The source type in the attendee hub from where the user navigated to the exhibitor booth.
         /// </summary>

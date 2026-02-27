@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A reference link contains the URL that provides direct access to download the file for the document. The expiration of the URL can be included if applicable.
     /// </summary>
     public class MeetingRequestDocumentReferenceLinkJson
     {
-
         /// <summary>
         /// The URL to download the file resource for the document. This URL will expire after the time indicated by the field expiration. If not provided, the URL is considered dynamic and not guaranteed to remain constant. Clients should always retrieve the latest URL before attempting to download the file, as it may change over time.
         /// </summary>

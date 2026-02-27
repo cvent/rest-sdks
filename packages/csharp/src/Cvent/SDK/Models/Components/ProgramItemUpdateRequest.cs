@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a program item object that will be updated.
     /// </summary>
     public class ProgramItemUpdateRequest
     {
-
         /// <summary>
         /// ID of the program item.
         /// </summary>

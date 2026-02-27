@@ -13,21 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Refund policy associated to a fee.
     /// </summary>
     public class RefundPolicyJson
     {
-
         /// <summary>
-        /// The total refund amount when the related item is canceled from the attendee&apos;s agenda.
+        /// The total refund amount when the related item is canceled from the attendee's agenda.
         /// </summary>
         [JsonProperty("amount")]
         public double? Amount { get; set; }
 
         /// <summary>
-        /// The total refund percentage when the related item is canceled from the attendee&apos;s agenda. Percentage is returned only if the refund policy is `RefundByPercentage`.
+        /// The total refund percentage when the related item is canceled from the attendee's agenda. Percentage is returned only if the refund policy is `RefundByPercentage`.
         /// </summary>
         [JsonProperty("percentage")]
         public double? Percentage { get; set; }

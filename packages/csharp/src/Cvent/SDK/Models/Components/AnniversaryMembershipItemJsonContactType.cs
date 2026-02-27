@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The contact type associated with this membership item.
     /// </summary>
     public class AnniversaryMembershipItemJsonContactType
     {
-
         /// <summary>
         /// The contact type id associated with this membership item.
         /// </summary>

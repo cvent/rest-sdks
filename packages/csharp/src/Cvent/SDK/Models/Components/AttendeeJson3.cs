@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A JSON Schema for an Attendee object
+    /// A JSON Schema for an Attendee object.
     /// </summary>
     public class AttendeeJson3
     {
-
         /// <summary>
-        /// Attendee id
+        /// Attendee id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Early bird pricing for a fee, where attendees receive a discounted fee if they register before a given date.
     /// </summary>
     public class EarlyBirdPricingJson
     {
-
         /// <summary>
         /// The ID of an early bird price.
         /// </summary>

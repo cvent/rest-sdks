@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An exhibitor viewed activity.
     /// </summary>
     public class ExhibitorViewed
     {
-
         /// <summary>
         /// An exhibitor.
         /// </summary>

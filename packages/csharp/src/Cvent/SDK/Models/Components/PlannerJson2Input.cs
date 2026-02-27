@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents the planner of an event.
     /// </summary>
     public class PlannerJson2Input
     {
-
         /// <summary>
-        /// An honorific prefixing a planner&apos;s name.
+        /// An honorific prefixing a planner's name.
         /// </summary>
         [JsonProperty("prefix")]
         public string? Prefix { get; set; }

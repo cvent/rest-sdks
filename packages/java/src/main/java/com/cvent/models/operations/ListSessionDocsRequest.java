@@ -37,18 +37,17 @@ public class ListSessionDocsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>There are two comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following field is filterable:
-     * * file.id (eq|ne)
+     * <p>| Field            | Operators                          |
+     * |------------------|-------------------------------------|
+     * | file.id          | `eq`, `ne`                          |
      * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -98,18 +97,17 @@ public class ListSessionDocsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>There are two comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following field is filterable:
-     * * file.id (eq|ne)
+     * <p>| Field            | Operators                          |
+     * |------------------|-------------------------------------|
+     * | file.id          | `eq`, `ne`                          |
      * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -151,18 +149,17 @@ public class ListSessionDocsRequest {
 
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>There are two comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following field is filterable:
-     * * file.id (eq|ne)
+     * <p>| Field            | Operators                          |
+     * |------------------|-------------------------------------|
+     * | file.id          | `eq`, `ne`                          |
      * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -245,18 +242,17 @@ public class ListSessionDocsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          * 
-         * <p>There are two comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
+         * <p>Supported fields and operators are listed below:
          * 
-         * <p>The following field is filterable:
-         * * file.id (eq|ne)
+         * <p>| Field            | Operators                          |
+         * |------------------|-------------------------------------|
+         * | file.id          | `eq`, `ne`                          |
          * 
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

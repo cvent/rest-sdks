@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This is used to denote the format of a webcast
+    /// This is used to denote the format of a webcast.
     /// </summary>
     public enum FormatJson
     {
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum FormatJson");
         }
     }
-
 }

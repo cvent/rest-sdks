@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object representing an address with various properties.
     /// </summary>
     public class ExhibitorAddressJson
     {
-
         /// <summary>
-        /// The first line of an address
+        /// The first line of an address.
         /// </summary>
         [JsonProperty("address1")]
         public string? Address1 { get; set; }
 
         /// <summary>
-        /// The second line of an address
+        /// The second line of an address.
         /// </summary>
         [JsonProperty("address2")]
         public string? Address2 { get; set; }
@@ -43,13 +42,13 @@ namespace Cvent.SDK.Models.Components
         public string? Region { get; set; }
 
         /// <summary>
-        /// postal code (also known as zipcode) of the address
+        /// postal code (also known as zipcode) of the address.
         /// </summary>
         [JsonProperty("postalCode")]
         public string? PostalCode { get; set; }
 
         /// <summary>
-        /// Name of the country for example, &apos;United States&apos;
+        /// Name of the country for example, 'United States'
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }

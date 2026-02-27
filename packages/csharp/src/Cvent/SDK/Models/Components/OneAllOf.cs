@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a link to a related resource.
     /// </summary>
     public class OneAllOf
     {
-
         /// <summary>
-        /// A url provided that can be followed for linking
+        /// A url provided that can be followed for linking.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

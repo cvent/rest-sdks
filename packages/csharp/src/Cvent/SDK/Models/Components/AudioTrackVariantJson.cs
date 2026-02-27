@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is a possible alternative to the main track. Commentary is a commentary on the primary audio or video track, e.g. a director&apos;s commentary. Dub is a translated version of the main audio track. Descriptive is an audio description of a video track.
+    /// Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is a possible alternative to the main track. Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is a translated version of the main audio track. Descriptive is an audio description of a video track.
     /// </summary>
     public enum AudioTrackVariantJson
     {
@@ -62,5 +62,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AudioTrackVariantJson");
         }
     }
-
 }

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Config details for bulk operations.
     /// </summary>
     public class Bulk
     {
-
         /// <summary>
         /// Indicates if the bulk operation is supported.
         /// </summary>

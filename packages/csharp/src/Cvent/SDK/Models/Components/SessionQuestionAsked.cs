@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The question asked activity details for the session.
     /// </summary>
     public class SessionQuestionAsked
     {
-
         /// <summary>
         /// The activity session.
         /// </summary>

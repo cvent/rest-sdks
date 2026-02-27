@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Payment information.
     /// </summary>
     public class PaymentInfoJson
     {
-
         /// <summary>
         /// Payment type.
         /// </summary>
@@ -32,7 +31,7 @@ namespace Cvent.SDK.Models.Components
         public string? FullName { get; set; }
 
         /// <summary>
-        /// Address details. Required to create/update a guest&apos;s reservation if the hotel/event requires an address in reservations.
+        /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
         /// </summary>
         [JsonProperty("address")]
         public AddressJson3? Address { get; set; }

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents pagination information for a collection of resources.
     /// </summary>
     public class EventWeblinksPaginatedResponsePaging
     {
-
         /// <summary>
         /// The number of records to return on the page. Not to exceed 200.
         /// </summary>

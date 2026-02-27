@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A JSON Schema for an existing e-literature request data for a lead.
     /// </summary>
     public class ExistingEliteratureRequestDataJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -58,7 +57,7 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// JSON schema for the Lead object
+        /// JSON schema for the Lead object.
         /// </summary>
         [JsonProperty("lead")]
         public LeadJson Lead { get; set; } = default!;
@@ -70,7 +69,7 @@ namespace Cvent.SDK.Models.Components
         public List<EliteratureDocumentJson> Documents { get; set; } = default!;
 
         /// <summary>
-        /// Request identifier
+        /// Request identifier.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

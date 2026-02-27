@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Provides information about the livestream&apos;s recording
+    /// Provides information about the livestream's recording.
     /// </summary>
     public class LiveStreamRecordingJson
     {
-
         /// <summary>
         /// Unique ID of the live stream recording job.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// This is used to denote the status of the live stream recording job
+        /// This is used to denote the status of the live stream recording job.
         /// </summary>
         [JsonProperty("status")]
         public LiveStreamRecordingStatusJson? Status { get; set; }

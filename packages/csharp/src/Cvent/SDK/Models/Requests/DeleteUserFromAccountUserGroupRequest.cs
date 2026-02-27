@@ -10,26 +10,17 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteUserFromAccountUserGroupRequest
     {
-
         /// <summary>
-        /// The User Group&apos;s Id.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// The User Group's Id.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=userGroupId")]
         public string UserGroupId { get; set; } = default!;
 
         /// <summary>
-        /// The Account User&apos;s Id.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// The Account User's Id.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=userId")]
         public string UserId { get; set; } = default!;

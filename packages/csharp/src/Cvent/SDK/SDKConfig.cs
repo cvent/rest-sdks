@@ -17,6 +17,9 @@ namespace Cvent.SDK
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Main configuration for the SDK.
+    /// </summary>
     public struct SDKConfig
     {
         /// <summary>
@@ -43,7 +46,7 @@ namespace Cvent.SDK
             Client = client ?? new CventSDKHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 1.0.8 2.794.1 ea Cvent.SDK";
+            UserAgent = "speakeasy-sdk/csharp 1.0.9 2.845.11 ea Cvent.SDK";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

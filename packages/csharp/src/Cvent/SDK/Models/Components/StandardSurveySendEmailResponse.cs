@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A standard survey, sent-email response.
     /// </summary>
     public class StandardSurveySendEmailResponse
     {
-
         /// <summary>
         /// Survey of response.
         /// </summary>

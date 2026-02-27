@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Custom fields.
     /// </summary>
     public class CustomFieldsJson
     {
-
         /// <summary>
         /// Custom field 1.
         /// </summary>

@@ -12,14 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Event video asset was created with. This field has been deprecated. Use events instead.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class ExistingVideoResponseUUID
     {
-
         /// <summary>
         /// The ID of an event.
         /// </summary>

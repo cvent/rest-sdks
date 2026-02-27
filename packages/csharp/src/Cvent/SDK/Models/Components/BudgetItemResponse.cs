@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Customized budget item associated with an event.
     /// </summary>
     public class BudgetItemResponse
     {
-
         /// <summary>
         /// The identifier of the Event.
         /// </summary>
@@ -130,19 +129,19 @@ namespace Cvent.SDK.Models.Components
         public string? InternalNote { get; set; }
 
         /// <summary>
-        /// The ISO 4217 currency code assigned to the budget item&apos;s costs.
+        /// The ISO 4217 currency code assigned to the budget item's costs.
         /// </summary>
         [JsonProperty("currency")]
         public string Currency { get; set; } = default!;
 
         /// <summary>
-        /// Determines which conversion rate to apply when a currency has multiple conversion rates for the same dates. If set as &apos;True&apos;, the conversion rate defined in the budget item is used for reporting and calculations.
+        /// Determines which conversion rate to apply when a currency has multiple conversion rates for the same dates. If set as 'True', the conversion rate defined in the budget item is used for reporting and calculations.
         /// </summary>
         [JsonProperty("conversionRateLocked")]
         public bool? ConversionRateLocked { get; set; }
 
         /// <summary>
-        /// Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001
+        /// Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001.
         /// </summary>
         [JsonProperty("conversionRate")]
         public double ConversionRate { get; set; } = default!;

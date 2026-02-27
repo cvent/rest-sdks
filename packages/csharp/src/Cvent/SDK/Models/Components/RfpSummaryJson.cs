@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Schema for Rfp details associated with this proposal.
     /// </summary>
     public class RfpSummaryJson
     {
-
         /// <summary>
         /// The unique ID of the RFP this proposal is associated with.
         /// </summary>

@@ -10,14 +10,13 @@
 namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
-    
+
     /// <summary>
-    /// Code that specifies if the guest is an adult or child. (10 - adult, 8 - child)
+    /// Code that specifies if the guest is an adult or child. (10 - adult, 8 - child).
     /// </summary>
     public enum AgeQualifyingCode
     {
         Ten = 10,
         Eight = 8,
     }
-
 }

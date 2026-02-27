@@ -707,7 +707,7 @@ export class Events extends ClientSDK {
   async postTransactions(
     request: operations.PostTransactionsRequest,
     options?: RequestOptions,
-  ): Promise<components.CreateTransactionRequest> {
+  ): Promise<components.CreateTransactionResponse> {
     return unwrapAsync(eventsPostTransactions(
       this,
       request,
@@ -804,7 +804,7 @@ export class Events extends ClientSDK {
   async updateQuantityItemRegistrationForAttendee(
     request: operations.UpdateQuantityItemRegistrationForAttendeeRequest,
     options?: RequestOptions,
-  ): Promise<components.QuantityItemUpdate> {
+  ): Promise<components.QuantityItemResponse> {
     return unwrapAsync(eventsUpdateQuantityItemRegistrationForAttendee(
       this,
       request,

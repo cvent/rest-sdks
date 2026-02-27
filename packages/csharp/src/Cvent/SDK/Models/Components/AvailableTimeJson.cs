@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Time availability for an event appointment,
     /// </summary>
     public class AvailableTimeJson
     {
-
         /// <summary>
         /// The unique ID representing the time range.
         /// </summary>
@@ -39,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime EndTime { get; set; } = default!;
 
         /// <summary>
-        /// DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host&apos;s choosing or within time intervals and locations created by the planner.
+        /// DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host's choosing or within time intervals and locations created by the planner.
         /// </summary>
         [JsonProperty("type")]
         public TimeRangeTypeJson Type { get; set; } = default!;

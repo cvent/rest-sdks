@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A transaction reconciliation record.
     /// </summary>
     public class ZeroAllOf6
     {
-
         /// <summary>
         /// The identifier of reconciled budget item.
         /// </summary>

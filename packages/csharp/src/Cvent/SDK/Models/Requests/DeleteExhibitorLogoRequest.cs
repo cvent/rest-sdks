@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteExhibitorLogoRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>

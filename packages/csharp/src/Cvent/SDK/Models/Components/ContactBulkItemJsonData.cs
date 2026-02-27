@@ -52,7 +52,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     [JsonConverter(typeof(ContactBulkItemJsonData.ContactBulkItemJsonDataConverter))]
     public class ContactBulkItemJsonData
     {

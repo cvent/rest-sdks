@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of video renditions.
     /// </summary>
     public class VideoRenditionsResponse
     {
-
         /// <summary>
         /// Collection of video renditions.
         /// </summary>

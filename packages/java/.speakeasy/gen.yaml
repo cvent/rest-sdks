@@ -13,6 +13,8 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
@@ -22,6 +24,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   mockServer:
     disabled: false
   persistentEdits:
@@ -31,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 java:
-  version: 1.0.7
+  version: 1.0.8
   additionalDependencies: []
   additionalPlugins: []
   artifactID: sdk
@@ -43,10 +46,12 @@ java:
   companyURL: www.cvent.com
   defaultErrorName: APIException
   enableCustomCodeRegions: false
+  enableFormatting: false
   enableSlf4jLogging: false
   enableStreamingUploads: false
   flattenGlobalSecurity: false
   forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
   generateOptionalUnionAccessors: false
   generateSpringBootStarter: false
   githubURL: https://github.com/cvent/rest-sdks
@@ -69,10 +74,10 @@ java:
   maxMethodParams: 0
   multipartArrayFormat: legacy
   nullFriendlyParameters: true
-  openUnions: true
   operationScopedParams: true
   outputModelSuffix: output
   packageName: com.cvent
   projectName: cvent-sdk
+  respectTitlesForPrimitiveUnionMembers: false
   templateVersion: v2
   unionStrategy: populated-fields

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Attribute
+    /// Attribute.
     /// </summary>
     public class AttributeJson
     {
-
         /// <summary>
         /// The name of the attribute.
         /// </summary>

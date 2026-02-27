@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Request object to send an email to one or more event attendees.
     /// </summary>
     public class SendEmailEventRequest
     {
-
         /// <summary>
         /// Details of the event.
         /// </summary>

@@ -12,6 +12,7 @@ The Attendee entity primarily refers to the person throughout the lifecycle of a
 * [ListAttendeesPostFilter](#listattendeespostfilter) - List Attendees
 * [GetAttendeeById](#getattendeebyid) - Get Attendee
 * [UpdateAttendee](#updateattendee) - Update Attendee
+* [UpdateAttendeeSubscriptionStatus](#updateattendeesubscriptionstatus) - Update Email Subscription
 * [UpdateInternalInfoAnswers](#updateinternalinfoanswers) - Update Internal Information
 * [PostBadge](#postbadge) - Create Badge
 * [GetBadge](#getbadge) - Get Badge
@@ -44,8 +45,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListDurationsRequest req = new ListDurationsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "start:DESC,title:ASC",
     Filter = "firstSeen gt '2020-02-07T12:00:00.000Z' and session.id =  '0e2f583e-62ae-40d8-9b5c-b8e67a6ba1ab'",
@@ -118,7 +119,6 @@ List<AttendeeAddJson> req = new List<AttendeeAddJson>() {
         Administrator = new AttendeeAddJsonAdministrator() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
-        Unsubscribed = false,
         AdmissionItem = new AttendeeAddJsonAdmissionItem() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
@@ -190,8 +190,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAttendeesRequest req = new ListAttendeesRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Expand = new List<Expand>() {
         Expand.AnswersQuestion,
@@ -256,8 +256,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAttendeesPostFilterRequest req = new ListAttendeesPostFilterRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Expand = new List<Expand>() {
         Expand.AnswersQuestion,
@@ -393,7 +393,6 @@ UpdateAttendeeRequest req = new UpdateAttendeeRequest() {
         Administrator = new AttendeeUpdateAdministrator() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
-        Unsubscribed = false,
         AdmissionItem = new AttendeeUpdateAdmissionItem() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
@@ -427,6 +426,59 @@ var res = await sdk.Attendees.UpdateAttendeeAsync(req);
 ### Response
 
 **[UpdateAttendeeResponse](../../Models/Requests/UpdateAttendeeResponse.md)**
+
+### Errors
+
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
+| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+
+## UpdateAttendeeSubscriptionStatus
+
+Updates an attendee's email subscription status for a specific event.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateAttendeeSubscriptionStatus" method="put" path="/attendees/{id}/email-subscriptions" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateAttendeeSubscriptionStatusRequest req = new UpdateAttendeeSubscriptionStatusRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    AttendeeSubscriptionRequest = new AttendeeSubscriptionRequest() {
+        Unsubscribed = true,
+    },
+};
+
+var res = await sdk.Attendees.UpdateAttendeeSubscriptionStatusAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [UpdateAttendeeSubscriptionStatusRequest](../../Models/Requests/UpdateAttendeeSubscriptionStatusRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+### Response
+
+**[UpdateAttendeeSubscriptionStatusResponse](../../Models/Requests/UpdateAttendeeSubscriptionStatusResponse.md)**
 
 ### Errors
 

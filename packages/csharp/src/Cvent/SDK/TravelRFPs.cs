@@ -26,132 +26,197 @@ namespace Cvent.SDK
 
     /// <summary>
     /// The Travel RFP APIs provide access to travel programs and proposals. A travel program<br/>
-    /// 
-    /// <remarks>
     /// represents a request for proposal (RFP) that defines the specific travel needs and<br/>
     /// requirements of a travel account. The travel account solicits hotels and other travel<br/>
     /// suppliers to respond to the program with proposals, which provide detailed<br/>
-    /// information on rates and amenities.&apos;<br/>
-    /// 
-    /// </remarks>
+    /// information on rates and amenities.'
     /// </summary>
     public interface ITravelRFPs
     {
-
         /// <summary>
-        /// List Travel Programs
-        /// 
+        /// List Travel Programs.
+        /// </summary>
         /// <remarks>
         /// Returns a paginated list of travel programs based on the specified filters.
         /// </remarks>
-        /// </summary>
-        Task<ListTravelProgramsResponse> ListTravelProgramsAsync(ListTravelProgramsRequest? request = null);
+        /// <param name="request">A <see cref="ListTravelProgramsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProgramsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListTravelProgramsResponse> ListTravelProgramsAsync(ListTravelProgramsRequest? request = null);
 
         /// <summary>
-        /// List Travel Programs Questions
-        /// 
+        /// List Travel Programs Questions.
+        /// </summary>
         /// <remarks>
         /// Returns a paginated list of travel programs questions.
         /// </remarks>
-        /// </summary>
-        Task<ListTravelProgramsQuestionsResponse> ListTravelProgramsQuestionsAsync(ListTravelProgramsQuestionsRequest? request = null);
+        /// <param name="request">A <see cref="ListTravelProgramsQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProgramsQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListTravelProgramsQuestionsResponse> ListTravelProgramsQuestionsAsync(
+            ListTravelProgramsQuestionsRequest? request = null
+        );
 
         /// <summary>
-        /// Get Travel Program
-        /// 
+        /// Get Travel Program.
+        /// </summary>
         /// <remarks>
         /// Returns the details of a single travel program based on the specified program ID.
         /// </remarks>
-        /// </summary>
-        Task<GetTravelProgramResponse> GetTravelProgramAsync(GetTravelProgramRequest request);
+        /// <param name="request">A <see cref="GetTravelProgramRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProgramResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetTravelProgramResponse> GetTravelProgramAsync(GetTravelProgramRequest request);
 
         /// <summary>
-        /// List Travel Program Questions
-        /// 
+        /// List Travel Program Questions.
+        /// </summary>
         /// <remarks>
         /// Returns a paginated list of travel program questions.
         /// </remarks>
-        /// </summary>
-        Task<ListTravelProgramQuestionsResponse> ListTravelProgramQuestionsAsync(ListTravelProgramQuestionsRequest request);
+        /// <param name="request">A <see cref="ListTravelProgramQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProgramQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListTravelProgramQuestionsResponse> ListTravelProgramQuestionsAsync(
+            ListTravelProgramQuestionsRequest request
+        );
 
         /// <summary>
-        /// Get Travel Program Question
-        /// 
+        /// Get Travel Program Question.
+        /// </summary>
         /// <remarks>
         /// Returns the details of a single question based on the specified program and question ID.
         /// </remarks>
-        /// </summary>
-        Task<GetTravelProgramQuestionResponse> GetTravelProgramQuestionAsync(GetTravelProgramQuestionRequest request);
+        /// <param name="request">A <see cref="GetTravelProgramQuestionRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProgramQuestionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetTravelProgramQuestionResponse> GetTravelProgramQuestionAsync(
+            GetTravelProgramQuestionRequest request
+        );
 
         /// <summary>
-        /// List Travel Proposals
-        /// 
+        /// List Travel Proposals.
+        /// </summary>
         /// <remarks>
         /// Get a paginated list of travel proposal details.
         /// </remarks>
-        /// </summary>
-        Task<ListTravelProposalsResponse> ListTravelProposalsAsync(ListTravelProposalsRequest? request = null);
+        /// <param name="request">A <see cref="ListTravelProposalsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProposalsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListTravelProposalsResponse> ListTravelProposalsAsync(ListTravelProposalsRequest? request = null);
 
         /// <summary>
-        /// List Travel Proposal Bids
-        /// 
+        /// List Travel Proposal Bids.
+        /// </summary>
         /// <remarks>
         /// Get a paginated list of travel proposal bids.
         /// </remarks>
-        /// </summary>
-        Task<ListTravelProposalBidsResponse> ListTravelProposalBidsAsync(ListTravelProposalBidsRequest? request = null);
+        /// <param name="request">A <see cref="ListTravelProposalBidsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProposalBidsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListTravelProposalBidsResponse> ListTravelProposalBidsAsync(
+            ListTravelProposalBidsRequest? request = null
+        );
 
         /// <summary>
-        /// Get Travel Proposal Bid
-        /// 
+        /// Get Travel Proposal Bid.
+        /// </summary>
         /// <remarks>
         /// Gets a travel proposal bid for the given travel proposal bid ID.
         /// </remarks>
-        /// </summary>
-        Task<GetTravelProposalBidResponse> GetTravelProposalBidAsync(GetTravelProposalBidRequest request);
+        /// <param name="request">A <see cref="GetTravelProposalBidRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProposalBidResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetTravelProposalBidResponse> GetTravelProposalBidAsync(GetTravelProposalBidRequest request);
 
         /// <summary>
-        /// Get Travel Proposal
-        /// 
+        /// Get Travel Proposal.
+        /// </summary>
         /// <remarks>
         /// Gets a travel proposal for the given travel proposal ID.
         /// </remarks>
-        /// </summary>
-        Task<GetTravelProposalResponse> GetTravelProposalAsync(GetTravelProposalRequest request);
+        /// <param name="request">A <see cref="GetTravelProposalRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProposalResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetTravelProposalResponse> GetTravelProposalAsync(GetTravelProposalRequest request);
     }
 
     /// <summary>
     /// The Travel RFP APIs provide access to travel programs and proposals. A travel program<br/>
-    /// 
-    /// <remarks>
     /// represents a request for proposal (RFP) that defines the specific travel needs and<br/>
     /// requirements of a travel account. The travel account solicits hotels and other travel<br/>
     /// suppliers to respond to the program with proposals, which provide detailed<br/>
-    /// information on rates and amenities.&apos;<br/>
-    /// 
-    /// </remarks>
+    /// information on rates and amenities.'
     /// </summary>
     public class TravelRFPs: ITravelRFPs
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public TravelRFPs(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListTravelProgramsResponse> ListTravelProgramsAsync(ListTravelProgramsRequest? request = null)
+        /// <summary>
+        /// List Travel Programs.
+        /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of travel programs based on the specified filters.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListTravelProgramsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProgramsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListTravelProgramsResponse> ListTravelProgramsAsync(ListTravelProgramsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-programs", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -168,7 +233,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -177,9 +242,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -201,6 +266,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -285,13 +351,33 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListTravelProgramsQuestionsResponse> ListTravelProgramsQuestionsAsync(ListTravelProgramsQuestionsRequest? request = null)
+
+        /// <summary>
+        /// List Travel Programs Questions.
+        /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of travel programs questions.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListTravelProgramsQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProgramsQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListTravelProgramsQuestionsResponse> ListTravelProgramsQuestionsAsync(
+            ListTravelProgramsQuestionsRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-programs/questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -308,7 +394,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -317,9 +403,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -341,6 +427,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -424,13 +511,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetTravelProgramResponse> GetTravelProgramAsync(GetTravelProgramRequest request)
+
+        /// <summary>
+        /// Get Travel Program.
+        /// </summary>
+        /// <remarks>
+        /// Returns the details of a single travel program based on the specified program ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetTravelProgramRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProgramResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetTravelProgramResponse> GetTravelProgramAsync(GetTravelProgramRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-programs/{programId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -447,7 +555,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -456,9 +564,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -534,13 +642,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListTravelProgramQuestionsResponse> ListTravelProgramQuestionsAsync(ListTravelProgramQuestionsRequest request)
+
+        /// <summary>
+        /// List Travel Program Questions.
+        /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of travel program questions.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListTravelProgramQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProgramQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListTravelProgramQuestionsResponse> ListTravelProgramQuestionsAsync(
+            ListTravelProgramQuestionsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-programs/{programId}/questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -557,7 +688,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -566,9 +697,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -590,6 +721,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -674,13 +806,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetTravelProgramQuestionResponse> GetTravelProgramQuestionAsync(GetTravelProgramQuestionRequest request)
+
+        /// <summary>
+        /// Get Travel Program Question.
+        /// </summary>
+        /// <remarks>
+        /// Returns the details of a single question based on the specified program and question ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetTravelProgramQuestionRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProgramQuestionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetTravelProgramQuestionResponse> GetTravelProgramQuestionAsync(
+            GetTravelProgramQuestionRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-programs/{programId}/questions/{questionId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -697,7 +852,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -706,9 +861,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -784,13 +939,33 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListTravelProposalsResponse> ListTravelProposalsAsync(ListTravelProposalsRequest? request = null)
+
+        /// <summary>
+        /// List Travel Proposals.
+        /// </summary>
+        /// <remarks>
+        /// Get a paginated list of travel proposal details.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListTravelProposalsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProposalsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListTravelProposalsResponse> ListTravelProposalsAsync(
+            ListTravelProposalsRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-proposals", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -807,7 +982,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -816,9 +991,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -840,6 +1015,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -924,13 +1100,33 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListTravelProposalBidsResponse> ListTravelProposalBidsAsync(ListTravelProposalBidsRequest? request = null)
+
+        /// <summary>
+        /// List Travel Proposal Bids.
+        /// </summary>
+        /// <remarks>
+        /// Get a paginated list of travel proposal bids.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListTravelProposalBidsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListTravelProposalBidsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListTravelProposalBidsResponse> ListTravelProposalBidsAsync(
+            ListTravelProposalBidsRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-proposals/bids", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -947,7 +1143,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -956,9 +1152,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -980,6 +1176,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1064,13 +1261,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetTravelProposalBidResponse> GetTravelProposalBidAsync(GetTravelProposalBidRequest request)
+
+        /// <summary>
+        /// Get Travel Proposal Bid.
+        /// </summary>
+        /// <remarks>
+        /// Gets a travel proposal bid for the given travel proposal bid ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetTravelProposalBidRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProposalBidResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetTravelProposalBidResponse> GetTravelProposalBidAsync(GetTravelProposalBidRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-proposals/bids/{travelProposalBidId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1087,7 +1305,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1096,9 +1314,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1174,13 +1392,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetTravelProposalResponse> GetTravelProposalAsync(GetTravelProposalRequest request)
+
+        /// <summary>
+        /// Get Travel Proposal.
+        /// </summary>
+        /// <remarks>
+        /// Gets a travel proposal for the given travel proposal ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetTravelProposalRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetTravelProposalResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetTravelProposalResponse> GetTravelProposalAsync(GetTravelProposalRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/travel-proposals/{travelProposalId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1197,7 +1436,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1206,9 +1445,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1283,5 +1522,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

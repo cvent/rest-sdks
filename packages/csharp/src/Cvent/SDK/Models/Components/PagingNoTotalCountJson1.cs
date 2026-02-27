@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents pagination information for a collection of resources.
     /// </summary>
     public class PagingNoTotalCountJson1
     {
-
         /// <summary>
         /// The pagination token for the previous page, if one exists. You can use this token to navigate to the previous page of data.
         /// </summary>

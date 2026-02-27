@@ -368,7 +368,7 @@ export class Sessions extends ClientSDK {
    * List Sessions
    *
    * @remarks
-   * Gets a paginated list of sessions by sending a filter in the request's body.  This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+   * Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -453,7 +453,7 @@ export class Sessions extends ClientSDK {
   async updateSessionCustomFieldAnswers(
     request: operations.UpdateSessionCustomFieldAnswersRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField> {
+  ): Promise<components.CustomField1> {
     return unwrapAsync(sessionsUpdateSessionCustomFieldAnswers(
       this,
       request,
@@ -526,7 +526,7 @@ export class Sessions extends ClientSDK {
    * Delete Document from Session
    *
    * @remarks
-   * Unassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+   * Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

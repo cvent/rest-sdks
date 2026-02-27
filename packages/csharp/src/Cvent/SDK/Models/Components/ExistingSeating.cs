@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The response from a request to get the event seating for the event.
     /// </summary>
     public class ExistingSeating
     {
-
         /// <summary>
-        /// Seating&apos;s plain name.
+        /// Seating's plain name.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Seating&apos;s code set by the planner. Must be unique in the event.
+        /// Seating's code set by the planner. Must be unique in the event.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }

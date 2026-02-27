@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Represents a custom membership duration. Required when the duration property is set to &apos;Custom&apos;.
+    /// Represents a custom membership duration. Required when the duration property is set to 'Custom'.
     /// </summary>
     public class CustomDuration
     {
-
         /// <summary>
         /// The custom duration in days for the membership.
         /// </summary>

@@ -11,39 +11,38 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Author of the survey
+    /// Author of the survey.
     /// </summary>
     public class SurveyAuthorJson
     {
-
         /// <summary>
-        /// First Name of Author
+        /// First Name of Author.
         /// </summary>
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }
 
         /// <summary>
-        /// Last Name of Author
+        /// Last Name of Author.
         /// </summary>
         [JsonProperty("lastName")]
         public string? LastName { get; set; }
 
         /// <summary>
-        /// Company Name
+        /// Company Name.
         /// </summary>
         [JsonProperty("company")]
         public string? Company { get; set; }
 
         /// <summary>
-        /// Designation
+        /// Designation.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// The email address of the author
+        /// The email address of the author.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }

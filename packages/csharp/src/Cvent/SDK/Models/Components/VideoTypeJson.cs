@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This is used to denote type of a video
+    /// This is used to denote type of a video.
     /// </summary>
     public enum VideoTypeJson
     {
@@ -74,5 +74,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum VideoTypeJson");
         }
     }
-
 }

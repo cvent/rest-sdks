@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An activity contact.
     /// </summary>
     public class ActivityContactJson
     {
-
         /// <summary>
         /// The first name of the attendee.
         /// </summary>

@@ -83,14 +83,14 @@ let value: SessionsPaginatedResponse = {
       dataTagCode: "Optional Session",
       customFields: [
         {
-          id: "a3572698-a615-4f55-a7a1-b30b588e81fa",
-          name: "What is a your favorite color?",
-          type: "General",
+          id: "00cb1a18-dd09-4db4-8c7b-2607f5a61812",
+          name: "What is your favorite color?",
           value: [
             "Choice C",
             "Choice A",
           ],
           order: 1,
+          type: "MultiSelect",
         },
       ],
       segments: [

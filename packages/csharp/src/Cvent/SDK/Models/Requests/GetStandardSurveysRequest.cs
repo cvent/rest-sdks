@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class GetStandardSurveysRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -35,21 +34,16 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         ///   * equal: eq<br/>
@@ -62,12 +56,11 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are filterable:<br/>
         /// <br/>
         /// <br/>
+        /// <br/>
         ///   * status (eq|ne)<br/>
         ///   * created (eq|ne|gt|ge|lt|le)<br/>
         ///   * title (eq|ne)<br/>
-        ///   * code (eq|ne)<br/>
-        /// 
-        /// </remarks>
+        ///   * code (eq|ne).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

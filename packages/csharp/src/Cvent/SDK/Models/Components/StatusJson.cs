@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// In case of Event Survey this represents Survey Status and in case of Standard Survey this represents Chapter Status
+    /// In case of Event Survey this represents Survey Status and in case of Standard Survey this represents Chapter Status.
     /// </summary>
     public enum StatusJson
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum StatusJson");
         }
     }
-
 }

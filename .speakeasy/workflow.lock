@@ -1,4 +1,4 @@
-speakeasyVersion: 1.685.0
+speakeasyVersion: 1.733.2
 sources:
     Public:
         sourceNamespace: public
@@ -13,25 +13,19 @@ targets:
         sourceNamespace: public
         sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
         sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
-        codeSamplesNamespace: csharp
-        codeSamplesRevisionDigest: sha256:9b648b89620fbe876b6b6bb30d3b53b74da5778b77a471bb53dc423ee8da2163
     public-java:
         source: Public
         sourceNamespace: public
         sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
         sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
-        codeSamplesNamespace: java
-        codeSamplesRevisionDigest: sha256:81e595c7cf96319f56a52fc282a73bf45e3ab09cf9f1d59e090fc7b9ee883deb
     public-typescript:
         source: Public
         sourceNamespace: public
         sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
         sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
-        codeSamplesNamespace: typescript
-        codeSamplesRevisionDigest: sha256:71349a78260d622c74fa9699637e8981cc80ed36000986b97b66626c63abc1fa
 workflow:
     workflowVersion: 1.0.0
-    speakeasyVersion: 1.685.0
+    speakeasyVersion: 1.733.2
     sources:
         Public:
             inputs:
@@ -41,8 +35,9 @@ workflow:
                 - location: ./overlays/operation_level_pagination_overlay.yaml
                 - location: ./overlays/pagination_overlay.yaml
                 - location: ./overlays/description_overlay.yaml
+                - location: ./overlays/segments_error_response_overlay.yaml
             registry:
-                location: registry.speakeasyapi.dev/cvent/rest-sdks/public
+                location: registry.speakeasyapi.dev/cvent/universal-api-platform/public
     targets:
         public-csharp:
             target: csharp
@@ -53,7 +48,7 @@ workflow:
                     apiKey: $nuget_api_key
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/cvent/rest-sdks/csharp
+                    location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-csharp-code-samples
                 labelOverride:
                     fixedValue: CSharp (SDK)
                 blocking: false
@@ -69,7 +64,7 @@ workflow:
                     gpgPassPhrase: $java_gpg_passphrase
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/cvent/rest-sdks/java
+                    location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-java-code-samples
                 labelOverride:
                     fixedValue: Java (SDK)
                 blocking: false
@@ -82,7 +77,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/cvent/rest-sdks/typescript
+                    location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-typescript-code-samples
                 labelOverride:
                     fixedValue: Typescript (SDK)
                 blocking: false

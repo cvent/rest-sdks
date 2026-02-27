@@ -43,8 +43,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetEliteratureRequestsRequest req = new GetEliteratureRequestsRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "event.id eq '{UUID}' and exhibitor.id eq '{UUID}' and lead.id eq '{UUID}'",
 };
 
@@ -154,8 +154,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetLeadsRequest req = new GetLeadsRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "deleted eq 'true' and event.id eq '{UUID}' and exhibitor.id eq '{UUID}'",
 };
 
@@ -213,8 +213,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetLeadsPostFiltersDataRequest req = new GetLeadsPostFiltersDataRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = new Filter() {
         FilterValue = "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' AND attendee.id eq 'edf40757-3bc3-4a66-8180-93bff15b890b'",
     },

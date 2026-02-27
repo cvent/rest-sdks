@@ -30,20 +30,19 @@ public class ListProgramItemsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following field is filterable:
-     * * id (eq|in)
-     * * session.id (eq|in)
-     * * event.id (eq)
+     * <p>| Field      | Operators  |
+     * |------------|------------|
+     * | id         | `eq`, `in` |
+     * | session.id | `eq`, `in` |
+     * | event.id   | `eq`       |
      * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -81,20 +80,19 @@ public class ListProgramItemsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following field is filterable:
-     * * id (eq|in)
-     * * session.id (eq|in)
-     * * event.id (eq)
+     * <p>| Field      | Operators  |
+     * |------------|------------|
+     * | id         | `eq`, `in` |
+     * | session.id | `eq`, `in` |
+     * | event.id   | `eq`       |
      * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -127,20 +125,19 @@ public class ListProgramItemsRequest {
 
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following field is filterable:
-     * * id (eq|in)
-     * * session.id (eq|in)
-     * * event.id (eq)
+     * <p>| Field      | Operators  |
+     * |------------|------------|
+     * | id         | `eq`, `in` |
+     * | session.id | `eq`, `in` |
+     * | event.id   | `eq`       |
      * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -210,20 +207,19 @@ public class ListProgramItemsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          * 
-         * <p>These are the comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * includes value(s): in
+         * <p>Supported fields and operators are listed below:
          * 
-         * <p>The following field is filterable:
-         * * id (eq|in)
-         * * session.id (eq|in)
-         * * event.id (eq)
+         * <p>| Field      | Operators  |
+         * |------------|------------|
+         * | id         | `eq`, `in` |
+         * | session.id | `eq`, `in` |
+         * | event.id   | `eq`       |
          * 
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

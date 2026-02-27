@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
     /// </summary>
@@ -92,5 +92,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum EventTypeJson1");
         }
     }
-
 }

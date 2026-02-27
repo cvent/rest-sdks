@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Chat message details such as the ID of this message
+    /// Chat message details such as the ID of this message.
     /// </summary>
     public class ChatMessageDetailsJson
     {
-
         /// <summary>
         /// The message ID within the messaging system.
         /// </summary>

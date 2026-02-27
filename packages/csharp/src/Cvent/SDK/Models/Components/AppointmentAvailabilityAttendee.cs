@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The appointment attendee the availability is associated with.
     /// </summary>
     public class AppointmentAvailabilityAttendee
     {
-
         /// <summary>
         /// The unique ID representing the appointment attendee.
         /// </summary>

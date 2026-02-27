@@ -33,7 +33,7 @@ let value: StandardSurveyJson = {
       id: "bd57aeda-3483-4bcf-886e-c976e9f4454a",
       name: "What is a your favorite color?",
       code: "FAVORITE_COLOR_CODE",
-      type: "Open Ended Text - One Line",
+      type: "Choice - Multiple Answers",
       values: [
         "Green",
         "Blue",
@@ -61,4 +61,4 @@ let value: StandardSurveyJson = {
 | `responseCount`                                                                               | *number*                                                                                      | :heavy_minus_sign:                                                                            | The count of responses.                                                                       | 10                                                                                            |
 | `status`                                                                                      | [components.SurveyStatusJson](../../models/components/surveystatusjson.md)                    | :heavy_minus_sign:                                                                            | Survey Status                                                                                 | Active                                                                                        |
 | `archiveAfter`                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The survey will be archived after this ISO 8601 formatted date and time.                      | 2022-05-07T12:00:00.00Z                                                                       |
-| `customFields`                                                                                | [components.CustomFieldJson2](../../models/components/customfieldjson2.md)[]                  | :heavy_minus_sign:                                                                            | Collection of survey custom fields.                                                           |                                                                                               |
+| `customFields`                                                                                | [components.CustomFieldJson4](../../models/components/customfieldjson4.md)[]                  | :heavy_minus_sign:                                                                            | Collection of survey custom fields.                                                           |                                                                                               |

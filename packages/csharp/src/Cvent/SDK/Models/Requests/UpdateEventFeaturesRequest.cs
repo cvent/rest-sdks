@@ -11,18 +11,17 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateEventFeaturesRequest
     {
-
         /// <summary>
-        /// Unique Id of an event
+        /// Unique Id of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// String containing event feature type
+        /// String containing event feature type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=type")]
         public FeatureTypeJson Type { get; set; } = default!;

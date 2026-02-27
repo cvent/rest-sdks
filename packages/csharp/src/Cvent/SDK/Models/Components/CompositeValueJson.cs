@@ -55,9 +55,8 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
-    /// A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID determines the type of requirement: Meeting Room requirement for **&quot;9a224e41-58d9-43a2-ae59-6d1aa16442ce&quot;**, Sleeping Room requirement for **&quot;cc63aa7c-0800-4fa5-a04b-073793e197f3&quot;**, or Budget Estimate for **&quot;1479fb2d-e94c-4bfb-a63f-4af808a22160&quot;**.
+    /// A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID determines the type of requirement: Meeting Room requirement for **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
     /// </summary>
     [JsonConverter(typeof(CompositeValueJson.CompositeValueJsonConverter))]
     public class CompositeValueJson

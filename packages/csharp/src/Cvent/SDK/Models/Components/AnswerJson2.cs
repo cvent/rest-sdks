@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A question answer.
     /// </summary>
     public class AnswerJson2
     {
-
         /// <summary>
         /// The unique identifier of the question.
         /// </summary>

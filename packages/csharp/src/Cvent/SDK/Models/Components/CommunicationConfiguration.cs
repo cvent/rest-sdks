@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Communication compliance settings e.g. Configure which communication types will be tracked and logged for this account.
     /// </summary>
     public class CommunicationConfiguration
     {
-
         /// <summary>
         /// The list of message types that communication compliance is enabled for.
         /// </summary>

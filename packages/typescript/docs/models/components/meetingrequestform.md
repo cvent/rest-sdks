@@ -18,7 +18,7 @@ let value: MeetingRequestForm = {
     {
       id: "9fd6648c-76eb-4d3c-b4c8-321205a6437a",
       name: "What is a your favorite color?",
-      type: "General",
+      type: "MultiSelect",
       value: [
         "Choice C",
         "Choice A",

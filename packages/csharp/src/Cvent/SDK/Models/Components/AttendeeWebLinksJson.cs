@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Web links for an attendee.
     /// </summary>
     public class AttendeeWebLinksJson
     {
-
         /// <summary>
         /// This shortened URL, when used, allows you to accept the registration.
         /// </summary>

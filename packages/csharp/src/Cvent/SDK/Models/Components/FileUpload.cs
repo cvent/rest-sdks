@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     /// <summary>
-    /// File Upload Object
+    /// File Upload Object.
     /// </summary>
     public class FileUpload
     {
-
         /// <summary>
-        /// Allowed File Types: ai, bmp, doc, docx, eml, eps, gif, ics, jpeg, msg, otf, ost, pdf, png, ppt, pptx, tif, tiff, ttf, txt, woff, woff2, xls, xlsx
+        /// Allowed File Types: ai, bmp, doc, docx, eml, eps, gif, ics, jpeg, msg, otf, ost, pdf, png, ppt, pptx, tif, tiff, ttf, txt, woff, woff2, xls, xlsx.
         /// </summary>
         [SpeakeasyMetadata("multipartForm:file,name=file")]
         public FileUploadFile? File { get; set; }

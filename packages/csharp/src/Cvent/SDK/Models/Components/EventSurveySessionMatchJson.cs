@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// What is the criteria of adding sessions to a event survey
+    /// What is the criteria of adding sessions to a event survey.
     /// </summary>
     public enum EventSurveySessionMatchJson
     {
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum EventSurveySessionMatchJson");
         }
     }
-
 }

@@ -124,10 +124,6 @@ export type AttendeeAddJson = {
    */
   administrator?: AttendeeAddJsonAdministrator | undefined;
   /**
-   * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails triggered by their own actions (like registration modification).
-   */
-  unsubscribed?: boolean | undefined;
-  /**
    * The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
    */
   admissionItem?: AttendeeAddJsonAdmissionItem | undefined;
@@ -362,7 +358,6 @@ export type AttendeeAddJson$Outbound = {
   referenceId?: string | undefined;
   note?: string | undefined;
   administrator?: AttendeeAddJsonAdministrator$Outbound | undefined;
-  unsubscribed?: boolean | undefined;
   admissionItem?: AttendeeAddJsonAdmissionItem$Outbound | undefined;
   visibility?: string | undefined;
   answers?: Array<AttendeeAnswerJson$Outbound> | undefined;
@@ -390,7 +385,6 @@ export const AttendeeAddJson$outboundSchema: z.ZodType<
   note: z.string().optional(),
   administrator: z.lazy(() => AttendeeAddJsonAdministrator$outboundSchema)
     .optional(),
-  unsubscribed: z.boolean().optional(),
   admissionItem: z.lazy(() => AttendeeAddJsonAdmissionItem$outboundSchema)
     .optional(),
   visibility: AttendeeVisibilityJson$outboundSchema.optional(),

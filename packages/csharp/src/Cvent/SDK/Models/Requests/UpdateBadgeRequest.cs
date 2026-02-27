@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateBadgeRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -28,7 +27,7 @@ namespace Cvent.SDK.Models.Requests
         public string BadgeId { get; set; } = default!;
 
         /// <summary>
-        /// Badge details
+        /// Badge details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public BadgeInput Badge { get; set; } = default!;

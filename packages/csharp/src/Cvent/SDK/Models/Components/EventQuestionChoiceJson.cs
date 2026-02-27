@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the choice of questions in an event.
     /// </summary>
     public class EventQuestionChoiceJson
     {
-
         /// <summary>
-        /// The ID of the question choice. If you supply the choice&apos;s existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
+        /// The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

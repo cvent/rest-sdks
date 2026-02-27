@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListSegmentAssociatedAttendeesRequest
     {
-
         /// <summary>
         /// ID of an audience segment.
         /// </summary>
@@ -29,11 +28,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
@@ -51,26 +46,18 @@ namespace Cvent.SDK.Models.Requests
         public DateTime? After { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.  The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// These are comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
-        ///   * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.<br/>
-        /// 
-        /// </remarks>
+        ///   * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
 
         /// <summary>
-        /// Use the `includeDisassociated` query parameter to include disassociated attendees in the result. Note: Disassociated attendees older than 30 days will not be returned in result.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// Use the `includeDisassociated` query parameter to include disassociated attendees in the result. Note: Disassociated attendees older than 30 days will not be returned in result.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=includeDisassociated")]
         public bool? IncludeDisassociated { get; set; } = false;

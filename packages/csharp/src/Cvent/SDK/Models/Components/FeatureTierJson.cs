@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Tier available for the feature
+    /// Tier available for the feature.
     /// </summary>
     public class FeatureTierJson
     {
-
         /// <summary>
         /// Represents the type of license that the user can choose.
         /// </summary>
@@ -26,13 +25,13 @@ namespace Cvent.SDK.Models.Components
         public TierJson Name { get; set; } = default!;
 
         /// <summary>
-        /// If a particular tier is locked to perform any mutation over it
+        /// If a particular tier is locked to perform any mutation over it.
         /// </summary>
         [JsonProperty("locked")]
         public bool? Locked { get; set; }
 
         /// <summary>
-        /// Generic message informing tier to be locked due to some feature in use
+        /// Generic message informing tier to be locked due to some feature in use.
         /// </summary>
         [JsonProperty("lockReason")]
         public string? LockReason { get; set; }

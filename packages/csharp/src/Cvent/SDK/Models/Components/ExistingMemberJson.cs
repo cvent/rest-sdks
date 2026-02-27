@@ -13,21 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An existing member.
     /// </summary>
     public class ExistingMemberJson
     {
-
         /// <summary>
-        /// Member&apos;s first name.
+        /// Member's first name.
         /// </summary>
         [JsonProperty("firstName")]
         public string FirstName { get; set; } = default!;
 
         /// <summary>
-        /// Member&apos;s last name
+        /// Member's last name.
         /// </summary>
         [JsonProperty("lastName")]
         public string LastName { get; set; } = default!;
@@ -39,61 +38,61 @@ namespace Cvent.SDK.Models.Components
         public string? Prefix { get; set; }
 
         /// <summary>
-        /// Member&apos;s designation in the company.
+        /// Member's designation in the company.
         /// </summary>
         [JsonProperty("designation")]
         public string? Designation { get; set; }
 
         /// <summary>
-        /// Member&apos;s job title.
+        /// Member's job title.
         /// </summary>
         [JsonProperty("jobTitle")]
         public string? JobTitle { get; set; }
 
         /// <summary>
-        /// Member&apos;s company name.
+        /// Member's company name.
         /// </summary>
         [JsonProperty("companyName")]
         public string? CompanyName { get; set; }
 
         /// <summary>
-        /// Member&apos;s biographical writeup.
+        /// Member's biographical writeup.
         /// </summary>
         [JsonProperty("headline")]
         public string? Headline { get; set; }
 
         /// <summary>
-        /// Member&apos;s pronouns.
+        /// Member's pronouns.
         /// </summary>
         [JsonProperty("pronouns")]
         public string? Pronouns { get; set; }
 
         /// <summary>
-        /// Member&apos;s social media links.
+        /// Member's social media links.
         /// </summary>
         [JsonProperty("socialMediaLinks")]
         public SocialMediaLinksJson? SocialMediaLinks { get; set; }
 
         /// <summary>
-        /// The optimized URL of the Events+ member&apos;s profile image.
+        /// The optimized URL of the Events+ member's profile image.
         /// </summary>
         [JsonProperty("profileImageUrl")]
         public ExistingMemberJsonLink? ProfileImageUrl { get; set; }
 
         /// <summary>
-        /// Member&apos;s email address.
+        /// Member's email address.
         /// </summary>
         [JsonProperty("emailAddress")]
         public string? EmailAddress { get; set; }
 
         /// <summary>
-        /// Member&apos;s mobile number.
+        /// Member's mobile number.
         /// </summary>
         [JsonProperty("mobileNumber")]
         public string? MobileNumber { get; set; }
 
         /// <summary>
-        /// Member&apos;s work address details.
+        /// Member's work address details.
         /// </summary>
         [JsonProperty("workAddress")]
         public WorkAddressJson? WorkAddress { get; set; }
@@ -105,7 +104,7 @@ namespace Cvent.SDK.Models.Components
         public ComplianceJson? Compliance { get; set; }
 
         /// <summary>
-        /// Member&apos;s preferred language. Used for localization of the UI and emails. The value should be in the form of an ISO-639 language code and ISO 3166-1 Alpha-2 country code separated by a hyphen. e.g. en-US, fr-FR, es-ES etc.
+        /// Member's preferred language. Used for localization of the UI and emails. The value should be in the form of an ISO-639 language code and ISO 3166-1 Alpha-2 country code separated by a hyphen. e.g. en-US, fr-FR, es-ES etc.
         /// </summary>
         [JsonProperty("locale")]
         public string? Locale { get; set; }

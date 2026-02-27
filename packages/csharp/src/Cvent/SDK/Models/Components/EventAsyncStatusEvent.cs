@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event for the operation.
     /// </summary>
     public class EventAsyncStatusEvent
     {
-
         /// <summary>
         /// The identifier of the event that was created or copied.
         /// </summary>

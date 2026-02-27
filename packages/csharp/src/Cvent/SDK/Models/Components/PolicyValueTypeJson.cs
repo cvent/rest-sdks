@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Value type of the policy
+    /// Value type of the policy.
     /// </summary>
     public enum PolicyValueTypeJson
     {
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum PolicyValueTypeJson");
         }
     }
-
 }

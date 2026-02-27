@@ -49,7 +49,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
     /// The supplier associated with current proposal.
     /// </summary>

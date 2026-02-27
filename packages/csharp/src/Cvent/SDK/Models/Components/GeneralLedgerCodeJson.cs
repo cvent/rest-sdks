@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A general ledger code associated to a fee.
     /// </summary>
     public class GeneralLedgerCodeJson
     {
-
         /// <summary>
         /// A unique identifier of the general ledger.
         /// </summary>

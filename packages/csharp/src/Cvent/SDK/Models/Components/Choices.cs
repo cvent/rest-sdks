@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Choices for a custom field.
     /// </summary>
     public class Choices
     {
-
         /// <summary>
         /// Choices of custom fields.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public List<ChoiceJson4Input>? ChoicesValue { get; set; }
 
         /// <summary>
-        /// Display type indicating how to display the choices on UI. For &apos;Choice - Single Answer&apos; custom field type, this defaults to Dropdown. For &apos;Choice - Multiple Answers&apos; custom field type, this defaults to MultiSelectBox.
+        /// Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
         /// </summary>
         [JsonProperty("displayType")]
         public ChoicesDisplayTypeJson? DisplayType { get; set; }

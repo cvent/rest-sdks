@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class PostTransactionsRequest
     {
-
         /// <summary>
         /// Unique ID of an Event.
         /// </summary>
@@ -23,17 +22,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// True indicates this request will create an offline transaction based on the amount(s) you<br/>
-        /// 
-        /// <remarks>
         /// specify in the request body. False indicates this request will create an offline<br/>
-        /// transaction equal to the remaining amount of the order.<br/>
-        /// 
-        /// </remarks>
+        /// transaction equal to the remaining amount of the order.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=partialPayment")]
         public bool? PartialPayment { get; set; } = false;
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CreateTransactionRequestInput? CreateTransactionRequest { get; set; }
+        public CreateTransactionResponseInput? CreateTransactionResponse { get; set; }
     }
 }

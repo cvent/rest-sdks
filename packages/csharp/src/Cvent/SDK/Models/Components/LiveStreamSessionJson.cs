@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Provides information about the livestream&apos;s current streaming session
+    /// Provides information about the livestream's current streaming session.
     /// </summary>
     public class LiveStreamSessionJson
     {
-
         /// <summary>
-        /// An identifier for the current streaming session
+        /// An identifier for the current streaming session.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

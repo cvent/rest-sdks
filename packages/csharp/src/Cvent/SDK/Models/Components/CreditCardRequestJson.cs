@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Credit Card Request Object
+    /// Credit Card Request Object.
     /// </summary>
     public class CreditCardRequestJson
     {
-
         /// <summary>
         /// Name on the credit card.
         /// </summary>
@@ -99,13 +98,13 @@ namespace Cvent.SDK.Models.Components
         public string? AddressCountryAlpha2 { get; set; } = null;
 
         /// <summary>
-        /// Cardholder&apos;s phone number.
+        /// Cardholder's phone number.
         /// </summary>
         [JsonProperty("contactPhone")]
         public string? ContactPhone { get; set; } = null;
 
         /// <summary>
-        /// Cardholder&apos;s email address.
+        /// Cardholder's email address.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; } = null;

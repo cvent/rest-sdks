@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Budget allocations within a budget item for an event.
     /// </summary>
     public class BudgetAllocationJson
     {
-
         /// <summary>
         /// Allocation category in which budget item cost is allocated.
         /// </summary>

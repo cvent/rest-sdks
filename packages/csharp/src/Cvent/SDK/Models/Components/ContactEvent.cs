@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Event ID
+    /// Event ID.
     /// </summary>
     public class ContactEvent
     {
-
         /// <summary>
         /// ID of the event where the contact was created, applicable when contact snapshot is enabled for an event.
         /// </summary>

@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// This is used to denote an item in the order
+    /// This is used to denote an item in the order.
     /// </summary>
     public class OrderItemResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -70,7 +69,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeJson? Attendee { get; set; }
 
         /// <summary>
-        /// Indicates if an attendee is a guest
+        /// Indicates if an attendee is a guest.
         /// </summary>
         [JsonProperty("guest")]
         public bool? Guest { get; set; }
@@ -82,25 +81,25 @@ namespace Cvent.SDK.Models.Components
         public GuestDetailJson? GuestDetail { get; set; }
 
         /// <summary>
-        /// This is used to denote the product details in an order item
+        /// This is used to denote the product details in an order item.
         /// </summary>
         [JsonProperty("product")]
         public ProductOrderItemJson? Product { get; set; }
 
         /// <summary>
-        /// Indicates if the order item is active
+        /// Indicates if the order item is active.
         /// </summary>
         [JsonProperty("active")]
         public bool? Active { get; set; }
 
         /// <summary>
-        /// This denotes the name of the item
+        /// This denotes the name of the item.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// Price of the item
+        /// Price of the item.
         /// </summary>
         [JsonProperty("price")]
         public double? Price { get; set; }
@@ -136,13 +135,13 @@ namespace Cvent.SDK.Models.Components
         public double? AmountDue { get; set; }
 
         /// <summary>
-        /// Cost of item at current/early bird price
+        /// Cost of item at current/early bird price.
         /// </summary>
         [JsonProperty("productPriceTierAmount")]
         public double? ProductPriceTierAmount { get; set; }
 
         /// <summary>
-        /// Indicates if the order item is tiered
+        /// Indicates if the order item is tiered.
         /// </summary>
         [JsonProperty("tiered")]
         public bool? Tiered { get; set; }

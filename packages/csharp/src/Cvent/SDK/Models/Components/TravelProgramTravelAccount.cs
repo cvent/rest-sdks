@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Travel account that the program belongs to.
     /// </summary>
     public class TravelProgramTravelAccount
     {
-
         /// <summary>
         /// The unique ID of the travel account.
         /// </summary>

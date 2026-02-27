@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An attendee activity.
     /// </summary>
     public class ActivityJson
     {
-
         /// <summary>
         /// The identifier of the attendee activity.
         /// </summary>
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public ActivityTypeJson? Type { get; set; }
 
         /// <summary>
-        /// This is used to denote the type of the attendee activity
+        /// This is used to denote the type of the attendee activity.
         /// </summary>
         [JsonProperty("data", NullValueHandling = NullValueHandling.Include)]
         public ActivityDataJson? Data { get; set; }

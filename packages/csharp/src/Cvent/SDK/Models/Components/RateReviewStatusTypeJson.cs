@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The rate review status of the proposal
+    /// The rate review status of the proposal.
     /// </summary>
     public enum RateReviewStatusTypeJson
     {
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum RateReviewStatusTypeJson");
         }
     }
-
 }

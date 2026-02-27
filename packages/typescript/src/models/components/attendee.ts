@@ -42,7 +42,10 @@ import {
   AttendeeWebLinksJson,
   AttendeeWebLinksJson$inboundSchema,
 } from "./attendeeweblinksjson.js";
-import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+import {
+  CustomFieldJson3,
+  CustomFieldJson3$inboundSchema,
+} from "./customfieldjson3.js";
 import {
   ExternalReferenceJson,
   ExternalReferenceJson$inboundSchema,
@@ -237,7 +240,7 @@ export type Attendee = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  questions?: Array<CustomField> | undefined;
+  questions?: Array<CustomFieldJson3> | undefined;
   /**
    * The list of answers to the registration questions.
    */
@@ -380,7 +383,7 @@ export const Attendee$inboundSchema: z.ZodType<
   ).optional(),
   invitedBy: AttendeeInvitedByJson$inboundSchema.optional(),
   responseMethod: AttendeeResponseMethodJson$inboundSchema.optional(),
-  questions: z.array(CustomField$inboundSchema).optional(),
+  questions: z.array(CustomFieldJson3$inboundSchema).optional(),
   answers: z.array(AttendeeAnswerJson$inboundSchema).optional(),
   admissionItem: z.lazy(() => AttendeeLookup$inboundSchema).optional(),
   visibility: AttendeeVisibilityJson$inboundSchema.optional(),

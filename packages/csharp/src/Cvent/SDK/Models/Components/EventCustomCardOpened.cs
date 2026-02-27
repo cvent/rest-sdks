@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the attendee activity fetched when a custom card is opened by an attendee.
     /// </summary>
     public class EventCustomCardOpened
     {
-
         /// <summary>
         /// The name of the custom card.
         /// </summary>

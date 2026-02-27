@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateContactByIdRequest
     {
-
         /// <summary>
         /// ID of a contact.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Contact to be updated
+        /// Contact to be updated.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ContactUpdate ContactUpdate { get; set; } = default!;

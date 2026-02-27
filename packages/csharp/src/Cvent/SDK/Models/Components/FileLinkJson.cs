@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a link to the associated file resource.
     /// </summary>
     public class FileLinkJson
     {
-
         /// <summary>
-        /// A full URL referencing the file
+        /// A full URL referencing the file.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

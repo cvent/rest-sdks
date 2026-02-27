@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// These are the types of features used in the event container events.
     /// </summary>
@@ -78,5 +78,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum FeatureTypeJson");
         }
     }
-
 }

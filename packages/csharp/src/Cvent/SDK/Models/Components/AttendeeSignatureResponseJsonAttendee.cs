@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Attendee information associated with the signature.
     /// </summary>
     public class AttendeeSignatureResponseJsonAttendee
     {
-
         /// <summary>
         /// ID of the attendee.
         /// </summary>

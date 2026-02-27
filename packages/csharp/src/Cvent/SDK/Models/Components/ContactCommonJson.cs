@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of a contact.
     /// </summary>
     public class ContactCommonJson
     {
-
         /// <summary>
-        /// Contact ID
+        /// Contact ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents a process form submission in the context of a specific event.
     /// </summary>
     public class ProcessFormSubmissionJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -59,11 +58,8 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// An object that contains the process form ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is an **expandable** object and if requested will contain the name of a process form object.
-        /// </remarks>
         /// </summary>
         [JsonProperty("process-form")]
         public ProcessFormJson? ProcessForm { get; set; }

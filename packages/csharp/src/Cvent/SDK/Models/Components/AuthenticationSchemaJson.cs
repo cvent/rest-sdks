@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Authentication Schema
+    /// Authentication Schema.
     /// </summary>
     public class AuthenticationSchemaJson
     {
-
         /// <summary>
         /// The name of the authentication.
         /// </summary>

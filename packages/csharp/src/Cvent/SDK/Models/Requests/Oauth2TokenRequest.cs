@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Requests;
     using Cvent.SDK.Utils;
-    
+
     public class Oauth2TokenRequest
     {
-
         /// <summary>
         /// The grant type.
         /// </summary>
@@ -23,61 +22,41 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The OAuth2 Client application ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// Must be a pre-registered client created in the developer portal.<br/>
-        /// 
-        /// </remarks>
+        /// Must be a pre-registered client created in the developer portal.
         /// </summary>
         [SpeakeasyMetadata("form:name=client_id")]
         public string ClientId { get; set; } = default!;
 
         /// <summary>
         /// Can be a combination of any scopes associated with a client. Any scope requested must be pre-associated with the client or it will be ignored at runtime.<br/>
-        /// 
-        /// <remarks>
-        /// If the client doesn&apos;t request any scopes, the authentication server uses all scopes associated with the client.<br/>
+        /// If the client doesn't request any scopes, the authentication server uses all scopes associated with the client.<br/>
         /// <br/>
-        /// **Optional** - Only used if the grant_type is client_credentials.<br/>
-        /// 
-        /// </remarks>
+        /// **Optional** - Only used if the grant_type is client_credentials.
         /// </summary>
         [SpeakeasyMetadata("form:name=scope")]
         public string? Scope { get; set; }
 
         /// <summary>
         /// Must be the same *redirect_uri* that was used to get *authorization_code* in * /oauth2/authorize*.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// **Required only if grant_type is authorization_code.**<br/>
-        /// 
-        /// </remarks>
+        /// **Required only if grant_type is authorization_code.**
         /// </summary>
         [SpeakeasyMetadata("form:name=redirect_uri")]
         public string? RedirectUri { get; set; }
 
         /// <summary>
         /// The refresh token.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// **Note:** The token endpoint returns *refresh_token* only when the grant_type is *authorization_code*.<br/>
-        /// 
-        /// </remarks>
+        /// **Note:** The token endpoint returns *refresh_token* only when the grant_type is *authorization_code*.
         /// </summary>
         [SpeakeasyMetadata("form:name=refresh_token")]
         public string? RefreshToken { get; set; }
 
         /// <summary>
         /// The code that is returned from a successful * /oauth2/authorize*.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// **Required if grant_type is authorization_code.**<br/>
-        /// 
-        /// </remarks>
+        /// **Required if grant_type is authorization_code.**
         /// </summary>
         [SpeakeasyMetadata("form:name=code")]
         public string? Code { get; set; }

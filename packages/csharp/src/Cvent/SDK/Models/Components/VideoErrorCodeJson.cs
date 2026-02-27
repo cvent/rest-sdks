@@ -10,7 +10,7 @@
 namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
-    
+
     /// <summary>
     /// This is used to denote the error codes for a video entity.
     /// </summary>
@@ -26,5 +26,4 @@ namespace Cvent.SDK.Models.Components
         SixHundredAndSeven = 607,
         SixHundredAndEight = 608,
     }
-
 }

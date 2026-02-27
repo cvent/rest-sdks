@@ -12,16 +12,15 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class UpdateQuantityItemRegistrationForAttendeeResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
         /// Successfully updated quantity item for the attendee.
         /// </summary>
-        public QuantityItemUpdate? QuantityItemUpdate { get; set; }
+        public QuantityItemResponse? QuantityItemResponse { get; set; }
     }
 }

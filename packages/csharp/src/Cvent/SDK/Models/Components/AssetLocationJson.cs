@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A URL associated with the asset.
     /// </summary>
     public class AssetLocationJson
     {
-
         /// <summary>
-        /// A pre-signed URL with an expiration of 2 hours to the asset&apos;s location.
+        /// A pre-signed URL with an expiration of 2 hours to the asset's location.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

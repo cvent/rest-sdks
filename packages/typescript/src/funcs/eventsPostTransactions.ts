@@ -40,7 +40,7 @@ export function eventsPostTransactions(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.CreateTransactionRequest,
+    components.CreateTransactionResponse,
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.CreateTransactionRequest,
+      components.CreateTransactionResponse,
       | errors.ErrorResponse
       | CventSDKError
       | ResponseValidationError
@@ -89,7 +89,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload["create-transaction-request"], {
+  const body = encodeJSON("body", payload["create-transaction-response"], {
     explode: true,
   });
 
@@ -161,7 +161,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.CreateTransactionRequest,
+    components.CreateTransactionResponse,
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -172,7 +172,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, components.CreateTransactionRequest$inboundSchema),
+    M.json(201, components.CreateTransactionResponse$inboundSchema),
     M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

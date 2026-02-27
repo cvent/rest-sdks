@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Guest details for confirmed reservation.
     /// </summary>
     public class ReservationGuestJsonOutput
     {
-
         /// <summary>
         /// Arrival date in ISO 8601 format.
         /// </summary>
@@ -93,7 +92,7 @@ namespace Cvent.SDK.Models.Components
         public string? WorkPhone { get; set; }
 
         /// <summary>
-        /// Address details. Required to create/update a guest&apos;s reservation if the hotel/event requires an address in reservations.
+        /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
         /// </summary>
         [JsonProperty("homeAddress")]
         public AddressJson3? HomeAddress { get; set; }
@@ -105,7 +104,7 @@ namespace Cvent.SDK.Models.Components
         public ReservationPaymentInfoJsonOutput? PaymentInfo { get; set; }
 
         /// <summary>
-        /// Code that specifies if the guest is an adult or child. (10 - adult, 8 - child)
+        /// Code that specifies if the guest is an adult or child. (10 - adult, 8 - child).
         /// </summary>
         [JsonProperty("ageQualifyingCode")]
         public AgeQualifyingCode? AgeQualifyingCode { get; set; } = Cvent.SDK.Models.Components.AgeQualifyingCode.Ten;

@@ -13,14 +13,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This property is deprecated to support more then one items. Use &apos;reconciliations&apos;.
+    /// This property is deprecated to support more then one items. Use 'reconciliations'.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class TransactionReconciliation
     {
-
         /// <summary>
         /// The identifier of reconciled budget item.
         /// </summary>

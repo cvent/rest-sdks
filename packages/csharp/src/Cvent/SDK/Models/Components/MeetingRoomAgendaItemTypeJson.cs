@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Defines the agenda item types of a meeting room requirement.
     /// </summary>
@@ -90,5 +90,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum MeetingRoomAgendaItemTypeJson");
         }
     }
-
 }

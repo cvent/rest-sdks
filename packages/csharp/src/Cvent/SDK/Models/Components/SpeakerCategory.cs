@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A speaker category.
     /// </summary>
     public class SpeakerCategory
     {
-
         /// <summary>
-        /// The name of the speaker category
+        /// The name of the speaker category.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

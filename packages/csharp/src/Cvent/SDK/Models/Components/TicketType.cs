@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Category of the passenger&apos;s ticket.
+    /// Category of the passenger's ticket.
     /// </summary>
     public enum TicketType
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum TicketType");
         }
     }
-
 }

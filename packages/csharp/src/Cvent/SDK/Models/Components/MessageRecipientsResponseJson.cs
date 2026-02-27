@@ -12,21 +12,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Members of the channel who received a message.
     /// </summary>
     public class MessageRecipientsResponseJson
     {
-
         /// <summary>
-        /// The attendee object
+        /// The attendee object.
         /// </summary>
         [JsonProperty("attendee")]
         public MessageRecipientsResponseJsonAttendee Attendee { get; set; } = default!;
 
         /// <summary>
-        /// The channel object
+        /// The channel object.
         /// </summary>
         [JsonProperty("channel")]
         public Channel Channel { get; set; } = default!;

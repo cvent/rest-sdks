@@ -11,24 +11,23 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class AddSpeakerToSessionRequest
     {
-
         /// <summary>
-        /// Unique Id of a session
+        /// Unique Id of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique Id of a speaker
+        /// Unique Id of a speaker.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=speakerId")]
         public string SpeakerId { get; set; } = default!;
 
         /// <summary>
-        /// Assign a category and order to the session&apos;s speaker. If no category is included in the body or the body isn&apos;t provided, the speaker&apos;s default category will be used. Similarly if no order is provided or no body is provided the speaker will be placed last in the ordered list of speakers for the session.
+        /// Assign a category and order to the session's speaker. If no category is included in the body or the body isn't provided, the speaker's default category will be used. Similarly if no order is provided or no body is provided the speaker will be placed last in the ordered list of speakers for the session.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public SessionSpeakerAssignment? SessionSpeakerAssignment { get; set; }

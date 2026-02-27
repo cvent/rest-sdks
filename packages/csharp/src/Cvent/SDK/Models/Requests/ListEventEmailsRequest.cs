@@ -11,12 +11,11 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListEventEmailsRequest
     {
-
         /// <summary>
-        /// Unique ID of an event
+        /// Unique ID of an event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
@@ -41,20 +40,14 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// There are six comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -73,9 +66,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * createdBy (eq|ne)<br/>
         ///   * lastModified (eq|ne|lt|le|gt|ge)<br/>
         ///   * lastModifiedBy (eq|ne)<br/>
-        ///   * invitationList.id (eq|ne)<br/>
-        /// 
-        /// </remarks>
+        ///   * invitationList.id (eq|ne).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

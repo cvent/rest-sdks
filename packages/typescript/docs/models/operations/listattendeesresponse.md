@@ -81,14 +81,14 @@ let value: ListAttendeesResponse = {
           optOut: {},
           customFields: [
             {
-              id: "a3572698-a615-4f55-a7a1-b30b588e81fa",
-              name: "What is a your favorite color?",
-              type: "General",
+              id: "8cbf1ce9-c677-4dcf-9fbe-5c465eaf5ee1",
+              name: "What is your favorite color?",
               value: [
                 "Choice C",
                 "Choice A",
               ],
               order: 1,
+              type: "MultiSelect",
             },
           ],
           sourceId: "system-a-00000000-0000-0000-0000-000000000000",

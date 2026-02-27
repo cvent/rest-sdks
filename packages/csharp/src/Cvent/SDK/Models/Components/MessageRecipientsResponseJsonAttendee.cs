@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The attendee object
+    /// The attendee object.
     /// </summary>
     public class MessageRecipientsResponseJsonAttendee
     {
-
         /// <summary>
         /// Unique identifier for the attendee.
         /// </summary>

@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The attendee with points in this engagement score.
     /// </summary>
     public class ScoresJsonAttendee
     {
-
         /// <summary>
-        /// Attendee ID
+        /// Attendee ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

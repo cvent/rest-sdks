@@ -11,12 +11,11 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class ResourceTypeJsonSchemaExtension
     {
-
         /// <summary>
-        /// The id of the schema extension
+        /// The id of the schema extension.
         /// </summary>
         [JsonProperty("schema")]
         public string? Schema { get; set; }

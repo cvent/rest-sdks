@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Address details
+    /// Address details.
     /// </summary>
     public class AddressJson4
     {
-
         /// <summary>
         /// The first line of an address.
         /// </summary>

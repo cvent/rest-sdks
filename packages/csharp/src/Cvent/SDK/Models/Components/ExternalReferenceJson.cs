@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An external reference.
     /// </summary>
     public class ExternalReferenceJson
     {
-
         /// <summary>
         /// Type of the external system.
         /// </summary>

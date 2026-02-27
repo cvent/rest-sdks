@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The ID of the address book contact associated with the attendee.
     /// </summary>
     public class AttendeeAddJsonContact
     {
-
         /// <summary>
         /// The contact ID.
         /// </summary>

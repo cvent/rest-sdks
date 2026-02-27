@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Total High-level estimation details.
     /// </summary>
     public class TotalHighLevelEstimate
     {
-
         /// <summary>
         /// The total amount of high level estimate of the event.
         /// </summary>

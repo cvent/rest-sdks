@@ -96,7 +96,7 @@ public class UploadFile {
                     typeReference);
             SerializedBody serializedRequestBody = Utils.serializeRequestBody(
                     convertedRequest,
-                    "request",
+                    "",
                     "multipart",
                     false);
             req.setBody(Optional.ofNullable(serializedRequestBody));

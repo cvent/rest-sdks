@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents directives for the event copy operation.
     /// </summary>
     public class EventCopy
     {
-
         /// <summary>
         /// Represents the target event information for an event copy operation.
         /// </summary>

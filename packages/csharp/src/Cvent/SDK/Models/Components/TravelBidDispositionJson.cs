@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents bid disposition details.
     /// </summary>
     public class TravelBidDispositionJson
     {
-
         /// <summary>
         /// A travel proposal bid.
         /// </summary>

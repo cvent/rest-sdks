@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a summary of status associated with this proposal.
     /// </summary>
     public class StatusSummaryJson
     {
-
         /// <summary>
-        /// Reason provided by the planner for status update
+        /// Reason provided by the planner for status update.
         /// </summary>
         [JsonProperty("reason")]
         public string? Reason { get; set; }

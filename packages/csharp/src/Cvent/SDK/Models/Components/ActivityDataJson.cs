@@ -202,9 +202,8 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
-    /// This is used to denote the type of the attendee activity
+    /// This is used to denote the type of the attendee activity.
     /// </summary>
     [JsonConverter(typeof(ActivityDataJson.ActivityDataJsonConverter))]
     public class ActivityDataJson

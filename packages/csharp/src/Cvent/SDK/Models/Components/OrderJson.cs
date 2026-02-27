@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents an order. Contains only the ID of the order.
     /// </summary>
     public class OrderJson
     {
-
         /// <summary>
         /// Unique ID of the order.
         /// </summary>

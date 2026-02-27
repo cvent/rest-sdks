@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Model representing an attendee to be added to an event. The attendee&apos;s assigned status determines if this add action is a registration or an invite.
+    /// Model representing an attendee to be added to an event. The attendee's assigned status determines if this add action is a registration or an invite.
     /// </summary>
     public class AttendeeAddJson
     {
-
         /// <summary>
         /// The ID of the event associated with the attendee.
         /// </summary>
@@ -39,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeAddJsonInvitationList? InvitationList { get; set; }
 
         /// <summary>
-        /// The reference ID of an attendee. A planner determined string used to track which link attendee&apos;s used to reach the event registration.
+        /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
         /// </summary>
         [JsonProperty("referenceId")]
         public string? ReferenceId { get; set; }
@@ -57,13 +56,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeAddJsonAdministrator? Administrator { get; set; }
 
         /// <summary>
-        /// True indicates this attendee is unsubscribed from this event&apos;s emails. They&apos;ll still recieve emails triggered by their own actions (like registration modification).
-        /// </summary>
-        [JsonProperty("unsubscribed")]
-        public bool? Unsubscribed { get; set; }
-
-        /// <summary>
-        /// The ID of the attendee&apos;s admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
+        /// The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
         /// </summary>
         [JsonProperty("admissionItem")]
         public AttendeeAddJsonAdmissionItem? AdmissionItem { get; set; }
@@ -75,7 +68,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeVisibilityJson? Visibility { get; set; }
 
         /// <summary>
-        /// The list of answers to the attendee&apos;s registration questions.
+        /// The list of answers to the attendee's registration questions.
         /// </summary>
         [JsonProperty("answers")]
         public List<AttendeeAnswerJson>? Answers { get; set; }
@@ -87,19 +80,19 @@ namespace Cvent.SDK.Models.Components
         public bool? SendEmail { get; set; }
 
         /// <summary>
-        /// Denotes the status of an attendee being added. No Response: The attendee was added to an invitation list but hasn&apos;t taken any action. Accepted: The attendee is registered for the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner.
+        /// Denotes the status of an attendee being added. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner.
         /// </summary>
         [JsonProperty("status")]
         public AttendeeAddStatusJson? Status { get; set; } = Cvent.SDK.Models.Components.AttendeeAddStatusJson.NoResponse;
 
         /// <summary>
-        /// The attendee&apos;s registration path. Registration paths control the registration experience of the attendee.
+        /// The attendee's registration path. Registration paths control the registration experience of the attendee.
         /// </summary>
         [JsonProperty("registrationPath")]
         public RegistrationPath? RegistrationPath { get; set; }
 
         /// <summary>
-        /// The attendee&apos;s registration type. Registration type controls pricing, agenda item availability, and registration experience.
+        /// The attendee's registration type. Registration type controls pricing, agenda item availability, and registration experience.
         /// </summary>
         [JsonProperty("registrationType")]
         public AttendeeAddJsonRegistrationType? RegistrationType { get; set; }
@@ -124,8 +117,6 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// Represents the method by which an attendee registered for the event.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// - Administrator Responded: The invitee was registered by another contact acting as their administrator.<br/>
         /// - API-Responded: The invitee was registered through a custom process configured via an API integration.<br/>
@@ -133,17 +124,16 @@ namespace Cvent.SDK.Models.Components
         /// - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.<br/>
         /// - External Registration: The attendee was registered through an external integration, such as Marketo.<br/>
         /// - Group Leader Responded: The invitee was registered by a group leader and added to a group.<br/>
-        /// - Historical Import: The invitee&apos;s registration was imported into the event as historical data.<br/>
-        /// - Imported: The invitee&apos;s registration was imported into the event.<br/>
+        /// - Historical Import: The invitee's registration was imported into the event as historical data.<br/>
+        /// - Imported: The invitee's registration was imported into the event.<br/>
         /// - No Response: The invitee has not registered.<br/>
-        /// - On-site Responded: The invitee registered onsite using OnArrival&apos;s Kiosk Mode.<br/>
-        /// - Planner-Imported: An account user imported the invitee&apos;s registration into the event.<br/>
+        /// - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.<br/>
+        /// - Planner-Imported: An account user imported the invitee's registration into the event.<br/>
         /// - Planner-Responded: An account user registered the invitee from the Cvent back-end or the planner-side of the OnArrival app.<br/>
-        /// - Post Event: The invitee was registered by an account user after the event&apos;s end date or while the event was in Completed status.<br/>
+        /// - Post Event: The invitee was registered by an account user after the event's end date or while the event was in Completed status.<br/>
         /// - Self-Responded: The invitee registered themselves through a weblink or invitation.<br/>
         /// <br/>
-        /// Note: The responseMethod can only be set if the invitee&apos;s status is No Response.
-        /// </remarks>
+        /// Note: The responseMethod can only be set if the invitee's status is No Response.
         /// </summary>
         [JsonProperty("responseMethod")]
         public AttendeeResponseMethodJson? ResponseMethod { get; set; }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// This is used to denote the open ended date time type of custom field.
     /// </summary>
     public class OpenEndedDateTime
     {
-
         /// <summary>
         /// The ISO 8601 zoned minimum date time accepted.
         /// </summary>
