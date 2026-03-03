@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A question for a meeting request.
     /// </summary>
     public class RequestedMeetingRequestQuestionJson
     {
-
         /// <summary>
         /// The unique ID representing this question.
         /// </summary>
@@ -27,8 +26,6 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// An array of non-null answers to the question.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// For standard questions, this contains string values.<br/>
         /// <br/>
@@ -37,14 +34,13 @@ namespace Cvent.SDK.Models.Components
         /// * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)<br/>
         /// * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)<br/>
         /// <br/>
-        /// the answer can be either the country name (for example, &quot;Canada&quot;) or the country code (for example, &quot;CA&quot;), but not both. The country code specification can be found <a href="https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes">here</a>.<br/>
+        /// the answer can be either the country name (for example, "Canada") or the country code (for example, "CA"), but not both. The country code specification can be found <a href="https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes">here</a>.<br/>
         /// <br/>
         /// For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates), this contains JSON strings matching the format defined in `compositeValue`.<br/>
         /// <br/>
         /// Note: Use this field when updating question answers; the `compositeValue` field is read-only and should not be used for updates.<br/>
         /// <br/>
         /// For more details, see <a href="#tag/Meeting-Request/operation/getMeetingRequestById">Get Meeting Request</a>.
-        /// </remarks>
         /// </summary>
         [JsonProperty("value")]
         public List<string> Value { get; set; } = default!;

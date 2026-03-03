@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Metadata of the resource.
     /// </summary>
     public class MetaJson
     {
-
         /// <summary>
         /// The type of the resource.
         /// </summary>

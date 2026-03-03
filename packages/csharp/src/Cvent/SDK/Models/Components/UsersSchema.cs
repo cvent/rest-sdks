@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Schema
+    /// Schema.
     /// </summary>
     public class UsersSchema
     {
-
         /// <summary>
         /// The unique identifier of the schema.
         /// </summary>

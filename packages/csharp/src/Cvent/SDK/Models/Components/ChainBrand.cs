@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The brand that the chain belongs to.
     /// </summary>
     public class ChainBrand
     {
-
         /// <summary>
         /// The ID of the brand that the chain belongs to.
         /// </summary>

@@ -10,12 +10,11 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteSessionRequest
     {
-
         /// <summary>
-        /// Unique Id of a session
+        /// Unique Id of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

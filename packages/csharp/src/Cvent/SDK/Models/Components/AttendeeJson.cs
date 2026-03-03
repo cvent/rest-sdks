@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The reference to the attendee. Contains only the ID of the attendee.
     /// </summary>
     public class AttendeeJson
     {
-
         /// <summary>
-        /// Unique identifier of the primary invitee for the current attendee&apos;s registration.
+        /// Unique identifier of the primary invitee for the current attendee's registration.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

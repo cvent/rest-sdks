@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Hotel details including name, description, policies and IDs.
     /// </summary>
     public class HousingEventHotel
     {
-
         /// <summary>
-        /// The hotel&apos;s unique ID.
+        /// The hotel's unique ID.
         /// </summary>
         [JsonProperty("id")]
         public long Id { get; set; } = default!;
@@ -33,19 +32,19 @@ namespace Cvent.SDK.Models.Components
         public HousingEventIdJson HousingEvent { get; set; } = default!;
 
         /// <summary>
-        /// The hotel&apos;s name.
+        /// The hotel's name.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// The hotel&apos;s description.
+        /// The hotel's description.
         /// </summary>
         [JsonProperty("description")]
         public string Description { get; set; } = default!;
 
         /// <summary>
-        /// The hotel&apos;s child policy.
+        /// The hotel's child policy.
         /// </summary>
         [JsonProperty("childPolicy")]
         public string? ChildPolicy { get; set; }
@@ -69,13 +68,13 @@ namespace Cvent.SDK.Models.Components
         public List<string>? Amenities { get; set; }
 
         /// <summary>
-        /// The hotel&apos;s rating, used to classify the hotel&apos;s quality.
+        /// The hotel's rating, used to classify the hotel's quality.
         /// </summary>
         [JsonProperty("rating")]
         public HotelRatingJson? Rating { get; set; }
 
         /// <summary>
-        /// Address details. Required to create/update a guest&apos;s reservation if the hotel/event requires an address in reservations.
+        /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
         /// </summary>
         [JsonProperty("address")]
         public AddressJson3? Address { get; set; }

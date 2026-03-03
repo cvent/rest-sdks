@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Journey Segment
+    /// Journey Segment.
     /// </summary>
     public enum JourneySegment
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum JourneySegment");
         }
     }
-
 }

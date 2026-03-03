@@ -25,80 +25,119 @@ namespace Cvent.SDK
     using System.Threading.Tasks;
 
     /// <summary>
-    /// EventFeatures related APIs
+    /// EventFeatures related APIs.
     /// </summary>
     public interface IEventFeatures
     {
-
         /// <summary>
-        /// List Event Features
-        /// 
-        /// <remarks>
-        /// A resource responsible for providing the set of event features that are available for an event
-        /// </remarks>
-        /// 
+        /// List Event Features<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
-        Task<GetEventFeaturesResponse> GetEventFeaturesAsync(GetEventFeaturesRequest request);
+        /// <remarks>
+        /// A resource responsible for providing the set of event features that are available for an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventFeaturesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventFeaturesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetEventFeaturesResponse> GetEventFeaturesAsync(GetEventFeaturesRequest request);
 
         /// <summary>
-        /// Update Event Feature
-        /// 
-        /// <remarks>
-        /// A resource responsible to enable / disable an event feature
-        /// </remarks>
-        /// 
+        /// Update Event Feature<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
-        Task<UpdateEventFeaturesResponse> UpdateEventFeaturesAsync(UpdateEventFeaturesRequest request);
+        /// <remarks>
+        /// A resource responsible to enable / disable an event feature.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateEventFeaturesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateEventFeaturesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateEventFeaturesResponse> UpdateEventFeaturesAsync(UpdateEventFeaturesRequest request);
 
         /// <summary>
-        /// Launch Event Feature
-        /// 
+        /// Launch Event Feature<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Launch event features to make them available to an audience.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<LaunchEventFeaturesResponse> LaunchEventFeaturesAsync(LaunchEventFeaturesRequest request);
+        /// <param name="request">A <see cref="LaunchEventFeaturesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="LaunchEventFeaturesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<LaunchEventFeaturesResponse> LaunchEventFeaturesAsync(LaunchEventFeaturesRequest request);
 
         /// <summary>
-        /// List Event Weblinks
-        /// 
+        /// List Event Weblinks<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of weblinks for the given event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListEventWeblinksResponse> ListEventWeblinksAsync(ListEventWeblinksRequest request);
+        /// <param name="request">A <see cref="ListEventWeblinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListEventWeblinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListEventWeblinksResponse> ListEventWeblinksAsync(ListEventWeblinksRequest request);
     }
 
     /// <summary>
-    /// EventFeatures related APIs
+    /// EventFeatures related APIs.
     /// </summary>
     public class EventFeatures: IEventFeatures
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public EventFeatures(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetEventFeaturesResponse> GetEventFeaturesAsync(GetEventFeaturesRequest request)
+        /// <summary>
+        /// List Event Features<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// A resource responsible for providing the set of event features that are available for an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventFeaturesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventFeaturesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetEventFeaturesResponse> GetEventFeaturesAsync(GetEventFeaturesRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/features", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -115,7 +154,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -124,9 +163,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -148,6 +187,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -232,13 +272,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateEventFeaturesResponse> UpdateEventFeaturesAsync(UpdateEventFeaturesRequest request)
+
+        /// <summary>
+        /// Update Event Feature<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// A resource responsible to enable / disable an event feature.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateEventFeaturesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateEventFeaturesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateEventFeaturesResponse> UpdateEventFeaturesAsync(UpdateEventFeaturesRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/features/{type}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "FeatureUpdate", "json", false, false);
             if (serializedBody != null)
@@ -261,7 +323,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -270,9 +332,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -348,13 +410,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<LaunchEventFeaturesResponse> LaunchEventFeaturesAsync(LaunchEventFeaturesRequest request)
+
+        /// <summary>
+        /// Launch Event Feature<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Launch event features to make them available to an audience.
+        /// </remarks>
+        /// <param name="request">A <see cref="LaunchEventFeaturesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="LaunchEventFeaturesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<LaunchEventFeaturesResponse> LaunchEventFeaturesAsync(LaunchEventFeaturesRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/features/{type}/launch", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "EventFeatureLaunchRequest", "json", false, true);
             if (serializedBody != null)
@@ -377,7 +461,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -386,9 +470,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -446,13 +530,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListEventWeblinksResponse> ListEventWeblinksAsync(ListEventWeblinksRequest request)
+
+        /// <summary>
+        /// List Event Weblinks<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of weblinks for the given event.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListEventWeblinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListEventWeblinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListEventWeblinksResponse> ListEventWeblinksAsync(ListEventWeblinksRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/weblinks", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -469,7 +575,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -478,9 +584,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -502,6 +608,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -584,5 +691,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

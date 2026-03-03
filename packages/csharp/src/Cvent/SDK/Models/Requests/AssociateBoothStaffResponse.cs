@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class AssociateBoothStaffResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully associated booth staff
+        /// Successfully associated booth staff.
         /// </summary>
         public BoothStaffResponse? BoothStaffResponse { get; set; }
     }

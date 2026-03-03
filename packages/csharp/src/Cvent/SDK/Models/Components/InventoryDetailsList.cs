@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// List of inventory details for room type by night.
     /// </summary>
     public class InventoryDetailsList
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Privacy compliance fields for a contact.
     /// </summary>
     public class ComplianceJson
     {
-
         /// <summary>
         /// Date-time (in GMT) when privacy compliance details were created for the contact.
         /// </summary>

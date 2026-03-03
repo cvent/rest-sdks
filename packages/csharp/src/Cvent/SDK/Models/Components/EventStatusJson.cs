@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted. 
+    /// Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted.
     /// </summary>
     public enum EventStatusJson
     {
@@ -66,5 +66,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum EventStatusJson");
         }
     }
-
 }

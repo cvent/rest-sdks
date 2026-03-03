@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateReservationSyncRequest
     {
-
         /// <summary>
         /// Cvent Passkey confirmation number.
         /// </summary>

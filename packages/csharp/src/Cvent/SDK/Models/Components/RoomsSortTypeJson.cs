@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest price first. PriceDescending: Data sorted by highest price first.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum RoomsSortTypeJson");
         }
     }
-
 }

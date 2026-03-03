@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Video for the webcast.
     /// </summary>
     public class Video
     {
-
         /// <summary>
         /// The unique identifier of the video.
         /// </summary>

@@ -120,10 +120,11 @@ var res = await sdk.AudienceSegments.CreateAudienceSegmentAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 422, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                                    | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Cvent.SDK.Models.Errors.SegmentsErrorResponse | 400                                           | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse         | 401, 403, 422, 429                            | application/json                              |
+| Cvent.SDK.Models.Errors.APIException          | 4XX, 5XX                                      | \*/\*                                         |
 
 ## ListAudienceSegments
 
@@ -157,8 +158,8 @@ ListAudienceSegmentsRequest req = new ListAudienceSegmentsRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "lastModifiedBy:DESC",
     Filter = "event.id eq '103097a4-143d-11e5-9f99-d0a637ee0032' and id in ('313097a4-143d-11e5-9f99-d0a637ee0897','423097a4-143d-11e5-9f99-d0a637ee0897') and deleted eq 'false' and creationType eq 'MANUAL'",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
 };
 
 ListAudienceSegmentsResponse? res = await sdk.AudienceSegments.ListAudienceSegmentsAsync(req);
@@ -222,8 +223,8 @@ var sdk = new CventSDK(security: new Security() {
 ListAudienceSegmentsPostFilterRequest req = new ListAudienceSegmentsPostFilterRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "lastModifiedBy:DESC",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = new Filter() {
         FilterValue = "event.id eq '103097a4-143d-11e5-9f99-d0a637ee0032' and id in ('313097a4-143d-11e5-9f99-d0a637ee0897', '423097a4-143d-11e5-9f99-d0a637ee0897') and deleted eq 'false' and creationType eq 'MANUAL'",
     },
@@ -442,8 +443,8 @@ var sdk = new CventSDK(security: new Security() {
 ListSegmentAssociatedAttendeesRequest req = new ListSegmentAssociatedAttendeesRequest() {
     AudienceSegmentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "disassociated eq 'false'",
     IncludeDisassociated = true,
 };
@@ -521,10 +522,11 @@ var res = await sdk.AudienceSegments.AssociateAttendeeToSegmentAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 422, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                                    | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Cvent.SDK.Models.Errors.SegmentsErrorResponse | 400                                           | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse         | 401, 403, 404, 422, 429                       | application/json                              |
+| Cvent.SDK.Models.Errors.APIException          | 4XX, 5XX                                      | \*/\*                                         |
 
 ## DisassociateAttendeeFromAudienceSegment
 

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Tax and service charge information.
     /// </summary>
     public class TravelTaxAndServiceChargeJson
     {
-
         /// <summary>
         /// Tax amount.
         /// </summary>
@@ -43,7 +42,7 @@ namespace Cvent.SDK.Models.Components
         public double? ServiceChargeAmount { get; set; }
 
         /// <summary>
-        /// True indicates the service charge amount represents a percentage, instead of a monetary value
+        /// True indicates the service charge amount represents a percentage, instead of a monetary value.
         /// </summary>
         [JsonProperty("serviceChargePercent")]
         public bool? ServiceChargePercent { get; set; }

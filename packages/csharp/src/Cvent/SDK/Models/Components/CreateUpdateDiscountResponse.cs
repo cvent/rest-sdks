@@ -52,9 +52,8 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
-    /// Representation of an existing discount response
+    /// Representation of an existing discount response.
     /// </summary>
     [JsonConverter(typeof(CreateUpdateDiscountResponse.CreateUpdateDiscountResponseConverter))]
     public class CreateUpdateDiscountResponse

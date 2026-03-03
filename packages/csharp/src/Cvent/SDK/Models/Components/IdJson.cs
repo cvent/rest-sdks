@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An entity which only has an id.
     /// </summary>
     public class IdJson
     {
-
         /// <summary>
-        /// The entity&apos;s id value.
+        /// The entity's id value.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

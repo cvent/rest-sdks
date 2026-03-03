@@ -26,8 +26,6 @@ namespace Cvent.SDK
 
     /// <summary>
     /// * **Exhibitor -** An exhibitor is an organization that is sponsoring or exhibiting at your event. This API allows you to get information about your exhibitors.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// * **Registration Pack -** Registration Pack provides capacities of different registration types allocated by the planner to a specific exhibitor.<br/>
     /// <br/>
@@ -37,357 +35,519 @@ namespace Cvent.SDK
     /// <br/>
     /// * **Exhibitor Categories -** Set of exhibitor categories for an event. Exhibitor Categories are used in Attendee Hub and Event App to differentiate exhibitors.<br/>
     /// <br/>
-    /// * **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get details of existing sponsorship levels defined within the event. To assign sponsorship levels to exhibitors, use the Exhibitor endpoints.<br/>
-    /// 
-    /// </remarks>
+    /// * **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get details of existing sponsorship levels defined within the event. To assign sponsorship levels to exhibitors, use the Exhibitor endpoints.
     /// </summary>
     public interface IExhibitor
     {
-
         /// <summary>
-        /// List Exhibitor Categories
-        /// 
+        /// List Exhibitor Categories<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of exhibitor categories associated with a single event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetExhibitorCategoriesResponse> GetExhibitorCategoriesAsync(GetExhibitorCategoriesRequest request);
+        /// <param name="request">A <see cref="GetExhibitorCategoriesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorCategoriesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExhibitorCategoriesResponse> GetExhibitorCategoriesAsync(GetExhibitorCategoriesRequest request);
 
         /// <summary>
-        /// Create Exhibitor Category
-        /// 
+        /// Create Exhibitor Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Creates a single exhibitor category entity for an event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateExhibitorCategoryResponse> CreateExhibitorCategoryAsync(CreateExhibitorCategoryRequest request);
+        /// <param name="request">A <see cref="CreateExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateExhibitorCategoryResponse> CreateExhibitorCategoryAsync(
+            CreateExhibitorCategoryRequest request
+        );
 
         /// <summary>
-        /// Update Exhibitor Category
-        /// 
+        /// Update Exhibitor Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Updates data for a single exhibitor category entity.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExhibitorCategoryResponse> UpdateExhibitorCategoryAsync(UpdateExhibitorCategoryRequest request);
+        /// <param name="request">A <see cref="UpdateExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExhibitorCategoryResponse> UpdateExhibitorCategoryAsync(
+            UpdateExhibitorCategoryRequest request
+        );
 
         /// <summary>
-        /// Delete Exhibitor Category
-        /// 
+        /// Delete Exhibitor Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Deletes a single exhibitor Category entity.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteExhibitorCategoryResponse> DeleteExhibitorCategoryAsync(DeleteExhibitorCategoryRequest request);
+        /// <param name="request">A <see cref="DeleteExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteExhibitorCategoryResponse> DeleteExhibitorCategoryAsync(
+            DeleteExhibitorCategoryRequest request
+        );
 
         /// <summary>
-        /// Assign Banner to Category
-        /// 
+        /// Assign Banner to Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Assign a banner image to an exhibitor category with a file UUID from &lt;a href=&quot;#operation/uploadFile&quot;&gt;file upload&lt;/a&gt; endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
         /// <br/>
-        /// **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.<br/>
-        /// 
+        /// **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExhibitorCategoryBannerResponse> UpdateExhibitorCategoryBannerAsync(UpdateExhibitorCategoryBannerRequest request);
+        /// <param name="request">A <see cref="UpdateExhibitorCategoryBannerRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorCategoryBannerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExhibitorCategoryBannerResponse> UpdateExhibitorCategoryBannerAsync(
+            UpdateExhibitorCategoryBannerRequest request
+        );
 
         /// <summary>
-        /// Delete Banner from Category
-        /// 
+        /// Delete Banner from Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Deletes an exhibitor Category banner image.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteExhibitorCategoryImageResponse> DeleteExhibitorCategoryImageAsync(DeleteExhibitorCategoryImageRequest request);
+        /// <param name="request">A <see cref="DeleteExhibitorCategoryImageRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorCategoryImageResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteExhibitorCategoryImageResponse> DeleteExhibitorCategoryImageAsync(
+            DeleteExhibitorCategoryImageRequest request
+        );
 
         /// <summary>
-        /// List Category&apos;s Exhibitors
-        /// 
+        /// List Category's Exhibitors<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListExhibitorsResponse> ListExhibitorsAsync(ListExhibitorsRequest request);
+        /// <param name="request">A <see cref="ListExhibitorsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListExhibitorsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListExhibitorsResponse> ListExhibitorsAsync(ListExhibitorsRequest request);
 
         /// <summary>
-        /// Assign Exhibitor to Category
-        /// 
+        /// Assign Exhibitor to Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Assign an exhibitor ID to an exhibitor-category Id.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<AddExhibitorToExhibitorCategoryResponse> AddExhibitorToExhibitorCategoryAsync(AddExhibitorToExhibitorCategoryRequest request);
+        /// <param name="request">A <see cref="AddExhibitorToExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="AddExhibitorToExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<AddExhibitorToExhibitorCategoryResponse> AddExhibitorToExhibitorCategoryAsync(
+            AddExhibitorToExhibitorCategoryRequest request
+        );
 
         /// <summary>
-        /// Delete Exhibitor from Category
-        /// 
+        /// Delete Exhibitor from Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// delete an exhibitor from an exhibitor-category
+        /// delete an exhibitor from an exhibitor-category.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<RemoveExhibitorFromExhibitorCategoryResponse> RemoveExhibitorFromExhibitorCategoryAsync(RemoveExhibitorFromExhibitorCategoryRequest request);
+        /// <param name="request">A <see cref="RemoveExhibitorFromExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="RemoveExhibitorFromExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<RemoveExhibitorFromExhibitorCategoryResponse> RemoveExhibitorFromExhibitorCategoryAsync(
+            RemoveExhibitorFromExhibitorCategoryRequest request
+        );
 
         /// <summary>
-        /// List Exhibitor Questions
-        /// 
+        /// List Exhibitor Questions<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a list of exhibitor questions for a given event id.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetExhibitorQuestionsResponse> GetExhibitorQuestionsAsync(GetExhibitorQuestionsRequest request);
+        /// <param name="request">A <see cref="GetExhibitorQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExhibitorQuestionsResponse> GetExhibitorQuestionsAsync(GetExhibitorQuestionsRequest request);
 
         /// <summary>
-        /// List Exhibitors
-        /// 
+        /// List Exhibitors<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of exhibitors associated with a single event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetExhibitorsResponse> GetExhibitorsAsync(GetExhibitorsRequest request);
+        /// <param name="request">A <see cref="GetExhibitorsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExhibitorsResponse> GetExhibitorsAsync(GetExhibitorsRequest request);
 
         /// <summary>
-        /// Create Exhibitor
-        /// 
+        /// Create Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Creates a single exhibitor entity for an event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateExhibitorResponse> CreateExhibitorAsync(CreateExhibitorRequest request);
+        /// <param name="request">A <see cref="CreateExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateExhibitorResponse> CreateExhibitorAsync(CreateExhibitorRequest request);
 
         /// <summary>
-        /// Get Exhibitor
-        /// 
+        /// Get Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves a single exhibitor entity for an event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetExhibitorResponse> GetExhibitorAsync(GetExhibitorRequest request);
+        /// <param name="request">A <see cref="GetExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExhibitorResponse> GetExhibitorAsync(GetExhibitorRequest request);
 
         /// <summary>
-        /// Update Exhibitor
-        /// 
+        /// Update Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Updates data for a single exhibitor entity.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExhibitorResponse> UpdateExhibitorAsync(UpdateExhibitorRequest request);
+        /// <param name="request">A <see cref="UpdateExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExhibitorResponse> UpdateExhibitorAsync(UpdateExhibitorRequest request);
 
         /// <summary>
-        /// Delete Exhibitor
-        /// 
+        /// Delete Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteExhibitorResponse> DeleteExhibitorAsync(DeleteExhibitorRequest request);
+        /// <param name="request">A <see cref="DeleteExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteExhibitorResponse> DeleteExhibitorAsync(DeleteExhibitorRequest request);
 
         /// <summary>
-        /// Assign Exhibitor Banner Image
-        /// 
+        /// Assign Exhibitor Banner Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Assign a banner image to an exhibitor with a file UUID from &lt;a href=&quot;#operation/uploadFile&quot;&gt;file upload&lt;/a&gt; endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
         /// <br/>
-        /// **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF<br/>
-        /// 
+        /// **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExhibitorBannerResponse> UpdateExhibitorBannerAsync(UpdateExhibitorBannerRequest request);
+        /// <param name="request">A <see cref="UpdateExhibitorBannerRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorBannerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExhibitorBannerResponse> UpdateExhibitorBannerAsync(UpdateExhibitorBannerRequest request);
 
         /// <summary>
-        /// Delete Exhibitor Banner Image
-        /// 
+        /// Delete Exhibitor Banner Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Deletes exhibitor banner image data
+        /// Deletes exhibitor banner image data.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteExhibitorBannerResponse> DeleteExhibitorBannerAsync(DeleteExhibitorBannerRequest request);
+        /// <param name="request">A <see cref="DeleteExhibitorBannerRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorBannerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteExhibitorBannerResponse> DeleteExhibitorBannerAsync(DeleteExhibitorBannerRequest request);
 
         /// <summary>
-        /// List Exhibitor Answers
-        /// 
+        /// List Exhibitor Answers<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a list of answers to exhibitor questions for a given exhibitor id.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetExhibitorAnswersResponse> GetExhibitorAnswersAsync(GetExhibitorAnswersRequest request);
+        /// <param name="request">A <see cref="GetExhibitorAnswersRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorAnswersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExhibitorAnswersResponse> GetExhibitorAnswersAsync(GetExhibitorAnswersRequest request);
 
         /// <summary>
-        /// Update Exhibitor Answers
-        /// 
+        /// Update Exhibitor Answers<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Updates answers to exhibitor questions for a given exhibitor id.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExhibitorAnswersResponse> UpdateExhibitorAnswersAsync(UpdateExhibitorAnswersRequest request);
+        /// <param name="request">A <see cref="UpdateExhibitorAnswersRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorAnswersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExhibitorAnswersResponse> UpdateExhibitorAnswersAsync(UpdateExhibitorAnswersRequest request);
 
         /// <summary>
-        /// List Exhibitor&apos;s Categories
-        /// 
+        /// List Exhibitor's Categories<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListExhibitorCategoriesResponse> ListExhibitorCategoriesAsync(ListExhibitorCategoriesRequest request);
+        /// <param name="request">A <see cref="ListExhibitorCategoriesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListExhibitorCategoriesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListExhibitorCategoriesResponse> ListExhibitorCategoriesAsync(
+            ListExhibitorCategoriesRequest request
+        );
 
         /// <summary>
-        /// Assign Exhibitor Logo Image
-        /// 
+        /// Assign Exhibitor Logo Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Assign a logo image to an exhibitor with a file UUID from &lt;a href=&quot;#operation/uploadFile&quot;&gt;file upload&lt;/a&gt; endpoint. This will replace the current logo image if one is assigned.<br/>
+        /// Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current logo image if one is assigned.<br/>
         /// <br/>
-        /// **Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF<br/>
-        /// 
+        /// **Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExhibitorLogoResponse> UpdateExhibitorLogoAsync(UpdateExhibitorLogoRequest request);
+        /// <param name="request">A <see cref="UpdateExhibitorLogoRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorLogoResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExhibitorLogoResponse> UpdateExhibitorLogoAsync(UpdateExhibitorLogoRequest request);
 
         /// <summary>
-        /// Delete Exhibitor Logo Image
-        /// 
+        /// Delete Exhibitor Logo Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Deletes exhibitor logo image data
+        /// Deletes exhibitor logo image data.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteExhibitorLogoResponse> DeleteExhibitorLogoAsync(DeleteExhibitorLogoRequest request);
+        /// <param name="request">A <see cref="DeleteExhibitorLogoRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorLogoResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteExhibitorLogoResponse> DeleteExhibitorLogoAsync(DeleteExhibitorLogoRequest request);
 
         /// <summary>
-        /// List Qualification Questions
-        /// 
+        /// List Qualification Questions<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetLeadQualificationQuestionsResponse> GetLeadQualificationQuestionsAsync(GetLeadQualificationQuestionsRequest request);
+        /// <param name="request">A <see cref="GetLeadQualificationQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetLeadQualificationQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetLeadQualificationQuestionsResponse> GetLeadQualificationQuestionsAsync(
+            GetLeadQualificationQuestionsRequest request
+        );
 
         /// <summary>
-        /// Create Registration Pack
-        /// 
+        /// Create Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Create registration pack for an exhibitor
+        /// Create registration pack for an exhibitor.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<PostRegistrationPackResponse> PostRegistrationPackAsync(PostRegistrationPackRequest request);
+        /// <param name="request">A <see cref="PostRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="PostRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<PostRegistrationPackResponse> PostRegistrationPackAsync(PostRegistrationPackRequest request);
 
         /// <summary>
-        /// List Registration Packs
-        /// 
+        /// List Registration Packs<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves registration packs associated with an exhibitor.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetExhibitorRegistrationPacksResponse> GetExhibitorRegistrationPacksAsync(GetExhibitorRegistrationPacksRequest request);
+        /// <param name="request">A <see cref="GetExhibitorRegistrationPacksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorRegistrationPacksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExhibitorRegistrationPacksResponse> GetExhibitorRegistrationPacksAsync(
+            GetExhibitorRegistrationPacksRequest request
+        );
 
         /// <summary>
-        /// Get Registration Pack
-        /// 
+        /// Get Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetRegistrationPackResponse> GetRegistrationPackAsync(GetRegistrationPackRequest request);
+        /// <param name="request">A <see cref="GetRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetRegistrationPackResponse> GetRegistrationPackAsync(GetRegistrationPackRequest request);
 
         /// <summary>
-        /// Update Registration Pack
-        /// 
+        /// Update Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Update registration pack for an exhibitor
+        /// Update registration pack for an exhibitor.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateRegistrationPackResponse> UpdateRegistrationPackAsync(UpdateRegistrationPackRequest request);
+        /// <param name="request">A <see cref="UpdateRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateRegistrationPackResponse> UpdateRegistrationPackAsync(UpdateRegistrationPackRequest request);
 
         /// <summary>
-        /// Delete Registration Pack
-        /// 
+        /// Delete Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Delete registration pack for an exhibitor
+        /// Delete registration pack for an exhibitor.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(DeleteRegistrationPackRequest request);
+        /// <param name="request">A <see cref="DeleteRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(DeleteRegistrationPackRequest request);
 
         /// <summary>
-        /// List Sponsorship Levels
-        /// 
+        /// List Sponsorship Levels<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a list of associated sponsorship levels for a single event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetSponsorshipLevelsResponse> GetSponsorshipLevelsAsync(GetSponsorshipLevelsRequest request);
+        /// <param name="request">A <see cref="GetSponsorshipLevelsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSponsorshipLevelsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetSponsorshipLevelsResponse> GetSponsorshipLevelsAsync(GetSponsorshipLevelsRequest request);
 
         /// <summary>
-        /// Get Sponsorship Level
-        /// 
+        /// Get Sponsorship Level<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieves associated sponsorship level data for a single sponsorship level ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetSponsorshipLevelResponse> GetSponsorshipLevelAsync(GetSponsorshipLevelRequest request);
+        /// <param name="request">A <see cref="GetSponsorshipLevelRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSponsorshipLevelResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetSponsorshipLevelResponse> GetSponsorshipLevelAsync(GetSponsorshipLevelRequest request);
     }
 
     /// <summary>
     /// * **Exhibitor -** An exhibitor is an organization that is sponsoring or exhibiting at your event. This API allows you to get information about your exhibitors.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// * **Registration Pack -** Registration Pack provides capacities of different registration types allocated by the planner to a specific exhibitor.<br/>
     /// <br/>
@@ -397,31 +557,51 @@ namespace Cvent.SDK
     /// <br/>
     /// * **Exhibitor Categories -** Set of exhibitor categories for an event. Exhibitor Categories are used in Attendee Hub and Event App to differentiate exhibitors.<br/>
     /// <br/>
-    /// * **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get details of existing sponsorship levels defined within the event. To assign sponsorship levels to exhibitors, use the Exhibitor endpoints.<br/>
-    /// 
-    /// </remarks>
+    /// * **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get details of existing sponsorship levels defined within the event. To assign sponsorship levels to exhibitors, use the Exhibitor endpoints.
     /// </summary>
     public class Exhibitor: IExhibitor
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Exhibitor(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetExhibitorCategoriesResponse> GetExhibitorCategoriesAsync(GetExhibitorCategoriesRequest request)
+        /// <summary>
+        /// List Exhibitor Categories<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a paginated list of exhibitor categories associated with a single event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExhibitorCategoriesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorCategoriesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExhibitorCategoriesResponse> GetExhibitorCategoriesAsync(
+            GetExhibitorCategoriesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -438,7 +618,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -447,9 +627,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -471,6 +651,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -553,13 +734,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateExhibitorCategoryResponse> CreateExhibitorCategoryAsync(CreateExhibitorCategoryRequest request)
+
+        /// <summary>
+        /// Create Exhibitor Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Creates a single exhibitor category entity for an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateExhibitorCategoryResponse> CreateExhibitorCategoryAsync(
+            CreateExhibitorCategoryRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExhibitorCategoryRequest", "json", false, false);
             if (serializedBody != null)
@@ -582,7 +787,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -591,9 +796,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -669,13 +874,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExhibitorCategoryResponse> UpdateExhibitorCategoryAsync(UpdateExhibitorCategoryRequest request)
+
+        /// <summary>
+        /// Update Exhibitor Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Updates data for a single exhibitor category entity.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExhibitorCategoryResponse> UpdateExhibitorCategoryAsync(
+            UpdateExhibitorCategoryRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExhibitorCategoryRequest", "json", false, false);
             if (serializedBody != null)
@@ -698,7 +927,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -707,9 +936,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -785,13 +1014,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteExhibitorCategoryResponse> DeleteExhibitorCategoryAsync(DeleteExhibitorCategoryRequest request)
+
+        /// <summary>
+        /// Delete Exhibitor Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single exhibitor Category entity.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteExhibitorCategoryResponse> DeleteExhibitorCategoryAsync(
+            DeleteExhibitorCategoryRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -808,7 +1061,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -817,9 +1070,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -877,13 +1130,39 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExhibitorCategoryBannerResponse> UpdateExhibitorCategoryBannerAsync(UpdateExhibitorCategoryBannerRequest request)
+
+        /// <summary>
+        /// Assign Banner to Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// <br/>
+        /// **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExhibitorCategoryBannerRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorCategoryBannerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExhibitorCategoryBannerResponse> UpdateExhibitorCategoryBannerAsync(
+            UpdateExhibitorCategoryBannerRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}/banner-files/{fileId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -900,7 +1179,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -909,9 +1188,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -987,13 +1266,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteExhibitorCategoryImageResponse> DeleteExhibitorCategoryImageAsync(DeleteExhibitorCategoryImageRequest request)
+
+        /// <summary>
+        /// Delete Banner from Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Deletes an exhibitor Category banner image.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteExhibitorCategoryImageRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorCategoryImageResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteExhibitorCategoryImageResponse> DeleteExhibitorCategoryImageAsync(
+            DeleteExhibitorCategoryImageRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}/banner-files/{fileId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1010,7 +1313,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1019,9 +1322,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1079,13 +1382,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListExhibitorsResponse> ListExhibitorsAsync(ListExhibitorsRequest request)
+
+        /// <summary>
+        /// List Category's Exhibitors<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListExhibitorsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListExhibitorsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListExhibitorsResponse> ListExhibitorsAsync(ListExhibitorsRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}/exhibitors", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1102,7 +1427,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1111,9 +1436,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1135,6 +1460,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1218,13 +1544,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<AddExhibitorToExhibitorCategoryResponse> AddExhibitorToExhibitorCategoryAsync(AddExhibitorToExhibitorCategoryRequest request)
+
+        /// <summary>
+        /// Assign Exhibitor to Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Assign an exhibitor ID to an exhibitor-category Id.
+        /// </remarks>
+        /// <param name="request">A <see cref="AddExhibitorToExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="AddExhibitorToExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<AddExhibitorToExhibitorCategoryResponse> AddExhibitorToExhibitorCategoryAsync(
+            AddExhibitorToExhibitorCategoryRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}/exhibitors/{exhibitorId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1241,7 +1591,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1250,9 +1600,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1310,13 +1660,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<RemoveExhibitorFromExhibitorCategoryResponse> RemoveExhibitorFromExhibitorCategoryAsync(RemoveExhibitorFromExhibitorCategoryRequest request)
+
+        /// <summary>
+        /// Delete Exhibitor from Category<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// delete an exhibitor from an exhibitor-category.
+        /// </remarks>
+        /// <param name="request">A <see cref="RemoveExhibitorFromExhibitorCategoryRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="RemoveExhibitorFromExhibitorCategoryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<RemoveExhibitorFromExhibitorCategoryResponse> RemoveExhibitorFromExhibitorCategoryAsync(
+            RemoveExhibitorFromExhibitorCategoryRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-categories/{exhibitorCategoryId}/exhibitors/{exhibitorId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1333,7 +1707,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1342,9 +1716,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1402,13 +1776,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetExhibitorQuestionsResponse> GetExhibitorQuestionsAsync(GetExhibitorQuestionsRequest request)
+
+        /// <summary>
+        /// List Exhibitor Questions<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a list of exhibitor questions for a given event id.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExhibitorQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExhibitorQuestionsResponse> GetExhibitorQuestionsAsync(
+            GetExhibitorQuestionsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitor-questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1425,7 +1823,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1434,9 +1832,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1512,13 +1910,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetExhibitorsResponse> GetExhibitorsAsync(GetExhibitorsRequest request)
+
+        /// <summary>
+        /// List Exhibitors<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a paginated list of exhibitors associated with a single event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExhibitorsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExhibitorsResponse> GetExhibitorsAsync(GetExhibitorsRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1535,7 +1955,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1544,9 +1964,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1568,6 +1988,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1653,13 +2074,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateExhibitorResponse> CreateExhibitorAsync(CreateExhibitorRequest request)
+
+        /// <summary>
+        /// Create Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Creates a single exhibitor entity for an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateExhibitorResponse> CreateExhibitorAsync(CreateExhibitorRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExhibitorRequest", "json", false, false);
             if (serializedBody != null)
@@ -1682,7 +2125,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1691,9 +2134,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1769,13 +2212,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetExhibitorResponse> GetExhibitorAsync(GetExhibitorRequest request)
+
+        /// <summary>
+        /// Get Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single exhibitor entity for an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExhibitorResponse> GetExhibitorAsync(GetExhibitorRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1792,7 +2257,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1801,9 +2266,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1879,13 +2344,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExhibitorResponse> UpdateExhibitorAsync(UpdateExhibitorRequest request)
+
+        /// <summary>
+        /// Update Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Updates data for a single exhibitor entity.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExhibitorResponse> UpdateExhibitorAsync(UpdateExhibitorRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExhibitorRequest", "json", false, false);
             if (serializedBody != null)
@@ -1908,7 +2395,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1917,9 +2404,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1995,13 +2482,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteExhibitorResponse> DeleteExhibitorAsync(DeleteExhibitorRequest request)
+
+        /// <summary>
+        /// Delete Exhibitor<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteExhibitorRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteExhibitorResponse> DeleteExhibitorAsync(DeleteExhibitorRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2018,7 +2527,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2027,9 +2536,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2087,13 +2596,39 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExhibitorBannerResponse> UpdateExhibitorBannerAsync(UpdateExhibitorBannerRequest request)
+
+        /// <summary>
+        /// Assign Exhibitor Banner Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// <br/>
+        /// **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExhibitorBannerRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorBannerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExhibitorBannerResponse> UpdateExhibitorBannerAsync(
+            UpdateExhibitorBannerRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/banner-files/{fileId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2110,7 +2645,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2119,9 +2654,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2197,13 +2732,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteExhibitorBannerResponse> DeleteExhibitorBannerAsync(DeleteExhibitorBannerRequest request)
+
+        /// <summary>
+        /// Delete Exhibitor Banner Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Deletes exhibitor banner image data.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteExhibitorBannerRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorBannerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteExhibitorBannerResponse> DeleteExhibitorBannerAsync(
+            DeleteExhibitorBannerRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/banner-files/{fileId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2220,7 +2779,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2229,9 +2788,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2289,13 +2848,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetExhibitorAnswersResponse> GetExhibitorAnswersAsync(GetExhibitorAnswersRequest request)
+
+        /// <summary>
+        /// List Exhibitor Answers<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a list of answers to exhibitor questions for a given exhibitor id.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExhibitorAnswersRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorAnswersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExhibitorAnswersResponse> GetExhibitorAnswersAsync(GetExhibitorAnswersRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/exhibitor-answers", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2312,7 +2893,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2321,9 +2902,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2399,13 +2980,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExhibitorAnswersResponse> UpdateExhibitorAnswersAsync(UpdateExhibitorAnswersRequest request)
+
+        /// <summary>
+        /// Update Exhibitor Answers<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Updates answers to exhibitor questions for a given exhibitor id.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExhibitorAnswersRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorAnswersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExhibitorAnswersResponse> UpdateExhibitorAnswersAsync(
+            UpdateExhibitorAnswersRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/exhibitor-answers", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExhibitorAnswersRequest", "json", false, false);
             if (serializedBody != null)
@@ -2428,7 +3033,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2437,9 +3042,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2515,13 +3120,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListExhibitorCategoriesResponse> ListExhibitorCategoriesAsync(ListExhibitorCategoriesRequest request)
+
+        /// <summary>
+        /// List Exhibitor's Categories<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListExhibitorCategoriesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListExhibitorCategoriesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListExhibitorCategoriesResponse> ListExhibitorCategoriesAsync(
+            ListExhibitorCategoriesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/exhibitor-categories", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2538,7 +3167,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2547,9 +3176,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2571,6 +3200,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2654,13 +3284,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExhibitorLogoResponse> UpdateExhibitorLogoAsync(UpdateExhibitorLogoRequest request)
+
+        /// <summary>
+        /// Assign Exhibitor Logo Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current logo image if one is assigned.<br/>
+        /// <br/>
+        /// **Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExhibitorLogoRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorLogoResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExhibitorLogoResponse> UpdateExhibitorLogoAsync(UpdateExhibitorLogoRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/logo-files/{fileId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2677,7 +3331,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2686,9 +3340,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2764,13 +3418,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteExhibitorLogoResponse> DeleteExhibitorLogoAsync(DeleteExhibitorLogoRequest request)
+
+        /// <summary>
+        /// Delete Exhibitor Logo Image<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Deletes exhibitor logo image data.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteExhibitorLogoRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExhibitorLogoResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteExhibitorLogoResponse> DeleteExhibitorLogoAsync(DeleteExhibitorLogoRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/logo-files/{fileId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2787,7 +3463,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2796,9 +3472,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2856,13 +3532,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetLeadQualificationQuestionsResponse> GetLeadQualificationQuestionsAsync(GetLeadQualificationQuestionsRequest request)
+
+        /// <summary>
+        /// List Qualification Questions<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetLeadQualificationQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetLeadQualificationQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetLeadQualificationQuestionsResponse> GetLeadQualificationQuestionsAsync(
+            GetLeadQualificationQuestionsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2879,7 +3579,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2888,9 +3588,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2966,13 +3666,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<PostRegistrationPackResponse> PostRegistrationPackAsync(PostRegistrationPackRequest request)
+
+        /// <summary>
+        /// Create Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Create registration pack for an exhibitor.
+        /// </remarks>
+        /// <param name="request">A <see cref="PostRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="PostRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<PostRegistrationPackResponse> PostRegistrationPackAsync(PostRegistrationPackRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/registration-packs", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "RegistrationPackRequest", "json", false, false);
             if (serializedBody != null)
@@ -2995,7 +3717,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3004,9 +3726,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3082,13 +3804,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetExhibitorRegistrationPacksResponse> GetExhibitorRegistrationPacksAsync(GetExhibitorRegistrationPacksRequest request)
+
+        /// <summary>
+        /// List Registration Packs<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves registration packs associated with an exhibitor.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExhibitorRegistrationPacksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExhibitorRegistrationPacksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExhibitorRegistrationPacksResponse> GetExhibitorRegistrationPacksAsync(
+            GetExhibitorRegistrationPacksRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/registration-packs", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -3105,7 +3851,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3114,9 +3860,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3192,13 +3938,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetRegistrationPackResponse> GetRegistrationPackAsync(GetRegistrationPackRequest request)
+
+        /// <summary>
+        /// Get Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetRegistrationPackResponse> GetRegistrationPackAsync(GetRegistrationPackRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/registration-packs/{registrationPackId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -3215,7 +3983,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3224,9 +3992,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3302,13 +4070,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateRegistrationPackResponse> UpdateRegistrationPackAsync(UpdateRegistrationPackRequest request)
+
+        /// <summary>
+        /// Update Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Update registration pack for an exhibitor.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateRegistrationPackResponse> UpdateRegistrationPackAsync(
+            UpdateRegistrationPackRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/registration-packs/{registrationPackId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "RegistrationPackRequest", "json", false, false);
             if (serializedBody != null)
@@ -3331,7 +4123,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3340,9 +4132,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3418,13 +4210,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(DeleteRegistrationPackRequest request)
+
+        /// <summary>
+        /// Delete Registration Pack<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Delete registration pack for an exhibitor.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteRegistrationPackRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteRegistrationPackResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
+            DeleteRegistrationPackRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/exhibitors/{exhibitorId}/registration-packs/{registrationPackId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -3441,7 +4257,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3450,9 +4266,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3510,13 +4326,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetSponsorshipLevelsResponse> GetSponsorshipLevelsAsync(GetSponsorshipLevelsRequest request)
+
+        /// <summary>
+        /// List Sponsorship Levels<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a list of associated sponsorship levels for a single event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetSponsorshipLevelsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSponsorshipLevelsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetSponsorshipLevelsResponse> GetSponsorshipLevelsAsync(GetSponsorshipLevelsRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/sponsorship-levels", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -3533,7 +4371,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3542,9 +4380,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3620,13 +4458,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetSponsorshipLevelResponse> GetSponsorshipLevelAsync(GetSponsorshipLevelRequest request)
+
+        /// <summary>
+        /// Get Sponsorship Level<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieves associated sponsorship level data for a single sponsorship level ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetSponsorshipLevelRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSponsorshipLevelResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetSponsorshipLevelResponse> GetSponsorshipLevelAsync(GetSponsorshipLevelRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/sponsorship-levels/{sponsorshipLevelId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -3643,7 +4503,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3652,9 +4512,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3729,5 +4589,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

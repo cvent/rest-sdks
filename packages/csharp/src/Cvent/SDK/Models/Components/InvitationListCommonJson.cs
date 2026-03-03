@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Invitation list of respondents
+    /// Invitation list of respondents.
     /// </summary>
     public class InvitationListCommonJson
     {
-
         /// <summary>
         /// ID of the invitation list in which respondent is present.
         /// </summary>

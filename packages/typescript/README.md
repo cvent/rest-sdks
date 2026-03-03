@@ -231,6 +231,7 @@ run();
 * [listAttendeesPostFilter](docs/sdks/attendees/README.md#listattendeespostfilter) - List Attendees
 * [getAttendeeById](docs/sdks/attendees/README.md#getattendeebyid) - Get Attendee
 * [updateAttendee](docs/sdks/attendees/README.md#updateattendee) - Update Attendee
+* [updateAttendeeSubscriptionStatus](docs/sdks/attendees/README.md#updateattendeesubscriptionstatus) - Update Email Subscription
 * [updateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
 * [postBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
 * [getBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
@@ -811,6 +812,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`attendeesListDurations`](docs/sdks/attendees/README.md#listdurations) - List Attendance Duration
 - [`attendeesPostBadge`](docs/sdks/attendees/README.md#postbadge) - Create Badge
 - [`attendeesUpdateAttendee`](docs/sdks/attendees/README.md#updateattendee) - Update Attendee
+- [`attendeesUpdateAttendeeSubscriptionStatus`](docs/sdks/attendees/README.md#updateattendeesubscriptionstatus) - Update Email Subscription
 - [`attendeesUpdateBadge`](docs/sdks/attendees/README.md#updatebadge) - Update Badge
 - [`attendeesUpdateInternalInfoAnswers`](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
 - [`audienceSegmentsAssociateAttendeeToSegment`](docs/sdks/audiencesegments/README.md#associateattendeetosegment) - Associate Attendee to Segment
@@ -1447,7 +1449,7 @@ run();
 * [`CventSDKError`](./src/models/errors/cventsdkerror.ts): The base class for HTTP error responses.
   * [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common errors (8)</summary>
+<details><summary>Less common errors (9)</summary>
 
 <br />
 
@@ -1460,8 +1462,9 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 425 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 425 methods.*
+* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 426 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 426 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 426 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -1607,19 +1610,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { CventSDK } from "@cvent/sdk";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "@cvent/sdk/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {

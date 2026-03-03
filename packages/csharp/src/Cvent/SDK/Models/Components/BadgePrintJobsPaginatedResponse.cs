@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Page of Badge Print Jobs.
     /// </summary>
     public class BadgePrintJobsPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

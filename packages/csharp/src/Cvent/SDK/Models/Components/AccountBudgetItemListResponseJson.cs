@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The response from a request to retrieve list of budget items across all events linked to the account.
     /// </summary>
     public class AccountBudgetItemListResponseJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -54,7 +53,7 @@ namespace Cvent.SDK.Models.Components
         /// RFP ID Information.
         /// </summary>
         [JsonProperty("rfp")]
-        public RfpIdJson? Rfp { get; set; }
+        public RfpIdJson1? Rfp { get; set; }
 
         /// <summary>
         /// Budget Version ID Information.

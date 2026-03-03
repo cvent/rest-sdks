@@ -67,6 +67,13 @@ public class ExistingExhibitorQuestion {
     private String text;
 
     /**
+     * System or User defined event level unique exhibitor question code.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("code")
+    private String code;
+
+    /**
      * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
      * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
      * option from a list, often displayed as a dropdown or radio button.
@@ -152,6 +159,7 @@ public class ExistingExhibitorQuestion {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("event") @Nonnull EventJson5 event,
             @JsonProperty("text") @Nonnull String text,
+            @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nonnull ExhibitorQuestionTypeJson type,
             @JsonProperty("required") boolean required,
             @JsonProperty("choices") @Nullable List<BaseChoiceJson> choices,
@@ -170,6 +178,7 @@ public class ExistingExhibitorQuestion {
             .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.text = Optional.ofNullable(text)
             .orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
+        this.code = code;
         this.type = Optional.ofNullable(type)
             .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.required = required;
@@ -193,10 +202,10 @@ public class ExistingExhibitorQuestion {
             @Nonnull String id) {
         this(null, null, null,
             null, event, text,
-            type, required, null,
+            null, type, required,
             null, null, null,
-            null, null, id,
-            null);
+            null, null, null,
+            id, null);
     }
 
     /**
@@ -239,6 +248,13 @@ public class ExistingExhibitorQuestion {
      */
     public String text() {
         return this.text;
+    }
+
+    /**
+     * System or User defined event level unique exhibitor question code.
+     */
+    public Optional<String> code() {
+        return Optional.ofNullable(this.code);
     }
 
     /**
@@ -382,6 +398,15 @@ public class ExistingExhibitorQuestion {
 
 
     /**
+     * System or User defined event level unique exhibitor question code.
+     */
+    public ExistingExhibitorQuestion withCode(@Nullable String code) {
+        this.code = code;
+        return this;
+    }
+
+
+    /**
      * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
      * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
      * option from a list, often displayed as a dropdown or radio button.
@@ -498,6 +523,7 @@ public class ExistingExhibitorQuestion {
             Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
             Utils.enhancedDeepEquals(this.event, other.event) &&
             Utils.enhancedDeepEquals(this.text, other.text) &&
+            Utils.enhancedDeepEquals(this.code, other.code) &&
             Utils.enhancedDeepEquals(this.type, other.type) &&
             Utils.enhancedDeepEquals(this.required, other.required) &&
             Utils.enhancedDeepEquals(this.choices, other.choices) &&
@@ -515,10 +541,10 @@ public class ExistingExhibitorQuestion {
         return Utils.enhancedHash(
             created, createdBy, lastModified,
             lastModifiedBy, event, text,
-            type, required, choices,
-            notApplicableAnswer, otherAnswer, answerFormat,
-            answerLimits, defaultToCurrentDate, id,
-            displayOrder);
+            code, type, required,
+            choices, notApplicableAnswer, otherAnswer,
+            answerFormat, answerLimits, defaultToCurrentDate,
+            id, displayOrder);
     }
     
     @Override
@@ -530,6 +556,7 @@ public class ExistingExhibitorQuestion {
                 "lastModifiedBy", lastModifiedBy,
                 "event", event,
                 "text", text,
+                "code", code,
                 "type", type,
                 "required", required,
                 "choices", choices,
@@ -556,6 +583,8 @@ public class ExistingExhibitorQuestion {
         private EventJson5 event;
 
         private String text;
+
+        private String code;
 
         private ExhibitorQuestionTypeJson type;
 
@@ -626,6 +655,14 @@ public class ExistingExhibitorQuestion {
          */
         public Builder text(@Nonnull String text) {
             this.text = Utils.checkNotNull(text, "text");
+            return this;
+        }
+
+        /**
+         * System or User defined event level unique exhibitor question code.
+         */
+        public Builder code(@Nullable String code) {
+            this.code = code;
             return this;
         }
 
@@ -724,10 +761,10 @@ public class ExistingExhibitorQuestion {
             return new ExistingExhibitorQuestion(
                 created, createdBy, lastModified,
                 lastModifiedBy, event, text,
-                type, required, choices,
-                notApplicableAnswer, otherAnswer, answerFormat,
-                answerLimits, defaultToCurrentDate, id,
-                displayOrder);
+                code, type, required,
+                choices, notApplicableAnswer, otherAnswer,
+                answerFormat, answerLimits, defaultToCurrentDate,
+                id, displayOrder);
         }
 
 

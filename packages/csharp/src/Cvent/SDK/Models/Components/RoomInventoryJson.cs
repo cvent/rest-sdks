@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Room inventory details for single night.
     /// </summary>
     public class RoomInventoryJson
     {
-
         /// <summary>
         /// Indicates if rates are hidden on booking site for this night.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// This is used to denote the general ledger detail in an order item
+    /// This is used to denote the general ledger detail in an order item.
     /// </summary>
     public class GeneralLedgerJson
     {
-
         /// <summary>
         /// A unique identifier for the general ledger.
         /// </summary>

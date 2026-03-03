@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is the budget item where this payment was made.
     /// </summary>
     public class PaymentResponseBudgetItem
     {
-
         /// <summary>
         /// The ID of the budget item where this payment was made.
         /// </summary>

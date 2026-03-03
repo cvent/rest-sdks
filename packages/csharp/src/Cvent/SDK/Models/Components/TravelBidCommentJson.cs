@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A comment on a travel bid.
     /// </summary>
     public class TravelBidCommentJson
     {
-
         /// <summary>
-        /// Bid comment type
+        /// Bid comment type.
         /// </summary>
         [JsonProperty("commentType")]
         public CommentTypeJson? CommentType { get; set; }

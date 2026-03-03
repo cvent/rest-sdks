@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetExhibitorRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>

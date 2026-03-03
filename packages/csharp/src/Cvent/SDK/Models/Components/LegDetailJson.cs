@@ -12,21 +12,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Representation of a leg detail in air request.
     /// </summary>
     public class LegDetailJson
     {
-
         /// <summary>
-        /// Name of the airport where the flight of the passenger&apos;s journey originates.
+        /// Name of the airport where the flight of the passenger's journey originates.
         /// </summary>
         [JsonProperty("origin")]
         public string? Origin { get; set; }
 
         /// <summary>
-        /// Name of the airport where the flight of the passenger&apos;s journey ends.
+        /// Name of the airport where the flight of the passenger's journey ends.
         /// </summary>
         [JsonProperty("destination")]
         public string? Destination { get; set; }
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// General time of day or specific time when the flight of the passenger&apos;s journey starts.
+        /// General time of day or specific time when the flight of the passenger's journey starts.
         /// </summary>
         [JsonProperty("time")]
         public string? Time { get; set; }

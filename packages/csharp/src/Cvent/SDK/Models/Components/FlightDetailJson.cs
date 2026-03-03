@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Representation of a flight&apos;s details.
+    /// Representation of a flight's details.
     /// </summary>
     public class FlightDetailJson
     {
-
         /// <summary>
         /// Name of the airline.
         /// </summary>
@@ -75,13 +74,13 @@ namespace Cvent.SDK.Models.Components
         public string? SeatNumber { get; set; }
 
         /// <summary>
-        /// Category of the passenger&apos;s ticket.
+        /// Category of the passenger's ticket.
         /// </summary>
         [JsonProperty("ticketClass")]
         public string? TicketClass { get; set; }
 
         /// <summary>
-        /// The airline&apos;s flight confirmation number.
+        /// The airline's flight confirmation number.
         /// </summary>
         [JsonProperty("flightConfirmationNumber")]
         public string? FlightConfirmationNumber { get; set; }
@@ -93,7 +92,7 @@ namespace Cvent.SDK.Models.Components
         public string? FlightGDSRecordLocator { get; set; }
 
         /// <summary>
-        /// Journey Segment
+        /// Journey Segment.
         /// </summary>
         [JsonProperty("journeySegment")]
         public JourneySegment? JourneySegment { get; set; }

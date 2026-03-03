@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class CancelReservationRequestRequest
     {
-
         /// <summary>
         /// Unique room reservation request ID.
         /// </summary>

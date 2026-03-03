@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The reference to the question entity. Contains only the ID of the question entity.
     /// </summary>
     public class AttendeeAnswerJson1Question
     {
-
         /// <summary>
-        /// Question ID
+        /// Question ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

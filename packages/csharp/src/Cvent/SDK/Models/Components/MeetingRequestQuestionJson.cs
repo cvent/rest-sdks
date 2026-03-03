@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A question for a meeting request.
     /// </summary>
     public class MeetingRequestQuestionJson
     {
-
         /// <summary>
         /// The unique ID representing this question.
         /// </summary>
@@ -40,8 +39,6 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// An array of non-null answers to the question.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// For standard questions, this array contains string values.<br/>
         /// <br/>
@@ -50,18 +47,17 @@ namespace Cvent.SDK.Models.Components
         /// * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)<br/>
         /// * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)<br/>
         /// <br/>
-        /// the answer is the country name (for example, &quot;Canada&quot;).<br/>
+        /// the answer is the country name (for example, "Canada").<br/>
         /// <br/>
         /// For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, this array contains JSON strings that match the format defined in `compositeValue`.<br/>
         /// <br/>
         /// For more details, see <a href="#tag/Meeting-Request/operation/getMeetingRequestById">Get Meeting Request</a>.
-        /// </remarks>
         /// </summary>
         [JsonProperty("value")]
         public List<string> Value { get; set; } = default!;
 
         /// <summary>
-        /// A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID determines the type of requirement: Meeting Room requirement for **&quot;9a224e41-58d9-43a2-ae59-6d1aa16442ce&quot;**, Sleeping Room requirement for **&quot;cc63aa7c-0800-4fa5-a04b-073793e197f3&quot;**, or Budget Estimate for **&quot;1479fb2d-e94c-4bfb-a63f-4af808a22160&quot;**.
+        /// A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID determines the type of requirement: Meeting Room requirement for **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
         /// </summary>
         [JsonProperty("compositeValue", NullValueHandling = NullValueHandling.Include)]
         public CompositeValueJson? CompositeValue { get; set; }

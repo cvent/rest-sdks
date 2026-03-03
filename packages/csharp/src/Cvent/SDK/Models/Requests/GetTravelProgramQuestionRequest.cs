@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetTravelProgramQuestionRequest
     {
-
         /// <summary>
         /// A uuid used to uniquely identify the program.
         /// </summary>
@@ -21,7 +20,7 @@ namespace Cvent.SDK.Models.Requests
         public string ProgramId { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID for a question
+        /// Unique ID for a question.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=questionId")]
         public string QuestionId { get; set; } = default!;

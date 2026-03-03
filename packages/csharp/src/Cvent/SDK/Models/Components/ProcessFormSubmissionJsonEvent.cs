@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event which the process form submission is associated with.
     /// </summary>
     public class ProcessFormSubmissionJsonEvent
     {
-
         /// <summary>
         /// The unique ID of the event.
         /// </summary>

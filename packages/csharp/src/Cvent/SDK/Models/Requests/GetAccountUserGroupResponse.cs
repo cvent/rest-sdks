@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetAccountUserGroupResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// A User Group
+        /// A User Group.
         /// </summary>
         public UserGroupJson? UserGroupJson { get; set; }
     }

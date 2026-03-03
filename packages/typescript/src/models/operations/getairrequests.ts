@@ -46,27 +46,22 @@ export type GetAirRequestsRequest = {
    */
   sort?: string | undefined;
   /**
-   * "A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
+   * Use filter query parameters to limit results
    *
    * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * These are the comparison types that can be used in filter expressions:
-   * * equal: eq
-   * * not equal: ne
+   * Supported fields and operators are listed below:
    *
-   * Field filterable:
-   * * attendee.id (Attendee Id)
+   * | Field            | Operators                          | Notes                                          |
+   * |------------------|-------------------------------------|------------------------------------------------|
+   * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a filter     |
    *
-   * Limits for the number of fields that can be passed in a filter 17
-   *
-   * The following operators are available:
+   * The following logical operators are supported for combining filters:
    * * or
    */
   filter?: string | undefined;
-  /**
-   * ID of an event.
-   */
-  id: string;
   /**
    * A list of fields to be expanded, returning additional information alongside the specified fields. The expanded entity is retrieved and displayed inline for each specified expansion field. The respective scopes for each expansion are required.
    *
@@ -76,6 +71,10 @@ export type GetAirRequestsRequest = {
    *   * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event Questions</a>)
    */
   expand?: Array<components.ExpandAirRequestQuestionAnswer> | undefined;
+  /**
+   * ID of an event.
+   */
+  id: string;
 };
 
 export type GetAirRequestsResponse = {
@@ -90,8 +89,8 @@ export type GetAirRequestsRequest$Outbound = {
   token?: string | undefined;
   sort?: string | undefined;
   filter?: string | undefined;
-  id: string;
   expand?: Array<string> | undefined;
+  id: string;
 };
 
 /** @internal */
@@ -106,9 +105,9 @@ export const GetAirRequestsRequest$outboundSchema: z.ZodType<
   token: z.string().optional(),
   sort: z.string().optional(),
   filter: z.string().optional(),
-  id: z.string(),
   expand: z.array(components.ExpandAirRequestQuestionAnswer$outboundSchema)
     .optional(),
+  id: z.string(),
 });
 
 export function getAirRequestsRequestToJSON(

@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Type of travel alternate question
+    /// Type of travel alternate question.
     /// </summary>
     public enum TravelType
     {
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum TravelType");
         }
     }
-
 }

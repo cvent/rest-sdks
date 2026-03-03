@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Video rendition
+    /// Video rendition.
     /// </summary>
     public class VideoRenditionJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -63,13 +62,13 @@ namespace Cvent.SDK.Models.Components
         public VideoRenditionJsonLink? Location { get; set; }
 
         /// <summary>
-        /// The video&apos;s frame width in pixels.
+        /// The video's frame width in pixels.
         /// </summary>
         [JsonProperty("width")]
         public long? Width { get; set; }
 
         /// <summary>
-        /// The video&apos;s frame height in pixels.
+        /// The video's frame height in pixels.
         /// </summary>
         [JsonProperty("height")]
         public long? Height { get; set; }

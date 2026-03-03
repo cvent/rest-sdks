@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A meeting request to create.
     /// </summary>
     public class MeetingRequestCreateJson
     {
-
         /// <summary>
         /// The name of the specific meeting request.
         /// </summary>

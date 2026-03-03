@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents a question associated with an event.
     /// </summary>
     public class EventQuestionJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -45,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -87,7 +86,7 @@ namespace Cvent.SDK.Models.Components
         public EventQuestionJsonAdmissionItem? AdmissionItem { get; set; }
 
         /// <summary>
-        /// This object represents the type of a question
+        /// This object represents the type of a question.
         /// </summary>
         [JsonProperty("type")]
         public QuestionTypeJson3? Type { get; set; }

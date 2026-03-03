@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Related links.
     /// </summary>
     public class RespondentJsonLinks
     {
-
         /// <summary>
         /// Represents a link to a related resource.
         /// </summary>

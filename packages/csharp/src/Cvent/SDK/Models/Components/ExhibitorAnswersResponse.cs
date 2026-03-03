@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A response object containing a list of exhibitor question answers.
     /// </summary>
     public class ExhibitorAnswersResponse
     {
-
         /// <summary>
         /// List of answers for all exhibitor questions.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents an error response with no additional details.
     /// </summary>
     public class ZeroAllOf1
     {
-
         /// <summary>
         /// The HTTP status code representing the error.
         /// </summary>

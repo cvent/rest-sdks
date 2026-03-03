@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     public class ListEventRoleAssignmentRequest
     {
-
         /// <summary>
         /// The maximum number of event role assignments that can be fetched at once.
         /// </summary>
@@ -24,43 +23,31 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// Use the `expand` query parameter to request additional details for each field specified.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Each event role assignment includes the ID of its associated event role. By using the expand parameter, you can also retrieve the name of the event role.<br/>
         /// <br/>
         /// The following fields are expandable:<br/>
-        ///   * eventRole<br/>
-        /// 
-        /// </remarks>
+        ///   * eventRole.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")]
         public List<EventRoleExpand>? Expand { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// This is the comparison type that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
         ///   * event.id (eq)<br/>
         ///   * eventRole.id (eq)<br/>
-        ///   * user.id (eq)<br/>
-        /// 
-        /// </remarks>
+        ///   * user.id (eq).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

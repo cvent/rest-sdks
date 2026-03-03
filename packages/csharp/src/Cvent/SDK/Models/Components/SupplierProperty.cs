@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Supplier property that the proposal is tied to.
     /// </summary>
     public class SupplierProperty
     {
-
         /// <summary>
         /// The unique ID of the supplier property.
         /// </summary>

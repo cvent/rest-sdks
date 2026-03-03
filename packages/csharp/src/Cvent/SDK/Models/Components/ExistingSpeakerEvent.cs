@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event the speaker is linked to.
     /// </summary>
     public class ExistingSpeakerEvent
     {
-
         /// <summary>
         /// Event ID.
         /// </summary>

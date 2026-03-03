@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Response include paging and collection of choices for large choices question.
     /// </summary>
     public class LargeChoicesPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

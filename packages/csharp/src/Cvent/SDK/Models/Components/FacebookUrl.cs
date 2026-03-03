@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class FacebookUrl
     {
-
         [JsonProperty("href")]
         public object? Href { get; set; }
     }

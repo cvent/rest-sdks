@@ -10,7 +10,7 @@
 namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
-    
+
     public class BulkDataRecordJson
     {
     }

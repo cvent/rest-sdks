@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The attendee object.
     /// </summary>
     public class TableAssignmentJsonAttendee
     {
-
         /// <summary>
         /// The unique ID of the attendee assigned.
         /// </summary>

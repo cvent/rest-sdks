@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Details of an event appointment including questions.
     /// </summary>
     public class AppointmentWithQuestions
     {
-
         /// <summary>
         /// The unique ID representing the appointment.
         /// </summary>
@@ -124,7 +123,7 @@ namespace Cvent.SDK.Models.Components
         public bool? EnforceScheduleRules { get; set; }
 
         /// <summary>
-        /// This field is deprecated please use - lastModified
+        /// This field is deprecated please use - lastModified.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("modified")]

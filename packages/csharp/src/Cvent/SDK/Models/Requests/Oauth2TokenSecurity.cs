@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class Oauth2TokenSecurity
     {
-
         [SpeakeasyMetadata("security:scheme=true,type=http,subType=basic,name=username")]
         public string Username { get; set; } = default!;
 

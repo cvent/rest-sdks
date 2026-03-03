@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote an existing custom field.
     /// </summary>
     public class ExistingCustomFieldInput
     {
-
         /// <summary>
         /// This is used to denote the category of a custom field.
         /// </summary>

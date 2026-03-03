@@ -14,15 +14,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Contains information about reservation request record.
     /// </summary>
     public class ReservationRequestInput
     {
-
         /// <summary>
-        /// Optional ID field you can use to attach ID&apos;s from your system to a reservation.
+        /// Optional ID field you can use to attach ID's from your system to a reservation.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }

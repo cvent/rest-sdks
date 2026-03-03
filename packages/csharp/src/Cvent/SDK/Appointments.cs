@@ -26,8 +26,6 @@ namespace Cvent.SDK
 
     /// <summary>
     /// An appointment is a meeting scheduled between two or more parties. These APIs allow you to get<br/>
-    /// 
-    /// <remarks>
     ///  information about your Cvent Appointments: appointment attendees, their interests, and availabilities.<br/>
     /// <br/>
     /// <br/>
@@ -35,199 +33,277 @@ namespace Cvent.SDK
     /// <br/>
     /// * **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees of either events or appointment events. Get information about these participants or use their appointment attendee ID to get their availabilities and interests.<br/>
     /// <br/>
-    /// * **Availability** - Appointment availabilities describe an appointment attendees&apos; preference in meeting dates and times. Availability information is only available for *Planner Coordinated Appointments*.<br/>
+    /// * **Availability** - Appointment availabilities describe an appointment attendees' preference in meeting dates and times. Availability information is only available for *Planner Coordinated Appointments*.<br/>
     /// <br/>
-    /// * **Interests** - Appointment interests describe appointment attendees&apos; preferences in meeting with another organization or individual. Interest information is only available for *Planner Coordinated Appointments*.<br/>
+    /// * **Interests** - Appointment interests describe appointment attendees' preferences in meeting with another organization or individual. Interest information is only available for *Planner Coordinated Appointments*.<br/>
     /// * **Available Times** - Available times lists time ranges available  for appointments scheduling.<br/>
     /// * **Locations** - Locations lists details of all locations created for  scheduling appointments.<br/>
-    /// * **Appointment Types** - Appointment Types lists details of different  appointment types created.<br/>
-    /// 
-    /// </remarks>
+    /// * **Appointment Types** - Appointment Types lists details of different  appointment types created.
     /// </summary>
     public interface IAppointments
     {
-
         /// <summary>
-        /// List Appt Attendees
-        /// 
+        /// List Appt Attendees<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointment attendees.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAppointmentAttendeesResponse> ListAppointmentAttendeesAsync(ListAppointmentAttendeesRequest? request = null);
+        /// <param name="request">A <see cref="ListAppointmentAttendeesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentAttendeesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAppointmentAttendeesResponse> ListAppointmentAttendeesAsync(
+            ListAppointmentAttendeesRequest? request = null
+        );
 
         /// <summary>
-        /// Get Appt Attendee
-        /// 
+        /// Get Appt Attendee<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a single appointment attendee by their ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetAppointmentAttendeeByIdResponse> GetAppointmentAttendeeByIdAsync(GetAppointmentAttendeeByIdRequest request);
+        /// <param name="request">A <see cref="GetAppointmentAttendeeByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAppointmentAttendeeByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAppointmentAttendeeByIdResponse> GetAppointmentAttendeeByIdAsync(
+            GetAppointmentAttendeeByIdRequest request
+        );
 
         /// <summary>
-        /// List Availability
-        /// 
+        /// List Availability<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointment availability times.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAvailabilityResponse> ListAvailabilityAsync(ListAvailabilityRequest? request = null);
+        /// <param name="request">A <see cref="ListAvailabilityRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAvailabilityResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAvailabilityResponse> ListAvailabilityAsync(ListAvailabilityRequest? request = null);
 
         /// <summary>
-        /// Get Availability
-        /// 
+        /// Get Availability<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Get a single appointment availability time by its ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetAvailabilityByIdResponse> GetAvailabilityByIdAsync(GetAvailabilityByIdRequest request);
+        /// <param name="request">A <see cref="GetAvailabilityByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAvailabilityByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403 or 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAvailabilityByIdResponse> GetAvailabilityByIdAsync(GetAvailabilityByIdRequest request);
 
         /// <summary>
-        /// List Appt Events
-        /// 
+        /// List Appt Events<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointment events.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAppointmentEventsResponse> ListAppointmentEventsAsync(ListAppointmentEventsRequest? request = null);
+        /// <param name="request">A <see cref="ListAppointmentEventsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentEventsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAppointmentEventsResponse> ListAppointmentEventsAsync(
+            ListAppointmentEventsRequest? request = null
+        );
 
         /// <summary>
-        /// Get Appt Event
-        /// 
+        /// Get Appt Event<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a single appointment event by its ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetAppointmentEventByIdResponse> GetAppointmentEventByIdAsync(GetAppointmentEventByIdRequest request);
+        /// <param name="request">A <see cref="GetAppointmentEventByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAppointmentEventByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAppointmentEventByIdResponse> GetAppointmentEventByIdAsync(
+            GetAppointmentEventByIdRequest request
+        );
 
         /// <summary>
-        /// List Available Times
-        /// 
+        /// List Available Times<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of times and locations available for scheduling appointments in a particular appointment event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAvailableTimesResponse> ListAvailableTimesAsync(ListAvailableTimesRequest request);
+        /// <param name="request">A <see cref="ListAvailableTimesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAvailableTimesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAvailableTimesResponse> ListAvailableTimesAsync(ListAvailableTimesRequest request);
 
         /// <summary>
-        /// List Appointment Types
-        /// 
+        /// List Appointment Types<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointment types for an appointment event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAppointmentTypesResponse> ListAppointmentTypesAsync(ListAppointmentTypesRequest request);
+        /// <param name="request">A <see cref="ListAppointmentTypesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentTypesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAppointmentTypesResponse> ListAppointmentTypesAsync(ListAppointmentTypesRequest request);
 
         /// <summary>
-        /// Create Appointment
-        /// 
+        /// Create Appointment<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Creates an appointment in a given appointment event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateAppointmentResponse> CreateAppointmentAsync(Models.Requests.CreateAppointmentRequest request);
+        /// <param name="request">A <see cref="Cvent.SDK.Models.Requests.CreateAppointmentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateAppointmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 422 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateAppointmentResponse> CreateAppointmentAsync(Models.Requests.CreateAppointmentRequest request);
 
         /// <summary>
-        /// Update Appointments
-        /// 
+        /// Update Appointments<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Updates an appointment based on the given ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateAppointmentResponse> UpdateAppointmentAsync(Models.Requests.UpdateAppointmentRequest request);
+        /// <param name="request">A <see cref="Cvent.SDK.Models.Requests.UpdateAppointmentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateAppointmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 422 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateAppointmentResponse> UpdateAppointmentAsync(Models.Requests.UpdateAppointmentRequest request);
 
         /// <summary>
-        /// Cancel Appointment
-        /// 
+        /// Cancel Appointment<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Cancels an appointment with the given appointment ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CancelAppointmentResponse> CancelAppointmentAsync(CancelAppointmentRequest request);
+        /// <param name="request">A <see cref="CancelAppointmentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CancelAppointmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CancelAppointmentResponse> CancelAppointmentAsync(CancelAppointmentRequest request);
 
         /// <summary>
-        /// List Locations
-        /// 
+        /// List Locations<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointment locations in a particular appointment event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListLocationsResponse> ListLocationsAsync(ListLocationsRequest request);
+        /// <param name="request">A <see cref="ListLocationsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListLocationsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListLocationsResponse> ListLocationsAsync(ListLocationsRequest request);
 
         /// <summary>
-        /// List Interests
-        /// 
+        /// List Interests<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointment meeting interests.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListMeetingInterestsResponse> ListMeetingInterestsAsync(ListMeetingInterestsRequest? request = null);
+        /// <param name="request">A <see cref="ListMeetingInterestsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListMeetingInterestsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401 or 403 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListMeetingInterestsResponse> ListMeetingInterestsAsync(ListMeetingInterestsRequest? request = null);
 
         /// <summary>
-        /// Get Interest
-        /// 
+        /// Get Interest<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Gets a single attendee&apos;s meeting interests in a particular appointment event by their interest ID.
+        /// Gets a single attendee's meeting interests in a particular appointment event by their interest ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetMeetingInterestByIdResponse> GetMeetingInterestByIdAsync(GetMeetingInterestByIdRequest request);
+        /// <param name="request">A <see cref="GetMeetingInterestByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetMeetingInterestByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403 or 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetMeetingInterestByIdResponse> GetMeetingInterestByIdAsync(GetMeetingInterestByIdRequest request);
 
         /// <summary>
-        /// List Appointments
-        /// 
+        /// List Appointments<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of appointments.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAppointmentsResponse> ListAppointmentsAsync(ListAppointmentsRequest? request = null);
+        /// <param name="request">A <see cref="ListAppointmentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401 or 403 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAppointmentsResponse> ListAppointmentsAsync(ListAppointmentsRequest? request = null);
 
         /// <summary>
-        /// Get Appointment
-        /// 
+        /// Get Appointment<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a single appointment by its ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetAppointmentByIdResponse> GetAppointmentByIdAsync(GetAppointmentByIdRequest request);
+        /// <param name="request">A <see cref="GetAppointmentByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAppointmentByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403 or 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAppointmentByIdResponse> GetAppointmentByIdAsync(GetAppointmentByIdRequest request);
     }
 
     /// <summary>
     /// An appointment is a meeting scheduled between two or more parties. These APIs allow you to get<br/>
-    /// 
-    /// <remarks>
     ///  information about your Cvent Appointments: appointment attendees, their interests, and availabilities.<br/>
     /// <br/>
     /// <br/>
@@ -235,36 +311,53 @@ namespace Cvent.SDK
     /// <br/>
     /// * **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees of either events or appointment events. Get information about these participants or use their appointment attendee ID to get their availabilities and interests.<br/>
     /// <br/>
-    /// * **Availability** - Appointment availabilities describe an appointment attendees&apos; preference in meeting dates and times. Availability information is only available for *Planner Coordinated Appointments*.<br/>
+    /// * **Availability** - Appointment availabilities describe an appointment attendees' preference in meeting dates and times. Availability information is only available for *Planner Coordinated Appointments*.<br/>
     /// <br/>
-    /// * **Interests** - Appointment interests describe appointment attendees&apos; preferences in meeting with another organization or individual. Interest information is only available for *Planner Coordinated Appointments*.<br/>
+    /// * **Interests** - Appointment interests describe appointment attendees' preferences in meeting with another organization or individual. Interest information is only available for *Planner Coordinated Appointments*.<br/>
     /// * **Available Times** - Available times lists time ranges available  for appointments scheduling.<br/>
     /// * **Locations** - Locations lists details of all locations created for  scheduling appointments.<br/>
-    /// * **Appointment Types** - Appointment Types lists details of different  appointment types created.<br/>
-    /// 
-    /// </remarks>
+    /// * **Appointment Types** - Appointment Types lists details of different  appointment types created.
     /// </summary>
     public class Appointments: IAppointments
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Appointments(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListAppointmentAttendeesResponse> ListAppointmentAttendeesAsync(ListAppointmentAttendeesRequest? request = null)
+        /// <summary>
+        /// List Appt Attendees<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointment attendees.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAppointmentAttendeesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentAttendeesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAppointmentAttendeesResponse> ListAppointmentAttendeesAsync(
+            ListAppointmentAttendeesRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-attendees", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -281,7 +374,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -290,9 +383,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -314,6 +407,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -398,13 +492,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAppointmentAttendeeByIdResponse> GetAppointmentAttendeeByIdAsync(GetAppointmentAttendeeByIdRequest request)
+
+        /// <summary>
+        /// Get Appt Attendee<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a single appointment attendee by their ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAppointmentAttendeeByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAppointmentAttendeeByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAppointmentAttendeeByIdResponse> GetAppointmentAttendeeByIdAsync(
+            GetAppointmentAttendeeByIdRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-attendees/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -421,7 +539,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -430,9 +548,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -508,13 +626,32 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAvailabilityResponse> ListAvailabilityAsync(ListAvailabilityRequest? request = null)
+
+        /// <summary>
+        /// List Availability<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointment availability times.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAvailabilityRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAvailabilityResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAvailabilityResponse> ListAvailabilityAsync(ListAvailabilityRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-availability-times", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -531,7 +668,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -540,9 +677,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -564,6 +701,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -648,13 +786,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAvailabilityByIdResponse> GetAvailabilityByIdAsync(GetAvailabilityByIdRequest request)
+
+        /// <summary>
+        /// Get Availability<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Get a single appointment availability time by its ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAvailabilityByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAvailabilityByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403 or 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAvailabilityByIdResponse> GetAvailabilityByIdAsync(GetAvailabilityByIdRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-availability-times/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -671,7 +831,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -680,9 +840,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -746,7 +906,7 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 429 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -758,13 +918,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAppointmentEventsResponse> ListAppointmentEventsAsync(ListAppointmentEventsRequest? request = null)
+
+        /// <summary>
+        /// List Appt Events<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointment events.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAppointmentEventsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentEventsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAppointmentEventsResponse> ListAppointmentEventsAsync(
+            ListAppointmentEventsRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -781,7 +962,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -790,9 +971,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -814,6 +995,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -898,13 +1080,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAppointmentEventByIdResponse> GetAppointmentEventByIdAsync(GetAppointmentEventByIdRequest request)
+
+        /// <summary>
+        /// Get Appt Event<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a single appointment event by its ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAppointmentEventByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAppointmentEventByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAppointmentEventByIdResponse> GetAppointmentEventByIdAsync(
+            GetAppointmentEventByIdRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -921,7 +1127,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -930,9 +1136,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1008,13 +1214,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAvailableTimesResponse> ListAvailableTimesAsync(ListAvailableTimesRequest request)
+
+        /// <summary>
+        /// List Available Times<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of times and locations available for scheduling appointments in a particular appointment event.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAvailableTimesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAvailableTimesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAvailableTimesResponse> ListAvailableTimesAsync(ListAvailableTimesRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}/appointment-available-times", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1031,7 +1259,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1040,9 +1268,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1064,6 +1292,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1147,13 +1376,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAppointmentTypesResponse> ListAppointmentTypesAsync(ListAppointmentTypesRequest request)
+
+        /// <summary>
+        /// List Appointment Types<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointment types for an appointment event.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAppointmentTypesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentTypesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAppointmentTypesResponse> ListAppointmentTypesAsync(ListAppointmentTypesRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}/appointment-types", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1170,7 +1421,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1179,9 +1430,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1203,6 +1454,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1285,13 +1537,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateAppointmentResponse> CreateAppointmentAsync(Models.Requests.CreateAppointmentRequest request)
+
+        /// <summary>
+        /// Create Appointment<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Creates an appointment in a given appointment event.
+        /// </remarks>
+        /// <param name="request">A <see cref="Cvent.SDK.Models.Requests.CreateAppointmentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateAppointmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 422 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateAppointmentResponse> CreateAppointmentAsync(
+            Models.Requests.CreateAppointmentRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}/appointments", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "CreateAppointmentRequestValue", "json", false, true);
             if (serializedBody != null)
@@ -1314,7 +1590,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 422 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1323,9 +1599,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1401,13 +1677,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateAppointmentResponse> UpdateAppointmentAsync(Models.Requests.UpdateAppointmentRequest request)
+
+        /// <summary>
+        /// Update Appointments<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Updates an appointment based on the given ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="Cvent.SDK.Models.Requests.UpdateAppointmentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateAppointmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 422 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateAppointmentResponse> UpdateAppointmentAsync(
+            Models.Requests.UpdateAppointmentRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}/appointments/{apptId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "UpdateAppointmentRequestValue", "json", false, true);
             if (serializedBody != null)
@@ -1430,7 +1730,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 422 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1439,9 +1739,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1517,13 +1817,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CancelAppointmentResponse> CancelAppointmentAsync(CancelAppointmentRequest request)
+
+        /// <summary>
+        /// Cancel Appointment<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Cancels an appointment with the given appointment ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="CancelAppointmentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CancelAppointmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CancelAppointmentResponse> CancelAppointmentAsync(CancelAppointmentRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}/appointments/{apptId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1540,7 +1862,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1549,9 +1871,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1609,13 +1931,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListLocationsResponse> ListLocationsAsync(ListLocationsRequest request)
+
+        /// <summary>
+        /// List Locations<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointment locations in a particular appointment event.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListLocationsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListLocationsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListLocationsResponse> ListLocationsAsync(ListLocationsRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-events/{id}/locations", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1632,7 +1976,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1641,9 +1985,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1665,6 +2009,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1747,13 +2092,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListMeetingInterestsResponse> ListMeetingInterestsAsync(ListMeetingInterestsRequest? request = null)
+
+        /// <summary>
+        /// List Interests<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointment meeting interests.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListMeetingInterestsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListMeetingInterestsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401 or 403 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListMeetingInterestsResponse> ListMeetingInterestsAsync(
+            ListMeetingInterestsRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-meeting-interests", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1770,7 +2136,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1779,9 +2145,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1803,6 +2169,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1875,7 +2242,7 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 429 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -1887,13 +2254,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetMeetingInterestByIdResponse> GetMeetingInterestByIdAsync(GetMeetingInterestByIdRequest request)
+
+        /// <summary>
+        /// Get Interest<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a single attendee's meeting interests in a particular appointment event by their interest ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetMeetingInterestByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetMeetingInterestByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403 or 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetMeetingInterestByIdResponse> GetMeetingInterestByIdAsync(
+            GetMeetingInterestByIdRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointment-meeting-interests/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1910,7 +2301,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1919,9 +2310,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1985,7 +2376,7 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 429 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -1997,13 +2388,32 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAppointmentsResponse> ListAppointmentsAsync(ListAppointmentsRequest? request = null)
+
+        /// <summary>
+        /// List Appointments<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of appointments.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAppointmentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAppointmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401 or 403 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAppointmentsResponse> ListAppointmentsAsync(ListAppointmentsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointments", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2020,7 +2430,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2029,9 +2439,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2053,6 +2463,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2125,7 +2536,7 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 429 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -2137,13 +2548,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAppointmentByIdResponse> GetAppointmentByIdAsync(GetAppointmentByIdRequest request)
+
+        /// <summary>
+        /// Get Appointment<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a single appointment by its ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAppointmentByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAppointmentByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403 or 404 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAppointmentByIdResponse> GetAppointmentByIdAsync(GetAppointmentByIdRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/appointments/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2160,7 +2593,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2169,9 +2602,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2235,7 +2668,7 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 429 || responseStatusCode >= 400 && responseStatusCode < 500)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
@@ -2246,5 +2679,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

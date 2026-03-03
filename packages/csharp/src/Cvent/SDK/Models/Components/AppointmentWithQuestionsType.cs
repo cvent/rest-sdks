@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The type of the appointment.
     /// </summary>
     public class AppointmentWithQuestionsType
     {
-
         /// <summary>
         /// The name of the appointment type.
         /// </summary>

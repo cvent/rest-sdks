@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A reaction to a message
+    /// A reaction to a message.
     /// </summary>
     public class ChatReactionJson
     {
-
         /// <summary>
         /// The reaction type if the action type was one of the reaction.created or reaction.deleted.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Represents the configuration of the event&apos;s pricing feature.
+    /// Represents the configuration of the event's pricing feature.
     /// </summary>
     public class PricingConfigJson
     {
-
         /// <summary>
         /// True enables pricing for the event.
         /// </summary>

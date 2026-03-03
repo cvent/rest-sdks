@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// A single instance of change for a specific contact in the contact&apos;s change history.
+    /// A single instance of change for a specific contact in the contact's change history.
     /// </summary>
     public class ContactHistoryJson
     {
-
         /// <summary>
         /// The name of a field that was changed and tracked by this single instance of change in contact change history.
         /// </summary>

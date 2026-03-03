@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// This is used to denote an item in the transaction.
     /// </summary>
     public class TransactionItemJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -75,7 +74,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeJson? Attendee { get; set; }
 
         /// <summary>
-        /// This is used to denote the product details in an order item
+        /// This is used to denote the product details in an order item.
         /// </summary>
         [JsonProperty("product")]
         public ProductOrderItemJson? Product { get; set; }
@@ -87,19 +86,19 @@ namespace Cvent.SDK.Models.Components
         public OrderItemRefJson? OrderItem { get; set; }
 
         /// <summary>
-        /// This denotes the name of the item
+        /// This denotes the name of the item.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// Transaction amount of the item
+        /// Transaction amount of the item.
         /// </summary>
         [JsonProperty("amount")]
         public double? Amount { get; set; }
 
         /// <summary>
-        /// This denotes the currency of this transaction
+        /// This denotes the currency of this transaction.
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }

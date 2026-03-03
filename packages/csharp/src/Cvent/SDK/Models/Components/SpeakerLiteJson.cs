@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The unique identifier of a speaker.
     /// </summary>
     public class SpeakerLiteJson
     {
-
         /// <summary>
         /// The unique identifier for a speaker.
         /// </summary>

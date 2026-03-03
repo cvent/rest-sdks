@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Service Provider Configs
+    /// Service Provider Configs.
     /// </summary>
     public class ServiceProviderConfig
     {
-
         /// <summary>
         /// The list of schemas using this resource.
         /// </summary>

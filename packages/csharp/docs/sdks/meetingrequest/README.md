@@ -316,8 +316,8 @@ var sdk = new CventSDK(security: new Security() {
 ListMeetingRequestRequest req = new ListMeetingRequestRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "meeting-request.id eq '775b7a6c-de7f-4dfe-8d16-966acdc0e848'",
 };
 

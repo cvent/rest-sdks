@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// This is used to indicate the status of the badge print job.
     /// </summary>
@@ -64,5 +64,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum BadgePrintJobStatusJson");
         }
     }
-
 }

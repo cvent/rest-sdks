@@ -40,8 +40,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListCustomFieldsRequest req = new ListCustomFieldsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "category eq 'Event' and lastModified gt '2021-03-19T11:30:37.909Z' and code eq 'FAVORITE_COLOR_CODE'",
 };
@@ -96,12 +96,12 @@ var sdk = new CventSDK(security: new Security() {
     },
 });
 
-CustomField1 req = new CustomField1() {
+CustomField2 req = new CustomField2() {
     Category = CustomFieldCategoryJson.Contact,
     Name = "What is a your favorite color?",
     Code = "FAVORITE_COLOR_CODE",
     Type = CustomFieldTypeJson1.OpenEndedTextOneLine,
-    Details = CustomField1Details.CreateOpenEndedOneLine(
+    Details = CustomField2Details.CreateOpenEndedOneLine(
         new OpenEndedOneLine() {
             AnswerFormat = "General",
             Minimum = 2,
@@ -121,7 +121,7 @@ var res = await sdk.CustomFields.CreateCustomFieldAsync(req);
 
 | Parameter                                               | Type                                                    | Required                                                | Description                                             |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `request`                                               | [CustomField1](../../Models/Components/CustomField1.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
+| `request`                                               | [CustomField2](../../Models/Components/CustomField2.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
 
 ### Response
 

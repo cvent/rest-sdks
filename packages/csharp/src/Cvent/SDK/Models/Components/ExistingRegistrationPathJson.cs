@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents the details of an existing registration path.
     /// </summary>
     public class ExistingRegistrationPathJson
     {
-
         /// <summary>
         /// Name of the registration path.
         /// </summary>

@@ -29,127 +29,181 @@ namespace Cvent.SDK
     /// </summary>
     public interface IWebcasts
     {
-
         /// <summary>
-        /// Create Webcast
-        /// 
+        /// Create Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Used to create a new webcast for a specific event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request);
+        /// <param name="request">A <see cref="Webcast"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateWebcastResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request);
 
         /// <summary>
-        /// List Webcasts
-        /// 
+        /// List Webcasts<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of webcasts associated with your event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListWebcastsResponse> ListWebcastsAsync(ListWebcastsRequest? request = null);
+        /// <param name="request">A <see cref="ListWebcastsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListWebcastsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListWebcastsResponse> ListWebcastsAsync(ListWebcastsRequest? request = null);
 
         /// <summary>
-        /// List Attendee Links
-        /// 
+        /// List Attendee Links<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of attendee links.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(ListAttendeeLinksRequest? request = null);
+        /// <param name="request">A <see cref="ListAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(ListAttendeeLinksRequest? request = null);
 
         /// <summary>
-        /// List Players
-        /// 
+        /// List Players<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of player details associated with webcast.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListPlayersResponse> ListPlayersAsync(ListPlayersRequest? request = null);
+        /// <param name="request">A <see cref="ListPlayersRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListPlayersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListPlayersResponse> ListPlayersAsync(ListPlayersRequest? request = null);
 
         /// <summary>
-        /// Get Webcast
-        /// 
+        /// Get Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Retrieve a single webcast details by ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetWebcastByIdResponse> GetWebcastByIdAsync(GetWebcastByIdRequest request);
+        /// <param name="request">A <see cref="GetWebcastByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetWebcastByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetWebcastByIdResponse> GetWebcastByIdAsync(GetWebcastByIdRequest request);
 
         /// <summary>
-        /// Delete Webcast
-        /// 
+        /// Delete Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Delete an existing webcast by ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteWebcastResponse> DeleteWebcastAsync(DeleteWebcastRequest request);
+        /// <param name="request">A <see cref="DeleteWebcastRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteWebcastResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteWebcastResponse> DeleteWebcastAsync(DeleteWebcastRequest request);
 
         /// <summary>
-        /// Update Webcast
-        /// 
+        /// Update Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Update info for an existing webcast within a Cvent event.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateWebcastResponse> UpdateWebcastAsync(UpdateWebcastRequest request);
+        /// <param name="request">A <see cref="UpdateWebcastRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateWebcastResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateWebcastResponse> UpdateWebcastAsync(UpdateWebcastRequest request);
 
         /// <summary>
-        /// Create Attendee Link
-        /// 
+        /// Create Attendee Link<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Create attendee links in bulk for a given webcast.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(CreateAttendeeLinksRequest request);
+        /// <param name="request">A <see cref="CreateAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(CreateAttendeeLinksRequest request);
 
         /// <summary>
-        /// Update Attendee Link
-        /// 
+        /// Update Attendee Link<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Update data for existing attendee links in bulk for a given webcast.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(UpdateAttendeeLinksRequest request);
+        /// <param name="request">A <see cref="UpdateAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(UpdateAttendeeLinksRequest request);
 
         /// <summary>
-        /// List Attendee Links
-        /// 
+        /// List Attendee Links<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of attendee links in a webcast.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListWebcastAttendeeLinksResponse> ListWebcastAttendeeLinksAsync(ListWebcastAttendeeLinksRequest request);
+        /// <param name="request">A <see cref="ListWebcastAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListWebcastAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public  Task<ListWebcastAttendeeLinksResponse> ListWebcastAttendeeLinksAsync(
+            ListWebcastAttendeeLinksRequest request
+        );
 
         /// <summary>
-        /// Delete Attendee Link
-        /// 
+        /// Delete Attendee Link<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Delete attendee links for webcast.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(DeleteAttendeeLinkRequest request);
+        /// <param name="request">A <see cref="DeleteAttendeeLinkRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteAttendeeLinkResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(DeleteAttendeeLinkRequest request);
     }
 
     /// <summary>
@@ -157,26 +211,45 @@ namespace Cvent.SDK
     /// </summary>
     public class Webcasts: IWebcasts
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Webcasts(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request)
+        /// <summary>
+        /// Create Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Used to create a new webcast for a specific event.
+        /// </remarks>
+        /// <param name="request">A <see cref="Webcast"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateWebcastResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request)
         {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            if (request == null) throw new ArgumentNullException(nameof(request));
 
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/webcasts";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -199,7 +272,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -208,9 +281,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -286,13 +359,32 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListWebcastsResponse> ListWebcastsAsync(ListWebcastsRequest? request = null)
+
+        /// <summary>
+        /// List Webcasts<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of webcasts associated with your event.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListWebcastsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListWebcastsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListWebcastsResponse> ListWebcastsAsync(ListWebcastsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -309,7 +401,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -318,9 +410,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -342,6 +434,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -426,13 +519,32 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(ListAttendeeLinksRequest? request = null)
+
+        /// <summary>
+        /// List Attendee Links<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of attendee links.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(ListAttendeeLinksRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/attendee-links", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -449,7 +561,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -458,9 +570,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -482,6 +594,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -566,13 +679,32 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListPlayersResponse> ListPlayersAsync(ListPlayersRequest? request = null)
+
+        /// <summary>
+        /// List Players<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of player details associated with webcast.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListPlayersRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListPlayersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListPlayersResponse> ListPlayersAsync(ListPlayersRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/players", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -589,7 +721,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -598,9 +730,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -622,6 +754,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -706,13 +839,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetWebcastByIdResponse> GetWebcastByIdAsync(GetWebcastByIdRequest request)
+
+        /// <summary>
+        /// Get Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a single webcast details by ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetWebcastByIdRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetWebcastByIdResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetWebcastByIdResponse> GetWebcastByIdAsync(GetWebcastByIdRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -729,7 +884,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -738,9 +893,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -816,13 +971,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteWebcastResponse> DeleteWebcastAsync(DeleteWebcastRequest request)
+
+        /// <summary>
+        /// Delete Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Delete an existing webcast by ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteWebcastRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteWebcastResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteWebcastResponse> DeleteWebcastAsync(DeleteWebcastRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -839,7 +1016,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -848,9 +1025,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -908,13 +1085,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateWebcastResponse> UpdateWebcastAsync(UpdateWebcastRequest request)
+
+        /// <summary>
+        /// Update Webcast<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Update info for an existing webcast within a Cvent event.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateWebcastRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateWebcastResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateWebcastResponse> UpdateWebcastAsync(UpdateWebcastRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExistingWebcast", "json", false, false);
             if (serializedBody != null)
@@ -937,7 +1136,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -946,9 +1145,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1024,13 +1223,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(CreateAttendeeLinksRequest request)
+
+        /// <summary>
+        /// Create Attendee Link<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Create attendee links in bulk for a given webcast.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(CreateAttendeeLinksRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}/attendee-links", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "json", false, false);
             if (serializedBody != null)
@@ -1053,7 +1274,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1062,9 +1283,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1140,13 +1361,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(UpdateAttendeeLinksRequest request)
+
+        /// <summary>
+        /// Update Attendee Link<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Update data for existing attendee links in bulk for a given webcast.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(UpdateAttendeeLinksRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}/attendee-links", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "json", false, false);
             if (serializedBody != null)
@@ -1169,7 +1412,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1178,9 +1421,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1256,14 +1499,38 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
+
+        /// <summary>
+        /// List Attendee Links<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of attendee links in a webcast.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListWebcastAttendeeLinksRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListWebcastAttendeeLinksResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<ListWebcastAttendeeLinksResponse> ListWebcastAttendeeLinksAsync(ListWebcastAttendeeLinksRequest request)
+        public async  Task<ListWebcastAttendeeLinksResponse> ListWebcastAttendeeLinksAsync(
+            ListWebcastAttendeeLinksRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}/attendee-links", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1280,7 +1547,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1289,9 +1556,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1313,6 +1580,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1398,13 +1666,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(DeleteAttendeeLinkRequest request)
+
+        /// <summary>
+        /// Delete Attendee Link<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Delete attendee links for webcast.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteAttendeeLinkRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteAttendeeLinkResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(DeleteAttendeeLinkRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/{id}/attendee-links/{attendeeLinkId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1421,7 +1711,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1430,9 +1720,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1489,5 +1779,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

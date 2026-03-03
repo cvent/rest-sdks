@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question
+    /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question.
     /// </summary>
     public class LoopingChoice
     {
-
         /// <summary>
         /// Loop Choice ID.
         /// </summary>

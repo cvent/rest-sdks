@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The optimized URL of the Events+ member&apos;s profile image.
+    /// The optimized URL of the Events+ member's profile image.
     /// </summary>
     public class ExistingMemberJsonLink
     {
-
         /// <summary>
-        /// A URL pointing to the member&apos;s profile image.
+        /// A URL pointing to the member's profile image.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

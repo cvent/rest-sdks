@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Representation of the housing reservation details.
     /// </summary>
     public class ReservationRequestJson
     {
-
         /// <summary>
         /// Reservation request ID, also known as a bridge ID.
         /// </summary>

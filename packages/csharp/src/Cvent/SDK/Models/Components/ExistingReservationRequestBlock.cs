@@ -12,14 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class ExistingReservationRequestBlock
     {
-
         /// <summary>
         /// Property ID.
         /// </summary>

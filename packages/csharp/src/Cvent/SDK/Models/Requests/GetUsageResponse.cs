@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetUsageResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Usage metrics for the dates requested
+        /// Usage metrics for the dates requested.
         /// </summary>
         public UsagePaginatedResponse? UsagePaginatedResponse { get; set; }
     }

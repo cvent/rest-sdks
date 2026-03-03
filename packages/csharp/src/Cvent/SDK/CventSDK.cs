@@ -19,20 +19,14 @@ namespace Cvent.SDK
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-
     /// <summary>
     /// Cvent REST APIs: Official Cvent SDK providing typed access to Cvent REST APIs for event management, contacts, attendees, and more using OAuth2 authentication.<br/>
-    /// 
-    /// <remarks>
     /// For documentation, see the README and USAGE. To get credentials, visit https://developers.cvent.com/docs/rest-api/overview.<br/>
-    /// 
-    /// </remarks>
-    /// 
+    /// <br/>
     /// <see href="https://developers.cvent.com/docs">Cvent Developer Documentation</see>
     /// </summary>
     public interface ICventSDK
     {
-
         /// <summary>
         /// Operations for managing account users and user groups, including creation, retrieval, update, and deletion. Use these endpoints to administer user access and roles within your account.
         /// </summary>
@@ -45,8 +39,6 @@ namespace Cvent.SDK
 
         /// <summary>
         /// An appointment is a meeting scheduled between two or more parties. These APIs allow you to get<br/>
-        /// 
-        /// <remarks>
         ///  information about your Cvent Appointments: appointment attendees, their interests, and availabilities.<br/>
         /// <br/>
         /// <br/>
@@ -54,14 +46,12 @@ namespace Cvent.SDK
         /// <br/>
         /// * **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees of either events or appointment events. Get information about these participants or use their appointment attendee ID to get their availabilities and interests.<br/>
         /// <br/>
-        /// * **Availability** - Appointment availabilities describe an appointment attendees&apos; preference in meeting dates and times. Availability information is only available for *Planner Coordinated Appointments*.<br/>
+        /// * **Availability** - Appointment availabilities describe an appointment attendees' preference in meeting dates and times. Availability information is only available for *Planner Coordinated Appointments*.<br/>
         /// <br/>
-        /// * **Interests** - Appointment interests describe appointment attendees&apos; preferences in meeting with another organization or individual. Interest information is only available for *Planner Coordinated Appointments*.<br/>
+        /// * **Interests** - Appointment interests describe appointment attendees' preferences in meeting with another organization or individual. Interest information is only available for *Planner Coordinated Appointments*.<br/>
         /// * **Available Times** - Available times lists time ranges available  for appointments scheduling.<br/>
         /// * **Locations** - Locations lists details of all locations created for  scheduling appointments.<br/>
-        /// * **Appointment Types** - Appointment Types lists details of different  appointment types created.<br/>
-        /// 
-        /// </remarks>
+        /// * **Appointment Types** - Appointment Types lists details of different  appointment types created.
         /// </summary>
         public IAppointments Appointments { get; }
 
@@ -77,47 +67,36 @@ namespace Cvent.SDK
 
         /// <summary>
         /// The Attendee Insights feature provides valuable information about your event attendees. It assists planners, marketers, and exhibitors in targeting customers effectively, thereby enhancing engagement and conversion rates for marketing campaigns. Utilize these APIs to fetch engagement score data from your event and integrate it into your marketing systems.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// **Engagement Score** - Engagement scores are a container that track individual attendees&apos; engagement with your event. Attendees earn points by performing actions, which indicates their relative engagement with your content.<br/>
+        /// **Engagement Score** - Engagement scores are a container that track individual attendees' engagement with your event. Attendees earn points by performing actions, which indicates their relative engagement with your content.<br/>
         /// <br/>
         /// **Actions** - These are distinct, trackable activities that attendees can perform during an event. Points are awarded for these actions and contribute to the engagement score.
-        /// </remarks>
         /// </summary>
         public IAttendeeInsights AttendeeInsights { get; }
 
         /// <summary>
-        /// The Attendee Activities API gives valuable insight into your customer&apos;s experience at your Cvent event.<br/>
-        /// 
-        /// <remarks>
-        /// Now, you can get a fuller picture of your customer&apos;s journey, including onsite activities, offsite meetings,<br/>
+        /// The Attendee Activities API gives valuable insight into your customer's experience at your Cvent event.<br/>
+        /// Now, you can get a fuller picture of your customer's journey, including onsite activities, offsite meetings,<br/>
         /// breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified customer<br/>
         /// profile that integrates with your external systems and data.<br/>
         /// <br/>
-        /// By gathering all this info into a single interface, the API allows you to see your customer&apos;s engagement<br/>
+        /// By gathering all this info into a single interface, the API allows you to see your customer's engagement<br/>
         /// at every step of the journey, create engagement models, and integrate that data with your external tools.<br/>
         /// You can use this data to understand what your customers are looking for, keep them engaged, build loyalty,<br/>
         /// drive upsell, and increase the long-term value of your events.<br/>
         /// <br/>
         /// Please note that attendee activities data is retained for a maximum of 2 years and is purged thereafter.<br/>
         /// <br/>
-        /// For more details on <a href="https://developers.cvent.com/docs/rest-api/explanation/attendee-activities">attendee activities</a>.<br/>
-        /// 
-        /// </remarks>
+        /// For more details on <a href="https://developers.cvent.com/docs/rest-api/explanation/attendee-activities">attendee activities</a>.
         /// </summary>
         public IAttendeeActivities AttendeeActivities { get; }
 
         /// <summary>
         /// Audience Segments allow planners to segment their attendees into groups and<br/>
-        /// 
-        /// <remarks>
         /// better manage the attendee experience based on their defined segments. Audience<br/>
         /// Segments APIs will enable you to get, create, and update segment information.<br/>
         /// These APIs will also allow you to get and update attendees associated with an<br/>
-        /// audience segment.<br/>
-        /// 
-        /// </remarks>
+        /// audience segment.
         /// </summary>
         public IAudienceSegments AudienceSegments { get; }
 
@@ -133,13 +112,11 @@ namespace Cvent.SDK
 
         /// <summary>
         /// The Bulk API provides a simple interface to upload large amounts of data into Cvent.  The API processes the uploaded data asynchronously making API calls on behalf of the caller.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Consumers of the bulk API will do the following:<br/>
         /// * <a href="#operation/createBulkJob">Create a bulk job</a> with or without data<br/>
         /// * *(Optional)* If a bulk job was created without data, then <a href="#operation/uploadBulkJobData">upload bulk job data</a> as many times as needed<br/>
-        /// * *(Optional)* <a href="#operation/runBulkJob">Run bulk job</a><br/>
+        /// * *(Optional)* <a href="#operation/runBulkJob">Run bulk job</a>
         /// * Use <a href="#operation/getBulkJobById">get bulk job</a> to track status<br/>
         /// * Use <a href="#operation/listBulkJobResult">list bulk job results</a> to get details of items uploaded<br/>
         /// <br/>
@@ -147,9 +124,7 @@ namespace Cvent.SDK
         /// <br/>
         /// **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire<br/>
         /// 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job<br/>
-        /// will be available for 1 week after completion to get results. Right now we do NOT support bulk GET requests.<br/>
-        /// 
-        /// </remarks>
+        /// will be available for 1 week after completion to get results. Right now we do NOT support bulk GET requests.
         /// </summary>
         public IBulk Bulk { get; }
 
@@ -160,27 +135,21 @@ namespace Cvent.SDK
 
         /// <summary>
         /// **Card Tokenization**: Tokenization is the process Cvent uses to collect sensitive card details and<br/>
-        /// 
-        /// <remarks>
         /// personally identifiable information (PII), directly from your customers in a secure manner.<br/>
         /// This guarantees that no sensitive card data touches your server, and allows your integration to<br/>
         /// operate in compliance with PCI standards. A card token is a unique identifier that represents sensitive credit card information.<br/>
         /// It is used as a secure alternative to directly handling credit card details during transactions.<br/>
-        /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.<br/>
-        /// 
-        /// </remarks>
+        /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.
         /// </summary>
         public ICardTokens CardTokens { get; }
 
         /// <summary>
         /// RegLink APIs allow you to exchange data with Cvent Passkey events and hotel reservation-booking engines.<br/>
-        /// 
-        /// <remarks>
         /// Generally, there are four primary categories of functionality that RegLink APIs support:<br/>
         ///   * **Sync Registrants.** Allow individual registrant information to be sent to Cvent Passkey, streamlining the hotel reservation process for attendees. Attendees can then be directed to Passkey post-registration and reserve a hotel room without re-entering their data again. This is done with the reservation request endpoint.<br/>
         ///   * **Fetch Rooms.** The ability for an external system to fetch Passkey event details and hotel room availability based on various criteria.<br/>
         ///   * **Fetch Reservations.** The ability for an external system to fetch detailed reservation information for individual registrants. This is done with the Reservation endpoint and the Callback system.<br/>
-        ///   * **Manage Reservations.** The ability for an external system to create, modify or cancel a registrant&apos;s hotel reservation directly or indirectly.<br/>
+        ///   * **Manage Reservations.** The ability for an external system to create, modify or cancel a registrant's hotel reservation directly or indirectly.<br/>
         /// <br/>
         /// If you need authentication credentials or have any questions regarding the RegLink APIs, contact the <a href="https://web.cvent.com/survey/c6a60a30-d981-4ae8-af28-686af0eeb9b7/welcome">Cvent Passkey Integrations Team</a>.<br/>
         /// <br/>
@@ -188,9 +157,7 @@ namespace Cvent.SDK
         /// * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.<br/>
         /// * **Reservation Request.** Represents a request to book rooms in the housing event.<br/>
         /// * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.<br/>
-        /// * **Callback.** <a href="/docs/passkey/REST/callbacks">Passkey&apos;s callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.<br/>
-        /// 
-        /// </remarks>
+        /// * **Callback.** <a href="/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
         /// </summary>
         public IHousing Housing { get; }
 
@@ -201,14 +168,10 @@ namespace Cvent.SDK
 
         /// <summary>
         /// These APIs allow you to create hooks. When triggered, a hook sends a request to your service to<br/>
-        /// 
-        /// <remarks>
         /// get updated data related to the related Cvent object.<br/>
         /// <br/>
         /// For more information on using hooks, see the<br/>
-        /// <a href="https://developers.cvent.com/docs/cid/attendee-identification-service">getting started guide</a>.<br/>
-        /// 
-        /// </remarks>
+        /// <a href="https://developers.cvent.com/docs/cid/attendee-identification-service">getting started guide</a>.
         /// </summary>
         public IHooksSDK Hooks { get; }
 
@@ -219,19 +182,15 @@ namespace Cvent.SDK
 
         /// <summary>
         /// * **Leads -** Leads include leads gathered by LeadCapture, Appointments, and Inbound Leads. Use this API to get information for the lead and how it was captured.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// * **Lead Qualification Question -** Custom questions created by each exhibitor to qualify a lead. Questions and answers are their own endpoints.<br/>
         /// <br/>
-        /// * **Eliterature Requests -** List of E-literature requests data sent to lead.<br/>
-        /// 
-        /// </remarks>
+        /// * **Eliterature Requests -** List of E-literature requests data sent to lead.
         /// </summary>
         public ILeads Leads { get; }
 
         /// <summary>
-        /// Event roles are event specific permission sets for your organization&apos;s users. Use these APIs to retrieve, create, update, and delete event role assignments to your organization&apos;s users.
+        /// Event roles are event specific permission sets for your organization's users. Use these APIs to retrieve, create, update, and delete event role assignments to your organization's users.
         /// </summary>
         public IEventRole EventRole { get; }
 
@@ -261,14 +220,12 @@ namespace Cvent.SDK
         public IDiscounts Discounts { get; }
 
         /// <summary>
-        /// Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals, hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your air, hotel, housing reservation request and alternate travel answers data from your events. **Housing Reservation Request** - An association between an attendee&apos;s information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
+        /// Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals, hotel reservations and alternate travel answers at your event. Use these endpoints to retrieve your air, hotel, housing reservation request and alternate travel answers data from your events. **Housing Reservation Request** - An association between an attendee's information in a registration event and a Cvent Passkey event. Also known as a Passkey bridge.
         /// </summary>
         public IEventTravel EventTravel { get; }
 
         /// <summary>
         /// * **Exhibitor -** An exhibitor is an organization that is sponsoring or exhibiting at your event. This API allows you to get information about your exhibitors.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// * **Registration Pack -** Registration Pack provides capacities of different registration types allocated by the planner to a specific exhibitor.<br/>
         /// <br/>
@@ -278,34 +235,24 @@ namespace Cvent.SDK
         /// <br/>
         /// * **Exhibitor Categories -** Set of exhibitor categories for an event. Exhibitor Categories are used in Attendee Hub and Event App to differentiate exhibitors.<br/>
         /// <br/>
-        /// * **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get details of existing sponsorship levels defined within the event. To assign sponsorship levels to exhibitors, use the Exhibitor endpoints.<br/>
-        /// 
-        /// </remarks>
+        /// * **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get details of existing sponsorship levels defined within the event. To assign sponsorship levels to exhibitors, use the Exhibitor endpoints.
         /// </summary>
         public IExhibitor Exhibitor { get; }
 
         /// <summary>
         /// * **Exhibitor Admin -** Exhibitor Admins are administrators that have access to the exhibitor portal. In the portal, they are able to complete pre-event tasks, manage their team, purchase LeadCapture (if applicable), and download leads. Use this API to get details for existing admins, create new admins, and update admin details.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// * **Exhibitor Booth Staff -** Exhibitor booth staff is someone that manages the frontline of the exhibitor&apos;s booth onsite or virtually. Booth staff needs to be registered for the event in order to be associated with an exhibitor. Use this API to get details for the existing booth staff(s) for a specific exhibitor, associate new booth staff to the exhibitor, and delete the association of a booth staff if required.<br/>
-        /// 
-        /// </remarks>
+        /// * **Exhibitor Booth Staff -** Exhibitor booth staff is someone that manages the frontline of the exhibitor's booth onsite or virtually. Booth staff needs to be registered for the event in order to be associated with an exhibitor. Use this API to get details for the existing booth staff(s) for a specific exhibitor, associate new booth staff to the exhibitor, and delete the association of a booth staff if required.
         /// </summary>
         public IExhibitorTeam ExhibitorTeam { get; }
 
         /// <summary>
-        /// Exhibitor Content operations for an exhibitor. This API allows you to upload &amp; get exhibitor content data such as files, weblinks.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// Exhibitor Content operations for an exhibitor. This API allows you to upload &amp; get exhibitor content data such as files, weblinks.
         /// </summary>
         public IExhibitorContent ExhibitorContent { get; }
 
         /// <summary>
-        /// EventFeatures related APIs
+        /// EventFeatures related APIs.
         /// </summary>
         public IEventFeatures EventFeatures { get; }
 
@@ -316,13 +263,10 @@ namespace Cvent.SDK
 
         /// <summary>
         /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and seating assignments.<br/>
-        /// 
-        /// <remarks>
         /// * **Seating** - A diagram of tables and seats. Your event can have many seatings.<br/>
         /// * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.<br/>
         /// * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.<br/>
         /// * **Assignments** - Seat that is assigned to an attendee.
-        /// </remarks>
         /// </summary>
         public ISeating Seating { get; }
 
@@ -333,17 +277,13 @@ namespace Cvent.SDK
 
         /// <summary>
         /// Allows you to upload files and get file location using the file ID. File ID can be used with other APIs to associate the file to an entity. For example:<br/>
-        /// 
-        /// <remarks>
-        /// * &lt;a href=&quot;#operation/addSessionDoc&quot;&gt;Add Document To Session&lt;/a&gt;<br/>
-        /// * &lt;a href=&quot;#operation/addSpeakerDoc&quot;&gt;Add Document To Speaker&lt;/a&gt;<br/>
-        /// * &lt;a href=&quot;#operation/assignContactProfileImage&quot;&gt;Assign Contact Profile Picture&lt;/a&gt;<br/>
-        /// * &lt;a href=&quot;#operation/updateExhibitorCategoryBanner&quot;&gt;Assign Banner to Exhibitor Category&lt;/a&gt;<br/>
-        /// * &lt;a href=&quot;#operation/updateExhibitorBanner&quot;&gt;Assign Exhibitor Banner Image&lt;/a&gt;<br/>
-        /// * &lt;a href=&quot;#operation/updateExhibitorLogo&quot;&gt;Assign Exhibitor Logo Image&lt;/a&gt;<br/>
-        /// * &lt;a href=&quot;#operation/assignSpeakerProfileImage&quot;&gt;Assign Speaker Profile Picture&lt;/a&gt;<br/>
-        /// 
-        /// </remarks>
+        /// * <a href="#operation/addSessionDoc">Add Document To Session</a>
+        /// * <a href="#operation/addSpeakerDoc">Add Document To Speaker</a>
+        /// * <a href="#operation/assignContactProfileImage">Assign Contact Profile Picture</a>
+        /// * <a href="#operation/updateExhibitorCategoryBanner">Assign Banner to Exhibitor Category</a>
+        /// * <a href="#operation/updateExhibitorBanner">Assign Exhibitor Banner Image</a>
+        /// * <a href="#operation/updateExhibitorLogo">Assign Exhibitor Logo Image</a>
+        /// * <a href="#operation/assignSpeakerProfileImage">Assign Speaker Profile Picture</a>
         /// </summary>
         public IFile File { get; }
 
@@ -358,15 +298,11 @@ namespace Cvent.SDK
         public IEventsPlusHub EventsPlusHub { get; }
 
         /// <summary>
-        /// These API&apos;s provide compliance support for regulated industries.<br/>
-        /// 
-        /// <remarks>
+        /// These API's provide compliance support for regulated industries.<br/>
         /// <br/>
         /// **Communication Compliance** lets you view communication activities across your account.<br/>
         /// Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications<br/>
-        /// can be downloaded for archival or analysis.<br/>
-        /// 
-        /// </remarks>
+        /// can be downloaded for archival or analysis.
         /// </summary>
         public ICompliance Compliance { get; }
 
@@ -381,7 +317,7 @@ namespace Cvent.SDK
         public IProcessForm ProcessForm { get; }
 
         /// <summary>
-        /// Speakers are individuals presenting at your event&apos;s session(s). Use Speaker APIs to read existing speaker data, create new speakers or update existing speakers in your events.
+        /// Speakers are individuals presenting at your event's session(s). Use Speaker APIs to read existing speaker data, create new speakers or update existing speakers in your events.
         /// </summary>
         public ISpeakers Speakers { get; }
 
@@ -396,7 +332,7 @@ namespace Cvent.SDK
         public IUserSCIM UserSCIM { get; }
 
         /// <summary>
-        /// Retrieves Check-In &amp; Check-Out Signatures Of Attendees
+        /// Retrieves Check-In &amp; Check-Out Signatures Of Attendees.
         /// </summary>
         public ISignatures Signatures { get; }
 
@@ -407,14 +343,10 @@ namespace Cvent.SDK
 
         /// <summary>
         /// The Travel RFP APIs provide access to travel programs and proposals. A travel program<br/>
-        /// 
-        /// <remarks>
         /// represents a request for proposal (RFP) that defines the specific travel needs and<br/>
         /// requirements of a travel account. The travel account solicits hotels and other travel<br/>
         /// suppliers to respond to the program with proposals, which provide detailed<br/>
-        /// information on rates and amenities.&apos;<br/>
-        /// 
-        /// </remarks>
+        /// information on rates and amenities.'
         /// </summary>
         public ITravelRFPs TravelRFPs { get; }
 
@@ -439,74 +371,215 @@ namespace Cvent.SDK
         public IWebcasts Webcasts { get; }
     }
 
-
     /// <summary>
     /// Cvent REST APIs: Official Cvent SDK providing typed access to Cvent REST APIs for event management, contacts, attendees, and more using OAuth2 authentication.<br/>
-    /// 
-    /// <remarks>
     /// For documentation, see the README and USAGE. To get credentials, visit https://developers.cvent.com/docs/rest-api/overview.<br/>
-    /// 
-    /// </remarks>
-    /// 
+    /// <br/>
     /// <see href="https://developers.cvent.com/docs">Cvent Developer Documentation</see>
     /// </summary>
     public class CventSDK: ICventSDK
     {
+        /// <summary>
+        /// The main SDK Configuration.
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// The Users sub-SDK.
+        /// </summary>
         public IUsers Users { get; private set; }
+        /// <summary>
+        /// The Events sub-SDK.
+        /// </summary>
         public IEvents Events { get; private set; }
+        /// <summary>
+        /// The Appointments sub-SDK.
+        /// </summary>
         public IAppointments Appointments { get; private set; }
+        /// <summary>
+        /// The Attendees sub-SDK.
+        /// </summary>
         public IAttendees Attendees { get; private set; }
+        /// <summary>
+        /// The EventCredits sub-SDK.
+        /// </summary>
         public IEventCredits EventCredits { get; private set; }
+        /// <summary>
+        /// The AttendeeInsights sub-SDK.
+        /// </summary>
         public IAttendeeInsights AttendeeInsights { get; private set; }
+        /// <summary>
+        /// The AttendeeActivities sub-SDK.
+        /// </summary>
         public IAttendeeActivities AttendeeActivities { get; private set; }
+        /// <summary>
+        /// The AudienceSegments sub-SDK.
+        /// </summary>
         public IAudienceSegments AudienceSegments { get; private set; }
+        /// <summary>
+        /// The Emails sub-SDK.
+        /// </summary>
         public IEmails Emails { get; private set; }
+        /// <summary>
+        /// The Budget sub-SDK.
+        /// </summary>
         public IBudget Budget { get; private set; }
+        /// <summary>
+        /// The Bulk sub-SDK.
+        /// </summary>
         public IBulk Bulk { get; private set; }
+        /// <summary>
+        /// The Campaigns sub-SDK.
+        /// </summary>
         public ICampaigns Campaigns { get; private set; }
+        /// <summary>
+        /// The CardTokens sub-SDK.
+        /// </summary>
         public ICardTokens CardTokens { get; private set; }
+        /// <summary>
+        /// The Housing sub-SDK.
+        /// </summary>
         public IHousing Housing { get; private set; }
+        /// <summary>
+        /// The Contacts sub-SDK.
+        /// </summary>
         public IContacts Contacts { get; private set; }
+        /// <summary>
+        /// The HooksSDK sub-SDK.
+        /// </summary>
         public IHooksSDK Hooks { get; private set; }
+        /// <summary>
+        /// The CustomFields sub-SDK.
+        /// </summary>
         public ICustomFields CustomFields { get; private set; }
+        /// <summary>
+        /// The Leads sub-SDK.
+        /// </summary>
         public ILeads Leads { get; private set; }
+        /// <summary>
+        /// The EventRole sub-SDK.
+        /// </summary>
         public IEventRole EventRole { get; private set; }
+        /// <summary>
+        /// The Surveys sub-SDK.
+        /// </summary>
         public ISurveys Surveys { get; private set; }
+        /// <summary>
+        /// The AttendeeMessages sub-SDK.
+        /// </summary>
         public IAttendeeMessages AttendeeMessages { get; private set; }
+        /// <summary>
+        /// The BadgePrintJob sub-SDK.
+        /// </summary>
         public IBadgePrintJob BadgePrintJob { get; private set; }
+        /// <summary>
+        /// The BadgePrinterPools sub-SDK.
+        /// </summary>
         public IBadgePrinterPools BadgePrinterPools { get; private set; }
+        /// <summary>
+        /// The Discounts sub-SDK.
+        /// </summary>
         public IDiscounts Discounts { get; private set; }
+        /// <summary>
+        /// The EventTravel sub-SDK.
+        /// </summary>
         public IEventTravel EventTravel { get; private set; }
+        /// <summary>
+        /// The Exhibitor sub-SDK.
+        /// </summary>
         public IExhibitor Exhibitor { get; private set; }
+        /// <summary>
+        /// The ExhibitorTeam sub-SDK.
+        /// </summary>
         public IExhibitorTeam ExhibitorTeam { get; private set; }
+        /// <summary>
+        /// The ExhibitorContent sub-SDK.
+        /// </summary>
         public IExhibitorContent ExhibitorContent { get; private set; }
+        /// <summary>
+        /// The EventFeatures sub-SDK.
+        /// </summary>
         public IEventFeatures EventFeatures { get; private set; }
+        /// <summary>
+        /// The MeetingRequest sub-SDK.
+        /// </summary>
         public IMeetingRequest MeetingRequest { get; private set; }
+        /// <summary>
+        /// The Seating sub-SDK.
+        /// </summary>
         public ISeating Seating { get; private set; }
+        /// <summary>
+        /// The Sessions sub-SDK.
+        /// </summary>
         public ISessions Sessions { get; private set; }
+        /// <summary>
+        /// The File sub-SDK.
+        /// </summary>
         public IFile File { get; private set; }
+        /// <summary>
+        /// The HousingHotels sub-SDK.
+        /// </summary>
         public IHousingHotels HousingHotels { get; private set; }
+        /// <summary>
+        /// The EventsPlusHub sub-SDK.
+        /// </summary>
         public IEventsPlusHub EventsPlusHub { get; private set; }
+        /// <summary>
+        /// The Compliance sub-SDK.
+        /// </summary>
         public ICompliance Compliance { get; private set; }
+        /// <summary>
+        /// The Authentication sub-SDK.
+        /// </summary>
         public IAuthentication Authentication { get; private set; }
+        /// <summary>
+        /// The ProcessForm sub-SDK.
+        /// </summary>
         public IProcessForm ProcessForm { get; private set; }
+        /// <summary>
+        /// The Speakers sub-SDK.
+        /// </summary>
         public ISpeakers Speakers { get; private set; }
+        /// <summary>
+        /// The ProposalDraft sub-SDK.
+        /// </summary>
         public IProposalDraft ProposalDraft { get; private set; }
+        /// <summary>
+        /// The UserSCIM sub-SDK.
+        /// </summary>
         public IUserSCIM UserSCIM { get; private set; }
+        /// <summary>
+        /// The Signatures sub-SDK.
+        /// </summary>
         public ISignatures Signatures { get; private set; }
+        /// <summary>
+        /// The TravelAccounts sub-SDK.
+        /// </summary>
         public ITravelAccounts TravelAccounts { get; private set; }
+        /// <summary>
+        /// The TravelRFPs sub-SDK.
+        /// </summary>
         public ITravelRFPs TravelRFPs { get; private set; }
+        /// <summary>
+        /// The TravelSuppliers sub-SDK.
+        /// </summary>
         public ITravelSuppliers TravelSuppliers { get; private set; }
+        /// <summary>
+        /// The Usage sub-SDK.
+        /// </summary>
         public IUsage Usage { get; private set; }
+        /// <summary>
+        /// The Video sub-SDK.
+        /// </summary>
         public IVideo Video { get; private set; }
+        /// <summary>
+        /// The Webcasts sub-SDK.
+        /// </summary>
         public IWebcasts Webcasts { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the SDK based on a <see cref="SDKConfig"/> configuration object.
+        /// </summary>
+        /// <param name="config">The SDK configuration object.</param>
         public CventSDK(SDKConfig config)
         {
             SDKConfiguration = config;
@@ -619,14 +692,22 @@ namespace Cvent.SDK
         /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
         /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default CventSDKHttpClient will be used.</param>
         /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
-        /// <exception cref="Exception">Thrown when the serverIndex is out of range (less than 0 or greater than or equal to the server list length).</exception>
-        public CventSDK(Cvent.SDK.Models.Components.Security? security = null, Func<Cvent.SDK.Models.Components.Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ICventSDKHttpClient? client = null, RetryConfig? retryConfig = null)
+        /// <exception cref="ArgumentOutOfRangeException">Invalid value provided for <paramref name="serverIndex"/>: must be between 0 (inclusive) and 2 (exclusive).</exception>
+        public CventSDK(
+            Cvent.SDK.Models.Components.Security? security = null,
+            Func<Cvent.SDK.Models.Components.Security>? securitySource = null,
+            int? serverIndex = null,
+            string? serverUrl = null,
+            Dictionary<string, string>? urlParams = null,
+            ICventSDKHttpClient? client = null,
+            RetryConfig? retryConfig = null
+        )
         {
             if (serverIndex != null)
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
             }
 
@@ -760,22 +841,31 @@ namespace Cvent.SDK
             SDKConfiguration = SDKConfiguration.Hooks.SDKInit(SDKConfiguration);
         }
 
+        /// <summary>
+        /// Builder class for constructing an instance of the SDK.
+        /// </summary>
         public class SDKBuilder
         {
             private SDKConfig _sdkConfig = new SDKConfig(client: new CventSDKHttpClient());
 
             public SDKBuilder() { }
 
+            /// <summary>
+            /// Overrides the default server by index.
+            /// </summary>
             public SDKBuilder WithServerIndex(int serverIndex)
             {
                 if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
                 _sdkConfig.ServerIndex = serverIndex;
                 return this;
             }
 
+            /// <summary>
+            /// Overrides the default server URL for the SDK.
+            /// </summary>
             public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
             {
                 if (serverVariables != null)
@@ -786,30 +876,45 @@ namespace Cvent.SDK
                 return this;
             }
 
+            /// <summary>
+            /// Sets the securitySource security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithSecuritySource(Func<Cvent.SDK.Models.Components.Security> securitySource)
             {
                 _sdkConfig.SecuritySource = securitySource;
                 return this;
             }
 
+            /// <summary>
+            /// Sets the security security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithSecurity(Cvent.SDK.Models.Components.Security security)
             {
                 _sdkConfig.SecuritySource = () => security;
                 return this;
             }
 
+            /// <summary>
+            /// Sets a custom HTTP client to be used by the SDK.
+            /// </summary>
             public SDKBuilder WithClient(ICventSDKHttpClient client)
             {
                 _sdkConfig.Client = client;
                 return this;
             }
 
+            /// <summary>
+            /// Sets the retry configuration for the SDK.
+            /// </summary>
             public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
             {
                 _sdkConfig.RetryConfig = retryConfig;
                 return this;
             }
 
+            /// <summary>
+            /// Builds and returns the SDK instance.
+            /// </summary>
             public CventSDK Build()
             {
               return new CventSDK(_sdkConfig);

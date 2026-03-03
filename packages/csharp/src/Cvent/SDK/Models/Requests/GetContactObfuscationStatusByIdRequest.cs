@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetContactObfuscationStatusByIdRequest
     {
-
         /// <summary>
         /// ID of an obfuscation request.
         /// </summary>

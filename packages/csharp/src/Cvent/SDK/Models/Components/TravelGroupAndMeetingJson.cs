@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Group and meeting information.
     /// </summary>
     public class TravelGroupAndMeetingJson
     {
-
         /// <summary>
         /// Run of house rate information.
         /// </summary>

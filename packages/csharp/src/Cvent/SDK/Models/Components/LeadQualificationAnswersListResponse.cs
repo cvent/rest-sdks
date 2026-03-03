@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A JSON schema representing the response for a list of lead qualification answers.
     /// </summary>
     public class LeadQualificationAnswersListResponse
     {
-
         /// <summary>
         /// Collection of Lead Qualification Answers.
         /// </summary>

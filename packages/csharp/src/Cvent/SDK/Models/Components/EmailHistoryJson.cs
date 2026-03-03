@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Email History record.
     /// </summary>
     public class EmailHistoryJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -99,7 +98,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? Sent { get; set; }
 
         /// <summary>
-        /// This is used to denote the status of the email sending
+        /// This is used to denote the status of the email sending.
         /// </summary>
         [JsonProperty("status")]
         public EmailStatusJson? Status { get; set; }

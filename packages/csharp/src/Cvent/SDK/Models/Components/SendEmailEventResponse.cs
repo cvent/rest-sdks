@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Response object containing a request ID and a list of all email responses sent to attendees.
     /// </summary>
     public class SendEmailEventResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>

@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListSpeakerDocsRequest
     {
-
         /// <summary>
         /// The unique identifier of a speaker.
         /// </summary>
@@ -28,19 +27,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// A filter string passed in the query parameter of the request.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// There are two comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -51,9 +44,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         ///   * and<br/>
-        ///   * or<br/>
-        /// 
-        /// </remarks>
+        ///   * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

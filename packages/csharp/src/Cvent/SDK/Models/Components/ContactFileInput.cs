@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A contact&apos;s file, such as a profile image.
+    /// A contact's file, such as a profile image.
     /// </summary>
     public class ContactFileInput
     {
-
         [JsonProperty("file")]
         public ContactFileFile File { get; set; } = default!;
     }

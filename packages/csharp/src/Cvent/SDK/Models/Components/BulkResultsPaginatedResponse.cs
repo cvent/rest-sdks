@@ -13,17 +13,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of results from a Bulk Job run.  This includes the paging object as well<br/>
-    /// 
-    /// <remarks>
     /// as the collection of bulk results.
-    /// </remarks>
     /// </summary>
     public class BulkResultsPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

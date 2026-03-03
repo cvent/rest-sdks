@@ -63,8 +63,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAppointmentAttendeesRequest req = new ListAppointmentAttendeesRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "appointmentEvent.id eq 'd165ad63-4bec-449d-aa9e-054fc7fcbb71' and contact.id eq 'da561161-8e80-4c70-9663-750cbc2045f6' and deleted eq 'false'",
 };
@@ -172,8 +172,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAvailabilityRequest req = new ListAvailabilityRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "appointmentEvent.id eq 'd165ad63-4bec-449d-aa9e-054fc7fcbb71'",
 };
@@ -281,8 +281,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAppointmentEventsRequest req = new ListAppointmentEventsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "event.id eq 'd165ad63-4bec-449d-aa9e-054fc7fcbb71'",
 };
@@ -507,8 +507,8 @@ Models.Requests.CreateAppointmentRequest req = new Cvent.SDK.Models.Requests.Cre
     CreateAppointmentRequestValue = new Cvent.SDK.Models.Components.CreateAppointmentRequest() {
         Subject = "Meeting with Cvent",
         Description = "A private meeting to discuss sales opportunities.",
-        StartTime = System.DateTime.Parse("2017-01-01T15:20:00Z"),
-        EndTime = System.DateTime.Parse("2030-01-01T15:30:00Z"),
+        StartTime = System.DateTime.Parse("2017-01-01T15:20:00Z").ToUniversalTime(),
+        EndTime = System.DateTime.Parse("2030-01-01T15:30:00Z").ToUniversalTime(),
         Location = "fa896667-5998-46dc-ac06-6be8e053ef4e",
         CustomLocationName = "Coffee Shop",
         Hosts = new List<UuidJson>() {
@@ -580,8 +580,8 @@ Models.Requests.UpdateAppointmentRequest req = new Cvent.SDK.Models.Requests.Upd
     UpdateAppointmentRequestValue = new Cvent.SDK.Models.Components.UpdateAppointmentRequest() {
         Subject = "Meeting with Cvent",
         Description = "A private meeting to discuss sales opportunities.",
-        StartTime = System.DateTime.Parse("2017-01-01T15:20:00Z"),
-        EndTime = System.DateTime.Parse("2030-01-01T15:30:00Z"),
+        StartTime = System.DateTime.Parse("2017-01-01T15:20:00Z").ToUniversalTime(),
+        EndTime = System.DateTime.Parse("2030-01-01T15:30:00Z").ToUniversalTime(),
         Location = "fa896667-5998-46dc-ac06-6be8e053ef4e",
         CustomLocationName = "Coffee Shop",
         Hosts = new List<UuidJson>() {
@@ -753,8 +753,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListMeetingInterestsRequest req = new ListMeetingInterestsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "appointmentEvent.id eq 'd165ad63-4bec-449d-aa9e-054fc7fcbb71'",
 };
@@ -862,8 +862,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAppointmentsRequest req = new ListAppointmentsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "appointmentEvent.id eq 'ad0ea301-1203-4fee-a7d2-54165ba14e2d'",
 };

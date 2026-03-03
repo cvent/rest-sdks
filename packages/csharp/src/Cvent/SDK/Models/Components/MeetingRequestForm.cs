@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A meeting request form.
     /// </summary>
     public class MeetingRequestForm
     {
-
         /// <summary>
         /// The ID of the meeting request form.
         /// </summary>
@@ -39,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public List<string>? Statuses { get; set; }
 
         /// <summary>
-        /// A boolean indicating a meeting request form&apos;s active status. When true, the meeting request form is available for new request submissions. When false, only updates can be made to existing requests for this form
+        /// A boolean indicating a meeting request form's active status. When true, the meeting request form is available for new request submissions. When false, only updates can be made to existing requests for this form.
         /// </summary>
         [JsonProperty("active")]
         public bool? Active { get; set; }

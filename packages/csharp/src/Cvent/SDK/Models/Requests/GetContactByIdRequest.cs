@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetContactByIdRequest
     {
-
         /// <summary>
         /// ID of a contact.
         /// </summary>

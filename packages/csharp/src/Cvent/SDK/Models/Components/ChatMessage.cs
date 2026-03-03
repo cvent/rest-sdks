@@ -12,45 +12,44 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A chat message
+    /// A chat message.
     /// </summary>
     public class ChatMessage
     {
-
         /// <summary>
-        /// The user action that just occurred
+        /// The user action that just occurred.
         /// </summary>
         [JsonProperty("actionType")]
         public ChatActionTypeJson ActionType { get; set; } = default!;
 
         /// <summary>
-        /// The chat type
+        /// The chat type.
         /// </summary>
         [JsonProperty("chatType")]
         public ChatTypeJson ChatType { get; set; } = default!;
 
         /// <summary>
-        /// Attendee details
+        /// Attendee details.
         /// </summary>
         [JsonProperty("attendee")]
         public AttendeeJson2 Attendee { get; set; } = default!;
 
         /// <summary>
-        /// Chat message details such as the ID of this message
+        /// Chat message details such as the ID of this message.
         /// </summary>
         [JsonProperty("message")]
         public ChatMessageDetailsJson Message { get; set; } = default!;
 
         /// <summary>
-        /// Chat message details such as the ID of this message
+        /// Chat message details such as the ID of this message.
         /// </summary>
         [JsonProperty("parentMessage")]
         public ChatMessageDetailsJson? ParentMessage { get; set; }
 
         /// <summary>
-        /// A reaction to a message
+        /// A reaction to a message.
         /// </summary>
         [JsonProperty("reaction")]
         public ChatReactionJson? Reaction { get; set; }

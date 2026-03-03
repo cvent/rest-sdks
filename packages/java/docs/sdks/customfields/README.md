@@ -122,12 +122,12 @@ public class Application {
                     .build())
             .build();
 
-        CustomField1 req = CustomField1.builder()
+        CustomField2 req = CustomField2.builder()
                 .category(CustomFieldCategoryJson.CONTACT)
                 .name("What is a your favorite color?")
                 .code("FAVORITE_COLOR_CODE")
                 .type(CustomFieldTypeJson1.OPEN_ENDED_TEXT_ONE_LINE)
-                .details(CustomField1Details.of(OpenEndedOneLine.builder()
+                .details(CustomField2Details.of(OpenEndedOneLine.builder()
                     .answerFormat("General")
                     .minimum(2L)
                     .maximum(8L)
@@ -151,7 +151,7 @@ public class Application {
 
 | Parameter                                           | Type                                                | Required                                            | Description                                         |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `request`                                           | [CustomField1](../../models/shared/CustomField1.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
+| `request`                                           | [CustomField2](../../models/shared/CustomField2.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
 
 ### Response
 

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Planner details.
     /// </summary>
     public class PlannerJson1
     {
-
         /// <summary>
         /// Planner first name.
         /// </summary>

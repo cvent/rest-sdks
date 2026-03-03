@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents the response from a request to get the list of event questions. This includes the paging object as well as the collection of event questions.
     /// </summary>
     public class EventQuestionsPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

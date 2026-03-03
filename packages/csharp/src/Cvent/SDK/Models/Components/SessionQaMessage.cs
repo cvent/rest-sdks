@@ -12,35 +12,31 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A session question answer message
+    /// A session question answer message.
     /// </summary>
     public class SessionQaMessage
     {
-
         /// <summary>
         /// The user action that just occurred.<br/>
-        /// 
-        /// <remarks>
         ///  `question.asked` - A question was asked.<br/>
         ///  `question.upvoted` - A question was upvoted.<br/>
         ///  `question.statusUpdated` - The status of a question was updated.<br/>
         ///  `question.answered` - Either question was answered or the earlier provided answer was updated.<br/>
         ///  `answer.deleted` - An answer was deleted.
-        /// </remarks>
         /// </summary>
         [JsonProperty("actionType")]
         public SessionQaActionTypeJson ActionType { get; set; } = default!;
 
         /// <summary>
-        /// Attendee details
+        /// Attendee details.
         /// </summary>
         [JsonProperty("attendee")]
         public AttendeeJson2 Attendee { get; set; } = default!;
 
         /// <summary>
-        /// Question details
+        /// Question details.
         /// </summary>
         [JsonProperty("question")]
         public QuestionJson1 Question { get; set; } = default!;

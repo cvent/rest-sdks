@@ -620,8 +620,8 @@ var sdk = new CventSDK(security: new Security() {
 GetExhibitorsRequest req = new GetExhibitorsRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Filter = "id in ('{UUID}', '{UUID}') AND deleted eq 'true' AND hidden eq 'true'",
 };
 

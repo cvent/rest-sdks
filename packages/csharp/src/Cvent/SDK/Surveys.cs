@@ -29,213 +29,374 @@ namespace Cvent.SDK
     /// </summary>
     public interface ISurveys
     {
-
         /// <summary>
-        /// List All Event Responses
-        /// 
+        /// List All Event Responses.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of event survey responses for all events and surveys.
         /// </remarks>
-        /// </summary>
-        Task<GetAllEventSurveyResponsesResponse> GetAllEventSurveyResponsesAsync(GetAllEventSurveyResponsesRequest? request = null);
+        /// <param name="request">A <see cref="GetAllEventSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAllEventSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAllEventSurveyResponsesResponse> GetAllEventSurveyResponsesAsync(
+            GetAllEventSurveyResponsesRequest? request = null
+        );
 
         /// <summary>
-        /// List Event Surveys
-        /// 
+        /// List Event Surveys.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of surveys (id refers to chapter id and parentId is the survey id) associated to a single event.
         /// </remarks>
-        /// </summary>
-        Task<GetEventSurveysResponse> GetEventSurveysAsync(GetEventSurveysRequest request);
+        /// <param name="request">A <see cref="GetEventSurveysRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveysResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetEventSurveysResponse> GetEventSurveysAsync(GetEventSurveysRequest request);
 
         /// <summary>
-        /// List Event Survey Questions
-        /// 
+        /// List Event Survey Questions.
+        /// </summary>
         /// <remarks>
-        /// Gets a paginated list of event survey questions for a given event and survey. The &lt;a href=&quot;#operation/getLargeChoices&quot;&gt; GET List Large Choices &lt;/a&gt; endpoint returns choices for the large choice question `type` (`LargeChoices`).
+        /// Gets a paginated list of event survey questions for a given event and survey. The <a href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the large choice question `type` (`LargeChoices`).
         /// </remarks>
-        /// </summary>
-        Task<GetEventSurveyQuestionsResponse> GetEventSurveyQuestionsAsync(GetEventSurveyQuestionsRequest request);
+        /// <param name="request">A <see cref="GetEventSurveyQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveyQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetEventSurveyQuestionsResponse> GetEventSurveyQuestionsAsync(
+            GetEventSurveyQuestionsRequest request
+        );
 
         /// <summary>
-        /// List Event Survey Respondents
-        /// 
+        /// List Event Survey Respondents.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of event survey respondents for a single event and survey.
         /// </remarks>
-        /// </summary>
-        Task<GetEventSurveyRespondentsResponse> GetEventSurveyRespondentsAsync(GetEventSurveyRespondentsRequest request);
+        /// <param name="request">A <see cref="GetEventSurveyRespondentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveyRespondentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetEventSurveyRespondentsResponse> GetEventSurveyRespondentsAsync(
+            GetEventSurveyRespondentsRequest request
+        );
 
         /// <summary>
-        /// Create Event Survey Respondent
-        /// 
+        /// Create Event Survey Respondent.
+        /// </summary>
         /// <remarks>
         /// Create a respondent for an event survey.
         /// </remarks>
-        /// </summary>
-        Task<CreateEventSurveyRespondentResponse> CreateEventSurveyRespondentAsync(CreateEventSurveyRespondentRequest request);
+        /// <param name="request">A <see cref="CreateEventSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateEventSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateEventSurveyRespondentResponse> CreateEventSurveyRespondentAsync(
+            CreateEventSurveyRespondentRequest request
+        );
 
         /// <summary>
-        /// Update Event Survey Respondent
-        /// 
+        /// Update Event Survey Respondent.
+        /// </summary>
         /// <remarks>
         /// Update respondent for an event survey.
         /// </remarks>
-        /// </summary>
-        Task<UpdateEventSurveyRespondentResponse> UpdateEventSurveyRespondentAsync(UpdateEventSurveyRespondentRequest request);
+        /// <param name="request">A <see cref="UpdateEventSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateEventSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateEventSurveyRespondentResponse> UpdateEventSurveyRespondentAsync(
+            UpdateEventSurveyRespondentRequest request
+        );
 
         /// <summary>
-        /// Create Event Survey Responses
-        /// 
+        /// Create Event Survey Responses.
+        /// </summary>
         /// <remarks>
         /// Create responses for a particular respondent in an event survey.
         /// </remarks>
-        /// </summary>
-        Task<CreateEventSurveyResponsesResponse> CreateEventSurveyResponsesAsync(CreateEventSurveyResponsesRequest request);
+        /// <param name="request">A <see cref="CreateEventSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateEventSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateEventSurveyResponsesResponse> CreateEventSurveyResponsesAsync(
+            CreateEventSurveyResponsesRequest request
+        );
 
         /// <summary>
-        /// List Event Survey Responses
-        /// 
+        /// List Event Survey Responses.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of event survey responses for a single event and survey.
         /// </remarks>
-        /// </summary>
-        Task<GetEventSurveyResponsesResponse> GetEventSurveyResponsesAsync(GetEventSurveyResponsesRequest request);
+        /// <param name="request">A <see cref="GetEventSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetEventSurveyResponsesResponse> GetEventSurveyResponsesAsync(
+            GetEventSurveyResponsesRequest request
+        );
 
         /// <summary>
-        /// List Large Choices
-        /// 
+        /// List Large Choices.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of choices for large choice question`type` (`LargeChoices`).
         /// </remarks>
-        /// </summary>
-        Task<GetLargeChoicesResponse> GetLargeChoicesAsync(GetLargeChoicesRequest? request = null);
+        /// <param name="request">A <see cref="GetLargeChoicesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetLargeChoicesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetLargeChoicesResponse> GetLargeChoicesAsync(GetLargeChoicesRequest? request = null);
 
         /// <summary>
-        /// List Questions
-        /// 
+        /// List Questions.
+        /// </summary>
         /// <remarks>
-        /// Gets a paginated list of event and standalone survey questions. The &lt;a href=&quot;#operation/getLargeChoices&quot;&gt; GET List Large Choices &lt;/a&gt; endpoint returns choices for the large choice question `type` (`LargeChoices`).
+        /// Gets a paginated list of event and standalone survey questions. The <a href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the large choice question `type` (`LargeChoices`).
         /// </remarks>
-        /// </summary>
-        Task<GetQuestionsResponse> GetQuestionsAsync(GetQuestionsRequest? request = null);
+        /// <param name="request">A <see cref="GetQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetQuestionsResponse> GetQuestionsAsync(GetQuestionsRequest? request = null);
 
         /// <summary>
-        /// List Respondents
-        /// 
+        /// List Respondents.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of event and standalone surveys respondents.
         /// </remarks>
-        /// </summary>
-        Task<GetRespondentsResponse> GetRespondentsAsync(GetRespondentsRequest? request = null);
+        /// <param name="request">A <see cref="GetRespondentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetRespondentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetRespondentsResponse> GetRespondentsAsync(GetRespondentsRequest? request = null);
 
         /// <summary>
-        /// List Responses
-        /// 
+        /// List Responses.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of event and standalone survey responses.
         /// </remarks>
-        /// </summary>
-        Task<GetResponsesResponse> GetResponsesAsync(GetResponsesRequest? request = null);
+        /// <param name="request">A <see cref="GetResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetResponsesResponse> GetResponsesAsync(GetResponsesRequest? request = null);
 
         /// <summary>
-        /// List Standalone Surveys
-        /// 
+        /// List Standalone Surveys.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of standalone surveys not associated with an event.
         /// </remarks>
-        /// </summary>
-        Task<GetStandardSurveysResponse> GetStandardSurveysAsync(GetStandardSurveysRequest? request = null);
+        /// <param name="request">A <see cref="GetStandardSurveysRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveysResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetStandardSurveysResponse> GetStandardSurveysAsync(GetStandardSurveysRequest? request = null);
 
         /// <summary>
-        /// List Stdl. Survey Responses
-        /// 
+        /// List Stdl. Survey Responses.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of standalone survey responses.
         /// </remarks>
-        /// </summary>
-        Task<GetStandardSurveyResponsesResponse> GetStandardSurveyResponsesAsync(GetStandardSurveyResponsesRequest? request = null);
+        /// <param name="request">A <see cref="GetStandardSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetStandardSurveyResponsesResponse> GetStandardSurveyResponsesAsync(
+            GetStandardSurveyResponsesRequest? request = null
+        );
 
         /// <summary>
         /// List Stdl. Survey Email Templ.
-        /// 
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of standalone survey email templates for a single survey.
         /// </remarks>
-        /// </summary>
-        Task<GetStandardSurveyEmailTemplatesResponse> GetStandardSurveyEmailTemplatesAsync(GetStandardSurveyEmailTemplatesRequest request);
+        /// <param name="request">A <see cref="GetStandardSurveyEmailTemplatesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyEmailTemplatesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetStandardSurveyEmailTemplatesResponse> GetStandardSurveyEmailTemplatesAsync(
+            GetStandardSurveyEmailTemplatesRequest request
+        );
 
         /// <summary>
-        /// List Stdl. Survey Questions
-        /// 
+        /// List Stdl. Survey Questions.
+        /// </summary>
         /// <remarks>
-        /// Gets a paginated list of standalone survey questions for a single standalone survey. The &lt;a href=&quot;#operation/getLargeChoices&quot;&gt; GET List Large Choices &lt;/a&gt; endpoint returns choices for the large choice question `type` (`LargeChoices`).
+        /// Gets a paginated list of standalone survey questions for a single standalone survey. The <a href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the large choice question `type` (`LargeChoices`).
         /// </remarks>
-        /// </summary>
-        Task<GetStandardSurveyQuestionsResponse> GetStandardSurveyQuestionsAsync(GetStandardSurveyQuestionsRequest request);
+        /// <param name="request">A <see cref="GetStandardSurveyQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetStandardSurveyQuestionsResponse> GetStandardSurveyQuestionsAsync(
+            GetStandardSurveyQuestionsRequest request
+        );
 
         /// <summary>
-        /// List Stdl. Survey Respondents
-        /// 
+        /// List Stdl. Survey Respondents.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of standalone survey respondents for a single standalone survey.
         /// </remarks>
-        /// </summary>
-        Task<GetStandardSurveyRespondentsResponse> GetStandardSurveyRespondentsAsync(GetStandardSurveyRespondentsRequest request);
+        /// <param name="request">A <see cref="GetStandardSurveyRespondentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyRespondentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetStandardSurveyRespondentsResponse> GetStandardSurveyRespondentsAsync(
+            GetStandardSurveyRespondentsRequest request
+        );
 
         /// <summary>
-        /// Create Stdl. Survey Respondent
-        /// 
+        /// Create Stdl. Survey Respondent.
+        /// </summary>
         /// <remarks>
         /// Creates a respondent for a standalone survey.
         /// </remarks>
-        /// </summary>
-        Task<CreateStandardSurveyRespondentResponse> CreateStandardSurveyRespondentAsync(CreateStandardSurveyRespondentRequest request);
+        /// <param name="request">A <see cref="CreateStandardSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateStandardSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateStandardSurveyRespondentResponse> CreateStandardSurveyRespondentAsync(
+            CreateStandardSurveyRespondentRequest request
+        );
 
         /// <summary>
-        /// Update Stdl. Survey Respondent
-        /// 
+        /// Update Stdl. Survey Respondent.
+        /// </summary>
         /// <remarks>
         /// Update respondent for a standalone survey.
         /// </remarks>
-        /// </summary>
-        Task<UpdateStandardSurveyRespondentResponse> UpdateStandardSurveyRespondentAsync(UpdateStandardSurveyRespondentRequest request);
+        /// <param name="request">A <see cref="UpdateStandardSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateStandardSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateStandardSurveyRespondentResponse> UpdateStandardSurveyRespondentAsync(
+            UpdateStandardSurveyRespondentRequest request
+        );
 
         /// <summary>
-        /// Send Standalone Survey Email
-        /// 
+        /// Send Standalone Survey Email.
+        /// </summary>
         /// <remarks>
         /// Sends standalone survey email.
         /// </remarks>
-        /// </summary>
-        Task<SendStandardSurveyEmailResponse> SendStandardSurveyEmailAsync(SendStandardSurveyEmailRequest request);
+        /// <param name="request">A <see cref="SendStandardSurveyEmailRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="SendStandardSurveyEmailResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<SendStandardSurveyEmailResponse> SendStandardSurveyEmailAsync(
+            SendStandardSurveyEmailRequest request
+        );
 
         /// <summary>
-        /// Create Stdl. Survey Responses
-        /// 
+        /// Create Stdl. Survey Responses.
+        /// </summary>
         /// <remarks>
         /// Create responses for a particular standalone survey respondent.
         /// </remarks>
-        /// </summary>
-        Task<CreateStandardSurveyResponsesResponse> CreateStandardSurveyResponsesAsync(CreateStandardSurveyResponsesRequest request);
+        /// <param name="request">A <see cref="CreateStandardSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateStandardSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateStandardSurveyResponsesResponse> CreateStandardSurveyResponsesAsync(
+            CreateStandardSurveyResponsesRequest request
+        );
 
         /// <summary>
-        /// Update Stdl. Survey Responses
-        /// 
+        /// Update Stdl. Survey Responses.
+        /// </summary>
         /// <remarks>
         /// Update responses for a particular standalone survey respondent.
         /// </remarks>
-        /// </summary>
-        Task<UpdateStandardSurveyResponsesResponse> UpdateStandardSurveyResponsesAsync(UpdateStandardSurveyResponsesRequest request);
+        /// <param name="request">A <see cref="UpdateStandardSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateStandardSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateStandardSurveyResponsesResponse> UpdateStandardSurveyResponsesAsync(
+            UpdateStandardSurveyResponsesRequest request
+        );
 
         /// <summary>
-        /// List Surveys
-        /// 
+        /// List Surveys.
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of event and standalone surveys associated to an account.
         /// </remarks>
-        /// </summary>
-        Task<GetSurveyResponse> GetSurveyAsync(GetSurveyRequest? request = null);
+        /// <param name="request">A <see cref="GetSurveyRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSurveyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetSurveyResponse> GetSurveyAsync(GetSurveyRequest? request = null);
     }
 
     /// <summary>
@@ -243,25 +404,43 @@ namespace Cvent.SDK
     /// </summary>
     public class Surveys: ISurveys
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Surveys(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetAllEventSurveyResponsesResponse> GetAllEventSurveyResponsesAsync(GetAllEventSurveyResponsesRequest? request = null)
+        /// <summary>
+        /// List All Event Responses.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event survey responses for all events and surveys.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAllEventSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAllEventSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAllEventSurveyResponsesResponse> GetAllEventSurveyResponsesAsync(
+            GetAllEventSurveyResponsesRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/surveys/responses", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -278,7 +457,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -287,9 +466,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -311,6 +490,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -395,13 +575,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetEventSurveysResponse> GetEventSurveysAsync(GetEventSurveysRequest request)
+
+        /// <summary>
+        /// List Event Surveys.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of surveys (id refers to chapter id and parentId is the survey id) associated to a single event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventSurveysRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveysResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetEventSurveysResponse> GetEventSurveysAsync(GetEventSurveysRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -418,7 +619,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -427,9 +628,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -451,6 +652,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -536,13 +738,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetEventSurveyQuestionsResponse> GetEventSurveyQuestionsAsync(GetEventSurveyQuestionsRequest request)
+
+        /// <summary>
+        /// List Event Survey Questions.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event survey questions for a given event and survey. The <a href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the large choice question `type` (`LargeChoices`).
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventSurveyQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveyQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetEventSurveyQuestionsResponse> GetEventSurveyQuestionsAsync(
+            GetEventSurveyQuestionsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys/{surveyId}/questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -559,7 +784,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -568,9 +793,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -592,6 +817,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -677,13 +903,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetEventSurveyRespondentsResponse> GetEventSurveyRespondentsAsync(GetEventSurveyRespondentsRequest request)
+
+        /// <summary>
+        /// List Event Survey Respondents.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event survey respondents for a single event and survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventSurveyRespondentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveyRespondentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetEventSurveyRespondentsResponse> GetEventSurveyRespondentsAsync(
+            GetEventSurveyRespondentsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys/{surveyId}/respondents", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -700,7 +949,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -709,9 +958,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -733,6 +982,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -819,13 +1069,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateEventSurveyRespondentResponse> CreateEventSurveyRespondentAsync(CreateEventSurveyRespondentRequest request)
+
+        /// <summary>
+        /// Create Event Survey Respondent.
+        /// </summary>
+        /// <remarks>
+        /// Create a respondent for an event survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateEventSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateEventSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateEventSurveyRespondentResponse> CreateEventSurveyRespondentAsync(
+            CreateEventSurveyRespondentRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys/{surveyId}/respondents", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "EventSurveyRespondent", "json", false, false);
             if (serializedBody != null)
@@ -848,7 +1121,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -857,9 +1130,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -935,13 +1208,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateEventSurveyRespondentResponse> UpdateEventSurveyRespondentAsync(UpdateEventSurveyRespondentRequest request)
+
+        /// <summary>
+        /// Update Event Survey Respondent.
+        /// </summary>
+        /// <remarks>
+        /// Update respondent for an event survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateEventSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateEventSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateEventSurveyRespondentResponse> UpdateEventSurveyRespondentAsync(
+            UpdateEventSurveyRespondentRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys/{surveyId}/respondents/{respondentId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "EventSurveyRespondent", "json", false, false);
             if (serializedBody != null)
@@ -964,7 +1260,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -973,9 +1269,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1051,13 +1347,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateEventSurveyResponsesResponse> CreateEventSurveyResponsesAsync(CreateEventSurveyResponsesRequest request)
+
+        /// <summary>
+        /// Create Event Survey Responses.
+        /// </summary>
+        /// <remarks>
+        /// Create responses for a particular respondent in an event survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateEventSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateEventSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateEventSurveyResponsesResponse> CreateEventSurveyResponsesAsync(
+            CreateEventSurveyResponsesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys/{surveyId}/respondents/{respondentId}/responses", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "EventSurveyResponse", "json", false, false);
             if (serializedBody != null)
@@ -1080,7 +1399,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1089,9 +1408,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1167,13 +1486,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetEventSurveyResponsesResponse> GetEventSurveyResponsesAsync(GetEventSurveyResponsesRequest request)
+
+        /// <summary>
+        /// List Event Survey Responses.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event survey responses for a single event and survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetEventSurveyResponsesResponse> GetEventSurveyResponsesAsync(
+            GetEventSurveyResponsesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/surveys/{surveyId}/responses", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1190,7 +1532,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1199,9 +1541,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1223,6 +1565,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1309,13 +1652,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetLargeChoicesResponse> GetLargeChoicesAsync(GetLargeChoicesRequest? request = null)
+
+        /// <summary>
+        /// List Large Choices.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of choices for large choice question`type` (`LargeChoices`).
+        /// </remarks>
+        /// <param name="request">A <see cref="GetLargeChoicesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetLargeChoicesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetLargeChoicesResponse> GetLargeChoicesAsync(GetLargeChoicesRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/large-choices", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1332,7 +1693,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1341,9 +1702,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1365,6 +1726,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1447,13 +1809,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetQuestionsResponse> GetQuestionsAsync(GetQuestionsRequest? request = null)
+
+        /// <summary>
+        /// List Questions.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event and standalone survey questions. The <a href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the large choice question `type` (`LargeChoices`).
+        /// </remarks>
+        /// <param name="request">A <see cref="GetQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetQuestionsResponse> GetQuestionsAsync(GetQuestionsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1470,7 +1850,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1479,9 +1859,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1503,6 +1883,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1587,13 +1968,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetRespondentsResponse> GetRespondentsAsync(GetRespondentsRequest? request = null)
+
+        /// <summary>
+        /// List Respondents.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event and standalone surveys respondents.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetRespondentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetRespondentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetRespondentsResponse> GetRespondentsAsync(GetRespondentsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/respondents", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1610,7 +2009,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1619,9 +2018,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1643,6 +2042,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1727,13 +2127,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetResponsesResponse> GetResponsesAsync(GetResponsesRequest? request = null)
+
+        /// <summary>
+        /// List Responses.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event and standalone survey responses.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetResponsesResponse> GetResponsesAsync(GetResponsesRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/responses", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1750,7 +2168,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1759,9 +2177,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1783,6 +2201,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -1867,13 +2286,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetStandardSurveysResponse> GetStandardSurveysAsync(GetStandardSurveysRequest? request = null)
+
+        /// <summary>
+        /// List Standalone Surveys.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of standalone surveys not associated with an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetStandardSurveysRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveysResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetStandardSurveysResponse> GetStandardSurveysAsync(GetStandardSurveysRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -1890,7 +2327,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1899,9 +2336,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1923,6 +2360,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2007,13 +2445,33 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetStandardSurveyResponsesResponse> GetStandardSurveyResponsesAsync(GetStandardSurveyResponsesRequest? request = null)
+
+        /// <summary>
+        /// List Stdl. Survey Responses.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of standalone survey responses.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetStandardSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetStandardSurveyResponsesResponse> GetStandardSurveyResponsesAsync(
+            GetStandardSurveyResponsesRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/responses", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2030,7 +2488,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2039,9 +2497,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2063,6 +2521,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2147,13 +2606,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetStandardSurveyEmailTemplatesResponse> GetStandardSurveyEmailTemplatesAsync(GetStandardSurveyEmailTemplatesRequest request)
+
+        /// <summary>
+        /// List Stdl. Survey Email Templ.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of standalone survey email templates for a single survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetStandardSurveyEmailTemplatesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyEmailTemplatesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetStandardSurveyEmailTemplatesResponse> GetStandardSurveyEmailTemplatesAsync(
+            GetStandardSurveyEmailTemplatesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/email-templates", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2170,7 +2652,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2179,9 +2661,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2203,6 +2685,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2285,13 +2768,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetStandardSurveyQuestionsResponse> GetStandardSurveyQuestionsAsync(GetStandardSurveyQuestionsRequest request)
+
+        /// <summary>
+        /// List Stdl. Survey Questions.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of standalone survey questions for a single standalone survey. The <a href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the large choice question `type` (`LargeChoices`).
+        /// </remarks>
+        /// <param name="request">A <see cref="GetStandardSurveyQuestionsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyQuestionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetStandardSurveyQuestionsResponse> GetStandardSurveyQuestionsAsync(
+            GetStandardSurveyQuestionsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/questions", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2308,7 +2814,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2317,9 +2823,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2341,6 +2847,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2425,13 +2932,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetStandardSurveyRespondentsResponse> GetStandardSurveyRespondentsAsync(GetStandardSurveyRespondentsRequest request)
+
+        /// <summary>
+        /// List Stdl. Survey Respondents.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of standalone survey respondents for a single standalone survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetStandardSurveyRespondentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetStandardSurveyRespondentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetStandardSurveyRespondentsResponse> GetStandardSurveyRespondentsAsync(
+            GetStandardSurveyRespondentsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/respondents", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2448,7 +2978,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2457,9 +2987,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2481,6 +3011,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -2566,13 +3097,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateStandardSurveyRespondentResponse> CreateStandardSurveyRespondentAsync(CreateStandardSurveyRespondentRequest request)
+
+        /// <summary>
+        /// Create Stdl. Survey Respondent.
+        /// </summary>
+        /// <remarks>
+        /// Creates a respondent for a standalone survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateStandardSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateStandardSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateStandardSurveyRespondentResponse> CreateStandardSurveyRespondentAsync(
+            CreateStandardSurveyRespondentRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/respondents", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "StandardSurveyRespondent", "json", false, false);
             if (serializedBody != null)
@@ -2595,7 +3149,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2604,9 +3158,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2682,13 +3236,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateStandardSurveyRespondentResponse> UpdateStandardSurveyRespondentAsync(UpdateStandardSurveyRespondentRequest request)
+
+        /// <summary>
+        /// Update Stdl. Survey Respondent.
+        /// </summary>
+        /// <remarks>
+        /// Update respondent for a standalone survey.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateStandardSurveyRespondentRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateStandardSurveyRespondentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateStandardSurveyRespondentResponse> UpdateStandardSurveyRespondentAsync(
+            UpdateStandardSurveyRespondentRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/respondents/{respondentId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "StandardSurveyRespondent", "json", false, false);
             if (serializedBody != null)
@@ -2711,7 +3288,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2720,9 +3297,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2798,13 +3375,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<SendStandardSurveyEmailResponse> SendStandardSurveyEmailAsync(SendStandardSurveyEmailRequest request)
+
+        /// <summary>
+        /// Send Standalone Survey Email.
+        /// </summary>
+        /// <remarks>
+        /// Sends standalone survey email.
+        /// </remarks>
+        /// <param name="request">A <see cref="SendStandardSurveyEmailRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="SendStandardSurveyEmailResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<SendStandardSurveyEmailResponse> SendStandardSurveyEmailAsync(
+            SendStandardSurveyEmailRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/respondents/{respondentId}/email-templates/{emailTemplateId}/email", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -2821,7 +3421,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2830,9 +3430,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -2908,13 +3508,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateStandardSurveyResponsesResponse> CreateStandardSurveyResponsesAsync(CreateStandardSurveyResponsesRequest request)
+
+        /// <summary>
+        /// Create Stdl. Survey Responses.
+        /// </summary>
+        /// <remarks>
+        /// Create responses for a particular standalone survey respondent.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateStandardSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateStandardSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateStandardSurveyResponsesResponse> CreateStandardSurveyResponsesAsync(
+            CreateStandardSurveyResponsesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/respondents/{respondentId}/responses", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "StandardSurveyResponse", "json", false, false);
             if (serializedBody != null)
@@ -2937,7 +3560,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -2946,9 +3569,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3024,13 +3647,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateStandardSurveyResponsesResponse> UpdateStandardSurveyResponsesAsync(UpdateStandardSurveyResponsesRequest request)
+
+        /// <summary>
+        /// Update Stdl. Survey Responses.
+        /// </summary>
+        /// <remarks>
+        /// Update responses for a particular standalone survey respondent.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateStandardSurveyResponsesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateStandardSurveyResponsesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateStandardSurveyResponsesResponse> UpdateStandardSurveyResponsesAsync(
+            UpdateStandardSurveyResponsesRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/standard-surveys/{surveyId}/respondents/{respondentId}/responses/{responseId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "StandardSurveyResponse", "json", false, false);
             if (serializedBody != null)
@@ -3053,7 +3699,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3062,9 +3708,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3140,13 +3786,31 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetSurveyResponse> GetSurveyAsync(GetSurveyRequest? request = null)
+
+        /// <summary>
+        /// List Surveys.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event and standalone surveys associated to an account.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetSurveyRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSurveyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetSurveyResponse> GetSurveyAsync(GetSurveyRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/surveys", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -3163,7 +3827,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -3172,9 +3836,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -3196,6 +3860,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -3279,5 +3944,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

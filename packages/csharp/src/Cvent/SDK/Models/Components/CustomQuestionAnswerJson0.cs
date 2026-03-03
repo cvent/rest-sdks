@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents custom question associated with a travel proposal.
     /// </summary>
     public class CustomQuestionAnswerJson0
     {
-
         /// <summary>
         /// Travel account that the proposal is responding to.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public CustomQuestionAnswerJson0Question? Question { get; set; }
 
         /// <summary>
-        /// Hotel&apos;s answer to the program&apos;s custom question.
+        /// Hotel's answer to the program's custom question.
         /// </summary>
         [JsonProperty("answer")]
         public string? Answer { get; set; }

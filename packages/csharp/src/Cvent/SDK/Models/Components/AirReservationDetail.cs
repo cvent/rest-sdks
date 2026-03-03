@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of air reservation for the attendees.  This includes the paging object as well as the collection of air actual details.
     /// </summary>
     public class AirReservationDetail
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

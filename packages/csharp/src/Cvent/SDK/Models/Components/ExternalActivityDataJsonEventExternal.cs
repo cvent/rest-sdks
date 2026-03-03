@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Additional fields for external activities.
     /// </summary>
     public class ExternalActivityDataJsonEventExternal
     {
-
         /// <summary>
-        /// The identifier to the related entity i.e. Event, Session, Appointment or Exhibitor
+        /// The identifier to the related entity i.e. Event, Session, Appointment or Exhibitor.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -33,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime ExternalActivityDate { get; set; } = default!;
 
         /// <summary>
-        /// Additional fields provided for the external attendee activity
+        /// Additional fields provided for the external attendee activity.
         /// </summary>
         [JsonProperty("additionalFields")]
         public Dictionary<string, string>? AdditionalFields { get; set; }

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Attendee insights statistics.
     /// </summary>
     public class AttendeeInsightsStats
     {
-
         /// <summary>
         /// Average engagement score across all attendees.
         /// </summary>
@@ -25,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         public long? AverageAttendeeScore { get; set; } = 0;
 
         /// <summary>
-        /// Count of attendees who&apos;ve participated in an engagement score.
+        /// Count of attendees who've participated in an engagement score.
         /// </summary>
         [JsonProperty("attendeeCount")]
         public long? AttendeeCount { get; set; } = 0;

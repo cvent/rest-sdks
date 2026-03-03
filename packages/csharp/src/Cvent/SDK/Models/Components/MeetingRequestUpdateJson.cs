@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// An updated meeting request.
     /// </summary>
     public class MeetingRequestUpdateJson
     {
-
         /// <summary>
         /// The ID of a meeting request.
         /// </summary>

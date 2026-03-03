@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event in which this activity occurred.
     /// </summary>
     public class ActivityDataJsonEvent11
     {
-
         /// <summary>
         /// Event ID.
         /// </summary>

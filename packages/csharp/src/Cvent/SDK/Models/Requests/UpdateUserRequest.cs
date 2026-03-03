@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateUserRequest
     {
-
         /// <summary>
         /// Unique ID for a user.
         /// </summary>

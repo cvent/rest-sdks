@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Determines if exhibitors feature data should be copied over from the source event.
     /// </summary>
     public class ExhibitorsEventCopyOverride
     {
-
         /// <summary>
         /// True indicates the feature data should be copied from the source event.
         /// </summary>

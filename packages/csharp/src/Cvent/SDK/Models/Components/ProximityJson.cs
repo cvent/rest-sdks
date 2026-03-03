@@ -12,18 +12,17 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Proximity of the event venue to the hotel.
     /// </summary>
     public class ProximityJson
     {
-
         /// <summary>
         /// Distance information.
         /// </summary>
         [JsonProperty("distance")]
-        public DistanceJson? Distance { get; set; }
+        public DistanceJson1? Distance { get; set; }
 
         /// <summary>
         /// Message shown on map.

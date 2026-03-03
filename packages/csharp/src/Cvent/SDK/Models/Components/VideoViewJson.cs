@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Details of a single video view
+    /// Details of a single video view.
     /// </summary>
     public class VideoViewJson
     {
-
         /// <summary>
-        /// The contact details who watched a video
+        /// The contact details who watched a video.
         /// </summary>
         [JsonProperty("contact")]
         public ContactJson2? Contact { get; set; }
@@ -40,7 +39,7 @@ namespace Cvent.SDK.Models.Components
         public DeviceJson? Device { get; set; }
 
         /// <summary>
-        /// The details of a video
+        /// The details of a video.
         /// </summary>
         [JsonProperty("video")]
         public VideoJson? Video { get; set; }

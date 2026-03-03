@@ -13,10 +13,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using System;
     using System.Collections.Generic;
-    
+
     public class GetAttendeeCreditsRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -37,54 +36,40 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The `sort` query parameter sorts items in the list of results and organizes them according to your preference.<br/>
-        /// 
-        /// <remarks>
         /// There are two orders:<br/>
         ///   * ascending: ASC<br/>
         ///   * descending: DESC<br/>
         /// <br/>
         /// The following fields are sortable:<br/>
-        ///   * lastModified<br/>
-        /// 
-        /// </remarks>
+        ///   * lastModified.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sort")]
         public string? Sort { get; set; }
 
         /// <summary>
         /// Use the `expand` query parameter to include additional related information in the response. For each specified value, the related entity is retrieved and displayed inline.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// An expandable object typically contains the ID of a related object in its response properties.<br/>
         /// <br/>
         /// The following fields are expandable:<br/>
-        ///   * creditType(Includes only the `creditType.name` in the response. A full list of properties for `creditType` is not currently provided).<br/>
-        /// 
-        /// </remarks>
+        ///   * creditType(Includes only the `creditType.name` in the response. A full list of properties for `creditType` is not currently provided).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")]
-        public List<Expand2>? Expand { get; set; }
+        public List<Expand1>? Expand { get; set; }
 
         /// <summary>
         /// A filter query string narrows search<br/>
-        /// 
-        /// <remarks>
         /// results and supports the combination of logical and comparison<br/>
         /// operators.<br/>
         /// <br/>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// These are the comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -98,9 +83,7 @@ namespace Cvent.SDK.Models.Requests
         /// * type (eq)<br/>
         /// <br/>
         /// Note:<br/>
-        /// * lastModified: Used by the &apos;before&apos; and &apos;after&apos; filters.<br/>
-        /// 
-        /// </remarks>
+        /// * lastModified: Used by the 'before' and 'after' filters.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

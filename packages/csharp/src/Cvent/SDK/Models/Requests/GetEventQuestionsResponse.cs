@@ -14,11 +14,10 @@ namespace Cvent.SDK.Models.Requests
     using Newtonsoft.Json;
     using System;
     using System.Threading.Tasks;
-    
+
     public class GetEventQuestionsResponse
     {
         public Func<Task<GetEventQuestionsResponse?>>? Next {get;set;}
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

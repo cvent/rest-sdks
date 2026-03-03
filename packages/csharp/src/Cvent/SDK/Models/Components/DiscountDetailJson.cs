@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// This is used to denote the discount details
+    /// This is used to denote the discount details.
     /// </summary>
     public class DiscountDetailJson
     {
-
         /// <summary>
         /// A unique identifier for the discount.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public string? Code { get; set; }
 
         /// <summary>
-        /// This is used to denote the type of discount
+        /// This is used to denote the type of discount.
         /// </summary>
         [JsonProperty("type")]
         public DiscountTypeJson? Type { get; set; }

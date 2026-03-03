@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// This denotes the payment method in a transaction.
     /// </summary>
@@ -148,5 +148,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum PaymentMethodJson");
         }
     }
-
 }

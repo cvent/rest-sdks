@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Model representing a distribution list info. Only required if the contact group type is DISTRIBUTION_LIST.
     /// </summary>
     public class DistributionListInfoJsonInput
     {
-
         /// <summary>
         /// Type of distribution list security. For a public list, contacts can sign up themselves. For a semi-private list, contacts can add themselves, but a planner must approve their membership before they can receive emails. For a private list, only planners can add contacts. Contacts can always remove themselves from lists on the Manage Profile page.
         /// </summary>

@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// This JSON schema file represents lead qualification answers
+    /// This JSON schema file represents lead qualification answers.
     /// </summary>
     public class LeadQualificationAnswersJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Lead Qualification Answer id
+        /// Lead Qualification Answer id.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -70,13 +69,13 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson? Exhibitor { get; set; }
 
         /// <summary>
-        /// JSON schema for the Lead object
+        /// JSON schema for the Lead object.
         /// </summary>
         [JsonProperty("lead")]
         public LeadJson? Lead { get; set; }
 
         /// <summary>
-        /// List of answers
+        /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
         public List<AnswerJson>? Answers { get; set; }

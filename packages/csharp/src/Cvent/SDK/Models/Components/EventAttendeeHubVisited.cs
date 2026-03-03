@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An event attendee-hub-visited activity.
     /// </summary>
     public class EventAttendeeHubVisited
     {
-
         /// <summary>
         /// The name of the web browser.
         /// </summary>

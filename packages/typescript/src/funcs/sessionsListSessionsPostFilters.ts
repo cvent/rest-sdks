@@ -36,7 +36,7 @@ import {
  * List Sessions
  *
  * @remarks
- * Gets a paginated list of sessions by sending a filter in the request's body.  This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a>  but allows longer filters.
+ * Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -12,16 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Defines how often the tax or fee is applied.<br/>
-    /// 
-    /// <remarks>
     /// - per_guest: Applied per guest.<br/>
     /// - per_room: Applied per room.<br/>
     /// - per_night: Applied per night.<br/>
     /// - per_stay: Applied per stay.
-    /// </remarks>
     /// </summary>
     public enum Frequency
     {
@@ -67,5 +64,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum Frequency");
         }
     }
-
 }

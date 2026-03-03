@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents an existing event admission item.
     /// </summary>
     public class ExistingAdmissionItem
     {
-
         /// <summary>
         /// Title of the admission item.
         /// </summary>

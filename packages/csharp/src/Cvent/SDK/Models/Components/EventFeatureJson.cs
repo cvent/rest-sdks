@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Representation of an event&apos;s feature along with its properties
+    /// Representation of an event's feature along with its properties.
     /// </summary>
     public class EventFeatureJson
     {
-
         /// <summary>
         /// These are the types of features used in the event container events.
         /// </summary>
@@ -27,19 +26,19 @@ namespace Cvent.SDK.Models.Components
         public FeatureTypeJson Type { get; set; } = default!;
 
         /// <summary>
-        /// If a particular feature is enabled for the event
+        /// If a particular feature is enabled for the event.
         /// </summary>
         [JsonProperty("enabled")]
         public bool Enabled { get; set; } = default!;
 
         /// <summary>
-        /// If a particular feature is locked to perform any mutation over it
+        /// If a particular feature is locked to perform any mutation over it.
         /// </summary>
         [JsonProperty("locked")]
         public bool Locked { get; set; } = default!;
 
         /// <summary>
-        /// Generic message informing feature is locked due to some sub-feature/child feature in use
+        /// Generic message informing feature is locked due to some sub-feature/child feature in use.
         /// </summary>
         [JsonProperty("lockedReason")]
         public string? LockedReason { get; set; }
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public EventFeatureJsonConfig? Config { get; set; }
 
         /// <summary>
-        /// URL of the feature&apos;s webpage.
+        /// URL of the feature's webpage.
         /// </summary>
         [JsonProperty("weblink")]
         public string? Weblink { get; set; }

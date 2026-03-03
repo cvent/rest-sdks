@@ -13,10 +13,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using System;
     using System.Collections.Generic;
-    
+
     public class ListProcessFormSubmissionRequest
     {
-
         /// <summary>
         /// The maximum number of requests or forms that can be fetched at once.
         /// </summary>
@@ -25,11 +24,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
@@ -48,32 +43,24 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// This endpoint enables users to request the process form name in an extended response by utilizing the expand query parameter. The expanded process form including the name is fetched and presented inline for each specified expand value.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// A process form submission includes the ID of a corresponding process form in its response properties. By employing the expand query parameter, users can access the process form name within the process form submission.<br/>
         /// <br/>
         /// The following fields are expandable:<br/>
-        ///   * process-form<br/>
-        /// 
-        /// </remarks>
+        ///   * process-form.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")]
         public List<ProcessFormExpand>? Expand { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// This is the comparison type that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
         ///   * event.id (eq)<br/>
         ///   * process-form.id (eq)<br/>
-        ///   * status (eq)<br/>
-        /// 
-        /// </remarks>
+        ///   * status (eq).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

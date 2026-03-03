@@ -12,42 +12,32 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The assignment of an attendee to a seat on a table for a given event seating
+    /// The assignment of an attendee to a seat on a table for a given event seating.
     /// </summary>
     public class TableAssignmentJson
     {
-
         /// <summary>
         /// An object that contains the associated seating ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is an **expandable** object and if requested will contain all the properties of a seating object.
-        /// </remarks>
         /// </summary>
         [JsonProperty("seating")]
         public ExpandableSeatingJson? Seating { get; set; }
 
         /// <summary>
         /// An object that contains the associated table ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is an **expandable** object and if requested will contain all the properties of a table object.
-        /// </remarks>
         /// </summary>
         [JsonProperty("table")]
         public ExpandableTableJson? Table { get; set; }
 
         /// <summary>
         /// An object that contains the associated seat ID.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is an **expandable** object and if requested will contain all the properties of a seat object.
-        /// </remarks>
         /// </summary>
         [JsonProperty("seat")]
         public ExpandableSeatJson? Seat { get; set; }

@@ -12,21 +12,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Registration capacity object containing registration type and reserved capacity
+    /// Registration capacity object containing registration type and reserved capacity.
     /// </summary>
     public class CapacityJson
     {
-
         /// <summary>
-        /// Registration type information
+        /// Registration type information.
         /// </summary>
         [JsonProperty("registrationType")]
         public CapacityJsonRegistrationType RegistrationType { get; set; } = default!;
 
         /// <summary>
-        /// Reserved capacity of the registration type for an exhibitor
+        /// Reserved capacity of the registration type for an exhibitor.
         /// </summary>
         [JsonProperty("reservedCapacity")]
         public long ReservedCapacity { get; set; } = default!;

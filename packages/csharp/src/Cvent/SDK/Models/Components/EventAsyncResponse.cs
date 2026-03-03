@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Asynchronous event operation job details.
     /// </summary>
     public class EventAsyncResponse
     {
-
         /// <summary>
         /// The identifier to be used to get the async status of the event being created or copied.
         /// </summary>

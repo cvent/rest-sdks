@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class DeleteAttendeeLinkRequest
     {
-
         /// <summary>
         /// The identifier of the webcast.
         /// </summary>

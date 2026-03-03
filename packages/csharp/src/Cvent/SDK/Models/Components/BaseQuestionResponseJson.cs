@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Base entity for a question response.
     /// </summary>
     public class BaseQuestionResponseJson
     {
-
         /// <summary>
         /// The question that was answered.
         /// </summary>

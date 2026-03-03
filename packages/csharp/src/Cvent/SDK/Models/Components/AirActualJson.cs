@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Representation of an air actual.
     /// </summary>
     public class AirActualJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -112,13 +111,13 @@ namespace Cvent.SDK.Models.Components
         public string? NoteGDS { get; set; }
 
         /// <summary>
-        /// Type of journey
+        /// Type of journey.
         /// </summary>
         [JsonProperty("journeyType")]
         public JourneyType? JourneyType { get; set; }
 
         /// <summary>
-        /// List of all the flight details taken by attendee and its guest
+        /// List of all the flight details taken by attendee and its guest.
         /// </summary>
         [JsonProperty("flightDetail")]
         public List<FlightDetailJson>? FlightDetail { get; set; }

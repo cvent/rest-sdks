@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetCustomFieldRequest
     {
-
         /// <summary>
         /// The unique identifier of a custom field.
         /// </summary>

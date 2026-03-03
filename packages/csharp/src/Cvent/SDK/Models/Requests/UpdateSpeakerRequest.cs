@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateSpeakerRequest
     {
-
         /// <summary>
         /// The unique identifier of a speaker.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Speaker to be updated
+        /// Speaker to be updated.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ExistingSpeakerInput ExistingSpeaker { get; set; } = default!;

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Recording details of video to be transcoded
+    /// Recording details of video to be transcoded.
     /// </summary>
     public class RecordingDetails
     {
-
         /// <summary>
         /// Entity ID of recording.
         /// </summary>

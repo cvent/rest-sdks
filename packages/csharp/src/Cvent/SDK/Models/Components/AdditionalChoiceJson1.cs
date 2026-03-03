@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Contains text of additional choice
+    /// Contains text of additional choice.
     /// </summary>
     public class AdditionalChoiceJson1
     {
-
         /// <summary>
-        /// Text Value of additional choice
+        /// Text Value of additional choice.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }

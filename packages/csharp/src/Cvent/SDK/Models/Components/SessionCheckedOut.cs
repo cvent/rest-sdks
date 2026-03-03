@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A session checked-Out activity.
     /// </summary>
     public class SessionCheckedOut
     {
-
         /// <summary>
         /// The activity session.
         /// </summary>

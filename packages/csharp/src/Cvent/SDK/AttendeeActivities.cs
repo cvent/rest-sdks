@@ -25,136 +25,182 @@ namespace Cvent.SDK
     using System.Threading.Tasks;
 
     /// <summary>
-    /// The Attendee Activities API gives valuable insight into your customer&apos;s experience at your Cvent event.<br/>
-    /// 
-    /// <remarks>
-    /// Now, you can get a fuller picture of your customer&apos;s journey, including onsite activities, offsite meetings,<br/>
+    /// The Attendee Activities API gives valuable insight into your customer's experience at your Cvent event.<br/>
+    /// Now, you can get a fuller picture of your customer's journey, including onsite activities, offsite meetings,<br/>
     /// breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified customer<br/>
     /// profile that integrates with your external systems and data.<br/>
     /// <br/>
-    /// By gathering all this info into a single interface, the API allows you to see your customer&apos;s engagement<br/>
+    /// By gathering all this info into a single interface, the API allows you to see your customer's engagement<br/>
     /// at every step of the journey, create engagement models, and integrate that data with your external tools.<br/>
     /// You can use this data to understand what your customers are looking for, keep them engaged, build loyalty,<br/>
     /// drive upsell, and increase the long-term value of your events.<br/>
     /// <br/>
     /// Please note that attendee activities data is retained for a maximum of 2 years and is purged thereafter.<br/>
     /// <br/>
-    /// For more details on <a href="https://developers.cvent.com/docs/rest-api/explanation/attendee-activities">attendee activities</a>.<br/>
-    /// 
-    /// </remarks>
+    /// For more details on <a href="https://developers.cvent.com/docs/rest-api/explanation/attendee-activities">attendee activities</a>.
     /// </summary>
     public interface IAttendeeActivities
     {
-
         /// <summary>
-        /// List Activities
-        /// 
+        /// List Activities<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of attendee activities.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListAttendeeActivitiesResponse> ListAttendeeActivitiesAsync(ListAttendeeActivitiesRequest? request = null);
+        /// <param name="request">A <see cref="ListAttendeeActivitiesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAttendeeActivitiesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAttendeeActivitiesResponse> ListAttendeeActivitiesAsync(
+            ListAttendeeActivitiesRequest? request = null
+        );
 
         /// <summary>
-        /// Add External Activity
-        /// 
+        /// Add External Activity<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Create an external attendee activity.<br/>
-        /// 
+        /// Create an external attendee activity.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateAttendeeActivityResponse> CreateAttendeeActivityAsync(ExternalActivityInput request);
+        /// <param name="request">Creates a single external attendee activity for an attendee.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateAttendeeActivityResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateAttendeeActivityResponse> CreateAttendeeActivityAsync(ExternalActivityInput request);
 
         /// <summary>
-        /// List Ext. Activities Metadata
-        /// 
+        /// List Ext. Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Gets a paginated list of external attendee activities metadata.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<ListExternalAttendeeActivitiesMetadataResponse> ListExternalAttendeeActivitiesMetadataAsync(ListExternalAttendeeActivitiesMetadataRequest? request = null);
+        /// <param name="request">A <see cref="ListExternalAttendeeActivitiesMetadataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListExternalAttendeeActivitiesMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListExternalAttendeeActivitiesMetadataResponse> ListExternalAttendeeActivitiesMetadataAsync(
+            ListExternalAttendeeActivitiesMetadataRequest? request = null
+        );
 
         /// <summary>
-        /// Add Ext. Activities Metadata
-        /// 
+        /// Add Ext. Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
-        /// Creates external attendee activity metadata.<br/>
-        /// 
+        /// Creates external attendee activity metadata.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<CreateExternalAttendeeActivityMetadataResponse> CreateExternalAttendeeActivityMetadataAsync(ExternalActivityMetadataInput request);
+        /// <param name="request">Create external attendee activity metadata, where external attendee activity records can be stored.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateExternalAttendeeActivityMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateExternalAttendeeActivityMetadataResponse> CreateExternalAttendeeActivityMetadataAsync(
+            ExternalActivityMetadataInput request
+        );
 
         /// <summary>
-        /// Delete Ext Activities Metadata
-        /// 
+        /// Delete Ext Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Deletes external attendee activity metadata.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<DeleteExternalAttendeeActivityMetadataResponse> DeleteExternalAttendeeActivityMetadataAsync(DeleteExternalAttendeeActivityMetadataRequest request);
+        /// <param name="request">A <see cref="DeleteExternalAttendeeActivityMetadataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExternalAttendeeActivityMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteExternalAttendeeActivityMetadataResponse> DeleteExternalAttendeeActivityMetadataAsync(
+            DeleteExternalAttendeeActivityMetadataRequest request
+        );
 
         /// <summary>
-        /// Update Ext Activities Metadata
-        /// 
+        /// Update Ext Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Update external attendee activity metadata.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UpdateExternalAttendeeActivityMetadataResponse> UpdateExternalAttendeeActivityMetadataAsync(UpdateExternalAttendeeActivityMetadataRequest request);
+        /// <param name="request">A <see cref="UpdateExternalAttendeeActivityMetadataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExternalAttendeeActivityMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateExternalAttendeeActivityMetadataResponse> UpdateExternalAttendeeActivityMetadataAsync(
+            UpdateExternalAttendeeActivityMetadataRequest request
+        );
     }
 
     /// <summary>
-    /// The Attendee Activities API gives valuable insight into your customer&apos;s experience at your Cvent event.<br/>
-    /// 
-    /// <remarks>
-    /// Now, you can get a fuller picture of your customer&apos;s journey, including onsite activities, offsite meetings,<br/>
+    /// The Attendee Activities API gives valuable insight into your customer's experience at your Cvent event.<br/>
+    /// Now, you can get a fuller picture of your customer's journey, including onsite activities, offsite meetings,<br/>
     /// breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified customer<br/>
     /// profile that integrates with your external systems and data.<br/>
     /// <br/>
-    /// By gathering all this info into a single interface, the API allows you to see your customer&apos;s engagement<br/>
+    /// By gathering all this info into a single interface, the API allows you to see your customer's engagement<br/>
     /// at every step of the journey, create engagement models, and integrate that data with your external tools.<br/>
     /// You can use this data to understand what your customers are looking for, keep them engaged, build loyalty,<br/>
     /// drive upsell, and increase the long-term value of your events.<br/>
     /// <br/>
     /// Please note that attendee activities data is retained for a maximum of 2 years and is purged thereafter.<br/>
     /// <br/>
-    /// For more details on <a href="https://developers.cvent.com/docs/rest-api/explanation/attendee-activities">attendee activities</a>.<br/>
-    /// 
-    /// </remarks>
+    /// For more details on <a href="https://developers.cvent.com/docs/rest-api/explanation/attendee-activities">attendee activities</a>.
     /// </summary>
     public class AttendeeActivities: IAttendeeActivities
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public AttendeeActivities(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListAttendeeActivitiesResponse> ListAttendeeActivitiesAsync(ListAttendeeActivitiesRequest? request = null)
+        /// <summary>
+        /// List Activities<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of attendee activities.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAttendeeActivitiesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAttendeeActivitiesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAttendeeActivitiesResponse> ListAttendeeActivitiesAsync(
+            ListAttendeeActivitiesRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/attendees/activities", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -171,7 +217,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -180,9 +226,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -204,6 +250,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -288,14 +335,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateAttendeeActivityResponse> CreateAttendeeActivityAsync(ExternalActivityInput request)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
+        /// <summary>
+        /// Add External Activity<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Create an external attendee activity.
+        /// </remarks>
+        /// <param name="request">Creates a single external attendee activity for an attendee.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateAttendeeActivityResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateAttendeeActivityResponse> CreateAttendeeActivityAsync(ExternalActivityInput request)
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/attendees/activities";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -318,7 +386,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -327,9 +395,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -405,13 +473,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListExternalAttendeeActivitiesMetadataResponse> ListExternalAttendeeActivitiesMetadataAsync(ListExternalAttendeeActivitiesMetadataRequest? request = null)
+
+        /// <summary>
+        /// List Ext. Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of external attendee activities metadata.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListExternalAttendeeActivitiesMetadataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListExternalAttendeeActivitiesMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListExternalAttendeeActivitiesMetadataResponse> ListExternalAttendeeActivitiesMetadataAsync(
+            ListExternalAttendeeActivitiesMetadataRequest? request = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/attendees/activities/external/metadata", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -428,7 +517,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -437,9 +526,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -461,6 +550,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -545,14 +635,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateExternalAttendeeActivityMetadataResponse> CreateExternalAttendeeActivityMetadataAsync(ExternalActivityMetadataInput request)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
+        /// <summary>
+        /// Add Ext. Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Creates external attendee activity metadata.
+        /// </remarks>
+        /// <param name="request">Create external attendee activity metadata, where external attendee activity records can be stored.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateExternalAttendeeActivityMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateExternalAttendeeActivityMetadataResponse> CreateExternalAttendeeActivityMetadataAsync(
+            ExternalActivityMetadataInput request
+        )
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/attendees/activities/external/metadata";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
             if (serializedBody != null)
@@ -575,7 +688,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -584,9 +697,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -662,13 +775,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteExternalAttendeeActivityMetadataResponse> DeleteExternalAttendeeActivityMetadataAsync(DeleteExternalAttendeeActivityMetadataRequest request)
+
+        /// <summary>
+        /// Delete Ext Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Deletes external attendee activity metadata.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteExternalAttendeeActivityMetadataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteExternalAttendeeActivityMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteExternalAttendeeActivityMetadataResponse> DeleteExternalAttendeeActivityMetadataAsync(
+            DeleteExternalAttendeeActivityMetadataRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/attendees/activities/external/metadata/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -685,7 +822,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -694,9 +831,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -754,13 +891,37 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateExternalAttendeeActivityMetadataResponse> UpdateExternalAttendeeActivityMetadataAsync(UpdateExternalAttendeeActivityMetadataRequest request)
+
+        /// <summary>
+        /// Update Ext Activities Metadata<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Update external attendee activity metadata.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateExternalAttendeeActivityMetadataRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateExternalAttendeeActivityMetadataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateExternalAttendeeActivityMetadataResponse> UpdateExternalAttendeeActivityMetadataAsync(
+            UpdateExternalAttendeeActivityMetadataRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/attendees/activities/external/metadata/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "ExternalActivityMetadata", "json", false, false);
             if (serializedBody != null)
@@ -783,7 +944,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -792,9 +953,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -869,5 +1030,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

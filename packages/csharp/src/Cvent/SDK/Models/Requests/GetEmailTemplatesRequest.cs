@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetEmailTemplatesRequest
     {
-
         /// <summary>
         /// Used to query records that have been created before this time point. Defaults to current time.
         /// </summary>
@@ -40,20 +39,16 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
-        /// &apos;OR&apos; is not supported. Only &apos;AND&apos; operator is supported.<br/>
+        /// 'OR' is not supported. Only 'AND' operator is supported.<br/>
         /// <br/>
         /// The following comparison types can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
         ///   * name (eq)<br/>
-        ///   * createdBy (eq)<br/>
-        /// 
-        /// </remarks>
+        ///   * createdBy (eq).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

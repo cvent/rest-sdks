@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents an error response with additional details of cascading error messages.
     /// </summary>
     public class AttendeeAddBulkItemErrorResponse
     {
-
         /// <summary>
         /// The HTTP status code representing the error.
         /// </summary>

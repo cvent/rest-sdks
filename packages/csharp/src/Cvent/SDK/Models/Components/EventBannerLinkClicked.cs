@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The link on the banner clicked by an attendee.
     /// </summary>
     public class EventBannerLinkClicked
     {
-
         /// <summary>
         /// An exhibitor.
         /// </summary>
@@ -32,7 +31,7 @@ namespace Cvent.SDK.Models.Components
         public string? Platform { get; set; }
 
         /// <summary>
-        /// The related banner
+        /// The related banner.
         /// </summary>
         [JsonProperty("banner")]
         public Banner? Banner { get; set; }

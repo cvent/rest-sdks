@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The state province code used for contact information.
     /// </summary>
@@ -1690,5 +1690,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum StateProvinceJson");
         }
     }
-
 }

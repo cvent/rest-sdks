@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A lead inbound-created activity.
     /// </summary>
     public class LeadInboundCreated
     {
-
         /// <summary>
         /// An activity exhibitor.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public ActivityExhibitorJson? Exhibitor { get; set; }
 
         /// <summary>
-        /// A Lead
+        /// A Lead.
         /// </summary>
         [JsonProperty("lead")]
         public LeadObjectJson? Lead { get; set; }

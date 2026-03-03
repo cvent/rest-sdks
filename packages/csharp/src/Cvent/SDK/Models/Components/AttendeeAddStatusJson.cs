@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Denotes the status of an attendee being added. No Response: The attendee was added to an invitation list but hasn&apos;t taken any action. Accepted: The attendee is registered for the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner.
+    /// Denotes the status of an attendee being added. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner.
     /// </summary>
     public enum AttendeeAddStatusJson
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AttendeeAddStatusJson");
         }
     }
-
 }

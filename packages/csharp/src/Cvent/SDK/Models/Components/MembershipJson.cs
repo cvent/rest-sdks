@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Contact Membership information
+    /// Contact Membership information.
     /// </summary>
     public class MembershipJson
     {
-
         /// <summary>
         /// The type of membership the contact has signed up for.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public DateOnly? Joined { get; set; }
 
         /// <summary>
-        /// The ISO-8601 formatted date the contact&apos;s membership will expire.
+        /// The ISO-8601 formatted date the contact's membership will expire.
         /// </summary>
         [JsonProperty("expiration")]
         public DateOnly? Expiration { get; set; }

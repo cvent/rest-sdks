@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Rate details for single night.
     /// </summary>
     public class NightRateJson
     {
-
         /// <summary>
         /// Base rate.
         /// </summary>

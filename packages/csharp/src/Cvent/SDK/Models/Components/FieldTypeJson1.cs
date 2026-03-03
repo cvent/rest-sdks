@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Field Type
+    /// Field Type.
     /// </summary>
     public enum FieldTypeJson1
     {
@@ -62,5 +62,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum FieldTypeJson1");
         }
     }
-
 }

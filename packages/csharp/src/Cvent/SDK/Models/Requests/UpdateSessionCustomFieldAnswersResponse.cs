@@ -12,16 +12,15 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class UpdateSessionCustomFieldAnswersResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
         /// Successfully updated custom field answers for a session.
         /// </summary>
-        public CustomField? CustomField { get; set; }
+        public CustomField1? CustomField1 { get; set; }
     }
 }

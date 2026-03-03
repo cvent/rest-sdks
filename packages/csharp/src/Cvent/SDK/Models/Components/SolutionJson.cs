@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The solution where the video exists. Attendee Hub and Events+ represent two different solutions where the video can be found.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum SolutionJson");
         }
     }
-
 }

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Additional fields metadata for an external activity.
     /// </summary>
     public class ExternalActivitiesAdditionalFieldsMetadataJson
     {
-
         /// <summary>
         /// The name of the additional field.
         /// </summary>

@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Code representing the type of response supported.  Single represents a simple single value response, and choice means the user will be given a set of options for selection.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum QuestionResponseTypeJson");
         }
     }
-
 }

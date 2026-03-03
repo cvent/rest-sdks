@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// This is used to denote the type of the attendee activity.
     /// </summary>
@@ -156,5 +156,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ActivityTypeJson");
         }
     }
-
 }

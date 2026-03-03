@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents the associated agenda item of a discount.
     /// </summary>
     public class DiscountAgendaItemJson
     {
-
         /// <summary>
         /// A unique identifier of the agenda item.
         /// </summary>

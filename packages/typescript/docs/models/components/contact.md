@@ -67,7 +67,7 @@ let value: Contact = {
     {
       id: "a3572698-a615-4f55-a7a1-b30b588e81fa",
       name: "What is a your favorite color?",
-      type: "General",
+      type: "MultiSelect",
       value: [
         "Choice C",
         "Choice A",

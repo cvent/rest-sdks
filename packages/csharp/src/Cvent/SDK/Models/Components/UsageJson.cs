@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A usage object represents the usage of a resource on a given day
+    /// A usage object represents the usage of a resource on a given day.
     /// </summary>
     public class UsageJson
     {
-
         /// <summary>
         /// The number of API requests that have been made in the current usage period. Usage periods reset daily at midnight UTC.
         /// </summary>
@@ -37,7 +36,7 @@ namespace Cvent.SDK.Models.Components
         public long Total { get; set; } = default!;
 
         /// <summary>
-        /// The date the usage occurred, as an ISO8601 date
+        /// The date the usage occurred, as an ISO8601 date.
         /// </summary>
         [JsonProperty("date")]
         public string Date { get; set; } = default!;

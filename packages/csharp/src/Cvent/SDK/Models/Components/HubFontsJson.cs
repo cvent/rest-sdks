@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The fonts of the Events+ hub.
     /// </summary>
     public class HubFontsJson
     {
-
         /// <summary>
-        /// The id of the font used in this Events+ hub&apos;s heading. Custom fonts are previously uploaded in the account.
+        /// The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the account.
         /// </summary>
         [JsonProperty("headingId")]
         public string? HeadingId { get; set; }
 
         /// <summary>
-        /// The id of the font used in this Events+ hub&apos;s body text. Custom fonts are previously uploaded in account.
+        /// The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in account.
         /// </summary>
         [JsonProperty("bodyId")]
         public string? BodyId { get; set; }

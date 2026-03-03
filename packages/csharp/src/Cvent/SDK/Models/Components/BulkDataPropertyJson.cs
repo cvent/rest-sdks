@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Data Record envelope
+    /// Data Record envelope.
     /// </summary>
     public class BulkDataPropertyJson
     {
-
         /// <summary>
-        /// Key-value pairs where a key identifies a labeled placeholders in the url (e.g. &quot;/endpoint/{entityId}&quot;) and a value represents the value to substitute. Necessary if the target endpoint has path parameters. Values must NOT be null.
+        /// Key-value pairs where a key identifies a labeled placeholders in the url (e.g. "/endpoint/{entityId}") and a value represents the value to substitute. Necessary if the target endpoint has path parameters. Values must NOT be null.
         /// </summary>
         [JsonProperty("pathParams")]
         public Dictionary<string, string>? PathParams { get; set; }
@@ -39,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public Dictionary<string, string>? Headers { get; set; }
 
         /// <summary>
-        /// Arbitrary container to hold a JSON payload. The payload is the data you&apos;re sending, or the reply received when fetching results. For the request, this data must be structured in the way the API you&apos;re running a bulk job for accepts. For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the format of the Create Session endpoint.
+        /// Arbitrary container to hold a JSON payload. The payload is the data you're sending, or the reply received when fetching results. For the request, this data must be structured in the way the API you're running a bulk job for accepts. For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the format of the Create Session endpoint.
         /// </summary>
         [JsonProperty("dataRecord")]
         public Dictionary<string, BulkDataRecordJson> DataRecord { get; set; } = default!;

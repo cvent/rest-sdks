@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetUserRequest
     {
-
         /// <summary>
         /// Unique ID for a user.
         /// </summary>

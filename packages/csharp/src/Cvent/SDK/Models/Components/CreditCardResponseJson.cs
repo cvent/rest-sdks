@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Credit Card Response Object
+    /// Credit Card Response Object.
     /// </summary>
     public class CreditCardResponseJson
     {
-
         /// <summary>
-        /// Credit Card Type
+        /// Credit Card Type.
         /// </summary>
         [JsonProperty("cardType")]
         public CreditCardTypeJson? CardType { get; set; } = null;

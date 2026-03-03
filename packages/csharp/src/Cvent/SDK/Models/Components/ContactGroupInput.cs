@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A group of contacts.
     /// </summary>
     public class ContactGroupInput
     {
-
         /// <summary>
         /// Name of the contact group.
         /// </summary>

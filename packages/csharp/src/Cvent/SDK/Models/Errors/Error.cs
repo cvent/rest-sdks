@@ -12,17 +12,15 @@ namespace Cvent.SDK.Models.Errors
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// **invalid_request**<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// The request is missing a required parameter, includes an unsupported parameter value (other than unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but refresh_token is not included.<br/>
     /// <br/>
     /// **invalid_client**<br/>
     /// <br/>
-    /// Client authentication failed. For example, when the client includes client_id and client_secret in the authorization header, but there&apos;s no such client with that client_id and client_secret.<br/>
+    /// Client authentication failed. For example, when the client includes client_id and client_secret in the authorization header, but there's no such client with that client_id and client_secret.<br/>
     /// <br/>
     /// **invalid_grant**<br/>
     /// <br/>
@@ -36,9 +34,7 @@ namespace Cvent.SDK.Models.Errors
     /// <br/>
     /// **unsupported_grant_type**<br/>
     /// <br/>
-    /// Returned if grant_type is anything other than authorization_code or refresh_token.<br/>
-    /// 
-    /// </remarks>
+    /// Returned if grant_type is anything other than authorization_code or refresh_token.
     /// </summary>
     public enum Error
     {
@@ -86,5 +82,4 @@ namespace Cvent.SDK.Models.Errors
             throw new Exception($"Unknown value {value} for enum Error");
         }
     }
-
 }

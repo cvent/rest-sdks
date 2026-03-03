@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of documents for a single session.  This includes the paging object as well as the collection of documents.
     /// </summary>
     public class SessionDocumentPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public PagingJson Paging { get; set; } = default!;
 
         /// <summary>
-        /// Collection of a session&apos;s documents.
+        /// Collection of a session's documents.
         /// </summary>
         [JsonProperty("data")]
         public List<SessionFile> Data { get; set; } = default!;

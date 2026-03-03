@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A custom-field translation for a particular language.
     /// </summary>
     public class Translation1
     {
-
         /// <summary>
         /// This is used to denote the translation of the custom field, including its name, help text, and choice texts.
         /// </summary>

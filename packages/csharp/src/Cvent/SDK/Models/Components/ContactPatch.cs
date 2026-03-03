@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// This entity is used to represent a single item that is requested for a contact patch.
     /// </summary>
     public class ContactPatch
     {
-
         /// <summary>
         /// The first name of the contact.
         /// </summary>
@@ -51,7 +50,7 @@ namespace Cvent.SDK.Models.Components
         public string? Email { get; set; }
 
         /// <summary>
-        /// An alternate email address of the contact that can be cc&apos;d on email communications.
+        /// An alternate email address of the contact that can be cc'd on email communications.
         /// </summary>
         [JsonProperty("ccEmail")]
         public string? CcEmail { get; set; }
@@ -72,7 +71,7 @@ namespace Cvent.SDK.Models.Components
         public object? Title { get; set; }
 
         /// <summary>
-        /// Contains details related to the attendee&apos;s contact type.
+        /// Contains details related to the attendee's contact type.
         /// </summary>
         [JsonProperty("type")]
         public AttendeeContactTypeJsonInput? Type { get; set; }
@@ -120,7 +119,7 @@ namespace Cvent.SDK.Models.Components
         public string? SourceId { get; set; }
 
         /// <summary>
-        /// The contact&apos;s mobile phone number.
+        /// The contact's mobile phone number.
         /// </summary>
         [JsonProperty("mobilePhone")]
         public string? MobilePhone { get; set; }
@@ -157,18 +156,15 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// The passport number of the contact.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use the passport.number field.
-        /// </remarks>
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("passportNumber")]
         public string? PassportNumber { get; set; }
 
         /// <summary>
-        /// This entity represents a contact&apos;s passport information.
+        /// This entity represents a contact's passport information.
         /// </summary>
         [JsonProperty("passport")]
         public PassportJsonInput? Passport { get; set; }
@@ -178,29 +174,26 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// The national identification number of the contact.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
-        /// </remarks>
         /// </summary>
         [JsonProperty("nationalIdentificationNumber")]
         public string? NationalIdentificationNumber { get; set; }
 
         /// <summary>
-        /// The headline of the contact&apos;s profile, which summarizes their professional experience and qualities.
+        /// The headline of the contact's profile, which summarizes their professional experience and qualities.
         /// </summary>
         [JsonProperty("headline")]
         public string? Headline { get; set; }
 
         /// <summary>
-        /// A contact&apos;s personal website URL.
+        /// A contact's personal website URL.
         /// </summary>
         [JsonProperty("personalWebsite")]
         public string? PersonalWebsite { get; set; }
 
         /// <summary>
-        /// A contact&apos;s biographical writeup.
+        /// A contact's biographical writeup.
         /// </summary>
         [JsonProperty("biography")]
         public string? Biography { get; set; }

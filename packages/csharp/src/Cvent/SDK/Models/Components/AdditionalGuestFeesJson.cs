@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details about additional fees for extra guests.
     /// </summary>
     public class AdditionalGuestFeesJson
     {
-
         /// <summary>
         /// The number of guests for which the additional fee applies.
         /// </summary>

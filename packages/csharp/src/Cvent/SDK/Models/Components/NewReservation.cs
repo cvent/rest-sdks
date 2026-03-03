@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Details about reservation.
     /// </summary>
     public class NewReservation
     {
-
         /// <summary>
         /// Reservation request information.
         /// </summary>

@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetAccountUserGroupsRequest
     {
-
         /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
@@ -22,19 +21,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The pagination token returned from a previous call.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// Filters narrow the results returned and support a combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;. The following logical operators and fields are supported:<br/>
-        /// 
-        /// <remarks>
+        /// Filters narrow the results returned and support a combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'. The following logical operators and fields are supported:<br/>
         /// <br/>
         /// <br/>
         /// | Field Path      | Operators                          |<br/>
@@ -43,9 +36,7 @@ namespace Cvent.SDK.Models.Requests
         /// | createdBy       | `in`, `eq`, `ne`, `sw`, `ew`, `co` |<br/>
         /// | lastModifiedBy  | `in`, `eq`, `ne`, `sw`, `ew`, `co` |<br/>
         /// | created         | `eq`, `ne`, `lt`, `gt`, `le`, `ge` |<br/>
-        /// | lastModified    | `eq`, `ne`, `lt`, `gt`, `le`, `ge` |<br/>
-        /// 
-        /// </remarks>
+        /// | lastModified    | `eq`, `ne`, `lt`, `gt`, `le`, `ge` |
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

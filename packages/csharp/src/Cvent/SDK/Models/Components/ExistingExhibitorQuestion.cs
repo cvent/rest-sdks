@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Schema for an existing exhibitor question
+    /// Schema for an existing exhibitor question.
     /// </summary>
     public class ExistingExhibitorQuestion
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -58,13 +57,19 @@ namespace Cvent.SDK.Models.Components
         public string Text { get; set; } = default!;
 
         /// <summary>
-        /// Enumeration indicating the type of data collected by an exhibitor question. &apos;MultiChoice&apos;: Respondents select multiple options from a list. &apos;SingleChoice&apos;: restricts respondents to a single option from a list, often displayed as a dropdown or radio button. &apos;OpenEndedTextOneLine&apos;: brief text responses, such as names or short answers. &apos;OpenEndedTextCommentBox&apos;: longer text responses for detailed feedback. &apos;OpenEndedDateTime&apos;: captures date and time information from respondents.
+        /// System or User defined event level unique exhibitor question code.
+        /// </summary>
+        [JsonProperty("code")]
+        public string? Code { get; set; }
+
+        /// <summary>
+        /// Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
         /// </summary>
         [JsonProperty("type")]
         public ExhibitorQuestionTypeJson Type { get; set; } = default!;
 
         /// <summary>
-        /// A boolean indicating whether the question is mandatory or not
+        /// A boolean indicating whether the question is mandatory or not.
         /// </summary>
         [JsonProperty("required")]
         public bool Required { get; set; } = default!;
@@ -76,19 +81,19 @@ namespace Cvent.SDK.Models.Components
         public List<BaseChoiceJson>? Choices { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice
+        /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
         public AdditionalChoiceJson1? NotApplicableAnswer { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice
+        /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
         public AdditionalChoiceJson1? OtherAnswer { get; set; }
 
         /// <summary>
-        /// Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between &apos;Dropdown&apos; or &apos;RadioButton&apos;. For OpenEndedTextOneLine questions, select &apos;General&apos;, &apos;EmailAddress&apos;, or &apos;PhoneNumber&apos;. For OpenEndedDateTime questions, use &apos;DateAndTime&apos; or &apos;Date&apos;.
+        /// Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
         /// </summary>
         [JsonProperty("answerFormat")]
         public ExhibitorAnswerFormatJson? AnswerFormat { get; set; }
@@ -106,7 +111,7 @@ namespace Cvent.SDK.Models.Components
         public bool? DefaultToCurrentDate { get; set; }
 
         /// <summary>
-        /// Exhibitor Question id
+        /// Exhibitor Question id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

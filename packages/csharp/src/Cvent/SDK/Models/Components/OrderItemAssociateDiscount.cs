@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Details for order item update while associating a discount code
+    /// Details for order item update while associating a discount code.
     /// </summary>
     public class OrderItemAssociateDiscount
     {
-
         /// <summary>
         /// The reference to the event. Contains only the ID of the event.
         /// </summary>

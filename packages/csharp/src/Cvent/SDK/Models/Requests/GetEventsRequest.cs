@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class GetEventsRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -35,19 +34,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -55,18 +48,14 @@ namespace Cvent.SDK.Models.Requests
         ///   * descending: DESC<br/>
         /// <br/>
         /// The following fields are sortable:<br/>
-        ///   * start<br/>
-        /// 
-        /// </remarks>
+        ///   * start.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// These are the comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
@@ -110,9 +99,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * venue.address.regionCode (eq|ne)<br/>
         ///   * venue.address.country (eq|ne)<br/>
         ///   * venue.address.countryCode (eq|ne)<br/>
-        ///   * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)<br/>
-        /// 
-        /// </remarks>
+        ///   * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

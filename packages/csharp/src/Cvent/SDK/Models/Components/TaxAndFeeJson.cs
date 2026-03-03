@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A single tax or fee applicable to a room.
     /// </summary>
     public class TaxAndFeeJson
     {
-
         /// <summary>
         /// Name of the tax or fee.
         /// </summary>
@@ -39,37 +38,28 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// Defines how often the tax or fee is applied.<br/>
-        /// 
-        /// <remarks>
         /// - per_guest: Applied per guest.<br/>
         /// - per_room: Applied per room.<br/>
         /// - per_night: Applied per night.<br/>
         /// - per_stay: Applied per stay.
-        /// </remarks>
         /// </summary>
         [JsonProperty("frequency")]
         public Frequency Frequency { get; set; } = default!;
 
         /// <summary>
         /// Indicates if the tax or fee is included in the base room rate set by the hotel (before any taxes or fees are applied).<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// - true: The tax or fee is already part of the nightly rate set by the hotel.<br/>
         /// - false: The tax or fee will be added to the hotel nightly rate as a separate charge.
-        /// </remarks>
         /// </summary>
         [JsonProperty("partOfBaseRate")]
         public bool PartOfBaseRate { get; set; } = default!;
 
         /// <summary>
         /// Indicates if the tax or fee is included in the displayed rate shown to the guest.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// - true: The tax or fee is included in the displayed rate as part of the room rate. (Displayed rate = base room rate + tax/fee.)<br/>
-        /// - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is the room rate only.)
-        /// </remarks>
+        /// - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is the room rate only.).
         /// </summary>
         [JsonProperty("partOfDisplayRate")]
         public bool PartOfDisplayRate { get; set; } = default!;

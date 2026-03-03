@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Contains details related to the attendee&apos;s contact type.
+    /// Contains details related to the attendee's contact type.
     /// </summary>
     public class AttendeeContactTypeJson
     {
-
         /// <summary>
-        /// The unique identifier of the contact type
+        /// The unique identifier of the contact type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// A descriptive name for the contact type
+        /// A descriptive name for the contact type.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

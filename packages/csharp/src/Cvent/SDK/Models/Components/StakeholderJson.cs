@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents an event stakeholder.
     /// </summary>
     public class StakeholderJson
     {
-
         /// <summary>
         /// The first name of the stakeholder.
         /// </summary>
@@ -120,7 +119,7 @@ namespace Cvent.SDK.Models.Components
         public string? MiddleName { get; set; }
 
         /// <summary>
-        /// An alternate email address of the contact that will be cc&apos;d on all email communications.
+        /// An alternate email address of the contact that will be cc'd on all email communications.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("ccEmail")]

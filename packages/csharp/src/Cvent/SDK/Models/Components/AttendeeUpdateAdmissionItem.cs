@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The ID of the attendee&apos;s admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
+    /// The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
     /// </summary>
     public class AttendeeUpdateAdmissionItem
     {
-
         /// <summary>
         /// The admission item ID.
         /// </summary>

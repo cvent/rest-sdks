@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This is used to denote the poll details.
     /// </summary>
     public class PollResponseJson
     {
-
         /// <summary>
         /// The name of the poll.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Representation of a discount code to be created or updated.
     /// </summary>
     public class CreateUpdateDiscountCode
     {
-
         /// <summary>
         /// Name of the discount.
         /// </summary>
@@ -33,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Active { get; set; } = true;
 
         /// <summary>
-        /// True indicates that the discount can be clubbed together with other stackable discounts
+        /// True indicates that the discount can be clubbed together with other stackable discounts.
         /// </summary>
         [JsonProperty("stackable")]
         public bool? Stackable { get; set; } = true;
@@ -69,13 +68,13 @@ namespace Cvent.SDK.Models.Components
         public string Code { get; set; } = default!;
 
         /// <summary>
-        /// Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants and their guests. `GUEST`: Any attendee invited to the event. `ALL`: An attendee who&apos;s the guest of a primary registrant.
+        /// Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants and their guests. `GUEST`: Any attendee invited to the event. `ALL`: An attendee who's the guest of a primary registrant.
         /// </summary>
         [JsonProperty("audienceType")]
         public DiscountAudienceTypeJson? AudienceType { get; set; } = Cvent.SDK.Models.Components.DiscountAudienceTypeJson.All;
 
         /// <summary>
-        /// True indicates that guests will be included along with primary registrants towards the discount code&apos;s capacity.
+        /// True indicates that guests will be included along with primary registrants towards the discount code's capacity.
         /// </summary>
         [JsonProperty("includeGuestsTowardsCapacity")]
         public bool? IncludeGuestsTowardsCapacity { get; set; } = false;

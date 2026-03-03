@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Source of video.
     /// </summary>
     public class VideoSourceJson
     {
-
         /// <summary>
-        /// The id of a video in the external system
+        /// The id of a video in the external system.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

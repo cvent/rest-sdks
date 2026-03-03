@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Other payment details.
     /// </summary>
     public class OtherPaymentJson
     {
-
         /// <summary>
         /// Amount paid.
         /// </summary>

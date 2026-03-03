@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Registration type information
+    /// Registration type information.
     /// </summary>
     public class CapacityJsonRegistrationType
     {
-
         /// <summary>
-        /// Registration type id
+        /// Registration type id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

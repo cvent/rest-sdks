@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The contact details.
     /// </summary>
     public class ContactJson1
     {
-
         /// <summary>
         /// The contact types used for the proposal.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastName { get; set; }
 
         /// <summary>
-        /// The URL of the organization&apos;s website.
+        /// The URL of the organization's website.
         /// </summary>
         [JsonProperty("organizationWebsite")]
         public string? OrganizationWebsite { get; set; }
@@ -62,7 +61,7 @@ namespace Cvent.SDK.Models.Components
         public string? Email { get; set; }
 
         /// <summary>
-        /// The country code for the contact&apos;s phone number.
+        /// The country code for the contact's phone number.
         /// </summary>
         [JsonProperty("countryCode")]
         public string? CountryCode { get; set; }
@@ -74,7 +73,7 @@ namespace Cvent.SDK.Models.Components
         public string? Phone { get; set; }
 
         /// <summary>
-        /// The organization&apos;s fax number.
+        /// The organization's fax number.
         /// </summary>
         [JsonProperty("fax")]
         public string? Fax { get; set; }
@@ -86,19 +85,19 @@ namespace Cvent.SDK.Models.Components
         public string? Mobile { get; set; }
 
         /// <summary>
-        /// Address line 1 of contact&apos;s street address.
+        /// Address line 1 of contact's street address.
         /// </summary>
         [JsonProperty("streetAddress1")]
         public string? StreetAddress1 { get; set; }
 
         /// <summary>
-        /// Address line 2 of contact&apos;s street address.
+        /// Address line 2 of contact's street address.
         /// </summary>
         [JsonProperty("streetAddress2")]
         public string? StreetAddress2 { get; set; }
 
         /// <summary>
-        /// Address line 3 of contact&apos;s street address.
+        /// Address line 3 of contact's street address.
         /// </summary>
         [JsonProperty("streetAddress3")]
         public string? StreetAddress3 { get; set; }

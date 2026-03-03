@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The brand that the property belongs to.
     /// </summary>
     public class PropertyBrand
     {
-
         /// <summary>
         /// The ID of the brand.
         /// </summary>

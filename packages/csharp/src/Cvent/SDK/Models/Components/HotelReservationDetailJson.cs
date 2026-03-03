@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Representation of a hotel reservation detail response.
     /// </summary>
     public class HotelReservationDetailJson
     {
-
         /// <summary>
-        /// Representation of the attendee
+        /// Representation of the attendee.
         /// </summary>
         [JsonProperty("attendee")]
         public AttendeeJson4? Attendee { get; set; }

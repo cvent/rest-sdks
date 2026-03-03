@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A session activity.
     /// </summary>
     public class SessionWaitlisted
     {
-
         /// <summary>
         /// The activity session.
         /// </summary>

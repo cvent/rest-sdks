@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Event venue details.
     /// </summary>
     public class VenueJson1
     {
-
         /// <summary>
         /// Venue name.
         /// </summary>

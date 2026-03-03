@@ -14,15 +14,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Appointment availability details.
     /// </summary>
     public class AppointmentAvailability
     {
-
         /// <summary>
-        /// The unique ID representing the attendee&apos;s availability in an appointment event.
+        /// The unique ID representing the attendee's availability in an appointment event.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -40,7 +39,7 @@ namespace Cvent.SDK.Models.Components
         public AppointmentEventIdJson? AppointmentEvent { get; set; }
 
         /// <summary>
-        /// A list of time ranges when the attendee is available for appointments. Times are in the appointment event&apos;s time zone.
+        /// A list of time ranges when the attendee is available for appointments. Times are in the appointment event's time zone.
         /// </summary>
         [JsonProperty("timeRanges")]
         public List<AppointmentAvailabilityTimeRangeJson>? TimeRanges { get; set; }

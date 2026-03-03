@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Document attached to a meeting request that can be downloaded.
     /// </summary>
     public class MeetingRequestDocumentJson
     {
-
         /// <summary>
         /// Unique identifier of the document.
         /// </summary>
@@ -33,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// Size of the document in bytes
+        /// Size of the document in bytes.
         /// </summary>
         [JsonProperty("size")]
         public long? Size { get; set; }
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The MIME type of the document
+        /// The MIME type of the document.
         /// </summary>
         [JsonProperty("mimeType")]
         public string? MimeType { get; set; }

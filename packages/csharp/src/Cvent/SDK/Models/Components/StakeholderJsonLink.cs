@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to a profile picture.
     /// </summary>
     public class StakeholderJsonLink
     {
-
         /// <summary>
-        /// The url of the contact&apos;s profile picture
+        /// The url of the contact's profile picture.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

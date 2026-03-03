@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The model representing an arbitrary list of JSON data loaded to bulk job.
     /// </summary>
     public class BulkData
     {
-
         /// <summary>
-        /// Collection of objects to be processed
+        /// Collection of objects to be processed.
         /// </summary>
         [JsonProperty("data")]
         public List<BulkDataPropertyJson>? Data { get; set; }

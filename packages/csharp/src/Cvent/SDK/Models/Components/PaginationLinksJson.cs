@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents pagination links for navigating between pages of data.
     /// </summary>
     public class PaginationLinksJson
     {
-
         /// <summary>
         /// Represents a link to a related resource.
         /// </summary>

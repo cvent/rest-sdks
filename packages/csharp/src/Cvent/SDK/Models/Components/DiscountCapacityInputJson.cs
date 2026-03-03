@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details about the discount capacity.
     /// </summary>
     public class DiscountCapacityInputJson
     {
-
         /// <summary>
         /// The total number of instances the discount can be used event wide. Default value of -1 indicates unlimited capacity.
         /// </summary>

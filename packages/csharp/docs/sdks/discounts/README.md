@@ -41,8 +41,8 @@ ListEventDiscountsRequest req = new ListEventDiscountsRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "name:DESC,code:ASC",
     Filter = "id in ('1b01ae34-6970-41f2-a4e8-b4f39185dc15', '1b01ae34-6970-41f2-a4e8-b4f39185dc16') and method.type eq 'PERCENTAGE'",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
 };
 
 ListEventDiscountsResponse? res = await sdk.Discounts.ListEventDiscountsAsync(req);

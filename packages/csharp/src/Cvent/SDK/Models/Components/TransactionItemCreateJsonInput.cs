@@ -12,21 +12,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The item in the created transaction.
     /// </summary>
     public class TransactionItemCreateJsonInput
     {
-
         /// <summary>
-        /// This is used to denote the product details in an order item
+        /// This is used to denote the product details in an order item.
         /// </summary>
         [JsonProperty("product")]
         public ProductOrderItemJsonInput? Product { get; set; }
 
         /// <summary>
-        /// Amount of the overall transaction you&apos;re allotting to the specified product. This amount is in the same currency used by the event.
+        /// Amount of the overall transaction you're allotting to the specified product. This amount is in the same currency used by the event.
         /// </summary>
         [JsonProperty("amount")]
         public double? Amount { get; set; }

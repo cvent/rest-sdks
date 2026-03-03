@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Phone Number
+    /// Phone Number.
     /// </summary>
     public class PhoneNumberJson1
     {
-
         /// <summary>
         /// The type of the phone number.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A JSON Schema for Badge object.
     /// </summary>
     public class Badge
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -45,25 +44,25 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Id of a badge
+        /// Id of a badge.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Badge status
+        /// Badge status.
         /// </summary>
         [JsonProperty("status")]
         public BadgeStatusJson Status { get; set; } = default!;
 
         /// <summary>
-        /// Badge type
+        /// Badge type.
         /// </summary>
         [JsonProperty("type")]
         public BadgeTypeJson Type { get; set; } = default!;
 
         /// <summary>
-        /// A JSON Schema for an Attendee object
+        /// A JSON Schema for an Attendee object.
         /// </summary>
         [JsonProperty("attendee")]
         public AttendeeJson3 Attendee { get; set; } = default!;

@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Audience types of event surveys
+    /// Audience types of event surveys.
     /// </summary>
     public enum EventSurveyAudienceTypeJson
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum EventSurveyAudienceTypeJson");
         }
     }
-
 }

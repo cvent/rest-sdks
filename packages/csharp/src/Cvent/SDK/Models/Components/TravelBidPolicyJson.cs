@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A policy that is associated with a travel bid.
     /// </summary>
     public class TravelBidPolicyJson
     {
-
         /// <summary>
         /// The code representing the policy.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public string? Value { get; set; }
 
         /// <summary>
-        /// Value type of the policy
+        /// Value type of the policy.
         /// </summary>
         [JsonProperty("valueType")]
         public PolicyValueTypeJson? ValueType { get; set; }

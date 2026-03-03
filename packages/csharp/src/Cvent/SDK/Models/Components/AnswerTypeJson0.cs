@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Type of answer
+    /// Type of answer.
     /// </summary>
     public enum AnswerTypeJson0
     {
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AnswerTypeJson0");
         }
     }
-
 }

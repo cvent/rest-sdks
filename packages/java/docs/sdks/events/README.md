@@ -2476,7 +2476,7 @@ public class Application {
 
         PostTransactionsRequest req = PostTransactionsRequest.builder()
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
-                .createTransactionRequest(CreateTransactionRequestInput.builder()
+                .createTransactionResponse(CreateTransactionResponseInput.builder()
                     .paymentType(PaymentTypeCreateJson.OFFLINE_CHARGE)
                     .paymentMethod(PaymentMethodJson.MASTERCARD)
                     .date(OffsetDateTime.parse("2018-01-13T02:00:00Z"))
@@ -2504,7 +2504,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.createTransactionRequest().isPresent()) {
+        if (res.createTransactionResponse().isPresent()) {
             // handle response
         }
     }
@@ -2857,7 +2857,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.quantityItemUpdate().isPresent()) {
+        if (res.quantityItemResponse().isPresent()) {
             // handle response
         }
     }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// An array of standard contact fields supported by Cvent.
     /// </summary>
     public class ContactFields
     {
-
         /// <summary>
         /// Collection of standard contact fields.
         /// </summary>

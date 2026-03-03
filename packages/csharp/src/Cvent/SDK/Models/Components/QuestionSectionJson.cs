@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Code representing the section where the question belongs. Currently, program_client (client specific) and program_g_and_m (group and meeting) are supported.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum QuestionSectionJson");
         }
     }
-
 }

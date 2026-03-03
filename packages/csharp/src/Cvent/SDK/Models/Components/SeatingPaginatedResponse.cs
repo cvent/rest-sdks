@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the event seating for the event.
     /// </summary>
     public class SeatingPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public PagingJson? Paging { get; set; }
 
         /// <summary>
-        /// A list of event seating
+        /// A list of event seating.
         /// </summary>
         [JsonProperty("data")]
         public List<ExistingSeating> Data { get; set; } = default!;

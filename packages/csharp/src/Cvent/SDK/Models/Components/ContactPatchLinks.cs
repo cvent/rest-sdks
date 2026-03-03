@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class ContactPatchLinks
     {
-
         [JsonProperty("facebookUrl")]
         public FacebookUrl? FacebookUrl { get; set; }
     }

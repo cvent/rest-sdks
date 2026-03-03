@@ -13,21 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The sleeping room block.
     /// </summary>
     public class SleepingRoomBlockJson
     {
-
         /// <summary>
-        /// The date types used for the proposal, &apos;PREFERRED&apos; have the highest priority. Values prefixed with &apos;ALTERNATE_&apos; are decreasing in priority (e.g., ALTERNATE_1 has higher priority than &apos;ALTERNATE_2 and so on).
+        /// The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and so on).
         /// </summary>
         [JsonProperty("proposalDateType")]
         public DateTypeJson1? ProposalDateType { get; set; } = Cvent.SDK.Models.Components.DateTypeJson1.Preferred;
 
         /// <summary>
-        /// Sleeping room type
+        /// Sleeping room type.
         /// </summary>
         [JsonProperty("sleepingRoomType")]
         public SleepingRoomTypeJson? SleepingRoomType { get; set; }

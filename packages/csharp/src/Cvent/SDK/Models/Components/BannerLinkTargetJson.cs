@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The target of the link clicked on the banner.
     /// </summary>
     public class BannerLinkTargetJson
     {
-
         /// <summary>
         /// The type of target associated with the banner link.
         /// </summary>

@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Representation of an air request.
     /// </summary>
     public class AirRequestJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -124,13 +123,13 @@ namespace Cvent.SDK.Models.Components
         public SeatType? SeatType { get; set; }
 
         /// <summary>
-        /// Category of the passenger&apos;s ticket.
+        /// Category of the passenger's ticket.
         /// </summary>
         [JsonProperty("ticketType")]
         public TicketType? TicketType { get; set; }
 
         /// <summary>
-        /// Additional text related to the passenger&apos;s meal.
+        /// Additional text related to the passenger's meal.
         /// </summary>
         [JsonProperty("foodPreference")]
         public string? FoodPreference { get; set; }
@@ -142,7 +141,7 @@ namespace Cvent.SDK.Models.Components
         public string? SpecialRequest { get; set; }
 
         /// <summary>
-        /// Requester&apos;s preferred airlines.
+        /// Requester's preferred airlines.
         /// </summary>
         [JsonProperty("airlinePreference")]
         public List<AirlinePreferenceJson>? AirlinePreference { get; set; }

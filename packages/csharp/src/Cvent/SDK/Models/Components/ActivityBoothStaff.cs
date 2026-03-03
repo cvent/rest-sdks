@@ -12,14 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Booth staff for the lead.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class ActivityBoothStaff
     {
-
         /// <summary>
         /// The unique identifier of the exhibitor booth staff.
         /// </summary>

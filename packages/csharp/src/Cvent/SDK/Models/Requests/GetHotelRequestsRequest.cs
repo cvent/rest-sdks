@@ -13,10 +13,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using System;
     using System.Collections.Generic;
-    
+
     public class GetHotelRequestsRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -37,32 +36,22 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// A list of fields to be expanded, returning additional information alongside the specified fields. The expanded entity is retrieved and displayed inline for each specified expansion field. The respective scopes for each expansion are required.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// The following fields are expandable:<br/>
-        ///   * hotelRequestDetails.hotelRequestAnswers.question (&lt;a href=&quot;#operation/getEventQuestions&quot;&gt;List Event Questions&lt;/a&gt;)<br/>
-        /// 
-        /// </remarks>
+        ///   * hotelRequestDetails.hotelRequestAnswers.question (<a href="#operation/getEventQuestions">List Event Questions</a>).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")]
         public List<ExpandHotelRequestQuestionAnswer>? Expand { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -72,31 +61,24 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are sortable:<br/>
         ///   * hotelRequestDetails.requesterFirstName<br/>
         ///   * hotelRequestDetails.requesterLastName<br/>
-        ///   * hotelRequestDetails.lastModified<br/>
-        /// 
-        /// </remarks>
+        ///   * hotelRequestDetails.lastModified.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
         public string? Sort { get; set; }
 
         /// <summary>
-        /// &quot;A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.&quot;<br/>
-        /// 
-        /// <remarks>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// These are the comparison types that can be used in filter expressions:<br/>
-        /// * equal: eq<br/>
-        /// * not equal: ne<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// Field filterable:<br/>
-        /// * attendee.id (Attendee Id)<br/>
+        /// | Field            | Operators                          | Notes                                          |<br/>
+        /// |------------------|-------------------------------------|------------------------------------------------|<br/>
+        /// | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a filter     |<br/>
         /// <br/>
-        /// Limits for the number of fields that can be passed in a filter 17<br/>
-        /// <br/>
-        /// The following operators are available:<br/>
-        /// * or<br/>
-        /// 
-        /// </remarks>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

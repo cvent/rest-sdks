@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The background image of the Events+ hub.
     /// </summary>
     public class HubBackgroundJson
     {
-
         /// <summary>
-        /// The optimized URL of the Events+ hub&apos;s background image. The background image appears on the Events+ hub registration page.
+        /// The optimized URL of the Events+ hub's background image. The background image appears on the Events+ hub registration page.
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }

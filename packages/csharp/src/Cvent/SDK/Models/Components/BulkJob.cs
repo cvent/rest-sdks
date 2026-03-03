@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The model representing a bulk job that can load data asynchronously.
     /// </summary>
     public class BulkJob
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Bulk job identifier
+        /// Bulk job identifier.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

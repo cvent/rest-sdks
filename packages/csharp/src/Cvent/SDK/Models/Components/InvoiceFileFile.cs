@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class InvoiceFileFile
     {
-
         /// <summary>
         /// The ID of the invoice.
         /// </summary>

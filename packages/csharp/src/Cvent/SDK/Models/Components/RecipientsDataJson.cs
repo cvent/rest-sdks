@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Recipient data contains the recipient&apos;s details like ID, name and status of email sent to that recipient.
+    /// Recipient data contains the recipient's details like ID, name and status of email sent to that recipient.
     /// </summary>
     public class RecipientsDataJson
     {
-
         /// <summary>
         /// Unique ID of a recipient.
         /// </summary>

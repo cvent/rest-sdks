@@ -3,7 +3,7 @@
  */
 
 /**
- * Available scopes for the  OAuth 2.0 scheme (authorizationCode flow).
+ * Available scopes for the OAuth2.authorizationCode OAuth 2.0 scheme (authorizationCode flow).
  *
  * @remarks
  * OAuth2 Authorization Code Flow
@@ -735,7 +735,7 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
   | "survey/surveys:read";
 
 /**
- * Available scopes for the  OAuth 2.0 scheme (clientCredentials flow).
+ * Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
  *
  * @remarks
  * OAuth2 Client Credentials Flow

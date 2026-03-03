@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class RemoveContactFromContactGroupRequest
     {
-
         /// <summary>
         /// ID of a contact group.
         /// </summary>

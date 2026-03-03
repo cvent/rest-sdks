@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Content of exhibitor file.
     /// </summary>
     public class FileInput
     {
-
         /// <summary>
         /// The Associated Event.
         /// </summary>

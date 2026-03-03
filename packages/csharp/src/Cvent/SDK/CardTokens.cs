@@ -24,40 +24,40 @@ namespace Cvent.SDK
 
     /// <summary>
     /// **Card Tokenization**: Tokenization is the process Cvent uses to collect sensitive card details and<br/>
-    /// 
-    /// <remarks>
     /// personally identifiable information (PII), directly from your customers in a secure manner.<br/>
     /// This guarantees that no sensitive card data touches your server, and allows your integration to<br/>
     /// operate in compliance with PCI standards. A card token is a unique identifier that represents sensitive credit card information.<br/>
     /// It is used as a secure alternative to directly handling credit card details during transactions.<br/>
-    /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.<br/>
-    /// 
-    /// </remarks>
+    /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.
     /// </summary>
     public interface ICardTokens
     {
-
         /// <summary>
-        /// Create a Credit Card Token
-        /// 
+        /// Create a Credit Card Token.
+        /// </summary>
         /// <remarks>
         /// Creates a short-lived token representing a credit card. This token replaces the credit card in API methods. It can be used multiple times within a 15-minute time-to-live (TTL) period. After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for another short-lived token.
         /// </remarks>
-        /// </summary>
-        Task<CreateCardTokensResponse> CreateCardTokensAsync(CardTokenRequest? request = null, string? serverUrl = null);
+        /// <param name="request">A <see cref="CardTokenRequest"/> parameter.</param>
+        /// <param name="serverUrl">The server URL to use for this operation. If not provided, the default server URL will be used.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateCardTokensResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateCardTokensResponse> CreateCardTokensAsync(
+            CardTokenRequest? request = null,
+            string? serverUrl = null
+        );
     }
 
     /// <summary>
     /// **Card Tokenization**: Tokenization is the process Cvent uses to collect sensitive card details and<br/>
-    /// 
-    /// <remarks>
     /// personally identifiable information (PII), directly from your customers in a secure manner.<br/>
     /// This guarantees that no sensitive card data touches your server, and allows your integration to<br/>
     /// operate in compliance with PCI standards. A card token is a unique identifier that represents sensitive credit card information.<br/>
     /// It is used as a secure alternative to directly handling credit card details during transactions.<br/>
-    /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.<br/>
-    /// 
-    /// </remarks>
+    /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.
     /// </summary>
     public class CardTokens: ICardTokens
     {
@@ -68,19 +68,35 @@ namespace Cvent.SDK
             "https://secure-ecommerce.api-platform-eur.cvent.com/ea",
             "https://secure-ecommerce.api-platform.cvent.com/ea",
         };
-        public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
+        public SDKConfig SDKConfiguration { get; private set; }
 
         public CardTokens(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<CreateCardTokensResponse> CreateCardTokensAsync(CardTokenRequest? request = null, string? serverUrl = null)
+        /// <summary>
+        /// Create a Credit Card Token.
+        /// </summary>
+        /// <remarks>
+        /// Creates a short-lived token representing a credit card. This token replaces the credit card in API methods. It can be used multiple times within a 15-minute time-to-live (TTL) period. After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for another short-lived token.
+        /// </remarks>
+        /// <param name="request">A <see cref="CardTokenRequest"/> parameter.</param>
+        /// <param name="serverUrl">The server URL to use for this operation. If not provided, the default server URL will be used.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateCardTokensResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateCardTokensResponse> CreateCardTokensAsync(
+            CardTokenRequest? request = null,
+            string? serverUrl = null
+        )
         {
             string baseUrl = Utilities.TemplateUrl(CreateCardTokensServerList[0], new Dictionary<string, string>(){
             });
@@ -88,11 +104,15 @@ namespace Cvent.SDK
             {
                 baseUrl = serverUrl;
             }
-
             var urlString = baseUrl + "/card-tokens";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
             if (serializedBody != null)
@@ -115,7 +135,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -124,9 +144,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -201,5 +221,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

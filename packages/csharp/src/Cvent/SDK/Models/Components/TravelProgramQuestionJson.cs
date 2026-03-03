@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A question, defined by the account, for the supplier to answer as part of their proposal.
     /// </summary>
     public class TravelProgramQuestionJson
     {
-
         /// <summary>
         /// The unique ID of the custom question.
         /// </summary>

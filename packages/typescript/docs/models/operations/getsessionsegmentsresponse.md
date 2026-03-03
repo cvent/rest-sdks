@@ -41,7 +41,6 @@ let value: GetSessionSegmentsResponse = {
         segment: {
           id: "788426ac-5d83-11ee-8c99-0242ac120002",
         },
-        active: true,
       },
     ],
   },

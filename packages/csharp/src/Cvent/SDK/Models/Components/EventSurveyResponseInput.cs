@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Response object for event survey respondent.
     /// </summary>
     public class EventSurveyResponseInput
     {
-
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>

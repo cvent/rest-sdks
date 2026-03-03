@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Describes the advanced logic for a custom field.
     /// </summary>
     public class AdvancedLogic
     {
-
         /// <summary>
         /// The ID of the source custom field.
         /// </summary>

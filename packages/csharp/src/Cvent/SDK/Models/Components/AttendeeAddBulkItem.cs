@@ -13,24 +13,23 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This entity is used to represent a single item that is returned as part of a bulk request call.
     /// </summary>
     public class AttendeeAddBulkItem
     {
-
         [JsonProperty("data", NullValueHandling = NullValueHandling.Include)]
         public Models.Components.Attendees Data { get; set; } = default!;
 
         /// <summary>
-        /// http status code representing processing status of a single item
+        /// http status code representing processing status of a single item.
         /// </summary>
         [JsonProperty("status")]
         public long Status { get; set; } = default!;
 
         /// <summary>
-        /// Quick description of what happened with processing
+        /// Quick description of what happened with processing.
         /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; }

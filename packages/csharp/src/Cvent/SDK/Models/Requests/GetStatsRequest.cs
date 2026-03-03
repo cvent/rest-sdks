@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetStatsRequest
     {
-
         /// <summary>
         /// Identifier of an engagement score (attendee insight).
         /// </summary>

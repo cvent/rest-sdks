@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An exhibitor.
     /// </summary>
     public class ExhibitorJson1
     {
-
         /// <summary>
         /// The unique identifier of the exhibitor.
         /// </summary>

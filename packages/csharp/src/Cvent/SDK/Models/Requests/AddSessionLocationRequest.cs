@@ -11,18 +11,17 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class AddSessionLocationRequest
     {
-
         /// <summary>
-        /// Unique Id of Event
+        /// Unique Id of Event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Details of the session location you&apos;re creating.
+        /// Details of the session location you're creating.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public SessionLocationInput SessionLocation { get; set; } = default!;

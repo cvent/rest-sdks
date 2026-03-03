@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Session information associated with the signature.
     /// </summary>
     public class AttendeeSignatureResponseJsonSession
     {
-
         /// <summary>
         /// ID of the session.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The aggregated cost
+    /// The aggregated cost.
     /// </summary>
     public class AggregatedCostJson
     {
-
         /// <summary>
         /// The cost of the food and beverage.
         /// </summary>

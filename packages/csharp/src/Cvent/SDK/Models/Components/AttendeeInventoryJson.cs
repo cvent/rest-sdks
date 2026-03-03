@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Inventory allocation for specific attendee type.
     /// </summary>
     public class AttendeeInventoryJson
     {
-
         /// <summary>
         /// Indicates if rates are hidden on booking site for this night.
         /// </summary>

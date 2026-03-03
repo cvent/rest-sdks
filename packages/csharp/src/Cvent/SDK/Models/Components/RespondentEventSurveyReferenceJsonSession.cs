@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Associated session.
     /// </summary>
     public class RespondentEventSurveyReferenceJsonSession
     {
-
         /// <summary>
-        /// Loop Session is the session for which the survey is looped. Questions in the looping survey get repeated once for each session defined in the configuration depending on eligibility
+        /// Loop Session is the session for which the survey is looped. Questions in the looping survey get repeated once for each session defined in the configuration depending on eligibility.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

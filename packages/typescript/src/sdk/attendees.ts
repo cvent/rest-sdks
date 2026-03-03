@@ -11,6 +11,7 @@ import { attendeesListAttendeesPostFilter } from "../funcs/attendeesListAttendee
 import { attendeesListDurations } from "../funcs/attendeesListDurations.js";
 import { attendeesPostBadge } from "../funcs/attendeesPostBadge.js";
 import { attendeesUpdateAttendee } from "../funcs/attendeesUpdateAttendee.js";
+import { attendeesUpdateAttendeeSubscriptionStatus } from "../funcs/attendeesUpdateAttendeeSubscriptionStatus.js";
 import { attendeesUpdateBadge } from "../funcs/attendeesUpdateBadge.js";
 import { attendeesUpdateInternalInfoAnswers } from "../funcs/attendeesUpdateInternalInfoAnswers.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -134,6 +135,25 @@ export class Attendees extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.Attendee> {
     return unwrapAsync(attendeesUpdateAttendee(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Email Subscription
+   *
+   * @remarks
+   * Updates an attendee's email subscription status for a specific event.
+   *
+   * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   */
+  async updateAttendeeSubscriptionStatus(
+    request: operations.UpdateAttendeeSubscriptionStatusRequest,
+    options?: RequestOptions,
+  ): Promise<components.AttendeeSubscriptionResponse> {
+    return unwrapAsync(attendeesUpdateAttendeeSubscriptionStatus(
       this,
       request,
       options,

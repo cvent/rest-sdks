@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The ID of the event associated with the attendee.
     /// </summary>
     public class AttendeeUpdateEvent
     {
-
         /// <summary>
         /// The event ID.
         /// </summary>

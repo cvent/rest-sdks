@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A speaker feedback-submitted activity.
     /// </summary>
     public class SpeakerFeedbackSubmitted
     {
-
         /// <summary>
         /// The activity session.
         /// </summary>

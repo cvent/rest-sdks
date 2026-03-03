@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Model representing internal information answers for an attendee to be added or updated.
     /// </summary>
     public class AttendeeInternalInfo
     {
-
         /// <summary>
         /// The registration question. Use either question ID or code to identify the question. If both are provided, they must match the same question.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents session attendance details.
     /// </summary>
     public class SessionsAttendanceResponseJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -87,7 +86,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? CheckOut { get; set; }
 
         /// <summary>
-        /// DEPRECATED - Duration is now found by using the <a href="#operation/listDurations">List Attendance Duration API</a>. The duration of attendance set by the session check-In request. Duration is in milliseconds. 
+        /// DEPRECATED - Duration is now found by using the <a href="#operation/listDurations">List Attendance Duration API</a>. The duration of attendance set by the session check-In request. Duration is in milliseconds.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("duration")]

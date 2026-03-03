@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Response object to get email templates for an unique campaign.
     /// </summary>
     public class EmailTemplateDataJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -74,7 +73,7 @@ namespace Cvent.SDK.Models.Components
         public string? PlaintextBody { get; set; }
 
         /// <summary>
-        /// html body of the page sent in the email
+        /// html body of the page sent in the email.
         /// </summary>
         [JsonProperty("htmlBody")]
         public string? HtmlBody { get; set; }
@@ -86,19 +85,19 @@ namespace Cvent.SDK.Models.Components
         public string? Locale { get; set; }
 
         /// <summary>
-        /// Enables tracking when respondent clicks on the email
+        /// Enables tracking when respondent clicks on the email.
         /// </summary>
         [JsonProperty("clickTrackingEnabled")]
         public bool? ClickTrackingEnabled { get; set; }
 
         /// <summary>
-        /// Name of the person to reply to
+        /// Name of the person to reply to.
         /// </summary>
         [JsonProperty("replyToName")]
         public string? ReplyToName { get; set; }
 
         /// <summary>
-        /// Email address to reply to
+        /// Email address to reply to.
         /// </summary>
         [JsonProperty("replyToEmail")]
         public string? ReplyToEmail { get; set; }

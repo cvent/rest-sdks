@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Response to the request to get a list of event question choices.
     /// </summary>
     public class EventQuestionChoicesResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

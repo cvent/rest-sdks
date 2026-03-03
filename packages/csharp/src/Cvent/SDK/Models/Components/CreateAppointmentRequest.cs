@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A request to create an appointment
+    /// A request to create an appointment.
     /// </summary>
     public class CreateAppointmentRequest
     {
-
         /// <summary>
         /// Name of the appointment.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime EndTime { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier of the location to be used for the appointment. Not supported for &quot;SIMPLE&quot; event types.
+        /// Unique identifier of the location to be used for the appointment. Not supported for "SIMPLE" event types.
         /// </summary>
         [JsonProperty("location")]
         public string? Location { get; set; }

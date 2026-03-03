@@ -38,8 +38,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 PropertyApiListBrandsRequest req = new PropertyApiListBrandsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "name eq AB",
 };
@@ -141,8 +141,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 PropertyApiListChainsRequest req = new PropertyApiListChainsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "code eq NH",
 };
@@ -244,8 +244,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 PropertyApiListPropertiesRequest req = new PropertyApiListPropertiesRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "code eq ABC123",
 };
@@ -347,8 +347,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 BtApiGetPropertyRoomsRequest req = new BtApiGetPropertyRoomsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "code eq dlx",
 };

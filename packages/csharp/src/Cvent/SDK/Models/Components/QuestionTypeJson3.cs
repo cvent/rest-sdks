@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This object represents the type of a question
+    /// This object represents the type of a question.
     /// </summary>
     public enum QuestionTypeJson3
     {
@@ -70,5 +70,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum QuestionTypeJson3");
         }
     }
-
 }

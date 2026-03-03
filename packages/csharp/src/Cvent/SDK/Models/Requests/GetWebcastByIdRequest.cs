@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetWebcastByIdRequest
     {
-
         /// <summary>
         /// The identifier of the webcast.
         /// </summary>

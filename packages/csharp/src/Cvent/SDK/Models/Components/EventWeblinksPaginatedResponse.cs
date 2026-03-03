@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Paginated collection of event weblinks.
     /// </summary>
     public class EventWeblinksPaginatedResponse
     {
-
         [JsonProperty("paging")]
         public EventWeblinksPaginatedResponsePaging Paging { get; set; } = default!;
 

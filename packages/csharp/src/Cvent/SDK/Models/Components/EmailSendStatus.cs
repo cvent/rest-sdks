@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the list of recipients with email status.
     /// </summary>
     public class EmailSendStatus
     {
-
         /// <summary>
         /// ID of the send email request.
         /// </summary>

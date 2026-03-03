@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetMeetingRequestByIdRequest
     {
-
         /// <summary>
         /// The meeting request form ID.
         /// </summary>

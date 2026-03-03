@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents reward program information.
     /// </summary>
     public class RewardProgramJson
     {
-
         /// <summary>
         /// Reward ID.
         /// </summary>

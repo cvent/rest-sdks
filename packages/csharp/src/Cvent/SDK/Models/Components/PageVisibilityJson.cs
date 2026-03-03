@@ -11,33 +11,32 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Visibility of the custom field on various pages/forms.
     /// </summary>
     public class PageVisibilityJson
     {
-
         /// <summary>
-        /// True indicates it&apos;s visible on the event essentials event creation form.
+        /// True indicates it's visible on the event essentials event creation form.
         /// </summary>
         [JsonProperty("essentialEventCreationForm")]
         public bool? EssentialEventCreationForm { get; set; } = false;
 
         /// <summary>
-        /// True indicates it&apos;s visible on the event essentials event details form.
+        /// True indicates it's visible on the event essentials event details form.
         /// </summary>
         [JsonProperty("essentialEventDetailsForm")]
         public bool? EssentialEventDetailsForm { get; set; } = false;
 
         /// <summary>
-        /// True indicates it&apos;s visible on webinar creation form.
+        /// True indicates it's visible on webinar creation form.
         /// </summary>
         [JsonProperty("webinarCreationForm")]
         public bool? WebinarCreationForm { get; set; } = false;
 
         /// <summary>
-        /// True indicates it&apos;s visible on the webinar details form.
+        /// True indicates it's visible on the webinar details form.
         /// </summary>
         [JsonProperty("webinarDetailsForm")]
         public bool? WebinarDetailsForm { get; set; } = false;

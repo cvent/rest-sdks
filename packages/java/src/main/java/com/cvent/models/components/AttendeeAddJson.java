@@ -67,14 +67,6 @@ public class AttendeeAddJson {
     private AttendeeAddJsonAdministrator administrator;
 
     /**
-     * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-     * triggered by their own actions (like registration modification).
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("unsubscribed")
-    private Boolean unsubscribed;
-
-    /**
      * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
      * or cancelling an attendee.
      */
@@ -192,7 +184,6 @@ public class AttendeeAddJson {
             @JsonProperty("referenceId") @Nullable String referenceId,
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("administrator") @Nullable AttendeeAddJsonAdministrator administrator,
-            @JsonProperty("unsubscribed") @Nullable Boolean unsubscribed,
             @JsonProperty("admissionItem") @Nullable AttendeeAddJsonAdmissionItem admissionItem,
             @JsonProperty("visibility") @Nullable AttendeeVisibilityJson visibility,
             @JsonProperty("answers") @Nullable List<AttendeeAnswerJson> answers,
@@ -212,7 +203,6 @@ public class AttendeeAddJson {
         this.referenceId = referenceId;
         this.note = note;
         this.administrator = administrator;
-        this.unsubscribed = unsubscribed;
         this.admissionItem = admissionItem;
         this.visibility = visibility;
         this.answers = answers;
@@ -235,7 +225,7 @@ public class AttendeeAddJson {
             null, null, null,
             null, null, null,
             null, null, null,
-            null, null, null);
+            null, null);
     }
 
     /**
@@ -279,14 +269,6 @@ public class AttendeeAddJson {
      */
     public Optional<AttendeeAddJsonAdministrator> administrator() {
         return Optional.ofNullable(this.administrator);
-    }
-
-    /**
-     * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-     * triggered by their own actions (like registration modification).
-     */
-    public Optional<Boolean> unsubscribed() {
-        return Optional.ofNullable(this.unsubscribed);
     }
 
     /**
@@ -460,16 +442,6 @@ public class AttendeeAddJson {
 
 
     /**
-     * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-     * triggered by their own actions (like registration modification).
-     */
-    public AttendeeAddJson withUnsubscribed(@Nullable Boolean unsubscribed) {
-        this.unsubscribed = unsubscribed;
-        return this;
-    }
-
-
-    /**
      * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
      * or cancelling an attendee.
      */
@@ -617,7 +589,6 @@ public class AttendeeAddJson {
             Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
             Utils.enhancedDeepEquals(this.note, other.note) &&
             Utils.enhancedDeepEquals(this.administrator, other.administrator) &&
-            Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed) &&
             Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem) &&
             Utils.enhancedDeepEquals(this.visibility, other.visibility) &&
             Utils.enhancedDeepEquals(this.answers, other.answers) &&
@@ -636,10 +607,10 @@ public class AttendeeAddJson {
         return Utils.enhancedHash(
             event, contact, invitationList,
             referenceId, note, administrator,
-            unsubscribed, admissionItem, visibility,
-            answers, sendEmail, status,
-            registrationPath, registrationType, guest,
-            primaryId, invitedBy, responseMethod);
+            admissionItem, visibility, answers,
+            sendEmail, status, registrationPath,
+            registrationType, guest, primaryId,
+            invitedBy, responseMethod);
     }
     
     @Override
@@ -651,7 +622,6 @@ public class AttendeeAddJson {
                 "referenceId", referenceId,
                 "note", note,
                 "administrator", administrator,
-                "unsubscribed", unsubscribed,
                 "admissionItem", admissionItem,
                 "visibility", visibility,
                 "answers", answers,
@@ -679,8 +649,6 @@ public class AttendeeAddJson {
         private String note;
 
         private AttendeeAddJsonAdministrator administrator;
-
-        private Boolean unsubscribed;
 
         private AttendeeAddJsonAdmissionItem admissionItem;
 
@@ -754,15 +722,6 @@ public class AttendeeAddJson {
          */
         public Builder administrator(@Nullable AttendeeAddJsonAdministrator administrator) {
             this.administrator = administrator;
-            return this;
-        }
-
-        /**
-         * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-         * triggered by their own actions (like registration modification).
-         */
-        public Builder unsubscribed(@Nullable Boolean unsubscribed) {
-            this.unsubscribed = unsubscribed;
             return this;
         }
 
@@ -891,10 +850,10 @@ public class AttendeeAddJson {
             return new AttendeeAddJson(
                 event, contact, invitationList,
                 referenceId, note, administrator,
-                unsubscribed, admissionItem, visibility,
-                answers, sendEmail, status,
-                registrationPath, registrationType, guest,
-                primaryId, invitedBy, responseMethod);
+                admissionItem, visibility, answers,
+                sendEmail, status, registrationPath,
+                registrationType, guest, primaryId,
+                invitedBy, responseMethod);
         }
 
 

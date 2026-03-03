@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a program item object that will be added to a session.
     /// </summary>
     public class ProgramItemInput
     {
-
         /// <summary>
         /// The related event object.
         /// </summary>

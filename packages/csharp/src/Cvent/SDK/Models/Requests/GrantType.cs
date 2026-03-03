@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The grant type.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Requests
             throw new Exception($"Unknown value {value} for enum GrantType");
         }
     }
-
 }

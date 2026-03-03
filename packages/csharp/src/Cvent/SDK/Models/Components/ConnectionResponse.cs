@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Connection response.
     /// </summary>
     public class ConnectionResponse
     {
-
         /// <summary>
         /// ID for a housing event in Passkey.
         /// </summary>

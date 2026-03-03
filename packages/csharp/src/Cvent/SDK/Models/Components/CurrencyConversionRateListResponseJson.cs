@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Currency conversion rate list response for a currency in an account.
     /// </summary>
     public class CurrencyConversionRateListResponseJson
     {
-
         /// <summary>
         /// Currency conversion rate from accounts base currency to the other defined currency in this conversion rate.
         /// </summary>

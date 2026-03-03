@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The poll created for a session.
     /// </summary>
     public class SessionPollResponseSubmitted
     {
-
         /// <summary>
         /// The activity session.
         /// </summary>

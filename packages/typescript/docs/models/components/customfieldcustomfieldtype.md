@@ -7,7 +7,7 @@ The type of data collected by a custom field.
 ```typescript
 import { CustomFieldCustomFieldType } from "@cvent/sdk/models/components";
 
-let value: CustomFieldCustomFieldType = "General";
+let value: CustomFieldCustomFieldType = "MultiSelect";
 ```
 
 ## Values

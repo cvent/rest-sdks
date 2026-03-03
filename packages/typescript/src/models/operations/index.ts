@@ -349,6 +349,7 @@ export * from "./updateaccountusergroup.js";
 export * from "./updateappointment.js";
 export * from "./updateattendee.js";
 export * from "./updateattendeelinks.js";
+export * from "./updateattendeesubscriptionstatus.js";
 export * from "./updateaudiencesegment.js";
 export * from "./updatebadge.js";
 export * from "./updatebudgetallocations.js";

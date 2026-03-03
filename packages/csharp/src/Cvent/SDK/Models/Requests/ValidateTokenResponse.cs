@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class ValidateTokenResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// A confirmation message that the token is valid
+        /// A confirmation message that the token is valid.
         /// </summary>
         public ValidToken? ValidToken { get; set; }
     }

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is the budget version where this allocation was made.
     /// </summary>
     public class BudgetAllocationsPaginatedResponseJsonBudgetVersion
     {
-
         /// <summary>
         /// Identifier of a particular budget version.
         /// </summary>

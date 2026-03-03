@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Room information.
     /// </summary>
     public class RoomInfoJsonInput
     {
-
         /// <summary>
         /// The unique ID of the room.
         /// </summary>

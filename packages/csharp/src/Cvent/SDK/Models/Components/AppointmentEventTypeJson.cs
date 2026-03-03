@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Denotes the type of appointment event.&lt;br/&gt;STANDARD: You or attendees can manage schedules based on the permissions and settings you choose.&lt;br/&gt;UNIVERSAL: Your staff manages their schedules with attendees, at an event your staff is attending.&lt;br/&gt;PLANNER_COORDINATED: You manage attendee schedules for your event based on their preferences.&lt;br/&gt;SIMPLE: Import appointments or let attendees schedule them without any restrictions or prior setup.
     /// </summary>
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AppointmentEventTypeJson");
         }
     }
-
 }

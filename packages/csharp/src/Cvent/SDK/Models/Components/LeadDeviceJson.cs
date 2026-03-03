@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A JSON object representing an electronic device used to capture leads.
     /// </summary>
     public class LeadDeviceJson
     {
-
         /// <summary>
-        /// The id of device used to capture lead
+        /// The id of device used to capture lead.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of device used to capture lead
+        /// The name of device used to capture lead.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

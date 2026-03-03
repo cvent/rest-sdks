@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateBudgetItemRequest
     {
-
         /// <summary>
         /// Unique ID of an event.
         /// </summary>
@@ -28,7 +27,7 @@ namespace Cvent.SDK.Models.Requests
         public string BudgetItemId { get; set; } = default!;
 
         /// <summary>
-        /// Budget Item to be updated
+        /// Budget Item to be updated.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public BudgetItemInput BudgetItem { get; set; } = default!;

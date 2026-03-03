@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The chain that the property belongs to.
     /// </summary>
     public class PropertyChain
     {
-
         /// <summary>
         /// The ID of the chain.
         /// </summary>

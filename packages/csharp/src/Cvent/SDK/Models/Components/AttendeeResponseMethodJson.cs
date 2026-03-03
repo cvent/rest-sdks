@@ -12,11 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents the method by which an attendee registered for the event.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// - Administrator Responded: The invitee was registered by another contact acting as their administrator.<br/>
     /// - API-Responded: The invitee was registered through a custom process configured via an API integration.<br/>
@@ -24,17 +22,16 @@ namespace Cvent.SDK.Models.Components
     /// - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.<br/>
     /// - External Registration: The attendee was registered through an external integration, such as Marketo.<br/>
     /// - Group Leader Responded: The invitee was registered by a group leader and added to a group.<br/>
-    /// - Historical Import: The invitee&apos;s registration was imported into the event as historical data.<br/>
-    /// - Imported: The invitee&apos;s registration was imported into the event.<br/>
+    /// - Historical Import: The invitee's registration was imported into the event as historical data.<br/>
+    /// - Imported: The invitee's registration was imported into the event.<br/>
     /// - No Response: The invitee has not registered.<br/>
-    /// - On-site Responded: The invitee registered onsite using OnArrival&apos;s Kiosk Mode.<br/>
-    /// - Planner-Imported: An account user imported the invitee&apos;s registration into the event.<br/>
+    /// - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.<br/>
+    /// - Planner-Imported: An account user imported the invitee's registration into the event.<br/>
     /// - Planner-Responded: An account user registered the invitee from the Cvent back-end or the planner-side of the OnArrival app.<br/>
-    /// - Post Event: The invitee was registered by an account user after the event&apos;s end date or while the event was in Completed status.<br/>
+    /// - Post Event: The invitee was registered by an account user after the event's end date or while the event was in Completed status.<br/>
     /// - Self-Responded: The invitee registered themselves through a weblink or invitation.<br/>
     /// <br/>
-    /// Note: The responseMethod can only be set if the invitee&apos;s status is No Response.
-    /// </remarks>
+    /// Note: The responseMethod can only be set if the invitee's status is No Response.
     /// </summary>
     public enum AttendeeResponseMethodJson
     {
@@ -120,5 +117,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AttendeeResponseMethodJson");
         }
     }
-
 }

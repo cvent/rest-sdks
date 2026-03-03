@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Contains unique ID of the housing event.
     /// </summary>
     public class HousingEventIdJson
     {
-
         /// <summary>
         /// The unique ID of the housing event.
         /// </summary>

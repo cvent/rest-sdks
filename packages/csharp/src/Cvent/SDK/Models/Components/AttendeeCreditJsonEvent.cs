@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The event where the credit was earned.
     /// </summary>
     public class AttendeeCreditJsonEvent
     {
-
         /// <summary>
         /// A unique identifier of the event.
         /// </summary>

@@ -10,21 +10,16 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class CreateConnectionRequest
     {
-
         /// <summary>
         /// Example:<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Cvent-Access-Code: c44bf029-f7f1-43dc-95c7-79403b247e2a<br/>
         /// <br/>
         /// <br/>
-        /// Access code for the event. It can be provided to integration partner in an email.<br/>
-        /// 
-        /// </remarks>
+        /// Access code for the event. It can be provided to integration partner in an email.
         /// </summary>
         [SpeakeasyMetadata("header:style=simple,explode=false,name=Cvent-Access-Code")]
         public string CventAccessCode { get; set; } = default!;

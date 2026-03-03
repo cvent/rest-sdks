@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Room type details.
     /// </summary>
     public class RoomTypeDetails
     {
-
         /// <summary>
-        /// The Room type&apos;s unique ID.
+        /// The Room type's unique ID.
         /// </summary>
         [JsonProperty("id")]
         public long Id { get; set; } = default!;

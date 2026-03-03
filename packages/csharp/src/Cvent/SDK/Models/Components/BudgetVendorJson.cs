@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// List of details for a vendor assigned to a budget item.
     /// </summary>
     public class BudgetVendorJson
     {
-
         /// <summary>
-        /// The vendor&apos;s unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the <a href="https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects">CSN APIs</a>.
+        /// The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the <a href="https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects">CSN APIs</a>.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

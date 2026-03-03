@@ -79,8 +79,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAdmissionItemsRequest req = new ListAdmissionItemsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "event.id eq 'abc' or name eq 'admission' or id eq 'abc'",
 };
@@ -139,8 +139,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAdmissionItemsPostFiltersRequest req = new ListAdmissionItemsPostFiltersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = new Filter() {
         FilterValue = "event.id eq 'abc' or name eq 'admission' or id eq 'abc'",
@@ -200,8 +200,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventQuestionsRequest req = new GetEventQuestionsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "code eq 'Code162' or tag  eq 'Primary Questions'",
 };
@@ -317,8 +317,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventsRequest req = new GetEventsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "start:DESC",
     Filter = "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
@@ -383,8 +383,8 @@ EventInput req = new EventInput() {
     Title = "Cvent Connect 2020",
     Format = EventFormatJson.Virtual,
     Description = "Cvent annual user conference.",
-    Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z"),
-    End = System.DateTime.Parse("2020-02-07T17:00:00.000Z"),
+    Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z").ToUniversalTime(),
+    End = System.DateTime.Parse("2020-02-07T17:00:00.000Z").ToUniversalTime(),
     Timezone = "America/New_York",
     Venues = new List<VenueJsonInput>() {
         new VenueJsonInput() {
@@ -675,8 +675,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventsPostFiltersRequest req = new GetEventsPostFiltersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "start:DESC",
     Filter = new Filter() {
@@ -793,10 +793,10 @@ UpdateEventRequest req = new UpdateEventRequest() {
         Title = "Cvent Connect 2020",
         Format = EventFormatJson.Virtual,
         Description = "Cvent annual user conference.",
-        Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z"),
-        End = System.DateTime.Parse("2020-02-07T17:00:00.000Z"),
-        CloseAfter = System.DateTime.Parse("2020-02-01T23:59:00.000Z"),
-        ArchiveAfter = System.DateTime.Parse("2020-05-07T12:00:00.000Z"),
+        Start = System.DateTime.Parse("2020-02-03T13:00:00.000Z").ToUniversalTime(),
+        End = System.DateTime.Parse("2020-02-07T17:00:00.000Z").ToUniversalTime(),
+        CloseAfter = System.DateTime.Parse("2020-02-01T23:59:00.000Z").ToUniversalTime(),
+        ArchiveAfter = System.DateTime.Parse("2020-05-07T12:00:00.000Z").ToUniversalTime(),
         Timezone = "America/New_York",
         Venues = new List<VenueJsonInput>() {
             new VenueJsonInput() {
@@ -1212,8 +1212,8 @@ var sdk = new CventSDK(security: new Security() {
 
 ListEventEmailsRequest req = new ListEventEmailsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq 'a150f1ee-6c54-4b01-90e6-d701748f0851'",
 };
@@ -1327,8 +1327,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetInvitationListRequest req = new GetInvitationListRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq 'a150f1ee-6c54-4b01-90e6-d701748f0851'",
 };
@@ -1442,8 +1442,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetOrdersRequest req = new GetOrdersRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "attendee.id eq '78b3d72a-1851-46f4-a837-5f8613f4db83' AND (type eq 'Online Charge' OR type eq 'Online Refund')",
 };
@@ -1502,8 +1502,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetOrderItemsRequest req = new GetOrderItemsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "attendee.id eq '78b3d72a-1851-46f4-a837-5f8613f4db83' AND (product.id eq '65322e75-076f-4070-a6e6-3315c581728d' OR product.id eq 'e1874067-a5ed-4111-ac8a-63de9aa18929')",
 };
@@ -1852,8 +1852,8 @@ UpdateRegistrationTypeRequest req = new UpdateRegistrationTypeRequest() {
     RegistrationTypeId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     RegistrationTypeUpdate = new RegistrationTypeUpdateInput() {
         OpenForRegistration = true,
-        AutomaticOpenDate = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-        AutomaticEndDate = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+        AutomaticOpenDate = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+        AutomaticEndDate = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
         Capacity = new CapacityJson1Input() {
             Total = 100,
         },
@@ -1909,8 +1909,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetTransactionsRequest req = new GetTransactionsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "attendee.id eq 'f4af0b94-4427-46f8-bea0-b06af2a0af80' AND (paymentType eq 'Online Charge' OR paymentType eq 'Online Refund')",
 };
@@ -1970,7 +1970,7 @@ var sdk = new CventSDK(security: new Security() {
 
 PostTransactionsRequest req = new PostTransactionsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    CreateTransactionRequest = new CreateTransactionRequestInput() {
+    CreateTransactionResponse = new CreateTransactionResponseInput() {
         Event = new EventJson() {
             Id = "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56",
         },
@@ -1979,7 +1979,7 @@ PostTransactionsRequest req = new PostTransactionsRequest() {
         },
         PaymentType = PaymentTypeCreateJson.OfflineCharge,
         PaymentMethod = PaymentMethodJson.Mastercard,
-        Date = System.DateTime.Parse("2018-01-13T02:00:00Z"),
+        Date = System.DateTime.Parse("2018-01-13T02:00:00Z").ToUniversalTime(),
         BatchNumber = "112021-0017",
         ReferenceNumber = "112021-0017",
         Amount = 15.25D,
@@ -2044,8 +2044,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetTransactionItemsRequest req = new GetTransactionItemsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "attendee.id eq '78b3d72a-1851-46f4-a837-5f8613f4db83' AND (transaction.id eq '82da8c60-24f4-47d0-b6e2-429b18a4bb7c' OR transaction.id eq '034bb884-05de-4818-b9f9-5144495d5495')",
 };
@@ -2316,8 +2316,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListSessionsAttendanceRequest req = new ListSessionsAttendanceRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c::2ffa56d9-9f60-4b8c-8b3b-3451de21293c'",
 };
@@ -2378,8 +2378,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListSessionsEnrollmentRequest req = new ListSessionsEnrollmentRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c::2ffa56d9-9f60-4b8c-8b3b-3451de21293c'",
 };
@@ -2441,8 +2441,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListSessionsEnrollmentPostFilterRequest req = new ListSessionsEnrollmentPostFilterRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = new Filter() {
         FilterValue = "id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c::2ffa56d9-9f60-4b8c-8b3b-3451de21293c'",

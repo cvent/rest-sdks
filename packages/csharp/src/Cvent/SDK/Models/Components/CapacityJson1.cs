@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents capacity statistics of the registration type.
     /// </summary>
     public class CapacityJson1
     {
-
         /// <summary>
         /// The remaining capacity of an event item, such as registration type. A value of -1 denotes that remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that the consumed capacity has surpassed the total capacity.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The related document object.
     /// </summary>
     public class SessionDocumentLiteJson
     {
-
         /// <summary>
         /// The unique identifier for a document.
         /// </summary>

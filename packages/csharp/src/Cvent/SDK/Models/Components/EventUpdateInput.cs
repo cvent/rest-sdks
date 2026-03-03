@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents updates to an event.
     /// </summary>
     public class EventUpdateInput
     {
-
         /// <summary>
         /// Title of the event being organized.
         /// </summary>

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An appointment participant.
     /// </summary>
     public class AppointmentParticipantJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public ParticipantResponseJson? Response { get; set; }
 
         /// <summary>
-        /// The attendee&apos;s participation status.
+        /// The attendee's participation status.
         /// </summary>
         [JsonProperty("participation")]
         public Participation? Participation { get; set; }

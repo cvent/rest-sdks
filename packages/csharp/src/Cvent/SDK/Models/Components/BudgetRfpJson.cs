@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// RFP associated with a budget item.
     /// </summary>
     public class BudgetRfpJson
     {
-
         /// <summary>
         /// The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You can use this ID to get more details on the related RFP via the <a href="https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects">CSN APIs</a>.
         /// </summary>

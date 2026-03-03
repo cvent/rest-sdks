@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
-    
+
     public class FileUploadFile
     {
-
         [SpeakeasyMetadata("multipartForm:name=fileName")]
         public string FileName { get; set; } = default!;
 

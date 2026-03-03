@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     public class GetTableRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -36,8 +35,6 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// This endpoint allows you to request additional information as an expanded response using the expand query parameter. The expanded entity is retrieved and displayed inline for each specified expand value.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// An object contains the ID of a related object in its response properties. For example, a table will have the list of seats IDs associated with the table. You can expand these objects in-line using the expand query parameter.<br/>
         /// <br/>
@@ -46,9 +43,7 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are expandable:<br/>
         ///   * seats<br/>
         ///     * **Scope**: seating/seats:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/getSeat&quot;&gt;Get Seat&lt;/a&gt;<br/>
-        /// 
-        /// </remarks>
+        ///     * **Reference**: <a href="#operation/getSeat">Get Seat</a>
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")]
         public List<TableExpand>? Expand { get; set; }

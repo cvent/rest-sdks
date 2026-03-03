@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A tax or fee associated with a travel bid.
     /// </summary>
     public class TravelBidTaxFeeJson
     {
-
         /// <summary>
         /// Bid tax type.
         /// </summary>

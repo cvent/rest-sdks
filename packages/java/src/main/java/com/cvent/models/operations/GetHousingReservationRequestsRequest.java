@@ -19,12 +19,6 @@ import java.util.Optional;
 
 public class GetHousingReservationRequestsRequest {
     /**
-     * ID of an event.
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
-    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -51,53 +45,52 @@ public class GetHousingReservationRequestsRequest {
     private String token;
 
     /**
-     * "A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>Field filterable:
-     * * attendee.id (Attendee Id)
+     * <p>| Field            | Operators                          | Notes
+     * |
+     * |------------------|-------------------------------------|------------------------------------------------|
+     * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
+     * filter     |
      * 
-     * <p>Limits for the number of fields that can be passed in a filter 17
-     * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * or
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
+    /**
+     * ID of an event.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
     @JsonCreator
     public GetHousingReservationRequestsRequest(
-            @Nonnull String id,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nullable String filter,
+            @Nonnull String id) {
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit)
             .orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
+        this.id = Optional.ofNullable(id)
+            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
     
     public GetHousingReservationRequestsRequest(
             @Nonnull String id) {
-        this(id, null, null,
-            null, null, null);
-    }
-
-    /**
-     * ID of an event.
-     */
-    public String id() {
-        return this.id;
+        this(null, null, null,
+            null, null, id);
     }
 
     /**
@@ -131,36 +124,34 @@ public class GetHousingReservationRequestsRequest {
     }
 
     /**
-     * "A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>Field filterable:
-     * * attendee.id (Attendee Id)
+     * <p>| Field            | Operators                          | Notes
+     * |
+     * |------------------|-------------------------------------|------------------------------------------------|
+     * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
+     * filter     |
      * 
-     * <p>Limits for the number of fields that can be passed in a filter 17
-     * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * or
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
-
     /**
      * ID of an event.
      */
-    public GetHousingReservationRequestsRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
+    public String id() {
+        return this.id;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
 
@@ -203,23 +194,32 @@ public class GetHousingReservationRequestsRequest {
 
 
     /**
-     * "A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>Field filterable:
-     * * attendee.id (Attendee Id)
+     * <p>| Field            | Operators                          | Notes
+     * |
+     * |------------------|-------------------------------------|------------------------------------------------|
+     * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
+     * filter     |
      * 
-     * <p>Limits for the number of fields that can be passed in a filter 17
-     * 
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * or
      */
     public GetHousingReservationRequestsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+
+    /**
+     * ID of an event.
+     */
+    public GetHousingReservationRequestsRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -234,36 +234,34 @@ public class GetHousingReservationRequestsRequest {
         }
         GetHousingReservationRequestsRequest other = (GetHousingReservationRequestsRequest) o;
         return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
             Utils.enhancedDeepEquals(this.after, other.after) &&
             Utils.enhancedDeepEquals(this.before, other.before) &&
             Utils.enhancedDeepEquals(this.limit, other.limit) &&
             Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+            Utils.enhancedDeepEquals(this.filter, other.filter) &&
+            Utils.enhancedDeepEquals(this.id, other.id);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, after, before,
-            limit, token, filter);
+            after, before, limit,
+            token, filter, id);
     }
     
     @Override
     public String toString() {
         return Utils.toString(GetHousingReservationRequestsRequest.class,
-                "id", id,
                 "after", after,
                 "before", before,
                 "limit", limit,
                 "token", token,
-                "filter", filter);
+                "filter", filter,
+                "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public final static class Builder {
-
-        private String id;
 
         private OffsetDateTime after;
 
@@ -275,16 +273,10 @@ public class GetHousingReservationRequestsRequest {
 
         private String filter;
 
+        private String id;
+
         private Builder() {
           // force use of static builder() method
-        }
-
-        /**
-         * ID of an event.
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
         }
 
         /**
@@ -322,19 +314,19 @@ public class GetHousingReservationRequestsRequest {
         }
 
         /**
-         * "A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          * 
-         * <p>These are the comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
+         * <p>Supported fields and operators are listed below:
          * 
-         * <p>Field filterable:
-         * * attendee.id (Attendee Id)
+         * <p>| Field            | Operators                          | Notes
+         * |
+         * |------------------|-------------------------------------|------------------------------------------------|
+         * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
+         * filter     |
          * 
-         * <p>Limits for the number of fields that can be passed in a filter 17
-         * 
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * or
          */
         public Builder filter(@Nullable String filter) {
@@ -342,10 +334,18 @@ public class GetHousingReservationRequestsRequest {
             return this;
         }
 
+        /**
+         * ID of an event.
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
+        }
+
         public GetHousingReservationRequestsRequest build() {
             return new GetHousingReservationRequestsRequest(
-                id, after, before,
-                limit, token, filter);
+                after, before, limit,
+                token, filter, id);
         }
 
 

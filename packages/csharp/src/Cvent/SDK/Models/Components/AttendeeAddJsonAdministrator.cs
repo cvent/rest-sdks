@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The ID of the administrator contact whom registered this attendee.
     /// </summary>
     public class AttendeeAddJsonAdministrator
     {
-
         /// <summary>
         /// The administrator contact ID.
         /// </summary>

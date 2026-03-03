@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Travel program that the question belongs to.
     /// </summary>
     public class QuestionWithProgramIdJsonTravelProgram
     {
-
         /// <summary>
         /// The unique ID of the travel program.
         /// </summary>

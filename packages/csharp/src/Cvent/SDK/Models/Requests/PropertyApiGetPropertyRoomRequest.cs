@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class PropertyApiGetPropertyRoomRequest
     {
-
         /// <summary>
         /// The ID of the property room.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The registration question. Use either question ID or code to identify the question. If both are provided, they must match the same question.
     /// </summary>
     public class AttendeeInternalInfoQuestion
     {
-
         /// <summary>
         /// The question ID.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Meeting room basic information.
     /// </summary>
     public class TravelMeetingRoomBasicInfoJson
     {
-
         /// <summary>
         /// Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
         /// </summary>
@@ -25,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         public long? LargestMeetingRoom { get; set; }
 
         /// <summary>
-        /// Unit of measurement of the `largestMeetingRoom`&apos;s size.
+        /// Unit of measurement of the `largestMeetingRoom`'s size.
         /// </summary>
         [JsonProperty("unitOfMeasurement")]
         public string? UnitOfMeasurement { get; set; }

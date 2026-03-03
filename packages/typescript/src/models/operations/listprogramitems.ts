@@ -22,23 +22,23 @@ export type ListProgramItemsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * These are the comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * includes value(s): in
+   * Supported fields and operators are listed below:
    *
-   * The following field is filterable:
-   *   * id (eq|in)
-   *   * session.id (eq|in)
-   *   * event.id (eq)
+   * | Field      | Operators  |
+   * |------------|------------|
+   * | id         | `eq`, `in` |
+   * | session.id | `eq`, `in` |
+   * | event.id   | `eq`       |
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

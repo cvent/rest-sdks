@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a summary of venue information associated with current proposal.
     /// </summary>
     public class VenueSummary
     {
-
         /// <summary>
-        /// The supplier&apos;s type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an event.
+        /// The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an event.
         /// </summary>
         [JsonProperty("type")]
         public SupplierTypeJson1? Type { get; set; } = Cvent.SDK.Models.Components.SupplierTypeJson1.Venue;

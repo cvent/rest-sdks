@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A JSON schema representing an answer object.
     /// </summary>
     public class AnswerJson0
     {
-
         /// <summary>
-        /// Type of answer
+        /// Type of answer.
         /// </summary>
         [JsonProperty("type")]
         public AnswerTypeJson0 Type { get; set; } = default!;

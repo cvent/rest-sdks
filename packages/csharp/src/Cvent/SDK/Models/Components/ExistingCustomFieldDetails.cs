@@ -58,7 +58,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
     /// Type-specific details of the custom-field.
     /// </summary>

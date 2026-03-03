@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Choice of large choices question.
     /// </summary>
     public class LargeChoiceJson
     {
-
         /// <summary>
         /// The ID of the choice.
         /// </summary>

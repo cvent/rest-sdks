@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used for storing details of an appointment type.
     /// </summary>
     public class AppointmentTypeJson
     {
-
         /// <summary>
         /// The unique ID representing the appointment type.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public AppointmentTypeCategoryJson Category { get; set; } = default!;
 
         /// <summary>
-        /// DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host&apos;s choosing or within time intervals and locations created by the planner.
+        /// DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host's choosing or within time intervals and locations created by the planner.
         /// </summary>
         [JsonProperty("timeRangeType")]
         public TimeRangeTypeJson TimeRangeType { get; set; } = default!;

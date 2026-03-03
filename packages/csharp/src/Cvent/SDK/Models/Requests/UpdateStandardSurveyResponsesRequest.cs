@@ -11,30 +11,29 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateStandardSurveyResponsesRequest
     {
-
         /// <summary>
-        /// Id of a survey or Id of a chapter in event survey
+        /// Id of a survey or Id of a chapter in event survey.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
         public string SurveyId { get; set; } = default!;
 
         /// <summary>
-        /// Id of a respondent
+        /// Id of a respondent.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=respondentId")]
         public string RespondentId { get; set; } = default!;
 
         /// <summary>
-        /// Id of a response
+        /// Id of a response.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=responseId")]
         public string ResponseId { get; set; } = default!;
 
         /// <summary>
-        /// Used to update responses for a standalone survey&apos;s respondents.
+        /// Used to update responses for a standalone survey's respondents.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public StandardSurveyResponseInput StandardSurveyResponse { get; set; } = default!;

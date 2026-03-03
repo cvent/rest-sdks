@@ -13,21 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// The model representing the results of a bulk data upload
+    /// The model representing the results of a bulk data upload.
     /// </summary>
     public class BulkDataUploadResponse
     {
-
         /// <summary>
-        /// Collection of objects to be processed
+        /// Collection of objects to be processed.
         /// </summary>
         [JsonProperty("data")]
         public List<BulkDataPropertyJson>? Data { get; set; }
 
         /// <summary>
-        /// The number of successfully uploaded data records
+        /// The number of successfully uploaded data records.
         /// </summary>
         [JsonProperty("count")]
         public long? Count { get; set; }

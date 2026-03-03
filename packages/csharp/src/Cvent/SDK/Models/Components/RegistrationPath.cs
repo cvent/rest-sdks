@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The attendee&apos;s registration path. Registration paths control the registration experience of the attendee.
+    /// The attendee's registration path. Registration paths control the registration experience of the attendee.
     /// </summary>
     public class RegistrationPath
     {
-
         /// <summary>
         /// The ID of the registration path.
         /// </summary>

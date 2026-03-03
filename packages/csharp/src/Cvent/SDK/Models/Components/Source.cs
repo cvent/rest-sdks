@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The source of entry for the lead
+    /// The source of entry for the lead.
     /// </summary>
     public enum Source
     {
@@ -64,5 +64,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum Source");
         }
     }
-
 }

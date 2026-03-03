@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This is used to denote the details of the order made by an attendee.
     /// </summary>
     public class OrderDetailJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -64,7 +63,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeJson? Attendee { get; set; }
 
         /// <summary>
-        /// Order number for this order
+        /// Order number for this order.
         /// </summary>
         [JsonProperty("number")]
         public string? Number { get; set; }
@@ -82,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public OrderTypeJson? Type { get; set; }
 
         /// <summary>
-        /// This denotes the invoice number of this order
+        /// This denotes the invoice number of this order.
         /// </summary>
         [JsonProperty("invoiceNumber")]
         public string? InvoiceNumber { get; set; }
@@ -112,13 +111,13 @@ namespace Cvent.SDK.Models.Components
         public List<DiscountDetailJson>? Discounts { get; set; }
 
         /// <summary>
-        /// This denotes the payment method used for transaction
+        /// This denotes the payment method used for transaction.
         /// </summary>
         [JsonProperty("paymentMethod")]
         public string? PaymentMethod { get; set; }
 
         /// <summary>
-        /// This denotes the reference number of the transaction
+        /// This denotes the reference number of the transaction.
         /// </summary>
         [JsonProperty("referenceNumber")]
         public string? ReferenceNumber { get; set; }

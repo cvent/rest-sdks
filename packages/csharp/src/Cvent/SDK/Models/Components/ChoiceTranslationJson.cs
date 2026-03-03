@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote that the translation for the choice text of a custom field.
     /// </summary>
     public class ChoiceTranslationJson
     {
-
         /// <summary>
         /// The ID of the choice that this translation is associated with.
         /// </summary>

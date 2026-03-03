@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An email-undelivered activity.
     /// </summary>
     public class EmailUndelivered
     {
-
         /// <summary>
         /// Type of the email.
         /// </summary>

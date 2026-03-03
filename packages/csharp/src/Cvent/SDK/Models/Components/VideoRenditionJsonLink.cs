@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Location where the rendition is stored.
     /// </summary>
     public class VideoRenditionJsonLink
     {
-
         /// <summary>
         /// A pre-signed URL with an expiration of 2 hours that provides the location.
         /// </summary>

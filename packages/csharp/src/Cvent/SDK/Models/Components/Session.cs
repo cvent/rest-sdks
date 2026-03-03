@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Used to denote a session and its attributes.
     /// </summary>
     public class Session
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// A unique identifier of the session
+        /// A unique identifier of the session.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -76,7 +75,7 @@ namespace Cvent.SDK.Models.Components
         public string? Code { get; set; }
 
         /// <summary>
-        /// A Named object
+        /// A Named object.
         /// </summary>
         [JsonProperty("category")]
         public IdNameJson? Category { get; set; }
@@ -92,16 +91,13 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span<br/>
         /// <br/>
         /// Allowed attributes:<br/>
         /// - color on font<br/>
         /// - style on p, font, li, ul, ol, span<br/>
-        /// - href, target, rel on a
-        /// </remarks>
+        /// - href, target, rel on a.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
@@ -185,7 +181,7 @@ namespace Cvent.SDK.Models.Components
         public long? WaitlistCapacityVirtual { get; set; }
 
         /// <summary>
-        /// The timezone of the event that the session is associated with
+        /// The timezone of the event that the session is associated with.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("timezone")]
@@ -198,13 +194,13 @@ namespace Cvent.SDK.Models.Components
         public bool? DisplayOnAgenda { get; set; } = true;
 
         /// <summary>
-        /// Indicates if the session is featured
+        /// Indicates if the session is featured.
         /// </summary>
         [JsonProperty("featured")]
         public bool? Featured { get; set; }
 
         /// <summary>
-        /// The id of the session group, if the session belongs to one
+        /// The id of the session group, if the session belongs to one.
         /// </summary>
         [JsonProperty("group")]
         public string? Group { get; set; }
@@ -228,7 +224,7 @@ namespace Cvent.SDK.Models.Components
         public bool? OpenForAttendeeHub { get; set; }
 
         /// <summary>
-        /// Contains unique identifiers for registration types associated with this session
+        /// Contains unique identifiers for registration types associated with this session.
         /// </summary>
         [JsonProperty("registrationTypes")]
         public List<string>? RegistrationTypes { get; set; }
@@ -249,7 +245,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomField>? CustomFields { get; set; }
+        public List<CustomFieldJson2>? CustomFields { get; set; }
 
         /// <summary>
         /// Contains unique identifiers for segments associated with this session.
@@ -258,7 +254,7 @@ namespace Cvent.SDK.Models.Components
         public List<string>? Segments { get; set; }
 
         /// <summary>
-        /// The display order of session, set by planner for concurrent sessions
+        /// The display order of session, set by planner for concurrent sessions.
         /// </summary>
         [JsonProperty("order")]
         public long? Order { get; set; }

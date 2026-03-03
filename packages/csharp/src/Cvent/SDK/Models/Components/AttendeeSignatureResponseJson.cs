@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Attendee&apos;s Signature Response.
+    /// Attendee's Signature Response.
     /// </summary>
     public class AttendeeSignatureResponseJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -75,13 +74,13 @@ namespace Cvent.SDK.Models.Components
         public AttendeeSignatureResponseJsonType Type { get; set; } = default!;
 
         /// <summary>
-        /// Check-in signature image S3 url
+        /// Check-in signature image S3 url.
         /// </summary>
         [JsonProperty("checkinSignatureUrl")]
         public string CheckinSignatureUrl { get; set; } = default!;
 
         /// <summary>
-        /// Check-out signature image S3 url
+        /// Check-out signature image S3 url.
         /// </summary>
         [JsonProperty("checkoutSignatureUrl")]
         public string? CheckoutSignatureUrl { get; set; }

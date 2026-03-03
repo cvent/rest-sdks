@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The logo for the Events+ hub.
     /// </summary>
     public class HubLogoJson
     {
-
         /// <summary>
         /// The optimized Events+ hub logo image URL.
         /// </summary>

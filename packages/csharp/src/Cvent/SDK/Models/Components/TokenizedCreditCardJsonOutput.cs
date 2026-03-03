@@ -13,15 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Credit card info.
     /// </summary>
     public class TokenizedCreditCardJsonOutput
     {
-
         /// <summary>
-        /// Credit card number. DEPRECATED - use &apos;lastFour&apos; instead.
+        /// Credit card number. DEPRECATED - use 'lastFour' instead.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("number")]

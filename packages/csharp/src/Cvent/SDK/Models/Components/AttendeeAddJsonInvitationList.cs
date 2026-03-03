@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The ID of the invitation list associated with the attendee.
     /// </summary>
     public class AttendeeAddJsonInvitationList
     {
-
         /// <summary>
         /// The invitation list ID.
         /// </summary>

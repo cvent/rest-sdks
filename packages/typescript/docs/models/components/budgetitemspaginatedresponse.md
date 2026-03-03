@@ -113,7 +113,7 @@ let value: BudgetItemsPaginatedResponse = {
         {
           id: "c0201561-fc30-47bc-a86e-5b9978bee850",
           name: "What is a your favorite color?",
-          type: "General",
+          type: "MultiSelect",
           value: [
             "Choice C",
             "Choice A",

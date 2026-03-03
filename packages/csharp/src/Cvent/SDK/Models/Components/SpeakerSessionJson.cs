@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A speaker to session relationship.
     /// </summary>
     public class SpeakerSessionJson
     {
-
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -32,7 +31,7 @@ namespace Cvent.SDK.Models.Components
         public SpeakerLiteJson1? Speaker { get; set; }
 
         /// <summary>
-        /// A Named object
+        /// A Named object.
         /// </summary>
         [JsonProperty("category")]
         public IdNameJson? Category { get; set; }

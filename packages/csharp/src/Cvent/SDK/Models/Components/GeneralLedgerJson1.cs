@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the general ledger code associated with budget.
     /// </summary>
     public class GeneralLedgerJson1
     {
-
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

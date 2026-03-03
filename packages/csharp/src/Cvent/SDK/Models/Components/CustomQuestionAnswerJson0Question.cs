@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Travel account that the proposal is responding to.
     /// </summary>
     public class CustomQuestionAnswerJson0Question
     {
-
         /// <summary>
         /// The unique ID of the question.
         /// </summary>

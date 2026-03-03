@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A successful response returning an access token and a possible refresh token.
     /// </summary>
     public class Oauth2TokenResponseBody
     {
-
         /// <summary>
         /// The access token contains scopes and groups and is used to grant access to authorized resources.
         /// </summary>

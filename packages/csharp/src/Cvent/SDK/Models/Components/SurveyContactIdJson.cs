@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A pair of survey and contact id.
     /// </summary>
     public class SurveyContactIdJson
     {
-
         /// <summary>
-        /// ID of the survey
+        /// ID of the survey.
         /// </summary>
         [JsonProperty("surveyId")]
         public string SurveyId { get; set; } = default!;
 
         /// <summary>
-        /// ID of the contact
+        /// ID of the contact.
         /// </summary>
         [JsonProperty("contactId")]
         public string ContactId { get; set; } = default!;

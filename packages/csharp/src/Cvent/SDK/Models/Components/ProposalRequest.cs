@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Schema for proposal request.
     /// </summary>
     public class ProposalRequest
     {
-
         /// <summary>
         /// The ID of the smart custom proposal template.
         /// </summary>
@@ -83,7 +82,7 @@ namespace Cvent.SDK.Models.Components
         public bool? CommissionableBid { get; set; }
 
         /// <summary>
-        /// The proposal&apos;s commission rate.
+        /// The proposal's commission rate.
         /// </summary>
         [JsonProperty("commissionRate")]
         public double? CommissionRate { get; set; }
@@ -120,13 +119,13 @@ namespace Cvent.SDK.Models.Components
         public CategoryItemsCostJson? CategoryItemsCost { get; set; }
 
         /// <summary>
-        /// The aggregated cost
+        /// The aggregated cost.
         /// </summary>
         [JsonProperty("aggregatedCost")]
         public AggregatedCostJson? AggregatedCost { get; set; }
 
         /// <summary>
-        /// The estimated cost
+        /// The estimated cost.
         /// </summary>
         [JsonProperty("estimatedCost")]
         public EstimatedCostJson? EstimatedCost { get; set; }

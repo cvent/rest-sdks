@@ -11,22 +11,17 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateAccountUserGroupRequest
     {
-
         /// <summary>
-        /// The User Group&apos;s Id.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// The User Group's Id.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=userGroupId")]
         public string UserGroupId { get; set; } = default!;
 
         /// <summary>
-        /// A User Group
+        /// A User Group.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public UserGroupJsonInput? UserGroupJson { get; set; }

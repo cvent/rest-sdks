@@ -57,6 +57,10 @@ export type ExistingExhibitorQuestion = {
    */
   text: string;
   /**
+   * System or User defined event level unique exhibitor question code.
+   */
+  code?: string | undefined;
+  /**
    * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
    */
   type: ExhibitorQuestionTypeJson;
@@ -113,6 +117,7 @@ export const ExistingExhibitorQuestion$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   event: EventJson5$inboundSchema,
   text: z.string(),
+  code: z.string().optional(),
   type: ExhibitorQuestionTypeJson$inboundSchema,
   required: z.boolean(),
   choices: z.array(BaseChoiceJson$inboundSchema).optional(),

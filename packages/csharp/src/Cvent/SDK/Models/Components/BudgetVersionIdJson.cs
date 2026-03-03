@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Budget Version ID Information.
     /// </summary>
     public class BudgetVersionIdJson
     {
-
         /// <summary>
         /// Identifier of a particular budget version.
         /// </summary>

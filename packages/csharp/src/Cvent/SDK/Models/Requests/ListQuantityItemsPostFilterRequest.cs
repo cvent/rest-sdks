@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class ListQuantityItemsPostFilterRequest
     {
-
         /// <summary>
         /// Unique ID of an event.
         /// </summary>
@@ -29,21 +28,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// See the parameter description of filter in &lt;a href=&quot;#operation/listQuantityItems&quot;&gt;GET List Quantity Items&lt;/a&gt; for full filtering information.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// See the parameter description of filter in <a href="#operation/listQuantityItems">GET List Quantity Items</a> for full filtering information.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

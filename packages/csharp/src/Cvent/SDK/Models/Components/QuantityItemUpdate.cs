@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Represents details for updating a quantity item for an attendee&apos;s registration.
+    /// Represents details for updating a quantity item for an attendee's registration.
     /// </summary>
     public class QuantityItemUpdate
     {
-
         /// <summary>
         /// Unique identifier of a quantity item.
         /// </summary>

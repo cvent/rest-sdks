@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Email template used.
     /// </summary>
     public class EmailTemplate
     {
-
         /// <summary>
-        /// Id of the email template
+        /// Id of the email template.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

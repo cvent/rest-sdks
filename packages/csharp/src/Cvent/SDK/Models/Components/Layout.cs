@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The initial layout style used by front-ends to render the associated calendar.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum Layout");
         }
     }
-
 }

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Content of exhibitor weblink.
     /// </summary>
     public class Weblink
     {
-
         /// <summary>
         /// The Associated Event.
         /// </summary>

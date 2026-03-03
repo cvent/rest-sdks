@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A webcast Live Stream.
     /// </summary>
     public class LiveStreamJson
     {
-
         /// <summary>
         /// Unique ID of the stream.
         /// </summary>
@@ -38,13 +37,13 @@ namespace Cvent.SDK.Models.Components
         public string? Key { get; set; }
 
         /// <summary>
-        /// This is used to denote the status of the stream
+        /// This is used to denote the status of the stream.
         /// </summary>
         [JsonProperty("status")]
         public LiveStreamStatusJson? Status { get; set; }
 
         /// <summary>
-        /// Provides information about the livestream&apos;s current streaming session
+        /// Provides information about the livestream's current streaming session.
         /// </summary>
         [JsonProperty("session")]
         public LiveStreamSessionJson? Session { get; set; }
@@ -56,7 +55,7 @@ namespace Cvent.SDK.Models.Components
         public string? Page { get; set; }
 
         /// <summary>
-        /// Provides information about the livestream&apos;s recording
+        /// Provides information about the livestream's recording.
         /// </summary>
         [JsonProperty("recording")]
         public LiveStreamRecordingJson? Recording { get; set; }

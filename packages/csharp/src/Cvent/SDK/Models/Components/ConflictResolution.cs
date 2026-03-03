@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents choices in resolving conflicts in the contacts to be merged or to optionally select fields to keep from a secondary contact, overriding default behavior.
     /// </summary>
     public class ConflictResolution
     {
-
         /// <summary>
         /// For each event (designated by event id), choose a contact id whose linked attendee will be associated with the resulting merged contact. Use whenever at least two contacts exist as attendees in a single event.
         /// </summary>

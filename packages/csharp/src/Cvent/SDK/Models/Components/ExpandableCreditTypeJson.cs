@@ -11,18 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object that contains the associated credit type ID.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// This is an **expandable** object and if requested will contain the name of a credit type object.
-    /// </remarks>
     /// </summary>
     public class ExpandableCreditTypeJson
     {
-
         /// <summary>
         /// A unique identifier of the credit type.
         /// </summary>

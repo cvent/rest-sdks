@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Event-features launch request parameters.
     /// </summary>
     public class EventFeatureLaunchRequest
     {
-
         /// <summary>
         /// True keeps email data collected in test mode, prior to the registration feature being launched.
         /// </summary>

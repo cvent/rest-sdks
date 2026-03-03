@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListAttendeeActivitiesRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -35,20 +34,14 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// There are seven comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
@@ -75,9 +68,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         ///   * and<br/>
-        ///   * or<br/>
-        /// 
-        /// </remarks>
+        ///   * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

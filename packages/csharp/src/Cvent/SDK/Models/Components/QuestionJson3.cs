@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The question that was answered.
     /// </summary>
     public class QuestionJson3
     {
-
         /// <summary>
         /// The unique identifier of the question.
         /// </summary>

@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetTravelProgramRequest
     {
-
         /// <summary>
         /// A uuid used to uniquely identify the program.
         /// </summary>

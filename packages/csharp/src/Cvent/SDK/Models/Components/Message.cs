@@ -55,9 +55,8 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
-    /// An object that contains the message itself or a link to the message allowing it to be downloaded
+    /// An object that contains the message itself or a link to the message allowing it to be downloaded.
     /// </summary>
     [JsonConverter(typeof(Message.MessageConverter))]
     public class Message

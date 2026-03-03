@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose of identifying and tracking traffic) settings will override passed in items.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum UtmOverrideJson");
         }
     }
-
 }

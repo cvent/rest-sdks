@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An email-checked-in activity.
     /// </summary>
     public class EventCheckedIn
     {
-
         /// <summary>
         /// The event in which this activity occurred.
         /// </summary>

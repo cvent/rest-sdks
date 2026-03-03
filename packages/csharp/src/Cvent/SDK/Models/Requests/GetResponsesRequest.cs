@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class GetResponsesRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
@@ -35,27 +34,23 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         ///   * id (eq|ne)<br/>
@@ -73,10 +68,8 @@ namespace Cvent.SDK.Models.Requests
         /// 3. Use only chapter.id to get responses for all questions in the chapter of a particular survey.<br/>
         /// 4. Use only respondent.id to get responses for specific respondents.<br/>
         /// 5. chapter.id and survey.id cannot be used in combination with any other fields.<br/>
-        /// 6. Multiple chapter.id or survey.id must be separated by &apos;OR&apos;. For example: filter=chapter.id eq &apos;04ca6ae2-0dc3-487b-953e-86d6abbdf7d3&apos; or chapter.id eq &apos;1983f506-a4a5-4a05-b3f6-ff7f7afc58f1&apos;<br/>
-        /// 7. question.id can be used in combination with any other field by &apos;AND&apos; operator only.<br/>
-        /// 
-        /// </remarks>
+        /// 6. Multiple chapter.id or survey.id must be separated by 'OR'. For example: filter=chapter.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or chapter.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'<br/>
+        /// 7. question.id can be used in combination with any other field by 'AND' operator only.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

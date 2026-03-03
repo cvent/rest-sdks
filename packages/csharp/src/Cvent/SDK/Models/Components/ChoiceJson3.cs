@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A survey choice.
     /// </summary>
     public class ChoiceJson3
     {
-
         /// <summary>
         /// Text field ID.
         /// </summary>
@@ -25,19 +24,19 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// text Value of the Field
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
 
         /// <summary>
-        /// Reporting value of the Category, Its like a custom abbreviation
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
         [JsonProperty("shortText")]
         public string? ShortText { get; set; }
 
         /// <summary>
-        /// Label of choice
+        /// Label of choice.
         /// </summary>
         [JsonProperty("label")]
         public string? Label { get; set; }

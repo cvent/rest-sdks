@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Badge Print Job that was created.
     /// </summary>
     public class BadgePrintJobCreatedInput
     {
-
         /// <summary>
         /// This is used to indicate the status of the badge print job.
         /// </summary>
@@ -32,7 +31,7 @@ namespace Cvent.SDK.Models.Components
         public BadgePrinterPoolReferenceJson Pool { get; set; } = default!;
 
         /// <summary>
-        /// A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled
+        /// A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled.
         /// </summary>
         [JsonProperty("badgeId")]
         public string BadgeId { get; set; } = default!;

@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     public class GetAttendeeByIdRequest
     {
-
         /// <summary>
         /// The unique ID of an attendee.
         /// </summary>
@@ -24,8 +23,6 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// This endpoint allows you to request additional information as an expanded response using the expand query parameter.<br/>
-        /// 
-        /// <remarks>
         /// The expanded entity is retrieved and displayed inline for each specified expand value.<br/>
         /// <br/>
         /// An object contains the ID of a related object in its response properties. You can expand these objects,<br/>
@@ -38,12 +35,10 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are expandable:<br/>
         ///   * answers.question<br/>
         ///     * **Scope**: event/events:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/getEventQuestions&quot;&gt;List Event Questions&lt;/a&gt;<br/>
+        ///     * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
         ///   * registrationType<br/>
         ///     * **Scope**: event/registration-types:read<br/>
-        ///     * **Reference**: &lt;a href=&quot;#operation/listRegistrationTypes&quot;&gt;List Registration Types&lt;/a&gt;<br/>
-        /// 
-        /// </remarks>
+        ///     * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")]
         public List<Expand>? Expand { get; set; }

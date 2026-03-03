@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class PropertyApiGetChainRequest
     {
-
         /// <summary>
         /// The ID of the chain.
         /// </summary>

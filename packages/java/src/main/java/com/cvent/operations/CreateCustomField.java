@@ -9,7 +9,7 @@ import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.CustomField1;
+import com.cvent.models.components.CustomField2;
 import com.cvent.models.components.ExistingCustomField;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
@@ -97,7 +97,7 @@ public class CreateCustomField {
                     typeReference);
             SerializedBody serializedRequestBody = Utils.serializeRequestBody(
                     convertedRequest,
-                    "request",
+                    "",
                     "json",
                     false);
             if (serializedRequestBody == null) {
@@ -114,13 +114,13 @@ public class CreateCustomField {
     }
 
     public static class Sync extends Base
-            implements RequestOperation<CustomField1, CreateCustomFieldResponse> {
+            implements RequestOperation<CustomField2, CreateCustomFieldResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private HttpRequest onBuildRequest(CustomField1 request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<CustomField1>() {});
+        private HttpRequest onBuildRequest(CustomField2 request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<CustomField2>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -136,7 +136,7 @@ public class CreateCustomField {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(CustomField1 request) {
+        public HttpResponse<InputStream> doRequest(CustomField2 request) {
             HttpRequest r = unchecked(() -> onBuildRequest(request)).get();
             HttpResponse<InputStream> httpRes;
             try {
@@ -195,14 +195,14 @@ public class CreateCustomField {
         }
     }
     public static class Async extends Base
-            implements AsyncRequestOperation<CustomField1, com.cvent.models.operations.async.CreateCustomFieldResponse> {
+            implements AsyncRequestOperation<CustomField2, com.cvent.models.operations.async.CreateCustomFieldResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(CustomField1 request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<CustomField1>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(CustomField2 request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<CustomField2>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -215,7 +215,7 @@ public class CreateCustomField {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomField1 request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomField2 request) {
             return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {

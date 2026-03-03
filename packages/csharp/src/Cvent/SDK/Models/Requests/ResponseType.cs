@@ -12,15 +12,11 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The response type must be code. Indicates the client wants an authorization code (authorization code grant flow).<br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// **Note:** *implicit flow* or the *token* value is not supported at this time.<br/>
-    /// 
-    /// </remarks>
+    /// **Note:** *implicit flow* or the *token* value is not supported at this time.
     /// </summary>
     public enum ResponseType
     {
@@ -60,5 +56,4 @@ namespace Cvent.SDK.Models.Requests
             throw new Exception($"Unknown value {value} for enum ResponseType");
         }
     }
-
 }

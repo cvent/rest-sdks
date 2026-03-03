@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Information about an allocation.
     /// </summary>
     public class BudgetAllocationsPaginatedResponseJson
     {
-
         /// <summary>
         /// This is the budget version where this allocation was made.
         /// </summary>
@@ -50,7 +49,7 @@ namespace Cvent.SDK.Models.Components
         public AllocationGeneralLedgerJson? GeneralLedger { get; set; }
 
         /// <summary>
-        /// Specifies the method of budget allocation. Select &quot;AMOUNT&quot; to allocate a fixed amount (e.g., $700 from a $1000 budget), or &quot;PERCENTAGE&quot; to allocate based on a percentage (e.g., 70% of a $1000 budget).
+        /// Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
         /// </summary>
         [JsonProperty("method")]
         public BudgetAllocatebyJson? Method { get; set; }

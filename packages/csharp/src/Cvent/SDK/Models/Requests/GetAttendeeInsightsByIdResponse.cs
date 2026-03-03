@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetAttendeeInsightsByIdResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved an engagement score&apos;s details.
+        /// Successfully retrieved an engagement score's details.
         /// </summary>
         public Models.Components.AttendeeInsights? AttendeeInsights { get; set; }
     }

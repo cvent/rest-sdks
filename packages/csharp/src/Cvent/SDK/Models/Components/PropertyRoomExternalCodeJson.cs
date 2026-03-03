@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The external room codes for the room
+    /// The external room codes for the room.
     /// </summary>
     public class PropertyRoomExternalCodeJson
     {
-
         /// <summary>
         /// Type of the external Code.
         /// </summary>

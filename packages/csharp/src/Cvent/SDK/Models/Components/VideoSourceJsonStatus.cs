@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Denotes the status of the video in the third-party system.
     /// </summary>
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum VideoSourceJsonStatus");
         }
     }
-
 }

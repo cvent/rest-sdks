@@ -14,16 +14,15 @@ namespace Cvent.SDK.Models.Requests
     using Newtonsoft.Json;
     using System;
     using System.Threading.Tasks;
-    
+
     public class ListExhibitorCategoriesResponse
     {
         public Func<Task<ListExhibitorCategoriesResponse?>>? Next {get;set;}
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor
+        /// Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor.
         /// </summary>
         public ExhibitorCategoryIdListResponse? ExhibitorCategoryIdListResponse { get; set; }
     }

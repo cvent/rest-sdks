@@ -14,16 +14,15 @@ namespace Cvent.SDK.Models.Requests
     using Newtonsoft.Json;
     using System;
     using System.Threading.Tasks;
-    
+
     public class GetAccountUserGroupsResponse
     {
         public Func<Task<GetAccountUserGroupsResponse?>>? Next {get;set;}
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// List of User Groups
+        /// List of User Groups.
         /// </summary>
         public UserGroupsJson? UserGroupsJson { get; set; }
     }

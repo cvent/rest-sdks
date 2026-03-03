@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Attendee insights.
     /// </summary>
     public class AttendeeInsights
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -63,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public string? Description { get; set; }
 
         /// <summary>
-        /// An event reference used in attendee insights to identify the event context for engagement data
+        /// An event reference used in attendee insights to identify the event context for engagement data.
         /// </summary>
         [JsonProperty("event")]
         public EventJson8 Event { get; set; } = default!;

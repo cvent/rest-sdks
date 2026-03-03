@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents the details of an existing registration type and registration path associated to it.
     /// </summary>
     public class ExistingRegistrationTypeWithAssociatedRegPathJson
     {
-
         /// <summary>
         /// Name of the registration type.
         /// </summary>

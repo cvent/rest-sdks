@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListHubsRequest
     {
-
         /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
@@ -22,33 +21,26 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// &quot;A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.&quot;<br/>
-        /// 
-        /// <remarks>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// These are the comparison types that can be used in filter expressions:<br/>
-        /// * equal: eq<br/>
-        /// * not equal: ne<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// Field filterable:<br/>
-        /// * id (eq|ne)<br/>
+        /// | Field | Operators  |<br/>
+        /// |-------|------------|<br/>
+        /// | id    | `eq`, `ne` |<br/>
         /// <br/>
-        /// Limits for the number of fields that can be passed in a filter 35<br/>
+        /// Limit for the number of fields that can be passed in a filter is 35.<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        /// * or<br/>
-        /// 
-        /// </remarks>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

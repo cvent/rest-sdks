@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The status of the proposal. See <a href="https://support.cvent.com/s/communityarticle/Understanding-RFP-and-Proposal-Statuses">definitions of proposal statuses</a>
     /// </summary>
@@ -68,5 +68,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ProposalStatusJson");
         }
     }
-
 }

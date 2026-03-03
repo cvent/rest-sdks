@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class AnswerEventCustomFieldRequest
     {
-
         /// <summary>
         /// Unique ID of an event.
         /// </summary>
@@ -28,7 +27,7 @@ namespace Cvent.SDK.Models.Requests
         public string CustomFieldId { get; set; } = default!;
 
         /// <summary>
-        /// Custom field answer you&apos;re updating.
+        /// Custom field answer you're updating.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CustomFieldInput CustomField { get; set; } = default!;

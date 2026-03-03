@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents an error response for the checkin APIs with additional details of cascading error messages.
     /// </summary>
     public class AttendeeAddBulkItemEventJsonErrorResponse
     {
-
         /// <summary>
         /// The unique identifier for the error response.
         /// </summary>

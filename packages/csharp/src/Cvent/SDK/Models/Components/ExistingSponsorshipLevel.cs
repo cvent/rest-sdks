@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Existing sponsorship level model
+    /// Existing sponsorship level model.
     /// </summary>
     public class ExistingSponsorshipLevel
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -51,7 +50,7 @@ namespace Cvent.SDK.Models.Components
         public EventJson5 Event { get; set; } = default!;
 
         /// <summary>
-        /// Name of the sponsorship level
+        /// Name of the sponsorship level.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;

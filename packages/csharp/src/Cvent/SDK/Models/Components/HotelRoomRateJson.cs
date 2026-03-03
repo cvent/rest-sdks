@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Representation of a hotel room rate
+    /// Representation of a hotel room rate.
     /// </summary>
     public class HotelRoomRateJson
     {
-
         /// <summary>
         /// The ISO 8601 date-time (in UTC) of the night for which the room has been booked.
         /// </summary>

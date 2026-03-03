@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Card token resource created in response to generating a card token for a credit card.
     /// </summary>
     public class CardTokenResponse
     {
-
         /// <summary>
         /// A token that can be used to reference the credit card for a transaction.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Credit Card Response Object
+        /// Credit Card Response Object.
         /// </summary>
         [JsonProperty("creditCard")]
         public CreditCardResponseJson? CreditCard { get; set; }

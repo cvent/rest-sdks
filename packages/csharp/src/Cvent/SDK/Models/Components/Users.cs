@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A page in a paginated list of SCIM users. This would return the list of users.
     /// </summary>
     public class Users
     {
-
         /// <summary>
         /// The collection of user schemas.
         /// </summary>

@@ -12,18 +12,17 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A contact&apos;s file, such as a profile image.
+    /// A contact's file, such as a profile image.
     /// </summary>
     public class ContactFile
     {
-
         [JsonProperty("file")]
         public ContactFileFile File { get; set; } = default!;
 
         /// <summary>
-        /// URL of the contact&apos;s file.
+        /// URL of the contact's file.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

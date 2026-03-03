@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Associated session.
     /// </summary>
     public class RespondentChapterReferenceJson0Session
     {
-
         /// <summary>
         /// Session ID.
         /// </summary>

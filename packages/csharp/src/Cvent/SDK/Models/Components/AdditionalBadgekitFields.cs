@@ -10,9 +10,9 @@
 namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
-    
+
     /// <summary>
-    /// Map containing extra properties from badgekit provider
+    /// Map containing extra properties from badgekit provider.
     /// </summary>
     public class AdditionalBadgekitFields
     {

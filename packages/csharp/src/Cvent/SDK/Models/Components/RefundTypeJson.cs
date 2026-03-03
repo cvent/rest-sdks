@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of refund policy for the fee. `RefundByFixedAmount`: Returns a fixed amount to the attendee as chosen by the planner. `RefundByCancellationAmount`: Refunds everything to the attendee minus an cancellation fee chosen by the planner. `RefundByPercentage`: Refunds a percentage of the amount as chosen by the planner.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum RefundTypeJson");
         }
     }
-
 }

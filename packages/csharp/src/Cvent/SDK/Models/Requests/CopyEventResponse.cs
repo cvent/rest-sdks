@@ -13,24 +13,19 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CopyEventResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
         /// Successfully started the process to copy the event provided. Check the<br/>
-        /// 
-        /// <remarks>
-        /// &lt;a href=&quot;#operation/getEventCopyStatus&quot;&gt;Get Event Copy Status&lt;/a&gt; to determine<br/>
-        /// when it is ready to be used.<br/>
-        /// 
-        /// </remarks>
+        /// <a href="#operation/getEventCopyStatus">Get Event Copy Status</a> to determine<br/>
+        /// when it is ready to be used.
         /// </summary>
         public EventAsyncResponse? EventAsyncResponse { get; set; }
 
-        public Dictionary<string, List<string>> Headers { get; set; } = default!;
+        public Dictionary<string, List<string>> Headers { get; set; } = new Dictionary<string, List<string>>();
     }
 }

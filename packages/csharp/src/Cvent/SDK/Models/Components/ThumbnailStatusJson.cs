@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted, and the URL you&apos;ll upload a thumbnail to was returned. Uploaded indicates that the upload was completed. Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
+    /// Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted, and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was completed. Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
     /// </summary>
     public enum ThumbnailStatusJson
     {
@@ -62,5 +62,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ThumbnailStatusJson");
         }
     }
-
 }

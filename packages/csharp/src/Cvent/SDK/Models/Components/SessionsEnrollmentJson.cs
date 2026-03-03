@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents the attendee registration action for a session.
     /// </summary>
     public class SessionsEnrollmentJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -75,7 +74,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Deleted { get; set; }
 
         /// <summary>
-        /// Denotes the attendee&apos;s status in the session. Registered: The attendee is registered for the session. Waitlisted: The attendee is on a waitlist to register for the session. Cancelled: The attendee&apos;s registration for the session has been cancelled.
+        /// Denotes the attendee's status in the session. Registered: The attendee is registered for the session. Waitlisted: The attendee is on a waitlist to register for the session. Cancelled: The attendee's registration for the session has been cancelled.
         /// </summary>
         [JsonProperty("status")]
         public SessionEnrollmentStatusJson? Status { get; set; }

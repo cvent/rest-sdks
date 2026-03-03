@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The channel details associated with the chat.
     /// </summary>
     public class ChannelJson
     {
-
         /// <summary>
         /// The channel ID associated with the chat.
         /// </summary>

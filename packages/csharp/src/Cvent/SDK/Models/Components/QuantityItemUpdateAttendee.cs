@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The reference to the attendee. Contains only the ID of the attendee.
     /// </summary>
     public class QuantityItemUpdateAttendee
     {
-
         /// <summary>
         /// Unique identifier of the attendee.
         /// </summary>

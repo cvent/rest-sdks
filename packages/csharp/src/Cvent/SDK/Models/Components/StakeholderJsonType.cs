@@ -12,14 +12,13 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Type of the stakeholder.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class StakeholderJsonType
     {
-
         /// <summary>
         /// The unique identifier of the contact type.
         /// </summary>

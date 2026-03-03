@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Credit card info.
     /// </summary>
     public class TokenizedCreditCardJsonInput
     {
-
         /// <summary>
         /// Credit card type.
         /// </summary>

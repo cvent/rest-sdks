@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Day delegate rate information. This represents the costs for hosting meeting at the venue for a half or full day.
     /// </summary>
     public class TravelDayDelegateRateJson
     {
-
         /// <summary>
         /// Full day delegate rate for 10 to 50 people.
         /// </summary>

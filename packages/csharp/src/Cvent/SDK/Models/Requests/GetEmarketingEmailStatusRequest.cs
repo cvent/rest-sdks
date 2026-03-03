@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetEmarketingEmailStatusRequest
     {
-
         /// <summary>
         /// Used to get status of emails which were sent with this email request ID.
         /// </summary>

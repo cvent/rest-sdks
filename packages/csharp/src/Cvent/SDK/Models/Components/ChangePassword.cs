@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Config details for change password operations.
     /// </summary>
     public class ChangePassword
     {
-
         /// <summary>
         /// Indicates if the password change is supported.
         /// </summary>

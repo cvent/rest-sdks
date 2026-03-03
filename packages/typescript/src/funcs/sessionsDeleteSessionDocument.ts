@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete Document from Session
  *
  * @remarks
- * Unassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+ * Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

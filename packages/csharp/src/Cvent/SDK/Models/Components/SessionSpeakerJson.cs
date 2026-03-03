@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A session speaker
+    /// A session speaker.
     /// </summary>
     public class SessionSpeakerJson
     {
-
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

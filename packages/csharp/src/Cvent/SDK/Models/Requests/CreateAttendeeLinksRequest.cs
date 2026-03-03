@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System.Collections.Generic;
-    
+
     public class CreateAttendeeLinksRequest
     {
-
         /// <summary>
         /// The identifier of the webcast.
         /// </summary>

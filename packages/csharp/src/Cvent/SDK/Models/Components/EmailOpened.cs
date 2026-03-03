@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An email-opened activity.
     /// </summary>
     public class EmailOpened
     {
-
         /// <summary>
         /// Type of the email.
         /// </summary>

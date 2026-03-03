@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Video that this asset was created with.
     /// </summary>
     public class VideoAssetIdJson
     {
-
         /// <summary>
         /// The identifier of a video.
         /// </summary>

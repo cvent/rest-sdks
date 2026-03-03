@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
     /// </summary>
@@ -54,5 +54,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ExistingDiscountCodeJsonType");
         }
     }
-
 }

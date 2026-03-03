@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Validity status of an authentication token.
     /// </summary>
     public class ValidToken
     {
-
         /// <summary>
         /// True indicates the presented authentication token is valid.
         /// </summary>

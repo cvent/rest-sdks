@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Schema for address information
+    /// Schema for address information.
     /// </summary>
     public class LeadAddressJson
     {
-
         /// <summary>
-        /// The first line of an address
+        /// The first line of an address.
         /// </summary>
         [JsonProperty("address1")]
         public string? Address1 { get; set; }
 
         /// <summary>
-        /// The second line of an address
+        /// The second line of an address.
         /// </summary>
         [JsonProperty("address2")]
         public string? Address2 { get; set; }
@@ -49,19 +48,19 @@ namespace Cvent.SDK.Models.Components
         public string? RegionCode { get; set; }
 
         /// <summary>
-        /// postal code (also known as zipcode) of the address
+        /// postal code (also known as zipcode) of the address.
         /// </summary>
         [JsonProperty("postalCode")]
         public string? PostalCode { get; set; }
 
         /// <summary>
-        /// Name of the country for example, &apos;United States&apos;
+        /// Name of the country for example, 'United States'
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }
 
         /// <summary>
-        /// ISO 3166 two-letter (alpha-2) country code
+        /// ISO 3166 two-letter (alpha-2) country code.
         /// </summary>
         [JsonProperty("countryCode")]
         public string? CountryCode { get; set; }

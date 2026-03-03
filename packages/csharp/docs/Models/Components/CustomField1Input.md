@@ -1,0 +1,12 @@
+# CustomField1Input
+
+A Custom Field
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Id`                                                                                  | *string*                                                                              | :heavy_check_mark:                                                                    | The unique ID representing this custom field.                                         |                                                                                       |
+| `Value`                                                                               | List<*string*>                                                                        | :heavy_check_mark:                                                                    | The set of answers or possible answers to a question.                                 | [<br/>"Choice C",<br/>"Choice A"<br/>]                                                |
+| `Type`                                                                                | [CustomField1CustomFieldType](../../Models/Components/CustomField1CustomFieldType.md) | :heavy_minus_sign:                                                                    | The type of data collected by a custom field.                                         | MultiSelect                                                                           |

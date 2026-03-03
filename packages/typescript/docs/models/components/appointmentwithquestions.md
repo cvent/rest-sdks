@@ -59,7 +59,7 @@ let value: AppointmentWithQuestions = {
     {
       id: "16c5d3f9-1dbd-4ff5-95d7-5e4d4c617b2f",
       name: "What is a your favorite color?",
-      type: "General",
+      type: "MultiSelect",
       value: [
         "Choice C",
         "Choice A",

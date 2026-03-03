@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Night availability details.
     /// </summary>
     public class AvailableNightJson
     {
-
         /// <summary>
         /// Contains unique ID of the hotel.
         /// </summary>

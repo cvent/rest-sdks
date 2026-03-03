@@ -34,7 +34,7 @@ export type ListSegmentAssociatedAttendeesRequest = {
    */
   after?: Date | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.  The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
    *
    * @remarks
    * These are comparison types that can be used in filter expressions:

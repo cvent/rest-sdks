@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetContactObfuscationStatusByIdResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a contact&apos;s obfuscation status.
+        /// Successfully retrieved a contact's obfuscation status.
         /// </summary>
         public ContactObfuscationStatus? ContactObfuscationStatus { get; set; }
     }

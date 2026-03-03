@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Denotes the status of an audio track. Started indicates the request to upload in the API was submitted, and the URL you&apos;ll upload an audio track to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the audio track. Available indicates the audio track is available for use.
+    /// Denotes the status of an audio track. Started indicates the request to upload in the API was submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the audio track. Available indicates the audio track is available for use.
     /// </summary>
     public enum AudioTrackStatusJson
     {
@@ -68,5 +68,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum AudioTrackStatusJson");
         }
     }
-
 }

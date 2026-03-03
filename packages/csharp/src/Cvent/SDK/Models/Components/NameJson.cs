@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The name of the user.
     /// </summary>
     public class NameJson
     {
-
         /// <summary>
         /// The given/first name of the user.
         /// </summary>

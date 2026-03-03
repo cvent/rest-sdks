@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An exhibitor virtual-booth-joined activity.
     /// </summary>
     public class ExhibitorVirtualBoothJoined
     {
-
         /// <summary>
         /// An exhibitor.
         /// </summary>

@@ -12,11 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Status of the request to obfuscate a contact.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// INITIATED - The obfuscation request has been received.<br/>
     /// <br/>
@@ -27,7 +25,6 @@ namespace Cvent.SDK.Models.Components
     /// COMPLETED -  The obfuscation request is complete.<br/>
     /// <br/>
     /// FAILED - The obfuscation request failed due to an error.
-    /// </remarks>
     /// </summary>
     public enum ContactObfuscationStatusTypeJson
     {
@@ -75,5 +72,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum ContactObfuscationStatusTypeJson");
         }
     }
-
 }

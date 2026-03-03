@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
     /// </summary>
     public class ContactLinksJson2
     {
-
         /// <summary>
         /// Represents a link to a related resource.
         /// </summary>

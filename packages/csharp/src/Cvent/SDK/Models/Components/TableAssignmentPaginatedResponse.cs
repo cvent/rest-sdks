@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The response from a request to get the table assignment.
     /// </summary>
     public class TableAssignmentPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public PagingJson? Paging { get; set; }
 
         /// <summary>
-        /// A list of table assignments
+        /// A list of table assignments.
         /// </summary>
         [JsonProperty("data")]
         public List<TableAssignmentJson> Data { get; set; } = default!;

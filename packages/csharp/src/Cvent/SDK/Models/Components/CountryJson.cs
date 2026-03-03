@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
     /// </summary>
@@ -566,5 +566,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum CountryJson");
         }
     }
-
 }

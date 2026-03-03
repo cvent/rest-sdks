@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An invoice attached to the payment.
     /// </summary>
     public class InvoiceFile
     {
-
         [JsonProperty("file")]
         public InvoiceFileFile File { get; set; } = default!;
 

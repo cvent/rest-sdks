@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A communication log message.
     /// </summary>
     public class CommunicationLogMessageJson
     {
-
         /// <summary>
         /// The unique ID of the communication log message.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public Dictionary<string, string>? Tags { get; set; }
 
         /// <summary>
-        /// An object that contains the message itself or a link to the message allowing it to be downloaded
+        /// An object that contains the message itself or a link to the message allowing it to be downloaded.
         /// </summary>
         [JsonProperty("message", NullValueHandling = NullValueHandling.Include)]
         public Message Message { get; set; } = default!;

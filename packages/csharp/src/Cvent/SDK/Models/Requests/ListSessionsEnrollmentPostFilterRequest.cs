@@ -12,10 +12,9 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListSessionsEnrollmentPostFilterRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated on or after this time point. Defaults to the beginning of time of the data store.
         /// </summary>
@@ -36,21 +35,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// The request body accepts filters to refine the data returned.  Refer to available filter details in <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a>.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// The request body accepts filters to refine the data returned.  Refer to available filter details in <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a>.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

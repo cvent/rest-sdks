@@ -14,16 +14,15 @@ namespace Cvent.SDK.Models.Requests
     using Newtonsoft.Json;
     using System;
     using System.Threading.Tasks;
-    
+
     public class GetEventFeaturesResponse
     {
         public Func<Task<GetEventFeaturesResponse?>>? Next {get;set;}
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved event features
+        /// Successfully retrieved event features.
         /// </summary>
         public EventFeaturesPaginatedResponse? EventFeaturesPaginatedResponse { get; set; }
     }

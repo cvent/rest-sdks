@@ -51,7 +51,7 @@ public class Application {
                 .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
                 .sort("lastModified:DESC")
                 .expand(List.of(
-                    Expand2.CREDIT_TYPE))
+                    Expand1.CREDIT_TYPE))
                 .filter("attendee.id eq '{UUID}'")
                 .build();
 

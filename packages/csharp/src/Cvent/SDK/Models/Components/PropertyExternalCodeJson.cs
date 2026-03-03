@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The external chain and property codes for the property
+    /// The external chain and property codes for the property.
     /// </summary>
     public class PropertyExternalCodeJson
     {
-
         /// <summary>
         /// Type of the external Code.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public ExternalCodeTypeJson? Type { get; set; }
 
         /// <summary>
-        /// The code identifying the property&apos;s chain in the given external system.
+        /// The code identifying the property's chain in the given external system.
         /// </summary>
         [JsonProperty("chainCode")]
         public string? ChainCode { get; set; }

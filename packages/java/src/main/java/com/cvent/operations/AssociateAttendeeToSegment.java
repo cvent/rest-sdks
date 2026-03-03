@@ -11,6 +11,7 @@ import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.AssociateAttendeeToSegmentRequest;
 import com.cvent.models.operations.AssociateAttendeeToSegmentResponse;
 import com.cvent.utils.Blob;
@@ -156,6 +157,13 @@ public class AssociateAttendeeToSegment {
                 // no content
                 return res;
             }
+            if (Utils.statusCodeMatches(response.statusCode(), "400")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    throw SegmentsErrorResponse.from(response);
+                } else {
+                    throw APIException.from("Unexpected content-type received: " + contentType, response);
+                }
+            }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     throw ErrorResponse.from(response);
@@ -163,7 +171,7 @@ public class AssociateAttendeeToSegment {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "400", "4XX")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "4XX")) {
                 // no content
                 throw APIException.from("API error occurred", response);
             }
@@ -230,6 +238,14 @@ public class AssociateAttendeeToSegment {
                 // no content
                 return CompletableFuture.completedFuture(res);
             }
+            if (Utils.statusCodeMatches(response.statusCode(), "400")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    return SegmentsErrorResponse.fromAsync(response)
+                            .thenCompose(CompletableFuture::failedFuture);
+                } else {
+                    return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
+                }
+            }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return ErrorResponse.fromAsync(response)
@@ -238,7 +254,7 @@ public class AssociateAttendeeToSegment {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "400", "4XX")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "4XX")) {
                 // no content
                 return Utils.createAsyncApiError(response, "API error occurred");
             }

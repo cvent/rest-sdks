@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// An event attendee.
     /// </summary>
     public class Attendee
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -52,7 +51,7 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The attendee&apos;s associated event.
+        /// The attendee's associated event.
         /// </summary>
         [JsonProperty("event")]
         public AttendeeEvent? Event { get; set; }
@@ -101,13 +100,13 @@ namespace Cvent.SDK.Models.Components
         public long? Duration { get; set; }
 
         /// <summary>
-        /// Lookup response object
+        /// Lookup response object.
         /// </summary>
         [JsonProperty("registrationPath")]
         public LookupJson? RegistrationPath { get; set; }
 
         /// <summary>
-        /// A Named object
+        /// A Named object.
         /// </summary>
         [JsonProperty("invitationList")]
         public IdNameJson? InvitationList { get; set; }
@@ -119,13 +118,13 @@ namespace Cvent.SDK.Models.Components
         public AttendeeWebLinksJson? WebLinks { get; set; }
 
         /// <summary>
-        /// Lookup response object
+        /// Lookup response object.
         /// </summary>
         [JsonProperty("registrationType")]
         public LookupJson? RegistrationType { get; set; }
 
         /// <summary>
-        /// The reference ID of an attendee. A planner determined string used to track which link attendee&apos;s used to reach the event registration.
+        /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
         /// </summary>
         [JsonProperty("referenceId")]
         public string? ReferenceId { get; set; }
@@ -173,7 +172,7 @@ namespace Cvent.SDK.Models.Components
         public UuidJson? Administrator { get; set; }
 
         /// <summary>
-        /// True indicates this attendee is unsubscribed from this event&apos;s emails. They&apos;ll still recieve emails triggered by their own actions (like registration modification).
+        /// True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails triggered by their own actions (like registration modification).
         /// </summary>
         [JsonProperty("unsubscribed")]
         public bool? Unsubscribed { get; set; }
@@ -191,7 +190,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? RegisteredAt { get; set; }
 
         /// <summary>
-        /// The ISO 8601 zoned date time when attendee&apos;s registration was modified. This field is updated when there are changes to the registration, such as adding or removing products.
+        /// The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when there are changes to the registration, such as adding or removing products.
         /// </summary>
         [JsonProperty("registrationLastModified")]
         public DateTime? RegistrationLastModified { get; set; }
@@ -210,8 +209,6 @@ namespace Cvent.SDK.Models.Components
 
         /// <summary>
         /// Represents the method by which an attendee registered for the event.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// - Administrator Responded: The invitee was registered by another contact acting as their administrator.<br/>
         /// - API-Responded: The invitee was registered through a custom process configured via an API integration.<br/>
@@ -219,27 +216,26 @@ namespace Cvent.SDK.Models.Components
         /// - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.<br/>
         /// - External Registration: The attendee was registered through an external integration, such as Marketo.<br/>
         /// - Group Leader Responded: The invitee was registered by a group leader and added to a group.<br/>
-        /// - Historical Import: The invitee&apos;s registration was imported into the event as historical data.<br/>
-        /// - Imported: The invitee&apos;s registration was imported into the event.<br/>
+        /// - Historical Import: The invitee's registration was imported into the event as historical data.<br/>
+        /// - Imported: The invitee's registration was imported into the event.<br/>
         /// - No Response: The invitee has not registered.<br/>
-        /// - On-site Responded: The invitee registered onsite using OnArrival&apos;s Kiosk Mode.<br/>
-        /// - Planner-Imported: An account user imported the invitee&apos;s registration into the event.<br/>
+        /// - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.<br/>
+        /// - Planner-Imported: An account user imported the invitee's registration into the event.<br/>
         /// - Planner-Responded: An account user registered the invitee from the Cvent back-end or the planner-side of the OnArrival app.<br/>
-        /// - Post Event: The invitee was registered by an account user after the event&apos;s end date or while the event was in Completed status.<br/>
+        /// - Post Event: The invitee was registered by an account user after the event's end date or while the event was in Completed status.<br/>
         /// - Self-Responded: The invitee registered themselves through a weblink or invitation.<br/>
         /// <br/>
-        /// Note: The responseMethod can only be set if the invitee&apos;s status is No Response.
-        /// </remarks>
+        /// Note: The responseMethod can only be set if the invitee's status is No Response.
         /// </summary>
         [JsonProperty("responseMethod")]
         public AttendeeResponseMethodJson? ResponseMethod { get; set; }
 
         /// <summary>
-        /// A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the &apos;contact&apos; model, `customFields` field instead.
+        /// A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the 'contact' model, `customFields` field instead.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("questions")]
-        public List<CustomField>? Questions { get; set; }
+        public List<CustomFieldJson3>? Questions { get; set; }
 
         /// <summary>
         /// The list of answers to the registration questions.
@@ -248,7 +244,7 @@ namespace Cvent.SDK.Models.Components
         public List<AttendeeAnswerJson>? Answers { get; set; }
 
         /// <summary>
-        /// Contains details related to the attendee&apos;s admission item.
+        /// Contains details related to the attendee's admission item.
         /// </summary>
         [JsonProperty("admissionItem")]
         public AttendeeLookup? AdmissionItem { get; set; }
@@ -260,7 +256,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeVisibilityJson? Visibility { get; set; }
 
         /// <summary>
-        /// The attendee&apos;s biographical writeup.
+        /// The attendee's biographical writeup.
         /// </summary>
         [JsonProperty("bio")]
         public string? Bio { get; set; }
@@ -273,7 +269,7 @@ namespace Cvent.SDK.Models.Components
         public bool? ShowPopupNotification { get; set; }
 
         /// <summary>
-        /// An attendee&apos;s website URL, appears on their profile.
+        /// An attendee's website URL, appears on their profile.
         /// </summary>
         [JsonProperty("websiteUrl")]
         public string? WebsiteUrl { get; set; }
@@ -297,7 +293,7 @@ namespace Cvent.SDK.Models.Components
         public bool? TestRecord { get; set; }
 
         /// <summary>
-        /// The ISO 8601 zoned date-time indicates when the attendee&apos;s non-contact properties were modified. Updates to the attendee&apos;s contact properties do not update this field. This field is updated when planners or attendees make changes to the attendee record, such as flagging as a participant. It is not updated for registration or product changes.
+        /// The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified. Updates to the attendee's contact properties do not update this field. This field is updated when planners or attendees make changes to the attendee record, such as flagging as a participant. It is not updated for registration or product changes.
         /// </summary>
         [JsonProperty("attendeeLastModified")]
         public DateTime? AttendeeLastModified { get; set; }

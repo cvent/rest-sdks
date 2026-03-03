@@ -562,8 +562,8 @@ var sdk = new CventSDK(security: new Security() {
 
 GetHousingEventReservationsRequest req = new GetHousingEventReservationsRequest() {
     HousingEventId = 35325345,
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Limit = 10,
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "attendeeType.id eq 10345 and hotel.id eq 11355",
@@ -650,12 +650,12 @@ ReservationRequestInput req = new ReservationRequestInput() {
     MembershipId = "1154example",
     TravelDetails = new TravelDetailsJson() {
         Arrival = new TravelDepartureArrivalJson() {
-            Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+            Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
         },
         Departure = new TravelDepartureArrivalJson() {
-            Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+            Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
         },
@@ -841,12 +841,12 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
         MembershipId = "1154example",
         TravelDetails = new TravelDetailsJson() {
             Arrival = new TravelDepartureArrivalJson() {
-                Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+                Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
             },
             Departure = new TravelDepartureArrivalJson() {
-                Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+                Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
             },
@@ -1071,12 +1071,12 @@ NewReservation req = new NewReservation() {
     MembershipId = "1154example",
     TravelDetails = new TravelDetailsJson() {
         Arrival = new TravelDepartureArrivalJson() {
-            Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+            Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
         },
         Departure = new TravelDepartureArrivalJson() {
-            Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+            Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
         },
@@ -1262,12 +1262,12 @@ UpdateReservationSyncRequest req = new UpdateReservationSyncRequest() {
         MembershipId = "1154example",
         TravelDetails = new TravelDetailsJson() {
             Arrival = new TravelDepartureArrivalJson() {
-                Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+                Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
             },
             Departure = new TravelDepartureArrivalJson() {
-                Time = System.DateTime.Parse("2024-12-01T00:00:00Z"),
+                Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
             },

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Booth staff with an associated ID.
     /// </summary>
     public class BoothStaffResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -45,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// A JSON Schema for an Attendee object
+        /// A JSON Schema for an Attendee object.
         /// </summary>
         [JsonProperty("attendee")]
         public AttendeeJson3 Attendee { get; set; } = default!;

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Member&apos;s social media links.
+    /// Member's social media links.
     /// </summary>
     public class SocialMediaLinksJson
     {
-
         /// <summary>
         /// Represents a link to a related resource.
         /// </summary>

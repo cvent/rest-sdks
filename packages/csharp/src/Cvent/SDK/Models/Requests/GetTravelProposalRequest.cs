@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetTravelProposalRequest
     {
-
         /// <summary>
         /// Unique ID of a travel proposal.
         /// </summary>

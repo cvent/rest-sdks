@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Used to denote a sessions location.
     /// </summary>
     public class SessionLocation
     {
-
         /// <summary>
         /// A string that represents a specified location.
         /// </summary>

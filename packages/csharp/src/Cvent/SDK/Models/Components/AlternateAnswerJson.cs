@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents the answer(s) to an alternate travel question submitted by an attendee.
     /// </summary>
     public class AlternateAnswerJson
     {
-
         /// <summary>
         /// The set of answers to a single alternate travel question.
         /// </summary>

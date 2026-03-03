@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Generic sample name. Not a real model used by any Cvent service.
     /// </summary>
     public class GroupJson0
     {
-
         /// <summary>
         /// The list of schemas using this resource.
         /// </summary>

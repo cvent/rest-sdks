@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class CreateExhibitorRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor details
+        /// Exhibitor details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ExhibitorRequest ExhibitorRequest { get; set; } = default!;

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents the admission item associated to the question, if any. Blank if no admission item is associated. In addition, only one of the `session` or `admissionItem` object are populated - never both.
     /// </summary>
     public class EventQuestionJsonAdmissionItem
     {
-
         /// <summary>
         /// ID of the admission item associated with the question.
         /// </summary>

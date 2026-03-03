@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A web-link for an activity exhibitor.
     /// </summary>
     public class ActivityExhibitorWebLinkJson
     {
-
         /// <summary>
         /// The unique identifier of the weblink.
         /// </summary>

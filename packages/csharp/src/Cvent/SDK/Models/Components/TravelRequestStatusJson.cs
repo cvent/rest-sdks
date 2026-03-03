@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Status of the travel request done by attendee.
     /// </summary>
@@ -72,5 +72,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum TravelRequestStatusJson");
         }
     }
-
 }

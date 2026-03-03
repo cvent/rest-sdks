@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Schema for proposal.
     /// </summary>
     public class ProposalResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -107,7 +106,7 @@ namespace Cvent.SDK.Models.Components
         public bool? CommissionableBid { get; set; }
 
         /// <summary>
-        /// The proposal&apos;s commission rate.
+        /// The proposal's commission rate.
         /// </summary>
         [JsonProperty("commissionRate")]
         public double? CommissionRate { get; set; }
@@ -144,13 +143,13 @@ namespace Cvent.SDK.Models.Components
         public CategoryItemsCostJson? CategoryItemsCost { get; set; }
 
         /// <summary>
-        /// The aggregated cost
+        /// The aggregated cost.
         /// </summary>
         [JsonProperty("aggregatedCost")]
         public AggregatedCostJson? AggregatedCost { get; set; }
 
         /// <summary>
-        /// The estimated cost
+        /// The estimated cost.
         /// </summary>
         [JsonProperty("estimatedCost")]
         public EstimatedCostJson? EstimatedCost { get; set; }
@@ -174,7 +173,7 @@ namespace Cvent.SDK.Models.Components
         public MeetingRoomJson? MeetingRoom { get; set; }
 
         /// <summary>
-        /// The latest transaction that took place on a given proposal
+        /// The latest transaction that took place on a given proposal.
         /// </summary>
         [JsonProperty("transaction")]
         public TransactionJson1? Transaction { get; set; }

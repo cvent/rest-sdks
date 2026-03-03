@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The rate (cost) information for a travel bid.
     /// </summary>
     public class TravelBidRateJson
     {
-
         /// <summary>
-        /// Rate level
+        /// Rate level.
         /// </summary>
         [JsonProperty("level")]
         public RateLevelTypeJson? Level { get; set; }

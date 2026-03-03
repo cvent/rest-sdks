@@ -51,7 +51,7 @@ export type GetAttendeeCreditsRequest = {
    * The following fields are expandable:
    *   * creditType(Includes only the `creditType.name` in the response. A full list of properties for `creditType` is not currently provided).
    */
-  expand?: Array<components.Expand2> | undefined;
+  expand?: Array<components.Expand1> | undefined;
   /**
    * A filter query string narrows search
    *
@@ -104,7 +104,7 @@ export const GetAttendeeCreditsRequest$outboundSchema: z.ZodType<
   limit: z.number().int().default(100),
   token: z.string().optional(),
   sort: z.string().optional(),
-  expand: z.array(components.Expand2$outboundSchema).optional(),
+  expand: z.array(components.Expand1$outboundSchema).optional(),
   filter: z.string().optional(),
 });
 

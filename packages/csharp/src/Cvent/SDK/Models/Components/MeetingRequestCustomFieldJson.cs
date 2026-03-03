@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Custom field for a meeting request.
     /// </summary>
     public class MeetingRequestCustomFieldJson
     {
-
         /// <summary>
         /// The unique ID representing this custom field.
         /// </summary>

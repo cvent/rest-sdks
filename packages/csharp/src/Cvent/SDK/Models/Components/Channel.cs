@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The channel object
+    /// The channel object.
     /// </summary>
     public class Channel
     {
-
         /// <summary>
         /// Identifier for the channel.
         /// </summary>

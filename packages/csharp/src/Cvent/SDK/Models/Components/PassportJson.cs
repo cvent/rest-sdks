@@ -11,20 +11,16 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// This entity represents a contact&apos;s passport information.
+    /// This entity represents a contact's passport information.
     /// </summary>
     public class PassportJson
     {
-
         /// <summary>
         /// The passport number of the contact.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
-        /// </remarks>
         /// </summary>
         [JsonProperty("number")]
         public string? Number { get; set; }

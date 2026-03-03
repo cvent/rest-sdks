@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A speaker file-downloaded activity.
     /// </summary>
     public class SpeakerFileDownloaded
     {
-
         /// <summary>
         /// The name of the web browser.
         /// </summary>

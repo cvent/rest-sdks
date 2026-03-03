@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetSchemaRequest
     {
-
         /// <summary>
         /// Unique ID for a schema.
         /// </summary>

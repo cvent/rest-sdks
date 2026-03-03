@@ -97,7 +97,7 @@ public class CreateExternalAttendeeActivityMetadata {
                     typeReference);
             SerializedBody serializedRequestBody = Utils.serializeRequestBody(
                     convertedRequest,
-                    "request",
+                    "",
                     "json",
                     false);
             if (serializedRequestBody == null) {

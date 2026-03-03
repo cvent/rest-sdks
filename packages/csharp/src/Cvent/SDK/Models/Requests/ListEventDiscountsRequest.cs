@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListEventDiscountsRequest
     {
-
         /// <summary>
         /// Unique ID of an event.
         /// </summary>
@@ -29,19 +28,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>
-        /// 
-        /// <remarks>
         /// search results as a priority ordered list of sorts.<br/>
         /// <br/>
         /// There are two orders:<br/>
@@ -55,18 +48,14 @@ namespace Cvent.SDK.Models.Requests
         ///   * effectiveTo<br/>
         ///   * effectiveFrom<br/>
         ///   * type<br/>
-        ///   * level<br/>
-        /// 
-        /// </remarks>
+        ///   * level.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sort")]
         public string? Sort { get; set; }
 
         /// <summary>
         /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// <br/>
         /// There are two comparison types that can be used in filter expressions:<br/>
         ///    * equal: eq<br/>
@@ -80,9 +69,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// The following operators are available:<br/>
         ///    * and<br/>
-        ///    * or<br/>
-        /// 
-        /// </remarks>
+        ///    * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

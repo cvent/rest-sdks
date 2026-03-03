@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// This is used to denote the type of discount
+    /// This is used to denote the type of discount.
     /// </summary>
     public enum DiscountTypeJson
     {
@@ -58,5 +58,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum DiscountTypeJson");
         }
     }
-
 }

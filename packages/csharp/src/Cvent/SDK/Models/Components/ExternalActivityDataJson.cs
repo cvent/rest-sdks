@@ -58,7 +58,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     /// <summary>
     /// This is used to denote the type of the external attendee activity.
     /// </summary>

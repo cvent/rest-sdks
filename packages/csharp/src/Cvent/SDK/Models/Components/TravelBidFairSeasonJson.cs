@@ -14,15 +14,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The fair season for a travel bid.
     /// </summary>
     public class TravelBidFairSeasonJson
     {
-
         /// <summary>
-        /// Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply
+        /// Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply.
         /// </summary>
         [JsonProperty("type")]
         public FairSeasonTypeJson? Type { get; set; } = Cvent.SDK.Models.Components.FairSeasonTypeJson.Negotiated;

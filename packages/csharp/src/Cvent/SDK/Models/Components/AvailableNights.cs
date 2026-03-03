@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// List of available room nights and the availabilities associated details.
     /// </summary>
     public class AvailableNights
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>

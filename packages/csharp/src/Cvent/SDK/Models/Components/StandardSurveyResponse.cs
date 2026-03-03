@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A standard survey response.
     /// </summary>
     public class StandardSurveyResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Response ID
+        /// Response ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -80,7 +79,7 @@ namespace Cvent.SDK.Models.Components
         public UuidJson? Survey { get; set; }
 
         /// <summary>
-        /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question
+        /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question.
         /// </summary>
         [JsonProperty("loopingChoice")]
         public LoopingChoiceJson? LoopingChoice { get; set; }

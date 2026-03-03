@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of a location.
     /// </summary>
     public class LocationJson
     {
-
         /// <summary>
         /// The unique ID representing the location.
         /// </summary>

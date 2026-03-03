@@ -135,8 +135,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListWebcastsRequest req = new ListWebcastsRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "event.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and sourceId ne 'sampleWebcastSystemId'",
 };
@@ -194,8 +194,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListAttendeeLinksRequest req = new ListAttendeeLinksRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and event.id eq '55ca6645-0dc3-487b-953e-86d6abbdf7d3'",
 };
@@ -253,8 +253,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListPlayersRequest req = new ListPlayersRequest() {
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "webcast.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
 };
@@ -614,8 +614,8 @@ var sdk = new CventSDK(security: new Security() {
 
 ListWebcastAttendeeLinksRequest req = new ListWebcastAttendeeLinksRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    After = System.DateTime.Parse("2017-01-02T02:00:00Z"),
-    Before = System.DateTime.Parse("2017-01-02T02:00:00Z"),
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
 };

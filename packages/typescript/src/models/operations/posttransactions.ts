@@ -19,8 +19,8 @@ export type PostTransactionsRequest = {
    * transaction equal to the remaining amount of the order.
    */
   partialPayment?: boolean | undefined;
-  createTransactionRequest?:
-    | components.CreateTransactionRequestInput
+  createTransactionResponse?:
+    | components.CreateTransactionResponseInput
     | undefined;
 };
 
@@ -28,8 +28,8 @@ export type PostTransactionsRequest = {
 export type PostTransactionsRequest$Outbound = {
   id: string;
   partialPayment: boolean;
-  "create-transaction-request"?:
-    | components.CreateTransactionRequestInput$Outbound
+  "create-transaction-response"?:
+    | components.CreateTransactionResponseInput$Outbound
     | undefined;
 };
 
@@ -41,11 +41,11 @@ export const PostTransactionsRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   partialPayment: z.boolean().default(false),
-  createTransactionRequest: components
-    .CreateTransactionRequestInput$outboundSchema.optional(),
+  createTransactionResponse: components
+    .CreateTransactionResponseInput$outboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
-    createTransactionRequest: "create-transaction-request",
+    createTransactionResponse: "create-transaction-response",
   });
 });
 

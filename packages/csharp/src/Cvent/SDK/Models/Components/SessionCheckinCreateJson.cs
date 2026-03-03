@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents an attendee to be checked into a session.
     /// </summary>
     public class SessionCheckinCreateJson
     {
-
         /// <summary>
         /// ID of an attendee to be checked in to a session.
         /// </summary>

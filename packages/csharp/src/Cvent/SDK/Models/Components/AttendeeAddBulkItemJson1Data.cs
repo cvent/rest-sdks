@@ -52,7 +52,6 @@ namespace Cvent.SDK.Models.Components
         }
     }
 
-
     [JsonConverter(typeof(AttendeeAddBulkItemJson1Data.AttendeeAddBulkItemJson1DataConverter))]
     public class AttendeeAddBulkItemJson1Data
     {

@@ -11,21 +11,20 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A Named object
+    /// A Named object.
     /// </summary>
     public class IdNameJson
     {
-
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the object
+        /// Name of the object.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

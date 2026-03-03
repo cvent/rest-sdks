@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// The model representing a bulk job that can load data asynchronously including the data
+    /// The model representing a bulk job that can load data asynchronously including the data.
     /// </summary>
     public class BulkJobWithDataInput
     {
-
         /// <summary>
         /// Description of the bulk job.
         /// </summary>
@@ -51,7 +50,7 @@ namespace Cvent.SDK.Models.Components
         public Dictionary<string, string>? QueryParams { get; set; }
 
         /// <summary>
-        /// Collection of objects to be processed
+        /// Collection of objects to be processed.
         /// </summary>
         [JsonProperty("data")]
         public List<BulkDataPropertyJson>? Data { get; set; }

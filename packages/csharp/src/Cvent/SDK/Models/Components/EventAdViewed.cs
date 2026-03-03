@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Viewed an Event Ad.
     /// </summary>
     public class EventAdViewed
     {
-
         /// <summary>
         /// The event in which this activity occurred.
         /// </summary>

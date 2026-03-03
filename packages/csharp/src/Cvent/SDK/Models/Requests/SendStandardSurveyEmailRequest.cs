@@ -10,24 +10,23 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class SendStandardSurveyEmailRequest
     {
-
         /// <summary>
-        /// Id of a survey or Id of a chapter in event survey
+        /// Id of a survey or Id of a chapter in event survey.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
         public string SurveyId { get; set; } = default!;
 
         /// <summary>
-        /// Id of a respondent
+        /// Id of a respondent.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=respondentId")]
         public string RespondentId { get; set; } = default!;
 
         /// <summary>
-        /// Id of an email template
+        /// Id of an email template.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=emailTemplateId")]
         public string EmailTemplateId { get; set; } = default!;

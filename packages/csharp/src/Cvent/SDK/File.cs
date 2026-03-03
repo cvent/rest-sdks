@@ -24,80 +24,96 @@ namespace Cvent.SDK
 
     /// <summary>
     /// Allows you to upload files and get file location using the file ID. File ID can be used with other APIs to associate the file to an entity. For example:<br/>
-    /// 
-    /// <remarks>
-    /// * &lt;a href=&quot;#operation/addSessionDoc&quot;&gt;Add Document To Session&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/addSpeakerDoc&quot;&gt;Add Document To Speaker&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/assignContactProfileImage&quot;&gt;Assign Contact Profile Picture&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/updateExhibitorCategoryBanner&quot;&gt;Assign Banner to Exhibitor Category&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/updateExhibitorBanner&quot;&gt;Assign Exhibitor Banner Image&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/updateExhibitorLogo&quot;&gt;Assign Exhibitor Logo Image&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/assignSpeakerProfileImage&quot;&gt;Assign Speaker Profile Picture&lt;/a&gt;<br/>
-    /// 
-    /// </remarks>
+    /// * <a href="#operation/addSessionDoc">Add Document To Session</a>
+    /// * <a href="#operation/addSpeakerDoc">Add Document To Speaker</a>
+    /// * <a href="#operation/assignContactProfileImage">Assign Contact Profile Picture</a>
+    /// * <a href="#operation/updateExhibitorCategoryBanner">Assign Banner to Exhibitor Category</a>
+    /// * <a href="#operation/updateExhibitorBanner">Assign Exhibitor Banner Image</a>
+    /// * <a href="#operation/updateExhibitorLogo">Assign Exhibitor Logo Image</a>
+    /// * <a href="#operation/assignSpeakerProfileImage">Assign Speaker Profile Picture</a>
     /// </summary>
     public interface IFile
     {
-
         /// <summary>
-        /// Upload a File
-        /// 
+        /// Upload a File<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The file ID can be used with other APIs to associate the file with an entity. Unassociated files expire within 30 days.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<UploadFileResponse> UploadFileAsync(FileUpload? request = null);
+        /// <param name="request">A <see cref="FileUpload"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadFileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UploadFileResponse> UploadFileAsync(FileUpload? request = null);
 
         /// <summary>
-        /// Get File Location
-        /// 
+        /// Get File Location<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
         /// <remarks>
         /// Returns the file upload location for the specified file ID.
         /// </remarks>
-        /// 
-        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
-        /// </summary>
-        Task<GetFileResponse> GetFileAsync(GetFileRequest request);
+        /// <param name="request">A <see cref="GetFileRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetFileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetFileResponse> GetFileAsync(GetFileRequest request);
     }
 
     /// <summary>
     /// Allows you to upload files and get file location using the file ID. File ID can be used with other APIs to associate the file to an entity. For example:<br/>
-    /// 
-    /// <remarks>
-    /// * &lt;a href=&quot;#operation/addSessionDoc&quot;&gt;Add Document To Session&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/addSpeakerDoc&quot;&gt;Add Document To Speaker&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/assignContactProfileImage&quot;&gt;Assign Contact Profile Picture&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/updateExhibitorCategoryBanner&quot;&gt;Assign Banner to Exhibitor Category&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/updateExhibitorBanner&quot;&gt;Assign Exhibitor Banner Image&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/updateExhibitorLogo&quot;&gt;Assign Exhibitor Logo Image&lt;/a&gt;<br/>
-    /// * &lt;a href=&quot;#operation/assignSpeakerProfileImage&quot;&gt;Assign Speaker Profile Picture&lt;/a&gt;<br/>
-    /// 
-    /// </remarks>
+    /// * <a href="#operation/addSessionDoc">Add Document To Session</a>
+    /// * <a href="#operation/addSpeakerDoc">Add Document To Speaker</a>
+    /// * <a href="#operation/assignContactProfileImage">Assign Contact Profile Picture</a>
+    /// * <a href="#operation/updateExhibitorCategoryBanner">Assign Banner to Exhibitor Category</a>
+    /// * <a href="#operation/updateExhibitorBanner">Assign Exhibitor Banner Image</a>
+    /// * <a href="#operation/updateExhibitorLogo">Assign Exhibitor Logo Image</a>
+    /// * <a href="#operation/assignSpeakerProfileImage">Assign Speaker Profile Picture</a>
     /// </summary>
     public class File: IFile
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public File(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<UploadFileResponse> UploadFileAsync(FileUpload? request = null)
+        /// <summary>
+        /// Upload a File<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The file ID can be used with other APIs to associate the file with an entity. Unassociated files expire within 30 days.
+        /// </remarks>
+        /// <param name="request">A <see cref="FileUpload"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadFileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UploadFileResponse> UploadFileAsync(FileUpload? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/files";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "multipart", false, true);
             if (serializedBody != null)
@@ -120,7 +136,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -129,9 +145,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -207,13 +223,35 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetFileResponse> GetFileAsync(GetFileRequest request)
+
+        /// <summary>
+        /// Get File Location<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Returns the file upload location for the specified file ID.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetFileRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetFileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetFileResponse> GetFileAsync(GetFileRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/files/{id}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -230,7 +268,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -239,9 +277,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -316,5 +354,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

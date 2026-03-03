@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// The estimated cost
+    /// The estimated cost.
     /// </summary>
     public class EstimatedCostJson
     {
-
         /// <summary>
         /// Guest room cost.
         /// </summary>

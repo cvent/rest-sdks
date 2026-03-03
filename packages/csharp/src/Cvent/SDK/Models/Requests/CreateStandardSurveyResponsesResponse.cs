@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class CreateStandardSurveyResponsesResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully created a response
+        /// Successfully created a response.
         /// </summary>
         public StandardSurveyResponse? StandardSurveyResponse { get; set; }
     }

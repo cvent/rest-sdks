@@ -292,7 +292,7 @@ public class Session {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<CustomField> customFields;
+    private List<CustomFieldJson2> customFields;
 
     /**
      * Contains unique identifiers for segments associated with this session.
@@ -364,7 +364,7 @@ public class Session {
             @JsonProperty("registrationTypes") @Nullable List<String> registrationTypes,
             @JsonProperty("presentationType") @Nullable String presentationType,
             @JsonProperty("dataTagCode") @Nullable String dataTagCode,
-            @JsonProperty("customFields") @Nullable List<CustomField> customFields,
+            @JsonProperty("customFields") @Nullable List<CustomFieldJson2> customFields,
             @JsonProperty("segments") @Nullable List<String> segments,
             @JsonProperty("order") @Nullable Long order,
             @JsonProperty("includedSession") @Nullable Boolean includedSession,
@@ -706,7 +706,7 @@ public class Session {
     /**
      * Collection of custom fields.
      */
-    public Optional<List<CustomField>> customFields() {
+    public Optional<List<CustomFieldJson2>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -1084,7 +1084,7 @@ public class Session {
     /**
      * Collection of custom fields.
      */
-    public Session withCustomFields(@Nullable List<CustomField> customFields) {
+    public Session withCustomFields(@Nullable List<CustomFieldJson2> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -1324,7 +1324,7 @@ public class Session {
 
         private String dataTagCode;
 
-        private List<CustomField> customFields;
+        private List<CustomFieldJson2> customFields;
 
         private List<String> segments;
 
@@ -1639,7 +1639,7 @@ public class Session {
         /**
          * Collection of custom fields.
          */
-        public Builder customFields(@Nullable List<CustomField> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldJson2> customFields) {
             this.customFields = customFields;
             return this;
         }

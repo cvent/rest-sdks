@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An activity lead.
     /// </summary>
     public class ActivityLeadJson
     {
-
         /// <summary>
-        /// Activity Lead ID
+        /// Activity Lead ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

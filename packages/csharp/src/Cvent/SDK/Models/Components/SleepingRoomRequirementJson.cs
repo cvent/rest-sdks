@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The requirements of a sleeping room on the specified date.
     /// </summary>
     public class SleepingRoomRequirementJson
     {
-
         /// <summary>
         /// The date for the sleeping room, in format of YYYY-MM-DD.
         /// </summary>

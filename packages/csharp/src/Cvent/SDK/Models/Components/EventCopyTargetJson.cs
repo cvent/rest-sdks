@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents the target event information for an event copy operation.
     /// </summary>
     public class EventCopyTargetJson
     {
-
         /// <summary>
         /// The ID of an existing event that you want to copy the source event data into. If this value is not present, a new event is created.
         /// </summary>

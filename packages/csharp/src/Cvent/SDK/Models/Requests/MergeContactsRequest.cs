@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class MergeContactsRequest
     {
-
         /// <summary>
         /// ID of a contact.
         /// </summary>
@@ -22,9 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Merge the &apos;main&apos; contact with one or two other &apos;secondary&apos; contacts. By default, the main contact&apos;s values will be used for the merged contact if present. Otherwise, the secondary contact&apos;s value is used. For contact memberships and contact profile image, only the main contact&apos;s data is used.<br/>
-        /// 
-        /// <remarks>
+        /// Merge the 'main' contact with one or two other 'secondary' contacts. By default, the main contact's values will be used for the merged contact if present. Otherwise, the secondary contact's value is used. For contact memberships and contact profile image, only the main contact's data is used.<br/>
         /// <br/>
         /// When merging contacts that contain secure fields, the `event/contacts:write-sensitive` scope is required.<br/>
         /// <br/>
@@ -68,16 +65,14 @@ namespace Cvent.SDK.Models.Requests
         ///     - `customField.{uuid of custom field}`<br/>
         /// * **events**: A conflict arises for an event if it contains attendees associated with at least two of the provided contacts.<br/>
         ///   - You must provide the ID of the conflicted event and the ID of the contact whose attendee is to be associated with the merged contact to continue with the merge.<br/>
-        ///   - Attendees with a &apos;No Response&apos; or &apos;Visited&apos; status whose linked contacts are not chosen in this step will be deleted. Attendees with other statuses will be kept but will be associated with an inactive contact.<br/>
+        ///   - Attendees with a 'No Response' or 'Visited' status whose linked contacts are not chosen in this step will be deleted. Attendees with other statuses will be kept but will be associated with an inactive contact.<br/>
         /// <br/>
         /// * **surveys**: A conflict arises for a survey containing respondents associated with at least two of the provided contacts.<br/>
         ///   - You must provide the ID of the conflicted survey and the ID of the contact whose respondent will be associated with the merged contact to continue with the merge.<br/>
-        ///   - Respondents with a &apos;No Response&apos; or &apos;Visited&apos; status whose linked contacts are not chosen in this step will be deleted. Respondents with other statuses will be kept but will be associated with an inactive contact.<br/>
+        ///   - Respondents with a 'No Response' or 'Visited' status whose linked contacts are not chosen in this step will be deleted. Respondents with other statuses will be kept but will be associated with an inactive contact.<br/>
         ///   - Only legacy surveys support merge functionality at this time.<br/>
-        /// * **contactRelationships**: By default, the main contact&apos;s relationships are carried over to the merged contact, and those of the other contact(s) are discarded. This is the default regardless of whether the main contact has relationships or not.<br/>
-        ///   - You can provide a secondary contact&apos;s ID to carry over its relationships instead of the main contact. Only one contact&apos;s relationships can be carried over.<br/>
-        /// 
-        /// </remarks>
+        /// * **contactRelationships**: By default, the main contact's relationships are carried over to the merged contact, and those of the other contact(s) are discarded. This is the default regardless of whether the main contact has relationships or not.<br/>
+        ///   - You can provide a secondary contact's ID to carry over its relationships instead of the main contact. Only one contact's relationships can be carried over.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ContactMerge ContactMerge { get; set; } = default!;

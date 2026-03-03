@@ -11,25 +11,20 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateSessionRequest
     {
-
         /// <summary>
-        /// Unique Id of a session
+        /// Unique Id of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Contains values that you&apos;ll update the session with.<br/>
-        /// 
-        /// <remarks>
+        /// Contains values that you'll update the session with.<br/>
         /// Passing a null value in a field renders the field blank.<br/>
         /// Omitting a field from the request body renders the field blank<br/>
-        /// on the session record.<br/>
-        /// 
-        /// </remarks>
+        /// on the session record.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public SessionUpdate SessionUpdate { get; set; } = default!;

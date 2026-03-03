@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object representing the possible answers for lead qualification questions.
     /// </summary>
     public class AnswerJson
     {
-
         /// <summary>
-        /// Type of answer
+        /// Type of answer.
         /// </summary>
         [JsonProperty("type")]
         public AnswerTypeJson Type { get; set; } = default!;

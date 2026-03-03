@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Venue Address details
+    /// Venue Address details.
     /// </summary>
     public class VenueAddressJson
     {
-
         /// <summary>
         /// The first line of an address.
         /// </summary>
@@ -67,7 +66,7 @@ namespace Cvent.SDK.Models.Components
         public string? RegionCode { get; set; }
 
         /// <summary>
-        /// Name of the country for example, &apos;United States&apos;
+        /// Name of the country for example, 'United States'
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }

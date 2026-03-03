@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Card details associated with an event.
     /// </summary>
     public class CardDetailsJson
     {
-
         /// <summary>
         /// The identifier of the Event.
         /// </summary>
@@ -34,13 +33,13 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Card&apos;s first six digits.
+        /// Card's first six digits.
         /// </summary>
         [JsonProperty("first6")]
         public string? First6 { get; set; }
 
         /// <summary>
-        /// Card&apos;s last four digits.
+        /// Card's last four digits.
         /// </summary>
         [JsonProperty("last4")]
         public string? Last4 { get; set; }
@@ -136,7 +135,7 @@ namespace Cvent.SDK.Models.Components
         public string? CardHolderName { get; set; }
 
         /// <summary>
-        /// Card&apos;s last seven digits.
+        /// Card's last seven digits.
         /// </summary>
         [JsonProperty("last7")]
         public string? Last7 { get; set; }

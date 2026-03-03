@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Unique URL for a guest to access a reservation in Passkey&apos;s booking tool.
+    /// Unique URL for a guest to access a reservation in Passkey's booking tool.
     /// </summary>
     public class BookingWebsiteLinkJson
     {
-
         /// <summary>
-        /// A url provided that can be followed for linking
+        /// A url provided that can be followed for linking.
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; } = default!;

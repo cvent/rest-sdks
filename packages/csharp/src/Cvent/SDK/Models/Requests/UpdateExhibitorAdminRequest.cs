@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateExhibitorAdminRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -34,7 +33,7 @@ namespace Cvent.SDK.Models.Requests
         public string AdminId { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Admin details
+        /// Exhibitor Admin details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ExhibitorAdminRequest ExhibitorAdminRequest { get; set; } = default!;

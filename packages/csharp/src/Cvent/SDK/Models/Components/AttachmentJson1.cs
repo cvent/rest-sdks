@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A message attachment.
     /// </summary>
     public class AttachmentJson1
     {
-
         /// <summary>
-        /// A link to the attachment allowing it to be downloaded
+        /// A link to the attachment allowing it to be downloaded.
         /// </summary>
         [JsonProperty("link")]
         public string Link { get; set; } = default!;

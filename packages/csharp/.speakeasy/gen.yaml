@@ -13,6 +13,8 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
@@ -22,6 +24,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   mockServer:
     disabled: false
   persistentEdits:
@@ -31,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 1.0.8
+  version: 1.0.9
   additionalDependencies: []
   author: Cvent
   baseErrorName: CventSDKException
@@ -40,6 +43,7 @@ csharp:
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0
   enableCancellationToken: false
+  enableFormatting: false
   enableSourceLink: true
   flattenGlobalSecurity: false
   flatteningOrder: parameters-first
@@ -61,6 +65,7 @@ csharp:
   outputModelSuffix: output
   packageName: Cvent.SDK
   packageTags: Cvent
+  respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope-http
   sourceDirectory: src
   useNodatime: false

@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The travel account that the supplier account is associated with.
     /// </summary>
     public class TravelAccountSupplierAccountTravelAccount
     {
-
         /// <summary>
         /// A uuid used to uniquely identify the travel account.
         /// </summary>

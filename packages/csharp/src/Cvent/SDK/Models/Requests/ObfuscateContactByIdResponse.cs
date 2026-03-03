@@ -13,18 +13,17 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class ObfuscateContactByIdResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully initiated obfuscation of the contact. Check the &lt;a href=&quot;#operation/getContactObfuscationStatusById&quot;&gt;contact&apos;s obfuscation status&lt;/a&gt;.
+        /// Successfully initiated obfuscation of the contact. Check the <a href="#operation/getContactObfuscationStatusById">contact's obfuscation status</a>.
         /// </summary>
         public ContactObfuscationStatus? ContactObfuscationStatus { get; set; }
 
-        public Dictionary<string, List<string>> Headers { get; set; } = default!;
+        public Dictionary<string, List<string>> Headers { get; set; } = new Dictionary<string, List<string>>();
     }
 }

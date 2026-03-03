@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Generic sample name. Not a real model used by any Cvent service.
     /// </summary>
     public class GroupJson
     {
-
         /// <summary>
         /// The unique ID of the SCIM group.
         /// </summary>

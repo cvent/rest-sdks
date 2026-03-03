@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Parent survey detail object. It can be of two types namely: &apos;Event&apos; and &apos;Standalone&apos;
+    /// Parent survey detail object. It can be of two types namely: 'Event' and 'Standalone'
     /// </summary>
     public class SurveyJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -46,37 +45,37 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Id of the survey or Id of the chapter in case of event survey
+        /// Id of the survey or Id of the chapter in case of event survey.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Title of the survey or Title of the chapter in case of event survey
+        /// Title of the survey or Title of the chapter in case of event survey.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// Survey Code or Chapter Code in case of event survey
+        /// Survey Code or Chapter Code in case of event survey.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// Timezone of the survey
+        /// Timezone of the survey.
         /// </summary>
         [JsonProperty("timezone")]
         public string? Timezone { get; set; }
 
         /// <summary>
-        /// Author of the survey
+        /// Author of the survey.
         /// </summary>
         [JsonProperty("author")]
         public SurveyAuthorJson? Author { get; set; }
 
         /// <summary>
-        /// Survey description
+        /// Survey description.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
@@ -94,13 +93,13 @@ namespace Cvent.SDK.Models.Components
         public long? ResponseCount { get; set; }
 
         /// <summary>
-        /// Survey Status
+        /// Survey Status.
         /// </summary>
         [JsonProperty("status")]
         public SurveyStatusJson? Status { get; set; }
 
         /// <summary>
-        /// Describes the survey&apos;s type. `Standalone` indicates the survey exists independent of an event. `Event` indicates the survey is an event or session feedback survey. `Assessment` indicates the survey is associated with an event and is for assessing attendees.
+        /// Describes the survey's type. `Standalone` indicates the survey exists independent of an event. `Event` indicates the survey is an event or session feedback survey. `Assessment` indicates the survey is associated with an event and is for assessing attendees.
         /// </summary>
         [JsonProperty("type")]
         public SurveyTypeJson? Type { get; set; }

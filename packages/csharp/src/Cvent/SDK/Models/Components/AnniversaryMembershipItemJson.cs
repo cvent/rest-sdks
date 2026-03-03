@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents an anniversary-based membership item that renews on the anniversary date of the original purchase.
     /// </summary>
     public class AnniversaryMembershipItemJson
     {
-
         /// <summary>
         /// This text will be displayed in emails using the registration information widget.
         /// </summary>
@@ -118,7 +117,7 @@ namespace Cvent.SDK.Models.Components
         public Duration? Duration { get; set; }
 
         /// <summary>
-        /// Represents a custom membership duration. Required when the duration property is set to &apos;Custom&apos;.
+        /// Represents a custom membership duration. Required when the duration property is set to 'Custom'.
         /// </summary>
         [JsonProperty("customDuration")]
         public CustomDuration? CustomDuration { get; set; }

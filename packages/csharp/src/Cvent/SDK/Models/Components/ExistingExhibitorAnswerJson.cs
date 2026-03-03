@@ -14,13 +14,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Existing Exhibitor Answer schema
+    /// Existing Exhibitor Answer schema.
     /// </summary>
     public class ExistingExhibitorAnswerJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -64,13 +63,13 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// List of answers
+        /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
         public List<AnswerJson0> Answers { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Answer id
+        /// Exhibitor Answer id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

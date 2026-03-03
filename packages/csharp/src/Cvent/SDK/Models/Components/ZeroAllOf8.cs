@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents an error response for the checkin APIs that includes a unique id.
     /// </summary>
     public class ZeroAllOf8
     {
-
         /// <summary>
         /// The unique identifier for the error response.
         /// </summary>

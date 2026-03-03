@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// This is used to denote the warnings for a video entity.
     /// </summary>
     public class VideoWarningJson
     {
-
         /// <summary>
         /// This is used to denote the warning codes for a video entity.
         /// </summary>

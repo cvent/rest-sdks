@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Representation of an event feature update request
+    /// Representation of an event feature update request.
     /// </summary>
     public class FeatureUpdate
     {
-
         /// <summary>
         /// These are the types of features used in the event container events.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public FeatureTypeJson Type { get; set; } = default!;
 
         /// <summary>
-        /// If a particular feature is enabled for the event
+        /// If a particular feature is enabled for the event.
         /// </summary>
         [JsonProperty("enabled")]
         public bool Enabled { get; set; } = default!;

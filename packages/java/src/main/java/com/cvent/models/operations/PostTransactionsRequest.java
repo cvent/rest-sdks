@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CreateTransactionRequestInput;
+import com.cvent.models.components.CreateTransactionResponseInput;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
@@ -34,18 +34,18 @@ public class PostTransactionsRequest {
 
 
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private CreateTransactionRequestInput createTransactionRequest;
+    private CreateTransactionResponseInput createTransactionResponse;
 
     @JsonCreator
     public PostTransactionsRequest(
             @Nonnull String id,
             @Nullable Boolean partialPayment,
-            @Nullable CreateTransactionRequestInput createTransactionRequest) {
+            @Nullable CreateTransactionResponseInput createTransactionResponse) {
         this.id = Optional.ofNullable(id)
             .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.partialPayment = Optional.ofNullable(partialPayment)
             .orElse(Builder._SINGLETON_VALUE_PartialPayment.value());
-        this.createTransactionRequest = createTransactionRequest;
+        this.createTransactionResponse = createTransactionResponse;
     }
     
     public PostTransactionsRequest(
@@ -69,8 +69,8 @@ public class PostTransactionsRequest {
         return Optional.ofNullable(this.partialPayment);
     }
 
-    public Optional<CreateTransactionRequestInput> createTransactionRequest() {
-        return Optional.ofNullable(this.createTransactionRequest);
+    public Optional<CreateTransactionResponseInput> createTransactionResponse() {
+        return Optional.ofNullable(this.createTransactionResponse);
     }
 
     public static Builder builder() {
@@ -98,8 +98,8 @@ public class PostTransactionsRequest {
     }
 
 
-    public PostTransactionsRequest withCreateTransactionRequest(@Nullable CreateTransactionRequestInput createTransactionRequest) {
-        this.createTransactionRequest = createTransactionRequest;
+    public PostTransactionsRequest withCreateTransactionResponse(@Nullable CreateTransactionResponseInput createTransactionResponse) {
+        this.createTransactionResponse = createTransactionResponse;
         return this;
     }
 
@@ -116,13 +116,13 @@ public class PostTransactionsRequest {
         return 
             Utils.enhancedDeepEquals(this.id, other.id) &&
             Utils.enhancedDeepEquals(this.partialPayment, other.partialPayment) &&
-            Utils.enhancedDeepEquals(this.createTransactionRequest, other.createTransactionRequest);
+            Utils.enhancedDeepEquals(this.createTransactionResponse, other.createTransactionResponse);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, partialPayment, createTransactionRequest);
+            id, partialPayment, createTransactionResponse);
     }
     
     @Override
@@ -130,7 +130,7 @@ public class PostTransactionsRequest {
         return Utils.toString(PostTransactionsRequest.class,
                 "id", id,
                 "partialPayment", partialPayment,
-                "createTransactionRequest", createTransactionRequest);
+                "createTransactionResponse", createTransactionResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -140,7 +140,7 @@ public class PostTransactionsRequest {
 
         private Boolean partialPayment;
 
-        private CreateTransactionRequestInput createTransactionRequest;
+        private CreateTransactionResponseInput createTransactionResponse;
 
         private Builder() {
           // force use of static builder() method
@@ -164,14 +164,14 @@ public class PostTransactionsRequest {
             return this;
         }
 
-        public Builder createTransactionRequest(@Nullable CreateTransactionRequestInput createTransactionRequest) {
-            this.createTransactionRequest = createTransactionRequest;
+        public Builder createTransactionResponse(@Nullable CreateTransactionResponseInput createTransactionResponse) {
+            this.createTransactionResponse = createTransactionResponse;
             return this;
         }
 
         public PostTransactionsRequest build() {
             return new PostTransactionsRequest(
-                id, partialPayment, createTransactionRequest);
+                id, partialPayment, createTransactionResponse);
         }
 
 

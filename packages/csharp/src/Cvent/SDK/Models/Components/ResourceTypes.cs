@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Resource Types
+    /// Resource Types.
     /// </summary>
     public class ResourceTypes
     {
-
         /// <summary>
         /// The collection of user schemas.
         /// </summary>

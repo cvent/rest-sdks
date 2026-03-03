@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Recipient contains the recipient ID of a recipient.
     /// </summary>
     public class RecipientsRequestJson
     {
-
         /// <summary>
-        /// The ID of a recipient whom you&apos;d like to send an email.
+        /// The ID of a recipient whom you'd like to send an email.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

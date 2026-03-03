@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// A hook with a callback URI.
     /// </summary>
     public class HookOutput
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -45,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The unique ID representing the hook
+        /// The unique ID representing the hook.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

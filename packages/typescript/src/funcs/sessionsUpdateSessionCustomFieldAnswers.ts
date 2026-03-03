@@ -40,7 +40,7 @@ export function sessionsUpdateSessionCustomFieldAnswers(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.CustomField,
+    components.CustomField1,
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.CustomField,
+      components.CustomField1,
       | errors.ErrorResponse
       | CventSDKError
       | ResponseValidationError
@@ -92,7 +92,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload["custom-field"], { explode: true });
+  const body = encodeJSON("body", payload["custom-field1"], { explode: true });
 
   const pathParams = {
     customFieldId: encodeSimple("customFieldId", payload.customFieldId, {
@@ -163,7 +163,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.CustomField,
+    components.CustomField1,
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -174,7 +174,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.CustomField$inboundSchema),
+    M.json(200, components.CustomField1$inboundSchema),
     M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetConfigurationResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved the compliance configuration for the account
+        /// Successfully retrieved the compliance configuration for the account.
         /// </summary>
         public CommunicationConfiguration? CommunicationConfiguration { get; set; }
     }

@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Represents a mapping between a session and an audience segment, which is used to enforce session visibility to only those in certain audience segments.
     /// </summary>
     public class SessionSegment
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -72,6 +71,6 @@ namespace Cvent.SDK.Models.Components
         /// True indicates the session segment is active.
         /// </summary>
         [JsonProperty("active")]
-        public bool? Active { get; set; }
+        public bool? Active { get; set; } = true;
     }
 }

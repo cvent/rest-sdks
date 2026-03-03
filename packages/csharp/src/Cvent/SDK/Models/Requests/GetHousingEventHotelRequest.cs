@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetHousingEventHotelRequest
     {
-
         /// <summary>
         /// ID for a Passkey housing event.
         /// </summary>
@@ -21,7 +20,7 @@ namespace Cvent.SDK.Models.Requests
         public long HousingEventId { get; set; } = default!;
 
         /// <summary>
-        /// The hotel&apos;s unique ID.
+        /// The hotel's unique ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=hotelId")]
         public long HotelId { get; set; } = default!;

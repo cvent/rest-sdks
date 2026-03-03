@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class CreateSessionEnrollmentRequest
     {
-
         /// <summary>
         /// Unique ID of a session.
         /// </summary>

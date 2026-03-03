@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetResourceTypeRequest
     {
-
         /// <summary>
         /// Unique ID for a resource.
         /// </summary>

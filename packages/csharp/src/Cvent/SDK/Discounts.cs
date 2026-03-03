@@ -29,64 +29,101 @@ namespace Cvent.SDK
     /// </summary>
     public interface IDiscounts
     {
-
         /// <summary>
-        /// List Event Discounts
-        /// 
-        /// <remarks>
-        /// Returns a paginated list of all discounts used in an event, including both event-specific and account-level discount codes used in an event.<br/>
-        /// 
-        /// </remarks>
+        /// List Event Discounts.
         /// </summary>
-        Task<ListEventDiscountsResponse> ListEventDiscountsAsync(ListEventDiscountsRequest request);
-
-        /// <summary>
-        /// Create Event Discount
-        /// 
         /// <remarks>
-        /// Create discount in an event.<br/>
-        /// 
+        /// Returns a paginated list of all discounts used in an event, including both event-specific and account-level discount codes used in an event.
         /// </remarks>
-        /// </summary>
-        Task<CreateEventDiscountResponse> CreateEventDiscountAsync(CreateEventDiscountRequest request);
+        /// <param name="request">A <see cref="ListEventDiscountsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListEventDiscountsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListEventDiscountsResponse> ListEventDiscountsAsync(ListEventDiscountsRequest request);
 
         /// <summary>
-        /// List Discounted Agenda Items
-        /// 
+        /// Create Event Discount.
+        /// </summary>
         /// <remarks>
-        /// Returns a paginated list of agenda items that are associated with discounts for the specified event.  This endpoint helps identify which agenda items (such as admission items, sessions, session bundles, membership-items or quantity-items) are currently associated with discounts.<br/>
-        /// 
+        /// Create discount in an event.
         /// </remarks>
-        /// </summary>
-        Task<ListDiscountedAgendaItemsResponse> ListDiscountedAgendaItemsAsync(ListDiscountedAgendaItemsRequest request);
+        /// <param name="request">A <see cref="CreateEventDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateEventDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateEventDiscountResponse> CreateEventDiscountAsync(CreateEventDiscountRequest request);
 
         /// <summary>
-        /// Update Event Discount
-        /// 
+        /// List Discounted Agenda Items.
+        /// </summary>
         /// <remarks>
-        /// Update a discount in an event based on details in the request body. Fields not included in the request will revert to their default value.<br/>
-        /// 
+        /// Returns a paginated list of agenda items that are associated with discounts for the specified event.  This endpoint helps identify which agenda items (such as admission items, sessions, session bundles, membership-items or quantity-items) are currently associated with discounts.
         /// </remarks>
-        /// </summary>
-        Task<UpdateEventDiscountResponse> UpdateEventDiscountAsync(UpdateEventDiscountRequest request);
+        /// <param name="request">A <see cref="ListDiscountedAgendaItemsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListDiscountedAgendaItemsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListDiscountedAgendaItemsResponse> ListDiscountedAgendaItemsAsync(
+            ListDiscountedAgendaItemsRequest request
+        );
 
         /// <summary>
-        /// Link Agenda Item to Discount
-        /// 
+        /// Update Event Discount.
+        /// </summary>
+        /// <remarks>
+        /// Update a discount in an event based on details in the request body. Fields not included in the request will revert to their default value.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateEventDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateEventDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateEventDiscountResponse> UpdateEventDiscountAsync(UpdateEventDiscountRequest request);
+
+        /// <summary>
+        /// Link Agenda Item to Discount.
+        /// </summary>
         /// <remarks>
         /// Links an agenda item to a given event discount.
         /// </remarks>
-        /// </summary>
-        Task<LinkAgendaItemToDiscountResponse> LinkAgendaItemToDiscountAsync(LinkAgendaItemToDiscountRequest request);
+        /// <param name="request">A <see cref="LinkAgendaItemToDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="LinkAgendaItemToDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<LinkAgendaItemToDiscountResponse> LinkAgendaItemToDiscountAsync(
+            LinkAgendaItemToDiscountRequest request
+        );
 
         /// <summary>
-        /// Unlink Agenda Item Discount
-        /// 
+        /// Unlink Agenda Item Discount.
+        /// </summary>
         /// <remarks>
         /// Unlinks an agenda item from a given event discount.
         /// </remarks>
-        /// </summary>
-        Task<UnlinkAgendaItemFromDiscountResponse> UnlinkAgendaItemFromDiscountAsync(UnlinkAgendaItemFromDiscountRequest request);
+        /// <param name="request">A <see cref="UnlinkAgendaItemFromDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UnlinkAgendaItemFromDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UnlinkAgendaItemFromDiscountResponse> UnlinkAgendaItemFromDiscountAsync(
+            UnlinkAgendaItemFromDiscountRequest request
+        );
     }
 
     /// <summary>
@@ -94,25 +131,44 @@ namespace Cvent.SDK
     /// </summary>
     public class Discounts: IDiscounts
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Discounts(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListEventDiscountsResponse> ListEventDiscountsAsync(ListEventDiscountsRequest request)
+        /// <summary>
+        /// List Event Discounts.
+        /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of all discounts used in an event, including both event-specific and account-level discount codes used in an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListEventDiscountsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListEventDiscountsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListEventDiscountsResponse> ListEventDiscountsAsync(ListEventDiscountsRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/discounts", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -129,7 +185,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -138,9 +194,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -162,6 +218,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -248,13 +305,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateEventDiscountResponse> CreateEventDiscountAsync(CreateEventDiscountRequest request)
+
+        /// <summary>
+        /// Create Event Discount.
+        /// </summary>
+        /// <remarks>
+        /// Create discount in an event.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateEventDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateEventDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateEventDiscountResponse> CreateEventDiscountAsync(CreateEventDiscountRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/discounts", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "CreateUpdateDiscount", "json", false, false);
             if (serializedBody != null)
@@ -277,7 +355,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -286,9 +364,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -364,13 +442,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListDiscountedAgendaItemsResponse> ListDiscountedAgendaItemsAsync(ListDiscountedAgendaItemsRequest request)
+
+        /// <summary>
+        /// List Discounted Agenda Items.
+        /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of agenda items that are associated with discounts for the specified event.  This endpoint helps identify which agenda items (such as admission items, sessions, session bundles, membership-items or quantity-items) are currently associated with discounts.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListDiscountedAgendaItemsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListDiscountedAgendaItemsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListDiscountedAgendaItemsResponse> ListDiscountedAgendaItemsAsync(
+            ListDiscountedAgendaItemsRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/discounts/agenda-items", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -387,7 +488,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -396,9 +497,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -420,6 +521,7 @@ namespace Cvent.SDK
                 {
                     return null;
                 }
+
                 var nextCursor = nextCursorToken.Value<string>();
                 if (string.IsNullOrWhiteSpace(nextCursor))
                 {
@@ -503,13 +605,34 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateEventDiscountResponse> UpdateEventDiscountAsync(UpdateEventDiscountRequest request)
+
+        /// <summary>
+        /// Update Event Discount.
+        /// </summary>
+        /// <remarks>
+        /// Update a discount in an event based on details in the request body. Fields not included in the request will revert to their default value.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateEventDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateEventDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateEventDiscountResponse> UpdateEventDiscountAsync(UpdateEventDiscountRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/discounts/{discountId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "CreateUpdateDiscount", "json", false, true);
             if (serializedBody != null)
@@ -532,7 +655,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -541,9 +664,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -619,13 +742,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<LinkAgendaItemToDiscountResponse> LinkAgendaItemToDiscountAsync(LinkAgendaItemToDiscountRequest request)
+
+        /// <summary>
+        /// Link Agenda Item to Discount.
+        /// </summary>
+        /// <remarks>
+        /// Links an agenda item to a given event discount.
+        /// </remarks>
+        /// <param name="request">A <see cref="LinkAgendaItemToDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="LinkAgendaItemToDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<LinkAgendaItemToDiscountResponse> LinkAgendaItemToDiscountAsync(
+            LinkAgendaItemToDiscountRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/discounts/{discountId}/agenda-items/{agendaItemId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -642,7 +788,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -651,9 +797,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -711,13 +857,36 @@ namespace Cvent.SDK
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UnlinkAgendaItemFromDiscountResponse> UnlinkAgendaItemFromDiscountAsync(UnlinkAgendaItemFromDiscountRequest request)
+
+        /// <summary>
+        /// Unlink Agenda Item Discount.
+        /// </summary>
+        /// <remarks>
+        /// Unlinks an agenda item from a given event discount.
+        /// </remarks>
+        /// <param name="request">A <see cref="UnlinkAgendaItemFromDiscountRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UnlinkAgendaItemFromDiscountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UnlinkAgendaItemFromDiscountResponse> UnlinkAgendaItemFromDiscountAsync(
+            UnlinkAgendaItemFromDiscountRequest request
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/events/{id}/discounts/{discountId}/agenda-items/{agendaItemId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -734,7 +903,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -743,9 +912,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -802,5 +971,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

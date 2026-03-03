@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class AssociateAttendeeToSegmentRequest
     {
-
         /// <summary>
         /// ID of an audience segment.
         /// </summary>

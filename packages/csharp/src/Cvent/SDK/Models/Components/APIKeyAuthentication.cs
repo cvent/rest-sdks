@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// API Key Authentication.
     /// </summary>
     public class APIKeyAuthentication
     {
-
         /// <summary>
         /// Authorization header support characterizing the authentication type to be used for callbacks to the client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
         /// </summary>
@@ -32,13 +31,13 @@ namespace Cvent.SDK.Models.Components
         public string Secret { get; set; } = default!;
 
         /// <summary>
-        /// The header key for which API Key will be sent in callback requests. If this field is not set, the API key is sent in the &apos;Authorization&apos; header.
+        /// The header key for which API Key will be sent in callback requests. If this field is not set, the API key is sent in the 'Authorization' header.
         /// </summary>
         [JsonProperty("authHeaderKey")]
         public string? AuthHeaderKey { get; set; } = "Authorization";
 
         /// <summary>
-        /// Whether API Key Value is prefixed by &apos;api_key&apos;. When set to true, the authorization header&apos;s value in callback requests will be &apos;api_key 2b3cc2bf083ff11206ce6b2f3ee09591&apos;
+        /// Whether API Key Value is prefixed by 'api_key'. When set to true, the authorization header's value in callback requests will be 'api_key 2b3cc2bf083ff11206ce6b2f3ee09591'
         /// </summary>
         [JsonProperty("apiKeyPrefix")]
         public bool? ApiKeyPrefix { get; set; } = true;

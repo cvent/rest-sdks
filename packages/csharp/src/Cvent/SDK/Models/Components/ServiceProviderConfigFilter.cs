@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Config details for filter operations.
     /// </summary>
     public class ServiceProviderConfigFilter
     {
-
         /// <summary>
         /// Indicates if the filteration is supported.
         /// </summary>

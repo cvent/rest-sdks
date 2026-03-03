@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Paginated collection of event features.
     /// </summary>
     public class EventFeaturesPaginatedResponse
     {
-
         /// <summary>
         /// Represents pagination information for a collection of resources.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public PagingJson Paging { get; set; } = default!;
 
         /// <summary>
-        /// Collection of event features
+        /// Collection of event features.
         /// </summary>
         [JsonProperty("data")]
         public List<EventFeatureJson> Data { get; set; } = default!;

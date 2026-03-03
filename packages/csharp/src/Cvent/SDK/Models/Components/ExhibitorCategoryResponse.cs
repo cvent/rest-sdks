@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// A description of the Existing Exhibitor Category JSON schema
+    /// A description of the Existing Exhibitor Category JSON schema.
     /// </summary>
     public class ExhibitorCategoryResponse
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -51,25 +50,25 @@ namespace Cvent.SDK.Models.Components
         public EventJson5 Event { get; set; } = default!;
 
         /// <summary>
-        /// Name of the exhibitor category
+        /// Name of the exhibitor category.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Category description
+        /// Exhibitor Category description.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// order for exhibitor category
+        /// order for exhibitor category.
         /// </summary>
         [JsonProperty("order")]
         public long Order { get; set; } = default!;
 
         /// <summary>
-        /// Type of exhibitor category
+        /// Type of exhibitor category.
         /// </summary>
         [JsonProperty("type")]
         public ExhibitorCategoryResponseType Type { get; set; } = default!;

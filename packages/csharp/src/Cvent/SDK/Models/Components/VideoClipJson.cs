@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Video clip details.
     /// </summary>
     public class VideoClipJson
     {
-
         /// <summary>
-        /// The timecode to start the clip in HH:MM:SS:FF format
+        /// The timecode to start the clip in HH:MM:SS:FF format.
         /// </summary>
         [JsonProperty("start")]
         public string? Start { get; set; }

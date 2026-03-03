@@ -10,12 +10,11 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetAvailabilityByIdRequest
     {
-
         /// <summary>
-        /// The unique identifier of an attendee&apos;s availability times in a particular event. The attendee&apos;s availability times ID is a combination of the associated appointment event ID and the attendee&apos;s contact ID, concatenated with &quot;::&quot; symbols.
+        /// The unique identifier of an attendee's availability times in a particular event. The attendee's availability times ID is a combination of the associated appointment event ID and the attendee's contact ID, concatenated with "::" symbols.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

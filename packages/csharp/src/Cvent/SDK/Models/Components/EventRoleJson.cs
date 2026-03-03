@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object that contains the event role ID. This is an **expandable** object and, if requested, will contain the name of the event role.
     /// </summary>
     public class EventRoleJson
     {
-
         /// <summary>
         /// The ID of the event role.
         /// </summary>

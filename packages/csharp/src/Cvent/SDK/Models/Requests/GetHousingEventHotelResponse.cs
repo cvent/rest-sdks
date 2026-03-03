@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Requests
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class GetHousingEventHotelResponse
     {
-
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a hotel&apos;s details.
+        /// Successfully retrieved a hotel's details.
         /// </summary>
         public HousingEventHotel? HousingEventHotel { get; set; }
     }

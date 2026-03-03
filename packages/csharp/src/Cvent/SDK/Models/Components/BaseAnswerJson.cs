@@ -11,15 +11,14 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Base entity of a question answer.
     /// </summary>
     public class BaseAnswerJson
     {
-
         /// <summary>
-        /// The unique identifier of the Answer
+        /// The unique identifier of the Answer.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

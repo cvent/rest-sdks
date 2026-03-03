@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class PostRegistrationPackRequest
     {
-
         /// <summary>
         /// ID of an event.
         /// </summary>
@@ -28,7 +27,7 @@ namespace Cvent.SDK.Models.Requests
         public string ExhibitorId { get; set; } = default!;
 
         /// <summary>
-        /// Registration pack details
+        /// Registration pack details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public RegistrationPackRequest RegistrationPackRequest { get; set; } = default!;

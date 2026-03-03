@@ -11,12 +11,11 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class CreateStandardSurveyRespondentRequest
     {
-
         /// <summary>
-        /// Id of a survey or Id of a chapter in event survey
+        /// Id of a survey or Id of a chapter in event survey.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
         public string SurveyId { get; set; } = default!;

@@ -10,30 +10,21 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetUsageRequest
     {
-
         /// <summary>
         /// Returns usage for the seven days before (inclusive) the date provided. If after is also provided, then<br/>
-        /// 
-        /// <remarks>
         /// only the dates between (inclusive) those dates are returned. before must be a valid ISO8601 date stamp.<br/>
-        /// before and after must not be more then seven days apart.<br/>
-        /// 
-        /// </remarks>
+        /// before and after must not be more then seven days apart.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")]
         public string? Before { get; set; }
 
         /// <summary>
         /// Returns usage for the seven days after (inclusive) the date provided. If before is also provided, then<br/>
-        /// 
-        /// <remarks>
         /// only the dates between (inclusive) those dates are returned. after must be a valid ISO8601 date stamp.<br/>
-        /// after and before must not be more then seven days apart.<br/>
-        /// 
-        /// </remarks>
+        /// after and before must not be more then seven days apart.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
         public string? After { get; set; }

@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Object encapsulating relevant information about an invitation list.
     /// </summary>
     public class InvitationListJson
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -56,7 +55,7 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// Locale code
+        /// Locale code.
         /// </summary>
         [JsonProperty("locale")]
         public string? Locale { get; set; }

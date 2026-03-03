@@ -10,12 +10,11 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class GetAppointmentAttendeeByIdRequest
     {
-
         /// <summary>
-        /// The unique identifier of an appointment attendee. The appointment attendee&apos;s ID is a combination of the associated appointment event ID and the attendee&apos;s contact ID, concatenated with &quot;::&quot; symbols.
+        /// The unique identifier of an appointment attendee. The appointment attendee's ID is a combination of the associated appointment event ID and the attendee's contact ID, concatenated with "::" symbols.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

@@ -9,28 +9,42 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * This is used to denote the type of data collected by a custom field.
+ * The type of data collected by a custom field.
  */
 export const CustomFieldJson2CustomFieldType = {
-  OpenEndedTextDateTime: "Open Ended Text - Date/Time",
-  OpenEndedTextOneLine: "Open Ended Text - One Line",
-  OpenEndedTextCommentBox: "Open Ended Text - Comment Box",
-  ChoiceSingleAnswer: "Choice - Single Answer",
-  ChoiceMultipleAnswers: "Choice - Multiple Answers",
+  AutoIncrement: "AutoIncrement",
+  ConsentQuestion: "ConsentQuestion",
+  Currency: "Currency",
+  Decimal: "Decimal",
+  Date: "Date",
+  DateTime: "DateTime",
+  Email: "Email",
+  FileUpload: "FileUpload",
+  FreeText: "FreeText",
+  General: "General",
+  MultiChoice: "MultiChoice",
+  MultiSelect: "MultiSelect",
+  Number: "Number",
+  OpenEndedDateTime: "OpenEndedDateTime",
+  OpenEndedText: "OpenEndedText",
+  SingleChoice: "SingleChoice",
+  SingleSelect: "SingleSelect",
+  USPhoneNumber: "USPhoneNumber",
+  Unknown: "Unknown",
 } as const;
 /**
- * This is used to denote the type of data collected by a custom field.
+ * The type of data collected by a custom field.
  */
 export type CustomFieldJson2CustomFieldType = ClosedEnum<
   typeof CustomFieldJson2CustomFieldType
 >;
 
 /**
- * A survey custom field.
+ * A Custom Field
  */
 export type CustomFieldJson2 = {
   /**
-   * The unique id representing this custom field.
+   * The unique ID representing this custom field.
    */
   id: string;
   /**
@@ -38,14 +52,17 @@ export type CustomFieldJson2 = {
    */
   name?: string | undefined;
   /**
-   * Code to uniquely identify custom field.
+   * The set of answers or possible answers to a question.
    */
-  code?: string | undefined;
-  type?: CustomFieldJson2CustomFieldType | undefined;
+  value: Array<string>;
   /**
-   * The set of values or possible values to a custom field.
+   * The order of this question in the bigger list of questions.
    */
-  values: Array<string>;
+  order?: number | undefined;
+  /**
+   * The type of data collected by a custom field.
+   */
+  type?: CustomFieldJson2CustomFieldType | undefined;
 };
 
 /** @internal */
@@ -61,9 +78,9 @@ export const CustomFieldJson2$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string().optional(),
-  code: z.string().optional(),
+  value: z.array(z.string()),
+  order: z.number().int().optional(),
   type: CustomFieldJson2CustomFieldType$inboundSchema.optional(),
-  values: z.array(z.string()),
 });
 
 export function customFieldJson2FromJSON(

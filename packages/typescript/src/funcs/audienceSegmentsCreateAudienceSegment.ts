@@ -40,6 +40,7 @@ export function audienceSegmentsCreateAudienceSegment(
 ): APIPromise<
   Result<
     components.ExistingAudienceSegment,
+    | errors.SegmentsErrorResponse
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -66,6 +67,7 @@ async function $do(
   [
     Result<
       components.ExistingAudienceSegment,
+      | errors.SegmentsErrorResponse
       | errors.ErrorResponse
       | CventSDKError
       | ResponseValidationError
@@ -147,6 +149,7 @@ async function $do(
 
   const [result] = await M.match<
     components.ExistingAudienceSegment,
+    | errors.SegmentsErrorResponse
     | errors.ErrorResponse
     | CventSDKError
     | ResponseValidationError
@@ -158,8 +161,9 @@ async function $do(
     | SDKValidationError
   >(
     M.json(201, components.ExistingAudienceSegment$inboundSchema),
+    M.jsonErr(400, errors.SegmentsErrorResponse$inboundSchema),
     M.jsonErr([401, 403, 422, 429], errors.ErrorResponse$inboundSchema),
-    M.fail([400, "4XX"]),
+    M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {

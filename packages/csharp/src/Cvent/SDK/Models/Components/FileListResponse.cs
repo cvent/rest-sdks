@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A JSON object containing a list of files associated with an exhibitor.
     /// </summary>
     public class FileListResponse
     {
-
         /// <summary>
         /// List of files associated with an exhibitor.
         /// </summary>

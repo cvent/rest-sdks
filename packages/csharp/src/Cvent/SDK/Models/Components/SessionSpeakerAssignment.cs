@@ -12,15 +12,14 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Holds fields that can be applied to a session speaker assignment.
     /// </summary>
     public class SessionSpeakerAssignment
     {
-
         /// <summary>
-        /// An object that holds the id for a category
+        /// An object that holds the id for a category.
         /// </summary>
         [JsonProperty("speakerCategory")]
         public CategoryIdJson? SpeakerCategory { get; set; }

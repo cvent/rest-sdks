@@ -71,57 +71,47 @@ public class ListSessionsRequest {
     private String locale;
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'. If the "match" filter is
-     * passed, the endpoint will return a
-     * relevance score for each session in the list and, by default, sort results by relevance. Higher
-     * scores represent a higher relevance to the filter string.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>There are twelve comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
-     * * includes value(s): in
-     * * is empty: is empty
-     * * is not empty: is not empty
-     * * match: match
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following fields are filterable:
-     * * id (eq|ne|in)
-     * * status (eq|ne)
-     * * event.id (eq|ne)
-     * * title (eq|ne|contains|match)
-     * * code (eq|ne)
-     * * category.id (eq|ne)
-     * * category.name (eq|ne|contains)
-     * * start (eq|ne|lt|le|gt|ge)
-     * * end (eq|ne|lt|le|gt|ge)
-     * * description (eq|ne|contains)
-     * * capacity (eq|ne|lt|le|gt|ge)
-     * * location.id (eq|ne)
-     * * location.name (eq|ne|contains)
-     * * location.code (eq|ne)
-     * * includedSession (eq|ne)
-     * * enableWaitlist (eq|ne)
-     * * featured (eq|ne)
-     * * openForRegistration (eq|ne)
-     * * openForAttendeeHub (eq|ne)
-     * * virtual (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * registrationTypes (contains|in|is empty| is not empty)
-     * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains|in)
-     * * group.id (eq|ne)
-     * * admissionItems (contains|is empty| is not empty)
-     * * segments (contains|in|is empty| is not empty)
+     * <p>| Field                              | Operators                                    |
+     * |------------------------------------|----------------------------------------------|
+     * | id                                 | `eq`, `ne`, `in`                             |
+     * | status                             | `eq`, `ne`                                   |
+     * | event.id                           | `eq`, `ne`                                   |
+     * | title                              | `eq`, `ne`, `contains`, `match`              |
+     * | code                               | `eq`, `ne`                                   |
+     * | category.id                        | `eq`, `ne`                                   |
+     * | category.name                      | `eq`, `ne`, `contains`                       |
+     * | start                              | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | end                                | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | description                        | `eq`, `ne`, `contains`                       |
+     * | capacity                           | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | location.id                        | `eq`, `ne`                                   |
+     * | location.name                      | `eq`, `ne`, `contains`                       |
+     * | location.code                      | `eq`, `ne`                                   |
+     * | includedSession                    | `eq`, `ne`                                   |
+     * | enableWaitlist                     | `eq`, `ne`                                   |
+     * | featured                           | `eq`, `ne`                                   |
+     * | openForRegistration                | `eq`, `ne`                                   |
+     * | openForAttendeeHub                 | `eq`, `ne`                                   |
+     * | virtual                            | `eq`, `ne`                                   |
+     * | created                            | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | lastModified                       | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | registrationTypes                  | `contains`, `in`, `is empty`, `is not empty` |
+     * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains`, `in` |
+     * | group.id                           | `eq`, `ne`                                   |
+     * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
+     * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
      * 
-     * <p>The following operators are available:
+     * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
+     * session in the list and, by default, sort results by relevance. Higher scores represent a higher
+     * relevance to the filter string.
+     * 
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -213,57 +203,47 @@ public class ListSessionsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'. If the "match" filter is
-     * passed, the endpoint will return a
-     * relevance score for each session in the list and, by default, sort results by relevance. Higher
-     * scores represent a higher relevance to the filter string.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>There are twelve comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
-     * * includes value(s): in
-     * * is empty: is empty
-     * * is not empty: is not empty
-     * * match: match
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following fields are filterable:
-     * * id (eq|ne|in)
-     * * status (eq|ne)
-     * * event.id (eq|ne)
-     * * title (eq|ne|contains|match)
-     * * code (eq|ne)
-     * * category.id (eq|ne)
-     * * category.name (eq|ne|contains)
-     * * start (eq|ne|lt|le|gt|ge)
-     * * end (eq|ne|lt|le|gt|ge)
-     * * description (eq|ne|contains)
-     * * capacity (eq|ne|lt|le|gt|ge)
-     * * location.id (eq|ne)
-     * * location.name (eq|ne|contains)
-     * * location.code (eq|ne)
-     * * includedSession (eq|ne)
-     * * enableWaitlist (eq|ne)
-     * * featured (eq|ne)
-     * * openForRegistration (eq|ne)
-     * * openForAttendeeHub (eq|ne)
-     * * virtual (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * registrationTypes (contains|in|is empty| is not empty)
-     * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains|in)
-     * * group.id (eq|ne)
-     * * admissionItems (contains|is empty| is not empty)
-     * * segments (contains|in|is empty| is not empty)
+     * <p>| Field                              | Operators                                    |
+     * |------------------------------------|----------------------------------------------|
+     * | id                                 | `eq`, `ne`, `in`                             |
+     * | status                             | `eq`, `ne`                                   |
+     * | event.id                           | `eq`, `ne`                                   |
+     * | title                              | `eq`, `ne`, `contains`, `match`              |
+     * | code                               | `eq`, `ne`                                   |
+     * | category.id                        | `eq`, `ne`                                   |
+     * | category.name                      | `eq`, `ne`, `contains`                       |
+     * | start                              | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | end                                | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | description                        | `eq`, `ne`, `contains`                       |
+     * | capacity                           | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | location.id                        | `eq`, `ne`                                   |
+     * | location.name                      | `eq`, `ne`, `contains`                       |
+     * | location.code                      | `eq`, `ne`                                   |
+     * | includedSession                    | `eq`, `ne`                                   |
+     * | enableWaitlist                     | `eq`, `ne`                                   |
+     * | featured                           | `eq`, `ne`                                   |
+     * | openForRegistration                | `eq`, `ne`                                   |
+     * | openForAttendeeHub                 | `eq`, `ne`                                   |
+     * | virtual                            | `eq`, `ne`                                   |
+     * | created                            | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | lastModified                       | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | registrationTypes                  | `contains`, `in`, `is empty`, `is not empty` |
+     * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains`, `in` |
+     * | group.id                           | `eq`, `ne`                                   |
+     * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
+     * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
      * 
-     * <p>The following operators are available:
+     * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
+     * session in the list and, by default, sort results by relevance. Higher scores represent a higher
+     * relevance to the filter string.
+     * 
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -348,57 +328,47 @@ public class ListSessionsRequest {
 
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'. If the "match" filter is
-     * passed, the endpoint will return a
-     * relevance score for each session in the list and, by default, sort results by relevance. Higher
-     * scores represent a higher relevance to the filter string.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      * 
-     * <p>There are twelve comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
-     * * includes value(s): in
-     * * is empty: is empty
-     * * is not empty: is not empty
-     * * match: match
+     * <p>Supported fields and operators are listed below:
      * 
-     * <p>The following fields are filterable:
-     * * id (eq|ne|in)
-     * * status (eq|ne)
-     * * event.id (eq|ne)
-     * * title (eq|ne|contains|match)
-     * * code (eq|ne)
-     * * category.id (eq|ne)
-     * * category.name (eq|ne|contains)
-     * * start (eq|ne|lt|le|gt|ge)
-     * * end (eq|ne|lt|le|gt|ge)
-     * * description (eq|ne|contains)
-     * * capacity (eq|ne|lt|le|gt|ge)
-     * * location.id (eq|ne)
-     * * location.name (eq|ne|contains)
-     * * location.code (eq|ne)
-     * * includedSession (eq|ne)
-     * * enableWaitlist (eq|ne)
-     * * featured (eq|ne)
-     * * openForRegistration (eq|ne)
-     * * openForAttendeeHub (eq|ne)
-     * * virtual (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * registrationTypes (contains|in|is empty| is not empty)
-     * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains|in)
-     * * group.id (eq|ne)
-     * * admissionItems (contains|is empty| is not empty)
-     * * segments (contains|in|is empty| is not empty)
+     * <p>| Field                              | Operators                                    |
+     * |------------------------------------|----------------------------------------------|
+     * | id                                 | `eq`, `ne`, `in`                             |
+     * | status                             | `eq`, `ne`                                   |
+     * | event.id                           | `eq`, `ne`                                   |
+     * | title                              | `eq`, `ne`, `contains`, `match`              |
+     * | code                               | `eq`, `ne`                                   |
+     * | category.id                        | `eq`, `ne`                                   |
+     * | category.name                      | `eq`, `ne`, `contains`                       |
+     * | start                              | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | end                                | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | description                        | `eq`, `ne`, `contains`                       |
+     * | capacity                           | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | location.id                        | `eq`, `ne`                                   |
+     * | location.name                      | `eq`, `ne`, `contains`                       |
+     * | location.code                      | `eq`, `ne`                                   |
+     * | includedSession                    | `eq`, `ne`                                   |
+     * | enableWaitlist                     | `eq`, `ne`                                   |
+     * | featured                           | `eq`, `ne`                                   |
+     * | openForRegistration                | `eq`, `ne`                                   |
+     * | openForAttendeeHub                 | `eq`, `ne`                                   |
+     * | virtual                            | `eq`, `ne`                                   |
+     * | created                            | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | lastModified                       | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+     * | registrationTypes                  | `contains`, `in`, `is empty`, `is not empty` |
+     * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains`, `in` |
+     * | group.id                           | `eq`, `ne`                                   |
+     * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
+     * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
      * 
-     * <p>The following operators are available:
+     * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
+     * session in the list and, by default, sort results by relevance. Higher scores represent a higher
+     * relevance to the filter string.
+     * 
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -534,57 +504,47 @@ public class ListSessionsRequest {
         }
 
         /**
-         * A filter string passed in the body of the request, narrows search results and supports the
-         * combination of logical and comparison operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'. If the "match" filter is
-         * passed, the endpoint will return a
-         * relevance score for each session in the list and, by default, sort results by relevance. Higher
-         * scores represent a higher relevance to the filter string.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          * 
-         * <p>There are twelve comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
-         * * starts with: sw
-         * * contains a value: contains
-         * * includes value(s): in
-         * * is empty: is empty
-         * * is not empty: is not empty
-         * * match: match
+         * <p>Supported fields and operators are listed below:
          * 
-         * <p>The following fields are filterable:
-         * * id (eq|ne|in)
-         * * status (eq|ne)
-         * * event.id (eq|ne)
-         * * title (eq|ne|contains|match)
-         * * code (eq|ne)
-         * * category.id (eq|ne)
-         * * category.name (eq|ne|contains)
-         * * start (eq|ne|lt|le|gt|ge)
-         * * end (eq|ne|lt|le|gt|ge)
-         * * description (eq|ne|contains)
-         * * capacity (eq|ne|lt|le|gt|ge)
-         * * location.id (eq|ne)
-         * * location.name (eq|ne|contains)
-         * * location.code (eq|ne)
-         * * includedSession (eq|ne)
-         * * enableWaitlist (eq|ne)
-         * * featured (eq|ne)
-         * * openForRegistration (eq|ne)
-         * * openForAttendeeHub (eq|ne)
-         * * virtual (eq|ne)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * lastModified (eq|ne|lt|le|gt|ge)
-         * * registrationTypes (contains|in|is empty| is not empty)
-         * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains|in)
-         * * group.id (eq|ne)
-         * * admissionItems (contains|is empty| is not empty)
-         * * segments (contains|in|is empty| is not empty)
+         * <p>| Field                              | Operators                                    |
+         * |------------------------------------|----------------------------------------------|
+         * | id                                 | `eq`, `ne`, `in`                             |
+         * | status                             | `eq`, `ne`                                   |
+         * | event.id                           | `eq`, `ne`                                   |
+         * | title                              | `eq`, `ne`, `contains`, `match`              |
+         * | code                               | `eq`, `ne`                                   |
+         * | category.id                        | `eq`, `ne`                                   |
+         * | category.name                      | `eq`, `ne`, `contains`                       |
+         * | start                              | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+         * | end                                | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+         * | description                        | `eq`, `ne`, `contains`                       |
+         * | capacity                           | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+         * | location.id                        | `eq`, `ne`                                   |
+         * | location.name                      | `eq`, `ne`, `contains`                       |
+         * | location.code                      | `eq`, `ne`                                   |
+         * | includedSession                    | `eq`, `ne`                                   |
+         * | enableWaitlist                     | `eq`, `ne`                                   |
+         * | featured                           | `eq`, `ne`                                   |
+         * | openForRegistration                | `eq`, `ne`                                   |
+         * | openForAttendeeHub                 | `eq`, `ne`                                   |
+         * | virtual                            | `eq`, `ne`                                   |
+         * | created                            | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+         * | lastModified                       | `eq`, `ne`, `lt`, `le`, `gt`, `ge`           |
+         * | registrationTypes                  | `contains`, `in`, `is empty`, `is not empty` |
+         * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains`, `in` |
+         * | group.id                           | `eq`, `ne`                                   |
+         * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
+         * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
          * 
-         * <p>The following operators are available:
+         * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
+         * session in the list and, by default, sort results by relevance. Higher scores represent a higher
+         * relevance to the filter string.
+         * 
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

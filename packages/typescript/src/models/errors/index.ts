@@ -10,3 +10,4 @@ export * from "./httpclienterrors.js";
 export * from "./oauth2token.js";
 export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";
+export * from "./segmentserrorresponse.js";

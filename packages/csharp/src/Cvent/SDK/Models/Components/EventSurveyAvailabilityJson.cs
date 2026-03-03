@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Describes the availability of the event survey
+    /// Describes the availability of the event survey.
     /// </summary>
     public enum EventSurveyAvailabilityJson
     {
@@ -60,5 +60,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum EventSurveyAvailabilityJson");
         }
     }
-
 }

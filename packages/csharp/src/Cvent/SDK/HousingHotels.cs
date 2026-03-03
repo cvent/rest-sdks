@@ -27,15 +27,20 @@ namespace Cvent.SDK
     /// </summary>
     public interface IHousingHotels
     {
-
         /// <summary>
-        /// Update Hotel Room Rates
-        /// 
-        /// <remarks>
-        /// Updates the given hotel&apos;s room rate details based on data in the request body.
-        /// </remarks>
+        /// Update Hotel Room Rates.
         /// </summary>
-        Task<UpdateHotelRoomRatesResponse> UpdateHotelRoomRatesAsync(UpdateHotelRoomRatesRequest request);
+        /// <remarks>
+        /// Updates the given hotel's room rate details based on data in the request body.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateHotelRoomRatesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateHotelRoomRatesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateHotelRoomRatesResponse> UpdateHotelRoomRatesAsync(UpdateHotelRoomRatesRequest request);
     }
 
     /// <summary>
@@ -43,25 +48,44 @@ namespace Cvent.SDK
     /// </summary>
     public class HousingHotels: IHousingHotels
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public HousingHotels(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<UpdateHotelRoomRatesResponse> UpdateHotelRoomRatesAsync(UpdateHotelRoomRatesRequest request)
+        /// <summary>
+        /// Update Hotel Room Rates.
+        /// </summary>
+        /// <remarks>
+        /// Updates the given hotel's room rate details based on data in the request body.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateHotelRoomRatesRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateHotelRoomRatesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateHotelRoomRatesResponse> UpdateHotelRoomRatesAsync(UpdateHotelRoomRatesRequest request)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/housing-hotels/{hotelCode}/rooms/{roomCode}/rates", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "HotelRoomRatesRequest", "json", false, false);
             if (serializedBody != null)
@@ -84,7 +108,7 @@ namespace Cvent.SDK
                 httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -93,9 +117,9 @@ namespace Cvent.SDK
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -170,5 +194,6 @@ namespace Cvent.SDK
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

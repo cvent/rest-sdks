@@ -12,9 +12,9 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host&apos;s choosing or within time intervals and locations created by the planner.
+    /// DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host's choosing or within time intervals and locations created by the planner.
     /// </summary>
     public enum TimeRangeTypeJson
     {
@@ -56,5 +56,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum TimeRangeTypeJson");
         }
     }
-
 }

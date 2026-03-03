@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A survey response.
     /// </summary>
     public class SurveyResponseJson
     {
-
         /// <summary>
         /// The unique identifier of the survey.
         /// </summary>

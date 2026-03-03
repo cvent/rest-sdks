@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An existing webcast player.
     /// </summary>
     public class ExistingPlayer
     {
-
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
@@ -57,7 +56,7 @@ namespace Cvent.SDK.Models.Components
         public string? VideoId { get; set; }
 
         /// <summary>
-        /// URL to play video
+        /// URL to play video.
         /// </summary>
         [JsonProperty("videoUrl")]
         public string? VideoUrl { get; set; }
@@ -75,13 +74,13 @@ namespace Cvent.SDK.Models.Components
         public LiveStreamJson? Stream { get; set; }
 
         /// <summary>
-        /// Region where the live stream originates (These regions are only for Brightcove player)
+        /// Region where the live stream originates (These regions are only for Brightcove player).
         /// </summary>
         [JsonProperty("region")]
         public RegionJson1? Region { get; set; }
 
         /// <summary>
-        /// Video duration (milliseconds)
+        /// Video duration (milliseconds).
         /// </summary>
         [JsonProperty("duration")]
         public long? Duration { get; set; }
@@ -93,7 +92,7 @@ namespace Cvent.SDK.Models.Components
         public ScheduleJson? Schedule { get; set; }
 
         /// <summary>
-        /// This is used to denote the type of a video player used for the Cvent Video Player
+        /// This is used to denote the type of a video player used for the Cvent Video Player.
         /// </summary>
         [JsonProperty("playerTypeProvider")]
         public PlayerTypeProviderJson? PlayerTypeProvider { get; set; }
@@ -105,7 +104,7 @@ namespace Cvent.SDK.Models.Components
         public long? SimuliveOffset { get; set; }
 
         /// <summary>
-        /// Player ID
+        /// Player ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

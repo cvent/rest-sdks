@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The location of the appointment.
     /// </summary>
     public class AppointmentWithQuestionsLocation
     {
-
         /// <summary>
         /// The name of the location.
         /// </summary>

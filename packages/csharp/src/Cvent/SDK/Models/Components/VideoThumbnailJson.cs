@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Video thumbnail
+    /// Video thumbnail.
     /// </summary>
     public class VideoThumbnailJson
     {
-
         /// <summary>
         /// Represents a link to a related resource.
         /// </summary>
@@ -26,31 +25,31 @@ namespace Cvent.SDK.Models.Components
         public OneAllOf? Url { get; set; }
 
         /// <summary>
-        /// File size in bytes for the thumbnail
+        /// File size in bytes for the thumbnail.
         /// </summary>
         [JsonProperty("size")]
         public long? Size { get; set; }
 
         /// <summary>
-        /// frame height in pixels
+        /// frame height in pixels.
         /// </summary>
         [JsonProperty("height")]
         public long? Height { get; set; }
 
         /// <summary>
-        /// frame width in pixels
+        /// frame width in pixels.
         /// </summary>
         [JsonProperty("width")]
         public long? Width { get; set; }
 
         /// <summary>
-        /// This is used to denote the file type of a thumbnail
+        /// This is used to denote the file type of a thumbnail.
         /// </summary>
         [JsonProperty("type")]
         public ThumbnailTypeJson? Type { get; set; }
 
         /// <summary>
-        /// Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted, and the URL you&apos;ll upload a thumbnail to was returned. Uploaded indicates that the upload was completed. Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
+        /// Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted, and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was completed. Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
         /// </summary>
         [JsonProperty("status")]
         public ThumbnailStatusJson? Status { get; set; }

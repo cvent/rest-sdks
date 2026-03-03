@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CreateTransactionRequest;
+import com.cvent.models.components.CreateTransactionResponse;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,20 +35,20 @@ public class PostTransactionsResponse implements Response {
     /**
      * Response of the create transaction request.
      */
-    private CreateTransactionRequest createTransactionRequest;
+    private CreateTransactionResponse createTransactionResponse;
 
     @JsonCreator
     public PostTransactionsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable CreateTransactionRequest createTransactionRequest) {
+            @Nullable CreateTransactionResponse createTransactionResponse) {
         this.contentType = Optional.ofNullable(contentType)
             .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
             .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.createTransactionRequest = createTransactionRequest;
+        this.createTransactionResponse = createTransactionResponse;
     }
     
     public PostTransactionsResponse(
@@ -83,8 +83,8 @@ public class PostTransactionsResponse implements Response {
     /**
      * Response of the create transaction request.
      */
-    public Optional<CreateTransactionRequest> createTransactionRequest() {
-        return Optional.ofNullable(this.createTransactionRequest);
+    public Optional<CreateTransactionResponse> createTransactionResponse() {
+        return Optional.ofNullable(this.createTransactionResponse);
     }
 
     public static Builder builder() {
@@ -122,8 +122,8 @@ public class PostTransactionsResponse implements Response {
     /**
      * Response of the create transaction request.
      */
-    public PostTransactionsResponse withCreateTransactionRequest(@Nullable CreateTransactionRequest createTransactionRequest) {
-        this.createTransactionRequest = createTransactionRequest;
+    public PostTransactionsResponse withCreateTransactionResponse(@Nullable CreateTransactionResponse createTransactionResponse) {
+        this.createTransactionResponse = createTransactionResponse;
         return this;
     }
 
@@ -141,14 +141,14 @@ public class PostTransactionsResponse implements Response {
             Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
             Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
             Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.createTransactionRequest, other.createTransactionRequest);
+            Utils.enhancedDeepEquals(this.createTransactionResponse, other.createTransactionResponse);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
             contentType, statusCode, rawResponse,
-            createTransactionRequest);
+            createTransactionResponse);
     }
     
     @Override
@@ -157,7 +157,7 @@ public class PostTransactionsResponse implements Response {
                 "contentType", contentType,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse,
-                "createTransactionRequest", createTransactionRequest);
+                "createTransactionResponse", createTransactionResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -169,7 +169,7 @@ public class PostTransactionsResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private CreateTransactionRequest createTransactionRequest;
+        private CreateTransactionResponse createTransactionResponse;
 
         private Builder() {
           // force use of static builder() method
@@ -202,15 +202,15 @@ public class PostTransactionsResponse implements Response {
         /**
          * Response of the create transaction request.
          */
-        public Builder createTransactionRequest(@Nullable CreateTransactionRequest createTransactionRequest) {
-            this.createTransactionRequest = createTransactionRequest;
+        public Builder createTransactionResponse(@Nullable CreateTransactionResponse createTransactionResponse) {
+            this.createTransactionResponse = createTransactionResponse;
             return this;
         }
 
         public PostTransactionsResponse build() {
             return new PostTransactionsResponse(
                 contentType, statusCode, rawResponse,
-                createTransactionRequest);
+                createTransactionResponse);
         }
 
     }

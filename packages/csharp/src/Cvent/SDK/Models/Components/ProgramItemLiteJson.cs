@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The unique identifier of a program item.
     /// </summary>
     public class ProgramItemLiteJson
     {
-
         /// <summary>
         /// The unique identifier for a program item.
         /// </summary>

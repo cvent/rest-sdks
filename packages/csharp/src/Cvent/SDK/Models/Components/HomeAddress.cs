@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     public class HomeAddress
     {
-
         [JsonProperty("address3")]
         public object? Address3 { get; set; }
 

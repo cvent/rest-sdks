@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Credit card type.
     /// </summary>
@@ -70,5 +70,4 @@ namespace Cvent.SDK.Models.Components
             throw new Exception($"Unknown value {value} for enum CreditCardTypesJson");
         }
     }
-
 }

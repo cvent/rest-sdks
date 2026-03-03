@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The budget entry in detail, which consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
     /// </summary>
     public class BudgetCostDetailJson1
     {
-
         /// <summary>
         /// Denotes the category assigned to the budget item.
         /// </summary>
@@ -38,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public double? Units { get; set; }
 
         /// <summary>
-        /// The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this field won&apos;t be applied to the creation or update of a Meeting Request.
+        /// The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this field won't be applied to the creation or update of a Meeting Request.
         /// </summary>
         [JsonProperty("cost")]
         public double? Cost { get; set; }

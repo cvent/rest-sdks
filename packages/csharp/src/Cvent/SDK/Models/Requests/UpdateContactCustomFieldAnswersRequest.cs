@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
-    
+
     public class UpdateContactCustomFieldAnswersRequest
     {
-
         /// <summary>
         /// ID of a contact.
         /// </summary>
@@ -29,8 +28,6 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// Custom Field answers to be updated. Answer values must be formatted correctly for a given Custom Field. The available fields and their supported formats are listed below.<br/>
-        /// 
-        /// <remarks>
         /// * **Open Ended Text - Date/Time**. This field type has several possible user-selected answer formats:<br/>
         ///   - Date/Time (2022-01-01T12:00:00Z). Denoted by *DateTime* in the response payload. Milliseconds are truncated.<br/>
         ///   - Date (2022-01-01). Denoted by *Date* in the response payload.<br/>
@@ -48,9 +45,7 @@ namespace Cvent.SDK.Models.Requests
         /// * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or more<br/>
         ///     responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.<br/>
         /// <br/>
-        /// To delete a Custom Field Answer, send an empty list of answers for a given Custom Field ID.<br/>
-        /// 
-        /// </remarks>
+        /// To delete a Custom Field Answer, send an empty list of answers for a given Custom Field ID.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CustomFieldInput CustomField { get; set; } = default!;

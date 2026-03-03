@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// An email message
+    /// An email message.
     /// </summary>
     public class EmailMessage
     {
-
         /// <summary>
         /// A link to a stored email message.
         /// </summary>

@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class ListContactTypesRequest
     {
-
         /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
@@ -22,19 +21,13 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
-        /// 
-        /// <remarks>
+        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// There are four comparison types that can be used in filter expressions:<br/>
         /// * equal: eq<br/>
         /// * not equal: ne<br/>
@@ -44,9 +37,7 @@ namespace Cvent.SDK.Models.Requests
         /// The following fields are filterable:<br/>
         /// * name (eq|ne|sw|contains)<br/>
         /// <br/>
-        /// No logical operators are supported on this endpoint, only one filter can be passed in each request.<br/>
-        /// 
-        /// </remarks>
+        /// No logical operators are supported on this endpoint, only one filter can be passed in each request.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

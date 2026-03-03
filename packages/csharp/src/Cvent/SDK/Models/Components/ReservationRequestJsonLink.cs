@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents a link to a related resource.
     /// </summary>
     public class ReservationRequestJsonLink
     {
-
         /// <summary>
         /// URL of the booking site for this reservation request.
         /// </summary>

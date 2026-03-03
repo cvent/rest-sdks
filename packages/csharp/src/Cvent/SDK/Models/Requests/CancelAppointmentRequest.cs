@@ -10,10 +10,9 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
-    
+
     public class CancelAppointmentRequest
     {
-
         /// <summary>
         /// The unique identifier of an appointment event.
         /// </summary>
@@ -28,11 +27,8 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// Flag to choose whether to suppress notifications on successful completion of operation.<br/>
-        /// 
-        /// <remarks>
         /// * If flag = false (default), send all notifications as configured.<br/>
         ///  * If flag = true, do not send any notification.
-        /// </remarks>
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=suppressNotifications")]
         public bool? SuppressNotifications { get; set; } = false;

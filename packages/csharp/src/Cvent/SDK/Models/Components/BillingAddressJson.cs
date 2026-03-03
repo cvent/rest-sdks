@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Billing Address Details
+    /// Billing Address Details.
     /// </summary>
     public class BillingAddressJson
     {
-
         /// <summary>
         /// The first line of an address.
         /// </summary>

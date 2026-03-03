@@ -12,13 +12,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// This is used to denote which custom field choices to display when a source custom field choice is selected.
     /// </summary>
     public class AdvancedLogicChoicesJson
     {
-
         /// <summary>
         /// The ID of a choice of the source custom field.
         /// </summary>

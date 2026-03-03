@@ -11,13 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Schema for event summary associated with this proposal.
     /// </summary>
     public class EventSummaryJson
     {
-
         /// <summary>
         /// The unique ID of the event in the proposal.
         /// </summary>

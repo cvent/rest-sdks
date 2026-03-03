@@ -11,10 +11,9 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Utils;
     using System;
-    
+
     public class ListSessionsEnrollmentRequest
     {
-
         /// <summary>
         /// Used to query records that have been added or updated on or after this time point. Defaults to the beginning of time of the data store.
         /// </summary>
@@ -35,20 +34,14 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
-        /// 
-        /// <remarks>
-        /// This will override any other pageable parameters provided.<br/>
-        /// 
-        /// </remarks>
+        /// This will override any other pageable parameters provided.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// 
-        /// <remarks>
-        /// The filter adheres to the pattern filter=&apos;field&apos; comparisonType &apos;value&apos;.<br/>
+        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
         /// These are the comparison types that can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
@@ -65,9 +58,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * status (eq|ne)<br/>
         ///   * deleted (eq|ne)<br/>
         ///   * created (eq|ne|lt|le|gt|ge)<br/>
-        ///   * lastModified (eq|ne|lt|le|gt|ge)<br/>
-        /// 
-        /// </remarks>
+        ///   * lastModified (eq|ne|lt|le|gt|ge).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

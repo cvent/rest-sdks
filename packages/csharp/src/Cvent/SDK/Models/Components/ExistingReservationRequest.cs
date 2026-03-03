@@ -14,15 +14,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Contains information about existing reservation request record.
     /// </summary>
     public class ExistingReservationRequest
     {
-
         /// <summary>
-        /// Optional ID field you can use to attach ID&apos;s from your system to a reservation.
+        /// Optional ID field you can use to attach ID's from your system to a reservation.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
@@ -149,13 +148,13 @@ namespace Cvent.SDK.Models.Components
         public ReservationRequestStatusesJson Status { get; set; } = default!;
 
         /// <summary>
-        /// Unique URL for a guest to access a reservation in Passkey&apos;s booking tool.
+        /// Unique URL for a guest to access a reservation in Passkey's booking tool.
         /// </summary>
         [JsonProperty("bookingSite")]
         public BookingWebsiteLinkJson? BookingSite { get; set; }
 
         /// <summary>
-        /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey&apos;s call center tool.
+        /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
         /// </summary>
         [JsonProperty("callCenter")]
         public CallCenterLinkJson? CallCenter { get; set; }

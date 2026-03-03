@@ -13,13 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A Budget Item Custom Field
+    /// A Budget Item Custom Field.
     /// </summary>
     public class BudgetItemCustomFieldJson
     {
-
         /// <summary>
         /// The unique ID representing this budget item custom field.
         /// </summary>
