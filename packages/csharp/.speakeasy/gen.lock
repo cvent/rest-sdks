@@ -5,8 +5,8 @@ management:
   docVersion: ea
   speakeasyVersion: 1.733.2
   generationVersion: 2.845.11
-  releaseVersion: 1.0.9
-  configChecksum: 9475a8c3cd7b77632f6addf8cdf48cb1
+  releaseVersion: 1.0.10
+  configChecksum: 683f51af1c0c6aeb43e785fcfbac1e8b
   published: true
 persistentEdits:
   generation_id: c50843e4-e393-4964-8f45-57aa92ab8994
@@ -9246,7 +9246,7 @@ trackedFiles:
     pristine_git_object: 977cd7381c7598682830d6e4a64a85cb14130b98
   src/Cvent/SDK/Cvent.SDK.csproj:
     id: 7a55759bc2f0
-    last_write_checksum: sha1:812b8716ecb23435b80ed191e21fd18d366481c8
+    last_write_checksum: sha1:26c8b7ad067711aa7b4b56ebc9d88c2c041180d3
     pristine_git_object: 711013944bc0505858b0b7cf177f166071b47593
   src/Cvent/SDK/CventSDK.cs:
     id: f7e1ad22cd8f
@@ -18292,7 +18292,7 @@ trackedFiles:
     pristine_git_object: 58003eaf89fe1986cc662177f443175c4da22c63
   src/Cvent/SDK/SDKConfig.cs:
     id: 7ad7086454a8
-    last_write_checksum: sha1:33743dc3318e8f3a23b4306c256c1f932b3ff644
+    last_write_checksum: sha1:98d26f6cf1cc9e62f122d9aa5e79105f4cb1af33
     pristine_git_object: 796c23cd551fbe87f613d89d60ed25ac5fe0c54b
   src/Cvent/SDK/Seating.cs:
     id: 01c249fc2746
@@ -18348,7 +18348,7 @@ trackedFiles:
     pristine_git_object: a75f770b33edd25c0fa4d4a77ab523da12d269ba
   src/Cvent/SDK/Utils/Constants.cs:
     id: 231d94d8a5dc
-    last_write_checksum: sha1:a67244188f51ae878adab1a3a78838f75846735d
+    last_write_checksum: sha1:f08e14918702d22c2f3c9425e62b8c136c241385
     pristine_git_object: 0a54932893793a10e459afbc15920803cff3ed1e
   src/Cvent/SDK/Utils/CventSDKHttpClient.cs:
     id: 374fee4fdbaf
