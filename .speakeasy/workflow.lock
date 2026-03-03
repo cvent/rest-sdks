@@ -2,8 +2,8 @@ speakeasyVersion: 1.733.2
 sources:
     Public:
         sourceNamespace: public
-        sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
-        sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
+        sourceRevisionDigest: sha256:c235a8653a8473f60169d55f25bd0ae93a41f0dd849469c12466242260cff70d
+        sourceBlobDigest: sha256:bc4ed9649195b737a4f5dd51b675528269311f8c760b06e311dac40921116c69
         tags:
             - latest
             - ea
@@ -11,18 +11,24 @@ targets:
     public-csharp:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
-        sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
+        sourceRevisionDigest: sha256:c235a8653a8473f60169d55f25bd0ae93a41f0dd849469c12466242260cff70d
+        sourceBlobDigest: sha256:bc4ed9649195b737a4f5dd51b675528269311f8c760b06e311dac40921116c69
+        codeSamplesNamespace: csharp
+        codeSamplesRevisionDigest: sha256:47a5168914e4fc4b9c2db7fb36d8fba21db0565a325a7949a298ea7f4e3e6c7c
     public-java:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
-        sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
+        sourceRevisionDigest: sha256:c235a8653a8473f60169d55f25bd0ae93a41f0dd849469c12466242260cff70d
+        sourceBlobDigest: sha256:bc4ed9649195b737a4f5dd51b675528269311f8c760b06e311dac40921116c69
+        codeSamplesNamespace: java
+        codeSamplesRevisionDigest: sha256:ec3e45c31cb551fe060ff0aaf0c809bf6fe708e26358dc37c8c4af156f691f2f
     public-typescript:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:d83ef5ac9496729e99e8dd53e6c32c33aed362e344f0ff3d65289c621eaa0c7f
-        sourceBlobDigest: sha256:97af000c32477103efc512a4c32234996c40c8d7704fd2699b510557aaf8abd3
+        sourceRevisionDigest: sha256:c235a8653a8473f60169d55f25bd0ae93a41f0dd849469c12466242260cff70d
+        sourceBlobDigest: sha256:bc4ed9649195b737a4f5dd51b675528269311f8c760b06e311dac40921116c69
+        codeSamplesNamespace: typescript
+        codeSamplesRevisionDigest: sha256:ce9559ed1251eff87cb29d5805f91305276429630fe1b9c91361c11007575663
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.733.2
@@ -37,7 +43,7 @@ workflow:
                 - location: ./overlays/description_overlay.yaml
                 - location: ./overlays/segments_error_response_overlay.yaml
             registry:
-                location: registry.speakeasyapi.dev/cvent/universal-api-platform/public
+                location: registry.speakeasyapi.dev/cvent/rest-sdks/public
     targets:
         public-csharp:
             target: csharp
@@ -48,7 +54,7 @@ workflow:
                     apiKey: $nuget_api_key
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-csharp-code-samples
+                    location: registry.speakeasyapi.dev/cvent/rest-sdks/csharp
                 labelOverride:
                     fixedValue: CSharp (SDK)
                 blocking: false
@@ -64,7 +70,7 @@ workflow:
                     gpgPassPhrase: $java_gpg_passphrase
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-java-code-samples
+                    location: registry.speakeasyapi.dev/cvent/rest-sdks/java
                 labelOverride:
                     fixedValue: Java (SDK)
                 blocking: false
@@ -77,7 +83,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/cvent/universal-api-platform/public-typescript-code-samples
+                    location: registry.speakeasyapi.dev/cvent/rest-sdks/typescript
                 labelOverride:
                     fixedValue: Typescript (SDK)
                 blocking: false
