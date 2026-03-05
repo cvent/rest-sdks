@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ServiceProviderConfigFilter
- * 
+ *
  * <p>Config details for filter operations.
  */
 public class ServiceProviderConfigFilter {
@@ -42,7 +42,7 @@ public class ServiceProviderConfigFilter {
         this.supported = supported;
         this.maxResults = maxResults;
     }
-    
+
     public ServiceProviderConfigFilter() {
         this(null, null);
     }
@@ -65,7 +65,6 @@ public class ServiceProviderConfigFilter {
         return new Builder();
     }
 
-
     /**
      * Indicates if the filteration is supported.
      */
@@ -74,7 +73,6 @@ public class ServiceProviderConfigFilter {
         return this;
     }
 
-
     /**
      * The maximum number of results in the response.
      */
@@ -82,7 +80,6 @@ public class ServiceProviderConfigFilter {
         this.maxResults = maxResults;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +90,29 @@ public class ServiceProviderConfigFilter {
             return false;
         }
         ServiceProviderConfigFilter other = (ServiceProviderConfigFilter) o;
-        return 
-            Utils.enhancedDeepEquals(this.supported, other.supported) &&
-            Utils.enhancedDeepEquals(this.maxResults, other.maxResults);
+        return Utils.enhancedDeepEquals(this.supported, other.supported)
+                && Utils.enhancedDeepEquals(this.maxResults, other.maxResults);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            supported, maxResults);
+        return Utils.enhancedHash(supported, maxResults);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ServiceProviderConfigFilter.class,
-                "supported", supported,
-                "maxResults", maxResults);
+        return Utils.toString(ServiceProviderConfigFilter.class, "supported", supported, "maxResults", maxResults);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean supported;
 
         private Long maxResults;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +132,7 @@ public class ServiceProviderConfigFilter {
         }
 
         public ServiceProviderConfigFilter build() {
-            return new ServiceProviderConfigFilter(
-                supported, maxResults);
+            return new ServiceProviderConfigFilter(supported, maxResults);
         }
-
     }
 }

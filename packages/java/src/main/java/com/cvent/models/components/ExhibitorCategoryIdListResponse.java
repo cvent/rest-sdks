@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorCategoryIdListResponse
- * 
+ *
  * <p>A paginated response containing a list of exhibitor category Ids.
  */
 public class ExhibitorCategoryIdListResponse {
@@ -41,7 +41,7 @@ public class ExhibitorCategoryIdListResponse {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public ExhibitorCategoryIdListResponse() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class ExhibitorCategoryIdListResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +72,6 @@ public class ExhibitorCategoryIdListResponse {
         return this;
     }
 
-
     /**
      * Paginated list of exhibitor category Ids for an exhibitor.
      */
@@ -81,7 +79,6 @@ public class ExhibitorCategoryIdListResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class ExhibitorCategoryIdListResponse {
             return false;
         }
         ExhibitorCategoryIdListResponse other = (ExhibitorCategoryIdListResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorCategoryIdListResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(ExhibitorCategoryIdListResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<ExhibitorCategoryIdJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class ExhibitorCategoryIdListResponse {
         }
 
         public ExhibitorCategoryIdListResponse build() {
-            return new ExhibitorCategoryIdListResponse(
-                paging, data);
+            return new ExhibitorCategoryIdListResponse(paging, data);
         }
-
     }
 }

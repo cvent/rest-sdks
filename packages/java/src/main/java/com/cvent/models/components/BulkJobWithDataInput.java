@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * BulkJobWithDataInput
- * 
+ *
  * <p>The model representing a bulk job that can load data asynchronously including the data
  */
 public class BulkJobWithDataInput {
@@ -73,20 +73,16 @@ public class BulkJobWithDataInput {
             @JsonProperty("queryParams") @Nullable Map<String, String> queryParams,
             @JsonProperty("data") @Nullable List<BulkDataPropertyJson> data) {
         this.description = description;
-        this.url = Optional.ofNullable(url)
-            .orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
+        this.url = Optional.ofNullable(url).orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
         this.operation = Optional.ofNullable(operation)
-            .orElseThrow(() -> new IllegalArgumentException("operation cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("operation cannot be null"));
         this.headers = headers;
         this.queryParams = queryParams;
         this.data = data;
     }
-    
-    public BulkJobWithDataInput(
-            @Nonnull String url,
-            @Nonnull BulkJobWithDataOperation operation) {
-        this(null, url, operation,
-            null, null, null);
+
+    public BulkJobWithDataInput(@Nonnull String url, @Nonnull BulkJobWithDataOperation operation) {
+        this(null, url, operation, null, null, null);
     }
 
     /**
@@ -137,7 +133,6 @@ public class BulkJobWithDataInput {
         return new Builder();
     }
 
-
     /**
      * Description of the bulk job.
      */
@@ -145,7 +140,6 @@ public class BulkJobWithDataInput {
         this.description = description;
         return this;
     }
-
 
     /**
      * URL of the destination public API being called. This can be the full path or the relative path to
@@ -157,7 +151,6 @@ public class BulkJobWithDataInput {
         return this;
     }
 
-
     /**
      * Operation to be performed in the destination API.
      */
@@ -165,7 +158,6 @@ public class BulkJobWithDataInput {
         this.operation = Utils.checkNotNull(operation, "operation");
         return this;
     }
-
 
     /**
      * Headers to be passed on the destination API. Values must NOT be null.
@@ -175,7 +167,6 @@ public class BulkJobWithDataInput {
         return this;
     }
 
-
     /**
      * Query Params to be passed on to the destination API. Values must NOT be null.
      */
@@ -184,7 +175,6 @@ public class BulkJobWithDataInput {
         return this;
     }
 
-
     /**
      * Collection of objects to be processed
      */
@@ -192,7 +182,6 @@ public class BulkJobWithDataInput {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -203,35 +192,39 @@ public class BulkJobWithDataInput {
             return false;
         }
         BulkJobWithDataInput other = (BulkJobWithDataInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.operation, other.operation) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers) &&
-            Utils.enhancedDeepEquals(this.queryParams, other.queryParams) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.operation, other.operation)
+                && Utils.enhancedDeepEquals(this.headers, other.headers)
+                && Utils.enhancedDeepEquals(this.queryParams, other.queryParams)
+                && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            description, url, operation,
-            headers, queryParams, data);
+        return Utils.enhancedHash(description, url, operation, headers, queryParams, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BulkJobWithDataInput.class,
-                "description", description,
-                "url", url,
-                "operation", operation,
-                "headers", headers,
-                "queryParams", queryParams,
-                "data", data);
+        return Utils.toString(
+                BulkJobWithDataInput.class,
+                "description",
+                description,
+                "url",
+                url,
+                "operation",
+                operation,
+                "headers",
+                headers,
+                "queryParams",
+                queryParams,
+                "data",
+                data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String description;
 
@@ -246,7 +239,7 @@ public class BulkJobWithDataInput {
         private List<BulkDataPropertyJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -300,10 +293,7 @@ public class BulkJobWithDataInput {
         }
 
         public BulkJobWithDataInput build() {
-            return new BulkJobWithDataInput(
-                description, url, operation,
-                headers, queryParams, data);
+            return new BulkJobWithDataInput(description, url, operation, headers, queryParams, data);
         }
-
     }
 }

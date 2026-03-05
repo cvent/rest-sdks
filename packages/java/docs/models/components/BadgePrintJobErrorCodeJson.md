@@ -2,6 +2,14 @@
 
 This is used to indicate the error code returned from a badge printer.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.BadgePrintJobErrorCodeJson;
+
+BadgePrintJobErrorCodeJson value = BadgePrintJobErrorCodeJson.BADGE_NOT_FOUND;
+```
+
 
 ## Values
 

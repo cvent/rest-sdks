@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorAdminRequest {
     /**
      * ID of an event.
@@ -44,14 +43,13 @@ public class UpdateExhibitorAdminRequest {
             @Nonnull String exhibitorId,
             @Nonnull String adminId,
             @Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
-        this.adminId = Optional.ofNullable(adminId)
-            .orElseThrow(() -> new IllegalArgumentException("adminId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+        this.adminId =
+                Optional.ofNullable(adminId).orElseThrow(() -> new IllegalArgumentException("adminId cannot be null"));
         this.exhibitorAdminRequest = Optional.ofNullable(exhibitorAdminRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorAdminRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorAdminRequest cannot be null"));
     }
 
     /**
@@ -86,7 +84,6 @@ public class UpdateExhibitorAdminRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -94,7 +91,6 @@ public class UpdateExhibitorAdminRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -104,7 +100,6 @@ public class UpdateExhibitorAdminRequest {
         return this;
     }
 
-
     /**
      * ID of an exhibitor admin.
      */
@@ -113,7 +108,6 @@ public class UpdateExhibitorAdminRequest {
         return this;
     }
 
-
     /**
      * Exhibitor Admin details
      */
@@ -121,7 +115,6 @@ public class UpdateExhibitorAdminRequest {
         this.exhibitorAdminRequest = Utils.checkNotNull(exhibitorAdminRequest, "exhibitorAdminRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +125,33 @@ public class UpdateExhibitorAdminRequest {
             return false;
         }
         UpdateExhibitorAdminRequest other = (UpdateExhibitorAdminRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.adminId, other.adminId) &&
-            Utils.enhancedDeepEquals(this.exhibitorAdminRequest, other.exhibitorAdminRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.adminId, other.adminId)
+                && Utils.enhancedDeepEquals(this.exhibitorAdminRequest, other.exhibitorAdminRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, adminId,
-            exhibitorAdminRequest);
+        return Utils.enhancedHash(id, exhibitorId, adminId, exhibitorAdminRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorAdminRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "adminId", adminId,
-                "exhibitorAdminRequest", exhibitorAdminRequest);
+        return Utils.toString(
+                UpdateExhibitorAdminRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "adminId",
+                adminId,
+                "exhibitorAdminRequest",
+                exhibitorAdminRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +162,7 @@ public class UpdateExhibitorAdminRequest {
         private ExhibitorAdminRequest exhibitorAdminRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +198,7 @@ public class UpdateExhibitorAdminRequest {
         }
 
         public UpdateExhibitorAdminRequest build() {
-            return new UpdateExhibitorAdminRequest(
-                id, exhibitorId, adminId,
-                exhibitorAdminRequest);
+            return new UpdateExhibitorAdminRequest(id, exhibitorId, adminId, exhibitorAdminRequest);
         }
-
     }
 }

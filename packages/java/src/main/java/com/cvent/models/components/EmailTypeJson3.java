@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EmailTypeJson3
- * 
+ *
  * <p>Denotes the type of the email.
  */
 public enum EmailTypeJson3 {
@@ -83,13 +83,13 @@ public enum EmailTypeJson3 {
     EmailTypeJson3(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EmailTypeJson3> fromValue(String value) {
-        for (EmailTypeJson3 o: EmailTypeJson3.values()) {
+        for (EmailTypeJson3 o : EmailTypeJson3.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -97,4 +97,3 @@ public enum EmailTypeJson3 {
         return Optional.empty();
     }
 }
-

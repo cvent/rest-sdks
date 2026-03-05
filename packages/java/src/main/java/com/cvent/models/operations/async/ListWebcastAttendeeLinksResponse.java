@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeLinkPaginatedResponse = attendeeLinkPaginatedResponse;
     }
-    
+
     public ListWebcastAttendeeLinksResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of attendee links.
      */
-    public ListWebcastAttendeeLinksResponse withAttendeeLinkPaginatedResponse(@Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
+    public ListWebcastAttendeeLinksResponse withAttendeeLinkPaginatedResponse(
+            @Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
         this.attendeeLinkPaginatedResponse = attendeeLinkPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
             return false;
         }
         ListWebcastAttendeeLinksResponse other = (ListWebcastAttendeeLinksResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeLinkPaginatedResponse, other.attendeeLinkPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeLinkPaginatedResponse, other.attendeeLinkPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeLinkPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeLinkPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListWebcastAttendeeLinksResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeLinkPaginatedResponse", attendeeLinkPaginatedResponse);
+        return Utils.toString(
+                ListWebcastAttendeeLinksResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeLinkPaginatedResponse",
+                attendeeLinkPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
         private AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class ListWebcastAttendeeLinksResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of attendee links.
          */
-        public Builder attendeeLinkPaginatedResponse(@Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
+        public Builder attendeeLinkPaginatedResponse(
+                @Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
             this.attendeeLinkPaginatedResponse = attendeeLinkPaginatedResponse;
             return this;
         }
 
         public ListWebcastAttendeeLinksResponse build() {
             return new ListWebcastAttendeeLinksResponse(
-                contentType, statusCode, rawResponse,
-                attendeeLinkPaginatedResponse);
+                    contentType, statusCode, rawResponse, attendeeLinkPaginatedResponse);
         }
-
     }
 }

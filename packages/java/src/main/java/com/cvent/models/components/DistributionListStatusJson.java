@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DistributionListStatusJson
- * 
+ *
  * <p>Type of distribution list status.
  */
 public enum DistributionListStatusJson {
@@ -24,13 +24,13 @@ public enum DistributionListStatusJson {
     DistributionListStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DistributionListStatusJson> fromValue(String value) {
-        for (DistributionListStatusJson o: DistributionListStatusJson.values()) {
+        for (DistributionListStatusJson o : DistributionListStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum DistributionListStatusJson {
         return Optional.empty();
     }
 }
-

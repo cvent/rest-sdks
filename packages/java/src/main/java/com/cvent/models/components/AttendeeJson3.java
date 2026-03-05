@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AttendeeJson3
- * 
+ *
  * <p>A JSON Schema for an Attendee object
  */
 public class AttendeeJson3 {
@@ -24,10 +24,8 @@ public class AttendeeJson3 {
     private String id;
 
     @JsonCreator
-    public AttendeeJson3(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AttendeeJson3(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class AttendeeJson3 {
         return new Builder();
     }
 
-
     /**
      * Attendee id
      */
@@ -49,7 +46,6 @@ public class AttendeeJson3 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class AttendeeJson3 {
             return false;
         }
         AttendeeJson3 other = (AttendeeJson3) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeJson3.class,
-                "id", id);
+        return Utils.toString(AttendeeJson3.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class AttendeeJson3 {
         }
 
         public AttendeeJson3 build() {
-            return new AttendeeJson3(
-                id);
+            return new AttendeeJson3(id);
         }
-
     }
 }

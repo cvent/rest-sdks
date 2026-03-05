@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BadgePrinter
- * 
+ *
  * <p>Badge Print Jobs.
  */
 public class BadgePrinter {
@@ -30,13 +30,9 @@ public class BadgePrinter {
     private String name;
 
     @JsonCreator
-    public BadgePrinter(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("name") @Nonnull String name) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+    public BadgePrinter(@JsonProperty("id") @Nonnull String id, @JsonProperty("name") @Nonnull String name) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
     }
 
     /**
@@ -57,7 +53,6 @@ public class BadgePrinter {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -66,7 +61,6 @@ public class BadgePrinter {
         return this;
     }
 
-
     /**
      * The name of the printer that will be displayed to attendees.
      */
@@ -74,7 +68,6 @@ public class BadgePrinter {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +78,28 @@ public class BadgePrinter {
             return false;
         }
         BadgePrinter other = (BadgePrinter) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BadgePrinter.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(BadgePrinter.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +119,7 @@ public class BadgePrinter {
         }
 
         public BadgePrinter build() {
-            return new BadgePrinter(
-                id, name);
+            return new BadgePrinter(id, name);
         }
-
     }
 }

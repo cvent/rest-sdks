@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * RoomsSortTypeJson
- * 
+ *
  * <p>Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest
  * price first.
- * 
+ *
  * <p>PriceDescending: Data sorted by highest price first.
  */
 public enum RoomsSortTypeJson {
@@ -27,13 +27,13 @@ public enum RoomsSortTypeJson {
     RoomsSortTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RoomsSortTypeJson> fromValue(String value) {
-        for (RoomsSortTypeJson o: RoomsSortTypeJson.values()) {
+        for (RoomsSortTypeJson o : RoomsSortTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum RoomsSortTypeJson {
         return Optional.empty();
     }
 }
-

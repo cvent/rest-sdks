@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * DiscountAudienceTypeJson
- * 
+ *
  * <p>Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants
  * and their guests. `GUEST`: Any attendee invited to the event.
- * 
+ *
  * <p>`ALL`: An attendee who's the guest of a primary registrant.
  */
 public enum DiscountAudienceTypeJson {
@@ -27,13 +27,13 @@ public enum DiscountAudienceTypeJson {
     DiscountAudienceTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DiscountAudienceTypeJson> fromValue(String value) {
-        for (DiscountAudienceTypeJson o: DiscountAudienceTypeJson.values()) {
+        for (DiscountAudienceTypeJson o : DiscountAudienceTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum DiscountAudienceTypeJson {
         return Optional.empty();
     }
 }
-

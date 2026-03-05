@@ -2,6 +2,14 @@
 
 Denotes a participant response to an appointment.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ParticipantResponseJson;
+
+ParticipantResponseJson value = ParticipantResponseJson.CONFIRMED;
+```
+
 
 ## Values
 

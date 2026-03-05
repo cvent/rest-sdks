@@ -28,19 +28,18 @@ public class AsyncHousingHotels {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public HousingHotels sync() {
         return syncSDK;
     }
 
-
     /**
      * Update Hotel Room Rates
-     * 
+     *
      * <p>Updates the given hotel's room rate details based on data in the request body.
-     * 
+     *
      * @return The async call builder
      */
     public UpdateHotelRoomRatesRequestBuilder updateHotelRoomRates() {
@@ -49,17 +48,16 @@ public class AsyncHousingHotels {
 
     /**
      * Update Hotel Room Rates
-     * 
+     *
      * <p>Updates the given hotel's room rate details based on data in the request body.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateHotelRoomRatesResponse>} - The async response
      */
-    public CompletableFuture<UpdateHotelRoomRatesResponse> updateHotelRoomRates(@Nonnull UpdateHotelRoomRatesRequest request) {
-        AsyncRequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation
-              = new UpdateHotelRoomRates.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateHotelRoomRatesResponse> updateHotelRoomRates(
+            @Nonnull UpdateHotelRoomRatesRequest request) {
+        AsyncRequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation =
+                new UpdateHotelRoomRates.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

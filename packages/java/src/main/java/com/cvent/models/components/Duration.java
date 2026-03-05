@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Duration
- * 
+ *
  * <p>The duration of the membership item with anniversary renewal type.
  */
 public enum Duration {
@@ -26,13 +26,13 @@ public enum Duration {
     Duration(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Duration> fromValue(String value) {
-        for (Duration o: Duration.values()) {
+        for (Duration o : Duration.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum Duration {
         return Optional.empty();
     }
 }
-

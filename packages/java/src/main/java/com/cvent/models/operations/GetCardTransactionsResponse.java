@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetCardTransactionsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetCardTransactionsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CardTransactionPaginatedResponse cardTransactionPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.cardTransactionPaginatedResponse = cardTransactionPaginatedResponse;
     }
-    
+
     public GetCardTransactionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetCardTransactionsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetCardTransactionsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetCardTransactionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetCardTransactionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of card transactions.
      */
-    public GetCardTransactionsResponse withCardTransactionPaginatedResponse(@Nullable CardTransactionPaginatedResponse cardTransactionPaginatedResponse) {
+    public GetCardTransactionsResponse withCardTransactionPaginatedResponse(
+            @Nullable CardTransactionPaginatedResponse cardTransactionPaginatedResponse) {
         this.cardTransactionPaginatedResponse = cardTransactionPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetCardTransactionsResponse implements Response {
             return false;
         }
         GetCardTransactionsResponse other = (GetCardTransactionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.cardTransactionPaginatedResponse, other.cardTransactionPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.cardTransactionPaginatedResponse, other.cardTransactionPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            cardTransactionPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, cardTransactionPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCardTransactionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "cardTransactionPaginatedResponse", cardTransactionPaginatedResponse);
+        return Utils.toString(
+                GetCardTransactionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "cardTransactionPaginatedResponse",
+                cardTransactionPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetCardTransactionsResponse implements Response {
         private CardTransactionPaginatedResponse cardTransactionPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetCardTransactionsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of card transactions.
          */
-        public Builder cardTransactionPaginatedResponse(@Nullable CardTransactionPaginatedResponse cardTransactionPaginatedResponse) {
+        public Builder cardTransactionPaginatedResponse(
+                @Nullable CardTransactionPaginatedResponse cardTransactionPaginatedResponse) {
             this.cardTransactionPaginatedResponse = cardTransactionPaginatedResponse;
             return this;
         }
 
         public GetCardTransactionsResponse build() {
             return new GetCardTransactionsResponse(
-                contentType, statusCode, rawResponse,
-                cardTransactionPaginatedResponse);
+                    contentType, statusCode, rawResponse, cardTransactionPaginatedResponse);
         }
-
     }
 }

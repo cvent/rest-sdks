@@ -10,13 +10,13 @@ import java.util.Optional;
 
 /**
  * AudioTrackVariantJson
- * 
+ *
  * <p>Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is
  * a possible alternative to the main track.
- * 
+ *
  * <p>Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is
  * a translated version of the main audio track.
- * 
+ *
  * <p>Descriptive is an audio description of a video track.
  */
 public enum AudioTrackVariantJson {
@@ -32,13 +32,13 @@ public enum AudioTrackVariantJson {
     AudioTrackVariantJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AudioTrackVariantJson> fromValue(String value) {
-        for (AudioTrackVariantJson o: AudioTrackVariantJson.values()) {
+        for (AudioTrackVariantJson o : AudioTrackVariantJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -46,4 +46,3 @@ public enum AudioTrackVariantJson {
         return Optional.empty();
     }
 }
-

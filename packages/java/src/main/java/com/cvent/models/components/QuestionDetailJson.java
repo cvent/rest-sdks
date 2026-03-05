@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * QuestionDetailJson
- * 
+ *
  * <p>The question asked in a session.
  */
 public class QuestionDetailJson {
@@ -34,13 +34,11 @@ public class QuestionDetailJson {
     private String text;
 
     @JsonCreator
-    public QuestionDetailJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text) {
+    public QuestionDetailJson(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nullable String text) {
         this.id = id;
         this.text = text;
     }
-    
+
     public QuestionDetailJson() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class QuestionDetailJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -72,7 +69,6 @@ public class QuestionDetailJson {
         return this;
     }
 
-
     /**
      * Question text.
      */
@@ -80,7 +76,6 @@ public class QuestionDetailJson {
         this.text = text;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class QuestionDetailJson {
             return false;
         }
         QuestionDetailJson other = (QuestionDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text);
+        return Utils.enhancedHash(id, text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionDetailJson.class,
-                "id", id,
-                "text", text);
+        return Utils.toString(QuestionDetailJson.class, "id", id, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class QuestionDetailJson {
         }
 
         public QuestionDetailJson build() {
-            return new QuestionDetailJson(
-                id, text);
+            return new QuestionDetailJson(id, text);
         }
-
     }
 }

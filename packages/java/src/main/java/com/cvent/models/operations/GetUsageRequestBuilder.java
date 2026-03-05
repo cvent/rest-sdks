@@ -28,7 +28,7 @@ public class GetUsageRequestBuilder {
     private GetUsageRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetUsageRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,12 @@ public class GetUsageRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetUsageResponse call() {
-        RequestOperation<GetUsageRequest, GetUsageResponse> operation
-              = new GetUsage.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetUsageRequest, GetUsageResponse> operation = new GetUsage.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

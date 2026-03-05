@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PlayerTypeJson
- * 
+ *
  * <p>This is used to denote the type of a video player
  */
 public enum PlayerTypeJson {
@@ -25,13 +25,13 @@ public enum PlayerTypeJson {
     PlayerTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PlayerTypeJson> fromValue(String value) {
-        for (PlayerTypeJson o: PlayerTypeJson.values()) {
+        for (PlayerTypeJson o : PlayerTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum PlayerTypeJson {
         return Optional.empty();
     }
 }
-

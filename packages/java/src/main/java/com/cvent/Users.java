@@ -53,7 +53,7 @@ public class Users {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncUsers async() {
@@ -62,9 +62,9 @@ public class Users {
 
     /**
      * List Account User Groups
-     * 
+     *
      * <p>Gets a list of user groups in your account.
-     * 
+     *
      * @return The call builder
      */
     public GetAccountUserGroupsRequestBuilder getAccountUserGroups() {
@@ -73,24 +73,24 @@ public class Users {
 
     /**
      * List Account User Groups
-     * 
+     *
      * <p>Gets a list of user groups in your account.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAccountUserGroupsResponse getAccountUserGroups(@Nonnull GetAccountUserGroupsRequest request) {
-        RequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation
-              = new GetAccountUserGroups.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation =
+                new GetAccountUserGroups.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Account User Group
-     * 
+     *
      * <p>Creates a new Account User Group.
-     * 
+     *
      * @return The call builder
      */
     public CreateAccountUserGroupRequestBuilder createAccountUserGroup() {
@@ -99,9 +99,9 @@ public class Users {
 
     /**
      * Create Account User Group
-     * 
+     *
      * <p>Creates a new Account User Group.
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -111,24 +111,24 @@ public class Users {
 
     /**
      * Create Account User Group
-     * 
+     *
      * <p>Creates a new Account User Group.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAccountUserGroupResponse createAccountUserGroup(@Nullable UserGroupJsonInput request) {
-        RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation
-              = new CreateAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
+                new CreateAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Account User Group
-     * 
+     *
      * <p>Gets a single account user group by its ID.
-     * 
+     *
      * @return The call builder
      */
     public GetAccountUserGroupRequestBuilder getAccountUserGroup() {
@@ -137,24 +137,24 @@ public class Users {
 
     /**
      * Get Account User Group
-     * 
+     *
      * <p>Gets a single account user group by its ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAccountUserGroupResponse getAccountUserGroup(@Nonnull GetAccountUserGroupRequest request) {
-        RequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation
-              = new GetAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation =
+                new GetAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Account User Group
-     * 
+     *
      * <p>Update a given account user group using details in the body of the request.
-     * 
+     *
      * @return The call builder
      */
     public UpdateAccountUserGroupRequestBuilder updateAccountUserGroup() {
@@ -163,24 +163,24 @@ public class Users {
 
     /**
      * Update Account User Group
-     * 
+     *
      * <p>Update a given account user group using details in the body of the request.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateAccountUserGroupResponse updateAccountUserGroup(@Nonnull UpdateAccountUserGroupRequest request) {
-        RequestOperation<UpdateAccountUserGroupRequest, UpdateAccountUserGroupResponse> operation
-              = new UpdateAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateAccountUserGroupRequest, UpdateAccountUserGroupResponse> operation =
+                new UpdateAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Account User Group
-     * 
+     *
      * <p>Deletes an account user group using its ID.
-     * 
+     *
      * @return The call builder
      */
     public DeleteAccountUserGroupRequestBuilder deleteAccountUserGroup() {
@@ -189,24 +189,24 @@ public class Users {
 
     /**
      * Delete Account User Group
-     * 
+     *
      * <p>Deletes an account user group using its ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteAccountUserGroupResponse deleteAccountUserGroup(@Nonnull DeleteAccountUserGroupRequest request) {
-        RequestOperation<DeleteAccountUserGroupRequest, DeleteAccountUserGroupResponse> operation
-              = new DeleteAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteAccountUserGroupRequest, DeleteAccountUserGroupResponse> operation =
+                new DeleteAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Associate User to Group
-     * 
+     *
      * <p>Associates a user to an account user group.
-     * 
+     *
      * @return The call builder
      */
     public AddUserToAccountUserGroupRequestBuilder addUserToAccountUserGroup() {
@@ -215,24 +215,25 @@ public class Users {
 
     /**
      * Associate User to Group
-     * 
+     *
      * <p>Associates a user to an account user group.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public AddUserToAccountUserGroupResponse addUserToAccountUserGroup(@Nonnull AddUserToAccountUserGroupRequest request) {
-        RequestOperation<AddUserToAccountUserGroupRequest, AddUserToAccountUserGroupResponse> operation
-              = new AddUserToAccountUserGroup.Sync(sdkConfiguration, _headers);
+    public AddUserToAccountUserGroupResponse addUserToAccountUserGroup(
+            @Nonnull AddUserToAccountUserGroupRequest request) {
+        RequestOperation<AddUserToAccountUserGroupRequest, AddUserToAccountUserGroupResponse> operation =
+                new AddUserToAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete User from Group
-     * 
+     *
      * <p>Removes a user from an account user group.
-     * 
+     *
      * @return The call builder
      */
     public DeleteUserFromAccountUserGroupRequestBuilder deleteUserFromAccountUserGroup() {
@@ -241,17 +242,17 @@ public class Users {
 
     /**
      * Delete User from Group
-     * 
+     *
      * <p>Removes a user from an account user group.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public DeleteUserFromAccountUserGroupResponse deleteUserFromAccountUserGroup(@Nonnull DeleteUserFromAccountUserGroupRequest request) {
-        RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation
-              = new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, _headers);
+    public DeleteUserFromAccountUserGroupResponse deleteUserFromAccountUserGroup(
+            @Nonnull DeleteUserFromAccountUserGroupRequest request) {
+        RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
+                new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

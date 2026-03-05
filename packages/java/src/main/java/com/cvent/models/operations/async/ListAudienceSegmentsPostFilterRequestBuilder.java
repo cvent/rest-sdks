@@ -32,7 +32,8 @@ public class ListAudienceSegmentsPostFilterRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public ListAudienceSegmentsPostFilterRequestBuilder request(@Nonnull ListAudienceSegmentsPostFilterRequest request) {
+    public ListAudienceSegmentsPostFilterRequestBuilder request(
+            @Nonnull ListAudienceSegmentsPostFilterRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class ListAudienceSegmentsPostFilterRequestBuilder {
     private ListAudienceSegmentsPostFilterRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListAudienceSegmentsPostFilterRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,16 @@ public class ListAudienceSegmentsPostFilterRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListAudienceSegmentsPostFilterResponse> call() {
-        AsyncRequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation
-              = new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation =
+                new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +76,17 @@ public class ListAudienceSegmentsPostFilterRequestBuilder {
      */
     public Publisher<ListAudienceSegmentsPostFilterResponse> callAsPublisher() {
         ListAudienceSegmentsPostFilterRequest request = this.request;
-        AsyncRequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation
-              = new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation =
+                new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListAudienceSegmentsPostFilterRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListAudienceSegmentsPostFilterRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListAudienceSegmentsPostFilterResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListAudienceSegmentsPostFilterResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

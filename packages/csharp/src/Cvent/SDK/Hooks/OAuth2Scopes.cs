@@ -23,1101 +23,919 @@ namespace Cvent.SDK.Hooks
         /// <summary>
         /// Allows the deletion of hooks.
         /// </summary>
-        [JsonProperty("account/hooks:delete")]
-        AccountHooksDelete,
+        [JsonProperty("account/hooks:delete")] AccountHooksDelete,
 
         /// <summary>
         /// Allows the reading of hooks.
         /// </summary>
-        [JsonProperty("account/hooks:read")]
-        AccountHooksRead,
+        [JsonProperty("account/hooks:read")] AccountHooksRead,
 
         /// <summary>
         /// Allows the creation/updation of hooks.
         /// </summary>
-        [JsonProperty("account/hooks:write")]
-        AccountHooksWrite,
+        [JsonProperty("account/hooks:write")] AccountHooksWrite,
 
         /// <summary>
         /// Allows deletion for user groups.
         /// </summary>
-        [JsonProperty("account/user-groups:delete")]
-        AccountUserGroupsDelete,
+        [JsonProperty("account/user-groups:delete")] AccountUserGroupsDelete,
 
         /// <summary>
         /// Allows the reading of user groups.
         /// </summary>
-        [JsonProperty("account/user-groups:read")]
-        AccountUserGroupsRead,
+        [JsonProperty("account/user-groups:read")] AccountUserGroupsRead,
 
         /// <summary>
         /// Allows the writing of user groups.
         /// </summary>
-        [JsonProperty("account/user-groups:write")]
-        AccountUserGroupsWrite,
+        [JsonProperty("account/user-groups:write")] AccountUserGroupsWrite,
 
         /// <summary>
         /// Allows the deletion of User.
         /// </summary>
-        [JsonProperty("account/users:delete")]
-        AccountUsersDelete,
+        [JsonProperty("account/users:delete")] AccountUsersDelete,
 
         /// <summary>
         /// Allows the reading of User, User Group.
         /// </summary>
-        [JsonProperty("account/users:read")]
-        AccountUsersRead,
+        [JsonProperty("account/users:read")] AccountUsersRead,
 
         /// <summary>
         /// Allows the creation/updating of User.
         /// </summary>
-        [JsonProperty("account/users:write")]
-        AccountUsersWrite,
+        [JsonProperty("account/users:write")] AccountUsersWrite,
 
         /// <summary>
         /// Allows the reading of appointment attendees and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointment-attendees:read")]
-        AppointmentsAppointmentAttendeesRead,
+        [JsonProperty("appointments/appointment-attendees:read")] AppointmentsAppointmentAttendeesRead,
 
         /// <summary>
         /// Allows the reading of appointment events and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointment-events:read")]
-        AppointmentsAppointmentEventsRead,
+        [JsonProperty("appointments/appointment-events:read")] AppointmentsAppointmentEventsRead,
 
         /// <summary>
         /// Allows the reading of appointment types and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointment-types:read")]
-        AppointmentsAppointmentTypesRead,
+        [JsonProperty("appointments/appointment-types:read")] AppointmentsAppointmentTypesRead,
 
         /// <summary>
         /// Allows the reading of appointment and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointments:read")]
-        AppointmentsAppointmentsRead,
+        [JsonProperty("appointments/appointments:read")] AppointmentsAppointmentsRead,
 
         /// <summary>
         /// Allows the writing of appointments and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointments:write")]
-        AppointmentsAppointmentsWrite,
+        [JsonProperty("appointments/appointments:write")] AppointmentsAppointmentsWrite,
 
         /// <summary>
         /// Allows the reading of available times.
         /// </summary>
-        [JsonProperty("appointments/available-times:read")]
-        AppointmentsAvailableTimesRead,
+        [JsonProperty("appointments/available-times:read")] AppointmentsAvailableTimesRead,
 
         /// <summary>
         /// Allows the reading of appointment locations and their related entities.
         /// </summary>
-        [JsonProperty("appointments/locations:read")]
-        AppointmentsLocationsRead,
+        [JsonProperty("appointments/locations:read")] AppointmentsLocationsRead,
 
         /// <summary>
         /// Allows the reading of engagement scores (attendee insights).
         /// </summary>
-        [JsonProperty("attendee-insights/attendee-insights:read")]
-        AttendeeInsightsAttendeeInsightsRead,
+        [JsonProperty("attendee-insights/attendee-insights:read")] AttendeeInsightsAttendeeInsightsRead,
 
         /// <summary>
         /// Allows the reading of scores.
         /// </summary>
-        [JsonProperty("attendee-insights/scores:read")]
-        AttendeeInsightsScoresRead,
+        [JsonProperty("attendee-insights/scores:read")] AttendeeInsightsScoresRead,
 
         /// <summary>
         /// Allows the reading of engagement score (attendee insight) stats.
         /// </summary>
-        [JsonProperty("attendee-insights/stats:read")]
-        AttendeeInsightsStatsRead,
+        [JsonProperty("attendee-insights/stats:read")] AttendeeInsightsStatsRead,
 
         /// <summary>
         /// Allows the deletion of budget items.
         /// </summary>
-        [JsonProperty("budget/budget-items:delete")]
-        BudgetBudgetItemsDelete,
+        [JsonProperty("budget/budget-items:delete")] BudgetBudgetItemsDelete,
 
         /// <summary>
         /// Allows the reading of all budget items.
         /// </summary>
-        [JsonProperty("budget/budget-items:read")]
-        BudgetBudgetItemsRead,
+        [JsonProperty("budget/budget-items:read")] BudgetBudgetItemsRead,
 
         /// <summary>
         /// Allows creation/updation of budget item.
         /// </summary>
-        [JsonProperty("budget/budget-items:write")]
-        BudgetBudgetItemsWrite,
+        [JsonProperty("budget/budget-items:write")] BudgetBudgetItemsWrite,
 
         /// <summary>
         /// Allows the reading of all event budget totals.
         /// </summary>
-        [JsonProperty("budget/budget-totals:read")]
-        BudgetBudgetTotalsRead,
+        [JsonProperty("budget/budget-totals:read")] BudgetBudgetTotalsRead,
 
         /// <summary>
         /// Allows the reading of cards.
         /// </summary>
-        [JsonProperty("budget/cards:read")]
-        BudgetCardsRead,
+        [JsonProperty("budget/cards:read")] BudgetCardsRead,
 
         /// <summary>
         /// Allows deletion of currency conversion rate for currency.
         /// </summary>
-        [JsonProperty("budget/currency-conversion-rate:delete")]
-        BudgetCurrencyConversionRateDelete,
+        [JsonProperty("budget/currency-conversion-rate:delete")] BudgetCurrencyConversionRateDelete,
 
         /// <summary>
         /// Allows reading of currency conversion rate for currency.
         /// </summary>
-        [JsonProperty("budget/currency-conversion-rate:read")]
-        BudgetCurrencyConversionRateRead,
+        [JsonProperty("budget/currency-conversion-rate:read")] BudgetCurrencyConversionRateRead,
 
         /// <summary>
         /// Allows creation/update of currency conversion rate for currency.
         /// </summary>
-        [JsonProperty("budget/currency-conversion-rate:write")]
-        BudgetCurrencyConversionRateWrite,
+        [JsonProperty("budget/currency-conversion-rate:write")] BudgetCurrencyConversionRateWrite,
 
         /// <summary>
         /// Allows deletion of payments.
         /// </summary>
-        [JsonProperty("budget/payments:delete")]
-        BudgetPaymentsDelete,
+        [JsonProperty("budget/payments:delete")] BudgetPaymentsDelete,
 
         /// <summary>
         /// Allows reading of payment for budget item.
         /// </summary>
-        [JsonProperty("budget/payments:read")]
-        BudgetPaymentsRead,
+        [JsonProperty("budget/payments:read")] BudgetPaymentsRead,
 
         /// <summary>
         /// Allows creation of payment in a budget item.
         /// </summary>
-        [JsonProperty("budget/payments:write")]
-        BudgetPaymentsWrite,
+        [JsonProperty("budget/payments:write")] BudgetPaymentsWrite,
 
         /// <summary>
         /// Allows delete card transactions.
         /// </summary>
-        [JsonProperty("budget/transactions:delete")]
-        BudgetTransactionsDelete,
+        [JsonProperty("budget/transactions:delete")] BudgetTransactionsDelete,
 
         /// <summary>
         /// Allows the reading of all card's transactions.
         /// </summary>
-        [JsonProperty("budget/transactions:read")]
-        BudgetTransactionsRead,
+        [JsonProperty("budget/transactions:read")] BudgetTransactionsRead,
 
         /// <summary>
         /// Allows creation of card transactions.
         /// </summary>
-        [JsonProperty("budget/transactions:write")]
-        BudgetTransactionsWrite,
+        [JsonProperty("budget/transactions:write")] BudgetTransactionsWrite,
 
         /// <summary>
         /// Allows the reading of communication compliance.
         /// </summary>
-        [JsonProperty("compliance/communications:read")]
-        ComplianceCommunicationsRead,
+        [JsonProperty("compliance/communications:read")] ComplianceCommunicationsRead,
 
         /// <summary>
         /// Allows the writing of communication compliance.
         /// </summary>
-        [JsonProperty("compliance/communications:write")]
-        ComplianceCommunicationsWrite,
+        [JsonProperty("compliance/communications:write")] ComplianceCommunicationsWrite,
 
         /// <summary>
         /// Allow the reading of email bounces.
         /// </summary>
-        [JsonProperty("email/bounces:read")]
-        EmailBouncesRead,
+        [JsonProperty("email/bounces:read")] EmailBouncesRead,
 
         /// <summary>
         /// Allows the reading of email statuses.
         /// </summary>
-        [JsonProperty("email/email-status:read")]
-        EmailEmailStatusRead,
+        [JsonProperty("email/email-status:read")] EmailEmailStatusRead,
 
         /// <summary>
         /// Allows the reading of emails.
         /// </summary>
-        [JsonProperty("email/emails:read")]
-        EmailEmailsRead,
+        [JsonProperty("email/emails:read")] EmailEmailsRead,
 
         /// <summary>
         /// Allows the reading of campaigns.
         /// </summary>
-        [JsonProperty("eMarketing/campaigns:read")]
-        EMarketingCampaignsRead,
+        [JsonProperty("eMarketing/campaigns:read")] EMarketingCampaignsRead,
 
         /// <summary>
         /// Allows the reading of eMarketing email statuses.
         /// </summary>
-        [JsonProperty("emarketing/emarketing-email-status:read")]
-        EmarketingEmarketingEmailStatusRead,
+        [JsonProperty("emarketing/emarketing-email-status:read")] EmarketingEmarketingEmailStatusRead,
 
         /// <summary>
         /// Allows the reading of email-templates.
         /// </summary>
-        [JsonProperty("eMarketing/eMarketing-email-templates:read")]
-        EMarketingEMarketingEmailTemplatesRead,
+        [JsonProperty("eMarketing/eMarketing-email-templates:read")] EMarketingEMarketingEmailTemplatesRead,
 
         /// <summary>
         /// Allows the writing of eMarketing emails.
         /// </summary>
-        [JsonProperty("eMarketing/eMarketing-send-emails:write")]
-        EMarketingEMarketingSendEmailsWrite,
+        [JsonProperty("eMarketing/eMarketing-send-emails:write")] EMarketingEMarketingSendEmailsWrite,
 
         /// <summary>
         /// Allows the reading of admission items.
         /// </summary>
-        [JsonProperty("event/admission-items:read")]
-        EventAdmissionItemsRead,
+        [JsonProperty("event/admission-items:read")] EventAdmissionItemsRead,
 
         /// <summary>
         /// Allow reading the air request or air actual detail for attendees.
         /// </summary>
-        [JsonProperty("event/air-request:read")]
-        EventAirRequestRead,
+        [JsonProperty("event/air-request:read")] EventAirRequestRead,
 
         /// <summary>
         /// Allow reading the alternate travel answers for attendees.
         /// </summary>
-        [JsonProperty("event/alternate-travel:read")]
-        EventAlternateTravelRead,
+        [JsonProperty("event/alternate-travel:read")] EventAlternateTravelRead,
 
         /// <summary>
         /// Allows the read of Duration records.
         /// </summary>
-        [JsonProperty("event/attendance-durations:read")]
-        EventAttendanceDurationsRead,
+        [JsonProperty("event/attendance-durations:read")] EventAttendanceDurationsRead,
 
         /// <summary>
         /// Allows the deletion of attendees activities metadata.
         /// </summary>
-        [JsonProperty("event/attendee-activities-metadata:delete")]
-        EventAttendeeActivitiesMetadataDelete,
+        [JsonProperty("event/attendee-activities-metadata:delete")] EventAttendeeActivitiesMetadataDelete,
 
         /// <summary>
         /// Allows the reading of attendee activities metadata.
         /// </summary>
-        [JsonProperty("event/attendee-activities-metadata:read")]
-        EventAttendeeActivitiesMetadataRead,
+        [JsonProperty("event/attendee-activities-metadata:read")] EventAttendeeActivitiesMetadataRead,
 
         /// <summary>
         /// Allows the creation/updating of attendees activities metadata.
         /// </summary>
-        [JsonProperty("event/attendee-activities-metadata:write")]
-        EventAttendeeActivitiesMetadataWrite,
+        [JsonProperty("event/attendee-activities-metadata:write")] EventAttendeeActivitiesMetadataWrite,
 
         /// <summary>
         /// Allows the reading of attendee activities.
         /// </summary>
-        [JsonProperty("event/attendee-activities:read")]
-        EventAttendeeActivitiesRead,
+        [JsonProperty("event/attendee-activities:read")] EventAttendeeActivitiesRead,
 
         /// <summary>
         /// Allows the writing of attendee activities.
         /// </summary>
-        [JsonProperty("event/attendee-activities:write")]
-        EventAttendeeActivitiesWrite,
+        [JsonProperty("event/attendee-activities:write")] EventAttendeeActivitiesWrite,
 
         /// <summary>
         /// Allows the reading of attendee credits.
         /// </summary>
-        [JsonProperty("event/attendee-credits:read")]
-        EventAttendeeCreditsRead,
+        [JsonProperty("event/attendee-credits:read")] EventAttendeeCreditsRead,
 
         /// <summary>
         /// Allows the deletion of attendee links.
         /// </summary>
-        [JsonProperty("event/attendee-links:delete")]
-        EventAttendeeLinksDelete,
+        [JsonProperty("event/attendee-links:delete")] EventAttendeeLinksDelete,
 
         /// <summary>
         /// Allows the reading of attendee links.
         /// </summary>
-        [JsonProperty("event/attendee-links:read")]
-        EventAttendeeLinksRead,
+        [JsonProperty("event/attendee-links:read")] EventAttendeeLinksRead,
 
         /// <summary>
         /// Allows the creation of attendee links.
         /// </summary>
-        [JsonProperty("event/attendee-links:write")]
-        EventAttendeeLinksWrite,
+        [JsonProperty("event/attendee-links:write")] EventAttendeeLinksWrite,
 
         /// <summary>
         /// Allows the reading of attendee messages.
         /// </summary>
-        [JsonProperty("event/attendee-messages:read")]
-        EventAttendeeMessagesRead,
+        [JsonProperty("event/attendee-messages:read")] EventAttendeeMessagesRead,
 
         /// <summary>
         /// Allows the reading of attendees.
         /// </summary>
-        [JsonProperty("event/attendees:read")]
-        EventAttendeesRead,
+        [JsonProperty("event/attendees:read")] EventAttendeesRead,
 
         /// <summary>
         /// Allows the creation of an attendee in an event.
         /// </summary>
-        [JsonProperty("event/attendees:write")]
-        EventAttendeesWrite,
+        [JsonProperty("event/attendees:write")] EventAttendeesWrite,
 
         /// <summary>
         /// Allows the reading of audience segments.
         /// </summary>
-        [JsonProperty("event/audience-segments:read")]
-        EventAudienceSegmentsRead,
+        [JsonProperty("event/audience-segments:read")] EventAudienceSegmentsRead,
 
         /// <summary>
         /// Allows the creation/updating/deletion of audience segments.
         /// </summary>
-        [JsonProperty("event/audience-segments:write")]
-        EventAudienceSegmentsWrite,
+        [JsonProperty("event/audience-segments:write")] EventAudienceSegmentsWrite,
 
         /// <summary>
         /// Allows the reading of contact groups.
         /// </summary>
-        [JsonProperty("event/contact-groups:read")]
-        EventContactGroupsRead,
+        [JsonProperty("event/contact-groups:read")] EventContactGroupsRead,
 
         /// <summary>
         /// Allows the creation/updating of contact groups.
         /// </summary>
-        [JsonProperty("event/contact-groups:write")]
-        EventContactGroupsWrite,
+        [JsonProperty("event/contact-groups:write")] EventContactGroupsWrite,
 
         /// <summary>
         /// Allows the reading of contact types.
         /// </summary>
-        [JsonProperty("event/contact-types:read")]
-        EventContactTypesRead,
+        [JsonProperty("event/contact-types:read")] EventContactTypesRead,
 
         /// <summary>
         /// Allows the deletion of contacts.
         /// </summary>
-        [JsonProperty("event/contacts:delete")]
-        EventContactsDelete,
+        [JsonProperty("event/contacts:delete")] EventContactsDelete,
 
         /// <summary>
         /// Allows the reading of contacts.
         /// </summary>
-        [JsonProperty("event/contacts:read")]
-        EventContactsRead,
+        [JsonProperty("event/contacts:read")] EventContactsRead,
 
         /// <summary>
         /// Allows the creation/updating of contacts.
         /// </summary>
-        [JsonProperty("event/contacts:write")]
-        EventContactsWrite,
+        [JsonProperty("event/contacts:write")] EventContactsWrite,
 
         /// <summary>
         /// Allows the creation/updating of sensitive data related to contacts.
         /// </summary>
-        [JsonProperty("event/contacts:write-sensitive")]
-        EventContactsWriteSensitive,
+        [JsonProperty("event/contacts:write-sensitive")] EventContactsWriteSensitive,
 
         /// <summary>
         /// Allows the reading of custom fields.
         /// </summary>
-        [JsonProperty("event/custom-fields:read")]
-        EventCustomFieldsRead,
+        [JsonProperty("event/custom-fields:read")] EventCustomFieldsRead,
 
         /// <summary>
         /// Allows the writing of custom fields.
         /// </summary>
-        [JsonProperty("event/custom-fields:write")]
-        EventCustomFieldsWrite,
+        [JsonProperty("event/custom-fields:write")] EventCustomFieldsWrite,
 
         /// <summary>
         /// Allows the writing of discounts.
         /// </summary>
-        [JsonProperty("event/discounts:write")]
-        EventDiscountsWrite,
+        [JsonProperty("event/discounts:write")] EventDiscountsWrite,
 
         /// <summary>
         /// Allows the reading of donation items.
         /// </summary>
-        [JsonProperty("event/donation-items:read")]
-        EventDonationItemsRead,
+        [JsonProperty("event/donation-items:read")] EventDonationItemsRead,
 
         /// <summary>
         /// Allows the reading of event discounts.
         /// </summary>
-        [JsonProperty("event/event-discounts:read")]
-        EventEventDiscountsRead,
+        [JsonProperty("event/event-discounts:read")] EventEventDiscountsRead,
 
         /// <summary>
         /// Allows the writing of event discounts.
         /// </summary>
-        [JsonProperty("event/event-discounts:write")]
-        EventEventDiscountsWrite,
+        [JsonProperty("event/event-discounts:write")] EventEventDiscountsWrite,
 
         /// <summary>
         /// Allows the reading of event email statuses.
         /// </summary>
-        [JsonProperty("event/event-email-status:read")]
-        EventEventEmailStatusRead,
+        [JsonProperty("event/event-email-status:read")] EventEventEmailStatusRead,
 
         /// <summary>
         /// Allows the reading of event emails.
         /// </summary>
-        [JsonProperty("event/event-emails:read")]
-        EventEventEmailsRead,
+        [JsonProperty("event/event-emails:read")] EventEventEmailsRead,
 
         /// <summary>
         /// Allows to send event emails.
         /// </summary>
-        [JsonProperty("event/event-emails:write")]
-        EventEventEmailsWrite,
+        [JsonProperty("event/event-emails:write")] EventEventEmailsWrite,
 
         /// <summary>
         /// Allows the reading of events-features.
         /// </summary>
-        [JsonProperty("event/event-features:read")]
-        EventEventFeaturesRead,
+        [JsonProperty("event/event-features:read")] EventEventFeaturesRead,
 
         /// <summary>
         /// Allows updating the event-features.
         /// </summary>
-        [JsonProperty("event/event-features:write")]
-        EventEventFeaturesWrite,
+        [JsonProperty("event/event-features:write")] EventEventFeaturesWrite,
 
         /// <summary>
         /// Allows the reading of user groups.
         /// </summary>
-        [JsonProperty("event/event-user-groups:read")]
-        EventEventUserGroupsRead,
+        [JsonProperty("event/event-user-groups:read")] EventEventUserGroupsRead,
 
         /// <summary>
         /// Allows associating/disassociating user groups to event.
         /// </summary>
-        [JsonProperty("event/event-user-groups:write")]
-        EventEventUserGroupsWrite,
+        [JsonProperty("event/event-user-groups:write")] EventEventUserGroupsWrite,
 
         /// <summary>
         /// Allows the reading of events.
         /// </summary>
-        [JsonProperty("event/events:read")]
-        EventEventsRead,
+        [JsonProperty("event/events:read")] EventEventsRead,
 
         /// <summary>
         /// Allows the creation/updating of events.
         /// </summary>
-        [JsonProperty("event/events:write")]
-        EventEventsWrite,
+        [JsonProperty("event/events:write")] EventEventsWrite,
 
         /// <summary>
         /// Allows the reading of fee items.
         /// </summary>
-        [JsonProperty("event/fee-items:read")]
-        EventFeeItemsRead,
+        [JsonProperty("event/fee-items:read")] EventFeeItemsRead,
 
         /// <summary>
         /// Allow reading the hotel request or housing reservation request detail for attendees.
         /// </summary>
-        [JsonProperty("event/hotel-request:read")]
-        EventHotelRequestRead,
+        [JsonProperty("event/hotel-request:read")] EventHotelRequestRead,
 
         /// <summary>
         /// Allows the reading of the invitation lists for an event.
         /// </summary>
-        [JsonProperty("event/invitation-lists:read")]
-        EventInvitationListsRead,
+        [JsonProperty("event/invitation-lists:read")] EventInvitationListsRead,
 
         /// <summary>
         /// Allows the reading of meeting request forms.
         /// </summary>
-        [JsonProperty("event/meeting-request-forms:read")]
-        EventMeetingRequestFormsRead,
+        [JsonProperty("event/meeting-request-forms:read")] EventMeetingRequestFormsRead,
 
         /// <summary>
         /// Allows the reading of meeting requests.
         /// </summary>
-        [JsonProperty("event/meeting-requests:read")]
-        EventMeetingRequestsRead,
+        [JsonProperty("event/meeting-requests:read")] EventMeetingRequestsRead,
 
         /// <summary>
         /// Allows the creation/updating of meeting requests.
         /// </summary>
-        [JsonProperty("event/meeting-requests:write")]
-        EventMeetingRequestsWrite,
+        [JsonProperty("event/meeting-requests:write")] EventMeetingRequestsWrite,
 
         /// <summary>
         /// Allows reading of membership items.
         /// </summary>
-        [JsonProperty("event/membership-items:read")]
-        EventMembershipItemsRead,
+        [JsonProperty("event/membership-items:read")] EventMembershipItemsRead,
 
         /// <summary>
         /// Allows the reading of orders.
         /// </summary>
-        [JsonProperty("event/orders:read")]
-        EventOrdersRead,
+        [JsonProperty("event/orders:read")] EventOrdersRead,
 
         /// <summary>
         /// Allows the reading of players.
         /// </summary>
-        [JsonProperty("event/players:read")]
-        EventPlayersRead,
+        [JsonProperty("event/players:read")] EventPlayersRead,
 
         /// <summary>
         /// Allows the reading of process form submissions.
         /// </summary>
-        [JsonProperty("event/process-form-submissions:read")]
-        EventProcessFormSubmissionsRead,
+        [JsonProperty("event/process-form-submissions:read")] EventProcessFormSubmissionsRead,
 
         /// <summary>
         /// Allows deletion of session program items.
         /// </summary>
-        [JsonProperty("event/program-items:delete")]
-        EventProgramItemsDelete,
+        [JsonProperty("event/program-items:delete")] EventProgramItemsDelete,
 
         /// <summary>
         /// Allows reading of session program items.
         /// </summary>
-        [JsonProperty("event/program-items:read")]
-        EventProgramItemsRead,
+        [JsonProperty("event/program-items:read")] EventProgramItemsRead,
 
         /// <summary>
         /// Allows writing of session program items.
         /// </summary>
-        [JsonProperty("event/program-items:write")]
-        EventProgramItemsWrite,
+        [JsonProperty("event/program-items:write")] EventProgramItemsWrite,
 
         /// <summary>
         /// Allows the reading of quantity items.
         /// </summary>
-        [JsonProperty("event/quantity-items:read")]
-        EventQuantityItemsRead,
+        [JsonProperty("event/quantity-items:read")] EventQuantityItemsRead,
 
         /// <summary>
         /// Allows the writing of quantity items.
         /// </summary>
-        [JsonProperty("event/quantity-items:write")]
-        EventQuantityItemsWrite,
+        [JsonProperty("event/quantity-items:write")] EventQuantityItemsWrite,
 
         /// <summary>
         /// Allows the reading of registration paths.
         /// </summary>
-        [JsonProperty("event/registration-paths:read")]
-        EventRegistrationPathsRead,
+        [JsonProperty("event/registration-paths:read")] EventRegistrationPathsRead,
 
         /// <summary>
         /// Allows the reading of registration types.
         /// </summary>
-        [JsonProperty("event/registration-types:read")]
-        EventRegistrationTypesRead,
+        [JsonProperty("event/registration-types:read")] EventRegistrationTypesRead,
 
         /// <summary>
         /// Allows the writing of registration types.
         /// </summary>
-        [JsonProperty("event/registration-types:write")]
-        EventRegistrationTypesWrite,
+        [JsonProperty("event/registration-types:write")] EventRegistrationTypesWrite,
 
         /// <summary>
         /// Allows the reading of event role assignment.
         /// </summary>
-        [JsonProperty("event/role-assignments:read")]
-        EventRoleAssignmentsRead,
+        [JsonProperty("event/role-assignments:read")] EventRoleAssignmentsRead,
 
         /// <summary>
         /// Allows the reading of sessions attendance.
         /// </summary>
-        [JsonProperty("event/session-attendance:read")]
-        EventSessionAttendanceRead,
+        [JsonProperty("event/session-attendance:read")] EventSessionAttendanceRead,
 
         /// <summary>
         /// Allows the creation/updating of sessions attendance.
         /// </summary>
-        [JsonProperty("event/session-attendance:write")]
-        EventSessionAttendanceWrite,
+        [JsonProperty("event/session-attendance:write")] EventSessionAttendanceWrite,
 
         /// <summary>
         /// Allows reading of session categories.
         /// </summary>
-        [JsonProperty("event/session-categories:read")]
-        EventSessionCategoriesRead,
+        [JsonProperty("event/session-categories:read")] EventSessionCategoriesRead,
 
         /// <summary>
         /// Allows writing of session categories.
         /// </summary>
-        [JsonProperty("event/session-categories:write")]
-        EventSessionCategoriesWrite,
+        [JsonProperty("event/session-categories:write")] EventSessionCategoriesWrite,
 
         /// <summary>
         /// Allows the deletion of session registrations.
         /// </summary>
-        [JsonProperty("event/session-enrollment:delete")]
-        EventSessionEnrollmentDelete,
+        [JsonProperty("event/session-enrollment:delete")] EventSessionEnrollmentDelete,
 
         /// <summary>
         /// Allows the reading of sessions registrations.
         /// </summary>
-        [JsonProperty("event/session-enrollment:read")]
-        EventSessionEnrollmentRead,
+        [JsonProperty("event/session-enrollment:read")] EventSessionEnrollmentRead,
 
         /// <summary>
         /// Allows the writing of sessions registrations.
         /// </summary>
-        [JsonProperty("event/session-enrollment:write")]
-        EventSessionEnrollmentWrite,
+        [JsonProperty("event/session-enrollment:write")] EventSessionEnrollmentWrite,
 
         /// <summary>
         /// Allows reading of session segments.
         /// </summary>
-        [JsonProperty("event/session-segments:read")]
-        EventSessionSegmentsRead,
+        [JsonProperty("event/session-segments:read")] EventSessionSegmentsRead,
 
         /// <summary>
         /// Allows the deletion of a session in an event.
         /// </summary>
-        [JsonProperty("event/sessions:delete")]
-        EventSessionsDelete,
+        [JsonProperty("event/sessions:delete")] EventSessionsDelete,
 
         /// <summary>
         /// Allows the reading of sessions.
         /// </summary>
-        [JsonProperty("event/sessions:read")]
-        EventSessionsRead,
+        [JsonProperty("event/sessions:read")] EventSessionsRead,
 
         /// <summary>
         /// Allows the creation of a session in an event.
         /// </summary>
-        [JsonProperty("event/sessions:write")]
-        EventSessionsWrite,
+        [JsonProperty("event/sessions:write")] EventSessionsWrite,
 
         /// <summary>
         /// Allows reading of speaker categories.
         /// </summary>
-        [JsonProperty("event/speaker-categories:read")]
-        EventSpeakerCategoriesRead,
+        [JsonProperty("event/speaker-categories:read")] EventSpeakerCategoriesRead,
 
         /// <summary>
         /// Allows writing of speaker categories.
         /// </summary>
-        [JsonProperty("event/speaker-categories:write")]
-        EventSpeakerCategoriesWrite,
+        [JsonProperty("event/speaker-categories:write")] EventSpeakerCategoriesWrite,
 
         /// <summary>
         /// Allows the deletion of a speaker in an event.
         /// </summary>
-        [JsonProperty("event/speakers:delete")]
-        EventSpeakersDelete,
+        [JsonProperty("event/speakers:delete")] EventSpeakersDelete,
 
         /// <summary>
         /// Allows the reading of speakers.
         /// </summary>
-        [JsonProperty("event/speakers:read")]
-        EventSpeakersRead,
+        [JsonProperty("event/speakers:read")] EventSpeakersRead,
 
         /// <summary>
         /// Allows the creation of a speaker in an event.
         /// </summary>
-        [JsonProperty("event/speakers:write")]
-        EventSpeakersWrite,
+        [JsonProperty("event/speakers:write")] EventSpeakersWrite,
 
         /// <summary>
         /// Allows the reading of transactions.
         /// </summary>
-        [JsonProperty("event/transactions:read")]
-        EventTransactionsRead,
+        [JsonProperty("event/transactions:read")] EventTransactionsRead,
 
         /// <summary>
         /// Allows the writing of transactions.
         /// </summary>
-        [JsonProperty("event/transactions:write")]
-        EventTransactionsWrite,
+        [JsonProperty("event/transactions:write")] EventTransactionsWrite,
 
         /// <summary>
         /// Allows reading of video views.
         /// </summary>
-        [JsonProperty("event/video-views:read")]
-        EventVideoViewsRead,
+        [JsonProperty("event/video-views:read")] EventVideoViewsRead,
 
         /// <summary>
         /// Allows the reading of video data.
         /// </summary>
-        [JsonProperty("event/videos:read")]
-        EventVideosRead,
+        [JsonProperty("event/videos:read")] EventVideosRead,
 
         /// <summary>
         /// Allows the creation/updating of video data.
         /// </summary>
-        [JsonProperty("event/videos:write")]
-        EventVideosWrite,
+        [JsonProperty("event/videos:write")] EventVideosWrite,
 
         /// <summary>
         /// Allows the deletion of webcast.
         /// </summary>
-        [JsonProperty("event/webcasts:delete")]
-        EventWebcastsDelete,
+        [JsonProperty("event/webcasts:delete")] EventWebcastsDelete,
 
         /// <summary>
         /// Allows the reading of webcasts.
         /// </summary>
-        [JsonProperty("event/webcasts:read")]
-        EventWebcastsRead,
+        [JsonProperty("event/webcasts:read")] EventWebcastsRead,
 
         /// <summary>
         /// Allows the creation of webcast.
         /// </summary>
-        [JsonProperty("event/webcasts:write")]
-        EventWebcastsWrite,
+        [JsonProperty("event/webcasts:write")] EventWebcastsWrite,
 
         /// <summary>
         /// Allows the reading of event weblinks.
         /// </summary>
-        [JsonProperty("event/weblinks:read")]
-        EventWeblinksRead,
+        [JsonProperty("event/weblinks:read")] EventWeblinksRead,
 
         /// <summary>
         /// Allows the reading of Events+ hub data.
         /// </summary>
-        [JsonProperty("events-plus/hubs:read")]
-        EventsPlusHubsRead,
+        [JsonProperty("events-plus/hubs:read")] EventsPlusHubsRead,
 
         /// <summary>
         /// Allows reading badges.
         /// </summary>
-        [JsonProperty("exhibitor/badges:read")]
-        ExhibitorBadgesRead,
+        [JsonProperty("exhibitor/badges:read")] ExhibitorBadgesRead,
 
         /// <summary>
         /// Allows creating/updating badges.
         /// </summary>
-        [JsonProperty("exhibitor/badges:write")]
-        ExhibitorBadgesWrite,
+        [JsonProperty("exhibitor/badges:write")] ExhibitorBadgesWrite,
 
         /// <summary>
         /// Allows deleting booth staff.
         /// </summary>
-        [JsonProperty("exhibitor/booth-staff:delete")]
-        ExhibitorBoothStaffDelete,
+        [JsonProperty("exhibitor/booth-staff:delete")] ExhibitorBoothStaffDelete,
 
         /// <summary>
         /// Allows reading booth staff.
         /// </summary>
-        [JsonProperty("exhibitor/booth-staff:read")]
-        ExhibitorBoothStaffRead,
+        [JsonProperty("exhibitor/booth-staff:read")] ExhibitorBoothStaffRead,
 
         /// <summary>
         /// Allows creating booth staff.
         /// </summary>
-        [JsonProperty("exhibitor/booth-staff:write")]
-        ExhibitorBoothStaffWrite,
+        [JsonProperty("exhibitor/booth-staff:write")] ExhibitorBoothStaffWrite,
 
         /// <summary>
         /// Allows reading eliterature document request data.
         /// </summary>
-        [JsonProperty("exhibitor/eliterature-requests:read")]
-        ExhibitorEliteratureRequestsRead,
+        [JsonProperty("exhibitor/eliterature-requests:read")] ExhibitorEliteratureRequestsRead,
 
         /// <summary>
         /// Allows reading exhibitor admins.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-admins:read")]
-        ExhibitorExhibitorAdminsRead,
+        [JsonProperty("exhibitor/exhibitor-admins:read")] ExhibitorExhibitorAdminsRead,
 
         /// <summary>
         /// Allows creating/updating exhibitor admins.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-admins:write")]
-        ExhibitorExhibitorAdminsWrite,
+        [JsonProperty("exhibitor/exhibitor-admins:write")] ExhibitorExhibitorAdminsWrite,
 
         /// <summary>
         /// Allows reading exhibitor answers.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-answers:read")]
-        ExhibitorExhibitorAnswersRead,
+        [JsonProperty("exhibitor/exhibitor-answers:read")] ExhibitorExhibitorAnswersRead,
 
         /// <summary>
         /// Allows updating exhibitor answers.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-answers:write")]
-        ExhibitorExhibitorAnswersWrite,
+        [JsonProperty("exhibitor/exhibitor-answers:write")] ExhibitorExhibitorAnswersWrite,
 
         /// <summary>
         /// Allows deleting exhibitor categories.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-categories:delete")]
-        ExhibitorExhibitorCategoriesDelete,
+        [JsonProperty("exhibitor/exhibitor-categories:delete")] ExhibitorExhibitorCategoriesDelete,
 
         /// <summary>
         /// Allows reading exhibitor categories.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-categories:read")]
-        ExhibitorExhibitorCategoriesRead,
+        [JsonProperty("exhibitor/exhibitor-categories:read")] ExhibitorExhibitorCategoriesRead,
 
         /// <summary>
         /// Allows creating/updating exhibitor categories.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-categories:write")]
-        ExhibitorExhibitorCategoriesWrite,
+        [JsonProperty("exhibitor/exhibitor-categories:write")] ExhibitorExhibitorCategoriesWrite,
 
         /// <summary>
         /// Allows deleting exhibitor content.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-contents:delete")]
-        ExhibitorExhibitorContentsDelete,
+        [JsonProperty("exhibitor/exhibitor-contents:delete")] ExhibitorExhibitorContentsDelete,
 
         /// <summary>
         /// Allows reading exhibitor content.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-contents:read")]
-        ExhibitorExhibitorContentsRead,
+        [JsonProperty("exhibitor/exhibitor-contents:read")] ExhibitorExhibitorContentsRead,
 
         /// <summary>
         /// Allows creating/updating exhibitor content.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-contents:write")]
-        ExhibitorExhibitorContentsWrite,
+        [JsonProperty("exhibitor/exhibitor-contents:write")] ExhibitorExhibitorContentsWrite,
 
         /// <summary>
         /// Allows reading exhibitor questions.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-questions:read")]
-        ExhibitorExhibitorQuestionsRead,
+        [JsonProperty("exhibitor/exhibitor-questions:read")] ExhibitorExhibitorQuestionsRead,
 
         /// <summary>
         /// Allows deleting exhibitors.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitors:delete")]
-        ExhibitorExhibitorsDelete,
+        [JsonProperty("exhibitor/exhibitors:delete")] ExhibitorExhibitorsDelete,
 
         /// <summary>
         /// Allows reading exhibitors.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitors:read")]
-        ExhibitorExhibitorsRead,
+        [JsonProperty("exhibitor/exhibitors:read")] ExhibitorExhibitorsRead,
 
         /// <summary>
         /// Allows creating/updating exhibitors.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitors:write")]
-        ExhibitorExhibitorsWrite,
+        [JsonProperty("exhibitor/exhibitors:write")] ExhibitorExhibitorsWrite,
 
         /// <summary>
         /// Allows reading Lead Qualification Answers.
         /// </summary>
-        [JsonProperty("exhibitor/lead-qualification-answers:read")]
-        ExhibitorLeadQualificationAnswersRead,
+        [JsonProperty("exhibitor/lead-qualification-answers:read")] ExhibitorLeadQualificationAnswersRead,
 
         /// <summary>
         /// Allows reading Lead Qualification Questions.
         /// </summary>
-        [JsonProperty("exhibitor/lead-qualification-questions:read")]
-        ExhibitorLeadQualificationQuestionsRead,
+        [JsonProperty("exhibitor/lead-qualification-questions:read")] ExhibitorLeadQualificationQuestionsRead,
 
         /// <summary>
         /// Allows reading leads.
         /// </summary>
-        [JsonProperty("exhibitor/leads:read")]
-        ExhibitorLeadsRead,
+        [JsonProperty("exhibitor/leads:read")] ExhibitorLeadsRead,
 
         /// <summary>
         /// Allows deleting registration pack.
         /// </summary>
-        [JsonProperty("exhibitor/registration-packs:delete")]
-        ExhibitorRegistrationPacksDelete,
+        [JsonProperty("exhibitor/registration-packs:delete")] ExhibitorRegistrationPacksDelete,
 
         /// <summary>
         /// Allows reading registration pack.
         /// </summary>
-        [JsonProperty("exhibitor/registration-packs:read")]
-        ExhibitorRegistrationPacksRead,
+        [JsonProperty("exhibitor/registration-packs:read")] ExhibitorRegistrationPacksRead,
 
         /// <summary>
         /// Allows creating/updating registration pack.
         /// </summary>
-        [JsonProperty("exhibitor/registration-packs:write")]
-        ExhibitorRegistrationPacksWrite,
+        [JsonProperty("exhibitor/registration-packs:write")] ExhibitorRegistrationPacksWrite,
 
         /// <summary>
         /// Allows reading sponsorship level.
         /// </summary>
-        [JsonProperty("exhibitor/sponsorship-levels:read")]
-        ExhibitorSponsorshipLevelsRead,
+        [JsonProperty("exhibitor/sponsorship-levels:read")] ExhibitorSponsorshipLevelsRead,
 
         /// <summary>
         /// Allows the reading of file.
         /// </summary>
-        [JsonProperty("file/file:read")]
-        FileFileRead,
+        [JsonProperty("file/file:read")] FileFileRead,
 
         /// <summary>
         /// Allows the uploading of file.
         /// </summary>
-        [JsonProperty("file/file:write")]
-        FileFileWrite,
+        [JsonProperty("file/file:write")] FileFileWrite,
 
         /// <summary>
         /// Allows reading signatures.
         /// </summary>
-        [JsonProperty("onsite/signatures:read")]
-        OnsiteSignaturesRead,
+        [JsonProperty("onsite/signatures:read")] OnsiteSignaturesRead,
 
         /// <summary>
         /// Allows reading print jobs.
         /// </summary>
-        [JsonProperty("remote-printing/badge-print-jobs:read")]
-        RemotePrintingBadgePrintJobsRead,
+        [JsonProperty("remote-printing/badge-print-jobs:read")] RemotePrintingBadgePrintJobsRead,
 
         /// <summary>
         /// Allows creating print jobs.
         /// </summary>
-        [JsonProperty("remote-printing/badge-print-jobs:write")]
-        RemotePrintingBadgePrintJobsWrite,
+        [JsonProperty("remote-printing/badge-print-jobs:write")] RemotePrintingBadgePrintJobsWrite,
 
         /// <summary>
         /// Allows reading pools.
         /// </summary>
-        [JsonProperty("remote-printing/badge-printer-pools:read")]
-        RemotePrintingBadgePrinterPoolsRead,
+        [JsonProperty("remote-printing/badge-printer-pools:read")] RemotePrintingBadgePrinterPoolsRead,
 
         /// <summary>
         /// Allows to read attendee seat assignment information.
         /// </summary>
-        [JsonProperty("seating/assignments:read")]
-        SeatingAssignmentsRead,
+        [JsonProperty("seating/assignments:read")] SeatingAssignmentsRead,
 
         /// <summary>
         /// Allows to read event seating.
         /// </summary>
-        [JsonProperty("seating/event-seatings:read")]
-        SeatingEventSeatingsRead,
+        [JsonProperty("seating/event-seatings:read")] SeatingEventSeatingsRead,
 
         /// <summary>
         /// Allows to read seat information.
         /// </summary>
-        [JsonProperty("seating/seats:read")]
-        SeatingSeatsRead,
+        [JsonProperty("seating/seats:read")] SeatingSeatsRead,
 
         /// <summary>
         /// Allows to read table information.
         /// </summary>
-        [JsonProperty("seating/tables:read")]
-        SeatingTablesRead,
+        [JsonProperty("seating/tables:read")] SeatingTablesRead,
 
         /// <summary>
         /// Allows the reading of survey questions.
         /// </summary>
-        [JsonProperty("survey/questions:read")]
-        SurveyQuestionsRead,
+        [JsonProperty("survey/questions:read")] SurveyQuestionsRead,
 
         /// <summary>
         /// Allows reading the survey respondents.
         /// </summary>
-        [JsonProperty("survey/respondents:read")]
-        SurveyRespondentsRead,
+        [JsonProperty("survey/respondents:read")] SurveyRespondentsRead,
 
         /// <summary>
         /// Allows reading the survey responses.
         /// </summary>
-        [JsonProperty("survey/responses:read")]
-        SurveyResponsesRead,
+        [JsonProperty("survey/responses:read")] SurveyResponsesRead,
 
         /// <summary>
         /// Allows reading the standalone survey email templates.
         /// </summary>
-        [JsonProperty("survey/standard-survey-email-templates:read")]
-        SurveyStandardSurveyEmailTemplatesRead,
+        [JsonProperty("survey/standard-survey-email-templates:read")] SurveyStandardSurveyEmailTemplatesRead,
 
         /// <summary>
         /// Allows writing operations on standalone survey emails.
         /// </summary>
-        [JsonProperty("survey/standard-survey-email:write")]
-        SurveyStandardSurveyEmailWrite,
+        [JsonProperty("survey/standard-survey-email:write")] SurveyStandardSurveyEmailWrite,
 
         /// <summary>
         /// Allows the reading of standalone surveys questions.
         /// </summary>
-        [JsonProperty("survey/standard-survey-questions:read")]
-        SurveyStandardSurveyQuestionsRead,
+        [JsonProperty("survey/standard-survey-questions:read")] SurveyStandardSurveyQuestionsRead,
 
         /// <summary>
         /// Allows reading the standalone survey respondents.
         /// </summary>
-        [JsonProperty("survey/standard-survey-respondents:read")]
-        SurveyStandardSurveyRespondentsRead,
+        [JsonProperty("survey/standard-survey-respondents:read")] SurveyStandardSurveyRespondentsRead,
 
         /// <summary>
         /// Allows write operations on standalone survey respondents.
         /// </summary>
-        [JsonProperty("survey/standard-survey-respondents:write")]
-        SurveyStandardSurveyRespondentsWrite,
+        [JsonProperty("survey/standard-survey-respondents:write")] SurveyStandardSurveyRespondentsWrite,
 
         /// <summary>
         /// Allows reading the standalone survey responses.
         /// </summary>
-        [JsonProperty("survey/standard-survey-responses:read")]
-        SurveyStandardSurveyResponsesRead,
+        [JsonProperty("survey/standard-survey-responses:read")] SurveyStandardSurveyResponsesRead,
 
         /// <summary>
         /// Allows write operations on standalone surveys respondent's responses.
         /// </summary>
-        [JsonProperty("survey/standard-survey-responses:write")]
-        SurveyStandardSurveyResponsesWrite,
+        [JsonProperty("survey/standard-survey-responses:write")] SurveyStandardSurveyResponsesWrite,
 
         /// <summary>
         /// Allows the reading of standalone surveys.
         /// </summary>
-        [JsonProperty("survey/standard-surveys:read")]
-        SurveyStandardSurveysRead,
+        [JsonProperty("survey/standard-surveys:read")] SurveyStandardSurveysRead,
 
         /// <summary>
         /// Allows the reading of event survey questions.
         /// </summary>
-        [JsonProperty("survey/survey-questions:read")]
-        SurveySurveyQuestionsRead,
+        [JsonProperty("survey/survey-questions:read")] SurveySurveyQuestionsRead,
 
         /// <summary>
         /// Allows reading the event survey respondents.
         /// </summary>
-        [JsonProperty("survey/survey-respondents:read")]
-        SurveySurveyRespondentsRead,
+        [JsonProperty("survey/survey-respondents:read")] SurveySurveyRespondentsRead,
 
         /// <summary>
         /// Allows write operations on the event survey respondents.
         /// </summary>
-        [JsonProperty("survey/survey-respondents:write")]
-        SurveySurveyRespondentsWrite,
+        [JsonProperty("survey/survey-respondents:write")] SurveySurveyRespondentsWrite,
 
         /// <summary>
         /// Allows reading the event survey responses.
         /// </summary>
-        [JsonProperty("survey/survey-responses:read")]
-        SurveySurveyResponsesRead,
+        [JsonProperty("survey/survey-responses:read")] SurveySurveyResponsesRead,
 
         /// <summary>
         /// Allows write operations on the event surveys respondent's responses.
         /// </summary>
-        [JsonProperty("survey/survey-responses:write")]
-        SurveySurveyResponsesWrite,
+        [JsonProperty("survey/survey-responses:write")] SurveySurveyResponsesWrite,
 
         /// <summary>
         /// Allows the reading of event surveys.
         /// </summary>
-        [JsonProperty("survey/surveys:read")]
-        SurveySurveysRead,
+        [JsonProperty("survey/surveys:read")] SurveySurveysRead,
     }
-
 
     public static class OAuth2AuthorizationCodeOAuth2ScopeExtension
     {
         public static string Value(this OAuth2AuthorizationCodeOAuth2Scope value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static OAuth2AuthorizationCodeOAuth2Scope ToEnum(this string value)
         {
-            foreach(var field in typeof(OAuth2AuthorizationCodeOAuth2Scope).GetFields())
+            foreach (var field in typeof(OAuth2AuthorizationCodeOAuth2Scope).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -1152,1275 +970,1064 @@ namespace Cvent.SDK.Hooks
         /// <summary>
         /// Allows the deletion of hooks.
         /// </summary>
-        [JsonProperty("account/hooks:delete")]
-        AccountHooksDelete,
+        [JsonProperty("account/hooks:delete")] AccountHooksDelete,
 
         /// <summary>
         /// Allows the reading of hooks.
         /// </summary>
-        [JsonProperty("account/hooks:read")]
-        AccountHooksRead,
+        [JsonProperty("account/hooks:read")] AccountHooksRead,
 
         /// <summary>
         /// Allows the creation/updation of hooks.
         /// </summary>
-        [JsonProperty("account/hooks:write")]
-        AccountHooksWrite,
+        [JsonProperty("account/hooks:write")] AccountHooksWrite,
 
         /// <summary>
         /// Allows deletion for user groups.
         /// </summary>
-        [JsonProperty("account/user-groups:delete")]
-        AccountUserGroupsDelete,
+        [JsonProperty("account/user-groups:delete")] AccountUserGroupsDelete,
 
         /// <summary>
         /// Allows the reading of user groups.
         /// </summary>
-        [JsonProperty("account/user-groups:read")]
-        AccountUserGroupsRead,
+        [JsonProperty("account/user-groups:read")] AccountUserGroupsRead,
 
         /// <summary>
         /// Allows the writing of user groups.
         /// </summary>
-        [JsonProperty("account/user-groups:write")]
-        AccountUserGroupsWrite,
+        [JsonProperty("account/user-groups:write")] AccountUserGroupsWrite,
 
         /// <summary>
         /// Allows the deletion of User.
         /// </summary>
-        [JsonProperty("account/users:delete")]
-        AccountUsersDelete,
+        [JsonProperty("account/users:delete")] AccountUsersDelete,
 
         /// <summary>
         /// Allows the reading of User, User Group.
         /// </summary>
-        [JsonProperty("account/users:read")]
-        AccountUsersRead,
+        [JsonProperty("account/users:read")] AccountUsersRead,
 
         /// <summary>
         /// Allows the creation/updating of User.
         /// </summary>
-        [JsonProperty("account/users:write")]
-        AccountUsersWrite,
+        [JsonProperty("account/users:write")] AccountUsersWrite,
 
         /// <summary>
         /// Allows the reading of appointment attendees and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointment-attendees:read")]
-        AppointmentsAppointmentAttendeesRead,
+        [JsonProperty("appointments/appointment-attendees:read")] AppointmentsAppointmentAttendeesRead,
 
         /// <summary>
         /// Allows the reading of appointment events and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointment-events:read")]
-        AppointmentsAppointmentEventsRead,
+        [JsonProperty("appointments/appointment-events:read")] AppointmentsAppointmentEventsRead,
 
         /// <summary>
         /// Allows the reading of appointment types and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointment-types:read")]
-        AppointmentsAppointmentTypesRead,
+        [JsonProperty("appointments/appointment-types:read")] AppointmentsAppointmentTypesRead,
 
         /// <summary>
         /// Allows the reading of appointment and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointments:read")]
-        AppointmentsAppointmentsRead,
+        [JsonProperty("appointments/appointments:read")] AppointmentsAppointmentsRead,
 
         /// <summary>
         /// Allows the writing of appointments and their related entities.
         /// </summary>
-        [JsonProperty("appointments/appointments:write")]
-        AppointmentsAppointmentsWrite,
+        [JsonProperty("appointments/appointments:write")] AppointmentsAppointmentsWrite,
 
         /// <summary>
         /// Allows the reading of availability times.
         /// </summary>
-        [JsonProperty("appointments/available-times:read")]
-        AppointmentsAvailableTimesRead,
+        [JsonProperty("appointments/available-times:read")] AppointmentsAvailableTimesRead,
 
         /// <summary>
         /// Allows the reading of appointment locations and their related entities.
         /// </summary>
-        [JsonProperty("appointments/locations:read")]
-        AppointmentsLocationsRead,
+        [JsonProperty("appointments/locations:read")] AppointmentsLocationsRead,
 
         /// <summary>
         /// Allows the reading of engagement scores (attendee insights).
         /// </summary>
-        [JsonProperty("attendee-insights/attendee-insights:read")]
-        AttendeeInsightsAttendeeInsightsRead,
+        [JsonProperty("attendee-insights/attendee-insights:read")] AttendeeInsightsAttendeeInsightsRead,
 
         /// <summary>
         /// Allows the reading of scores.
         /// </summary>
-        [JsonProperty("attendee-insights/scores:read")]
-        AttendeeInsightsScoresRead,
+        [JsonProperty("attendee-insights/scores:read")] AttendeeInsightsScoresRead,
 
         /// <summary>
         /// Allows the reading of engagement score (attendee insight) stats.
         /// </summary>
-        [JsonProperty("attendee-insights/stats:read")]
-        AttendeeInsightsStatsRead,
+        [JsonProperty("attendee-insights/stats:read")] AttendeeInsightsStatsRead,
 
         /// <summary>
         /// Allows the deletion of budget items.
         /// </summary>
-        [JsonProperty("budget/budget-items:delete")]
-        BudgetBudgetItemsDelete,
+        [JsonProperty("budget/budget-items:delete")] BudgetBudgetItemsDelete,
 
         /// <summary>
         /// Allows the reading of all budget items.
         /// </summary>
-        [JsonProperty("budget/budget-items:read")]
-        BudgetBudgetItemsRead,
+        [JsonProperty("budget/budget-items:read")] BudgetBudgetItemsRead,
 
         /// <summary>
         /// Allows creation/updation of budget item.
         /// </summary>
-        [JsonProperty("budget/budget-items:write")]
-        BudgetBudgetItemsWrite,
+        [JsonProperty("budget/budget-items:write")] BudgetBudgetItemsWrite,
 
         /// <summary>
         /// Allows the reading of all event budget totals.
         /// </summary>
-        [JsonProperty("budget/budget-totals:read")]
-        BudgetBudgetTotalsRead,
+        [JsonProperty("budget/budget-totals:read")] BudgetBudgetTotalsRead,
 
         /// <summary>
         /// Allows the reading of cards.
         /// </summary>
-        [JsonProperty("budget/cards:read")]
-        BudgetCardsRead,
+        [JsonProperty("budget/cards:read")] BudgetCardsRead,
 
         /// <summary>
         /// Allows deletion of currency conversion rate for currency.
         /// </summary>
-        [JsonProperty("budget/currency-conversion-rate:delete")]
-        BudgetCurrencyConversionRateDelete,
+        [JsonProperty("budget/currency-conversion-rate:delete")] BudgetCurrencyConversionRateDelete,
 
         /// <summary>
         /// Allows reading of currency conversion rate for currency.
         /// </summary>
-        [JsonProperty("budget/currency-conversion-rate:read")]
-        BudgetCurrencyConversionRateRead,
+        [JsonProperty("budget/currency-conversion-rate:read")] BudgetCurrencyConversionRateRead,
 
         /// <summary>
         /// Allows creation/update of currency conversion rate for currency.
         /// </summary>
-        [JsonProperty("budget/currency-conversion-rate:write")]
-        BudgetCurrencyConversionRateWrite,
+        [JsonProperty("budget/currency-conversion-rate:write")] BudgetCurrencyConversionRateWrite,
 
         /// <summary>
         /// Allows deletion of payments.
         /// </summary>
-        [JsonProperty("budget/payments:delete")]
-        BudgetPaymentsDelete,
+        [JsonProperty("budget/payments:delete")] BudgetPaymentsDelete,
 
         /// <summary>
         /// Allows reading of payment for budget item.
         /// </summary>
-        [JsonProperty("budget/payments:read")]
-        BudgetPaymentsRead,
+        [JsonProperty("budget/payments:read")] BudgetPaymentsRead,
 
         /// <summary>
         /// Allows creation of payment in a budget item.
         /// </summary>
-        [JsonProperty("budget/payments:write")]
-        BudgetPaymentsWrite,
+        [JsonProperty("budget/payments:write")] BudgetPaymentsWrite,
 
         /// <summary>
         /// Allows delete card transactions.
         /// </summary>
-        [JsonProperty("budget/transactions:delete")]
-        BudgetTransactionsDelete,
+        [JsonProperty("budget/transactions:delete")] BudgetTransactionsDelete,
 
         /// <summary>
         /// Allows the reading of all card's transactions.
         /// </summary>
-        [JsonProperty("budget/transactions:read")]
-        BudgetTransactionsRead,
+        [JsonProperty("budget/transactions:read")] BudgetTransactionsRead,
 
         /// <summary>
         /// Allows creation of card transactions.
         /// </summary>
-        [JsonProperty("budget/transactions:write")]
-        BudgetTransactionsWrite,
+        [JsonProperty("budget/transactions:write")] BudgetTransactionsWrite,
 
         /// <summary>
         /// Allows the reading of bulk job related entities.
         /// </summary>
-        [JsonProperty("bulk/bulk-jobs:read")]
-        BulkBulkJobsRead,
+        [JsonProperty("bulk/bulk-jobs:read")] BulkBulkJobsRead,
 
         /// <summary>
         /// Allows the creation, update and deletion of bulk job related entities.
         /// </summary>
-        [JsonProperty("bulk/bulk-jobs:write")]
-        BulkBulkJobsWrite,
+        [JsonProperty("bulk/bulk-jobs:write")] BulkBulkJobsWrite,
 
         /// <summary>
         /// Allows the reading of BT Bid data.
         /// </summary>
-        [JsonProperty("business-transient/bids:read")]
-        BusinessTransientBidsRead,
+        [JsonProperty("business-transient/bids:read")] BusinessTransientBidsRead,
 
         /// <summary>
         /// Allows the reading of BT Proposal data.
         /// </summary>
-        [JsonProperty("business-transient/proposals:read")]
-        BusinessTransientProposalsRead,
+        [JsonProperty("business-transient/proposals:read")] BusinessTransientProposalsRead,
 
         /// <summary>
         /// Allows the reading of a supplier brand or a list of travel supplier brands.
         /// </summary>
-        [JsonProperty("business-transient/supplier-brands:read")]
-        BusinessTransientSupplierBrandsRead,
+        [JsonProperty("business-transient/supplier-brands:read")] BusinessTransientSupplierBrandsRead,
 
         /// <summary>
         /// Allows the reading of a travel supplier chain or a list of travel supplier chains.
         /// </summary>
-        [JsonProperty("business-transient/supplier-chains:read")]
-        BusinessTransientSupplierChainsRead,
+        [JsonProperty("business-transient/supplier-chains:read")] BusinessTransientSupplierChainsRead,
 
         /// <summary>
         /// Allows the reading of a travel supplier property or a list of travel supplier properties.
         /// </summary>
-        [JsonProperty("business-transient/supplier-properties:read")]
-        BusinessTransientSupplierPropertiesRead,
+        [JsonProperty("business-transient/supplier-properties:read")] BusinessTransientSupplierPropertiesRead,
 
         /// <summary>
         /// Allows the reading of a list of travel supplier property rooms.
         /// </summary>
-        [JsonProperty("business-transient/supplier-property-rooms:read")]
-        BusinessTransientSupplierPropertyRoomsRead,
+        [JsonProperty("business-transient/supplier-property-rooms:read")] BusinessTransientSupplierPropertyRoomsRead,
 
         /// <summary>
         /// Allows the reading of business transient travel account data.
         /// </summary>
-        [JsonProperty("business-transient/travel-accounts:read")]
-        BusinessTransientTravelAccountsRead,
+        [JsonProperty("business-transient/travel-accounts:read")] BusinessTransientTravelAccountsRead,
 
         /// <summary>
         /// Allows the reading of business transient travel program question data.
         /// </summary>
-        [JsonProperty("business-transient/travel-program-questions:read")]
-        BusinessTransientTravelProgramQuestionsRead,
+        [JsonProperty("business-transient/travel-program-questions:read")] BusinessTransientTravelProgramQuestionsRead,
 
         /// <summary>
         /// Allows the reading of business transient travel program data.
         /// </summary>
-        [JsonProperty("business-transient/travel-programs:read")]
-        BusinessTransientTravelProgramsRead,
+        [JsonProperty("business-transient/travel-programs:read")] BusinessTransientTravelProgramsRead,
 
         /// <summary>
         /// Allows the reading of business transient travel supplier account data.
         /// </summary>
-        [JsonProperty("business-transient/travel-supplier-accounts:read")]
-        BusinessTransientTravelSupplierAccountsRead,
+        [JsonProperty("business-transient/travel-supplier-accounts:read")] BusinessTransientTravelSupplierAccountsRead,
 
         /// <summary>
         /// Allows the reading of communication compliance.
         /// </summary>
-        [JsonProperty("compliance/communications:read")]
-        ComplianceCommunicationsRead,
+        [JsonProperty("compliance/communications:read")] ComplianceCommunicationsRead,
 
         /// <summary>
         /// Allows the writing of communication compliance.
         /// </summary>
-        [JsonProperty("compliance/communications:write")]
-        ComplianceCommunicationsWrite,
+        [JsonProperty("compliance/communications:write")] ComplianceCommunicationsWrite,
 
         /// <summary>
         /// Allow the reading of email bounces.
         /// </summary>
-        [JsonProperty("email/bounces:read")]
-        EmailBouncesRead,
+        [JsonProperty("email/bounces:read")] EmailBouncesRead,
 
         /// <summary>
         /// Allows the reading of email statuses.
         /// </summary>
-        [JsonProperty("email/email-status:read")]
-        EmailEmailStatusRead,
+        [JsonProperty("email/email-status:read")] EmailEmailStatusRead,
 
         /// <summary>
         /// Allows the reading of emails.
         /// </summary>
-        [JsonProperty("email/emails:read")]
-        EmailEmailsRead,
+        [JsonProperty("email/emails:read")] EmailEmailsRead,
 
         /// <summary>
         /// Allows the reading of campaigns.
         /// </summary>
-        [JsonProperty("eMarketing/campaigns:read")]
-        EMarketingCampaignsRead,
+        [JsonProperty("eMarketing/campaigns:read")] EMarketingCampaignsRead,
 
         /// <summary>
         /// Allows the reading of eMarketing email statuses.
         /// </summary>
-        [JsonProperty("emarketing/emarketing-email-status:read")]
-        EmarketingEmarketingEmailStatusRead,
+        [JsonProperty("emarketing/emarketing-email-status:read")] EmarketingEmarketingEmailStatusRead,
 
         /// <summary>
         /// Allows the reading of email-templates.
         /// </summary>
-        [JsonProperty("eMarketing/eMarketing-email-templates:read")]
-        EMarketingEMarketingEmailTemplatesRead,
+        [JsonProperty("eMarketing/eMarketing-email-templates:read")] EMarketingEMarketingEmailTemplatesRead,
 
         /// <summary>
         /// Allows the writing of eMarketing emails.
         /// </summary>
-        [JsonProperty("eMarketing/eMarketing-send-emails:write")]
-        EMarketingEMarketingSendEmailsWrite,
+        [JsonProperty("eMarketing/eMarketing-send-emails:write")] EMarketingEMarketingSendEmailsWrite,
 
         /// <summary>
         /// Allows the reading of admission items.
         /// </summary>
-        [JsonProperty("event/admission-items:read")]
-        EventAdmissionItemsRead,
+        [JsonProperty("event/admission-items:read")] EventAdmissionItemsRead,
 
         /// <summary>
         /// Allow reading the air request or air actual detail for attendees.
         /// </summary>
-        [JsonProperty("event/air-request:read")]
-        EventAirRequestRead,
+        [JsonProperty("event/air-request:read")] EventAirRequestRead,
 
         /// <summary>
         /// Allow reading the alternate travel answers for attendees.
         /// </summary>
-        [JsonProperty("event/alternate-travel:read")]
-        EventAlternateTravelRead,
+        [JsonProperty("event/alternate-travel:read")] EventAlternateTravelRead,
 
         /// <summary>
         /// Allows the read of Duration records.
         /// </summary>
-        [JsonProperty("event/attendance-durations:read")]
-        EventAttendanceDurationsRead,
+        [JsonProperty("event/attendance-durations:read")] EventAttendanceDurationsRead,
 
         /// <summary>
         /// Allows the deletion of attendees activities metadata.
         /// </summary>
-        [JsonProperty("event/attendee-activities-metadata:delete")]
-        EventAttendeeActivitiesMetadataDelete,
+        [JsonProperty("event/attendee-activities-metadata:delete")] EventAttendeeActivitiesMetadataDelete,
 
         /// <summary>
         /// Allows the reading of attendee activities metadata.
         /// </summary>
-        [JsonProperty("event/attendee-activities-metadata:read")]
-        EventAttendeeActivitiesMetadataRead,
+        [JsonProperty("event/attendee-activities-metadata:read")] EventAttendeeActivitiesMetadataRead,
 
         /// <summary>
         /// Allows the creation/updating of attendees activities metadata.
         /// </summary>
-        [JsonProperty("event/attendee-activities-metadata:write")]
-        EventAttendeeActivitiesMetadataWrite,
+        [JsonProperty("event/attendee-activities-metadata:write")] EventAttendeeActivitiesMetadataWrite,
 
         /// <summary>
         /// Allows the reading of attendee activities.
         /// </summary>
-        [JsonProperty("event/attendee-activities:read")]
-        EventAttendeeActivitiesRead,
+        [JsonProperty("event/attendee-activities:read")] EventAttendeeActivitiesRead,
 
         /// <summary>
         /// Allows the writing of external attendee activities.
         /// </summary>
-        [JsonProperty("event/attendee-activities:write")]
-        EventAttendeeActivitiesWrite,
+        [JsonProperty("event/attendee-activities:write")] EventAttendeeActivitiesWrite,
 
         /// <summary>
         /// Allows the reading of attendee credits.
         /// </summary>
-        [JsonProperty("event/attendee-credits:read")]
-        EventAttendeeCreditsRead,
+        [JsonProperty("event/attendee-credits:read")] EventAttendeeCreditsRead,
 
         /// <summary>
         /// Allows the deletion of attendee links.
         /// </summary>
-        [JsonProperty("event/attendee-links:delete")]
-        EventAttendeeLinksDelete,
+        [JsonProperty("event/attendee-links:delete")] EventAttendeeLinksDelete,
 
         /// <summary>
         /// Allows the reading of attendee links.
         /// </summary>
-        [JsonProperty("event/attendee-links:read")]
-        EventAttendeeLinksRead,
+        [JsonProperty("event/attendee-links:read")] EventAttendeeLinksRead,
 
         /// <summary>
         /// Allows the creation of attendee links.
         /// </summary>
-        [JsonProperty("event/attendee-links:write")]
-        EventAttendeeLinksWrite,
+        [JsonProperty("event/attendee-links:write")] EventAttendeeLinksWrite,
 
         /// <summary>
         /// Allows the reading of attendee messages.
         /// </summary>
-        [JsonProperty("event/attendee-messages:read")]
-        EventAttendeeMessagesRead,
+        [JsonProperty("event/attendee-messages:read")] EventAttendeeMessagesRead,
 
         /// <summary>
         /// Allows the reading of attendees.
         /// </summary>
-        [JsonProperty("event/attendees:read")]
-        EventAttendeesRead,
+        [JsonProperty("event/attendees:read")] EventAttendeesRead,
 
         /// <summary>
         /// Allows the creation of an attendee in an event.
         /// </summary>
-        [JsonProperty("event/attendees:write")]
-        EventAttendeesWrite,
+        [JsonProperty("event/attendees:write")] EventAttendeesWrite,
 
         /// <summary>
         /// Allows the reading of audience segments.
         /// </summary>
-        [JsonProperty("event/audience-segments:read")]
-        EventAudienceSegmentsRead,
+        [JsonProperty("event/audience-segments:read")] EventAudienceSegmentsRead,
 
         /// <summary>
         /// Allows the creation/updating/deletion of audience segments.
         /// </summary>
-        [JsonProperty("event/audience-segments:write")]
-        EventAudienceSegmentsWrite,
+        [JsonProperty("event/audience-segments:write")] EventAudienceSegmentsWrite,
 
         /// <summary>
         /// Allows the reading of contact groups.
         /// </summary>
-        [JsonProperty("event/contact-groups:read")]
-        EventContactGroupsRead,
+        [JsonProperty("event/contact-groups:read")] EventContactGroupsRead,
 
         /// <summary>
         /// Allows the creation/updating of contact groups.
         /// </summary>
-        [JsonProperty("event/contact-groups:write")]
-        EventContactGroupsWrite,
+        [JsonProperty("event/contact-groups:write")] EventContactGroupsWrite,
 
         /// <summary>
         /// Allows the reading of contact types.
         /// </summary>
-        [JsonProperty("event/contact-types:read")]
-        EventContactTypesRead,
+        [JsonProperty("event/contact-types:read")] EventContactTypesRead,
 
         /// <summary>
         /// Allows the deletion of contacts.
         /// </summary>
-        [JsonProperty("event/contacts:delete")]
-        EventContactsDelete,
+        [JsonProperty("event/contacts:delete")] EventContactsDelete,
 
         /// <summary>
         /// Allows the reading of contacts.
         /// </summary>
-        [JsonProperty("event/contacts:read")]
-        EventContactsRead,
+        [JsonProperty("event/contacts:read")] EventContactsRead,
 
         /// <summary>
         /// Allows the creation/updating of contacts.
         /// </summary>
-        [JsonProperty("event/contacts:write")]
-        EventContactsWrite,
+        [JsonProperty("event/contacts:write")] EventContactsWrite,
 
         /// <summary>
         /// Allows the creation/updating of sensitive data related to contacts.
         /// </summary>
-        [JsonProperty("event/contacts:write-sensitive")]
-        EventContactsWriteSensitive,
+        [JsonProperty("event/contacts:write-sensitive")] EventContactsWriteSensitive,
 
         /// <summary>
         /// Allows the reading of custom fields.
         /// </summary>
-        [JsonProperty("event/custom-fields:read")]
-        EventCustomFieldsRead,
+        [JsonProperty("event/custom-fields:read")] EventCustomFieldsRead,
 
         /// <summary>
         /// Allows the writing of custom fields.
         /// </summary>
-        [JsonProperty("event/custom-fields:write")]
-        EventCustomFieldsWrite,
+        [JsonProperty("event/custom-fields:write")] EventCustomFieldsWrite,
 
         /// <summary>
         /// Allows the writing of discounts.
         /// </summary>
-        [JsonProperty("event/discounts:write")]
-        EventDiscountsWrite,
+        [JsonProperty("event/discounts:write")] EventDiscountsWrite,
 
         /// <summary>
         /// Allows the reading of donation items.
         /// </summary>
-        [JsonProperty("event/donation-items:read")]
-        EventDonationItemsRead,
+        [JsonProperty("event/donation-items:read")] EventDonationItemsRead,
 
         /// <summary>
         /// Allows the reading of event discounts.
         /// </summary>
-        [JsonProperty("event/event-discounts:read")]
-        EventEventDiscountsRead,
+        [JsonProperty("event/event-discounts:read")] EventEventDiscountsRead,
 
         /// <summary>
         /// Allows the writing of event discounts.
         /// </summary>
-        [JsonProperty("event/event-discounts:write")]
-        EventEventDiscountsWrite,
+        [JsonProperty("event/event-discounts:write")] EventEventDiscountsWrite,
 
         /// <summary>
         /// Allows the reading of event email statuses.
         /// </summary>
-        [JsonProperty("event/event-email-status:read")]
-        EventEventEmailStatusRead,
+        [JsonProperty("event/event-email-status:read")] EventEventEmailStatusRead,
 
         /// <summary>
         /// Allows the reading of event emails.
         /// </summary>
-        [JsonProperty("event/event-emails:read")]
-        EventEventEmailsRead,
+        [JsonProperty("event/event-emails:read")] EventEventEmailsRead,
 
         /// <summary>
         /// Allows to send event emails.
         /// </summary>
-        [JsonProperty("event/event-emails:write")]
-        EventEventEmailsWrite,
+        [JsonProperty("event/event-emails:write")] EventEventEmailsWrite,
 
         /// <summary>
         /// Allows the reading of events-features.
         /// </summary>
-        [JsonProperty("event/event-features:read")]
-        EventEventFeaturesRead,
+        [JsonProperty("event/event-features:read")] EventEventFeaturesRead,
 
         /// <summary>
         /// Allows updating the event-features.
         /// </summary>
-        [JsonProperty("event/event-features:write")]
-        EventEventFeaturesWrite,
+        [JsonProperty("event/event-features:write")] EventEventFeaturesWrite,
 
         /// <summary>
         /// Allows the reading of user groups.
         /// </summary>
-        [JsonProperty("event/event-user-groups:read")]
-        EventEventUserGroupsRead,
+        [JsonProperty("event/event-user-groups:read")] EventEventUserGroupsRead,
 
         /// <summary>
         /// Allows associating/disassociating user groups to event.
         /// </summary>
-        [JsonProperty("event/event-user-groups:write")]
-        EventEventUserGroupsWrite,
+        [JsonProperty("event/event-user-groups:write")] EventEventUserGroupsWrite,
 
         /// <summary>
         /// Allows the reading of events.
         /// </summary>
-        [JsonProperty("event/events:read")]
-        EventEventsRead,
+        [JsonProperty("event/events:read")] EventEventsRead,
 
         /// <summary>
         /// Allows the creation/updating of events.
         /// </summary>
-        [JsonProperty("event/events:write")]
-        EventEventsWrite,
+        [JsonProperty("event/events:write")] EventEventsWrite,
 
         /// <summary>
         /// Allows the reading of fee items.
         /// </summary>
-        [JsonProperty("event/fee-items:read")]
-        EventFeeItemsRead,
+        [JsonProperty("event/fee-items:read")] EventFeeItemsRead,
 
         /// <summary>
         /// Allow reading the hotel request or housing reservation request detail for attendees.
         /// </summary>
-        [JsonProperty("event/hotel-request:read")]
-        EventHotelRequestRead,
+        [JsonProperty("event/hotel-request:read")] EventHotelRequestRead,
 
         /// <summary>
         /// Allows the reading of the invitation lists for an event.
         /// </summary>
-        [JsonProperty("event/invitation-lists:read")]
-        EventInvitationListsRead,
+        [JsonProperty("event/invitation-lists:read")] EventInvitationListsRead,
 
         /// <summary>
         /// Allows the reading of meeting request forms.
         /// </summary>
-        [JsonProperty("event/meeting-request-forms:read")]
-        EventMeetingRequestFormsRead,
+        [JsonProperty("event/meeting-request-forms:read")] EventMeetingRequestFormsRead,
 
         /// <summary>
         /// Allows the reading of meeting requests.
         /// </summary>
-        [JsonProperty("event/meeting-requests:read")]
-        EventMeetingRequestsRead,
+        [JsonProperty("event/meeting-requests:read")] EventMeetingRequestsRead,
 
         /// <summary>
         /// Allows the creation/updating of meeting requests.
         /// </summary>
-        [JsonProperty("event/meeting-requests:write")]
-        EventMeetingRequestsWrite,
+        [JsonProperty("event/meeting-requests:write")] EventMeetingRequestsWrite,
 
         /// <summary>
         /// Allows reading of membership items.
         /// </summary>
-        [JsonProperty("event/membership-items:read")]
-        EventMembershipItemsRead,
+        [JsonProperty("event/membership-items:read")] EventMembershipItemsRead,
 
         /// <summary>
         /// Allows the reading of orders.
         /// </summary>
-        [JsonProperty("event/orders:read")]
-        EventOrdersRead,
+        [JsonProperty("event/orders:read")] EventOrdersRead,
 
         /// <summary>
         /// Allows the reading of players.
         /// </summary>
-        [JsonProperty("event/players:read")]
-        EventPlayersRead,
+        [JsonProperty("event/players:read")] EventPlayersRead,
 
         /// <summary>
         /// Allows the reading of process form submissions.
         /// </summary>
-        [JsonProperty("event/process-form-submissions:read")]
-        EventProcessFormSubmissionsRead,
+        [JsonProperty("event/process-form-submissions:read")] EventProcessFormSubmissionsRead,
 
         /// <summary>
         /// Allows deletion of session program items.
         /// </summary>
-        [JsonProperty("event/program-items:delete")]
-        EventProgramItemsDelete,
+        [JsonProperty("event/program-items:delete")] EventProgramItemsDelete,
 
         /// <summary>
         /// Allows reading of session program items.
         /// </summary>
-        [JsonProperty("event/program-items:read")]
-        EventProgramItemsRead,
+        [JsonProperty("event/program-items:read")] EventProgramItemsRead,
 
         /// <summary>
         /// Allows writing of session program items.
         /// </summary>
-        [JsonProperty("event/program-items:write")]
-        EventProgramItemsWrite,
+        [JsonProperty("event/program-items:write")] EventProgramItemsWrite,
 
         /// <summary>
         /// Allows the reading of quantity items.
         /// </summary>
-        [JsonProperty("event/quantity-items:read")]
-        EventQuantityItemsRead,
+        [JsonProperty("event/quantity-items:read")] EventQuantityItemsRead,
 
         /// <summary>
         /// Allows the writing of quantity items.
         /// </summary>
-        [JsonProperty("event/quantity-items:write")]
-        EventQuantityItemsWrite,
+        [JsonProperty("event/quantity-items:write")] EventQuantityItemsWrite,
 
         /// <summary>
         /// Allows the reading of registration paths.
         /// </summary>
-        [JsonProperty("event/registration-paths:read")]
-        EventRegistrationPathsRead,
+        [JsonProperty("event/registration-paths:read")] EventRegistrationPathsRead,
 
         /// <summary>
         /// Allows the reading of registration types.
         /// </summary>
-        [JsonProperty("event/registration-types:read")]
-        EventRegistrationTypesRead,
+        [JsonProperty("event/registration-types:read")] EventRegistrationTypesRead,
 
         /// <summary>
         /// Allows the writing of registration types.
         /// </summary>
-        [JsonProperty("event/registration-types:write")]
-        EventRegistrationTypesWrite,
+        [JsonProperty("event/registration-types:write")] EventRegistrationTypesWrite,
 
         /// <summary>
         /// Allows the reading of event role assignment.
         /// </summary>
-        [JsonProperty("event/role-assignments:read")]
-        EventRoleAssignmentsRead,
+        [JsonProperty("event/role-assignments:read")] EventRoleAssignmentsRead,
 
         /// <summary>
         /// Allows the reading of sessions attendance.
         /// </summary>
-        [JsonProperty("event/session-attendance:read")]
-        EventSessionAttendanceRead,
+        [JsonProperty("event/session-attendance:read")] EventSessionAttendanceRead,
 
         /// <summary>
         /// Allows the creation/updating of sessions attendance.
         /// </summary>
-        [JsonProperty("event/session-attendance:write")]
-        EventSessionAttendanceWrite,
+        [JsonProperty("event/session-attendance:write")] EventSessionAttendanceWrite,
 
         /// <summary>
         /// Allows reading of session categories.
         /// </summary>
-        [JsonProperty("event/session-categories:read")]
-        EventSessionCategoriesRead,
+        [JsonProperty("event/session-categories:read")] EventSessionCategoriesRead,
 
         /// <summary>
         /// Allows writing of session categories.
         /// </summary>
-        [JsonProperty("event/session-categories:write")]
-        EventSessionCategoriesWrite,
+        [JsonProperty("event/session-categories:write")] EventSessionCategoriesWrite,
 
         /// <summary>
         /// Allows the deletion of session registrations.
         /// </summary>
-        [JsonProperty("event/session-enrollment:delete")]
-        EventSessionEnrollmentDelete,
+        [JsonProperty("event/session-enrollment:delete")] EventSessionEnrollmentDelete,
 
         /// <summary>
         /// Allows the reading of sessions registrations.
         /// </summary>
-        [JsonProperty("event/session-enrollment:read")]
-        EventSessionEnrollmentRead,
+        [JsonProperty("event/session-enrollment:read")] EventSessionEnrollmentRead,
 
         /// <summary>
         /// Allows the writing of sessions registrations.
         /// </summary>
-        [JsonProperty("event/session-enrollment:write")]
-        EventSessionEnrollmentWrite,
+        [JsonProperty("event/session-enrollment:write")] EventSessionEnrollmentWrite,
 
         /// <summary>
         /// Allows reading of session segments.
         /// </summary>
-        [JsonProperty("event/session-segments:read")]
-        EventSessionSegmentsRead,
+        [JsonProperty("event/session-segments:read")] EventSessionSegmentsRead,
 
         /// <summary>
         /// Allows the deletion of a session in an event.
         /// </summary>
-        [JsonProperty("event/sessions:delete")]
-        EventSessionsDelete,
+        [JsonProperty("event/sessions:delete")] EventSessionsDelete,
 
         /// <summary>
         /// Allows the reading of sessions.
         /// </summary>
-        [JsonProperty("event/sessions:read")]
-        EventSessionsRead,
+        [JsonProperty("event/sessions:read")] EventSessionsRead,
 
         /// <summary>
         /// Allows the creation of a session in an event.
         /// </summary>
-        [JsonProperty("event/sessions:write")]
-        EventSessionsWrite,
+        [JsonProperty("event/sessions:write")] EventSessionsWrite,
 
         /// <summary>
         /// Allows reading of speaker categories.
         /// </summary>
-        [JsonProperty("event/speaker-categories:read")]
-        EventSpeakerCategoriesRead,
+        [JsonProperty("event/speaker-categories:read")] EventSpeakerCategoriesRead,
 
         /// <summary>
         /// Allows writing of speaker categories.
         /// </summary>
-        [JsonProperty("event/speaker-categories:write")]
-        EventSpeakerCategoriesWrite,
+        [JsonProperty("event/speaker-categories:write")] EventSpeakerCategoriesWrite,
 
         /// <summary>
         /// Allows the deletion of a speaker in an event.
         /// </summary>
-        [JsonProperty("event/speakers:delete")]
-        EventSpeakersDelete,
+        [JsonProperty("event/speakers:delete")] EventSpeakersDelete,
 
         /// <summary>
         /// Allows the reading of speakers.
         /// </summary>
-        [JsonProperty("event/speakers:read")]
-        EventSpeakersRead,
+        [JsonProperty("event/speakers:read")] EventSpeakersRead,
 
         /// <summary>
         /// Allows the creation of a speaker in an event.
         /// </summary>
-        [JsonProperty("event/speakers:write")]
-        EventSpeakersWrite,
+        [JsonProperty("event/speakers:write")] EventSpeakersWrite,
 
         /// <summary>
         /// Allows the reading of transactions.
         /// </summary>
-        [JsonProperty("event/transactions:read")]
-        EventTransactionsRead,
+        [JsonProperty("event/transactions:read")] EventTransactionsRead,
 
         /// <summary>
         /// Allows the writing of transactions.
         /// </summary>
-        [JsonProperty("event/transactions:write")]
-        EventTransactionsWrite,
+        [JsonProperty("event/transactions:write")] EventTransactionsWrite,
 
         /// <summary>
         /// Allows reading of video views.
         /// </summary>
-        [JsonProperty("event/video-views:read")]
-        EventVideoViewsRead,
+        [JsonProperty("event/video-views:read")] EventVideoViewsRead,
 
         /// <summary>
         /// Allows the reading of video data.
         /// </summary>
-        [JsonProperty("event/videos:read")]
-        EventVideosRead,
+        [JsonProperty("event/videos:read")] EventVideosRead,
 
         /// <summary>
         /// Allows the creation/updating of video data.
         /// </summary>
-        [JsonProperty("event/videos:write")]
-        EventVideosWrite,
+        [JsonProperty("event/videos:write")] EventVideosWrite,
 
         /// <summary>
         /// Allows the deletion of webcast.
         /// </summary>
-        [JsonProperty("event/webcasts:delete")]
-        EventWebcastsDelete,
+        [JsonProperty("event/webcasts:delete")] EventWebcastsDelete,
 
         /// <summary>
         /// Allows the reading of webcasts.
         /// </summary>
-        [JsonProperty("event/webcasts:read")]
-        EventWebcastsRead,
+        [JsonProperty("event/webcasts:read")] EventWebcastsRead,
 
         /// <summary>
         /// Allows the creation of webcast.
         /// </summary>
-        [JsonProperty("event/webcasts:write")]
-        EventWebcastsWrite,
+        [JsonProperty("event/webcasts:write")] EventWebcastsWrite,
 
         /// <summary>
         /// Allows the reading of event weblinks.
         /// </summary>
-        [JsonProperty("event/weblinks:read")]
-        EventWeblinksRead,
+        [JsonProperty("event/weblinks:read")] EventWeblinksRead,
 
         /// <summary>
         /// Allows the reading of Events+ hub data.
         /// </summary>
-        [JsonProperty("events-plus/hubs:read")]
-        EventsPlusHubsRead,
+        [JsonProperty("events-plus/hubs:read")] EventsPlusHubsRead,
 
         /// <summary>
         /// Allows reading badges.
         /// </summary>
-        [JsonProperty("exhibitor/badges:read")]
-        ExhibitorBadgesRead,
+        [JsonProperty("exhibitor/badges:read")] ExhibitorBadgesRead,
 
         /// <summary>
         /// Allows creating/updating badges.
         /// </summary>
-        [JsonProperty("exhibitor/badges:write")]
-        ExhibitorBadgesWrite,
+        [JsonProperty("exhibitor/badges:write")] ExhibitorBadgesWrite,
 
         /// <summary>
         /// Allows deleting booth staff.
         /// </summary>
-        [JsonProperty("exhibitor/booth-staff:delete")]
-        ExhibitorBoothStaffDelete,
+        [JsonProperty("exhibitor/booth-staff:delete")] ExhibitorBoothStaffDelete,
 
         /// <summary>
         /// Allows reading booth staff.
         /// </summary>
-        [JsonProperty("exhibitor/booth-staff:read")]
-        ExhibitorBoothStaffRead,
+        [JsonProperty("exhibitor/booth-staff:read")] ExhibitorBoothStaffRead,
 
         /// <summary>
         /// Allows creating booth staff.
         /// </summary>
-        [JsonProperty("exhibitor/booth-staff:write")]
-        ExhibitorBoothStaffWrite,
+        [JsonProperty("exhibitor/booth-staff:write")] ExhibitorBoothStaffWrite,
 
         /// <summary>
         /// Allows reading eliterature document request data.
         /// </summary>
-        [JsonProperty("exhibitor/eliterature-requests:read")]
-        ExhibitorEliteratureRequestsRead,
+        [JsonProperty("exhibitor/eliterature-requests:read")] ExhibitorEliteratureRequestsRead,
 
         /// <summary>
         /// Allows reading exhibitor admins.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-admins:read")]
-        ExhibitorExhibitorAdminsRead,
+        [JsonProperty("exhibitor/exhibitor-admins:read")] ExhibitorExhibitorAdminsRead,
 
         /// <summary>
         /// Allows creating/updating exhibitor admins.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-admins:write")]
-        ExhibitorExhibitorAdminsWrite,
+        [JsonProperty("exhibitor/exhibitor-admins:write")] ExhibitorExhibitorAdminsWrite,
 
         /// <summary>
         /// Allows reading exhibitor answers.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-answers:read")]
-        ExhibitorExhibitorAnswersRead,
+        [JsonProperty("exhibitor/exhibitor-answers:read")] ExhibitorExhibitorAnswersRead,
 
         /// <summary>
         /// Allows updating exhibitor answers.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-answers:write")]
-        ExhibitorExhibitorAnswersWrite,
+        [JsonProperty("exhibitor/exhibitor-answers:write")] ExhibitorExhibitorAnswersWrite,
 
         /// <summary>
         /// Allows deleting exhibitor categories.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-categories:delete")]
-        ExhibitorExhibitorCategoriesDelete,
+        [JsonProperty("exhibitor/exhibitor-categories:delete")] ExhibitorExhibitorCategoriesDelete,
 
         /// <summary>
         /// Allows reading exhibitor categories.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-categories:read")]
-        ExhibitorExhibitorCategoriesRead,
+        [JsonProperty("exhibitor/exhibitor-categories:read")] ExhibitorExhibitorCategoriesRead,
 
         /// <summary>
         /// Allows creating/updating exhibitor categories.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-categories:write")]
-        ExhibitorExhibitorCategoriesWrite,
+        [JsonProperty("exhibitor/exhibitor-categories:write")] ExhibitorExhibitorCategoriesWrite,
 
         /// <summary>
         /// Allows deleting exhibitor content.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-contents:delete")]
-        ExhibitorExhibitorContentsDelete,
+        [JsonProperty("exhibitor/exhibitor-contents:delete")] ExhibitorExhibitorContentsDelete,
 
         /// <summary>
         /// Allows reading exhibitor content.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-contents:read")]
-        ExhibitorExhibitorContentsRead,
+        [JsonProperty("exhibitor/exhibitor-contents:read")] ExhibitorExhibitorContentsRead,
 
         /// <summary>
         /// Allows creating/updating exhibitor content.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-contents:write")]
-        ExhibitorExhibitorContentsWrite,
+        [JsonProperty("exhibitor/exhibitor-contents:write")] ExhibitorExhibitorContentsWrite,
 
         /// <summary>
         /// Allows reading exhibitor questions.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitor-questions:read")]
-        ExhibitorExhibitorQuestionsRead,
+        [JsonProperty("exhibitor/exhibitor-questions:read")] ExhibitorExhibitorQuestionsRead,
 
         /// <summary>
         /// Allows deleting exhibitors.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitors:delete")]
-        ExhibitorExhibitorsDelete,
+        [JsonProperty("exhibitor/exhibitors:delete")] ExhibitorExhibitorsDelete,
 
         /// <summary>
         /// Allows reading exhibitors.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitors:read")]
-        ExhibitorExhibitorsRead,
+        [JsonProperty("exhibitor/exhibitors:read")] ExhibitorExhibitorsRead,
 
         /// <summary>
         /// Allows creating/updating exhibitors.
         /// </summary>
-        [JsonProperty("exhibitor/exhibitors:write")]
-        ExhibitorExhibitorsWrite,
+        [JsonProperty("exhibitor/exhibitors:write")] ExhibitorExhibitorsWrite,
 
         /// <summary>
         /// Allows reading Lead Qualification Answers.
         /// </summary>
-        [JsonProperty("exhibitor/lead-qualification-answers:read")]
-        ExhibitorLeadQualificationAnswersRead,
+        [JsonProperty("exhibitor/lead-qualification-answers:read")] ExhibitorLeadQualificationAnswersRead,
 
         /// <summary>
         /// Allows reading Lead Qualification Questions.
         /// </summary>
-        [JsonProperty("exhibitor/lead-qualification-questions:read")]
-        ExhibitorLeadQualificationQuestionsRead,
+        [JsonProperty("exhibitor/lead-qualification-questions:read")] ExhibitorLeadQualificationQuestionsRead,
 
         /// <summary>
         /// Allows reading leads.
         /// </summary>
-        [JsonProperty("exhibitor/leads:read")]
-        ExhibitorLeadsRead,
+        [JsonProperty("exhibitor/leads:read")] ExhibitorLeadsRead,
 
         /// <summary>
         /// Allows deleting registration pack.
         /// </summary>
-        [JsonProperty("exhibitor/registration-packs:delete")]
-        ExhibitorRegistrationPacksDelete,
+        [JsonProperty("exhibitor/registration-packs:delete")] ExhibitorRegistrationPacksDelete,
 
         /// <summary>
         /// Allows reading registration pack.
         /// </summary>
-        [JsonProperty("exhibitor/registration-packs:read")]
-        ExhibitorRegistrationPacksRead,
+        [JsonProperty("exhibitor/registration-packs:read")] ExhibitorRegistrationPacksRead,
 
         /// <summary>
         /// Allows creating/updating registration pack.
         /// </summary>
-        [JsonProperty("exhibitor/registration-packs:write")]
-        ExhibitorRegistrationPacksWrite,
+        [JsonProperty("exhibitor/registration-packs:write")] ExhibitorRegistrationPacksWrite,
 
         /// <summary>
         /// Allows reading sponsorship level.
         /// </summary>
-        [JsonProperty("exhibitor/sponsorship-levels:read")]
-        ExhibitorSponsorshipLevelsRead,
+        [JsonProperty("exhibitor/sponsorship-levels:read")] ExhibitorSponsorshipLevelsRead,
 
         /// <summary>
         /// Allows the reading of file.
         /// </summary>
-        [JsonProperty("file/file:read")]
-        FileFileRead,
+        [JsonProperty("file/file:read")] FileFileRead,
 
         /// <summary>
         /// Allows the uploading of file.
         /// </summary>
-        [JsonProperty("file/file:write")]
-        FileFileWrite,
+        [JsonProperty("file/file:write")] FileFileWrite,
 
         /// <summary>
         /// Allows the user to connect to the Reglink APIs.
         /// </summary>
-        [JsonProperty("housing/connections:write")]
-        HousingConnectionsWrite,
+        [JsonProperty("housing/connections:write")] HousingConnectionsWrite,
 
         /// <summary>
         /// Allows the user to create/update hotel room rates.
         /// </summary>
-        [JsonProperty("housing/hotel-room-rates:write")]
-        HousingHotelRoomRatesWrite,
+        [JsonProperty("housing/hotel-room-rates:write")] HousingHotelRoomRatesWrite,
 
         /// <summary>
         /// Allows the user to read availability information for given event.
         /// </summary>
-        [JsonProperty("housing/housing-event-available-nights:read")]
-        HousingHousingEventAvailableNightsRead,
+        [JsonProperty("housing/housing-event-available-nights:read")] HousingHousingEventAvailableNightsRead,
 
         /// <summary>
         /// Allows the user to read information about event hotels.
         /// </summary>
-        [JsonProperty("housing/housing-event-hotels:read")]
-        HousingHousingEventHotelsRead,
+        [JsonProperty("housing/housing-event-hotels:read")] HousingHousingEventHotelsRead,
 
         /// <summary>
         /// Allows the user to get information about housing event inventory.
         /// </summary>
-        [JsonProperty("housing/housing-event-inventory:read")]
-        HousingHousingEventInventoryRead,
+        [JsonProperty("housing/housing-event-inventory:read")] HousingHousingEventInventoryRead,
 
         /// <summary>
         /// Allows the user to read information about event room types.
         /// </summary>
-        [JsonProperty("housing/housing-event-room-types:read")]
-        HousingHousingEventRoomTypesRead,
+        [JsonProperty("housing/housing-event-room-types:read")] HousingHousingEventRoomTypesRead,
 
         /// <summary>
         /// Allows the user to read information about events.
         /// </summary>
-        [JsonProperty("housing/housing-events:read")]
-        HousingHousingEventsRead,
+        [JsonProperty("housing/housing-events:read")] HousingHousingEventsRead,
 
         /// <summary>
         /// Allows the user to cancel reservation request.
         /// </summary>
-        [JsonProperty("housing/reservation-requests:delete")]
-        HousingReservationRequestsDelete,
+        [JsonProperty("housing/reservation-requests:delete")] HousingReservationRequestsDelete,
 
         /// <summary>
         /// Allows the user to read reservation request information.
         /// </summary>
-        [JsonProperty("housing/reservation-requests:read")]
-        HousingReservationRequestsRead,
+        [JsonProperty("housing/reservation-requests:read")] HousingReservationRequestsRead,
 
         /// <summary>
         /// Allows the user to create/update reservation request.
         /// </summary>
-        [JsonProperty("housing/reservation-requests:write")]
-        HousingReservationRequestsWrite,
+        [JsonProperty("housing/reservation-requests:write")] HousingReservationRequestsWrite,
 
         /// <summary>
         /// Allows the user to remove association from reservation.
         /// </summary>
-        [JsonProperty("housing/reservations-link:delete")]
-        HousingReservationsLinkDelete,
+        [JsonProperty("housing/reservations-link:delete")] HousingReservationsLinkDelete,
 
         /// <summary>
         /// Allows the user to associate reservation to reservation request.
         /// </summary>
-        [JsonProperty("housing/reservations-link:write")]
-        HousingReservationsLinkWrite,
+        [JsonProperty("housing/reservations-link:write")] HousingReservationsLinkWrite,
 
         /// <summary>
         /// Allows the user to cancel reservation.
         /// </summary>
-        [JsonProperty("housing/reservations:delete")]
-        HousingReservationsDelete,
+        [JsonProperty("housing/reservations:delete")] HousingReservationsDelete,
 
         /// <summary>
         /// Allows the user to read reservation details information.
         /// </summary>
-        [JsonProperty("housing/reservations:read")]
-        HousingReservationsRead,
+        [JsonProperty("housing/reservations:read")] HousingReservationsRead,
 
         /// <summary>
         /// Allows the user to create/update reservation.
         /// </summary>
-        [JsonProperty("housing/reservations:write")]
-        HousingReservationsWrite,
+        [JsonProperty("housing/reservations:write")] HousingReservationsWrite,
 
         /// <summary>
         /// Allows reading signatures.
         /// </summary>
-        [JsonProperty("onsite/signatures:read")]
-        OnsiteSignaturesRead,
+        [JsonProperty("onsite/signatures:read")] OnsiteSignaturesRead,
 
         /// <summary>
         /// Allows the creation/writing of proposal.
         /// </summary>
-        [JsonProperty("proposal/proposals:write")]
-        ProposalProposalsWrite,
+        [JsonProperty("proposal/proposals:write")] ProposalProposalsWrite,
 
         /// <summary>
         /// Allows reading print jobs.
         /// </summary>
-        [JsonProperty("remote-printing/badge-print-jobs:read")]
-        RemotePrintingBadgePrintJobsRead,
+        [JsonProperty("remote-printing/badge-print-jobs:read")] RemotePrintingBadgePrintJobsRead,
 
         /// <summary>
         /// Allows creating print jobs.
         /// </summary>
-        [JsonProperty("remote-printing/badge-print-jobs:write")]
-        RemotePrintingBadgePrintJobsWrite,
+        [JsonProperty("remote-printing/badge-print-jobs:write")] RemotePrintingBadgePrintJobsWrite,
 
         /// <summary>
         /// Allows reading pools.
         /// </summary>
-        [JsonProperty("remote-printing/badge-printer-pools:read")]
-        RemotePrintingBadgePrinterPoolsRead,
+        [JsonProperty("remote-printing/badge-printer-pools:read")] RemotePrintingBadgePrinterPoolsRead,
 
         /// <summary>
         /// Allows to read attendee seat assignment information.
         /// </summary>
-        [JsonProperty("seating/assignments:read")]
-        SeatingAssignmentsRead,
+        [JsonProperty("seating/assignments:read")] SeatingAssignmentsRead,
 
         /// <summary>
         /// Allows to read event seating.
         /// </summary>
-        [JsonProperty("seating/event-seatings:read")]
-        SeatingEventSeatingsRead,
+        [JsonProperty("seating/event-seatings:read")] SeatingEventSeatingsRead,
 
         /// <summary>
         /// Allows to read seat information.
         /// </summary>
-        [JsonProperty("seating/seats:read")]
-        SeatingSeatsRead,
+        [JsonProperty("seating/seats:read")] SeatingSeatsRead,
 
         /// <summary>
         /// Allows to read table information.
         /// </summary>
-        [JsonProperty("seating/tables:read")]
-        SeatingTablesRead,
+        [JsonProperty("seating/tables:read")] SeatingTablesRead,
 
         /// <summary>
         /// Allows creation of credit card tokens.
         /// </summary>
-        [JsonProperty("secure-ecommerce/card-tokens:write")]
-        SecureEcommerceCardTokensWrite,
+        [JsonProperty("secure-ecommerce/card-tokens:write")] SecureEcommerceCardTokensWrite,
 
         /// <summary>
         /// Allows the reading of survey questions.
         /// </summary>
-        [JsonProperty("survey/questions:read")]
-        SurveyQuestionsRead,
+        [JsonProperty("survey/questions:read")] SurveyQuestionsRead,
 
         /// <summary>
         /// Allows reading the survey respondents.
         /// </summary>
-        [JsonProperty("survey/respondents:read")]
-        SurveyRespondentsRead,
+        [JsonProperty("survey/respondents:read")] SurveyRespondentsRead,
 
         /// <summary>
         /// Allows reading the survey responses.
         /// </summary>
-        [JsonProperty("survey/responses:read")]
-        SurveyResponsesRead,
+        [JsonProperty("survey/responses:read")] SurveyResponsesRead,
 
         /// <summary>
         /// Allows reading the standalone survey email templates.
         /// </summary>
-        [JsonProperty("survey/standard-survey-email-templates:read")]
-        SurveyStandardSurveyEmailTemplatesRead,
+        [JsonProperty("survey/standard-survey-email-templates:read")] SurveyStandardSurveyEmailTemplatesRead,
 
         /// <summary>
         /// Allows writing operations on standalone survey emails.
         /// </summary>
-        [JsonProperty("survey/standard-survey-email:write")]
-        SurveyStandardSurveyEmailWrite,
+        [JsonProperty("survey/standard-survey-email:write")] SurveyStandardSurveyEmailWrite,
 
         /// <summary>
         /// Allows the reading of standalone surveys questions.
         /// </summary>
-        [JsonProperty("survey/standard-survey-questions:read")]
-        SurveyStandardSurveyQuestionsRead,
+        [JsonProperty("survey/standard-survey-questions:read")] SurveyStandardSurveyQuestionsRead,
 
         /// <summary>
         /// Allows reading the standalone survey respondents.
         /// </summary>
-        [JsonProperty("survey/standard-survey-respondents:read")]
-        SurveyStandardSurveyRespondentsRead,
+        [JsonProperty("survey/standard-survey-respondents:read")] SurveyStandardSurveyRespondentsRead,
 
         /// <summary>
         /// Allows write operations on standalone survey respondents.
         /// </summary>
-        [JsonProperty("survey/standard-survey-respondents:write")]
-        SurveyStandardSurveyRespondentsWrite,
+        [JsonProperty("survey/standard-survey-respondents:write")] SurveyStandardSurveyRespondentsWrite,
 
         /// <summary>
         /// Allows reading the standalone survey responses.
         /// </summary>
-        [JsonProperty("survey/standard-survey-responses:read")]
-        SurveyStandardSurveyResponsesRead,
+        [JsonProperty("survey/standard-survey-responses:read")] SurveyStandardSurveyResponsesRead,
 
         /// <summary>
         /// Allows write operations on standalone surveys respondent's responses.
         /// </summary>
-        [JsonProperty("survey/standard-survey-responses:write")]
-        SurveyStandardSurveyResponsesWrite,
+        [JsonProperty("survey/standard-survey-responses:write")] SurveyStandardSurveyResponsesWrite,
 
         /// <summary>
         /// Allows the reading of standalone surveys.
         /// </summary>
-        [JsonProperty("survey/standard-surveys:read")]
-        SurveyStandardSurveysRead,
+        [JsonProperty("survey/standard-surveys:read")] SurveyStandardSurveysRead,
 
         /// <summary>
         /// Allows the reading of event survey questions.
         /// </summary>
-        [JsonProperty("survey/survey-questions:read")]
-        SurveySurveyQuestionsRead,
+        [JsonProperty("survey/survey-questions:read")] SurveySurveyQuestionsRead,
 
         /// <summary>
         /// Allows reading the event survey respondents.
         /// </summary>
-        [JsonProperty("survey/survey-respondents:read")]
-        SurveySurveyRespondentsRead,
+        [JsonProperty("survey/survey-respondents:read")] SurveySurveyRespondentsRead,
 
         /// <summary>
         /// Allows write operations on the event survey respondents.
         /// </summary>
-        [JsonProperty("survey/survey-respondents:write")]
-        SurveySurveyRespondentsWrite,
+        [JsonProperty("survey/survey-respondents:write")] SurveySurveyRespondentsWrite,
 
         /// <summary>
         /// Allows reading the event survey responses.
         /// </summary>
-        [JsonProperty("survey/survey-responses:read")]
-        SurveySurveyResponsesRead,
+        [JsonProperty("survey/survey-responses:read")] SurveySurveyResponsesRead,
 
         /// <summary>
         /// Allows write operations on the event surveys respondent's responses.
         /// </summary>
-        [JsonProperty("survey/survey-responses:write")]
-        SurveySurveyResponsesWrite,
+        [JsonProperty("survey/survey-responses:write")] SurveySurveyResponsesWrite,
 
         /// <summary>
         /// Allows the reading of event surveys.
         /// </summary>
-        [JsonProperty("survey/surveys:read")]
-        SurveySurveysRead,
+        [JsonProperty("survey/surveys:read")] SurveySurveysRead,
     }
-
 
     public static class OAuth2ClientCredentialsOAuth2ScopeExtension
     {
         public static string Value(this OAuth2ClientCredentialsOAuth2Scope value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static OAuth2ClientCredentialsOAuth2Scope ToEnum(this string value)
         {
-            foreach(var field in typeof(OAuth2ClientCredentialsOAuth2Scope).GetFields())
+            foreach (var field in typeof(OAuth2ClientCredentialsOAuth2Scope).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

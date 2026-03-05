@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AdvancedLogicChoicesJson
- * 
+ *
  * <p>This is used to denote which custom field choices to display when a source custom field choice is
  * selected.
  */
@@ -41,12 +41,11 @@ public class AdvancedLogicChoicesJson {
             @JsonProperty("sourceCustomFieldChoice") @Nonnull String sourceCustomFieldChoice,
             @JsonProperty("choices") @Nullable List<String> choices) {
         this.sourceCustomFieldChoice = Optional.ofNullable(sourceCustomFieldChoice)
-            .orElseThrow(() -> new IllegalArgumentException("sourceCustomFieldChoice cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("sourceCustomFieldChoice cannot be null"));
         this.choices = choices;
     }
-    
-    public AdvancedLogicChoicesJson(
-            @Nonnull String sourceCustomFieldChoice) {
+
+    public AdvancedLogicChoicesJson(@Nonnull String sourceCustomFieldChoice) {
         this(sourceCustomFieldChoice, null);
     }
 
@@ -69,7 +68,6 @@ public class AdvancedLogicChoicesJson {
         return new Builder();
     }
 
-
     /**
      * The ID of a choice of the source custom field.
      */
@@ -77,7 +75,6 @@ public class AdvancedLogicChoicesJson {
         this.sourceCustomFieldChoice = Utils.checkNotNull(sourceCustomFieldChoice, "sourceCustomFieldChoice");
         return this;
     }
-
 
     /**
      * The choices to display if the associated source custom field choice is selected. Leave empty to have
@@ -88,7 +85,6 @@ public class AdvancedLogicChoicesJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -98,33 +94,30 @@ public class AdvancedLogicChoicesJson {
             return false;
         }
         AdvancedLogicChoicesJson other = (AdvancedLogicChoicesJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.sourceCustomFieldChoice, other.sourceCustomFieldChoice) &&
-            Utils.enhancedDeepEquals(this.choices, other.choices);
+        return Utils.enhancedDeepEquals(this.sourceCustomFieldChoice, other.sourceCustomFieldChoice)
+                && Utils.enhancedDeepEquals(this.choices, other.choices);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            sourceCustomFieldChoice, choices);
+        return Utils.enhancedHash(sourceCustomFieldChoice, choices);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AdvancedLogicChoicesJson.class,
-                "sourceCustomFieldChoice", sourceCustomFieldChoice,
-                "choices", choices);
+        return Utils.toString(
+                AdvancedLogicChoicesJson.class, "sourceCustomFieldChoice", sourceCustomFieldChoice, "choices", choices);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String sourceCustomFieldChoice;
 
         private List<String> choices;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -145,9 +138,7 @@ public class AdvancedLogicChoicesJson {
         }
 
         public AdvancedLogicChoicesJson build() {
-            return new AdvancedLogicChoicesJson(
-                sourceCustomFieldChoice, choices);
+            return new AdvancedLogicChoicesJson(sourceCustomFieldChoice, choices);
         }
-
     }
 }

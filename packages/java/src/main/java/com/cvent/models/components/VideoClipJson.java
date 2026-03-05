@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * VideoClipJson
- * 
+ *
  * <p>Video clip details.
  */
 public class VideoClipJson {
@@ -34,13 +34,11 @@ public class VideoClipJson {
     private String end;
 
     @JsonCreator
-    public VideoClipJson(
-            @JsonProperty("start") @Nullable String start,
-            @JsonProperty("end") @Nullable String end) {
+    public VideoClipJson(@JsonProperty("start") @Nullable String start, @JsonProperty("end") @Nullable String end) {
         this.start = start;
         this.end = end;
     }
-    
+
     public VideoClipJson() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class VideoClipJson {
         return new Builder();
     }
 
-
     /**
      * The timecode to start the clip in HH:MM:SS:FF format
      */
@@ -72,7 +69,6 @@ public class VideoClipJson {
         return this;
     }
 
-
     /**
      * The timecode to end the clip in HH:MM:SS:FF format.
      */
@@ -80,7 +76,6 @@ public class VideoClipJson {
         this.end = end;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class VideoClipJson {
             return false;
         }
         VideoClipJson other = (VideoClipJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end);
+        return Utils.enhancedDeepEquals(this.start, other.start) && Utils.enhancedDeepEquals(this.end, other.end);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            start, end);
+        return Utils.enhancedHash(start, end);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoClipJson.class,
-                "start", start,
-                "end", end);
+        return Utils.toString(VideoClipJson.class, "start", start, "end", end);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String start;
 
         private String end;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class VideoClipJson {
         }
 
         public VideoClipJson build() {
-            return new VideoClipJson(
-                start, end);
+            return new VideoClipJson(start, end);
         }
-
     }
 }

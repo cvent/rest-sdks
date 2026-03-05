@@ -40,7 +40,7 @@ public class ListSessionSpeakersRequestBuilder {
     private ListSessionSpeakersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSessionSpeakersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListSessionSpeakersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSessionSpeakersResponse> call() {
-        AsyncRequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation
-              = new ListSessionSpeakers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation =
+                new ListSessionSpeakers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListSessionSpeakersRequestBuilder {
      */
     public Publisher<ListSessionSpeakersResponse> callAsPublisher() {
         ListSessionSpeakersRequest request = this.request;
-        AsyncRequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation
-              = new ListSessionSpeakers.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation =
+                new ListSessionSpeakers.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSessionSpeakersRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSessionSpeakersRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListSessionSpeakersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

@@ -30,7 +30,7 @@ public class CreateSessionRequestBuilder {
     private SessionInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateSessionRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateSessionRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateSessionResponse> call() {
-        AsyncRequestOperation<SessionInput, CreateSessionResponse> operation
-              = new CreateSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<SessionInput, CreateSessionResponse> operation =
+                new CreateSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

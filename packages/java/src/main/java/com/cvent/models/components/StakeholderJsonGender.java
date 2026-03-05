@@ -11,9 +11,9 @@ import java.util.Optional;
 
 /**
  * StakeholderJsonGender
- * 
+ *
  * <p>The gender of the contact.
- * 
+ *
  * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -29,13 +29,13 @@ public enum StakeholderJsonGender {
     StakeholderJsonGender(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<StakeholderJsonGender> fromValue(String value) {
-        for (StakeholderJsonGender o: StakeholderJsonGender.values()) {
+        for (StakeholderJsonGender o : StakeholderJsonGender.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum StakeholderJsonGender {
         return Optional.empty();
     }
 }
-

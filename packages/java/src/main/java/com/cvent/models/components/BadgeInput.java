@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BadgeInput
- * 
+ *
  * <p>A JSON Schema for Badge object.
  */
 public class BadgeInput {
@@ -54,16 +54,13 @@ public class BadgeInput {
             @JsonProperty("type") @Nonnull BadgeTypeJson type,
             @JsonProperty("attendee") @Nonnull AttendeeJson3 attendee,
             @JsonProperty("event") @Nonnull EventJson5 event) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
     }
 
     /**
@@ -105,7 +102,6 @@ public class BadgeInput {
         return new Builder();
     }
 
-
     /**
      * Id of a badge
      */
@@ -113,7 +109,6 @@ public class BadgeInput {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Badge status
@@ -123,7 +118,6 @@ public class BadgeInput {
         return this;
     }
 
-
     /**
      * Badge type
      */
@@ -131,7 +125,6 @@ public class BadgeInput {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * A JSON Schema for an Attendee object
@@ -141,7 +134,6 @@ public class BadgeInput {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -149,7 +141,6 @@ public class BadgeInput {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -160,33 +151,26 @@ public class BadgeInput {
             return false;
         }
         BadgeInput other = (BadgeInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status, type,
-            attendee, event);
+        return Utils.enhancedHash(id, status, type, attendee, event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BadgeInput.class,
-                "id", id,
-                "status", status,
-                "type", type,
-                "attendee", attendee,
-                "event", event);
+        return Utils.toString(
+                BadgeInput.class, "id", id, "status", status, "type", type, "attendee", attendee, "event", event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -199,7 +183,7 @@ public class BadgeInput {
         private EventJson5 event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -243,10 +227,7 @@ public class BadgeInput {
         }
 
         public BadgeInput build() {
-            return new BadgeInput(
-                id, status, type,
-                attendee, event);
+            return new BadgeInput(id, status, type, attendee, event);
         }
-
     }
 }

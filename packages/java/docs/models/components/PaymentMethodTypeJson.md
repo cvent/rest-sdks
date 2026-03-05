@@ -2,6 +2,14 @@
 
 Denotes acceptable payment methods for merchant accounts. Not all options are valid for all merchants.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.PaymentMethodTypeJson;
+
+PaymentMethodTypeJson value = PaymentMethodTypeJson.AIRPLUS;
+```
+
 
 ## Values
 

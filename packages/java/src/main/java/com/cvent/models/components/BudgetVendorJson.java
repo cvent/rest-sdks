@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BudgetVendorJson
- * 
+ *
  * <p>List of details for a vendor assigned to a budget item.
  */
 public class BudgetVendorJson {
@@ -51,7 +51,7 @@ public class BudgetVendorJson {
         this.name = name;
         this.type = type;
     }
-    
+
     public BudgetVendorJson() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class BudgetVendorJson {
         return new Builder();
     }
 
-
     /**
      * The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the
      * [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
@@ -93,7 +92,6 @@ public class BudgetVendorJson {
         return this;
     }
 
-
     /**
      * Vendor name.
      */
@@ -101,7 +99,6 @@ public class BudgetVendorJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Indicates how the vendor was added to your account. CSN indicates the vendor was sourced from the
@@ -112,7 +109,6 @@ public class BudgetVendorJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -122,28 +118,23 @@ public class BudgetVendorJson {
             return false;
         }
         BudgetVendorJson other = (BudgetVendorJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, type);
+        return Utils.enhancedHash(id, name, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetVendorJson.class,
-                "id", id,
-                "name", name,
-                "type", type);
+        return Utils.toString(BudgetVendorJson.class, "id", id, "name", name, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -152,7 +143,7 @@ public class BudgetVendorJson {
         private BudgetVendorJsonType type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -182,9 +173,7 @@ public class BudgetVendorJson {
         }
 
         public BudgetVendorJson build() {
-            return new BudgetVendorJson(
-                id, name, type);
+            return new BudgetVendorJson(id, name, type);
         }
-
     }
 }

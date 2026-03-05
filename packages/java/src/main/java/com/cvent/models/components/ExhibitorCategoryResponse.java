@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorCategoryResponse
- * 
+ *
  * <p>A description of the Existing Exhibitor Category JSON schema
  */
 public class ExhibitorCategoryResponse {
@@ -119,28 +119,19 @@ public class ExhibitorCategoryResponse {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.order = order;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.id = id;
         this.bannerId = bannerId;
         this.bannerUrl = bannerUrl;
     }
-    
+
     public ExhibitorCategoryResponse(
-            @Nonnull EventJson5 event,
-            @Nonnull String name,
-            long order,
-            @Nonnull ExhibitorCategoryResponseType type) {
-        this(null, null, null,
-            null, event, name,
-            null, order, type,
-            null, null, null);
+            @Nonnull EventJson5 event, @Nonnull String name, long order, @Nonnull ExhibitorCategoryResponseType type) {
+        this(null, null, null, null, event, name, null, order, type, null, null, null);
     }
 
     /**
@@ -231,7 +222,6 @@ public class ExhibitorCategoryResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -239,7 +229,6 @@ public class ExhibitorCategoryResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -249,7 +238,6 @@ public class ExhibitorCategoryResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -257,7 +245,6 @@ public class ExhibitorCategoryResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -267,7 +254,6 @@ public class ExhibitorCategoryResponse {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -275,7 +261,6 @@ public class ExhibitorCategoryResponse {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Name of the exhibitor category
@@ -285,7 +270,6 @@ public class ExhibitorCategoryResponse {
         return this;
     }
 
-
     /**
      * Exhibitor Category description
      */
@@ -293,7 +277,6 @@ public class ExhibitorCategoryResponse {
         this.description = description;
         return this;
     }
-
 
     /**
      * order for exhibitor category
@@ -303,7 +286,6 @@ public class ExhibitorCategoryResponse {
         return this;
     }
 
-
     /**
      * Type of exhibitor category
      */
@@ -311,7 +293,6 @@ public class ExhibitorCategoryResponse {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * ID of exhibitor category.
@@ -321,7 +302,6 @@ public class ExhibitorCategoryResponse {
         return this;
     }
 
-
     /**
      * File ID for exhibitor category banner.
      */
@@ -330,7 +310,6 @@ public class ExhibitorCategoryResponse {
         return this;
     }
 
-
     /**
      * URL for exhibitor category banner.
      */
@@ -338,7 +317,6 @@ public class ExhibitorCategoryResponse {
         this.bannerUrl = bannerUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -349,49 +327,69 @@ public class ExhibitorCategoryResponse {
             return false;
         }
         ExhibitorCategoryResponse other = (ExhibitorCategoryResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.bannerId, other.bannerId) &&
-            Utils.enhancedDeepEquals(this.bannerUrl, other.bannerUrl);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.bannerId, other.bannerId)
+                && Utils.enhancedDeepEquals(this.bannerUrl, other.bannerUrl);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, name,
-            description, order, type,
-            id, bannerId, bannerUrl);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                name,
+                description,
+                order,
+                type,
+                id,
+                bannerId,
+                bannerUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorCategoryResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "name", name,
-                "description", description,
-                "order", order,
-                "type", type,
-                "id", id,
-                "bannerId", bannerId,
-                "bannerUrl", bannerUrl);
+        return Utils.toString(
+                ExhibitorCategoryResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "name",
+                name,
+                "description",
+                description,
+                "order",
+                order,
+                "type",
+                type,
+                "id",
+                id,
+                "bannerId",
+                bannerId,
+                "bannerUrl",
+                bannerUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -418,7 +416,7 @@ public class ExhibitorCategoryResponse {
         private String bannerUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -519,11 +517,18 @@ public class ExhibitorCategoryResponse {
 
         public ExhibitorCategoryResponse build() {
             return new ExhibitorCategoryResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, name,
-                description, order, type,
-                id, bannerId, bannerUrl);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    name,
+                    description,
+                    order,
+                    type,
+                    id,
+                    bannerId,
+                    bannerUrl);
         }
-
     }
 }

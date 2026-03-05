@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.programItemSpeakerPaginatedResponse = programItemSpeakerPaginatedResponse;
     }
-    
+
     public ListSessionProgramSpeakersPostFiltersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,24 +103,23 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    public ListSessionProgramSpeakersPostFiltersResponse withRawResponse(@Nonnull HttpResponse<InputStream> rawResponse) {
+    public ListSessionProgramSpeakersPostFiltersResponse withRawResponse(
+            @Nonnull HttpResponse<InputStream> rawResponse) {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of session program item and speaker associations.
      */
-    public ListSessionProgramSpeakersPostFiltersResponse withProgramItemSpeakerPaginatedResponse(@Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
+    public ListSessionProgramSpeakersPostFiltersResponse withProgramItemSpeakerPaginatedResponse(
+            @Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
         this.programItemSpeakerPaginatedResponse = programItemSpeakerPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +130,33 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
             return false;
         }
         ListSessionProgramSpeakersPostFiltersResponse other = (ListSessionProgramSpeakersPostFiltersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.programItemSpeakerPaginatedResponse, other.programItemSpeakerPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.programItemSpeakerPaginatedResponse, other.programItemSpeakerPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            programItemSpeakerPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, programItemSpeakerPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionProgramSpeakersPostFiltersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "programItemSpeakerPaginatedResponse", programItemSpeakerPaginatedResponse);
+        return Utils.toString(
+                ListSessionProgramSpeakersPostFiltersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "programItemSpeakerPaginatedResponse",
+                programItemSpeakerPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
         private ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class ListSessionProgramSpeakersPostFiltersResponse implements Response {
         /**
          * Successfully retrieved a paginated list of session program item and speaker associations.
          */
-        public Builder programItemSpeakerPaginatedResponse(@Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
+        public Builder programItemSpeakerPaginatedResponse(
+                @Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
             this.programItemSpeakerPaginatedResponse = programItemSpeakerPaginatedResponse;
             return this;
         }
 
         public ListSessionProgramSpeakersPostFiltersResponse build() {
             return new ListSessionProgramSpeakersPostFiltersResponse(
-                contentType, statusCode, rawResponse,
-                programItemSpeakerPaginatedResponse);
+                    contentType, statusCode, rawResponse, programItemSpeakerPaginatedResponse);
         }
-
     }
 }

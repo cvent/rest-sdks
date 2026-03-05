@@ -30,7 +30,7 @@ public class GetEmailStatusRequestBuilder {
     private GetEmailStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEmailStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEmailStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEmailStatusResponse> call() {
-        AsyncRequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation
-              = new GetEmailStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation =
+                new GetEmailStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -29,21 +29,20 @@ public class AsyncEventRole {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public EventRole sync() {
         return syncSDK;
     }
 
-
     /**
      * List Event Role Assignments
-     * 
+     *
      * <p>Gets a paginated list of event role assignments associated with a single event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListEventRoleAssignmentRequestBuilder listEventRoleAssignment() {
@@ -52,19 +51,18 @@ public class AsyncEventRole {
 
     /**
      * List Event Role Assignments
-     * 
+     *
      * <p>Gets a paginated list of event role assignments associated with a single event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListEventRoleAssignmentResponse>} - The async response
      */
-    public CompletableFuture<ListEventRoleAssignmentResponse> listEventRoleAssignment(@Nonnull ListEventRoleAssignmentRequest request) {
-        AsyncRequestOperation<ListEventRoleAssignmentRequest, ListEventRoleAssignmentResponse> operation
-              = new ListEventRoleAssignment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListEventRoleAssignmentResponse> listEventRoleAssignment(
+            @Nonnull ListEventRoleAssignmentRequest request) {
+        AsyncRequestOperation<ListEventRoleAssignmentRequest, ListEventRoleAssignmentResponse> operation =
+                new ListEventRoleAssignment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetTravelProposalBidRequest {
     /**
      * Unique ID of a travel proposal bid.
@@ -20,10 +19,9 @@ public class GetTravelProposalBidRequest {
     private String travelProposalBidId;
 
     @JsonCreator
-    public GetTravelProposalBidRequest(
-            @Nonnull String travelProposalBidId) {
+    public GetTravelProposalBidRequest(@Nonnull String travelProposalBidId) {
         this.travelProposalBidId = Optional.ofNullable(travelProposalBidId)
-            .orElseThrow(() -> new IllegalArgumentException("travelProposalBidId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("travelProposalBidId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetTravelProposalBidRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a travel proposal bid.
      */
@@ -45,7 +42,6 @@ public class GetTravelProposalBidRequest {
         this.travelProposalBidId = Utils.checkNotNull(travelProposalBidId, "travelProposalBidId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetTravelProposalBidRequest {
             return false;
         }
         GetTravelProposalBidRequest other = (GetTravelProposalBidRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.travelProposalBidId, other.travelProposalBidId);
+        return Utils.enhancedDeepEquals(this.travelProposalBidId, other.travelProposalBidId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            travelProposalBidId);
+        return Utils.enhancedHash(travelProposalBidId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTravelProposalBidRequest.class,
-                "travelProposalBidId", travelProposalBidId);
+        return Utils.toString(GetTravelProposalBidRequest.class, "travelProposalBidId", travelProposalBidId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String travelProposalBidId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetTravelProposalBidRequest {
         }
 
         public GetTravelProposalBidRequest build() {
-            return new GetTravelProposalBidRequest(
-                travelProposalBidId);
+            return new GetTravelProposalBidRequest(travelProposalBidId);
         }
-
     }
 }

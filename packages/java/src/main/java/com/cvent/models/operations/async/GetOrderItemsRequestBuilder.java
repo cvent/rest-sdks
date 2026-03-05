@@ -40,7 +40,7 @@ public class GetOrderItemsRequestBuilder {
     private GetOrderItemsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetOrderItemsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetOrderItemsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetOrderItemsResponse> call() {
-        AsyncRequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation
-              = new GetOrderItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation =
+                new GetOrderItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetOrderItemsRequestBuilder {
      */
     public Publisher<GetOrderItemsResponse> callAsPublisher() {
         GetOrderItemsRequest request = this.request;
-        AsyncRequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation
-              = new GetOrderItems.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation =
+                new GetOrderItems.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetOrderItemsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetOrderItemsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetOrderItemsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

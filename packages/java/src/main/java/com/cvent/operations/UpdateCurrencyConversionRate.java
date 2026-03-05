@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class UpdateCurrencyConversionRate {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -50,7 +49,7 @@ public class UpdateCurrencyConversionRate {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -86,28 +85,19 @@ public class UpdateCurrencyConversionRate {
                     java.util.Optional.of(java.util.List.of("budget/currency-conversion-rate:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
             String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/currencies/{currency}/conversion-rates/{conversionRateId}",
-                    request, null);
+                    klass, this.baseUrl, "/currencies/{currency}/conversion-rates/{conversionRateId}", request, null);
             HTTPRequest req = new HTTPRequest(url, "PUT");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "currencyConversionRateRequest",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "currencyConversionRateRequest", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -122,15 +112,18 @@ public class UpdateCurrencyConversionRate {
         }
 
         private HttpRequest onBuildRequest(UpdateCurrencyConversionRateRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, UpdateCurrencyConversionRateRequest.class, new TypeReference<UpdateCurrencyConversionRateRequest>() {});
+            HttpRequest req = buildRequest(
+                    request,
+                    UpdateCurrencyConversionRateRequest.class,
+                    new TypeReference<UpdateCurrencyConversionRateRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -155,25 +148,20 @@ public class UpdateCurrencyConversionRate {
             return httpRes;
         }
 
-
         @Override
         public UpdateCurrencyConversionRateResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            UpdateCurrencyConversionRateResponse.Builder resBuilder =
-                    UpdateCurrencyConversionRateResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            UpdateCurrencyConversionRateResponse.Builder resBuilder = UpdateCurrencyConversionRateResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             UpdateCurrencyConversionRateResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withCurrencyConversionRateResponse(Utils.unmarshal(response, new TypeReference<CurrencyConversionRateResponse>() {}));
+                    return res.withCurrencyConversionRateResponse(
+                            Utils.unmarshal(response, new TypeReference<CurrencyConversionRateResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -196,15 +184,22 @@ public class UpdateCurrencyConversionRate {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<UpdateCurrencyConversionRateRequest, com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse> {
+            implements AsyncRequestOperation<
+                    UpdateCurrencyConversionRateRequest,
+                    com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(UpdateCurrencyConversionRateRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, UpdateCurrencyConversionRateRequest.class, new TypeReference<UpdateCurrencyConversionRateRequest>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(UpdateCurrencyConversionRateRequest request)
+                throws Exception {
+            HttpRequest req = buildRequest(
+                    request,
+                    UpdateCurrencyConversionRateRequest.class,
+                    new TypeReference<UpdateCurrencyConversionRateRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -218,7 +213,9 @@ public class UpdateCurrencyConversionRate {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(UpdateCurrencyConversionRateRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -235,19 +232,15 @@ public class UpdateCurrencyConversionRate {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse
-                            .builder()
+                    com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.UpdateCurrencyConversionRateResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<CurrencyConversionRateResponse>() {})
@@ -258,8 +251,7 @@ public class UpdateCurrencyConversionRate {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

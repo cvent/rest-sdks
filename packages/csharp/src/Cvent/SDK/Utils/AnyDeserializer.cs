@@ -35,7 +35,8 @@ namespace Cvent.SDK.Utils
             JsonSerializer serializer
         )
         {
-            if (reader.TokenType == JsonToken.StartObject) {
+            if (reader.TokenType == JsonToken.StartObject)
+            {
                 return ParseTokenIntoDictionary(JToken.Load(reader));
             }
             throw new JsonSerializationException($"Could not deserialize token into dictionary");

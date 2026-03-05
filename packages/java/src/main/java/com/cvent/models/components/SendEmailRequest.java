@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * SendEmailRequest
- * 
+ *
  * <p>Request object to send an email to one or more eMarketing campaign recipients.
  */
 public class SendEmailRequest {
@@ -35,9 +35,9 @@ public class SendEmailRequest {
             @JsonProperty("templateId") @Nonnull String templateId,
             @JsonProperty("recipients") @Nonnull List<RecipientsRequestJson> recipients) {
         this.templateId = Optional.ofNullable(templateId)
-            .orElseThrow(() -> new IllegalArgumentException("templateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("templateId cannot be null"));
         this.recipients = Optional.ofNullable(recipients)
-            .orElseThrow(() -> new IllegalArgumentException("recipients cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("recipients cannot be null"));
     }
 
     /**
@@ -58,7 +58,6 @@ public class SendEmailRequest {
         return new Builder();
     }
 
-
     /**
      * The template ID of the eMarketing email to be sent.
      */
@@ -67,7 +66,6 @@ public class SendEmailRequest {
         return this;
     }
 
-
     /**
      * Array of one or more recipients whom emails need to be sent.
      */
@@ -75,7 +73,6 @@ public class SendEmailRequest {
         this.recipients = Utils.checkNotNull(recipients, "recipients");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +83,29 @@ public class SendEmailRequest {
             return false;
         }
         SendEmailRequest other = (SendEmailRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.templateId, other.templateId) &&
-            Utils.enhancedDeepEquals(this.recipients, other.recipients);
+        return Utils.enhancedDeepEquals(this.templateId, other.templateId)
+                && Utils.enhancedDeepEquals(this.recipients, other.recipients);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            templateId, recipients);
+        return Utils.enhancedHash(templateId, recipients);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendEmailRequest.class,
-                "templateId", templateId,
-                "recipients", recipients);
+        return Utils.toString(SendEmailRequest.class, "templateId", templateId, "recipients", recipients);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String templateId;
 
         private List<RecipientsRequestJson> recipients;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +125,7 @@ public class SendEmailRequest {
         }
 
         public SendEmailRequest build() {
-            return new SendEmailRequest(
-                templateId, recipients);
+            return new SendEmailRequest(templateId, recipients);
         }
-
     }
 }

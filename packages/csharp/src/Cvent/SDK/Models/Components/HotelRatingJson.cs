@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum HotelRatingJson
     {
-        [JsonProperty("N/A")]
-        Na,
-        [JsonProperty("Budget")]
-        Budget,
-        [JsonProperty("1 Star")]
-        OneStar,
-        [JsonProperty("2 Star")]
-        TwoStar,
-        [JsonProperty("3 Star")]
-        ThreeStar,
-        [JsonProperty("4 Star")]
-        FourStar,
-        [JsonProperty("5 Star")]
-        FiveStar,
+        [JsonProperty("N/A")] Na,
+        [JsonProperty("Budget")] Budget,
+        [JsonProperty("1 Star")] OneStar,
+        [JsonProperty("2 Star")] TwoStar,
+        [JsonProperty("3 Star")] ThreeStar,
+        [JsonProperty("4 Star")] FourStar,
+        [JsonProperty("5 Star")] FiveStar,
     }
 
     public static class HotelRatingJsonExtension
     {
         public static string Value(this HotelRatingJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static HotelRatingJson ToEnum(this string value)
         {
-            foreach(var field in typeof(HotelRatingJson).GetFields())
+            foreach (var field in typeof(HotelRatingJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * ReservationRequestInput
- * 
+ *
  * <p>Contains information about reservation request record.
  */
 public class ReservationRequestInput {
@@ -52,7 +52,7 @@ public class ReservationRequestInput {
 
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -175,7 +175,7 @@ public class ReservationRequestInput {
         this.attendeeTypeCode = attendeeTypeCode;
         this.locale = locale;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
         this.block = block;
         this.attendeeType = attendeeType;
         this.roomType = roomType;
@@ -183,8 +183,8 @@ public class ReservationRequestInput {
         this.sendAcknowledgement = sendAcknowledgement;
         this.splitFolio = splitFolio;
         this.redirectURL = redirectURL;
-        this.guests = Optional.ofNullable(guests)
-            .orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
+        this.guests =
+                Optional.ofNullable(guests).orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
         this.customFields = customFields;
         this.accessible = accessible;
         this.specialRequest = specialRequest;
@@ -192,16 +192,27 @@ public class ReservationRequestInput {
         this.membershipId = membershipId;
         this.travelDetails = travelDetails;
     }
-    
-    public ReservationRequestInput(
-            @Nonnull HousingEventIdJson housingEvent,
-            @Nonnull List<GuestJson> guests) {
-        this(null, null, null,
-            housingEvent, null, null,
-            null, null, null,
-            null, null, guests,
-            null, null, null,
-            null, null, null);
+
+    public ReservationRequestInput(@Nonnull HousingEventIdJson housingEvent, @Nonnull List<GuestJson> guests) {
+        this(
+                null,
+                null,
+                null,
+                housingEvent,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                guests,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -234,7 +245,7 @@ public class ReservationRequestInput {
 
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -338,7 +349,6 @@ public class ReservationRequestInput {
         return new Builder();
     }
 
-
     /**
      * Optional ID field you can use to attach ID's from your system to a reservation.
      */
@@ -346,7 +356,6 @@ public class ReservationRequestInput {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Attendee Type Code. If attendeeType is also included, the ID is used and this code is ignored.
@@ -356,7 +365,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * Locale code in IETF language tag format.
      */
@@ -364,7 +372,6 @@ public class ReservationRequestInput {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * Contains unique ID of the housing event.
@@ -374,10 +381,9 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -385,7 +391,6 @@ public class ReservationRequestInput {
         this.block = block;
         return this;
     }
-
 
     /**
      * Contains the unique ID of the attendee type.
@@ -395,7 +400,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * Contains unique ID of the room type.
      */
@@ -403,7 +407,6 @@ public class ReservationRequestInput {
         this.roomType = roomType;
         return this;
     }
-
 
     /**
      * Contains unique ID of the hotel.
@@ -413,7 +416,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * True indicates the system will send email acknowledgement after reservation creation.
      */
@@ -422,7 +424,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * True indicates if each guest should have own payment.
      */
@@ -430,7 +431,6 @@ public class ReservationRequestInput {
         this.splitFolio = splitFolio;
         return this;
     }
-
 
     /**
      * URL used to redirect a guest to another site after they create or update their reservation
@@ -441,7 +441,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * Guests information.
      */
@@ -449,7 +448,6 @@ public class ReservationRequestInput {
         this.guests = Utils.checkNotNull(guests, "guests");
         return this;
     }
-
 
     /**
      * Custom fields.
@@ -459,7 +457,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * True indicates this reservation request is for an accessible room.
      */
@@ -467,7 +464,6 @@ public class ReservationRequestInput {
         this.accessible = accessible;
         return this;
     }
-
 
     /**
      * Special requests for room.
@@ -477,7 +473,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * Represents reward program information.
      */
@@ -485,7 +480,6 @@ public class ReservationRequestInput {
         this.rewardProgram = rewardProgram;
         return this;
     }
-
 
     /**
      * Reward program membership number.
@@ -495,7 +489,6 @@ public class ReservationRequestInput {
         return this;
     }
 
-
     /**
      * Common object that holds travel details information.
      */
@@ -503,7 +496,6 @@ public class ReservationRequestInput {
         this.travelDetails = travelDetails;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -514,63 +506,93 @@ public class ReservationRequestInput {
             return false;
         }
         ReservationRequestInput other = (ReservationRequestInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.attendeeTypeCode, other.attendeeTypeCode) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.block, other.block) &&
-            Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType) &&
-            Utils.enhancedDeepEquals(this.roomType, other.roomType) &&
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement) &&
-            Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio) &&
-            Utils.enhancedDeepEquals(this.redirectURL, other.redirectURL) &&
-            Utils.enhancedDeepEquals(this.guests, other.guests) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.accessible, other.accessible) &&
-            Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest) &&
-            Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram) &&
-            Utils.enhancedDeepEquals(this.membershipId, other.membershipId) &&
-            Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails);
+        return Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.attendeeTypeCode, other.attendeeTypeCode)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.block, other.block)
+                && Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType)
+                && Utils.enhancedDeepEquals(this.roomType, other.roomType)
+                && Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement)
+                && Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio)
+                && Utils.enhancedDeepEquals(this.redirectURL, other.redirectURL)
+                && Utils.enhancedDeepEquals(this.guests, other.guests)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.accessible, other.accessible)
+                && Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest)
+                && Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram)
+                && Utils.enhancedDeepEquals(this.membershipId, other.membershipId)
+                && Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            sourceId, attendeeTypeCode, locale,
-            housingEvent, block, attendeeType,
-            roomType, hotel, sendAcknowledgement,
-            splitFolio, redirectURL, guests,
-            customFields, accessible, specialRequest,
-            rewardProgram, membershipId, travelDetails);
+                sourceId,
+                attendeeTypeCode,
+                locale,
+                housingEvent,
+                block,
+                attendeeType,
+                roomType,
+                hotel,
+                sendAcknowledgement,
+                splitFolio,
+                redirectURL,
+                guests,
+                customFields,
+                accessible,
+                specialRequest,
+                rewardProgram,
+                membershipId,
+                travelDetails);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationRequestInput.class,
-                "sourceId", sourceId,
-                "attendeeTypeCode", attendeeTypeCode,
-                "locale", locale,
-                "housingEvent", housingEvent,
-                "block", block,
-                "attendeeType", attendeeType,
-                "roomType", roomType,
-                "hotel", hotel,
-                "sendAcknowledgement", sendAcknowledgement,
-                "splitFolio", splitFolio,
-                "redirectURL", redirectURL,
-                "guests", guests,
-                "customFields", customFields,
-                "accessible", accessible,
-                "specialRequest", specialRequest,
-                "rewardProgram", rewardProgram,
-                "membershipId", membershipId,
-                "travelDetails", travelDetails);
+        return Utils.toString(
+                ReservationRequestInput.class,
+                "sourceId",
+                sourceId,
+                "attendeeTypeCode",
+                attendeeTypeCode,
+                "locale",
+                locale,
+                "housingEvent",
+                housingEvent,
+                "block",
+                block,
+                "attendeeType",
+                attendeeType,
+                "roomType",
+                roomType,
+                "hotel",
+                hotel,
+                "sendAcknowledgement",
+                sendAcknowledgement,
+                "splitFolio",
+                splitFolio,
+                "redirectURL",
+                redirectURL,
+                "guests",
+                guests,
+                "customFields",
+                customFields,
+                "accessible",
+                accessible,
+                "specialRequest",
+                specialRequest,
+                "rewardProgram",
+                rewardProgram,
+                "membershipId",
+                membershipId,
+                "travelDetails",
+                travelDetails);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String sourceId;
 
@@ -610,7 +632,7 @@ public class ReservationRequestInput {
         private TravelDetailsJson travelDetails;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -647,7 +669,7 @@ public class ReservationRequestInput {
 
         /**
          * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -763,13 +785,24 @@ public class ReservationRequestInput {
 
         public ReservationRequestInput build() {
             return new ReservationRequestInput(
-                sourceId, attendeeTypeCode, locale,
-                housingEvent, block, attendeeType,
-                roomType, hotel, sendAcknowledgement,
-                splitFolio, redirectURL, guests,
-                customFields, accessible, specialRequest,
-                rewardProgram, membershipId, travelDetails);
+                    sourceId,
+                    attendeeTypeCode,
+                    locale,
+                    housingEvent,
+                    block,
+                    attendeeType,
+                    roomType,
+                    hotel,
+                    sendAcknowledgement,
+                    splitFolio,
+                    redirectURL,
+                    guests,
+                    customFields,
+                    accessible,
+                    specialRequest,
+                    rewardProgram,
+                    membershipId,
+                    travelDetails);
         }
-
     }
 }

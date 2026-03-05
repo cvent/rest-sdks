@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class FilterCommunicationLogMessagesResponse
     {
-        public Func<Task<FilterCommunicationLogMessagesResponse?>>? Next {get;set;}
+        public Func<Task<FilterCommunicationLogMessagesResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

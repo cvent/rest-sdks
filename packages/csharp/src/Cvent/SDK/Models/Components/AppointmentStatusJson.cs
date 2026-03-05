@@ -18,38 +18,28 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AppointmentStatusJson
     {
-        [JsonProperty("ACTIVE")]
-        Active,
-        [JsonProperty("CONFIRMED")]
-        Confirmed,
-        [JsonProperty("CANCELLED")]
-        Cancelled,
-        [JsonProperty("PENDING_APPROVAL")]
-        PendingApproval,
-        [JsonProperty("DENIED")]
-        Denied,
-        [JsonProperty("PENDING")]
-        Pending,
-        [JsonProperty("PENDING_ASSIGNMENT")]
-        PendingAssignment,
-        [JsonProperty("PENDING_HOST_ASSIGNMENT")]
-        PendingHostAssignment,
-        [JsonProperty("PENDING_APPROVAL_AND_ASSIGNMENT")]
-        PendingApprovalAndAssignment,
-        [JsonProperty("TENTATIVE")]
-        Tentative,
+        [JsonProperty("ACTIVE")] Active,
+        [JsonProperty("CONFIRMED")] Confirmed,
+        [JsonProperty("CANCELLED")] Cancelled,
+        [JsonProperty("PENDING_APPROVAL")] PendingApproval,
+        [JsonProperty("DENIED")] Denied,
+        [JsonProperty("PENDING")] Pending,
+        [JsonProperty("PENDING_ASSIGNMENT")] PendingAssignment,
+        [JsonProperty("PENDING_HOST_ASSIGNMENT")] PendingHostAssignment,
+        [JsonProperty("PENDING_APPROVAL_AND_ASSIGNMENT")] PendingApprovalAndAssignment,
+        [JsonProperty("TENTATIVE")] Tentative,
     }
 
     public static class AppointmentStatusJsonExtension
     {
         public static string Value(this AppointmentStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AppointmentStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AppointmentStatusJson).GetFields())
+            foreach (var field in typeof(AppointmentStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

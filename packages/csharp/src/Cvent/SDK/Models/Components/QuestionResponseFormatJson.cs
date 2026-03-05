@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionResponseFormatJson
     {
-        [JsonProperty("lower_case")]
-        LowerCase,
-        [JsonProperty("proper_case")]
-        ProperCase,
-        [JsonProperty("upper_case")]
-        UpperCase,
+        [JsonProperty("lower_case")] LowerCase,
+        [JsonProperty("proper_case")] ProperCase,
+        [JsonProperty("upper_case")] UpperCase,
     }
 
     public static class QuestionResponseFormatJsonExtension
     {
         public static string Value(this QuestionResponseFormatJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionResponseFormatJson ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionResponseFormatJson).GetFields())
+            foreach (var field in typeof(QuestionResponseFormatJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

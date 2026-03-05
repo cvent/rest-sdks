@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SessionStatusJson
- * 
+ *
  * <p>This is used to denote the status of a session.
  */
 public enum SessionStatusJson {
@@ -24,13 +24,13 @@ public enum SessionStatusJson {
     SessionStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SessionStatusJson> fromValue(String value) {
-        for (SessionStatusJson o: SessionStatusJson.values()) {
+        for (SessionStatusJson o : SessionStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum SessionStatusJson {
         return Optional.empty();
     }
 }
-

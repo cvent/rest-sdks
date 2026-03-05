@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExistingDurationType
     {
-        [JsonProperty("RFID")]
-        Rfid,
-        [JsonProperty("OA")]
-        Oa,
-        [JsonProperty("EDIT")]
-        Edit,
-        [JsonProperty("LIVE")]
-        Live,
-        [JsonProperty("ON_DEMAND")]
-        OnDemand,
-        [JsonProperty("API")]
-        Api,
+        [JsonProperty("RFID")] Rfid,
+        [JsonProperty("OA")] Oa,
+        [JsonProperty("EDIT")] Edit,
+        [JsonProperty("LIVE")] Live,
+        [JsonProperty("ON_DEMAND")] OnDemand,
+        [JsonProperty("API")] Api,
     }
 
     public static class ExistingDurationTypeExtension
     {
         public static string Value(this ExistingDurationType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExistingDurationType ToEnum(this string value)
         {
-            foreach(var field in typeof(ExistingDurationType).GetFields())
+            foreach (var field in typeof(ExistingDurationType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

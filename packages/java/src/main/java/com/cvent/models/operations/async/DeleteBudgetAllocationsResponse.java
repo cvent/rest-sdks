@@ -14,7 +14,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class DeleteBudgetAllocationsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -33,14 +32,12 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
 
     @JsonCreator
     public DeleteBudgetAllocationsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
     }
 
     /**
@@ -68,7 +65,6 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -76,7 +72,6 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -86,7 +81,6 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -94,7 +88,6 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -105,28 +98,30 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
             return false;
         }
         DeleteBudgetAllocationsResponse other = (DeleteBudgetAllocationsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteBudgetAllocationsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse);
+        return Utils.toString(
+                DeleteBudgetAllocationsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -135,7 +130,7 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
         private HttpResponse<Blob> rawResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -163,9 +158,7 @@ public class DeleteBudgetAllocationsResponse implements AsyncResponse {
         }
 
         public DeleteBudgetAllocationsResponse build() {
-            return new DeleteBudgetAllocationsResponse(
-                contentType, statusCode, rawResponse);
+            return new DeleteBudgetAllocationsResponse(contentType, statusCode, rawResponse);
         }
-
     }
 }

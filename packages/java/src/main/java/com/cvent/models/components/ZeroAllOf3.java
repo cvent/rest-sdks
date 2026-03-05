@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf3
- * 
+ *
  * <p>Details of an event appointment.
  */
 public class ZeroAllOf3 {
@@ -141,7 +141,7 @@ public class ZeroAllOf3 {
 
     /**
      * This field is deprecated please use - lastModified
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -177,20 +177,15 @@ public class ZeroAllOf3 {
             @JsonProperty("enforceScheduleRules") @Nullable Boolean enforceScheduleRules,
             @JsonProperty("modified") @Nullable OffsetDateTime modified,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = code;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
         this.status = status;
         this.location = location;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -202,20 +197,33 @@ public class ZeroAllOf3 {
         this.modified = modified;
         this.deleted = deleted;
     }
-    
+
     public ZeroAllOf3(
             @Nonnull String id,
             @Nonnull String name,
             @Nonnull OffsetDateTime start,
             @Nonnull OffsetDateTime end,
             @Nonnull TypeAllOf type) {
-        this(id, null, name,
-            null, start, end,
-            null, null, type,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                id,
+                null,
+                name,
+                null,
+                start,
+                end,
+                null,
+                null,
+                type,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -340,7 +348,7 @@ public class ZeroAllOf3 {
 
     /**
      * This field is deprecated please use - lastModified
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -359,7 +367,6 @@ public class ZeroAllOf3 {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the appointment.
      */
@@ -367,7 +374,6 @@ public class ZeroAllOf3 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The unique appointment code in Cvent or unique reference id of an appointment in the external
@@ -378,7 +384,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * The name of the appointment.
      */
@@ -386,7 +391,6 @@ public class ZeroAllOf3 {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The description of the appointment.
@@ -396,7 +400,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted start date/time of the appointment.
      */
@@ -404,7 +407,6 @@ public class ZeroAllOf3 {
         this.start = Utils.checkNotNull(start, "start");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted end date/time of the appointment.
@@ -414,7 +416,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * Denotes the status of an appointment.
      */
@@ -422,7 +423,6 @@ public class ZeroAllOf3 {
         this.status = status;
         return this;
     }
-
 
     /**
      * The location of the appointment.
@@ -432,7 +432,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * The type of the appointment.
      */
@@ -440,7 +439,6 @@ public class ZeroAllOf3 {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this record was created.
@@ -450,7 +448,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * The identifier of the user that created this record.
      */
@@ -458,7 +455,6 @@ public class ZeroAllOf3 {
         this.createdBy = createdBy;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
@@ -468,7 +464,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.
      */
@@ -476,7 +471,6 @@ public class ZeroAllOf3 {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -486,7 +480,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * Collection of attendees participating in this appointment, and their related details.
      */
@@ -494,7 +487,6 @@ public class ZeroAllOf3 {
         this.participants = participants;
         return this;
     }
-
 
     /**
      * True indicates participants will be automatically marked as accepted for the appointment.
@@ -504,7 +496,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * True indicates that existing schedule rules were enforced when the appointment was created.
      */
@@ -513,10 +504,9 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * This field is deprecated please use - lastModified
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -525,7 +515,6 @@ public class ZeroAllOf3 {
         return this;
     }
 
-
     /**
      * True indicates the appointment has been logically deleted.
      */
@@ -533,7 +522,6 @@ public class ZeroAllOf3 {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -544,66 +532,97 @@ public class ZeroAllOf3 {
             return false;
         }
         ZeroAllOf3 other = (ZeroAllOf3) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
-            Utils.enhancedDeepEquals(this.participants, other.participants) &&
-            Utils.enhancedDeepEquals(this.autoAcceptAttendees, other.autoAcceptAttendees) &&
-            Utils.enhancedDeepEquals(this.enforceScheduleRules, other.enforceScheduleRules) &&
-            Utils.enhancedDeepEquals(this.modified, other.modified) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent)
+                && Utils.enhancedDeepEquals(this.participants, other.participants)
+                && Utils.enhancedDeepEquals(this.autoAcceptAttendees, other.autoAcceptAttendees)
+                && Utils.enhancedDeepEquals(this.enforceScheduleRules, other.enforceScheduleRules)
+                && Utils.enhancedDeepEquals(this.modified, other.modified)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, code, name,
-            description, start, end,
-            status, location, type,
-            created, createdBy, lastModified,
-            lastModifiedBy, appointmentEvent, participants,
-            autoAcceptAttendees, enforceScheduleRules, modified,
-            deleted);
+                id,
+                code,
+                name,
+                description,
+                start,
+                end,
+                status,
+                location,
+                type,
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                appointmentEvent,
+                participants,
+                autoAcceptAttendees,
+                enforceScheduleRules,
+                modified,
+                deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf3.class,
-                "id", id,
-                "code", code,
-                "name", name,
-                "description", description,
-                "start", start,
-                "end", end,
-                "status", status,
-                "location", location,
-                "type", type,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "appointmentEvent", appointmentEvent,
-                "participants", participants,
-                "autoAcceptAttendees", autoAcceptAttendees,
-                "enforceScheduleRules", enforceScheduleRules,
-                "modified", modified,
-                "deleted", deleted);
+        return Utils.toString(
+                ZeroAllOf3.class,
+                "id",
+                id,
+                "code",
+                code,
+                "name",
+                name,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "status",
+                status,
+                "location",
+                location,
+                "type",
+                type,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "appointmentEvent",
+                appointmentEvent,
+                "participants",
+                participants,
+                "autoAcceptAttendees",
+                autoAcceptAttendees,
+                "enforceScheduleRules",
+                enforceScheduleRules,
+                "modified",
+                modified,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -645,7 +664,7 @@ public class ZeroAllOf3 {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -787,7 +806,7 @@ public class ZeroAllOf3 {
 
         /**
          * This field is deprecated please use - lastModified
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -806,14 +825,25 @@ public class ZeroAllOf3 {
 
         public ZeroAllOf3 build() {
             return new ZeroAllOf3(
-                id, code, name,
-                description, start, end,
-                status, location, type,
-                created, createdBy, lastModified,
-                lastModifiedBy, appointmentEvent, participants,
-                autoAcceptAttendees, enforceScheduleRules, modified,
-                deleted);
+                    id,
+                    code,
+                    name,
+                    description,
+                    start,
+                    end,
+                    status,
+                    location,
+                    type,
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    appointmentEvent,
+                    participants,
+                    autoAcceptAttendees,
+                    enforceScheduleRules,
+                    modified,
+                    deleted);
         }
-
     }
 }

@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -34,10 +34,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class GetStandardSurveyEmailTemplates {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -46,7 +45,7 @@ public class GetStandardSurveyEmailTemplates {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -82,21 +81,15 @@ public class GetStandardSurveyEmailTemplates {
                     java.util.Optional.of(java.util.List.of("survey/standard-survey-email-templates:read")),
                     securitySource());
         }
-        <T>HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
+
+        <T> HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
             String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/standard-surveys/{surveyId}/email-templates",
-                    request, null);
+                    klass, this.baseUrl, "/standard-surveys/{surveyId}/email-templates", request, null);
             HTTPRequest req = new HTTPRequest(url, "GET");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
 
-            req.addQueryParams(Utils.getQueryParams(
-                    klass,
-                    request,
-                    null));
+            req.addQueryParams(Utils.getQueryParams(klass, request, null));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
             return req.build();
@@ -104,7 +97,8 @@ public class GetStandardSurveyEmailTemplates {
     }
 
     public static class Sync extends Base
-            implements RequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> {
+            implements RequestOperation<
+                    GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -114,11 +108,11 @@ public class GetStandardSurveyEmailTemplates {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -143,25 +137,21 @@ public class GetStandardSurveyEmailTemplates {
             return httpRes;
         }
 
-
         @Override
         public GetStandardSurveyEmailTemplatesResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             GetStandardSurveyEmailTemplatesResponse.Builder resBuilder =
-                    GetStandardSurveyEmailTemplatesResponse
-                            .builder()
+                    GetStandardSurveyEmailTemplatesResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             GetStandardSurveyEmailTemplatesResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withStandardSurveyEmailTemplatesPaginatedResponse(Utils.unmarshal(response, new TypeReference<StandardSurveyEmailTemplatesPaginatedResponse>() {}));
+                    return res.withStandardSurveyEmailTemplatesPaginatedResponse(Utils.unmarshal(
+                            response, new TypeReference<StandardSurveyEmailTemplatesPaginatedResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -184,14 +174,18 @@ public class GetStandardSurveyEmailTemplates {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse> {
+            implements AsyncRequestOperation<
+                    GetStandardSurveyEmailTemplatesRequest,
+                    com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(GetStandardSurveyEmailTemplatesRequest request) throws Exception {
+        private CompletableFuture<HttpRequest> onBuildRequest(GetStandardSurveyEmailTemplatesRequest request)
+                throws Exception {
             HttpRequest req = buildRequest(request, GetStandardSurveyEmailTemplatesRequest.class);
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
@@ -206,7 +200,9 @@ public class GetStandardSurveyEmailTemplates {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(GetStandardSurveyEmailTemplatesRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -221,21 +217,17 @@ public class GetStandardSurveyEmailTemplates {
         }
 
         @Override
-        public CompletableFuture<com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse> handleResponse(
-                HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+        public CompletableFuture<com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse>
+                handleResponse(HttpResponse<Blob> response) {
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse
-                            .builder()
+                    com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.GetStandardSurveyEmailTemplatesResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<StandardSurveyEmailTemplatesPaginatedResponse>() {})
@@ -246,8 +238,7 @@ public class GetStandardSurveyEmailTemplates {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

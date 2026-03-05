@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExternalActivityMetadata
- * 
+ *
  * <p>Metadata for an activity.
  */
 public class ExternalActivityMetadata {
@@ -99,20 +99,14 @@ public class ExternalActivityMetadata {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.fields = fields;
     }
-    
-    public ExternalActivityMetadata(
-            @Nonnull ExternalActivityTypeJson type,
-            @Nonnull String name) {
-        this(null, null, null,
-            null, null, type,
-            name, null, null);
+
+    public ExternalActivityMetadata(@Nonnull ExternalActivityTypeJson type, @Nonnull String name) {
+        this(null, null, null, null, null, type, name, null, null);
     }
 
     /**
@@ -182,7 +176,6 @@ public class ExternalActivityMetadata {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -190,7 +183,6 @@ public class ExternalActivityMetadata {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -200,7 +192,6 @@ public class ExternalActivityMetadata {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -208,7 +199,6 @@ public class ExternalActivityMetadata {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -218,7 +208,6 @@ public class ExternalActivityMetadata {
         return this;
     }
 
-
     /**
      * The identifier of external attendee activity metadata.
      */
@@ -226,7 +215,6 @@ public class ExternalActivityMetadata {
         this.id = id;
         return this;
     }
-
 
     /**
      * This is used to denote the type of the external attendee activity.
@@ -236,7 +224,6 @@ public class ExternalActivityMetadata {
         return this;
     }
 
-
     /**
      * Name of an external attendee activity.
      */
@@ -244,7 +231,6 @@ public class ExternalActivityMetadata {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * Description of an external attendee activity.
@@ -254,7 +240,6 @@ public class ExternalActivityMetadata {
         return this;
     }
 
-
     /**
      * Metadata for the fields.
      */
@@ -262,7 +247,6 @@ public class ExternalActivityMetadata {
         this.fields = fields;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -273,42 +257,49 @@ public class ExternalActivityMetadata {
             return false;
         }
         ExternalActivityMetadata other = (ExternalActivityMetadata) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.fields, other.fields);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.fields, other.fields);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, type,
-            name, description, fields);
+                created, createdBy, lastModified, lastModifiedBy, id, type, name, description, fields);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivityMetadata.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "type", type,
-                "name", name,
-                "description", description,
-                "fields", fields);
+        return Utils.toString(
+                ExternalActivityMetadata.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "type",
+                type,
+                "name",
+                name,
+                "description",
+                description,
+                "fields",
+                fields);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -329,7 +320,7 @@ public class ExternalActivityMetadata {
         private List<ExternalActivitiesAdditionalFieldsMetadataJson> fields;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -406,10 +397,7 @@ public class ExternalActivityMetadata {
 
         public ExternalActivityMetadata build() {
             return new ExternalActivityMetadata(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, type,
-                name, description, fields);
+                    created, createdBy, lastModified, lastModifiedBy, id, type, name, description, fields);
         }
-
     }
 }

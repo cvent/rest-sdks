@@ -18,8 +18,8 @@ public class RetryConfig {
     private RetryConfig(Strategy strategy, Optional<BackoffStrategy> backoff) {
         this.strategy = strategy;
         this.backoff = backoff;
-
     }
+
     public static RetryConfig noRetries() {
         return RetryConfig.builder().noRetries().build();
     }
@@ -32,11 +32,11 @@ public class RetryConfig {
         return backoff;
     }
 
-    public final static Builder builder() {
+    public static final Builder builder() {
         return new Builder();
     }
 
-    public final static class Builder {
+    public static final class Builder {
 
         private Strategy strategy = Strategy.NONE;
         private boolean enabled = true;
@@ -45,42 +45,42 @@ public class RetryConfig {
         private Builder() {}
 
         /**
-          * Disables retries (sets strategy to "none").
-          *
-          * @return The builder instance.
-          */
+         * Disables retries (sets strategy to "none").
+         *
+         * @return The builder instance.
+         */
         public Builder noRetries() {
             this.strategy = Strategy.NONE;
             return this;
         }
 
         /**
-          * Enables the selected strategy.
-          *
-          * @return The builder instance.
-          */
+         * Enables the selected strategy.
+         *
+         * @return The builder instance.
+         */
         public Builder enable() {
             this.enabled = true;
             return this;
         }
 
         /**
-          * Enables or disables the selected strategy.
-          *
-          * @param enable Whether to enable the current strategy.
-          * @return The builder instance.
-          */
+         * Enables or disables the selected strategy.
+         *
+         * @param enable Whether to enable the current strategy.
+         * @return The builder instance.
+         */
         public Builder enable(boolean enable) {
             this.enabled = enable;
             return this;
         }
 
         /**
-          * Selects and configures the backoff retry strategy.
-          *
-          * @param backoff The backoff strategy to use.
-          * @return The builder instance.
-          */
+         * Selects and configures the backoff retry strategy.
+         *
+         * @param backoff The backoff strategy to use.
+         * @return The builder instance.
+         */
         public Builder backoff(BackoffStrategy backoff) {
             Utils.checkNotNull(backoff, "backoff");
             this.strategy = Strategy.BACKOFF;
@@ -89,10 +89,10 @@ public class RetryConfig {
         }
 
         /**
-          * Selects the default backoff retry strategy.
-          *
-          * @return The builder instance.
-          */
+         * Selects the default backoff retry strategy.
+         *
+         * @return The builder instance.
+         */
         public Builder backoff() {
             this.strategy = Strategy.BACKOFF;
             this.backoff = Optional.ofNullable(BackoffStrategy.withDefaults());
@@ -100,7 +100,7 @@ public class RetryConfig {
         }
 
         public RetryConfig build() {
-            if(!enabled) {
+            if (!enabled) {
                 return RetryConfig.noRetries();
             }
             return new RetryConfig(strategy, backoff);

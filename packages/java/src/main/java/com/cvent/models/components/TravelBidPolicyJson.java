@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * TravelBidPolicyJson
- * 
+ *
  * <p>A policy that is associated with a travel bid.
  */
 public class TravelBidPolicyJson {
@@ -86,16 +86,13 @@ public class TravelBidPolicyJson {
         this.category = category;
         this.value = value;
         this.valueType = valueType;
-        this.included = Optional.ofNullable(included)
-            .orElse(Builder._SINGLETON_VALUE_Included.value());
+        this.included = Optional.ofNullable(included).orElse(Builder._SINGLETON_VALUE_Included.value());
         this.description = description;
         this.status = status;
     }
-    
+
     public TravelBidPolicyJson() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -153,7 +150,6 @@ public class TravelBidPolicyJson {
         return new Builder();
     }
 
-
     /**
      * The code representing the policy.
      */
@@ -161,7 +157,6 @@ public class TravelBidPolicyJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * The category the policy falls under.
@@ -171,7 +166,6 @@ public class TravelBidPolicyJson {
         return this;
     }
 
-
     /**
      * The value of the policy.
      */
@@ -180,7 +174,6 @@ public class TravelBidPolicyJson {
         return this;
     }
 
-
     /**
      * Value type of the policy
      */
@@ -188,7 +181,6 @@ public class TravelBidPolicyJson {
         this.valueType = valueType;
         return this;
     }
-
 
     /**
      * True indicates the policy fee included in the rate. Only applies to policies with a value type of
@@ -199,7 +191,6 @@ public class TravelBidPolicyJson {
         return this;
     }
 
-
     /**
      * Additional notes on the policy.
      */
@@ -207,7 +198,6 @@ public class TravelBidPolicyJson {
         this.description = description;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -218,7 +208,6 @@ public class TravelBidPolicyJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -228,38 +217,42 @@ public class TravelBidPolicyJson {
             return false;
         }
         TravelBidPolicyJson other = (TravelBidPolicyJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.valueType, other.valueType) &&
-            Utils.enhancedDeepEquals(this.included, other.included) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.valueType, other.valueType)
+                && Utils.enhancedDeepEquals(this.included, other.included)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            code, category, value,
-            valueType, included, description,
-            status);
+        return Utils.enhancedHash(code, category, value, valueType, included, description, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidPolicyJson.class,
-                "code", code,
-                "category", category,
-                "value", value,
-                "valueType", valueType,
-                "included", included,
-                "description", description,
-                "status", status);
+        return Utils.toString(
+                TravelBidPolicyJson.class,
+                "code",
+                code,
+                "category",
+                category,
+                "value",
+                value,
+                "valueType",
+                valueType,
+                "included",
+                included,
+                "description",
+                description,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String code;
 
@@ -276,7 +269,7 @@ public class TravelBidPolicyJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -338,17 +331,10 @@ public class TravelBidPolicyJson {
         }
 
         public TravelBidPolicyJson build() {
-            return new TravelBidPolicyJson(
-                code, category, value,
-                valueType, included, description,
-                status);
+            return new TravelBidPolicyJson(code, category, value, valueType, included, description, status);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Included =
-                new LazySingletonValue<>(
-                        "included",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("included", "false", new TypeReference<Boolean>() {});
     }
 }

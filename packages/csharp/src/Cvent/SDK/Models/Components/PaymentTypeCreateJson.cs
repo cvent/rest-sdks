@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum PaymentTypeCreateJson
     {
-        [JsonProperty("Offline Charge")]
-        OfflineCharge,
-        [JsonProperty("Offline Refund")]
-        OfflineRefund,
+        [JsonProperty("Offline Charge")] OfflineCharge,
+        [JsonProperty("Offline Refund")] OfflineRefund,
     }
 
     public static class PaymentTypeCreateJsonExtension
     {
         public static string Value(this PaymentTypeCreateJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static PaymentTypeCreateJson ToEnum(this string value)
         {
-            foreach(var field in typeof(PaymentTypeCreateJson).GetFields())
+            foreach (var field in typeof(PaymentTypeCreateJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

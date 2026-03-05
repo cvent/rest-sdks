@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TierJson
- * 
+ *
  * <p>Represents the type of license that the user can choose.
  */
 public enum TierJson {
@@ -26,13 +26,13 @@ public enum TierJson {
     TierJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TierJson> fromValue(String value) {
-        for (TierJson o: TierJson.values()) {
+        for (TierJson o : TierJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum TierJson {
         return Optional.empty();
     }
 }
-

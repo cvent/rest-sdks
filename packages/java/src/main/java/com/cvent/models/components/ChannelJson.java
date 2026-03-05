@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ChannelJson
- * 
+ *
  * <p>The channel details associated with the chat.
  */
 public class ChannelJson {
@@ -24,10 +24,8 @@ public class ChannelJson {
     private String id;
 
     @JsonCreator
-    public ChannelJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public ChannelJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ChannelJson {
         return new Builder();
     }
 
-
     /**
      * The channel ID associated with the chat.
      */
@@ -49,7 +46,6 @@ public class ChannelJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ChannelJson {
             return false;
         }
         ChannelJson other = (ChannelJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChannelJson.class,
-                "id", id);
+        return Utils.toString(ChannelJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ChannelJson {
         }
 
         public ChannelJson build() {
-            return new ChannelJson(
-                id);
+            return new ChannelJson(id);
         }
-
     }
 }

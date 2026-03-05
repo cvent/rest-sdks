@@ -16,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
-
 public class CreateMeetingRequestResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class CreateMeetingRequestResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.meetingRequestBulkResponse = meetingRequestBulkResponse;
     }
-    
+
     public CreateMeetingRequestResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class CreateMeetingRequestResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class CreateMeetingRequestResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class CreateMeetingRequestResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class CreateMeetingRequestResponse implements Response {
         return this;
     }
 
-
     /**
      * Meeting request(s) were successfully created.
      */
-    public CreateMeetingRequestResponse withMeetingRequestBulkResponse(@Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+    public CreateMeetingRequestResponse withMeetingRequestBulkResponse(
+            @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
         this.meetingRequestBulkResponse = meetingRequestBulkResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class CreateMeetingRequestResponse implements Response {
             return false;
         }
         CreateMeetingRequestResponse other = (CreateMeetingRequestResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.meetingRequestBulkResponse, other.meetingRequestBulkResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.meetingRequestBulkResponse, other.meetingRequestBulkResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            meetingRequestBulkResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, meetingRequestBulkResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateMeetingRequestResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "meetingRequestBulkResponse", meetingRequestBulkResponse);
+        return Utils.toString(
+                CreateMeetingRequestResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "meetingRequestBulkResponse",
+                meetingRequestBulkResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class CreateMeetingRequestResponse implements Response {
         private List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class CreateMeetingRequestResponse implements Response {
         /**
          * Meeting request(s) were successfully created.
          */
-        public Builder meetingRequestBulkResponse(@Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+        public Builder meetingRequestBulkResponse(
+                @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
             this.meetingRequestBulkResponse = meetingRequestBulkResponse;
             return this;
         }
 
         public CreateMeetingRequestResponse build() {
-            return new CreateMeetingRequestResponse(
-                contentType, statusCode, rawResponse,
-                meetingRequestBulkResponse);
+            return new CreateMeetingRequestResponse(contentType, statusCode, rawResponse, meetingRequestBulkResponse);
         }
-
     }
 }

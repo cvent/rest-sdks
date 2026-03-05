@@ -2,6 +2,14 @@
 
 Denotes the type of rendition.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.VideoRenditionTypeJson;
+
+VideoRenditionTypeJson value = VideoRenditionTypeJson.HLS;
+```
+
 
 ## Values
 

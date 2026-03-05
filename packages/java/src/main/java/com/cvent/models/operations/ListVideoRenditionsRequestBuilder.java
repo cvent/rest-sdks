@@ -28,7 +28,7 @@ public class ListVideoRenditionsRequestBuilder {
     private ListVideoRenditionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListVideoRenditionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class ListVideoRenditionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public ListVideoRenditionsResponse call() {
-        RequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation
-              = new ListVideoRenditions.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation =
+                new ListVideoRenditions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

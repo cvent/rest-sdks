@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetTableAssignmentResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetTableAssignmentResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable TableAssignmentPaginatedResponse tableAssignmentPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.tableAssignmentPaginatedResponse = tableAssignmentPaginatedResponse;
     }
-    
+
     public GetTableAssignmentResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetTableAssignmentResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetTableAssignmentResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetTableAssignmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetTableAssignmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of seat information for the given seating ID in an event.
      */
-    public GetTableAssignmentResponse withTableAssignmentPaginatedResponse(@Nullable TableAssignmentPaginatedResponse tableAssignmentPaginatedResponse) {
+    public GetTableAssignmentResponse withTableAssignmentPaginatedResponse(
+            @Nullable TableAssignmentPaginatedResponse tableAssignmentPaginatedResponse) {
         this.tableAssignmentPaginatedResponse = tableAssignmentPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetTableAssignmentResponse implements Response {
             return false;
         }
         GetTableAssignmentResponse other = (GetTableAssignmentResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.tableAssignmentPaginatedResponse, other.tableAssignmentPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.tableAssignmentPaginatedResponse, other.tableAssignmentPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            tableAssignmentPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, tableAssignmentPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTableAssignmentResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "tableAssignmentPaginatedResponse", tableAssignmentPaginatedResponse);
+        return Utils.toString(
+                GetTableAssignmentResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "tableAssignmentPaginatedResponse",
+                tableAssignmentPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetTableAssignmentResponse implements Response {
         private TableAssignmentPaginatedResponse tableAssignmentPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetTableAssignmentResponse implements Response {
         /**
          * Successfully retrieved a paginated list of seat information for the given seating ID in an event.
          */
-        public Builder tableAssignmentPaginatedResponse(@Nullable TableAssignmentPaginatedResponse tableAssignmentPaginatedResponse) {
+        public Builder tableAssignmentPaginatedResponse(
+                @Nullable TableAssignmentPaginatedResponse tableAssignmentPaginatedResponse) {
             this.tableAssignmentPaginatedResponse = tableAssignmentPaginatedResponse;
             return this;
         }
 
         public GetTableAssignmentResponse build() {
             return new GetTableAssignmentResponse(
-                contentType, statusCode, rawResponse,
-                tableAssignmentPaginatedResponse);
+                    contentType, statusCode, rawResponse, tableAssignmentPaginatedResponse);
         }
-
     }
 }

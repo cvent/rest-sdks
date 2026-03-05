@@ -40,7 +40,7 @@ public class GetEmailsHistoryRequestBuilder {
     private GetEmailsHistoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEmailsHistoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetEmailsHistoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEmailsHistoryResponse> call() {
-        AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation
-              = new GetEmailsHistory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation =
+                new GetEmailsHistory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetEmailsHistoryRequestBuilder {
      */
     public Publisher<GetEmailsHistoryResponse> callAsPublisher() {
         GetEmailsHistoryRequest request = this.request;
-        AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation
-              = new GetEmailsHistory.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation =
+                new GetEmailsHistory.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetEmailsHistoryRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetEmailsHistoryRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetEmailsHistoryResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

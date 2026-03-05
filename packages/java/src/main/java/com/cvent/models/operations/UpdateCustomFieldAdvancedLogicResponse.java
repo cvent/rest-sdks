@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateCustomFieldAdvancedLogicResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AdvancedLogic advancedLogic) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.advancedLogic = advancedLogic;
     }
-    
+
     public UpdateCustomFieldAdvancedLogicResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated the custom field's advanced logic.
      */
@@ -126,7 +118,6 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         this.advancedLogic = advancedLogic;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
             return false;
         }
         UpdateCustomFieldAdvancedLogicResponse other = (UpdateCustomFieldAdvancedLogicResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.advancedLogic, other.advancedLogic);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.advancedLogic, other.advancedLogic);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            advancedLogic);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, advancedLogic);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateCustomFieldAdvancedLogicResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "advancedLogic", advancedLogic);
+        return Utils.toString(
+                UpdateCustomFieldAdvancedLogicResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "advancedLogic",
+                advancedLogic);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         private AdvancedLogic advancedLogic;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class UpdateCustomFieldAdvancedLogicResponse implements Response {
         }
 
         public UpdateCustomFieldAdvancedLogicResponse build() {
-            return new UpdateCustomFieldAdvancedLogicResponse(
-                contentType, statusCode, rawResponse,
-                advancedLogic);
+            return new UpdateCustomFieldAdvancedLogicResponse(contentType, statusCode, rawResponse, advancedLogic);
         }
-
     }
 }

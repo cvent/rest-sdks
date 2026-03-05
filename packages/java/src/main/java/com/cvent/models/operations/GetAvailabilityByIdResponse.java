@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetAvailabilityByIdResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetAvailabilityByIdResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AppointmentAvailability appointmentAvailability) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.appointmentAvailability = appointmentAvailability;
     }
-    
+
     public GetAvailabilityByIdResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetAvailabilityByIdResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetAvailabilityByIdResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetAvailabilityByIdResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetAvailabilityByIdResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved an appointment availability time.
      */
-    public GetAvailabilityByIdResponse withAppointmentAvailability(@Nullable AppointmentAvailability appointmentAvailability) {
+    public GetAvailabilityByIdResponse withAppointmentAvailability(
+            @Nullable AppointmentAvailability appointmentAvailability) {
         this.appointmentAvailability = appointmentAvailability;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetAvailabilityByIdResponse implements Response {
             return false;
         }
         GetAvailabilityByIdResponse other = (GetAvailabilityByIdResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.appointmentAvailability, other.appointmentAvailability);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.appointmentAvailability, other.appointmentAvailability);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            appointmentAvailability);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, appointmentAvailability);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAvailabilityByIdResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "appointmentAvailability", appointmentAvailability);
+        return Utils.toString(
+                GetAvailabilityByIdResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "appointmentAvailability",
+                appointmentAvailability);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetAvailabilityByIdResponse implements Response {
         private AppointmentAvailability appointmentAvailability;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class GetAvailabilityByIdResponse implements Response {
         }
 
         public GetAvailabilityByIdResponse build() {
-            return new GetAvailabilityByIdResponse(
-                contentType, statusCode, rawResponse,
-                appointmentAvailability);
+            return new GetAvailabilityByIdResponse(contentType, statusCode, rawResponse, appointmentAvailability);
         }
-
     }
 }

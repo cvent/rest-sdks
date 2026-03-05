@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * VideoThumbnailJson
- * 
+ *
  * <p>Video thumbnail
  */
 public class VideoThumbnailJson {
@@ -59,7 +59,7 @@ public class VideoThumbnailJson {
      * Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted,
      * and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was
      * completed.
-     * 
+     *
      * <p>Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the
      * scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
      */
@@ -82,10 +82,9 @@ public class VideoThumbnailJson {
         this.type = type;
         this.status = status;
     }
-    
+
     public VideoThumbnailJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -127,7 +126,7 @@ public class VideoThumbnailJson {
      * Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted,
      * and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was
      * completed.
-     * 
+     *
      * <p>Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the
      * scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
      */
@@ -139,7 +138,6 @@ public class VideoThumbnailJson {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -147,7 +145,6 @@ public class VideoThumbnailJson {
         this.url = url;
         return this;
     }
-
 
     /**
      * File size in bytes for the thumbnail
@@ -157,7 +154,6 @@ public class VideoThumbnailJson {
         return this;
     }
 
-
     /**
      * frame height in pixels
      */
@@ -165,7 +161,6 @@ public class VideoThumbnailJson {
         this.height = height;
         return this;
     }
-
 
     /**
      * frame width in pixels
@@ -175,7 +170,6 @@ public class VideoThumbnailJson {
         return this;
     }
 
-
     /**
      * This is used to denote the file type of a thumbnail
      */
@@ -184,12 +178,11 @@ public class VideoThumbnailJson {
         return this;
     }
 
-
     /**
      * Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted,
      * and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was
      * completed.
-     * 
+     *
      * <p>Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the
      * scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
      */
@@ -197,7 +190,6 @@ public class VideoThumbnailJson {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -208,35 +200,39 @@ public class VideoThumbnailJson {
             return false;
         }
         VideoThumbnailJson other = (VideoThumbnailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.size, other.size) &&
-            Utils.enhancedDeepEquals(this.height, other.height) &&
-            Utils.enhancedDeepEquals(this.width, other.width) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.size, other.size)
+                && Utils.enhancedDeepEquals(this.height, other.height)
+                && Utils.enhancedDeepEquals(this.width, other.width)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            url, size, height,
-            width, type, status);
+        return Utils.enhancedHash(url, size, height, width, type, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoThumbnailJson.class,
-                "url", url,
-                "size", size,
-                "height", height,
-                "width", width,
-                "type", type,
-                "status", status);
+        return Utils.toString(
+                VideoThumbnailJson.class,
+                "url",
+                url,
+                "size",
+                size,
+                "height",
+                height,
+                "width",
+                width,
+                "type",
+                type,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OneAllOf url;
 
@@ -251,7 +247,7 @@ public class VideoThumbnailJson {
         private ThumbnailStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -298,7 +294,7 @@ public class VideoThumbnailJson {
          * Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted,
          * and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was
          * completed.
-         * 
+         *
          * <p>Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the
          * scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
          */
@@ -308,10 +304,7 @@ public class VideoThumbnailJson {
         }
 
         public VideoThumbnailJson build() {
-            return new VideoThumbnailJson(
-                url, size, height,
-                width, type, status);
+            return new VideoThumbnailJson(url, size, height, width, type, status);
         }
-
     }
 }

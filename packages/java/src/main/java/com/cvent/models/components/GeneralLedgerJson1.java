@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * GeneralLedgerJson1
- * 
+ *
  * <p>This is used to denote the general ledger code associated with budget.
  */
 public class GeneralLedgerJson1 {
@@ -49,7 +49,7 @@ public class GeneralLedgerJson1 {
         this.code = code;
         this.name = name;
     }
-    
+
     public GeneralLedgerJson1() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class GeneralLedgerJson1 {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -87,7 +86,6 @@ public class GeneralLedgerJson1 {
         this.id = id;
         return this;
     }
-
 
     /**
      * General Ledger Code.
@@ -97,7 +95,6 @@ public class GeneralLedgerJson1 {
         return this;
     }
 
-
     /**
      * Name of the General Ledger.
      */
@@ -105,7 +102,6 @@ public class GeneralLedgerJson1 {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class GeneralLedgerJson1 {
             return false;
         }
         GeneralLedgerJson1 other = (GeneralLedgerJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, name);
+        return Utils.enhancedHash(id, code, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GeneralLedgerJson1.class,
-                "id", id,
-                "code", code,
-                "name", name);
+        return Utils.toString(GeneralLedgerJson1.class, "id", id, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class GeneralLedgerJson1 {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class GeneralLedgerJson1 {
         }
 
         public GeneralLedgerJson1 build() {
-            return new GeneralLedgerJson1(
-                id, code, name);
+            return new GeneralLedgerJson1(id, code, name);
         }
-
     }
 }

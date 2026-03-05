@@ -22,7 +22,8 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public AddExhibitorToExhibitorCategoryRequestBuilder request(@Nonnull AddExhibitorToExhibitorCategoryRequest request) {
+    public AddExhibitorToExhibitorCategoryRequestBuilder request(
+            @Nonnull AddExhibitorToExhibitorCategoryRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
     private AddExhibitorToExhibitorCategoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AddExhibitorToExhibitorCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AddExhibitorToExhibitorCategoryResponse> call() {
-        AsyncRequestOperation<AddExhibitorToExhibitorCategoryRequest, AddExhibitorToExhibitorCategoryResponse> operation
-              = new AddExhibitorToExhibitorCategory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AddExhibitorToExhibitorCategoryRequest, AddExhibitorToExhibitorCategoryResponse> operation =
+                new AddExhibitorToExhibitorCategory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

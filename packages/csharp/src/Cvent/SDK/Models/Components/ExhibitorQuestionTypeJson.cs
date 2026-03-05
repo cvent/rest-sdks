@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExhibitorQuestionTypeJson
     {
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("OpenEndedTextOneLine")]
-        OpenEndedTextOneLine,
-        [JsonProperty("OpenEndedTextCommentBox")]
-        OpenEndedTextCommentBox,
-        [JsonProperty("OpenEndedDateTime")]
-        OpenEndedDateTime,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("OpenEndedTextOneLine")] OpenEndedTextOneLine,
+        [JsonProperty("OpenEndedTextCommentBox")] OpenEndedTextCommentBox,
+        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
     }
 
     public static class ExhibitorQuestionTypeJsonExtension
     {
         public static string Value(this ExhibitorQuestionTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExhibitorQuestionTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ExhibitorQuestionTypeJson).GetFields())
+            foreach (var field in typeof(ExhibitorQuestionTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

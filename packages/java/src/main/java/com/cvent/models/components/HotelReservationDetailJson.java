@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * HotelReservationDetailJson
- * 
+ *
  * <p>Representation of a hotel reservation detail response.
  */
 public class HotelReservationDetailJson {
@@ -41,7 +41,7 @@ public class HotelReservationDetailJson {
         this.attendee = attendee;
         this.hotelRequestDetails = hotelRequestDetails;
     }
-    
+
     public HotelReservationDetailJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class HotelReservationDetailJson {
         return new Builder();
     }
 
-
     /**
      * Representation of the attendee
      */
@@ -73,7 +72,6 @@ public class HotelReservationDetailJson {
         return this;
     }
 
-
     /**
      * List of all the hotel requests by attendee and its guest.
      */
@@ -81,7 +79,6 @@ public class HotelReservationDetailJson {
         this.hotelRequestDetails = hotelRequestDetails;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,30 @@ public class HotelReservationDetailJson {
             return false;
         }
         HotelReservationDetailJson other = (HotelReservationDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.hotelRequestDetails, other.hotelRequestDetails);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.hotelRequestDetails, other.hotelRequestDetails);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, hotelRequestDetails);
+        return Utils.enhancedHash(attendee, hotelRequestDetails);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HotelReservationDetailJson.class,
-                "attendee", attendee,
-                "hotelRequestDetails", hotelRequestDetails);
+        return Utils.toString(
+                HotelReservationDetailJson.class, "attendee", attendee, "hotelRequestDetails", hotelRequestDetails);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeJson4 attendee;
 
         private List<HotelRequestJson> hotelRequestDetails;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +132,7 @@ public class HotelReservationDetailJson {
         }
 
         public HotelReservationDetailJson build() {
-            return new HotelReservationDetailJson(
-                attendee, hotelRequestDetails);
+            return new HotelReservationDetailJson(attendee, hotelRequestDetails);
         }
-
     }
 }

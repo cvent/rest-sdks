@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateStandardSurveyRespondentRequest {
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -28,12 +27,11 @@ public class CreateStandardSurveyRespondentRequest {
 
     @JsonCreator
     public CreateStandardSurveyRespondentRequest(
-            @Nonnull String surveyId,
-            @Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
+            @Nonnull String surveyId, @Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.standardSurveyRespondent = Optional.ofNullable(standardSurveyRespondent)
-            .orElseThrow(() -> new IllegalArgumentException("standardSurveyRespondent cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("standardSurveyRespondent cannot be null"));
     }
 
     /**
@@ -54,7 +52,6 @@ public class CreateStandardSurveyRespondentRequest {
         return new Builder();
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -63,15 +60,14 @@ public class CreateStandardSurveyRespondentRequest {
         return this;
     }
 
-
     /**
      * Used to create respondent for a standalone survey.
      */
-    public CreateStandardSurveyRespondentRequest withStandardSurveyRespondent(@Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
+    public CreateStandardSurveyRespondentRequest withStandardSurveyRespondent(
+            @Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
         this.standardSurveyRespondent = Utils.checkNotNull(standardSurveyRespondent, "standardSurveyRespondent");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +78,34 @@ public class CreateStandardSurveyRespondentRequest {
             return false;
         }
         CreateStandardSurveyRespondentRequest other = (CreateStandardSurveyRespondentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.standardSurveyRespondent, other.standardSurveyRespondent);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.standardSurveyRespondent, other.standardSurveyRespondent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, standardSurveyRespondent);
+        return Utils.enhancedHash(surveyId, standardSurveyRespondent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateStandardSurveyRespondentRequest.class,
-                "surveyId", surveyId,
-                "standardSurveyRespondent", standardSurveyRespondent);
+        return Utils.toString(
+                CreateStandardSurveyRespondentRequest.class,
+                "surveyId",
+                surveyId,
+                "standardSurveyRespondent",
+                standardSurveyRespondent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
         private StandardSurveyRespondentInput standardSurveyRespondent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +125,7 @@ public class CreateStandardSurveyRespondentRequest {
         }
 
         public CreateStandardSurveyRespondentRequest build() {
-            return new CreateStandardSurveyRespondentRequest(
-                surveyId, standardSurveyRespondent);
+            return new CreateStandardSurveyRespondentRequest(surveyId, standardSurveyRespondent);
         }
-
     }
 }

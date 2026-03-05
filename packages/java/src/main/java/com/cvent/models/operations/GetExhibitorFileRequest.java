@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetExhibitorFileRequest {
     /**
      * ID of an event.
@@ -32,16 +31,12 @@ public class GetExhibitorFileRequest {
     private String fileId;
 
     @JsonCreator
-    public GetExhibitorFileRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String fileId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetExhibitorFileRequest(@Nonnull String id, @Nonnull String exhibitorId, @Nonnull String fileId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
-        this.fileId = Optional.ofNullable(fileId)
-            .orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+        this.fileId =
+                Optional.ofNullable(fileId).orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
     }
 
     /**
@@ -69,7 +64,6 @@ public class GetExhibitorFileRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +71,6 @@ public class GetExhibitorFileRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -87,7 +80,6 @@ public class GetExhibitorFileRequest {
         return this;
     }
 
-
     /**
      * ID of a file.
      */
@@ -95,7 +87,6 @@ public class GetExhibitorFileRequest {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,23 @@ public class GetExhibitorFileRequest {
             return false;
         }
         GetExhibitorFileRequest other = (GetExhibitorFileRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.fileId, other.fileId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.fileId, other.fileId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, fileId);
+        return Utils.enhancedHash(id, exhibitorId, fileId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorFileRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "fileId", fileId);
+        return Utils.toString(GetExhibitorFileRequest.class, "id", id, "exhibitorId", exhibitorId, "fileId", fileId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +122,7 @@ public class GetExhibitorFileRequest {
         private String fileId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +150,7 @@ public class GetExhibitorFileRequest {
         }
 
         public GetExhibitorFileRequest build() {
-            return new GetExhibitorFileRequest(
-                id, exhibitorId, fileId);
+            return new GetExhibitorFileRequest(id, exhibitorId, fileId);
         }
-
     }
 }

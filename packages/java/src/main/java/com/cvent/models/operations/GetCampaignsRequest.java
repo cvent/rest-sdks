@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetCampaignsRequest {
     /**
      * Used to query records that have been created before this time point. Defaults to current time.
@@ -46,15 +45,15 @@ public class GetCampaignsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * campaign.name (eq|ne)
      * * campaign.id (eq|ne)
@@ -74,15 +73,13 @@ public class GetCampaignsRequest {
             @Nullable String filter) {
         this.before = before;
         this.after = after;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetCampaignsRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -119,15 +116,15 @@ public class GetCampaignsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * campaign.name (eq|ne)
      * * campaign.id (eq|ne)
@@ -143,7 +140,6 @@ public class GetCampaignsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been created before this time point. Defaults to current time.
      */
@@ -151,7 +147,6 @@ public class GetCampaignsRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been created after this time point. Defaults to 6 months back from
@@ -162,7 +157,6 @@ public class GetCampaignsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -170,7 +164,6 @@ public class GetCampaignsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -181,20 +174,19 @@ public class GetCampaignsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * campaign.name (eq|ne)
      * * campaign.id (eq|ne)
@@ -207,7 +199,6 @@ public class GetCampaignsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -217,33 +208,36 @@ public class GetCampaignsRequest {
             return false;
         }
         GetCampaignsRequest other = (GetCampaignsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            before, after, limit,
-            token, filter);
+        return Utils.enhancedHash(before, after, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCampaignsRequest.class,
-                "before", before,
-                "after", after,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetCampaignsRequest.class,
+                "before",
+                before,
+                "after",
+                after,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String before;
 
@@ -256,7 +250,7 @@ public class GetCampaignsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -297,15 +291,15 @@ public class GetCampaignsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>'OR' is not supported. Only 'AND' operator is supported.
-         * 
+         *
          * <p>The following comparison types can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
          * * greater or equal: ge
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * campaign.name (eq|ne)
          * * campaign.id (eq|ne)
@@ -319,16 +313,10 @@ public class GetCampaignsRequest {
         }
 
         public GetCampaignsRequest build() {
-            return new GetCampaignsRequest(
-                before, after, limit,
-                token, filter);
+            return new GetCampaignsRequest(before, after, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

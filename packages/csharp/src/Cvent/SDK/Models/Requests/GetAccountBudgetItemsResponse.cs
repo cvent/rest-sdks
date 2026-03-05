@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class GetAccountBudgetItemsResponse
     {
-        public Func<Task<GetAccountBudgetItemsResponse?>>? Next {get;set;}
+        public Func<Task<GetAccountBudgetItemsResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

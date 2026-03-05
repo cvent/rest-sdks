@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum JourneySegment
     {
-        [JsonProperty("LeavingEvent")]
-        LeavingEvent,
-        [JsonProperty("GoingToEvent")]
-        GoingToEvent,
-        [JsonProperty("NotApplicable")]
-        NotApplicable,
+        [JsonProperty("LeavingEvent")] LeavingEvent,
+        [JsonProperty("GoingToEvent")] GoingToEvent,
+        [JsonProperty("NotApplicable")] NotApplicable,
     }
 
     public static class JourneySegmentExtension
     {
         public static string Value(this JourneySegment value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static JourneySegment ToEnum(this string value)
         {
-            foreach(var field in typeof(JourneySegment).GetFields())
+            foreach (var field in typeof(JourneySegment).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

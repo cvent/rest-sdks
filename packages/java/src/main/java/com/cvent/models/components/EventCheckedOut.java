@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventCheckedOut
- * 
+ *
  * <p>An email-checked-out activity.
  */
 public class EventCheckedOut {
@@ -41,7 +41,7 @@ public class EventCheckedOut {
         this.event = event;
         this.checkOut = checkOut;
     }
-    
+
     public EventCheckedOut() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class EventCheckedOut {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -73,7 +72,6 @@ public class EventCheckedOut {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an attendee checked out from an event.
      */
@@ -81,7 +79,6 @@ public class EventCheckedOut {
         this.checkOut = checkOut;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class EventCheckedOut {
             return false;
         }
         EventCheckedOut other = (EventCheckedOut) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.checkOut, other.checkOut);
+        return Utils.enhancedDeepEquals(this.event, other.event) && Utils.enhancedDeepEquals(this.checkOut, other.checkOut);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, checkOut);
+        return Utils.enhancedHash(event, checkOut);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCheckedOut.class,
-                "event", event,
-                "checkOut", checkOut);
+        return Utils.toString(EventCheckedOut.class, "event", event, "checkOut", checkOut);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent3 event;
 
         private OffsetDateTime checkOut;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class EventCheckedOut {
         }
 
         public EventCheckedOut build() {
-            return new EventCheckedOut(
-                event, checkOut);
+            return new EventCheckedOut(event, checkOut);
         }
-
     }
 }

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * RequestedMeetingRequestQuestionJson
- * 
+ *
  * <p>A question for a meeting request.
  */
 public class RequestedMeetingRequestQuestionJson {
@@ -26,24 +26,24 @@ public class RequestedMeetingRequestQuestionJson {
 
     /**
      * An array of non-null answers to the question.
-     * 
+     *
      * <p>For standard questions, this contains string values.
-     * 
+     *
      * <p>If the question is any one of:
      * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
      * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
      * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-     * 
+     *
      * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
      * "CA"), but not both. The country code specification can be found
      * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
-     * 
+     *
      * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
      * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
-     * 
+     *
      * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
      * should not be used for updates.
-     * 
+     *
      * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
      */
     @JsonProperty("value")
@@ -51,12 +51,9 @@ public class RequestedMeetingRequestQuestionJson {
 
     @JsonCreator
     public RequestedMeetingRequestQuestionJson(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("value") @Nonnull List<String> value) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+            @JsonProperty("id") @Nonnull String id, @JsonProperty("value") @Nonnull List<String> value) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
     }
 
     /**
@@ -68,24 +65,24 @@ public class RequestedMeetingRequestQuestionJson {
 
     /**
      * An array of non-null answers to the question.
-     * 
+     *
      * <p>For standard questions, this contains string values.
-     * 
+     *
      * <p>If the question is any one of:
      * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
      * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
      * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-     * 
+     *
      * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
      * "CA"), but not both. The country code specification can be found
      * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
-     * 
+     *
      * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
      * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
-     * 
+     *
      * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
      * should not be used for updates.
-     * 
+     *
      * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
      */
     public List<String> value() {
@@ -96,7 +93,6 @@ public class RequestedMeetingRequestQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this question.
      */
@@ -105,34 +101,32 @@ public class RequestedMeetingRequestQuestionJson {
         return this;
     }
 
-
     /**
      * An array of non-null answers to the question.
-     * 
+     *
      * <p>For standard questions, this contains string values.
-     * 
+     *
      * <p>If the question is any one of:
      * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
      * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
      * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-     * 
+     *
      * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
      * "CA"), but not both. The country code specification can be found
      * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
-     * 
+     *
      * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
      * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
-     * 
+     *
      * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
      * should not be used for updates.
-     * 
+     *
      * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
      */
     public RequestedMeetingRequestQuestionJson withValue(@Nonnull List<String> value) {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,33 +137,28 @@ public class RequestedMeetingRequestQuestionJson {
             return false;
         }
         RequestedMeetingRequestQuestionJson other = (RequestedMeetingRequestQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, value);
+        return Utils.enhancedHash(id, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RequestedMeetingRequestQuestionJson.class,
-                "id", id,
-                "value", value);
+        return Utils.toString(RequestedMeetingRequestQuestionJson.class, "id", id, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private List<String> value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -182,24 +171,24 @@ public class RequestedMeetingRequestQuestionJson {
 
         /**
          * An array of non-null answers to the question.
-         * 
+         *
          * <p>For standard questions, this contains string values.
-         * 
+         *
          * <p>If the question is any one of:
          * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
          * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
          * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-         * 
+         *
          * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
          * "CA"), but not both. The country code specification can be found
          * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
-         * 
+         *
          * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
          * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
-         * 
+         *
          * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
          * should not be used for updates.
-         * 
+         *
          * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
          */
         public Builder value(@Nonnull List<String> value) {
@@ -208,9 +197,7 @@ public class RequestedMeetingRequestQuestionJson {
         }
 
         public RequestedMeetingRequestQuestionJson build() {
-            return new RequestedMeetingRequestQuestionJson(
-                id, value);
+            return new RequestedMeetingRequestQuestionJson(id, value);
         }
-
     }
 }

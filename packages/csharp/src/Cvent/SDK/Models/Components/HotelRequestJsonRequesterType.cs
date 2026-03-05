@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum HotelRequestJsonRequesterType
     {
-        [JsonProperty("Contact")]
-        Contact,
-        [JsonProperty("Guest")]
-        Guest,
+        [JsonProperty("Contact")] Contact,
+        [JsonProperty("Guest")] Guest,
     }
 
     public static class HotelRequestJsonRequesterTypeExtension
     {
         public static string Value(this HotelRequestJsonRequesterType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static HotelRequestJsonRequesterType ToEnum(this string value)
         {
-            foreach(var field in typeof(HotelRequestJsonRequesterType).GetFields())
+            foreach (var field in typeof(HotelRequestJsonRequesterType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

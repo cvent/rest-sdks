@@ -40,7 +40,7 @@ public class GetHotelRequestsRequestBuilder {
     private GetHotelRequestsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHotelRequestsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetHotelRequestsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetHotelRequestsResponse> call() {
-        AsyncRequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation
-              = new GetHotelRequests.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation =
+                new GetHotelRequests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetHotelRequestsRequestBuilder {
      */
     public Publisher<GetHotelRequestsResponse> callAsPublisher() {
         GetHotelRequestsRequest request = this.request;
-        AsyncRequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation
-              = new GetHotelRequests.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation =
+                new GetHotelRequests.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetHotelRequestsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetHotelRequestsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetHotelRequestsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

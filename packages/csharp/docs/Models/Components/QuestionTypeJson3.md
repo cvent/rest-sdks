@@ -2,6 +2,14 @@
 
 This object represents the type of a question
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = QuestionTypeJson3.SingleChoice;
+```
+
 
 ## Values
 

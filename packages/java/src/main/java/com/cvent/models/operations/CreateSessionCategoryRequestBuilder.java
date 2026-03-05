@@ -29,7 +29,7 @@ public class CreateSessionCategoryRequestBuilder {
     private SessionCategoryInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateSessionCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateSessionCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateSessionCategoryResponse call() {
-        RequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation
-              = new CreateSessionCategory.Sync(sdkConfiguration, _headers);
+        RequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation =
+                new CreateSessionCategory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHousingEventHotelRequest {
     /**
      * ID for a Passkey housing event.
@@ -32,18 +31,13 @@ public class GetHousingEventHotelRequest {
     private String locale;
 
     @JsonCreator
-    public GetHousingEventHotelRequest(
-            long housingEventId,
-            long hotelId,
-            @Nullable String locale) {
+    public GetHousingEventHotelRequest(long housingEventId, long hotelId, @Nullable String locale) {
         this.housingEventId = housingEventId;
         this.hotelId = hotelId;
         this.locale = locale;
     }
-    
-    public GetHousingEventHotelRequest(
-            long housingEventId,
-            long hotelId) {
+
+    public GetHousingEventHotelRequest(long housingEventId, long hotelId) {
         this(housingEventId, hotelId, null);
     }
 
@@ -72,7 +66,6 @@ public class GetHousingEventHotelRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -80,7 +73,6 @@ public class GetHousingEventHotelRequest {
         this.housingEventId = housingEventId;
         return this;
     }
-
 
     /**
      * The hotel's unique ID.
@@ -90,7 +82,6 @@ public class GetHousingEventHotelRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -98,7 +89,6 @@ public class GetHousingEventHotelRequest {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -109,28 +99,30 @@ public class GetHousingEventHotelRequest {
             return false;
         }
         GetHousingEventHotelRequest other = (GetHousingEventHotelRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.hotelId, other.hotelId) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.hotelId, other.hotelId)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, hotelId, locale);
+        return Utils.enhancedHash(housingEventId, hotelId, locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventHotelRequest.class,
-                "housingEventId", housingEventId,
-                "hotelId", hotelId,
-                "locale", locale);
+        return Utils.toString(
+                GetHousingEventHotelRequest.class,
+                "housingEventId",
+                housingEventId,
+                "hotelId",
+                hotelId,
+                "locale",
+                locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -139,7 +131,7 @@ public class GetHousingEventHotelRequest {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -167,9 +159,7 @@ public class GetHousingEventHotelRequest {
         }
 
         public GetHousingEventHotelRequest build() {
-            return new GetHousingEventHotelRequest(
-                housingEventId, hotelId, locale);
+            return new GetHousingEventHotelRequest(housingEventId, hotelId, locale);
         }
-
     }
 }

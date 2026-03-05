@@ -30,7 +30,7 @@ public class PropertyApiGetChainRequestBuilder {
     private PropertyApiGetChainRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PropertyApiGetChainRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class PropertyApiGetChainRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<PropertyApiGetChainResponse> call() {
-        AsyncRequestOperation<PropertyApiGetChainRequest, PropertyApiGetChainResponse> operation
-              = new PropertyApiGetChain.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<PropertyApiGetChainRequest, PropertyApiGetChainResponse> operation =
+                new PropertyApiGetChain.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

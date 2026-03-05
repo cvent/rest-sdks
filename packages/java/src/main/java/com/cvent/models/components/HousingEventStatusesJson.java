@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * HousingEventStatusesJson
- * 
+ *
  * <p>Housing event status.
  */
 public enum HousingEventStatusesJson {
@@ -26,13 +26,13 @@ public enum HousingEventStatusesJson {
     HousingEventStatusesJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<HousingEventStatusesJson> fromValue(String value) {
-        for (HousingEventStatusesJson o: HousingEventStatusesJson.values()) {
+        for (HousingEventStatusesJson o : HousingEventStatusesJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum HousingEventStatusesJson {
         return Optional.empty();
     }
 }
-

@@ -32,7 +32,7 @@ public class Usage {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncUsage async() {
@@ -41,11 +41,11 @@ public class Usage {
 
     /**
      * Get Current Usage
-     * 
+     *
      * <p>Returns API call usage for the last seven days, or between some date range (up to the past seven
      * days) for
      * the current caller's account.
-     * 
+     *
      * @return The call builder
      */
     public GetUsageRequestBuilder getUsage() {
@@ -54,28 +54,27 @@ public class Usage {
 
     /**
      * Get Current Usage
-     * 
+     *
      * <p>Returns API call usage for the last seven days, or between some date range (up to the past seven
      * days) for
      * the current caller's account.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetUsageResponse getUsage(@Nonnull GetUsageRequest request) {
-        RequestOperation<GetUsageRequest, GetUsageResponse> operation
-              = new GetUsage.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetUsageRequest, GetUsageResponse> operation = new GetUsage.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Current Usage Tier
-     * 
+     *
      * <p>Returns the current usage tier of the caller's account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetUsageTierRequestBuilder getUsageTier() {
@@ -84,18 +83,16 @@ public class Usage {
 
     /**
      * Get Current Usage Tier
-     * 
+     *
      * <p>Returns the current usage tier of the caller's account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetUsageTierResponse getUsageTierDirect() {
-        RequestlessOperation<GetUsageTierResponse> operation
-            = new GetUsageTier.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<GetUsageTierResponse> operation = new GetUsageTier.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
-
 }

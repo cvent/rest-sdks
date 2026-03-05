@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveyEmailTemplateJson
- * 
+ *
  * <p>A standard survey email template
  */
 public class StandardSurveyEmailTemplateJson {
@@ -168,14 +168,9 @@ public class StandardSurveyEmailTemplateJson {
         this.id = id;
         this.active = active;
     }
-    
+
     public StandardSurveyEmailTemplateJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -294,7 +289,6 @@ public class StandardSurveyEmailTemplateJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -302,7 +296,6 @@ public class StandardSurveyEmailTemplateJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -312,7 +305,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -320,7 +312,6 @@ public class StandardSurveyEmailTemplateJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -330,7 +321,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * Name of the email template.
      */
@@ -338,7 +328,6 @@ public class StandardSurveyEmailTemplateJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Subject of the email template.
@@ -348,7 +337,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * Name of the sender.
      */
@@ -356,7 +344,6 @@ public class StandardSurveyEmailTemplateJson {
         this.fromName = fromName;
         return this;
     }
-
 
     /**
      * The email address of the sender.
@@ -366,7 +353,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * Plain text body of the page in the email.
      */
@@ -374,7 +360,6 @@ public class StandardSurveyEmailTemplateJson {
         this.plaintextBody = plaintextBody;
         return this;
     }
-
 
     /**
      * html body of the page sent in the email
@@ -384,7 +369,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * The locale of the email template using the IETF Language Tag format.
      */
@@ -392,7 +376,6 @@ public class StandardSurveyEmailTemplateJson {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * Enables tracking when respondent clicks on the email
@@ -402,7 +385,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * Name of the person to reply to
      */
@@ -410,7 +392,6 @@ public class StandardSurveyEmailTemplateJson {
         this.replyToName = replyToName;
         return this;
     }
-
 
     /**
      * Email address to reply to
@@ -420,7 +401,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -429,7 +409,6 @@ public class StandardSurveyEmailTemplateJson {
         return this;
     }
 
-
     /**
      * Status of the email
      */
@@ -437,7 +416,6 @@ public class StandardSurveyEmailTemplateJson {
         this.active = active;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -448,59 +426,85 @@ public class StandardSurveyEmailTemplateJson {
             return false;
         }
         StandardSurveyEmailTemplateJson other = (StandardSurveyEmailTemplateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.subject, other.subject) &&
-            Utils.enhancedDeepEquals(this.fromName, other.fromName) &&
-            Utils.enhancedDeepEquals(this.fromEmail, other.fromEmail) &&
-            Utils.enhancedDeepEquals(this.plaintextBody, other.plaintextBody) &&
-            Utils.enhancedDeepEquals(this.htmlBody, other.htmlBody) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.clickTrackingEnabled, other.clickTrackingEnabled) &&
-            Utils.enhancedDeepEquals(this.replyToName, other.replyToName) &&
-            Utils.enhancedDeepEquals(this.replyToEmail, other.replyToEmail) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.active, other.active);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.subject, other.subject)
+                && Utils.enhancedDeepEquals(this.fromName, other.fromName)
+                && Utils.enhancedDeepEquals(this.fromEmail, other.fromEmail)
+                && Utils.enhancedDeepEquals(this.plaintextBody, other.plaintextBody)
+                && Utils.enhancedDeepEquals(this.htmlBody, other.htmlBody)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.clickTrackingEnabled, other.clickTrackingEnabled)
+                && Utils.enhancedDeepEquals(this.replyToName, other.replyToName)
+                && Utils.enhancedDeepEquals(this.replyToEmail, other.replyToEmail)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.active, other.active);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, name, subject,
-            fromName, fromEmail, plaintextBody,
-            htmlBody, locale, clickTrackingEnabled,
-            replyToName, replyToEmail, id,
-            active);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                name,
+                subject,
+                fromName,
+                fromEmail,
+                plaintextBody,
+                htmlBody,
+                locale,
+                clickTrackingEnabled,
+                replyToName,
+                replyToEmail,
+                id,
+                active);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveyEmailTemplateJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "name", name,
-                "subject", subject,
-                "fromName", fromName,
-                "fromEmail", fromEmail,
-                "plaintextBody", plaintextBody,
-                "htmlBody", htmlBody,
-                "locale", locale,
-                "clickTrackingEnabled", clickTrackingEnabled,
-                "replyToName", replyToName,
-                "replyToEmail", replyToEmail,
-                "id", id,
-                "active", active);
+        return Utils.toString(
+                StandardSurveyEmailTemplateJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "name",
+                name,
+                "subject",
+                subject,
+                "fromName",
+                fromName,
+                "fromEmail",
+                fromEmail,
+                "plaintextBody",
+                plaintextBody,
+                "htmlBody",
+                htmlBody,
+                "locale",
+                locale,
+                "clickTrackingEnabled",
+                clickTrackingEnabled,
+                "replyToName",
+                replyToName,
+                "replyToEmail",
+                replyToEmail,
+                "id",
+                id,
+                "active",
+                active);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -535,7 +539,7 @@ public class StandardSurveyEmailTemplateJson {
         private Boolean active;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -668,13 +672,22 @@ public class StandardSurveyEmailTemplateJson {
 
         public StandardSurveyEmailTemplateJson build() {
             return new StandardSurveyEmailTemplateJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, name, subject,
-                fromName, fromEmail, plaintextBody,
-                htmlBody, locale, clickTrackingEnabled,
-                replyToName, replyToEmail, id,
-                active);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    name,
+                    subject,
+                    fromName,
+                    fromEmail,
+                    plaintextBody,
+                    htmlBody,
+                    locale,
+                    clickTrackingEnabled,
+                    replyToName,
+                    replyToEmail,
+                    id,
+                    active);
         }
-
     }
 }

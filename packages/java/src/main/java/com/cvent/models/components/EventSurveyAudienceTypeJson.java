@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyAudienceTypeJson
- * 
+ *
  * <p>Audience types of event surveys
  */
 public enum EventSurveyAudienceTypeJson {
@@ -24,13 +24,13 @@ public enum EventSurveyAudienceTypeJson {
     EventSurveyAudienceTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventSurveyAudienceTypeJson> fromValue(String value) {
-        for (EventSurveyAudienceTypeJson o: EventSurveyAudienceTypeJson.values()) {
+        for (EventSurveyAudienceTypeJson o : EventSurveyAudienceTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum EventSurveyAudienceTypeJson {
         return Optional.empty();
     }
 }
-

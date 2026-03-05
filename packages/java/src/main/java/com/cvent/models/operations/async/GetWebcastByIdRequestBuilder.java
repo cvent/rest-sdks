@@ -30,7 +30,7 @@ public class GetWebcastByIdRequestBuilder {
     private GetWebcastByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetWebcastByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetWebcastByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetWebcastByIdResponse> call() {
-        AsyncRequestOperation<GetWebcastByIdRequest, GetWebcastByIdResponse> operation
-              = new GetWebcastById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetWebcastByIdRequest, GetWebcastByIdResponse> operation =
+                new GetWebcastById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

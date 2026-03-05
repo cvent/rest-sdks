@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AttendeeAddBulkItemErrorResponse
- * 
+ *
  * <p>Represents an error response with additional details of cascading error messages.
  */
 public class AttendeeAddBulkItemErrorResponse {
@@ -54,17 +54,14 @@ public class AttendeeAddBulkItemErrorResponse {
             @JsonProperty("target") @Nullable String target,
             @JsonProperty("details") @Nullable List<ZeroAllOf1> details) {
         this.code = code;
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
         this.target = target;
         this.details = details;
     }
-    
-    public AttendeeAddBulkItemErrorResponse(
-            long code,
-            @Nonnull String message) {
-        this(code, message, null,
-            null);
+
+    public AttendeeAddBulkItemErrorResponse(long code, @Nonnull String message) {
+        this(code, message, null, null);
     }
 
     /**
@@ -99,7 +96,6 @@ public class AttendeeAddBulkItemErrorResponse {
         return new Builder();
     }
 
-
     /**
      * The HTTP status code representing the error.
      */
@@ -107,7 +103,6 @@ public class AttendeeAddBulkItemErrorResponse {
         this.code = code;
         return this;
     }
-
 
     /**
      * A brief description of the error.
@@ -117,7 +112,6 @@ public class AttendeeAddBulkItemErrorResponse {
         return this;
     }
 
-
     /**
      * The target resource of the error.
      */
@@ -126,7 +120,6 @@ public class AttendeeAddBulkItemErrorResponse {
         return this;
     }
 
-
     /**
      * Additional details of cascading error messages.
      */
@@ -134,7 +127,6 @@ public class AttendeeAddBulkItemErrorResponse {
         this.details = details;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -145,31 +137,33 @@ public class AttendeeAddBulkItemErrorResponse {
             return false;
         }
         AttendeeAddBulkItemErrorResponse other = (AttendeeAddBulkItemErrorResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.target, other.target) &&
-            Utils.enhancedDeepEquals(this.details, other.details);
+        return Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.target, other.target)
+                && Utils.enhancedDeepEquals(this.details, other.details);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            code, message, target,
-            details);
+        return Utils.enhancedHash(code, message, target, details);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAddBulkItemErrorResponse.class,
-                "code", code,
-                "message", message,
-                "target", target,
-                "details", details);
+        return Utils.toString(
+                AttendeeAddBulkItemErrorResponse.class,
+                "code",
+                code,
+                "message",
+                message,
+                "target",
+                target,
+                "details",
+                details);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long code;
 
@@ -180,7 +174,7 @@ public class AttendeeAddBulkItemErrorResponse {
         private List<ZeroAllOf1> details;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,10 +210,7 @@ public class AttendeeAddBulkItemErrorResponse {
         }
 
         public AttendeeAddBulkItemErrorResponse build() {
-            return new AttendeeAddBulkItemErrorResponse(
-                code, message, target,
-                details);
+            return new AttendeeAddBulkItemErrorResponse(code, message, target, details);
         }
-
     }
 }

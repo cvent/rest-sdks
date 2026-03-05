@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelRunOfHouseRateJson
- * 
+ *
  * <p>Run of house rate information.
  */
 public class TravelRunOfHouseRateJson {
@@ -113,12 +113,9 @@ public class TravelRunOfHouseRateJson {
         this.seasonFive10To50People = seasonFive10To50People;
         this.seasonFive51To100People = seasonFive51To100People;
     }
-    
+
     public TravelRunOfHouseRateJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -195,7 +192,6 @@ public class TravelRunOfHouseRateJson {
         return new Builder();
     }
 
-
     /**
      * Season one run of house rate for 10-50 people.
      */
@@ -203,7 +199,6 @@ public class TravelRunOfHouseRateJson {
         this.seasonOne10To50People = seasonOne10To50People;
         return this;
     }
-
 
     /**
      * Season one run of house rate for 51-100 people.
@@ -213,7 +208,6 @@ public class TravelRunOfHouseRateJson {
         return this;
     }
 
-
     /**
      * Season two run of house rate for 10-50 people.
      */
@@ -221,7 +215,6 @@ public class TravelRunOfHouseRateJson {
         this.seasonTwo10To50People = seasonTwo10To50People;
         return this;
     }
-
 
     /**
      * Season two run of house rate for 51-100 people.
@@ -231,7 +224,6 @@ public class TravelRunOfHouseRateJson {
         return this;
     }
 
-
     /**
      * Season three run of house rate for 10-50 people.
      */
@@ -239,7 +231,6 @@ public class TravelRunOfHouseRateJson {
         this.seasonThree10To50People = seasonThree10To50People;
         return this;
     }
-
 
     /**
      * Season three run of house rate for 51-100 people.
@@ -249,7 +240,6 @@ public class TravelRunOfHouseRateJson {
         return this;
     }
 
-
     /**
      * Season four run of house rate for 10-50 people.
      */
@@ -257,7 +247,6 @@ public class TravelRunOfHouseRateJson {
         this.seasonFour10To50People = seasonFour10To50People;
         return this;
     }
-
 
     /**
      * Season four run of house rate for 51-100 people.
@@ -267,7 +256,6 @@ public class TravelRunOfHouseRateJson {
         return this;
     }
 
-
     /**
      * Season five run of house rate for 10-50 people.
      */
@@ -276,7 +264,6 @@ public class TravelRunOfHouseRateJson {
         return this;
     }
 
-
     /**
      * Season five run of house rate for 51-100 people.
      */
@@ -284,7 +271,6 @@ public class TravelRunOfHouseRateJson {
         this.seasonFive51To100People = seasonFive51To100People;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -295,45 +281,61 @@ public class TravelRunOfHouseRateJson {
             return false;
         }
         TravelRunOfHouseRateJson other = (TravelRunOfHouseRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.seasonOne10To50People, other.seasonOne10To50People) &&
-            Utils.enhancedDeepEquals(this.seasonOne51To100People, other.seasonOne51To100People) &&
-            Utils.enhancedDeepEquals(this.seasonTwo10To50People, other.seasonTwo10To50People) &&
-            Utils.enhancedDeepEquals(this.seasonTwo51To100People, other.seasonTwo51To100People) &&
-            Utils.enhancedDeepEquals(this.seasonThree10To50People, other.seasonThree10To50People) &&
-            Utils.enhancedDeepEquals(this.seasonThree51To100People, other.seasonThree51To100People) &&
-            Utils.enhancedDeepEquals(this.seasonFour10To50People, other.seasonFour10To50People) &&
-            Utils.enhancedDeepEquals(this.seasonFour51To100People, other.seasonFour51To100People) &&
-            Utils.enhancedDeepEquals(this.seasonFive10To50People, other.seasonFive10To50People) &&
-            Utils.enhancedDeepEquals(this.seasonFive51To100People, other.seasonFive51To100People);
+        return Utils.enhancedDeepEquals(this.seasonOne10To50People, other.seasonOne10To50People)
+                && Utils.enhancedDeepEquals(this.seasonOne51To100People, other.seasonOne51To100People)
+                && Utils.enhancedDeepEquals(this.seasonTwo10To50People, other.seasonTwo10To50People)
+                && Utils.enhancedDeepEquals(this.seasonTwo51To100People, other.seasonTwo51To100People)
+                && Utils.enhancedDeepEquals(this.seasonThree10To50People, other.seasonThree10To50People)
+                && Utils.enhancedDeepEquals(this.seasonThree51To100People, other.seasonThree51To100People)
+                && Utils.enhancedDeepEquals(this.seasonFour10To50People, other.seasonFour10To50People)
+                && Utils.enhancedDeepEquals(this.seasonFour51To100People, other.seasonFour51To100People)
+                && Utils.enhancedDeepEquals(this.seasonFive10To50People, other.seasonFive10To50People)
+                && Utils.enhancedDeepEquals(this.seasonFive51To100People, other.seasonFive51To100People);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            seasonOne10To50People, seasonOne51To100People, seasonTwo10To50People,
-            seasonTwo51To100People, seasonThree10To50People, seasonThree51To100People,
-            seasonFour10To50People, seasonFour51To100People, seasonFive10To50People,
-            seasonFive51To100People);
+                seasonOne10To50People,
+                seasonOne51To100People,
+                seasonTwo10To50People,
+                seasonTwo51To100People,
+                seasonThree10To50People,
+                seasonThree51To100People,
+                seasonFour10To50People,
+                seasonFour51To100People,
+                seasonFive10To50People,
+                seasonFive51To100People);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelRunOfHouseRateJson.class,
-                "seasonOne10To50People", seasonOne10To50People,
-                "seasonOne51To100People", seasonOne51To100People,
-                "seasonTwo10To50People", seasonTwo10To50People,
-                "seasonTwo51To100People", seasonTwo51To100People,
-                "seasonThree10To50People", seasonThree10To50People,
-                "seasonThree51To100People", seasonThree51To100People,
-                "seasonFour10To50People", seasonFour10To50People,
-                "seasonFour51To100People", seasonFour51To100People,
-                "seasonFive10To50People", seasonFive10To50People,
-                "seasonFive51To100People", seasonFive51To100People);
+        return Utils.toString(
+                TravelRunOfHouseRateJson.class,
+                "seasonOne10To50People",
+                seasonOne10To50People,
+                "seasonOne51To100People",
+                seasonOne51To100People,
+                "seasonTwo10To50People",
+                seasonTwo10To50People,
+                "seasonTwo51To100People",
+                seasonTwo51To100People,
+                "seasonThree10To50People",
+                seasonThree10To50People,
+                "seasonThree51To100People",
+                seasonThree51To100People,
+                "seasonFour10To50People",
+                seasonFour10To50People,
+                "seasonFour51To100People",
+                seasonFour51To100People,
+                "seasonFive10To50People",
+                seasonFive10To50People,
+                "seasonFive51To100People",
+                seasonFive51To100People);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double seasonOne10To50People;
 
@@ -356,7 +358,7 @@ public class TravelRunOfHouseRateJson {
         private Double seasonFive51To100People;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -441,11 +443,16 @@ public class TravelRunOfHouseRateJson {
 
         public TravelRunOfHouseRateJson build() {
             return new TravelRunOfHouseRateJson(
-                seasonOne10To50People, seasonOne51To100People, seasonTwo10To50People,
-                seasonTwo51To100People, seasonThree10To50People, seasonThree51To100People,
-                seasonFour10To50People, seasonFour51To100People, seasonFive10To50People,
-                seasonFive51To100People);
+                    seasonOne10To50People,
+                    seasonOne51To100People,
+                    seasonTwo10To50People,
+                    seasonTwo51To100People,
+                    seasonThree10To50People,
+                    seasonThree51To100People,
+                    seasonFour10To50People,
+                    seasonFour51To100People,
+                    seasonFive10To50People,
+                    seasonFive51To100People);
         }
-
     }
 }

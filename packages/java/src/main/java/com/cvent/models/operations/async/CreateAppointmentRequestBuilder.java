@@ -30,7 +30,7 @@ public class CreateAppointmentRequestBuilder {
     private CreateAppointmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateAppointmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateAppointmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateAppointmentResponse> call() {
-        AsyncRequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation
-              = new CreateAppointment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation =
+                new CreateAppointment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

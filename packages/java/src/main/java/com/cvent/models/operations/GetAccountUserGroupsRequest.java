@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetAccountUserGroupsRequest {
     /**
      * The maximum number of records to return per page.
@@ -33,7 +32,7 @@ public class GetAccountUserGroupsRequest {
      * Filters narrow the results returned and support a combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'. The following logical
      * operators and fields are supported:
-     * 
+     *
      * <p>| Field Path      | Operators                          |
      * |-----------------|------------------------------------|
      * | name            | `in`, `eq`, `ne`, `sw`, `ew`, `co` |
@@ -46,16 +45,12 @@ public class GetAccountUserGroupsRequest {
     private String filter;
 
     @JsonCreator
-    public GetAccountUserGroupsRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetAccountUserGroupsRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetAccountUserGroupsRequest() {
         this(null, null, null);
     }
@@ -79,7 +74,7 @@ public class GetAccountUserGroupsRequest {
      * Filters narrow the results returned and support a combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'. The following logical
      * operators and fields are supported:
-     * 
+     *
      * <p>| Field Path      | Operators                          |
      * |-----------------|------------------------------------|
      * | name            | `in`, `eq`, `ne`, `sw`, `ew`, `co` |
@@ -96,7 +91,6 @@ public class GetAccountUserGroupsRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -104,7 +98,6 @@ public class GetAccountUserGroupsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The pagination token returned from a previous call.
@@ -115,12 +108,11 @@ public class GetAccountUserGroupsRequest {
         return this;
     }
 
-
     /**
      * Filters narrow the results returned and support a combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'. The following logical
      * operators and fields are supported:
-     * 
+     *
      * <p>| Field Path      | Operators                          |
      * |-----------------|------------------------------------|
      * | name            | `in`, `eq`, `ne`, `sw`, `ew`, `co` |
@@ -134,7 +126,6 @@ public class GetAccountUserGroupsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -144,28 +135,23 @@ public class GetAccountUserGroupsRequest {
             return false;
         }
         GetAccountUserGroupsRequest other = (GetAccountUserGroupsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAccountUserGroupsRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(GetAccountUserGroupsRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -174,7 +160,7 @@ public class GetAccountUserGroupsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -198,7 +184,7 @@ public class GetAccountUserGroupsRequest {
          * Filters narrow the results returned and support a combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'. The following logical
          * operators and fields are supported:
-         * 
+         *
          * <p>| Field Path      | Operators                          |
          * |-----------------|------------------------------------|
          * | name            | `in`, `eq`, `ne`, `sw`, `ew`, `co` |
@@ -213,15 +199,10 @@ public class GetAccountUserGroupsRequest {
         }
 
         public GetAccountUserGroupsRequest build() {
-            return new GetAccountUserGroupsRequest(
-                limit, token, filter);
+            return new GetAccountUserGroupsRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

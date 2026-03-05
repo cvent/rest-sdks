@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetTravelProgramRequest {
     /**
      * A uuid used to uniquely identify the program.
@@ -20,10 +19,9 @@ public class GetTravelProgramRequest {
     private String programId;
 
     @JsonCreator
-    public GetTravelProgramRequest(
-            @Nonnull String programId) {
+    public GetTravelProgramRequest(@Nonnull String programId) {
         this.programId = Optional.ofNullable(programId)
-            .orElseThrow(() -> new IllegalArgumentException("programId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetTravelProgramRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid used to uniquely identify the program.
      */
@@ -45,7 +42,6 @@ public class GetTravelProgramRequest {
         this.programId = Utils.checkNotNull(programId, "programId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetTravelProgramRequest {
             return false;
         }
         GetTravelProgramRequest other = (GetTravelProgramRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programId, other.programId);
+        return Utils.enhancedDeepEquals(this.programId, other.programId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programId);
+        return Utils.enhancedHash(programId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTravelProgramRequest.class,
-                "programId", programId);
+        return Utils.toString(GetTravelProgramRequest.class, "programId", programId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetTravelProgramRequest {
         }
 
         public GetTravelProgramRequest build() {
-            return new GetTravelProgramRequest(
-                programId);
+            return new GetTravelProgramRequest(programId);
         }
-
     }
 }

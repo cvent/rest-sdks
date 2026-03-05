@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAttendeesPostFilterResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListAttendeesPostFilterResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AttendeePaginatedResponse attendeePaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeePaginatedResponse = attendeePaginatedResponse;
     }
-    
+
     public ListAttendeesPostFilterResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListAttendeesPostFilterResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListAttendeesPostFilterResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListAttendeesPostFilterResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListAttendeesPostFilterResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of attendees.
      */
-    public ListAttendeesPostFilterResponse withAttendeePaginatedResponse(@Nullable AttendeePaginatedResponse attendeePaginatedResponse) {
+    public ListAttendeesPostFilterResponse withAttendeePaginatedResponse(
+            @Nullable AttendeePaginatedResponse attendeePaginatedResponse) {
         this.attendeePaginatedResponse = attendeePaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListAttendeesPostFilterResponse implements Response {
             return false;
         }
         ListAttendeesPostFilterResponse other = (ListAttendeesPostFilterResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeePaginatedResponse, other.attendeePaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeePaginatedResponse, other.attendeePaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeePaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeePaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAttendeesPostFilterResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeePaginatedResponse", attendeePaginatedResponse);
+        return Utils.toString(
+                ListAttendeesPostFilterResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeePaginatedResponse",
+                attendeePaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListAttendeesPostFilterResponse implements Response {
         private AttendeePaginatedResponse attendeePaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class ListAttendeesPostFilterResponse implements Response {
         }
 
         public ListAttendeesPostFilterResponse build() {
-            return new ListAttendeesPostFilterResponse(
-                contentType, statusCode, rawResponse,
-                attendeePaginatedResponse);
+            return new ListAttendeesPostFilterResponse(contentType, statusCode, rawResponse, attendeePaginatedResponse);
         }
-
     }
 }

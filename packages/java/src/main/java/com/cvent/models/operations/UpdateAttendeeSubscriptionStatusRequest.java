@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateAttendeeSubscriptionStatusRequest {
     /**
      * The unique ID of an attendee.
@@ -20,18 +19,15 @@ public class UpdateAttendeeSubscriptionStatusRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private AttendeeSubscriptionRequest attendeeSubscriptionRequest;
 
     @JsonCreator
     public UpdateAttendeeSubscriptionStatusRequest(
-            @Nonnull String id,
-            @Nonnull AttendeeSubscriptionRequest attendeeSubscriptionRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull AttendeeSubscriptionRequest attendeeSubscriptionRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.attendeeSubscriptionRequest = Optional.ofNullable(attendeeSubscriptionRequest)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeSubscriptionRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeSubscriptionRequest cannot be null"));
     }
 
     /**
@@ -49,7 +45,6 @@ public class UpdateAttendeeSubscriptionStatusRequest {
         return new Builder();
     }
 
-
     /**
      * The unique ID of an attendee.
      */
@@ -58,12 +53,12 @@ public class UpdateAttendeeSubscriptionStatusRequest {
         return this;
     }
 
-
-    public UpdateAttendeeSubscriptionStatusRequest withAttendeeSubscriptionRequest(@Nonnull AttendeeSubscriptionRequest attendeeSubscriptionRequest) {
-        this.attendeeSubscriptionRequest = Utils.checkNotNull(attendeeSubscriptionRequest, "attendeeSubscriptionRequest");
+    public UpdateAttendeeSubscriptionStatusRequest withAttendeeSubscriptionRequest(
+            @Nonnull AttendeeSubscriptionRequest attendeeSubscriptionRequest) {
+        this.attendeeSubscriptionRequest = Utils.checkNotNull(
+                attendeeSubscriptionRequest, "attendeeSubscriptionRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +69,34 @@ public class UpdateAttendeeSubscriptionStatusRequest {
             return false;
         }
         UpdateAttendeeSubscriptionStatusRequest other = (UpdateAttendeeSubscriptionStatusRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendeeSubscriptionRequest, other.attendeeSubscriptionRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendeeSubscriptionRequest, other.attendeeSubscriptionRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendeeSubscriptionRequest);
+        return Utils.enhancedHash(id, attendeeSubscriptionRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAttendeeSubscriptionStatusRequest.class,
-                "id", id,
-                "attendeeSubscriptionRequest", attendeeSubscriptionRequest);
+        return Utils.toString(
+                UpdateAttendeeSubscriptionStatusRequest.class,
+                "id",
+                id,
+                "attendeeSubscriptionRequest",
+                attendeeSubscriptionRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private AttendeeSubscriptionRequest attendeeSubscriptionRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -112,14 +108,13 @@ public class UpdateAttendeeSubscriptionStatusRequest {
         }
 
         public Builder attendeeSubscriptionRequest(@Nonnull AttendeeSubscriptionRequest attendeeSubscriptionRequest) {
-            this.attendeeSubscriptionRequest = Utils.checkNotNull(attendeeSubscriptionRequest, "attendeeSubscriptionRequest");
+            this.attendeeSubscriptionRequest = Utils.checkNotNull(
+                    attendeeSubscriptionRequest, "attendeeSubscriptionRequest");
             return this;
         }
 
         public UpdateAttendeeSubscriptionStatusRequest build() {
-            return new UpdateAttendeeSubscriptionStatusRequest(
-                id, attendeeSubscriptionRequest);
+            return new UpdateAttendeeSubscriptionStatusRequest(id, attendeeSubscriptionRequest);
         }
-
     }
 }

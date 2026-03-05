@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * AnniversaryMembershipItemJson
- * 
+ *
  * <p>Represents an anniversary-based membership item that renews on the anniversary date of the original
  * purchase.
  */
@@ -178,19 +178,30 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.generalLedger = generalLedger;
         this.currency = currency;
         this.renewalType = Optional.ofNullable(renewalType)
-            .orElseThrow(() -> new IllegalArgumentException("renewalType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("renewalType cannot be null"));
         this.duration = duration;
         this.customDuration = customDuration;
     }
-    
-    public AnniversaryMembershipItemJson(
-            @Nonnull String renewalType) {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, renewalType,
-            null, null);
+
+    public AnniversaryMembershipItemJson(@Nonnull String renewalType) {
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                renewalType,
+                null,
+                null);
     }
 
     /**
@@ -318,7 +329,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return new Builder();
     }
 
-
     /**
      * This text will be displayed in emails using the registration information widget.
      */
@@ -326,7 +336,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.registrantInformation = registrantInformation;
         return this;
     }
-
 
     /**
      * A unique identifier for the membership item.
@@ -336,7 +345,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * Planner specified type or category of membership being offered.
      */
@@ -344,7 +352,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.type = type;
         return this;
     }
-
 
     /**
      * The specific membership item or product name within the membership type.
@@ -354,15 +361,14 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * The contact type associated with this membership item.
      */
-    public AnniversaryMembershipItemJson withContactType(@Nullable AnniversaryMembershipItemJsonContactType contactType) {
+    public AnniversaryMembershipItemJson withContactType(
+            @Nullable AnniversaryMembershipItemJsonContactType contactType) {
         this.contactType = contactType;
         return this;
     }
-
 
     /**
      * The price charged when an invitee purchases a membership.
@@ -372,7 +378,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * The price charged when an invitee renews their membership.
      */
@@ -380,7 +385,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.renewalPrice = renewalPrice;
         return this;
     }
-
 
     /**
      * Description of the membership item.
@@ -390,7 +394,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * A planner-specified code for the membership item.
      */
@@ -398,7 +401,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.code = code;
         return this;
     }
-
 
     /**
      * Contains unique identifiers for registration types associated with this membership item.
@@ -408,7 +410,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * True indicates the membership item is selectable during registration.
      */
@@ -416,7 +417,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.openForRegistration = openForRegistration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date when the membership item registration automatically closes. The item
@@ -427,7 +427,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
@@ -435,7 +434,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.generalLedger = generalLedger;
         return this;
     }
-
 
     /**
      * The ISO 4217 currency code for this membership item.
@@ -445,7 +443,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * The renewal type of the membership item.
      */
@@ -453,7 +450,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.renewalType = Utils.checkNotNull(renewalType, "renewalType");
         return this;
     }
-
 
     /**
      * The duration of the membership item with anniversary renewal type.
@@ -463,7 +459,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         return this;
     }
 
-
     /**
      * Represents a custom membership duration. Required when the duration property is set to 'Custom'.
      */
@@ -471,7 +466,6 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         this.customDuration = customDuration;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -482,61 +476,89 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
             return false;
         }
         AnniversaryMembershipItemJson other = (AnniversaryMembershipItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.item, other.item) &&
-            Utils.enhancedDeepEquals(this.contactType, other.contactType) &&
-            Utils.enhancedDeepEquals(this.price, other.price) &&
-            Utils.enhancedDeepEquals(this.renewalPrice, other.renewalPrice) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticClosureDate, other.automaticClosureDate) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.renewalType, other.renewalType) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.customDuration, other.customDuration);
+        return Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.item, other.item)
+                && Utils.enhancedDeepEquals(this.contactType, other.contactType)
+                && Utils.enhancedDeepEquals(this.price, other.price)
+                && Utils.enhancedDeepEquals(this.renewalPrice, other.renewalPrice)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticClosureDate, other.automaticClosureDate)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.renewalType, other.renewalType)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.customDuration, other.customDuration);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            registrantInformation, id, type,
-            item, contactType, price,
-            renewalPrice, description, code,
-            registrationTypes, openForRegistration, automaticClosureDate,
-            generalLedger, currency, renewalType,
-            duration, customDuration);
+                registrantInformation,
+                id,
+                type,
+                item,
+                contactType,
+                price,
+                renewalPrice,
+                description,
+                code,
+                registrationTypes,
+                openForRegistration,
+                automaticClosureDate,
+                generalLedger,
+                currency,
+                renewalType,
+                duration,
+                customDuration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AnniversaryMembershipItemJson.class,
-                "registrantInformation", registrantInformation,
-                "id", id,
-                "type", type,
-                "item", item,
-                "contactType", contactType,
-                "price", price,
-                "renewalPrice", renewalPrice,
-                "description", description,
-                "code", code,
-                "registrationTypes", registrationTypes,
-                "openForRegistration", openForRegistration,
-                "automaticClosureDate", automaticClosureDate,
-                "generalLedger", generalLedger,
-                "currency", currency,
-                "renewalType", renewalType,
-                "duration", duration,
-                "customDuration", customDuration);
+        return Utils.toString(
+                AnniversaryMembershipItemJson.class,
+                "registrantInformation",
+                registrantInformation,
+                "id",
+                id,
+                "type",
+                type,
+                "item",
+                item,
+                "contactType",
+                contactType,
+                "price",
+                price,
+                "renewalPrice",
+                renewalPrice,
+                "description",
+                description,
+                "code",
+                code,
+                "registrationTypes",
+                registrationTypes,
+                "openForRegistration",
+                openForRegistration,
+                "automaticClosureDate",
+                automaticClosureDate,
+                "generalLedger",
+                generalLedger,
+                "currency",
+                currency,
+                "renewalType",
+                renewalType,
+                "duration",
+                duration,
+                "customDuration",
+                customDuration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String registrantInformation;
 
@@ -573,7 +595,7 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
         private CustomDuration customDuration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -715,13 +737,23 @@ public class AnniversaryMembershipItemJson implements MembershipItemsPaginatedRe
 
         public AnniversaryMembershipItemJson build() {
             return new AnniversaryMembershipItemJson(
-                registrantInformation, id, type,
-                item, contactType, price,
-                renewalPrice, description, code,
-                registrationTypes, openForRegistration, automaticClosureDate,
-                generalLedger, currency, renewalType,
-                duration, customDuration);
+                    registrantInformation,
+                    id,
+                    type,
+                    item,
+                    contactType,
+                    price,
+                    renewalPrice,
+                    description,
+                    code,
+                    registrationTypes,
+                    openForRegistration,
+                    automaticClosureDate,
+                    generalLedger,
+                    currency,
+                    renewalType,
+                    duration,
+                    customDuration);
         }
-
     }
 }

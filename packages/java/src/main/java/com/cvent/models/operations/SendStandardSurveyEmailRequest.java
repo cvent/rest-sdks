@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class SendStandardSurveyEmailRequest {
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -33,15 +32,13 @@ public class SendStandardSurveyEmailRequest {
 
     @JsonCreator
     public SendStandardSurveyEmailRequest(
-            @Nonnull String surveyId,
-            @Nonnull String respondentId,
-            @Nonnull String emailTemplateId) {
+            @Nonnull String surveyId, @Nonnull String respondentId, @Nonnull String emailTemplateId) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.respondentId = Optional.ofNullable(respondentId)
-            .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
         this.emailTemplateId = Optional.ofNullable(emailTemplateId)
-            .orElseThrow(() -> new IllegalArgumentException("emailTemplateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("emailTemplateId cannot be null"));
     }
 
     /**
@@ -69,7 +66,6 @@ public class SendStandardSurveyEmailRequest {
         return new Builder();
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -77,7 +73,6 @@ public class SendStandardSurveyEmailRequest {
         this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
         return this;
     }
-
 
     /**
      * Id of a respondent
@@ -87,7 +82,6 @@ public class SendStandardSurveyEmailRequest {
         return this;
     }
 
-
     /**
      * Id of an email template
      */
@@ -95,7 +89,6 @@ public class SendStandardSurveyEmailRequest {
         this.emailTemplateId = Utils.checkNotNull(emailTemplateId, "emailTemplateId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +99,30 @@ public class SendStandardSurveyEmailRequest {
             return false;
         }
         SendStandardSurveyEmailRequest other = (SendStandardSurveyEmailRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.respondentId, other.respondentId) &&
-            Utils.enhancedDeepEquals(this.emailTemplateId, other.emailTemplateId);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.respondentId, other.respondentId)
+                && Utils.enhancedDeepEquals(this.emailTemplateId, other.emailTemplateId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, respondentId, emailTemplateId);
+        return Utils.enhancedHash(surveyId, respondentId, emailTemplateId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendStandardSurveyEmailRequest.class,
-                "surveyId", surveyId,
-                "respondentId", respondentId,
-                "emailTemplateId", emailTemplateId);
+        return Utils.toString(
+                SendStandardSurveyEmailRequest.class,
+                "surveyId",
+                surveyId,
+                "respondentId",
+                respondentId,
+                "emailTemplateId",
+                emailTemplateId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
@@ -136,7 +131,7 @@ public class SendStandardSurveyEmailRequest {
         private String emailTemplateId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +159,7 @@ public class SendStandardSurveyEmailRequest {
         }
 
         public SendStandardSurveyEmailRequest build() {
-            return new SendStandardSurveyEmailRequest(
-                surveyId, respondentId, emailTemplateId);
+            return new SendStandardSurveyEmailRequest(surveyId, respondentId, emailTemplateId);
         }
-
     }
 }

@@ -29,7 +29,7 @@ public class CreateBulkJobRequestBuilder {
     private BulkJobWithDataInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateBulkJobRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateBulkJobRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateBulkJobResponse call() {
-        RequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation
-              = new CreateBulkJob.Sync(sdkConfiguration, _headers);
+        RequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation =
+                new CreateBulkJob.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * PlannerJson1
- * 
+ *
  * <p>Planner details.
  */
 public class PlannerJson1 {
@@ -49,7 +49,7 @@ public class PlannerJson1 {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public PlannerJson1() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class PlannerJson1 {
         return new Builder();
     }
 
-
     /**
      * Planner first name.
      */
@@ -87,7 +86,6 @@ public class PlannerJson1 {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * Planner last name.
@@ -97,7 +95,6 @@ public class PlannerJson1 {
         return this;
     }
 
-
     /**
      * Planner email.
      */
@@ -105,7 +102,6 @@ public class PlannerJson1 {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class PlannerJson1 {
             return false;
         }
         PlannerJson1 other = (PlannerJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, email);
+        return Utils.enhancedHash(firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PlannerJson1.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(PlannerJson1.class, "firstName", firstName, "lastName", lastName, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -146,7 +137,7 @@ public class PlannerJson1 {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class PlannerJson1 {
         }
 
         public PlannerJson1 build() {
-            return new PlannerJson1(
-                firstName, lastName, email);
+            return new PlannerJson1(firstName, lastName, email);
         }
-
     }
 }

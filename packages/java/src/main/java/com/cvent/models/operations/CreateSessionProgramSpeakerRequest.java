@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateSessionProgramSpeakerRequest {
     /**
      * The unique identifier of a program item.
@@ -26,13 +25,10 @@ public class CreateSessionProgramSpeakerRequest {
     private String id;
 
     @JsonCreator
-    public CreateSessionProgramSpeakerRequest(
-            @Nonnull String programItemId,
-            @Nonnull String id) {
+    public CreateSessionProgramSpeakerRequest(@Nonnull String programItemId, @Nonnull String id) {
         this.programItemId = Optional.ofNullable(programItemId)
-            .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class CreateSessionProgramSpeakerRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a program item.
      */
@@ -62,7 +57,6 @@ public class CreateSessionProgramSpeakerRequest {
         return this;
     }
 
-
     /**
      * The unique identifier of a speaker.
      */
@@ -70,7 +64,6 @@ public class CreateSessionProgramSpeakerRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,29 @@ public class CreateSessionProgramSpeakerRequest {
             return false;
         }
         CreateSessionProgramSpeakerRequest other = (CreateSessionProgramSpeakerRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programItemId, other.programItemId) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.programItemId, other.programItemId)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programItemId, id);
+        return Utils.enhancedHash(programItemId, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateSessionProgramSpeakerRequest.class,
-                "programItemId", programItemId,
-                "id", id);
+        return Utils.toString(CreateSessionProgramSpeakerRequest.class, "programItemId", programItemId, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programItemId;
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class CreateSessionProgramSpeakerRequest {
         }
 
         public CreateSessionProgramSpeakerRequest build() {
-            return new CreateSessionProgramSpeakerRequest(
-                programItemId, id);
+            return new CreateSessionProgramSpeakerRequest(programItemId, id);
         }
-
     }
 }

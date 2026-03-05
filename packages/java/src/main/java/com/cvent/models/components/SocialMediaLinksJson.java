@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SocialMediaLinksJson
- * 
+ *
  * <p>Member's social media links.
  */
 public class SocialMediaLinksJson {
@@ -58,10 +58,9 @@ public class SocialMediaLinksJson {
         this.linkedinUrl = linkedinUrl;
         this.websiteUrl = websiteUrl;
     }
-    
+
     public SocialMediaLinksJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class SocialMediaLinksJson {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -104,7 +102,6 @@ public class SocialMediaLinksJson {
         this.facebookUrl = facebookUrl;
         return this;
     }
-
 
     /**
      * Represents a link to a related resource.
@@ -114,7 +111,6 @@ public class SocialMediaLinksJson {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -123,7 +119,6 @@ public class SocialMediaLinksJson {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -131,7 +126,6 @@ public class SocialMediaLinksJson {
         this.websiteUrl = websiteUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class SocialMediaLinksJson {
             return false;
         }
         SocialMediaLinksJson other = (SocialMediaLinksJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl) &&
-            Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl) &&
-            Utils.enhancedDeepEquals(this.linkedinUrl, other.linkedinUrl) &&
-            Utils.enhancedDeepEquals(this.websiteUrl, other.websiteUrl);
+        return Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl)
+                && Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl)
+                && Utils.enhancedDeepEquals(this.linkedinUrl, other.linkedinUrl)
+                && Utils.enhancedDeepEquals(this.websiteUrl, other.websiteUrl);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            facebookUrl, twitterUrl, linkedinUrl,
-            websiteUrl);
+        return Utils.enhancedHash(facebookUrl, twitterUrl, linkedinUrl, websiteUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SocialMediaLinksJson.class,
-                "facebookUrl", facebookUrl,
-                "twitterUrl", twitterUrl,
-                "linkedinUrl", linkedinUrl,
-                "websiteUrl", websiteUrl);
+        return Utils.toString(
+                SocialMediaLinksJson.class,
+                "facebookUrl",
+                facebookUrl,
+                "twitterUrl",
+                twitterUrl,
+                "linkedinUrl",
+                linkedinUrl,
+                "websiteUrl",
+                websiteUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson facebookUrl;
 
@@ -177,7 +173,7 @@ public class SocialMediaLinksJson {
         private LinkJson websiteUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class SocialMediaLinksJson {
         }
 
         public SocialMediaLinksJson build() {
-            return new SocialMediaLinksJson(
-                facebookUrl, twitterUrl, linkedinUrl,
-                websiteUrl);
+            return new SocialMediaLinksJson(facebookUrl, twitterUrl, linkedinUrl, websiteUrl);
         }
-
     }
 }

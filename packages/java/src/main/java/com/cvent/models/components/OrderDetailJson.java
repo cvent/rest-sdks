@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * OrderDetailJson
- * 
+ *
  * <p>This is used to denote the details of the order made by an attendee.
  */
 public class OrderDetailJson {
@@ -188,14 +188,27 @@ public class OrderDetailJson {
         this.referenceNumber = referenceNumber;
         this.deleted = deleted;
     }
-    
+
     public OrderDetailJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -328,7 +341,6 @@ public class OrderDetailJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -336,7 +348,6 @@ public class OrderDetailJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -346,7 +357,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -354,7 +364,6 @@ public class OrderDetailJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -364,7 +373,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -372,7 +380,6 @@ public class OrderDetailJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the event. Contains only the ID of the event.
@@ -382,7 +389,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
@@ -390,7 +396,6 @@ public class OrderDetailJson {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * Order number for this order
@@ -400,7 +405,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * This denotes if an order is cancelled or not.
      */
@@ -408,7 +412,6 @@ public class OrderDetailJson {
         this.cancelled = cancelled;
         return this;
     }
-
 
     /**
      * This is used to denote the type of order made by an attendee.
@@ -418,7 +421,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the invoice number of this order
      */
@@ -426,7 +428,6 @@ public class OrderDetailJson {
         this.invoiceNumber = invoiceNumber;
         return this;
     }
-
 
     /**
      * Total amount for items purchased by the attendee.
@@ -436,7 +437,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * Amount paid by the attendee.
      */
@@ -444,7 +444,6 @@ public class OrderDetailJson {
         this.amountPaid = amountPaid;
         return this;
     }
-
 
     /**
      * Amount due on the order.
@@ -454,7 +453,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * The list of discount details.
      */
@@ -462,7 +460,6 @@ public class OrderDetailJson {
         this.discounts = discounts;
         return this;
     }
-
 
     /**
      * This denotes the payment method used for transaction
@@ -472,7 +469,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the reference number of the transaction
      */
@@ -481,7 +477,6 @@ public class OrderDetailJson {
         return this;
     }
 
-
     /**
      * True indicates the order has been deleted.
      */
@@ -489,7 +484,6 @@ public class OrderDetailJson {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -500,63 +494,93 @@ public class OrderDetailJson {
             return false;
         }
         OrderDetailJson other = (OrderDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.number, other.number) &&
-            Utils.enhancedDeepEquals(this.cancelled, other.cancelled) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.invoiceNumber, other.invoiceNumber) &&
-            Utils.enhancedDeepEquals(this.amountOrdered, other.amountOrdered) &&
-            Utils.enhancedDeepEquals(this.amountPaid, other.amountPaid) &&
-            Utils.enhancedDeepEquals(this.amountDue, other.amountDue) &&
-            Utils.enhancedDeepEquals(this.discounts, other.discounts) &&
-            Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod) &&
-            Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.number, other.number)
+                && Utils.enhancedDeepEquals(this.cancelled, other.cancelled)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.invoiceNumber, other.invoiceNumber)
+                && Utils.enhancedDeepEquals(this.amountOrdered, other.amountOrdered)
+                && Utils.enhancedDeepEquals(this.amountPaid, other.amountPaid)
+                && Utils.enhancedDeepEquals(this.amountDue, other.amountDue)
+                && Utils.enhancedDeepEquals(this.discounts, other.discounts)
+                && Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod)
+                && Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            attendee, number, cancelled,
-            type, invoiceNumber, amountOrdered,
-            amountPaid, amountDue, discounts,
-            paymentMethod, referenceNumber, deleted);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                attendee,
+                number,
+                cancelled,
+                type,
+                invoiceNumber,
+                amountOrdered,
+                amountPaid,
+                amountDue,
+                discounts,
+                paymentMethod,
+                referenceNumber,
+                deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderDetailJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "attendee", attendee,
-                "number", number,
-                "cancelled", cancelled,
-                "type", type,
-                "invoiceNumber", invoiceNumber,
-                "amountOrdered", amountOrdered,
-                "amountPaid", amountPaid,
-                "amountDue", amountDue,
-                "discounts", discounts,
-                "paymentMethod", paymentMethod,
-                "referenceNumber", referenceNumber,
-                "deleted", deleted);
+        return Utils.toString(
+                OrderDetailJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "number",
+                number,
+                "cancelled",
+                cancelled,
+                "type",
+                type,
+                "invoiceNumber",
+                invoiceNumber,
+                "amountOrdered",
+                amountOrdered,
+                "amountPaid",
+                amountPaid,
+                "amountDue",
+                amountDue,
+                "discounts",
+                discounts,
+                "paymentMethod",
+                paymentMethod,
+                "referenceNumber",
+                referenceNumber,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -595,7 +619,7 @@ public class OrderDetailJson {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -744,13 +768,24 @@ public class OrderDetailJson {
 
         public OrderDetailJson build() {
             return new OrderDetailJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                attendee, number, cancelled,
-                type, invoiceNumber, amountOrdered,
-                amountPaid, amountDue, discounts,
-                paymentMethod, referenceNumber, deleted);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    attendee,
+                    number,
+                    cancelled,
+                    type,
+                    invoiceNumber,
+                    amountOrdered,
+                    amountPaid,
+                    amountDue,
+                    discounts,
+                    paymentMethod,
+                    referenceNumber,
+                    deleted);
         }
-
     }
 }

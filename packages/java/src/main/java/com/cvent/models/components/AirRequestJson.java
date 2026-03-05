@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AirRequestJson
- * 
+ *
  * <p>Representation of an air request.
  */
 public class AirRequestJson {
@@ -59,7 +59,7 @@ public class AirRequestJson {
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
      * is guest ID.
-     * 
+     *
      * <p>For any other passenger, this fields contains null.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -69,7 +69,7 @@ public class AirRequestJson {
     /**
      * Representation of an attendee type of the flight requester. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
-     * 
+     *
      * <p>Unknown means attendee has requested a flight for passenger other than its guest.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -273,17 +273,36 @@ public class AirRequestJson {
         this.plannerMemo = plannerMemo;
         this.airRequestAnswers = airRequestAnswers;
     }
-    
+
     public AirRequestJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -324,7 +343,7 @@ public class AirRequestJson {
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
      * is guest ID.
-     * 
+     *
      * <p>For any other passenger, this fields contains null.
      */
     public Optional<String> requesterId() {
@@ -334,7 +353,7 @@ public class AirRequestJson {
     /**
      * Representation of an attendee type of the flight requester. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
-     * 
+     *
      * <p>Unknown means attendee has requested a flight for passenger other than its guest.
      */
     public Optional<AirRequesterTypeJson> requesterType() {
@@ -485,7 +504,6 @@ public class AirRequestJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -493,7 +511,6 @@ public class AirRequestJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -503,7 +520,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -511,7 +527,6 @@ public class AirRequestJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -521,7 +536,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * ID of the air request.
      */
@@ -530,11 +544,10 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
      * is guest ID.
-     * 
+     *
      * <p>For any other passenger, this fields contains null.
      */
     public AirRequestJson withRequesterId(@Nullable String requesterId) {
@@ -542,18 +555,16 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Representation of an attendee type of the flight requester. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
-     * 
+     *
      * <p>Unknown means attendee has requested a flight for passenger other than its guest.
      */
     public AirRequestJson withRequesterType(@Nullable AirRequesterTypeJson requesterType) {
         this.requesterType = requesterType;
         return this;
     }
-
 
     /**
      * First name of the flight requester.
@@ -563,7 +574,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Middle name of the flight requester.
      */
@@ -571,7 +581,6 @@ public class AirRequestJson {
         this.requesterMiddleName = requesterMiddleName;
         return this;
     }
-
 
     /**
      * Last name of the flight requester.
@@ -581,7 +590,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Suffix of the flight requester.
      */
@@ -589,7 +597,6 @@ public class AirRequestJson {
         this.requesterSuffix = requesterSuffix;
         return this;
     }
-
 
     /**
      * Full name of the requester.
@@ -599,7 +606,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * TSA redress number for the passenger.
      */
@@ -607,7 +613,6 @@ public class AirRequestJson {
         this.redressNumber = redressNumber;
         return this;
     }
-
 
     /**
      * TSA known traveller number for the passenger.
@@ -617,7 +622,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Representation of a leg detail in air request.
      */
@@ -625,7 +629,6 @@ public class AirRequestJson {
         this.outgoingLeg = outgoingLeg;
         return this;
     }
-
 
     /**
      * Representation of a leg detail in air request.
@@ -635,7 +638,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Type of the seat.
      */
@@ -643,7 +645,6 @@ public class AirRequestJson {
         this.seatType = seatType;
         return this;
     }
-
 
     /**
      * Category of the passenger's ticket.
@@ -653,7 +654,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Additional text related to the passenger's meal.
      */
@@ -661,7 +661,6 @@ public class AirRequestJson {
         this.foodPreference = foodPreference;
         return this;
     }
-
 
     /**
      * Additional text associated with air request.
@@ -671,7 +670,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Requester's preferred airlines.
      */
@@ -679,7 +677,6 @@ public class AirRequestJson {
         this.airlinePreference = airlinePreference;
         return this;
     }
-
 
     /**
      * Age category of the requester.
@@ -689,7 +686,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Status of the travel request done by attendee.
      */
@@ -697,7 +693,6 @@ public class AirRequestJson {
         this.status = status;
         return this;
     }
-
 
     /**
      * Date of birth of the requester.
@@ -707,7 +702,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Gender of the requester.
      */
@@ -715,7 +709,6 @@ public class AirRequestJson {
         this.gender = gender;
         return this;
     }
-
 
     /**
      * Additional note by, or intended for, event planners.
@@ -725,7 +718,6 @@ public class AirRequestJson {
         return this;
     }
 
-
     /**
      * Answer provided by requester to the air request related question.
      */
@@ -733,7 +725,6 @@ public class AirRequestJson {
         this.airRequestAnswers = airRequestAnswers;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -744,84 +735,129 @@ public class AirRequestJson {
             return false;
         }
         AirRequestJson other = (AirRequestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.airRequestId, other.airRequestId) &&
-            Utils.enhancedDeepEquals(this.requesterId, other.requesterId) &&
-            Utils.enhancedDeepEquals(this.requesterType, other.requesterType) &&
-            Utils.enhancedDeepEquals(this.requesterFirstName, other.requesterFirstName) &&
-            Utils.enhancedDeepEquals(this.requesterMiddleName, other.requesterMiddleName) &&
-            Utils.enhancedDeepEquals(this.requesterLastName, other.requesterLastName) &&
-            Utils.enhancedDeepEquals(this.requesterSuffix, other.requesterSuffix) &&
-            Utils.enhancedDeepEquals(this.fullName, other.fullName) &&
-            Utils.enhancedDeepEquals(this.redressNumber, other.redressNumber) &&
-            Utils.enhancedDeepEquals(this.knownTravelerNumber, other.knownTravelerNumber) &&
-            Utils.enhancedDeepEquals(this.outgoingLeg, other.outgoingLeg) &&
-            Utils.enhancedDeepEquals(this.incomingLeg, other.incomingLeg) &&
-            Utils.enhancedDeepEquals(this.seatType, other.seatType) &&
-            Utils.enhancedDeepEquals(this.ticketType, other.ticketType) &&
-            Utils.enhancedDeepEquals(this.foodPreference, other.foodPreference) &&
-            Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest) &&
-            Utils.enhancedDeepEquals(this.airlinePreference, other.airlinePreference) &&
-            Utils.enhancedDeepEquals(this.ageCategory, other.ageCategory) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.dateOfBirth, other.dateOfBirth) &&
-            Utils.enhancedDeepEquals(this.gender, other.gender) &&
-            Utils.enhancedDeepEquals(this.plannerMemo, other.plannerMemo) &&
-            Utils.enhancedDeepEquals(this.airRequestAnswers, other.airRequestAnswers);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.airRequestId, other.airRequestId)
+                && Utils.enhancedDeepEquals(this.requesterId, other.requesterId)
+                && Utils.enhancedDeepEquals(this.requesterType, other.requesterType)
+                && Utils.enhancedDeepEquals(this.requesterFirstName, other.requesterFirstName)
+                && Utils.enhancedDeepEquals(this.requesterMiddleName, other.requesterMiddleName)
+                && Utils.enhancedDeepEquals(this.requesterLastName, other.requesterLastName)
+                && Utils.enhancedDeepEquals(this.requesterSuffix, other.requesterSuffix)
+                && Utils.enhancedDeepEquals(this.fullName, other.fullName)
+                && Utils.enhancedDeepEquals(this.redressNumber, other.redressNumber)
+                && Utils.enhancedDeepEquals(this.knownTravelerNumber, other.knownTravelerNumber)
+                && Utils.enhancedDeepEquals(this.outgoingLeg, other.outgoingLeg)
+                && Utils.enhancedDeepEquals(this.incomingLeg, other.incomingLeg)
+                && Utils.enhancedDeepEquals(this.seatType, other.seatType)
+                && Utils.enhancedDeepEquals(this.ticketType, other.ticketType)
+                && Utils.enhancedDeepEquals(this.foodPreference, other.foodPreference)
+                && Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest)
+                && Utils.enhancedDeepEquals(this.airlinePreference, other.airlinePreference)
+                && Utils.enhancedDeepEquals(this.ageCategory, other.ageCategory)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.dateOfBirth, other.dateOfBirth)
+                && Utils.enhancedDeepEquals(this.gender, other.gender)
+                && Utils.enhancedDeepEquals(this.plannerMemo, other.plannerMemo)
+                && Utils.enhancedDeepEquals(this.airRequestAnswers, other.airRequestAnswers);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, airRequestId, requesterId,
-            requesterType, requesterFirstName, requesterMiddleName,
-            requesterLastName, requesterSuffix, fullName,
-            redressNumber, knownTravelerNumber, outgoingLeg,
-            incomingLeg, seatType, ticketType,
-            foodPreference, specialRequest, airlinePreference,
-            ageCategory, status, dateOfBirth,
-            gender, plannerMemo, airRequestAnswers);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                airRequestId,
+                requesterId,
+                requesterType,
+                requesterFirstName,
+                requesterMiddleName,
+                requesterLastName,
+                requesterSuffix,
+                fullName,
+                redressNumber,
+                knownTravelerNumber,
+                outgoingLeg,
+                incomingLeg,
+                seatType,
+                ticketType,
+                foodPreference,
+                specialRequest,
+                airlinePreference,
+                ageCategory,
+                status,
+                dateOfBirth,
+                gender,
+                plannerMemo,
+                airRequestAnswers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AirRequestJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "airRequestId", airRequestId,
-                "requesterId", requesterId,
-                "requesterType", requesterType,
-                "requesterFirstName", requesterFirstName,
-                "requesterMiddleName", requesterMiddleName,
-                "requesterLastName", requesterLastName,
-                "requesterSuffix", requesterSuffix,
-                "fullName", fullName,
-                "redressNumber", redressNumber,
-                "knownTravelerNumber", knownTravelerNumber,
-                "outgoingLeg", outgoingLeg,
-                "incomingLeg", incomingLeg,
-                "seatType", seatType,
-                "ticketType", ticketType,
-                "foodPreference", foodPreference,
-                "specialRequest", specialRequest,
-                "airlinePreference", airlinePreference,
-                "ageCategory", ageCategory,
-                "status", status,
-                "dateOfBirth", dateOfBirth,
-                "gender", gender,
-                "plannerMemo", plannerMemo,
-                "airRequestAnswers", airRequestAnswers);
+        return Utils.toString(
+                AirRequestJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "airRequestId",
+                airRequestId,
+                "requesterId",
+                requesterId,
+                "requesterType",
+                requesterType,
+                "requesterFirstName",
+                requesterFirstName,
+                "requesterMiddleName",
+                requesterMiddleName,
+                "requesterLastName",
+                requesterLastName,
+                "requesterSuffix",
+                requesterSuffix,
+                "fullName",
+                fullName,
+                "redressNumber",
+                redressNumber,
+                "knownTravelerNumber",
+                knownTravelerNumber,
+                "outgoingLeg",
+                outgoingLeg,
+                "incomingLeg",
+                incomingLeg,
+                "seatType",
+                seatType,
+                "ticketType",
+                ticketType,
+                "foodPreference",
+                foodPreference,
+                "specialRequest",
+                specialRequest,
+                "airlinePreference",
+                airlinePreference,
+                "ageCategory",
+                ageCategory,
+                "status",
+                status,
+                "dateOfBirth",
+                dateOfBirth,
+                "gender",
+                gender,
+                "plannerMemo",
+                plannerMemo,
+                "airRequestAnswers",
+                airRequestAnswers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -878,7 +914,7 @@ public class AirRequestJson {
         private List<AttendeeAnswerJson1> airRequestAnswers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -924,7 +960,7 @@ public class AirRequestJson {
         /**
          * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
          * is guest ID.
-         * 
+         *
          * <p>For any other passenger, this fields contains null.
          */
         public Builder requesterId(@Nullable String requesterId) {
@@ -935,7 +971,7 @@ public class AirRequestJson {
         /**
          * Representation of an attendee type of the flight requester. Contact means the requester is an
          * independent attendee. Guest means the attendee is accompanying another attendee.
-         * 
+         *
          * <p>Unknown means attendee has requested a flight for passenger other than its guest.
          */
         public Builder requesterType(@Nullable AirRequesterTypeJson requesterType) {
@@ -1105,16 +1141,33 @@ public class AirRequestJson {
 
         public AirRequestJson build() {
             return new AirRequestJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, airRequestId, requesterId,
-                requesterType, requesterFirstName, requesterMiddleName,
-                requesterLastName, requesterSuffix, fullName,
-                redressNumber, knownTravelerNumber, outgoingLeg,
-                incomingLeg, seatType, ticketType,
-                foodPreference, specialRequest, airlinePreference,
-                ageCategory, status, dateOfBirth,
-                gender, plannerMemo, airRequestAnswers);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    airRequestId,
+                    requesterId,
+                    requesterType,
+                    requesterFirstName,
+                    requesterMiddleName,
+                    requesterLastName,
+                    requesterSuffix,
+                    fullName,
+                    redressNumber,
+                    knownTravelerNumber,
+                    outgoingLeg,
+                    incomingLeg,
+                    seatType,
+                    ticketType,
+                    foodPreference,
+                    specialRequest,
+                    airlinePreference,
+                    ageCategory,
+                    status,
+                    dateOfBirth,
+                    gender,
+                    plannerMemo,
+                    airRequestAnswers);
         }
-
     }
 }

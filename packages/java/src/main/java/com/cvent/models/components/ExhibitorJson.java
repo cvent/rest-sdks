@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorJson
- * 
+ *
  * <p>The Associated Exhibitor.
  */
 public class ExhibitorJson {
@@ -24,10 +24,8 @@ public class ExhibitorJson {
     private String id;
 
     @JsonCreator
-    public ExhibitorJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public ExhibitorJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ExhibitorJson {
         return new Builder();
     }
 
-
     /**
      * Exhibitor id
      */
@@ -49,7 +46,6 @@ public class ExhibitorJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ExhibitorJson {
             return false;
         }
         ExhibitorJson other = (ExhibitorJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorJson.class,
-                "id", id);
+        return Utils.toString(ExhibitorJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ExhibitorJson {
         }
 
         public ExhibitorJson build() {
-            return new ExhibitorJson(
-                id);
+            return new ExhibitorJson(id);
         }
-
     }
 }

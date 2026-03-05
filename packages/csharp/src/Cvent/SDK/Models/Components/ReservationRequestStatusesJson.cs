@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ReservationRequestStatusesJson
     {
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Cancel")]
-        Cancel,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Cancel")] Cancel,
     }
 
     public static class ReservationRequestStatusesJsonExtension
     {
         public static string Value(this ReservationRequestStatusesJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ReservationRequestStatusesJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ReservationRequestStatusesJson).GetFields())
+            foreach (var field in typeof(ReservationRequestStatusesJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

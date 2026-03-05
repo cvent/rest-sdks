@@ -22,7 +22,8 @@ public class RelateProgramItemToSessionDocumentRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public RelateProgramItemToSessionDocumentRequestBuilder request(@Nonnull RelateProgramItemToSessionDocumentRequest request) {
+    public RelateProgramItemToSessionDocumentRequestBuilder request(
+            @Nonnull RelateProgramItemToSessionDocumentRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class RelateProgramItemToSessionDocumentRequestBuilder {
     private RelateProgramItemToSessionDocumentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public RelateProgramItemToSessionDocumentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class RelateProgramItemToSessionDocumentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<RelateProgramItemToSessionDocumentResponse> call() {
-        AsyncRequestOperation<RelateProgramItemToSessionDocumentRequest, RelateProgramItemToSessionDocumentResponse> operation
-              = new RelateProgramItemToSessionDocument.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<RelateProgramItemToSessionDocumentRequest, RelateProgramItemToSessionDocumentResponse> operation =
+                new RelateProgramItemToSessionDocument.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -36,7 +36,7 @@ public class CreateCardTokensRequestBuilder {
     private CardTokenRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateCardTokensRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -45,13 +45,13 @@ public class CreateCardTokensRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateCardTokensResponse call() {
-        RequestOperation<CardTokenRequest, CreateCardTokensResponse> operation
-              = new CreateCardTokens.Sync(sdkConfiguration, serverURL, _headers);
+        RequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
+                new CreateCardTokens.Sync(sdkConfiguration, serverURL, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

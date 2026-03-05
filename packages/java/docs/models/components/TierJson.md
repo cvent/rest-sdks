@@ -2,6 +2,14 @@
 
 Represents the type of license that the user can choose.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TierJson;
+
+TierJson value = TierJson.PRO;
+```
+
 
 ## Values
 

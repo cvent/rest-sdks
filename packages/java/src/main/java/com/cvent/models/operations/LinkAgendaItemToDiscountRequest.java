@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class LinkAgendaItemToDiscountRequest {
     /**
      * Unique ID of an event.
@@ -33,15 +32,12 @@ public class LinkAgendaItemToDiscountRequest {
 
     @JsonCreator
     public LinkAgendaItemToDiscountRequest(
-            @Nonnull String id,
-            @Nonnull String discountId,
-            @Nonnull String agendaItemId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String discountId, @Nonnull String agendaItemId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.discountId = Optional.ofNullable(discountId)
-            .orElseThrow(() -> new IllegalArgumentException("discountId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("discountId cannot be null"));
         this.agendaItemId = Optional.ofNullable(agendaItemId)
-            .orElseThrow(() -> new IllegalArgumentException("agendaItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("agendaItemId cannot be null"));
     }
 
     /**
@@ -69,7 +65,6 @@ public class LinkAgendaItemToDiscountRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -77,7 +72,6 @@ public class LinkAgendaItemToDiscountRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a discount.
@@ -87,7 +81,6 @@ public class LinkAgendaItemToDiscountRequest {
         return this;
     }
 
-
     /**
      * Unique ID of an agenda item.
      */
@@ -95,7 +88,6 @@ public class LinkAgendaItemToDiscountRequest {
         this.agendaItemId = Utils.checkNotNull(agendaItemId, "agendaItemId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +98,30 @@ public class LinkAgendaItemToDiscountRequest {
             return false;
         }
         LinkAgendaItemToDiscountRequest other = (LinkAgendaItemToDiscountRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.discountId, other.discountId) &&
-            Utils.enhancedDeepEquals(this.agendaItemId, other.agendaItemId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.discountId, other.discountId)
+                && Utils.enhancedDeepEquals(this.agendaItemId, other.agendaItemId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, discountId, agendaItemId);
+        return Utils.enhancedHash(id, discountId, agendaItemId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LinkAgendaItemToDiscountRequest.class,
-                "id", id,
-                "discountId", discountId,
-                "agendaItemId", agendaItemId);
+        return Utils.toString(
+                LinkAgendaItemToDiscountRequest.class,
+                "id",
+                id,
+                "discountId",
+                discountId,
+                "agendaItemId",
+                agendaItemId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +130,7 @@ public class LinkAgendaItemToDiscountRequest {
         private String agendaItemId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +158,7 @@ public class LinkAgendaItemToDiscountRequest {
         }
 
         public LinkAgendaItemToDiscountRequest build() {
-            return new LinkAgendaItemToDiscountRequest(
-                id, discountId, agendaItemId);
+            return new LinkAgendaItemToDiscountRequest(id, discountId, agendaItemId);
         }
-
     }
 }

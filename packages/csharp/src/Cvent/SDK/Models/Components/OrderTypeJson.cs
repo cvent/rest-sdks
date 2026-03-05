@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum OrderTypeJson
     {
-        [JsonProperty("Authorization")]
-        Authorization,
-        [JsonProperty("Online Charge")]
-        OnlineCharge,
-        [JsonProperty("Online Refund")]
-        OnlineRefund,
-        [JsonProperty("Offline Charge")]
-        OfflineCharge,
-        [JsonProperty("Offline Refund")]
-        OfflineRefund,
+        [JsonProperty("Authorization")] Authorization,
+        [JsonProperty("Online Charge")] OnlineCharge,
+        [JsonProperty("Online Refund")] OnlineRefund,
+        [JsonProperty("Offline Charge")] OfflineCharge,
+        [JsonProperty("Offline Refund")] OfflineRefund,
     }
 
     public static class OrderTypeJsonExtension
     {
         public static string Value(this OrderTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static OrderTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(OrderTypeJson).GetFields())
+            foreach (var field in typeof(OrderTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

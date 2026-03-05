@@ -28,7 +28,7 @@ public class RemoveContactFromContactGroupRequestBuilder {
     private RemoveContactFromContactGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public RemoveContactFromContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class RemoveContactFromContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public RemoveContactFromContactGroupResponse call() {
-        RequestOperation<RemoveContactFromContactGroupRequest, RemoveContactFromContactGroupResponse> operation
-              = new RemoveContactFromContactGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<RemoveContactFromContactGroupRequest, RemoveContactFromContactGroupResponse> operation =
+                new RemoveContactFromContactGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

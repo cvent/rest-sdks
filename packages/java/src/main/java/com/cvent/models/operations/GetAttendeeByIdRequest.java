@@ -14,7 +14,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class GetAttendeeByIdRequest {
     /**
      * The unique ID of an attendee.
@@ -26,15 +25,15 @@ public class GetAttendeeByIdRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter.
      * The expanded entity is retrieved and displayed inline for each specified expand value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. You can expand these
      * objects,
      * along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
@@ -47,16 +46,12 @@ public class GetAttendeeByIdRequest {
     private List<Expand> expand;
 
     @JsonCreator
-    public GetAttendeeByIdRequest(
-            @Nonnull String id,
-            @Nullable List<Expand> expand) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetAttendeeByIdRequest(@Nonnull String id, @Nullable List<Expand> expand) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.expand = expand;
     }
-    
-    public GetAttendeeByIdRequest(
-            @Nonnull String id) {
+
+    public GetAttendeeByIdRequest(@Nonnull String id) {
         this(id, null);
     }
 
@@ -71,15 +66,15 @@ public class GetAttendeeByIdRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter.
      * The expanded entity is retrieved and displayed inline for each specified expand value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. You can expand these
      * objects,
      * along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
@@ -96,7 +91,6 @@ public class GetAttendeeByIdRequest {
         return new Builder();
     }
 
-
     /**
      * The unique ID of an attendee.
      */
@@ -105,20 +99,19 @@ public class GetAttendeeByIdRequest {
         return this;
     }
 
-
     /**
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter.
      * The expanded entity is retrieved and displayed inline for each specified expand value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. You can expand these
      * objects,
      * along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
@@ -132,7 +125,6 @@ public class GetAttendeeByIdRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -142,33 +134,28 @@ public class GetAttendeeByIdRequest {
             return false;
         }
         GetAttendeeByIdRequest other = (GetAttendeeByIdRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.expand, other.expand);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, expand);
+        return Utils.enhancedHash(id, expand);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAttendeeByIdRequest.class,
-                "id", id,
-                "expand", expand);
+        return Utils.toString(GetAttendeeByIdRequest.class, "id", id, "expand", expand);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private List<Expand> expand;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -183,15 +170,15 @@ public class GetAttendeeByIdRequest {
          * This endpoint allows you to request additional information as an expanded response using the expand
          * query parameter.
          * The expanded entity is retrieved and displayed inline for each specified expand value.
-         * 
+         *
          * <p>An object contains the ID of a related object in its response properties. You can expand these
          * objects,
          * along with others, in line using the expand query parameter.
-         * 
+         *
          * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-         * 
+         *
          * <p>The respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * answers.question
          * * **Scope**: event/events:read
@@ -206,9 +193,7 @@ public class GetAttendeeByIdRequest {
         }
 
         public GetAttendeeByIdRequest build() {
-            return new GetAttendeeByIdRequest(
-                id, expand);
+            return new GetAttendeeByIdRequest(id, expand);
         }
-
     }
 }

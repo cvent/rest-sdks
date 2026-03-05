@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * OptoutByJson
- * 
+ *
  * <p>This is used to denote how a contact is opt'd out of Cvent system.
  */
 public enum OptoutByJson {
@@ -33,13 +33,13 @@ public enum OptoutByJson {
     OptoutByJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<OptoutByJson> fromValue(String value) {
-        for (OptoutByJson o: OptoutByJson.values()) {
+        for (OptoutByJson o : OptoutByJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -47,4 +47,3 @@ public enum OptoutByJson {
         return Optional.empty();
     }
 }
-

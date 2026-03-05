@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TransactionJson
- * 
+ *
  * <p>This is used to denote the id and merchant/processor transaction id for transaction items.
  */
 public class TransactionJson {
@@ -37,13 +37,11 @@ public class TransactionJson {
     public TransactionJson(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("processorTransactionId") @Nullable String processorTransactionId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.processorTransactionId = processorTransactionId;
     }
-    
-    public TransactionJson(
-            @Nonnull String id) {
+
+    public TransactionJson(@Nonnull String id) {
         this(id, null);
     }
 
@@ -65,7 +63,6 @@ public class TransactionJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -74,7 +71,6 @@ public class TransactionJson {
         return this;
     }
 
-
     /**
      * This denotes the online processor transaction Id for transactions.
      */
@@ -82,7 +78,6 @@ public class TransactionJson {
         this.processorTransactionId = processorTransactionId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +88,29 @@ public class TransactionJson {
             return false;
         }
         TransactionJson other = (TransactionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.processorTransactionId, other.processorTransactionId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.processorTransactionId, other.processorTransactionId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, processorTransactionId);
+        return Utils.enhancedHash(id, processorTransactionId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TransactionJson.class,
-                "id", id,
-                "processorTransactionId", processorTransactionId);
+        return Utils.toString(TransactionJson.class, "id", id, "processorTransactionId", processorTransactionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String processorTransactionId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +130,7 @@ public class TransactionJson {
         }
 
         public TransactionJson build() {
-            return new TransactionJson(
-                id, processorTransactionId);
+            return new TransactionJson(id, processorTransactionId);
         }
-
     }
 }

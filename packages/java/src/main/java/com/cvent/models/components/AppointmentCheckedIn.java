@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AppointmentCheckedIn
- * 
+ *
  * <p>Appointment checked-in activity.
  */
 public class AppointmentCheckedIn {
@@ -50,7 +50,7 @@ public class AppointmentCheckedIn {
         this.contact = contact;
         this.checkedIn = checkedIn;
     }
-    
+
     public AppointmentCheckedIn() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class AppointmentCheckedIn {
         return new Builder();
     }
 
-
     /**
      * An activity appointment.
      */
@@ -88,7 +87,6 @@ public class AppointmentCheckedIn {
         this.appointment = appointment;
         return this;
     }
-
 
     /**
      * An activity contact.
@@ -98,7 +96,6 @@ public class AppointmentCheckedIn {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an attendee checked in to the appointment.
      */
@@ -106,7 +103,6 @@ public class AppointmentCheckedIn {
         this.checkedIn = checkedIn;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,24 @@ public class AppointmentCheckedIn {
             return false;
         }
         AppointmentCheckedIn other = (AppointmentCheckedIn) o;
-        return 
-            Utils.enhancedDeepEquals(this.appointment, other.appointment) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn);
+        return Utils.enhancedDeepEquals(this.appointment, other.appointment)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            appointment, contact, checkedIn);
+        return Utils.enhancedHash(appointment, contact, checkedIn);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentCheckedIn.class,
-                "appointment", appointment,
-                "contact", contact,
-                "checkedIn", checkedIn);
+        return Utils.toString(
+                AppointmentCheckedIn.class, "appointment", appointment, "contact", contact, "checkedIn", checkedIn);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityAppointmentJson appointment;
 
@@ -147,7 +139,7 @@ public class AppointmentCheckedIn {
         private OffsetDateTime checkedIn;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +167,7 @@ public class AppointmentCheckedIn {
         }
 
         public AppointmentCheckedIn build() {
-            return new AppointmentCheckedIn(
-                appointment, contact, checkedIn);
+            return new AppointmentCheckedIn(appointment, contact, checkedIn);
         }
-
     }
 }

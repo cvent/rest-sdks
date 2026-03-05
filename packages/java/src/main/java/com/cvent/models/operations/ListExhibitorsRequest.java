@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListExhibitorsRequest {
     /**
      * ID of an event.
@@ -44,24 +43,16 @@ public class ListExhibitorsRequest {
 
     @JsonCreator
     public ListExhibitorsRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorCategoryId,
-            @Nullable Long limit,
-            @Nullable String token) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorCategoryId, @Nullable Long limit, @Nullable String token) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorCategoryId = Optional.ofNullable(exhibitorCategoryId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public ListExhibitorsRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorCategoryId) {
-        this(id, exhibitorCategoryId, null,
-            null);
+
+    public ListExhibitorsRequest(@Nonnull String id, @Nonnull String exhibitorCategoryId) {
+        this(id, exhibitorCategoryId, null, null);
     }
 
     /**
@@ -97,7 +88,6 @@ public class ListExhibitorsRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -105,7 +95,6 @@ public class ListExhibitorsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor category.
@@ -115,7 +104,6 @@ public class ListExhibitorsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -123,7 +111,6 @@ public class ListExhibitorsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -134,7 +121,6 @@ public class ListExhibitorsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -144,31 +130,33 @@ public class ListExhibitorsRequest {
             return false;
         }
         ListExhibitorsRequest other = (ListExhibitorsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorCategoryId, limit,
-            token);
+        return Utils.enhancedHash(id, exhibitorCategoryId, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListExhibitorsRequest.class,
-                "id", id,
-                "exhibitorCategoryId", exhibitorCategoryId,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(
+                ListExhibitorsRequest.class,
+                "id",
+                id,
+                "exhibitorCategoryId",
+                exhibitorCategoryId,
+                "limit",
+                limit,
+                "token",
+                token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -179,7 +167,7 @@ public class ListExhibitorsRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,16 +204,10 @@ public class ListExhibitorsRequest {
         }
 
         public ListExhibitorsRequest build() {
-            return new ListExhibitorsRequest(
-                id, exhibitorCategoryId, limit,
-                token);
+            return new ListExhibitorsRequest(id, exhibitorCategoryId, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

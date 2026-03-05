@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * OrderItemRefJson
- * 
+ *
  * <p>Represents an order item by its ID.
  */
 public class OrderItemRefJson {
@@ -24,10 +24,8 @@ public class OrderItemRefJson {
     private String id;
 
     @JsonCreator
-    public OrderItemRefJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public OrderItemRefJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class OrderItemRefJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier for the order item.
      */
@@ -49,7 +46,6 @@ public class OrderItemRefJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class OrderItemRefJson {
             return false;
         }
         OrderItemRefJson other = (OrderItemRefJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderItemRefJson.class,
-                "id", id);
+        return Utils.toString(OrderItemRefJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class OrderItemRefJson {
         }
 
         public OrderItemRefJson build() {
-            return new OrderItemRefJson(
-                id);
+            return new OrderItemRefJson(id);
         }
-
     }
 }

@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BulkJobStatus
     {
-        [JsonProperty("PENDING")]
-        Pending,
-        [JsonProperty("READY")]
-        Ready,
-        [JsonProperty("RUNNING")]
-        Running,
-        [JsonProperty("CANCELED")]
-        Canceled,
-        [JsonProperty("COMPLETED")]
-        Completed,
-        [JsonProperty("FAILED")]
-        Failed,
+        [JsonProperty("PENDING")] Pending,
+        [JsonProperty("READY")] Ready,
+        [JsonProperty("RUNNING")] Running,
+        [JsonProperty("CANCELED")] Canceled,
+        [JsonProperty("COMPLETED")] Completed,
+        [JsonProperty("FAILED")] Failed,
     }
 
     public static class BulkJobStatusExtension
     {
         public static string Value(this BulkJobStatus value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BulkJobStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(BulkJobStatus).GetFields())
+            foreach (var field in typeof(BulkJobStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * TravelProposal
- * 
+ *
  * <p>Represents travel proposals. Travel proposals are created by the travel supplier in response to a
  * travel account's program.
  */
@@ -238,13 +238,11 @@ public class TravelProposal {
         this.travelProgram = travelProgram;
         this.contractPeriod = contractPeriod;
         this.status = status;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
         this.rateReviewStatus = rateReviewStatus;
         this.businessType = businessType;
         this.format = format;
-        this.documentRead = Optional.ofNullable(documentRead)
-            .orElse(Builder._SINGLETON_VALUE_DocumentRead.value());
+        this.documentRead = Optional.ofNullable(documentRead).orElse(Builder._SINGLETON_VALUE_DocumentRead.value());
         this.rejectReasonCode = rejectReasonCode;
         this.rejectComment = rejectComment;
         this.submitDate = submitDate;
@@ -257,17 +255,34 @@ public class TravelProposal {
         this.groupAndMeeting = groupAndMeeting;
         this.proposalDisposition = proposalDisposition;
     }
-    
+
     public TravelProposal() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -450,7 +465,6 @@ public class TravelProposal {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -458,7 +472,6 @@ public class TravelProposal {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -468,7 +481,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -476,7 +488,6 @@ public class TravelProposal {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -486,7 +497,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * The unique ID of the travel proposal.
      */
@@ -494,7 +504,6 @@ public class TravelProposal {
         this.id = id;
         return this;
     }
-
 
     /**
      * Supplier property that the proposal is tied to.
@@ -504,7 +513,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * Travel program that the proposal is in response to.
      */
@@ -512,7 +520,6 @@ public class TravelProposal {
         this.travelProgram = travelProgram;
         return this;
     }
-
 
     /**
      * Contract period of the proposal. The year the contract begins.
@@ -522,7 +529,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * The status of the proposal
      */
@@ -530,7 +536,6 @@ public class TravelProposal {
         this.status = status;
         return this;
     }
-
 
     /**
      * True indicates the proposal is deleted.
@@ -540,7 +545,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * The rate review status of the proposal
      */
@@ -548,7 +552,6 @@ public class TravelProposal {
         this.rateReviewStatus = rateReviewStatus;
         return this;
     }
-
 
     /**
      * Business type.
@@ -558,7 +561,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * Proposal format.
      */
@@ -566,7 +568,6 @@ public class TravelProposal {
         this.format = format;
         return this;
     }
-
 
     /**
      * True indicates the documents been read by the supply-side.
@@ -576,7 +577,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * Reason the reject/decline action was performed. Used for certain actions/statuses.
      */
@@ -584,7 +584,6 @@ public class TravelProposal {
         this.rejectReasonCode = rejectReasonCode;
         return this;
     }
-
 
     /**
      * Comments regarding the reasoning for the reject/decline action. This only comes into play for
@@ -595,7 +594,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * The ISO 8601 datetime when proposal was submitted by the hotel.
      */
@@ -603,7 +601,6 @@ public class TravelProposal {
         this.submitDate = submitDate;
         return this;
     }
-
 
     /**
      * The current round of negotiations.
@@ -613,7 +610,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * The ISO 8601 datetime when the negotiation response is due.
      */
@@ -621,7 +617,6 @@ public class TravelProposal {
         this.negotiationDueDate = negotiationDueDate;
         return this;
     }
-
 
     /**
      * Client room nights produced at property from January 1 through June 30.
@@ -631,7 +626,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * True indicates this proposal is a draft copy that is not sent to the other party.
      */
@@ -639,7 +633,6 @@ public class TravelProposal {
         this.draft = draft;
         return this;
     }
-
 
     /**
      * Collection of bid IDs attached to the proposal.
@@ -649,7 +642,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * Collection of custom questions.
      */
@@ -657,7 +649,6 @@ public class TravelProposal {
         this.customQuestionAnswers = customQuestionAnswers;
         return this;
     }
-
 
     /**
      * Group and meeting information.
@@ -667,7 +658,6 @@ public class TravelProposal {
         return this;
     }
 
-
     /**
      * Represent proposal disposition details.
      */
@@ -675,7 +665,6 @@ public class TravelProposal {
         this.proposalDisposition = proposalDisposition;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -686,80 +675,121 @@ public class TravelProposal {
             return false;
         }
         TravelProposal other = (TravelProposal) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.supplierProperty, other.supplierProperty) &&
-            Utils.enhancedDeepEquals(this.travelProgram, other.travelProgram) &&
-            Utils.enhancedDeepEquals(this.contractPeriod, other.contractPeriod) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.rateReviewStatus, other.rateReviewStatus) &&
-            Utils.enhancedDeepEquals(this.businessType, other.businessType) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.documentRead, other.documentRead) &&
-            Utils.enhancedDeepEquals(this.rejectReasonCode, other.rejectReasonCode) &&
-            Utils.enhancedDeepEquals(this.rejectComment, other.rejectComment) &&
-            Utils.enhancedDeepEquals(this.submitDate, other.submitDate) &&
-            Utils.enhancedDeepEquals(this.negotiationRound, other.negotiationRound) &&
-            Utils.enhancedDeepEquals(this.negotiationDueDate, other.negotiationDueDate) &&
-            Utils.enhancedDeepEquals(this.roomNightConsumption, other.roomNightConsumption) &&
-            Utils.enhancedDeepEquals(this.draft, other.draft) &&
-            Utils.enhancedDeepEquals(this.bids, other.bids) &&
-            Utils.enhancedDeepEquals(this.customQuestionAnswers, other.customQuestionAnswers) &&
-            Utils.enhancedDeepEquals(this.groupAndMeeting, other.groupAndMeeting) &&
-            Utils.enhancedDeepEquals(this.proposalDisposition, other.proposalDisposition);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.supplierProperty, other.supplierProperty)
+                && Utils.enhancedDeepEquals(this.travelProgram, other.travelProgram)
+                && Utils.enhancedDeepEquals(this.contractPeriod, other.contractPeriod)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.rateReviewStatus, other.rateReviewStatus)
+                && Utils.enhancedDeepEquals(this.businessType, other.businessType)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.documentRead, other.documentRead)
+                && Utils.enhancedDeepEquals(this.rejectReasonCode, other.rejectReasonCode)
+                && Utils.enhancedDeepEquals(this.rejectComment, other.rejectComment)
+                && Utils.enhancedDeepEquals(this.submitDate, other.submitDate)
+                && Utils.enhancedDeepEquals(this.negotiationRound, other.negotiationRound)
+                && Utils.enhancedDeepEquals(this.negotiationDueDate, other.negotiationDueDate)
+                && Utils.enhancedDeepEquals(this.roomNightConsumption, other.roomNightConsumption)
+                && Utils.enhancedDeepEquals(this.draft, other.draft)
+                && Utils.enhancedDeepEquals(this.bids, other.bids)
+                && Utils.enhancedDeepEquals(this.customQuestionAnswers, other.customQuestionAnswers)
+                && Utils.enhancedDeepEquals(this.groupAndMeeting, other.groupAndMeeting)
+                && Utils.enhancedDeepEquals(this.proposalDisposition, other.proposalDisposition);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, supplierProperty,
-            travelProgram, contractPeriod, status,
-            deleted, rateReviewStatus, businessType,
-            format, documentRead, rejectReasonCode,
-            rejectComment, submitDate, negotiationRound,
-            negotiationDueDate, roomNightConsumption, draft,
-            bids, customQuestionAnswers, groupAndMeeting,
-            proposalDisposition);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                supplierProperty,
+                travelProgram,
+                contractPeriod,
+                status,
+                deleted,
+                rateReviewStatus,
+                businessType,
+                format,
+                documentRead,
+                rejectReasonCode,
+                rejectComment,
+                submitDate,
+                negotiationRound,
+                negotiationDueDate,
+                roomNightConsumption,
+                draft,
+                bids,
+                customQuestionAnswers,
+                groupAndMeeting,
+                proposalDisposition);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelProposal.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "supplierProperty", supplierProperty,
-                "travelProgram", travelProgram,
-                "contractPeriod", contractPeriod,
-                "status", status,
-                "deleted", deleted,
-                "rateReviewStatus", rateReviewStatus,
-                "businessType", businessType,
-                "format", format,
-                "documentRead", documentRead,
-                "rejectReasonCode", rejectReasonCode,
-                "rejectComment", rejectComment,
-                "submitDate", submitDate,
-                "negotiationRound", negotiationRound,
-                "negotiationDueDate", negotiationDueDate,
-                "roomNightConsumption", roomNightConsumption,
-                "draft", draft,
-                "bids", bids,
-                "customQuestionAnswers", customQuestionAnswers,
-                "groupAndMeeting", groupAndMeeting,
-                "proposalDisposition", proposalDisposition);
+        return Utils.toString(
+                TravelProposal.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "supplierProperty",
+                supplierProperty,
+                "travelProgram",
+                travelProgram,
+                "contractPeriod",
+                contractPeriod,
+                "status",
+                status,
+                "deleted",
+                deleted,
+                "rateReviewStatus",
+                rateReviewStatus,
+                "businessType",
+                businessType,
+                "format",
+                format,
+                "documentRead",
+                documentRead,
+                "rejectReasonCode",
+                rejectReasonCode,
+                "rejectComment",
+                rejectComment,
+                "submitDate",
+                submitDate,
+                "negotiationRound",
+                negotiationRound,
+                "negotiationDueDate",
+                negotiationDueDate,
+                "roomNightConsumption",
+                roomNightConsumption,
+                "draft",
+                draft,
+                "bids",
+                bids,
+                "customQuestionAnswers",
+                customQuestionAnswers,
+                "groupAndMeeting",
+                groupAndMeeting,
+                "proposalDisposition",
+                proposalDisposition);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -812,7 +842,7 @@ public class TravelProposal {
         private TravelProposalDispositionJson proposalDisposition;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1018,28 +1048,37 @@ public class TravelProposal {
 
         public TravelProposal build() {
             return new TravelProposal(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, supplierProperty,
-                travelProgram, contractPeriod, status,
-                deleted, rateReviewStatus, businessType,
-                format, documentRead, rejectReasonCode,
-                rejectComment, submitDate, negotiationRound,
-                negotiationDueDate, roomNightConsumption, draft,
-                bids, customQuestionAnswers, groupAndMeeting,
-                proposalDisposition);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    supplierProperty,
+                    travelProgram,
+                    contractPeriod,
+                    status,
+                    deleted,
+                    rateReviewStatus,
+                    businessType,
+                    format,
+                    documentRead,
+                    rejectReasonCode,
+                    rejectComment,
+                    submitDate,
+                    negotiationRound,
+                    negotiationDueDate,
+                    roomNightConsumption,
+                    draft,
+                    bids,
+                    customQuestionAnswers,
+                    groupAndMeeting,
+                    proposalDisposition);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DocumentRead =
-                new LazySingletonValue<>(
-                        "documentRead",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("documentRead", "false", new TypeReference<Boolean>() {});
     }
 }

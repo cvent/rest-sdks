@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SurveyStatusJson
- * 
+ *
  * <p>Survey Status
  */
 public enum SurveyStatusJson {
@@ -25,13 +25,13 @@ public enum SurveyStatusJson {
     SurveyStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SurveyStatusJson> fromValue(String value) {
-        for (SurveyStatusJson o: SurveyStatusJson.values()) {
+        for (SurveyStatusJson o : SurveyStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum SurveyStatusJson {
         return Optional.empty();
     }
 }
-

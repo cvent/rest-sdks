@@ -28,7 +28,7 @@ public class UpdateCustomFieldRequestBuilder {
     private UpdateCustomFieldRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateCustomFieldRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateCustomFieldRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateCustomFieldResponse call() {
-        RequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation
-              = new UpdateCustomField.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation =
+                new UpdateCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

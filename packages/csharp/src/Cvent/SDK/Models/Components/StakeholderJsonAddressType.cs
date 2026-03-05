@@ -19,10 +19,8 @@ namespace Cvent.SDK.Models.Components
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public enum StakeholderJsonAddressType
     {
-        [JsonProperty("Home")]
-        Home,
-        [JsonProperty("Work")]
-        Work,
+        [JsonProperty("Home")] Home,
+        [JsonProperty("Work")] Work,
     }
 #pragma warning disable 0618
 
@@ -30,12 +28,12 @@ namespace Cvent.SDK.Models.Components
     {
         public static string Value(this StakeholderJsonAddressType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static StakeholderJsonAddressType ToEnum(this string value)
         {
-            foreach(var field in typeof(StakeholderJsonAddressType).GetFields())
+            foreach (var field in typeof(StakeholderJsonAddressType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

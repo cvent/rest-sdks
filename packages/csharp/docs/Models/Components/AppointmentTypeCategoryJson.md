@@ -2,6 +2,14 @@
 
 The category of the appointment type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AppointmentTypeCategoryJson.CustomAppointment;
+```
+
 
 ## Values
 

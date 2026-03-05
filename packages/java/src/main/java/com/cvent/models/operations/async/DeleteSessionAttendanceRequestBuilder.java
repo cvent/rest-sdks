@@ -30,7 +30,7 @@ public class DeleteSessionAttendanceRequestBuilder {
     private DeleteSessionAttendanceRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteSessionAttendanceRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteSessionAttendanceRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteSessionAttendanceResponse> call() {
-        AsyncRequestOperation<DeleteSessionAttendanceRequest, DeleteSessionAttendanceResponse> operation
-              = new DeleteSessionAttendance.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteSessionAttendanceRequest, DeleteSessionAttendanceResponse> operation =
+                new DeleteSessionAttendance.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

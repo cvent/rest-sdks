@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorAddressJson
- * 
+ *
  * <p>An object representing an address with various properties.
  */
 public class ExhibitorAddressJson {
@@ -76,10 +76,9 @@ public class ExhibitorAddressJson {
         this.postalCode = postalCode;
         this.country = country;
     }
-    
+
     public ExhibitorAddressJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -128,7 +127,6 @@ public class ExhibitorAddressJson {
         return new Builder();
     }
 
-
     /**
      * The first line of an address
      */
@@ -136,7 +134,6 @@ public class ExhibitorAddressJson {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * The second line of an address
@@ -146,7 +143,6 @@ public class ExhibitorAddressJson {
         return this;
     }
 
-
     /**
      * The name of the city.
      */
@@ -154,7 +150,6 @@ public class ExhibitorAddressJson {
         this.city = city;
         return this;
     }
-
 
     /**
      * The name of the state/province/region of the address.
@@ -164,7 +159,6 @@ public class ExhibitorAddressJson {
         return this;
     }
 
-
     /**
      * postal code (also known as zipcode) of the address
      */
@@ -173,7 +167,6 @@ public class ExhibitorAddressJson {
         return this;
     }
 
-
     /**
      * Name of the country for example, 'United States'
      */
@@ -181,7 +174,6 @@ public class ExhibitorAddressJson {
         this.country = country;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -192,35 +184,39 @@ public class ExhibitorAddressJson {
             return false;
         }
         ExhibitorAddressJson other = (ExhibitorAddressJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            address1, address2, city,
-            region, postalCode, country);
+        return Utils.enhancedHash(address1, address2, city, region, postalCode, country);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorAddressJson.class,
-                "address1", address1,
-                "address2", address2,
-                "city", city,
-                "region", region,
-                "postalCode", postalCode,
-                "country", country);
+        return Utils.toString(
+                ExhibitorAddressJson.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "city",
+                city,
+                "region",
+                region,
+                "postalCode",
+                postalCode,
+                "country",
+                country);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -235,7 +231,7 @@ public class ExhibitorAddressJson {
         private String country;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -287,10 +283,7 @@ public class ExhibitorAddressJson {
         }
 
         public ExhibitorAddressJson build() {
-            return new ExhibitorAddressJson(
-                address1, address2, city,
-                region, postalCode, country);
+            return new ExhibitorAddressJson(address1, address2, city, region, postalCode, country);
         }
-
     }
 }

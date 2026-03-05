@@ -28,7 +28,7 @@ public class GetContactGroupByIdRequestBuilder {
     private GetContactGroupByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetContactGroupByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetContactGroupByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetContactGroupByIdResponse call() {
-        RequestOperation<GetContactGroupByIdRequest, GetContactGroupByIdResponse> operation
-              = new GetContactGroupById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetContactGroupByIdRequest, GetContactGroupByIdResponse> operation =
+                new GetContactGroupById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

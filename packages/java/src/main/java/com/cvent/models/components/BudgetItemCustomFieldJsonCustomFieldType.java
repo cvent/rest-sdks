@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BudgetItemCustomFieldJsonCustomFieldType
- * 
+ *
  * <p>The type of data collected by a custom field.
  */
 public enum BudgetItemCustomFieldJsonCustomFieldType {
@@ -40,13 +40,13 @@ public enum BudgetItemCustomFieldJsonCustomFieldType {
     BudgetItemCustomFieldJsonCustomFieldType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BudgetItemCustomFieldJsonCustomFieldType> fromValue(String value) {
-        for (BudgetItemCustomFieldJsonCustomFieldType o: BudgetItemCustomFieldJsonCustomFieldType.values()) {
+        for (BudgetItemCustomFieldJsonCustomFieldType o : BudgetItemCustomFieldJsonCustomFieldType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -54,4 +54,3 @@ public enum BudgetItemCustomFieldJsonCustomFieldType {
         return Optional.empty();
     }
 }
-

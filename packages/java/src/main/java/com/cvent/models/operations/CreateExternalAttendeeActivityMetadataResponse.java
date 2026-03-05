@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateExternalAttendeeActivityMetadataResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExternalActivityMetadata externalActivityMetadata) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.externalActivityMetadata = externalActivityMetadata;
     }
-    
+
     public CreateExternalAttendeeActivityMetadataResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,24 +103,23 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    public CreateExternalAttendeeActivityMetadataResponse withRawResponse(@Nonnull HttpResponse<InputStream> rawResponse) {
+    public CreateExternalAttendeeActivityMetadataResponse withRawResponse(
+            @Nonnull HttpResponse<InputStream> rawResponse) {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
 
-
     /**
      * Successfully created attendee activity metadata.
      */
-    public CreateExternalAttendeeActivityMetadataResponse withExternalActivityMetadata(@Nullable ExternalActivityMetadata externalActivityMetadata) {
+    public CreateExternalAttendeeActivityMetadataResponse withExternalActivityMetadata(
+            @Nullable ExternalActivityMetadata externalActivityMetadata) {
         this.externalActivityMetadata = externalActivityMetadata;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +130,33 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
             return false;
         }
         CreateExternalAttendeeActivityMetadataResponse other = (CreateExternalAttendeeActivityMetadataResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.externalActivityMetadata, other.externalActivityMetadata);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.externalActivityMetadata, other.externalActivityMetadata);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            externalActivityMetadata);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, externalActivityMetadata);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateExternalAttendeeActivityMetadataResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "externalActivityMetadata", externalActivityMetadata);
+        return Utils.toString(
+                CreateExternalAttendeeActivityMetadataResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "externalActivityMetadata",
+                externalActivityMetadata);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
         private ExternalActivityMetadata externalActivityMetadata;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,9 +204,7 @@ public class CreateExternalAttendeeActivityMetadataResponse implements Response 
 
         public CreateExternalAttendeeActivityMetadataResponse build() {
             return new CreateExternalAttendeeActivityMetadataResponse(
-                contentType, statusCode, rawResponse,
-                externalActivityMetadata);
+                    contentType, statusCode, rawResponse, externalActivityMetadata);
         }
-
     }
 }

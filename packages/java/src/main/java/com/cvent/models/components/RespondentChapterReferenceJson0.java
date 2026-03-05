@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * RespondentChapterReferenceJson0
- * 
+ *
  * <p>Respondent chapter details for survey respondents (Event and Standalone).
  */
 public class RespondentChapterReferenceJson0 {
@@ -56,7 +56,6 @@ public class RespondentChapterReferenceJson0 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("percentageScore")
     private Double percentageScore;
-
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("loopingChoice")
@@ -104,11 +103,9 @@ public class RespondentChapterReferenceJson0 {
         this.evaluationResult = evaluationResult;
         this.attempt = attempt;
     }
-    
+
     public RespondentChapterReferenceJson0() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -176,7 +173,6 @@ public class RespondentChapterReferenceJson0 {
         return new Builder();
     }
 
-
     /**
      * Respondent chapter reference ID.
      */
@@ -184,7 +180,6 @@ public class RespondentChapterReferenceJson0 {
         this.id = id;
         return this;
     }
-
 
     /**
      * In case of Event Survey this represents Survey Status and in case of Standard Survey this represents
@@ -195,7 +190,6 @@ public class RespondentChapterReferenceJson0 {
         return this;
     }
 
-
     /**
      * Score
      */
@@ -203,7 +197,6 @@ public class RespondentChapterReferenceJson0 {
         this.score = score;
         return this;
     }
-
 
     /**
      * Maximum Possible Score
@@ -213,7 +206,6 @@ public class RespondentChapterReferenceJson0 {
         return this;
     }
 
-
     /**
      * Percentage Score
      */
@@ -222,12 +214,10 @@ public class RespondentChapterReferenceJson0 {
         return this;
     }
 
-
     public RespondentChapterReferenceJson0 withLoopingChoice(@Nullable LoopingChoice loopingChoice) {
         this.loopingChoice = loopingChoice;
         return this;
     }
-
 
     /**
      * Associated session.
@@ -237,7 +227,6 @@ public class RespondentChapterReferenceJson0 {
         return this;
     }
 
-
     /**
      * This represents the evaluation status of an assessment chapter.
      */
@@ -246,7 +235,6 @@ public class RespondentChapterReferenceJson0 {
         return this;
     }
 
-
     /**
      * Counts the number of times a respondent has attempted the survey and answered the question.
      */
@@ -254,7 +242,6 @@ public class RespondentChapterReferenceJson0 {
         this.attempt = attempt;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -265,42 +252,57 @@ public class RespondentChapterReferenceJson0 {
             return false;
         }
         RespondentChapterReferenceJson0 other = (RespondentChapterReferenceJson0) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore) &&
-            Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore) &&
-            Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.evaluationResult, other.evaluationResult) &&
-            Utils.enhancedDeepEquals(this.attempt, other.attempt);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore)
+                && Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore)
+                && Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.evaluationResult, other.evaluationResult)
+                && Utils.enhancedDeepEquals(this.attempt, other.attempt);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, status, score,
-            maxPossibleScore, percentageScore, loopingChoice,
-            session, evaluationResult, attempt);
+                id,
+                status,
+                score,
+                maxPossibleScore,
+                percentageScore,
+                loopingChoice,
+                session,
+                evaluationResult,
+                attempt);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RespondentChapterReferenceJson0.class,
-                "id", id,
-                "status", status,
-                "score", score,
-                "maxPossibleScore", maxPossibleScore,
-                "percentageScore", percentageScore,
-                "loopingChoice", loopingChoice,
-                "session", session,
-                "evaluationResult", evaluationResult,
-                "attempt", attempt);
+        return Utils.toString(
+                RespondentChapterReferenceJson0.class,
+                "id",
+                id,
+                "status",
+                status,
+                "score",
+                score,
+                "maxPossibleScore",
+                maxPossibleScore,
+                "percentageScore",
+                percentageScore,
+                "loopingChoice",
+                loopingChoice,
+                "session",
+                session,
+                "evaluationResult",
+                evaluationResult,
+                "attempt",
+                attempt);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -321,7 +323,7 @@ public class RespondentChapterReferenceJson0 {
         private Integer attempt;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -396,10 +398,15 @@ public class RespondentChapterReferenceJson0 {
 
         public RespondentChapterReferenceJson0 build() {
             return new RespondentChapterReferenceJson0(
-                id, status, score,
-                maxPossibleScore, percentageScore, loopingChoice,
-                session, evaluationResult, attempt);
+                    id,
+                    status,
+                    score,
+                    maxPossibleScore,
+                    percentageScore,
+                    loopingChoice,
+                    session,
+                    evaluationResult,
+                    attempt);
         }
-
     }
 }

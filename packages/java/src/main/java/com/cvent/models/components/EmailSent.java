@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EmailSent
- * 
+ *
  * <p>An email-sent activity.
  */
 public class EmailSent {
@@ -35,13 +35,11 @@ public class EmailSent {
     private OffsetDateTime sent;
 
     @JsonCreator
-    public EmailSent(
-            @JsonProperty("type") @Nullable String type,
-            @JsonProperty("sent") @Nullable OffsetDateTime sent) {
+    public EmailSent(@JsonProperty("type") @Nullable String type, @JsonProperty("sent") @Nullable OffsetDateTime sent) {
         this.type = type;
         this.sent = sent;
     }
-    
+
     public EmailSent() {
         this(null, null);
     }
@@ -64,7 +62,6 @@ public class EmailSent {
         return new Builder();
     }
 
-
     /**
      * Type of the email.
      */
@@ -73,7 +70,6 @@ public class EmailSent {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an email was sent.
      */
@@ -81,7 +77,6 @@ public class EmailSent {
         this.sent = sent;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +87,28 @@ public class EmailSent {
             return false;
         }
         EmailSent other = (EmailSent) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.sent, other.sent);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.sent, other.sent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, sent);
+        return Utils.enhancedHash(type, sent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailSent.class,
-                "type", type,
-                "sent", sent);
+        return Utils.toString(EmailSent.class, "type", type, "sent", sent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
         private OffsetDateTime sent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +128,7 @@ public class EmailSent {
         }
 
         public EmailSent build() {
-            return new EmailSent(
-                type, sent);
+            return new EmailSent(type, sent);
         }
-
     }
 }

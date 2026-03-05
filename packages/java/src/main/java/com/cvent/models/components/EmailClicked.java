@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EmailClicked
- * 
+ *
  * <p>An email-clicked activity.
  */
 public class EmailClicked {
@@ -59,10 +59,9 @@ public class EmailClicked {
         this.url = url;
         this.urlText = urlText;
     }
-    
+
     public EmailClicked() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class EmailClicked {
         return new Builder();
     }
 
-
     /**
      * Type of the email.
      */
@@ -105,7 +103,6 @@ public class EmailClicked {
         this.type = type;
         return this;
     }
-
 
     /**
      * ISO 8601 date and time when an email link was clicked.
@@ -115,7 +112,6 @@ public class EmailClicked {
         return this;
     }
 
-
     /**
      * The URL clicked in the email.
      */
@@ -124,7 +120,6 @@ public class EmailClicked {
         return this;
     }
 
-
     /**
      * The URL text of the link.
      */
@@ -132,7 +127,6 @@ public class EmailClicked {
         this.urlText = urlText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,24 @@ public class EmailClicked {
             return false;
         }
         EmailClicked other = (EmailClicked) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.clicked, other.clicked) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.urlText, other.urlText);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.clicked, other.clicked)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.urlText, other.urlText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, clicked, url,
-            urlText);
+        return Utils.enhancedHash(type, clicked, url, urlText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailClicked.class,
-                "type", type,
-                "clicked", clicked,
-                "url", url,
-                "urlText", urlText);
+        return Utils.toString(EmailClicked.class, "type", type, "clicked", clicked, "url", url, "urlText", urlText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
@@ -178,7 +165,7 @@ public class EmailClicked {
         private String urlText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +201,7 @@ public class EmailClicked {
         }
 
         public EmailClicked build() {
-            return new EmailClicked(
-                type, clicked, url,
-                urlText);
+            return new EmailClicked(type, clicked, url, urlText);
         }
-
     }
 }

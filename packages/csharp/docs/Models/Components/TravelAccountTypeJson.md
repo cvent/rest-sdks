@@ -2,6 +2,14 @@
 
 Code representing the travel account type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TravelAccountTypeJson.Corporate;
+```
+
 
 ## Values
 

@@ -30,7 +30,7 @@ public class AddUserToAccountUserGroupRequestBuilder {
     private AddUserToAccountUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AddUserToAccountUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AddUserToAccountUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AddUserToAccountUserGroupResponse> call() {
-        AsyncRequestOperation<AddUserToAccountUserGroupRequest, AddUserToAccountUserGroupResponse> operation
-              = new AddUserToAccountUserGroup.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AddUserToAccountUserGroupRequest, AddUserToAccountUserGroupResponse> operation =
+                new AddUserToAccountUserGroup.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SurveyResponseJson
- * 
+ *
  * <p>A survey response.
  */
 public class SurveyResponseJson {
@@ -50,7 +50,7 @@ public class SurveyResponseJson {
         this.responseMethod = responseMethod;
         this.responses = responses;
     }
-    
+
     public SurveyResponseJson() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class SurveyResponseJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the survey.
      */
@@ -88,7 +87,6 @@ public class SurveyResponseJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The method used to capture the survey response.
@@ -98,7 +96,6 @@ public class SurveyResponseJson {
         return this;
     }
 
-
     /**
      * The list of question and answers for a survey.
      */
@@ -106,7 +103,6 @@ public class SurveyResponseJson {
         this.responses = responses;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,24 @@ public class SurveyResponseJson {
             return false;
         }
         SurveyResponseJson other = (SurveyResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod) &&
-            Utils.enhancedDeepEquals(this.responses, other.responses);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod)
+                && Utils.enhancedDeepEquals(this.responses, other.responses);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, responseMethod, responses);
+        return Utils.enhancedHash(id, responseMethod, responses);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SurveyResponseJson.class,
-                "id", id,
-                "responseMethod", responseMethod,
-                "responses", responses);
+        return Utils.toString(
+                SurveyResponseJson.class, "id", id, "responseMethod", responseMethod, "responses", responses);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -147,7 +139,7 @@ public class SurveyResponseJson {
         private List<QuestionResponseJson> responses;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +167,7 @@ public class SurveyResponseJson {
         }
 
         public SurveyResponseJson build() {
-            return new SurveyResponseJson(
-                id, responseMethod, responses);
+            return new SurveyResponseJson(id, responseMethod, responses);
         }
-
     }
 }

@@ -15,7 +15,7 @@ namespace Cvent.SDK.Utils
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
-    internal class FlexibleObjectDeserializer: JsonConverter
+    internal class FlexibleObjectDeserializer : JsonConverter
     {
         public override bool CanConvert(Type objectType) =>
             objectType == typeof(object);
@@ -29,9 +29,9 @@ namespace Cvent.SDK.Utils
             if (token is JArray)
             {
                 return new List<object>(token.Select(t =>
-                {
-                    return t.ToString();
-                }));
+                                                     {
+                                                         return t.ToString();
+                                                     }));
             }
 
             return token.ToObject(objectType);

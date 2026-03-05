@@ -28,28 +28,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RespondedThroughJson
     {
-        [JsonProperty("Not Responded")]
-        NotResponded,
-        [JsonProperty("API")]
-        Api,
-        [JsonProperty("Import")]
-        Import,
-        [JsonProperty("Mobile")]
-        Mobile,
-        [JsonProperty("Desktop")]
-        Desktop,
+        [JsonProperty("Not Responded")] NotResponded,
+        [JsonProperty("API")] Api,
+        [JsonProperty("Import")] Import,
+        [JsonProperty("Mobile")] Mobile,
+        [JsonProperty("Desktop")] Desktop,
     }
 
     public static class RespondedThroughJsonExtension
     {
         public static string Value(this RespondedThroughJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RespondedThroughJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RespondedThroughJson).GetFields())
+            foreach (var field in typeof(RespondedThroughJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

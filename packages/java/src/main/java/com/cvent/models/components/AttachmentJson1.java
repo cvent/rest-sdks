@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AttachmentJson1
- * 
+ *
  * <p>A message attachment.
  */
 public class AttachmentJson1 {
@@ -24,10 +24,8 @@ public class AttachmentJson1 {
     private String link;
 
     @JsonCreator
-    public AttachmentJson1(
-            @JsonProperty("link") @Nonnull String link) {
-        this.link = Optional.ofNullable(link)
-            .orElseThrow(() -> new IllegalArgumentException("link cannot be null"));
+    public AttachmentJson1(@JsonProperty("link") @Nonnull String link) {
+        this.link = Optional.ofNullable(link).orElseThrow(() -> new IllegalArgumentException("link cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class AttachmentJson1 {
         return new Builder();
     }
 
-
     /**
      * A link to the attachment allowing it to be downloaded
      */
@@ -49,7 +46,6 @@ public class AttachmentJson1 {
         this.link = Utils.checkNotNull(link, "link");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class AttachmentJson1 {
             return false;
         }
         AttachmentJson1 other = (AttachmentJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.link, other.link);
+        return Utils.enhancedDeepEquals(this.link, other.link);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            link);
+        return Utils.enhancedHash(link);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttachmentJson1.class,
-                "link", link);
+        return Utils.toString(AttachmentJson1.class, "link", link);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String link;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class AttachmentJson1 {
         }
 
         public AttachmentJson1 build() {
-            return new AttachmentJson1(
-                link);
+            return new AttachmentJson1(link);
         }
-
     }
 }

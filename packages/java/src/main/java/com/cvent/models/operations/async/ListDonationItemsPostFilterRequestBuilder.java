@@ -40,7 +40,7 @@ public class ListDonationItemsPostFilterRequestBuilder {
     private ListDonationItemsPostFilterRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListDonationItemsPostFilterRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListDonationItemsPostFilterRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListDonationItemsPostFilterResponse> call() {
-        AsyncRequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation
-              = new ListDonationItemsPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation =
+                new ListDonationItemsPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListDonationItemsPostFilterRequestBuilder {
      */
     public Publisher<ListDonationItemsPostFilterResponse> callAsPublisher() {
         ListDonationItemsPostFilterRequest request = this.request;
-        AsyncRequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation
-              = new ListDonationItemsPostFilter.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation =
+                new ListDonationItemsPostFilter.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListDonationItemsPostFilterRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListDonationItemsPostFilterRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListDonationItemsPostFilterResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListDonationItemsPostFilterResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

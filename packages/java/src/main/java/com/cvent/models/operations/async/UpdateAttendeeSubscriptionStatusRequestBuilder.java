@@ -22,7 +22,8 @@ public class UpdateAttendeeSubscriptionStatusRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public UpdateAttendeeSubscriptionStatusRequestBuilder request(@Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
+    public UpdateAttendeeSubscriptionStatusRequestBuilder request(
+            @Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class UpdateAttendeeSubscriptionStatusRequestBuilder {
     private UpdateAttendeeSubscriptionStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateAttendeeSubscriptionStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class UpdateAttendeeSubscriptionStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateAttendeeSubscriptionStatusResponse> call() {
-        AsyncRequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation
-              = new UpdateAttendeeSubscriptionStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation =
+                new UpdateAttendeeSubscriptionStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

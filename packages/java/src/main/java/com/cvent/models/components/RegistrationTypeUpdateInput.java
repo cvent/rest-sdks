@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * RegistrationTypeUpdateInput
- * 
+ *
  * <p>Represents the details of an existing registration type.
  */
 public class RegistrationTypeUpdateInput {
@@ -60,11 +60,9 @@ public class RegistrationTypeUpdateInput {
         this.automaticEndDate = automaticEndDate;
         this.capacity = capacity;
     }
-    
-    public RegistrationTypeUpdateInput(
-            boolean openForRegistration) {
-        this(openForRegistration, null, null,
-            null);
+
+    public RegistrationTypeUpdateInput(boolean openForRegistration) {
+        this(openForRegistration, null, null, null);
     }
 
     /**
@@ -101,7 +99,6 @@ public class RegistrationTypeUpdateInput {
         return new Builder();
     }
 
-
     /**
      * True indicates the registration type can be chosen for registration.
      */
@@ -109,7 +106,6 @@ public class RegistrationTypeUpdateInput {
         this.openForRegistration = openForRegistration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date-time (in UTC) the registration type automatically opens for
@@ -120,7 +116,6 @@ public class RegistrationTypeUpdateInput {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date-time (in UTC) the registration type automatically closes for
      * registration.
@@ -130,7 +125,6 @@ public class RegistrationTypeUpdateInput {
         return this;
     }
 
-
     /**
      * Represents capacity statistics of the registration type.
      */
@@ -138,7 +132,6 @@ public class RegistrationTypeUpdateInput {
         this.capacity = capacity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -149,31 +142,33 @@ public class RegistrationTypeUpdateInput {
             return false;
         }
         RegistrationTypeUpdateInput other = (RegistrationTypeUpdateInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticOpenDate, other.automaticOpenDate) &&
-            Utils.enhancedDeepEquals(this.automaticEndDate, other.automaticEndDate) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity);
+        return Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticOpenDate, other.automaticOpenDate)
+                && Utils.enhancedDeepEquals(this.automaticEndDate, other.automaticEndDate)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            openForRegistration, automaticOpenDate, automaticEndDate,
-            capacity);
+        return Utils.enhancedHash(openForRegistration, automaticOpenDate, automaticEndDate, capacity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RegistrationTypeUpdateInput.class,
-                "openForRegistration", openForRegistration,
-                "automaticOpenDate", automaticOpenDate,
-                "automaticEndDate", automaticEndDate,
-                "capacity", capacity);
+        return Utils.toString(
+                RegistrationTypeUpdateInput.class,
+                "openForRegistration",
+                openForRegistration,
+                "automaticOpenDate",
+                automaticOpenDate,
+                "automaticEndDate",
+                automaticEndDate,
+                "capacity",
+                capacity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private boolean openForRegistration;
 
@@ -184,7 +179,7 @@ public class RegistrationTypeUpdateInput {
         private CapacityJson1Input capacity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -222,10 +217,7 @@ public class RegistrationTypeUpdateInput {
         }
 
         public RegistrationTypeUpdateInput build() {
-            return new RegistrationTypeUpdateInput(
-                openForRegistration, automaticOpenDate, automaticEndDate,
-                capacity);
+            return new RegistrationTypeUpdateInput(openForRegistration, automaticOpenDate, automaticEndDate, capacity);
         }
-
     }
 }

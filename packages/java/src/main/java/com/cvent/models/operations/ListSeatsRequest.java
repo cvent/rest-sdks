@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSeatsRequest {
     /**
      * ID of an event.
@@ -52,7 +51,7 @@ public class ListSeatsRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -63,10 +62,10 @@ public class ListSeatsRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -82,24 +81,18 @@ public class ListSeatsRequest {
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.seatingId = Optional.ofNullable(seatingId)
-            .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
-        this.tableId = Optional.ofNullable(tableId)
-            .orElseThrow(() -> new IllegalArgumentException("tableId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
+        this.tableId =
+                Optional.ofNullable(tableId).orElseThrow(() -> new IllegalArgumentException("tableId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public ListSeatsRequest(
-            @Nonnull String id,
-            @Nonnull String seatingId,
-            @Nonnull String tableId) {
-        this(id, seatingId, tableId,
-            null, null, null);
+
+    public ListSeatsRequest(@Nonnull String id, @Nonnull String seatingId, @Nonnull String tableId) {
+        this(id, seatingId, tableId, null, null, null);
     }
 
     /**
@@ -142,7 +135,7 @@ public class ListSeatsRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -153,10 +146,10 @@ public class ListSeatsRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -169,7 +162,6 @@ public class ListSeatsRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -177,7 +169,6 @@ public class ListSeatsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of a seating.
@@ -187,7 +178,6 @@ public class ListSeatsRequest {
         return this;
     }
 
-
     /**
      * ID of a table.
      */
@@ -196,7 +186,6 @@ public class ListSeatsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -204,7 +193,6 @@ public class ListSeatsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -215,12 +203,11 @@ public class ListSeatsRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -231,10 +218,10 @@ public class ListSeatsRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -243,7 +230,6 @@ public class ListSeatsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -254,35 +240,39 @@ public class ListSeatsRequest {
             return false;
         }
         ListSeatsRequest other = (ListSeatsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.seatingId, other.seatingId) &&
-            Utils.enhancedDeepEquals(this.tableId, other.tableId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.seatingId, other.seatingId)
+                && Utils.enhancedDeepEquals(this.tableId, other.tableId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, seatingId, tableId,
-            limit, token, filter);
+        return Utils.enhancedHash(id, seatingId, tableId, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSeatsRequest.class,
-                "id", id,
-                "seatingId", seatingId,
-                "tableId", tableId,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListSeatsRequest.class,
+                "id",
+                id,
+                "seatingId",
+                seatingId,
+                "tableId",
+                tableId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -297,7 +287,7 @@ public class ListSeatsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -345,7 +335,7 @@ public class ListSeatsRequest {
          * A filter string passed in the body of the request, narrows search results and supports the
          * combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are eight comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -356,10 +346,10 @@ public class ListSeatsRequest {
          * * starts with: sw
          * * contains a value: contains
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -370,16 +360,10 @@ public class ListSeatsRequest {
         }
 
         public ListSeatsRequest build() {
-            return new ListSeatsRequest(
-                id, seatingId, tableId,
-                limit, token, filter);
+            return new ListSeatsRequest(id, seatingId, tableId, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

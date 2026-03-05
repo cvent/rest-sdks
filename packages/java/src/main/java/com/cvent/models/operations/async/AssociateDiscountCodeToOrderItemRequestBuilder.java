@@ -22,7 +22,8 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public AssociateDiscountCodeToOrderItemRequestBuilder request(@Nonnull AssociateDiscountCodeToOrderItemRequest request) {
+    public AssociateDiscountCodeToOrderItemRequestBuilder request(
+            @Nonnull AssociateDiscountCodeToOrderItemRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
     private AssociateDiscountCodeToOrderItemRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AssociateDiscountCodeToOrderItemRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AssociateDiscountCodeToOrderItemResponse> call() {
-        AsyncRequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation
-              = new AssociateDiscountCodeToOrderItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
+                new AssociateDiscountCodeToOrderItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ExternalActivity
- * 
+ *
  * <p>An external attendee activity.
  */
 public class ExternalActivity {
@@ -84,28 +84,22 @@ public class ExternalActivity {
             @JsonProperty("data") @Nonnull ExternalActivityDataJson data) {
         this.id = id;
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.time = time;
         this.created = created;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
-    
+
     public ExternalActivity(
             @Nonnull UuidJson attendee,
             @Nonnull EventActivityDetailsJson event,
             @Nonnull String name,
             @Nonnull ExternalActivityTypeJson type,
             @Nonnull ExternalActivityDataJson data) {
-        this(null, attendee, event,
-            null, null, name,
-            type, data);
+        this(null, attendee, event, null, null, name, type, data);
     }
 
     /**
@@ -168,7 +162,6 @@ public class ExternalActivity {
         return new Builder();
     }
 
-
     /**
      * The identifier of the attendee activity.
      */
@@ -176,7 +169,6 @@ public class ExternalActivity {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -186,7 +178,6 @@ public class ExternalActivity {
         return this;
     }
 
-
     /**
      * Details for an event activity.
      */
@@ -194,7 +185,6 @@ public class ExternalActivity {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * ISO 8601 date and time when this attendee activity occurred.
@@ -204,7 +194,6 @@ public class ExternalActivity {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when this record was created.
      */
@@ -212,7 +201,6 @@ public class ExternalActivity {
         this.created = created;
         return this;
     }
-
 
     /**
      * Name for the external attendee activity.
@@ -222,7 +210,6 @@ public class ExternalActivity {
         return this;
     }
 
-
     /**
      * This is used to denote the type of the external attendee activity.
      */
@@ -231,7 +218,6 @@ public class ExternalActivity {
         return this;
     }
 
-
     /**
      * This is used to denote the type of the external attendee activity.
      */
@@ -239,7 +225,6 @@ public class ExternalActivity {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -250,40 +235,45 @@ public class ExternalActivity {
             return false;
         }
         ExternalActivity other = (ExternalActivity) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.time, other.time) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.time, other.time)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendee, event,
-            time, created, name,
-            type, data);
+        return Utils.enhancedHash(id, attendee, event, time, created, name, type, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivity.class,
-                "id", id,
-                "attendee", attendee,
-                "event", event,
-                "time", time,
-                "created", created,
-                "name", name,
-                "type", type,
-                "data", data);
+        return Utils.toString(
+                ExternalActivity.class,
+                "id",
+                id,
+                "attendee",
+                attendee,
+                "event",
+                event,
+                "time",
+                time,
+                "created",
+                created,
+                "name",
+                name,
+                "type",
+                type,
+                "data",
+                data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -302,7 +292,7 @@ public class ExternalActivity {
         private ExternalActivityDataJson data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -370,11 +360,7 @@ public class ExternalActivity {
         }
 
         public ExternalActivity build() {
-            return new ExternalActivity(
-                id, attendee, event,
-                time, created, name,
-                type, data);
+            return new ExternalActivity(id, attendee, event, time, created, name, type, data);
         }
-
     }
 }

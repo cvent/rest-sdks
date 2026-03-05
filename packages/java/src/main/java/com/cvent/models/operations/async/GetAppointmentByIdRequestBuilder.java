@@ -30,7 +30,7 @@ public class GetAppointmentByIdRequestBuilder {
     private GetAppointmentByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAppointmentByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetAppointmentByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAppointmentByIdResponse> call() {
-        AsyncRequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation
-              = new GetAppointmentById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation =
+                new GetAppointmentById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

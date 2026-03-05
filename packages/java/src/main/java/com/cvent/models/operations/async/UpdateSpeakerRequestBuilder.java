@@ -30,7 +30,7 @@ public class UpdateSpeakerRequestBuilder {
     private UpdateSpeakerRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateSpeakerRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateSpeakerRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateSpeakerResponse> call() {
-        AsyncRequestOperation<UpdateSpeakerRequest, UpdateSpeakerResponse> operation
-              = new UpdateSpeaker.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateSpeakerRequest, UpdateSpeakerResponse> operation =
+                new UpdateSpeaker.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

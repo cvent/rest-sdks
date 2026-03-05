@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * BudgetItemListResponseJson
- * 
+ *
  * <p>The response from a request to get the budget items for the event.
  */
 public class BudgetItemListResponseJson {
@@ -241,29 +241,27 @@ public class BudgetItemListResponseJson {
         this.event = event;
         this.id = id;
         this.costType = Optional.ofNullable(costType)
-            .orElseThrow(() -> new IllegalArgumentException("costType cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("costType cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.code = code;
         this.category = Optional.ofNullable(category)
-            .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
         this.subCategory = subCategory;
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.vendor = vendor;
         this.rfp = rfp;
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.lastModifiedDate = lastModifiedDate;
         this.generalLedger = generalLedger;
         this.costAvoidance = costAvoidance;
         this.costIncludesTaxGratuity = costIncludesTaxGratuity;
         this.calculateTaxOnGratuity = calculateTaxOnGratuity;
         this.gratuityType = Optional.ofNullable(gratuityType)
-            .orElseThrow(() -> new IllegalArgumentException("gratuityType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("gratuityType cannot be null"));
         this.internalNote = internalNote;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.conversionRateLocked = conversionRateLocked;
         this.conversionRate = conversionRate;
         this.costDetail = costDetail;
@@ -273,7 +271,7 @@ public class BudgetItemListResponseJson {
         this.customFields = customFields;
         this.deleted = deleted;
     }
-    
+
     public BudgetItemListResponseJson(
             @Nonnull BudgetCostTypeJson costType,
             @Nonnull String name,
@@ -285,15 +283,34 @@ public class BudgetItemListResponseJson {
             @Nonnull BudgetTaxGratuityTypeJson gratuityType,
             @Nonnull String currency,
             double conversionRate) {
-        this(null, null, costType,
-            name, null, category,
-            null, status, null,
-            null, date, null,
-            null, null, costIncludesTaxGratuity,
-            calculateTaxOnGratuity, gratuityType, null,
-            currency, null, conversionRate,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                costType,
+                name,
+                null,
+                category,
+                null,
+                status,
+                null,
+                null,
+                date,
+                null,
+                null,
+                null,
+                costIncludesTaxGratuity,
+                calculateTaxOnGratuity,
+                gratuityType,
+                null,
+                currency,
+                null,
+                conversionRate,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -496,7 +513,6 @@ public class BudgetItemListResponseJson {
         return new Builder();
     }
 
-
     /**
      * The identifier of the Event.
      */
@@ -505,7 +521,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * The identifier of the budget item.
      */
@@ -513,7 +528,6 @@ public class BudgetItemListResponseJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
@@ -524,7 +538,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Name of the budget item.
      */
@@ -532,7 +545,6 @@ public class BudgetItemListResponseJson {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * User defined code of the budget item.
@@ -542,7 +554,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Denotes the category assigned to the budget item.
      */
@@ -550,7 +561,6 @@ public class BudgetItemListResponseJson {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
-
 
     /**
      * This is used to denote the sub category for a budget.
@@ -560,7 +570,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Denotes the status assigned to a budget item.
      */
@@ -568,7 +577,6 @@ public class BudgetItemListResponseJson {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     /**
      * List of details for a vendor assigned to a budget item.
@@ -578,7 +586,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * RFP associated with a budget item.
      */
@@ -586,7 +593,6 @@ public class BudgetItemListResponseJson {
         this.rfp = rfp;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of
@@ -597,7 +603,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time when the budget item was last modified.
      */
@@ -605,7 +610,6 @@ public class BudgetItemListResponseJson {
         this.lastModifiedDate = lastModifiedDate;
         return this;
     }
-
 
     /**
      * This is used to denote the general ledger code associated with budget.
@@ -615,7 +619,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Budget cost avoidance information.
      */
@@ -623,7 +626,6 @@ public class BudgetItemListResponseJson {
         this.costAvoidance = costAvoidance;
         return this;
     }
-
 
     /**
      * True indicates the budget item cost includes tax and gratuity.
@@ -633,7 +635,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * True indicates the tax should be calculated on gratuity.
      */
@@ -641,7 +642,6 @@ public class BudgetItemListResponseJson {
         this.calculateTaxOnGratuity = calculateTaxOnGratuity;
         return this;
     }
-
 
     /**
      * Denotes the type of tax or gratuity.
@@ -651,7 +651,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * User defined note associated with the budget item.
      */
@@ -660,7 +659,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 4217 currency code assigned to the budget item's costs.
      */
@@ -668,7 +666,6 @@ public class BudgetItemListResponseJson {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     /**
      * Determines which conversion rate to apply when a currency has multiple conversion rates for the same
@@ -680,7 +677,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Conversion rate for converting an amount into a different currency. Value must be greater than
      * 0.000001
@@ -690,7 +686,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * The list of cost details for a budget item.
      */
@@ -698,7 +693,6 @@ public class BudgetItemListResponseJson {
         this.costDetail = costDetail;
         return this;
     }
-
 
     /**
      * Result of user-defined formula comparing two columns of a budget item cost. Typically this is the
@@ -709,16 +703,15 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * The list of registrants associated to a budget item. Typically used to attribute cost to specific
      * registrants in reporting.
      */
-    public BudgetItemListResponseJson withAssociatedRegistrants(@Nullable List<BudgetAssociatedRegistrantJson> associatedRegistrants) {
+    public BudgetItemListResponseJson withAssociatedRegistrants(
+            @Nullable List<BudgetAssociatedRegistrantJson> associatedRegistrants) {
         this.associatedRegistrants = associatedRegistrants;
         return this;
     }
-
 
     /**
      * Identifies the session associated with the budget item.
@@ -728,7 +721,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * List of budget item custom fields.
      */
@@ -737,7 +729,6 @@ public class BudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * True indicates the event budget item is deleted.
      */
@@ -745,7 +736,6 @@ public class BudgetItemListResponseJson {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -756,84 +746,129 @@ public class BudgetItemListResponseJson {
             return false;
         }
         BudgetItemListResponseJson other = (BudgetItemListResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.costType, other.costType) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subCategory, other.subCategory) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.vendor, other.vendor) &&
-            Utils.enhancedDeepEquals(this.rfp, other.rfp) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.lastModifiedDate, other.lastModifiedDate) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.costAvoidance, other.costAvoidance) &&
-            Utils.enhancedDeepEquals(this.costIncludesTaxGratuity, other.costIncludesTaxGratuity) &&
-            Utils.enhancedDeepEquals(this.calculateTaxOnGratuity, other.calculateTaxOnGratuity) &&
-            Utils.enhancedDeepEquals(this.gratuityType, other.gratuityType) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.conversionRateLocked, other.conversionRateLocked) &&
-            Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate) &&
-            Utils.enhancedDeepEquals(this.costDetail, other.costDetail) &&
-            Utils.enhancedDeepEquals(this.savings, other.savings) &&
-            Utils.enhancedDeepEquals(this.associatedRegistrants, other.associatedRegistrants) &&
-            Utils.enhancedDeepEquals(this.associatedSession, other.associatedSession) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.costType, other.costType)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.vendor, other.vendor)
+                && Utils.enhancedDeepEquals(this.rfp, other.rfp)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.lastModifiedDate, other.lastModifiedDate)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.costAvoidance, other.costAvoidance)
+                && Utils.enhancedDeepEquals(this.costIncludesTaxGratuity, other.costIncludesTaxGratuity)
+                && Utils.enhancedDeepEquals(this.calculateTaxOnGratuity, other.calculateTaxOnGratuity)
+                && Utils.enhancedDeepEquals(this.gratuityType, other.gratuityType)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.conversionRateLocked, other.conversionRateLocked)
+                && Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate)
+                && Utils.enhancedDeepEquals(this.costDetail, other.costDetail)
+                && Utils.enhancedDeepEquals(this.savings, other.savings)
+                && Utils.enhancedDeepEquals(this.associatedRegistrants, other.associatedRegistrants)
+                && Utils.enhancedDeepEquals(this.associatedSession, other.associatedSession)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, id, costType,
-            name, code, category,
-            subCategory, status, vendor,
-            rfp, date, lastModifiedDate,
-            generalLedger, costAvoidance, costIncludesTaxGratuity,
-            calculateTaxOnGratuity, gratuityType, internalNote,
-            currency, conversionRateLocked, conversionRate,
-            costDetail, savings, associatedRegistrants,
-            associatedSession, customFields, deleted);
+                event,
+                id,
+                costType,
+                name,
+                code,
+                category,
+                subCategory,
+                status,
+                vendor,
+                rfp,
+                date,
+                lastModifiedDate,
+                generalLedger,
+                costAvoidance,
+                costIncludesTaxGratuity,
+                calculateTaxOnGratuity,
+                gratuityType,
+                internalNote,
+                currency,
+                conversionRateLocked,
+                conversionRate,
+                costDetail,
+                savings,
+                associatedRegistrants,
+                associatedSession,
+                customFields,
+                deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetItemListResponseJson.class,
-                "event", event,
-                "id", id,
-                "costType", costType,
-                "name", name,
-                "code", code,
-                "category", category,
-                "subCategory", subCategory,
-                "status", status,
-                "vendor", vendor,
-                "rfp", rfp,
-                "date", date,
-                "lastModifiedDate", lastModifiedDate,
-                "generalLedger", generalLedger,
-                "costAvoidance", costAvoidance,
-                "costIncludesTaxGratuity", costIncludesTaxGratuity,
-                "calculateTaxOnGratuity", calculateTaxOnGratuity,
-                "gratuityType", gratuityType,
-                "internalNote", internalNote,
-                "currency", currency,
-                "conversionRateLocked", conversionRateLocked,
-                "conversionRate", conversionRate,
-                "costDetail", costDetail,
-                "savings", savings,
-                "associatedRegistrants", associatedRegistrants,
-                "associatedSession", associatedSession,
-                "customFields", customFields,
-                "deleted", deleted);
+        return Utils.toString(
+                BudgetItemListResponseJson.class,
+                "event",
+                event,
+                "id",
+                id,
+                "costType",
+                costType,
+                "name",
+                name,
+                "code",
+                code,
+                "category",
+                category,
+                "subCategory",
+                subCategory,
+                "status",
+                status,
+                "vendor",
+                vendor,
+                "rfp",
+                rfp,
+                "date",
+                date,
+                "lastModifiedDate",
+                lastModifiedDate,
+                "generalLedger",
+                generalLedger,
+                "costAvoidance",
+                costAvoidance,
+                "costIncludesTaxGratuity",
+                costIncludesTaxGratuity,
+                "calculateTaxOnGratuity",
+                calculateTaxOnGratuity,
+                "gratuityType",
+                gratuityType,
+                "internalNote",
+                internalNote,
+                "currency",
+                currency,
+                "conversionRateLocked",
+                conversionRateLocked,
+                "conversionRate",
+                conversionRate,
+                "costDetail",
+                costDetail,
+                "savings",
+                savings,
+                "associatedRegistrants",
+                associatedRegistrants,
+                "associatedSession",
+                associatedSession,
+                "customFields",
+                customFields,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BudgetItemListResponseJsonEvent event;
 
@@ -890,7 +925,7 @@ public class BudgetItemListResponseJson {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1118,16 +1153,33 @@ public class BudgetItemListResponseJson {
 
         public BudgetItemListResponseJson build() {
             return new BudgetItemListResponseJson(
-                event, id, costType,
-                name, code, category,
-                subCategory, status, vendor,
-                rfp, date, lastModifiedDate,
-                generalLedger, costAvoidance, costIncludesTaxGratuity,
-                calculateTaxOnGratuity, gratuityType, internalNote,
-                currency, conversionRateLocked, conversionRate,
-                costDetail, savings, associatedRegistrants,
-                associatedSession, customFields, deleted);
+                    event,
+                    id,
+                    costType,
+                    name,
+                    code,
+                    category,
+                    subCategory,
+                    status,
+                    vendor,
+                    rfp,
+                    date,
+                    lastModifiedDate,
+                    generalLedger,
+                    costAvoidance,
+                    costIncludesTaxGratuity,
+                    calculateTaxOnGratuity,
+                    gratuityType,
+                    internalNote,
+                    currency,
+                    conversionRateLocked,
+                    conversionRate,
+                    costDetail,
+                    savings,
+                    associatedRegistrants,
+                    associatedSession,
+                    customFields,
+                    deleted);
         }
-
     }
 }

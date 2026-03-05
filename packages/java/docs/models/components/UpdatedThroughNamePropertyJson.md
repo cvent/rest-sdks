@@ -2,6 +2,14 @@
 
 Name of the place where this change was updated through.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.UpdatedThroughNamePropertyJson;
+
+UpdatedThroughNamePropertyJson value = UpdatedThroughNamePropertyJson.ABSTRACT_GUEST_SIDE_AUTHOR_UPDATE;
+```
+
 
 ## Values
 

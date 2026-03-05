@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * TravelGroupAndMeetingJson
- * 
+ *
  * <p>Group and meeting information.
  */
 public class TravelGroupAndMeetingJson {
@@ -67,7 +67,8 @@ public class TravelGroupAndMeetingJson {
             @JsonProperty("runOfHouseRate") @Nullable TravelRunOfHouseRateJson runOfHouseRate,
             @JsonProperty("dayDelegateRate") @Nullable TravelDayDelegateRateJson dayDelegateRate,
             @JsonProperty("taxAndServiceCharge") @Nullable TravelTaxAndServiceChargeJson taxAndServiceCharge,
-            @JsonProperty("meetingRoomBasicInformation") @Nullable TravelMeetingRoomBasicInfoJson meetingRoomBasicInformation,
+            @JsonProperty("meetingRoomBasicInformation") @Nullable
+                    TravelMeetingRoomBasicInfoJson meetingRoomBasicInformation,
             @JsonProperty("amenity") @Nullable TravelAmenityJson amenity,
             @JsonProperty("breakOutRoom") @Nullable TravelBreakOutRoomJson breakOutRoom) {
         this.runOfHouseRate = runOfHouseRate;
@@ -77,10 +78,9 @@ public class TravelGroupAndMeetingJson {
         this.amenity = amenity;
         this.breakOutRoom = breakOutRoom;
     }
-    
+
     public TravelGroupAndMeetingJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -130,7 +130,6 @@ public class TravelGroupAndMeetingJson {
         return new Builder();
     }
 
-
     /**
      * Run of house rate information.
      */
@@ -138,7 +137,6 @@ public class TravelGroupAndMeetingJson {
         this.runOfHouseRate = runOfHouseRate;
         return this;
     }
-
 
     /**
      * Day delegate rate information. This represents the costs for hosting meeting at the venue for a half
@@ -149,24 +147,23 @@ public class TravelGroupAndMeetingJson {
         return this;
     }
 
-
     /**
      * Tax and service charge information.
      */
-    public TravelGroupAndMeetingJson withTaxAndServiceCharge(@Nullable TravelTaxAndServiceChargeJson taxAndServiceCharge) {
+    public TravelGroupAndMeetingJson withTaxAndServiceCharge(
+            @Nullable TravelTaxAndServiceChargeJson taxAndServiceCharge) {
         this.taxAndServiceCharge = taxAndServiceCharge;
         return this;
     }
 
-
     /**
      * Meeting room basic information.
      */
-    public TravelGroupAndMeetingJson withMeetingRoomBasicInformation(@Nullable TravelMeetingRoomBasicInfoJson meetingRoomBasicInformation) {
+    public TravelGroupAndMeetingJson withMeetingRoomBasicInformation(
+            @Nullable TravelMeetingRoomBasicInfoJson meetingRoomBasicInformation) {
         this.meetingRoomBasicInformation = meetingRoomBasicInformation;
         return this;
     }
-
 
     /**
      * Group and meeting amenity info.
@@ -176,7 +173,6 @@ public class TravelGroupAndMeetingJson {
         return this;
     }
 
-
     /**
      * Break-out room information.
      */
@@ -184,7 +180,6 @@ public class TravelGroupAndMeetingJson {
         this.breakOutRoom = breakOutRoom;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -195,35 +190,45 @@ public class TravelGroupAndMeetingJson {
             return false;
         }
         TravelGroupAndMeetingJson other = (TravelGroupAndMeetingJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.runOfHouseRate, other.runOfHouseRate) &&
-            Utils.enhancedDeepEquals(this.dayDelegateRate, other.dayDelegateRate) &&
-            Utils.enhancedDeepEquals(this.taxAndServiceCharge, other.taxAndServiceCharge) &&
-            Utils.enhancedDeepEquals(this.meetingRoomBasicInformation, other.meetingRoomBasicInformation) &&
-            Utils.enhancedDeepEquals(this.amenity, other.amenity) &&
-            Utils.enhancedDeepEquals(this.breakOutRoom, other.breakOutRoom);
+        return Utils.enhancedDeepEquals(this.runOfHouseRate, other.runOfHouseRate)
+                && Utils.enhancedDeepEquals(this.dayDelegateRate, other.dayDelegateRate)
+                && Utils.enhancedDeepEquals(this.taxAndServiceCharge, other.taxAndServiceCharge)
+                && Utils.enhancedDeepEquals(this.meetingRoomBasicInformation, other.meetingRoomBasicInformation)
+                && Utils.enhancedDeepEquals(this.amenity, other.amenity)
+                && Utils.enhancedDeepEquals(this.breakOutRoom, other.breakOutRoom);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            runOfHouseRate, dayDelegateRate, taxAndServiceCharge,
-            meetingRoomBasicInformation, amenity, breakOutRoom);
+                runOfHouseRate,
+                dayDelegateRate,
+                taxAndServiceCharge,
+                meetingRoomBasicInformation,
+                amenity,
+                breakOutRoom);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelGroupAndMeetingJson.class,
-                "runOfHouseRate", runOfHouseRate,
-                "dayDelegateRate", dayDelegateRate,
-                "taxAndServiceCharge", taxAndServiceCharge,
-                "meetingRoomBasicInformation", meetingRoomBasicInformation,
-                "amenity", amenity,
-                "breakOutRoom", breakOutRoom);
+        return Utils.toString(
+                TravelGroupAndMeetingJson.class,
+                "runOfHouseRate",
+                runOfHouseRate,
+                "dayDelegateRate",
+                dayDelegateRate,
+                "taxAndServiceCharge",
+                taxAndServiceCharge,
+                "meetingRoomBasicInformation",
+                meetingRoomBasicInformation,
+                "amenity",
+                amenity,
+                "breakOutRoom",
+                breakOutRoom);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelRunOfHouseRateJson runOfHouseRate;
 
@@ -238,7 +243,7 @@ public class TravelGroupAndMeetingJson {
         private TravelBreakOutRoomJson breakOutRoom;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -269,7 +274,8 @@ public class TravelGroupAndMeetingJson {
         /**
          * Meeting room basic information.
          */
-        public Builder meetingRoomBasicInformation(@Nullable TravelMeetingRoomBasicInfoJson meetingRoomBasicInformation) {
+        public Builder meetingRoomBasicInformation(
+                @Nullable TravelMeetingRoomBasicInfoJson meetingRoomBasicInformation) {
             this.meetingRoomBasicInformation = meetingRoomBasicInformation;
             return this;
         }
@@ -292,9 +298,12 @@ public class TravelGroupAndMeetingJson {
 
         public TravelGroupAndMeetingJson build() {
             return new TravelGroupAndMeetingJson(
-                runOfHouseRate, dayDelegateRate, taxAndServiceCharge,
-                meetingRoomBasicInformation, amenity, breakOutRoom);
+                    runOfHouseRate,
+                    dayDelegateRate,
+                    taxAndServiceCharge,
+                    meetingRoomBasicInformation,
+                    amenity,
+                    breakOutRoom);
         }
-
     }
 }

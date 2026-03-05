@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ContactFileInput
- * 
+ *
  * <p>A contact's file, such as a profile image.
  */
 public class ContactFileInput {
@@ -22,10 +22,8 @@ public class ContactFileInput {
     private ContactFileFile file;
 
     @JsonCreator
-    public ContactFileInput(
-            @JsonProperty("file") @Nonnull ContactFileFile file) {
-        this.file = Optional.ofNullable(file)
-            .orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
+    public ContactFileInput(@JsonProperty("file") @Nonnull ContactFileFile file) {
+        this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
     }
 
     public ContactFileFile file() {
@@ -36,12 +34,10 @@ public class ContactFileInput {
         return new Builder();
     }
 
-
     public ContactFileInput withFile(@Nonnull ContactFileFile file) {
         this.file = Utils.checkNotNull(file, "file");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -52,29 +48,26 @@ public class ContactFileInput {
             return false;
         }
         ContactFileInput other = (ContactFileInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file);
+        return Utils.enhancedDeepEquals(this.file, other.file);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file);
+        return Utils.enhancedHash(file);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactFileInput.class,
-                "file", file);
+        return Utils.toString(ContactFileInput.class, "file", file);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ContactFileFile file;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder file(@Nonnull ContactFileFile file) {
@@ -83,9 +76,7 @@ public class ContactFileInput {
         }
 
         public ContactFileInput build() {
-            return new ContactFileInput(
-                file);
+            return new ContactFileInput(file);
         }
-
     }
 }

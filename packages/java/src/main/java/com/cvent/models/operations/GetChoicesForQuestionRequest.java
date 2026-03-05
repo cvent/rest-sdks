@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetChoicesForQuestionRequest {
     /**
      * The maximum number of records to return per page.
@@ -40,13 +39,13 @@ public class GetChoicesForQuestionRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>This comparison type will be used in filter expression:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * text (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * or
      */
@@ -55,22 +54,16 @@ public class GetChoicesForQuestionRequest {
 
     @JsonCreator
     public GetChoicesForQuestionRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nonnull String questionId,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nullable Long limit, @Nullable String token, @Nonnull String questionId, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.questionId = Optional.ofNullable(questionId)
-            .orElseThrow(() -> new IllegalArgumentException("questionId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("questionId cannot be null"));
         this.filter = filter;
     }
-    
-    public GetChoicesForQuestionRequest(
-            @Nonnull String questionId) {
-        this(null, null, questionId,
-            null);
+
+    public GetChoicesForQuestionRequest(@Nonnull String questionId) {
+        this(null, null, questionId, null);
     }
 
     /**
@@ -99,13 +92,13 @@ public class GetChoicesForQuestionRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>This comparison type will be used in filter expression:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * text (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * or
      */
@@ -117,7 +110,6 @@ public class GetChoicesForQuestionRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -125,7 +117,6 @@ public class GetChoicesForQuestionRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -136,7 +127,6 @@ public class GetChoicesForQuestionRequest {
         return this;
     }
 
-
     /**
      * Question Id
      */
@@ -145,18 +135,17 @@ public class GetChoicesForQuestionRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>This comparison type will be used in filter expression:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * text (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * or
      */
@@ -164,7 +153,6 @@ public class GetChoicesForQuestionRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -175,31 +163,33 @@ public class GetChoicesForQuestionRequest {
             return false;
         }
         GetChoicesForQuestionRequest other = (GetChoicesForQuestionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.questionId, other.questionId) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.questionId, other.questionId)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, questionId,
-            filter);
+        return Utils.enhancedHash(limit, token, questionId, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetChoicesForQuestionRequest.class,
-                "limit", limit,
-                "token", token,
-                "questionId", questionId,
-                "filter", filter);
+        return Utils.toString(
+                GetChoicesForQuestionRequest.class,
+                "limit",
+                limit,
+                "token",
+                token,
+                "questionId",
+                questionId,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -210,7 +200,7 @@ public class GetChoicesForQuestionRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -242,13 +232,13 @@ public class GetChoicesForQuestionRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>This comparison type will be used in filter expression:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * text (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * or
          */
@@ -258,16 +248,10 @@ public class GetChoicesForQuestionRequest {
         }
 
         public GetChoicesForQuestionRequest build() {
-            return new GetChoicesForQuestionRequest(
-                limit, token, questionId,
-                filter);
+            return new GetChoicesForQuestionRequest(limit, token, questionId, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

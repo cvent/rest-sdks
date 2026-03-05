@@ -2,6 +2,14 @@
 
 Method by which the attendee was invited to the event.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AttendeeInvitedByJson.PlannerInvited;
+```
+
 
 ## Values
 

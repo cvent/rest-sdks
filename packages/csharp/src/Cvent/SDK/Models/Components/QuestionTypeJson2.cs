@@ -18,54 +18,36 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionTypeJson2
     {
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
-        [JsonProperty("MatrixSingleChoice")]
-        MatrixSingleChoice,
-        [JsonProperty("MatrixMultiChoice")]
-        MatrixMultiChoice,
-        [JsonProperty("MatrixSideBySide")]
-        MatrixSideBySide,
-        [JsonProperty("MatrixSpreadSheet")]
-        MatrixSpreadSheet,
-        [JsonProperty("DateTime")]
-        DateTime,
-        [JsonProperty("Number")]
-        Number,
-        [JsonProperty("Text")]
-        Text,
-        [JsonProperty("CommentBox")]
-        CommentBox,
-        [JsonProperty("Form")]
-        Form,
-        [JsonProperty("RankOrder")]
-        RankOrder,
-        [JsonProperty("FileUpload")]
-        FileUpload,
-        [JsonProperty("NetPromoter")]
-        NetPromoter,
-        [JsonProperty("Rating")]
-        Rating,
-        [JsonProperty("MatrixRating")]
-        MatrixRating,
-        [JsonProperty("NumberAllocation")]
-        NumberAllocation,
-        [JsonProperty("LargeChoices")]
-        LargeChoices,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("MatrixSingleChoice")] MatrixSingleChoice,
+        [JsonProperty("MatrixMultiChoice")] MatrixMultiChoice,
+        [JsonProperty("MatrixSideBySide")] MatrixSideBySide,
+        [JsonProperty("MatrixSpreadSheet")] MatrixSpreadSheet,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Number")] Number,
+        [JsonProperty("Text")] Text,
+        [JsonProperty("CommentBox")] CommentBox,
+        [JsonProperty("Form")] Form,
+        [JsonProperty("RankOrder")] RankOrder,
+        [JsonProperty("FileUpload")] FileUpload,
+        [JsonProperty("NetPromoter")] NetPromoter,
+        [JsonProperty("Rating")] Rating,
+        [JsonProperty("MatrixRating")] MatrixRating,
+        [JsonProperty("NumberAllocation")] NumberAllocation,
+        [JsonProperty("LargeChoices")] LargeChoices,
     }
 
     public static class QuestionTypeJson2Extension
     {
         public static string Value(this QuestionTypeJson2 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionTypeJson2 ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionTypeJson2).GetFields())
+            foreach (var field in typeof(QuestionTypeJson2).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

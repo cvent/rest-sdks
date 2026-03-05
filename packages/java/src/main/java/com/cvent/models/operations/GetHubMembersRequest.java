@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHubMembersRequest {
     /**
      * The identifier of an Events+ Hub
@@ -40,9 +39,9 @@ public class GetHubMembersRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field                   | Operators  |
      * |-------------------------|------------|
      * | firstName               | `contains` |
@@ -54,9 +53,9 @@ public class GetHubMembersRequest {
      * | workAddress.city        | `contains` |
      * | workAddress.state       | `contains` |
      * | workAddress.country     | `contains` |
-     * 
+     *
      * <p>Limit for the number of fields that can be passed in a filter is 35.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -67,11 +66,11 @@ public class GetHubMembersRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * firstName (member first name)
      * * lastName (member last name)
@@ -95,19 +94,15 @@ public class GetHubMembersRequest {
             @Nullable String token,
             @Nullable String filter,
             @Nullable String sort) {
-        this.hubId = Optional.ofNullable(hubId)
-            .orElseThrow(() -> new IllegalArgumentException("hubId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.hubId = Optional.ofNullable(hubId).orElseThrow(() -> new IllegalArgumentException("hubId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
         this.sort = sort;
     }
-    
-    public GetHubMembersRequest(
-            @Nonnull String hubId) {
-        this(hubId, null, null,
-            null, null);
+
+    public GetHubMembersRequest(@Nonnull String hubId) {
+        this(hubId, null, null, null, null);
     }
 
     /**
@@ -136,9 +131,9 @@ public class GetHubMembersRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field                   | Operators  |
      * |-------------------------|------------|
      * | firstName               | `contains` |
@@ -150,9 +145,9 @@ public class GetHubMembersRequest {
      * | workAddress.city        | `contains` |
      * | workAddress.state       | `contains` |
      * | workAddress.country     | `contains` |
-     * 
+     *
      * <p>Limit for the number of fields that can be passed in a filter is 35.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -164,11 +159,11 @@ public class GetHubMembersRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * firstName (member first name)
      * * lastName (member last name)
@@ -190,7 +185,6 @@ public class GetHubMembersRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of an Events+ Hub
      */
@@ -199,7 +193,6 @@ public class GetHubMembersRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -207,7 +200,6 @@ public class GetHubMembersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -218,14 +210,13 @@ public class GetHubMembersRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field                   | Operators  |
      * |-------------------------|------------|
      * | firstName               | `contains` |
@@ -237,9 +228,9 @@ public class GetHubMembersRequest {
      * | workAddress.city        | `contains` |
      * | workAddress.state       | `contains` |
      * | workAddress.country     | `contains` |
-     * 
+     *
      * <p>Limit for the number of fields that can be passed in a filter is 35.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -249,15 +240,14 @@ public class GetHubMembersRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * firstName (member first name)
      * * lastName (member last name)
@@ -276,7 +266,6 @@ public class GetHubMembersRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -286,33 +275,36 @@ public class GetHubMembersRequest {
             return false;
         }
         GetHubMembersRequest other = (GetHubMembersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.hubId, other.hubId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort);
+        return Utils.enhancedDeepEquals(this.hubId, other.hubId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.sort, other.sort);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            hubId, limit, token,
-            filter, sort);
+        return Utils.enhancedHash(hubId, limit, token, filter, sort);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHubMembersRequest.class,
-                "hubId", hubId,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "sort", sort);
+        return Utils.toString(
+                GetHubMembersRequest.class,
+                "hubId",
+                hubId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "sort",
+                sort);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String hubId;
 
@@ -325,7 +317,7 @@ public class GetHubMembersRequest {
         private String sort;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -357,9 +349,9 @@ public class GetHubMembersRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field                   | Operators  |
          * |-------------------------|------------|
          * | firstName               | `contains` |
@@ -371,9 +363,9 @@ public class GetHubMembersRequest {
          * | workAddress.city        | `contains` |
          * | workAddress.state       | `contains` |
          * | workAddress.country     | `contains` |
-         * 
+         *
          * <p>Limit for the number of fields that can be passed in a filter is 35.
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
@@ -386,11 +378,11 @@ public class GetHubMembersRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * firstName (member first name)
          * * lastName (member last name)
@@ -410,16 +402,10 @@ public class GetHubMembersRequest {
         }
 
         public GetHubMembersRequest build() {
-            return new GetHubMembersRequest(
-                hubId, limit, token,
-                filter, sort);
+            return new GetHubMembersRequest(hubId, limit, token, filter, sort);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

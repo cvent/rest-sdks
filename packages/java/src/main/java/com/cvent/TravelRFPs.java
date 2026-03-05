@@ -63,7 +63,7 @@ public class TravelRFPs {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncTravelRFPs async() {
@@ -72,9 +72,9 @@ public class TravelRFPs {
 
     /**
      * List Travel Programs
-     * 
+     *
      * <p>Returns a paginated list of travel programs based on the specified filters.
-     * 
+     *
      * @return The call builder
      */
     public ListTravelProgramsRequestBuilder listTravelPrograms() {
@@ -83,24 +83,24 @@ public class TravelRFPs {
 
     /**
      * List Travel Programs
-     * 
+     *
      * <p>Returns a paginated list of travel programs based on the specified filters.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelProgramsResponse listTravelPrograms(@Nonnull ListTravelProgramsRequest request) {
-        RequestOperation<ListTravelProgramsRequest, ListTravelProgramsResponse> operation
-              = new ListTravelPrograms.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListTravelProgramsRequest, ListTravelProgramsResponse> operation =
+                new ListTravelPrograms.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Travel Programs Questions
-     * 
+     *
      * <p>Returns a paginated list of travel programs questions.
-     * 
+     *
      * @return The call builder
      */
     public ListTravelProgramsQuestionsRequestBuilder listTravelProgramsQuestions() {
@@ -109,24 +109,25 @@ public class TravelRFPs {
 
     /**
      * List Travel Programs Questions
-     * 
+     *
      * <p>Returns a paginated list of travel programs questions.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListTravelProgramsQuestionsResponse listTravelProgramsQuestions(@Nonnull ListTravelProgramsQuestionsRequest request) {
-        RequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation
-              = new ListTravelProgramsQuestions.Sync(sdkConfiguration, _headers);
+    public ListTravelProgramsQuestionsResponse listTravelProgramsQuestions(
+            @Nonnull ListTravelProgramsQuestionsRequest request) {
+        RequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation =
+                new ListTravelProgramsQuestions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Travel Program
-     * 
+     *
      * <p>Returns the details of a single travel program based on the specified program ID.
-     * 
+     *
      * @return The call builder
      */
     public GetTravelProgramRequestBuilder getTravelProgram() {
@@ -135,24 +136,24 @@ public class TravelRFPs {
 
     /**
      * Get Travel Program
-     * 
+     *
      * <p>Returns the details of a single travel program based on the specified program ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProgramResponse getTravelProgram(@Nonnull GetTravelProgramRequest request) {
-        RequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation
-              = new GetTravelProgram.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation =
+                new GetTravelProgram.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Travel Program Questions
-     * 
+     *
      * <p>Returns a paginated list of travel program questions.
-     * 
+     *
      * @return The call builder
      */
     public ListTravelProgramQuestionsRequestBuilder listTravelProgramQuestions() {
@@ -161,24 +162,25 @@ public class TravelRFPs {
 
     /**
      * List Travel Program Questions
-     * 
+     *
      * <p>Returns a paginated list of travel program questions.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListTravelProgramQuestionsResponse listTravelProgramQuestions(@Nonnull ListTravelProgramQuestionsRequest request) {
-        RequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation
-              = new ListTravelProgramQuestions.Sync(sdkConfiguration, _headers);
+    public ListTravelProgramQuestionsResponse listTravelProgramQuestions(
+            @Nonnull ListTravelProgramQuestionsRequest request) {
+        RequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation =
+                new ListTravelProgramQuestions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Travel Program Question
-     * 
+     *
      * <p>Returns the details of a single question based on the specified program and question ID.
-     * 
+     *
      * @return The call builder
      */
     public GetTravelProgramQuestionRequestBuilder getTravelProgramQuestion() {
@@ -187,24 +189,24 @@ public class TravelRFPs {
 
     /**
      * Get Travel Program Question
-     * 
+     *
      * <p>Returns the details of a single question based on the specified program and question ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProgramQuestionResponse getTravelProgramQuestion(@Nonnull GetTravelProgramQuestionRequest request) {
-        RequestOperation<GetTravelProgramQuestionRequest, GetTravelProgramQuestionResponse> operation
-              = new GetTravelProgramQuestion.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelProgramQuestionRequest, GetTravelProgramQuestionResponse> operation =
+                new GetTravelProgramQuestion.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Travel Proposals
-     * 
+     *
      * <p>Get a paginated list of travel proposal details.
-     * 
+     *
      * @return The call builder
      */
     public ListTravelProposalsRequestBuilder listTravelProposals() {
@@ -213,24 +215,24 @@ public class TravelRFPs {
 
     /**
      * List Travel Proposals
-     * 
+     *
      * <p>Get a paginated list of travel proposal details.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelProposalsResponse listTravelProposals(@Nonnull ListTravelProposalsRequest request) {
-        RequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation
-              = new ListTravelProposals.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation =
+                new ListTravelProposals.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Travel Proposal Bids
-     * 
+     *
      * <p>Get a paginated list of travel proposal bids.
-     * 
+     *
      * @return The call builder
      */
     public ListTravelProposalBidsRequestBuilder listTravelProposalBids() {
@@ -239,24 +241,24 @@ public class TravelRFPs {
 
     /**
      * List Travel Proposal Bids
-     * 
+     *
      * <p>Get a paginated list of travel proposal bids.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelProposalBidsResponse listTravelProposalBids(@Nonnull ListTravelProposalBidsRequest request) {
-        RequestOperation<ListTravelProposalBidsRequest, ListTravelProposalBidsResponse> operation
-              = new ListTravelProposalBids.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListTravelProposalBidsRequest, ListTravelProposalBidsResponse> operation =
+                new ListTravelProposalBids.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Travel Proposal Bid
-     * 
+     *
      * <p>Gets a travel proposal bid for the given travel proposal bid ID.
-     * 
+     *
      * @return The call builder
      */
     public GetTravelProposalBidRequestBuilder getTravelProposalBid() {
@@ -265,24 +267,24 @@ public class TravelRFPs {
 
     /**
      * Get Travel Proposal Bid
-     * 
+     *
      * <p>Gets a travel proposal bid for the given travel proposal bid ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProposalBidResponse getTravelProposalBid(@Nonnull GetTravelProposalBidRequest request) {
-        RequestOperation<GetTravelProposalBidRequest, GetTravelProposalBidResponse> operation
-              = new GetTravelProposalBid.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelProposalBidRequest, GetTravelProposalBidResponse> operation =
+                new GetTravelProposalBid.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Travel Proposal
-     * 
+     *
      * <p>Gets a travel proposal for the given travel proposal ID.
-     * 
+     *
      * @return The call builder
      */
     public GetTravelProposalRequestBuilder getTravelProposal() {
@@ -291,17 +293,16 @@ public class TravelRFPs {
 
     /**
      * Get Travel Proposal
-     * 
+     *
      * <p>Gets a travel proposal for the given travel proposal ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProposalResponse getTravelProposal(@Nonnull GetTravelProposalRequest request) {
-        RequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation
-              = new GetTravelProposal.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
+                new GetTravelProposal.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

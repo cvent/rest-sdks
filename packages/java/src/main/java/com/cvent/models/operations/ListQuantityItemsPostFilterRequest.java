@@ -16,7 +16,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListQuantityItemsPostFilterRequest {
     /**
      * Unique ID of an event.
@@ -46,22 +45,15 @@ public class ListQuantityItemsPostFilterRequest {
 
     @JsonCreator
     public ListQuantityItemsPostFilterRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable Filter filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable Filter filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public ListQuantityItemsPostFilterRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public ListQuantityItemsPostFilterRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -98,7 +90,6 @@ public class ListQuantityItemsPostFilterRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -107,7 +98,6 @@ public class ListQuantityItemsPostFilterRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -115,7 +105,6 @@ public class ListQuantityItemsPostFilterRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -126,7 +115,6 @@ public class ListQuantityItemsPostFilterRequest {
         return this;
     }
 
-
     /**
      * See the parameter description of filter in <a href="#operation/listQuantityItems">GET List Quantity
      * Items</a> for full filtering information.
@@ -135,7 +123,6 @@ public class ListQuantityItemsPostFilterRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +133,25 @@ public class ListQuantityItemsPostFilterRequest {
             return false;
         }
         ListQuantityItemsPostFilterRequest other = (ListQuantityItemsPostFilterRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            filter);
+        return Utils.enhancedHash(id, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListQuantityItemsPostFilterRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListQuantityItemsPostFilterRequest.class, "id", id, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +162,7 @@ public class ListQuantityItemsPostFilterRequest {
         private Filter filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -219,16 +200,10 @@ public class ListQuantityItemsPostFilterRequest {
         }
 
         public ListQuantityItemsPostFilterRequest build() {
-            return new ListQuantityItemsPostFilterRequest(
-                id, limit, token,
-                filter);
+            return new ListQuantityItemsPostFilterRequest(id, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -28,7 +28,7 @@ public class UpdateWebcastRequestBuilder {
     private UpdateWebcastRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateWebcastRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateWebcastRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateWebcastResponse call() {
-        RequestOperation<UpdateWebcastRequest, UpdateWebcastResponse> operation
-              = new UpdateWebcast.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateWebcastRequest, UpdateWebcastResponse> operation =
+                new UpdateWebcast.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

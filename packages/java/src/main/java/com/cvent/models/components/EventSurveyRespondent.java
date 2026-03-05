@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyRespondent
- * 
+ *
  * <p>Respondent detail object for event survey.
  */
 public class EventSurveyRespondent {
@@ -80,11 +80,11 @@ public class EventSurveyRespondent {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -209,15 +209,28 @@ public class EventSurveyRespondent {
         this.contact = contact;
         this.surveys = surveys;
     }
-    
+
     public EventSurveyRespondent() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -278,11 +291,11 @@ public class EventSurveyRespondent {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -370,7 +383,6 @@ public class EventSurveyRespondent {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -378,7 +390,6 @@ public class EventSurveyRespondent {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -388,7 +399,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -396,7 +406,6 @@ public class EventSurveyRespondent {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -406,7 +415,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Id of the respondent that has to be in a format matching the industry standard uuid
      */
@@ -414,7 +422,6 @@ public class EventSurveyRespondent {
         this.id = id;
         return this;
     }
-
 
     /**
      * Response Code
@@ -424,7 +431,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Time taken by respondent to respond to the survey (in seconds)
      */
@@ -432,7 +438,6 @@ public class EventSurveyRespondent {
         this.responseDuration = responseDuration;
         return this;
     }
-
 
     /**
      * Locale Id of the respondent using the IETF Language Tag format
@@ -442,14 +447,13 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -463,7 +467,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
      * weblinks with different values of referenceId query param in them.
@@ -473,7 +476,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Respondent Score
      */
@@ -481,7 +483,6 @@ public class EventSurveyRespondent {
         this.score = score;
         return this;
     }
-
 
     /**
      * Respondent Maximum Possible Score
@@ -491,7 +492,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Respondent Percentage Score
      */
@@ -499,7 +499,6 @@ public class EventSurveyRespondent {
         this.percentageScore = percentageScore;
         return this;
     }
-
 
     /**
      * Related links.
@@ -509,7 +508,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Source IDs track respondents in an external system integrated with the Cvent survey.
      */
@@ -517,7 +515,6 @@ public class EventSurveyRespondent {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Detail object of an event which is associated to a survey.
@@ -527,7 +524,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * Associated attendee.
      */
@@ -535,7 +531,6 @@ public class EventSurveyRespondent {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * Associated contact.
@@ -545,7 +540,6 @@ public class EventSurveyRespondent {
         return this;
     }
 
-
     /**
      * List of associated surveys.
      */
@@ -553,7 +547,6 @@ public class EventSurveyRespondent {
         this.surveys = surveys;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -564,66 +557,97 @@ public class EventSurveyRespondent {
             return false;
         }
         EventSurveyRespondent other = (EventSurveyRespondent) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.responseCode, other.responseCode) &&
-            Utils.enhancedDeepEquals(this.responseDuration, other.responseDuration) &&
-            Utils.enhancedDeepEquals(this.localeId, other.localeId) &&
-            Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore) &&
-            Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.surveys, other.surveys);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.responseCode, other.responseCode)
+                && Utils.enhancedDeepEquals(this.responseDuration, other.responseDuration)
+                && Utils.enhancedDeepEquals(this.localeId, other.localeId)
+                && Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore)
+                && Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.surveys, other.surveys);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, responseCode,
-            responseDuration, localeId, respondedThrough,
-            referenceId, score, maxPossibleScore,
-            percentageScore, links, sourceId,
-            event, attendee, contact,
-            surveys);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                responseCode,
+                responseDuration,
+                localeId,
+                respondedThrough,
+                referenceId,
+                score,
+                maxPossibleScore,
+                percentageScore,
+                links,
+                sourceId,
+                event,
+                attendee,
+                contact,
+                surveys);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyRespondent.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "responseCode", responseCode,
-                "responseDuration", responseDuration,
-                "localeId", localeId,
-                "respondedThrough", respondedThrough,
-                "referenceId", referenceId,
-                "score", score,
-                "maxPossibleScore", maxPossibleScore,
-                "percentageScore", percentageScore,
-                "links", links,
-                "sourceId", sourceId,
-                "event", event,
-                "attendee", attendee,
-                "contact", contact,
-                "surveys", surveys);
+        return Utils.toString(
+                EventSurveyRespondent.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "responseCode",
+                responseCode,
+                "responseDuration",
+                responseDuration,
+                "localeId",
+                localeId,
+                "respondedThrough",
+                respondedThrough,
+                "referenceId",
+                referenceId,
+                "score",
+                score,
+                "maxPossibleScore",
+                maxPossibleScore,
+                "percentageScore",
+                percentageScore,
+                "links",
+                links,
+                "sourceId",
+                sourceId,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "contact",
+                contact,
+                "surveys",
+                surveys);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -664,7 +688,7 @@ public class EventSurveyRespondent {
         private List<RespondentEventSurveyReferenceJson> surveys;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -733,11 +757,11 @@ public class EventSurveyRespondent {
 
         /**
          * Indicates the mode by which a respondent submitted their response.
-         * 
+         *
          * <p>This field contains one of the enumerated, string constants listed below.
-         * 
+         *
          * <p>Enum values:
-         * 
+         *
          * <p>- "Not Responded": Respondent did not provide a response.
          * - "API": Response was submitted via an API.
          * - "Import": Response was created by a bulk import process.
@@ -834,14 +858,25 @@ public class EventSurveyRespondent {
 
         public EventSurveyRespondent build() {
             return new EventSurveyRespondent(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, responseCode,
-                responseDuration, localeId, respondedThrough,
-                referenceId, score, maxPossibleScore,
-                percentageScore, links, sourceId,
-                event, attendee, contact,
-                surveys);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    responseCode,
+                    responseDuration,
+                    localeId,
+                    respondedThrough,
+                    referenceId,
+                    score,
+                    maxPossibleScore,
+                    percentageScore,
+                    links,
+                    sourceId,
+                    event,
+                    attendee,
+                    contact,
+                    surveys);
         }
-
     }
 }

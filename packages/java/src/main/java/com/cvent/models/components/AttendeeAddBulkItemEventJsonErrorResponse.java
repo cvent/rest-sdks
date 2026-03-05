@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AttendeeAddBulkItemEventJsonErrorResponse
- * 
+ *
  * <p>Represents an error response for the checkin APIs with additional details of cascading error
  * messages.
  */
@@ -64,17 +64,14 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
             @JsonProperty("details") @Nullable List<ZeroAllOf8> details) {
         this.id = id;
         this.code = code;
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
         this.target = target;
         this.details = details;
     }
-    
-    public AttendeeAddBulkItemEventJsonErrorResponse(
-            long code,
-            @Nonnull String message) {
-        this(null, code, message,
-            null, null);
+
+    public AttendeeAddBulkItemEventJsonErrorResponse(long code, @Nonnull String message) {
+        this(null, code, message, null, null);
     }
 
     /**
@@ -116,7 +113,6 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         return new Builder();
     }
 
-
     /**
      * The unique identifier for the error response.
      */
@@ -124,7 +120,6 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         this.id = id;
         return this;
     }
-
 
     /**
      * The HTTP status code representing the error.
@@ -134,7 +129,6 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         return this;
     }
 
-
     /**
      * A brief description of the error.
      */
@@ -142,7 +136,6 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         this.message = Utils.checkNotNull(message, "message");
         return this;
     }
-
 
     /**
      * The target resource of the error.
@@ -152,7 +145,6 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         return this;
     }
 
-
     /**
      * Additional details of cascading error messages.
      */
@@ -160,7 +152,6 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         this.details = details;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,33 +162,36 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
             return false;
         }
         AttendeeAddBulkItemEventJsonErrorResponse other = (AttendeeAddBulkItemEventJsonErrorResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.target, other.target) &&
-            Utils.enhancedDeepEquals(this.details, other.details);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.target, other.target)
+                && Utils.enhancedDeepEquals(this.details, other.details);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, message,
-            target, details);
+        return Utils.enhancedHash(id, code, message, target, details);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAddBulkItemEventJsonErrorResponse.class,
-                "id", id,
-                "code", code,
-                "message", message,
-                "target", target,
-                "details", details);
+        return Utils.toString(
+                AttendeeAddBulkItemEventJsonErrorResponse.class,
+                "id",
+                id,
+                "code",
+                code,
+                "message",
+                message,
+                "target",
+                target,
+                "details",
+                details);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -210,7 +204,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         private List<ZeroAllOf8> details;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +248,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         }
 
         public AttendeeAddBulkItemEventJsonErrorResponse build() {
-            return new AttendeeAddBulkItemEventJsonErrorResponse(
-                id, code, message,
-                target, details);
+            return new AttendeeAddBulkItemEventJsonErrorResponse(id, code, message, target, details);
         }
-
     }
 }

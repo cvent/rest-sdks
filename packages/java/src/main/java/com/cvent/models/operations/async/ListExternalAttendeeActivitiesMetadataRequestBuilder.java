@@ -32,7 +32,8 @@ public class ListExternalAttendeeActivitiesMetadataRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public ListExternalAttendeeActivitiesMetadataRequestBuilder request(@Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
+    public ListExternalAttendeeActivitiesMetadataRequestBuilder request(
+            @Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class ListExternalAttendeeActivitiesMetadataRequestBuilder {
     private ListExternalAttendeeActivitiesMetadataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListExternalAttendeeActivitiesMetadataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,17 @@ public class ListExternalAttendeeActivitiesMetadataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListExternalAttendeeActivitiesMetadataResponse> call() {
-        AsyncRequestOperation<ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse> operation
-              = new ListExternalAttendeeActivitiesMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<
+                        ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse>
+                operation = new ListExternalAttendeeActivitiesMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +77,18 @@ public class ListExternalAttendeeActivitiesMetadataRequestBuilder {
      */
     public Publisher<ListExternalAttendeeActivitiesMetadataResponse> callAsPublisher() {
         ListExternalAttendeeActivitiesMetadataRequest request = this.request;
-        AsyncRequestOperation<ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse> operation
-              = new ListExternalAttendeeActivitiesMetadata.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<
+                        ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse>
+                operation = new ListExternalAttendeeActivitiesMetadata.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListExternalAttendeeActivitiesMetadataRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListExternalAttendeeActivitiesMetadataRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListExternalAttendeeActivitiesMetadataResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListExternalAttendeeActivitiesMetadataResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

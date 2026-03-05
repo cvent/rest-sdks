@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -18,10 +18,10 @@ import java.util.Optional;
 
 /**
  * CategoryItemsCostJson
- * 
+ *
  * <p>Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
  * vendors, and the vendor marketplace is sunset.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -56,7 +56,7 @@ public class CategoryItemsCostJson {
         this.totalCost = totalCost;
         this.categories = categories;
     }
-    
+
     public CategoryItemsCostJson() {
         this(null, null, null);
     }
@@ -86,7 +86,6 @@ public class CategoryItemsCostJson {
         return new Builder();
     }
 
-
     /**
      * Notes on category items cost from the venue.
      */
@@ -94,7 +93,6 @@ public class CategoryItemsCostJson {
         this.notes = notes;
         return this;
     }
-
 
     /**
      * Total cost across all categories.
@@ -104,7 +102,6 @@ public class CategoryItemsCostJson {
         return this;
     }
 
-
     /**
      * List of categories.
      */
@@ -112,7 +109,6 @@ public class CategoryItemsCostJson {
         this.categories = categories;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,28 +119,24 @@ public class CategoryItemsCostJson {
             return false;
         }
         CategoryItemsCostJson other = (CategoryItemsCostJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.notes, other.notes) &&
-            Utils.enhancedDeepEquals(this.totalCost, other.totalCost) &&
-            Utils.enhancedDeepEquals(this.categories, other.categories);
+        return Utils.enhancedDeepEquals(this.notes, other.notes)
+                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost)
+                && Utils.enhancedDeepEquals(this.categories, other.categories);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            notes, totalCost, categories);
+        return Utils.enhancedHash(notes, totalCost, categories);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CategoryItemsCostJson.class,
-                "notes", notes,
-                "totalCost", totalCost,
-                "categories", categories);
+        return Utils.toString(
+                CategoryItemsCostJson.class, "notes", notes, "totalCost", totalCost, "categories", categories);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String notes;
 
@@ -153,7 +145,7 @@ public class CategoryItemsCostJson {
         private List<CategoryJson1> categories;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -181,9 +173,7 @@ public class CategoryItemsCostJson {
         }
 
         public CategoryItemsCostJson build() {
-            return new CategoryItemsCostJson(
-                notes, totalCost, categories);
+            return new CategoryItemsCostJson(notes, totalCost, categories);
         }
-
     }
 }

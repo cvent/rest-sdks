@@ -40,7 +40,7 @@ public class GetEliteratureRequestsRequestBuilder {
     private GetEliteratureRequestsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEliteratureRequestsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetEliteratureRequestsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEliteratureRequestsResponse> call() {
-        AsyncRequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation
-              = new GetEliteratureRequests.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation =
+                new GetEliteratureRequests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetEliteratureRequestsRequestBuilder {
      */
     public Publisher<GetEliteratureRequestsResponse> callAsPublisher() {
         GetEliteratureRequestsRequest request = this.request;
-        AsyncRequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation
-              = new GetEliteratureRequests.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation =
+                new GetEliteratureRequests.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetEliteratureRequestsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetEliteratureRequestsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetEliteratureRequestsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetEliteratureRequestsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

@@ -2,6 +2,14 @@
 
 Denotes a participant response to an appointment.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ParticipantResponseJson.Confirmed;
+```
+
 
 ## Values
 

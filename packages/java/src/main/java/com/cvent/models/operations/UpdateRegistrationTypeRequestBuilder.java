@@ -28,7 +28,7 @@ public class UpdateRegistrationTypeRequestBuilder {
     private UpdateRegistrationTypeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateRegistrationTypeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateRegistrationTypeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateRegistrationTypeResponse call() {
-        RequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation
-              = new UpdateRegistrationType.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation =
+                new UpdateRegistrationType.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

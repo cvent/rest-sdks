@@ -48,7 +48,7 @@ public class Discounts {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncDiscounts async() {
@@ -57,10 +57,10 @@ public class Discounts {
 
     /**
      * List Event Discounts
-     * 
+     *
      * <p>Returns a paginated list of all discounts used in an event, including both event-specific and
      * account-level discount codes used in an event.
-     * 
+     *
      * @return The call builder
      */
     public ListEventDiscountsRequestBuilder listEventDiscounts() {
@@ -69,25 +69,25 @@ public class Discounts {
 
     /**
      * List Event Discounts
-     * 
+     *
      * <p>Returns a paginated list of all discounts used in an event, including both event-specific and
      * account-level discount codes used in an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventDiscountsResponse listEventDiscounts(@Nonnull ListEventDiscountsRequest request) {
-        RequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation
-              = new ListEventDiscounts.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation =
+                new ListEventDiscounts.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Event Discount
-     * 
+     *
      * <p>Create discount in an event.
-     * 
+     *
      * @return The call builder
      */
     public CreateEventDiscountRequestBuilder createEventDiscount() {
@@ -96,26 +96,26 @@ public class Discounts {
 
     /**
      * Create Event Discount
-     * 
+     *
      * <p>Create discount in an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateEventDiscountResponse createEventDiscount(@Nonnull CreateEventDiscountRequest request) {
-        RequestOperation<CreateEventDiscountRequest, CreateEventDiscountResponse> operation
-              = new CreateEventDiscount.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateEventDiscountRequest, CreateEventDiscountResponse> operation =
+                new CreateEventDiscount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Discounted Agenda Items
-     * 
+     *
      * <p>Returns a paginated list of agenda items that are associated with discounts for the specified event.
      * This endpoint helps identify which agenda items (such as admission items, sessions, session bundles,
      * membership-items or quantity-items) are currently associated with discounts.
-     * 
+     *
      * @return The call builder
      */
     public ListDiscountedAgendaItemsRequestBuilder listDiscountedAgendaItems() {
@@ -124,27 +124,28 @@ public class Discounts {
 
     /**
      * List Discounted Agenda Items
-     * 
+     *
      * <p>Returns a paginated list of agenda items that are associated with discounts for the specified event.
      * This endpoint helps identify which agenda items (such as admission items, sessions, session bundles,
      * membership-items or quantity-items) are currently associated with discounts.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListDiscountedAgendaItemsResponse listDiscountedAgendaItems(@Nonnull ListDiscountedAgendaItemsRequest request) {
-        RequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation
-              = new ListDiscountedAgendaItems.Sync(sdkConfiguration, _headers);
+    public ListDiscountedAgendaItemsResponse listDiscountedAgendaItems(
+            @Nonnull ListDiscountedAgendaItemsRequest request) {
+        RequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation =
+                new ListDiscountedAgendaItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Event Discount
-     * 
+     *
      * <p>Update a discount in an event based on details in the request body. Fields not included in the
      * request will revert to their default value.
-     * 
+     *
      * @return The call builder
      */
     public UpdateEventDiscountRequestBuilder updateEventDiscount() {
@@ -153,25 +154,25 @@ public class Discounts {
 
     /**
      * Update Event Discount
-     * 
+     *
      * <p>Update a discount in an event based on details in the request body. Fields not included in the
      * request will revert to their default value.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateEventDiscountResponse updateEventDiscount(@Nonnull UpdateEventDiscountRequest request) {
-        RequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation
-              = new UpdateEventDiscount.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation =
+                new UpdateEventDiscount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Link Agenda Item to Discount
-     * 
+     *
      * <p>Links an agenda item to a given event discount.
-     * 
+     *
      * @return The call builder
      */
     public LinkAgendaItemToDiscountRequestBuilder linkAgendaItemToDiscount() {
@@ -180,24 +181,24 @@ public class Discounts {
 
     /**
      * Link Agenda Item to Discount
-     * 
+     *
      * <p>Links an agenda item to a given event discount.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public LinkAgendaItemToDiscountResponse linkAgendaItemToDiscount(@Nonnull LinkAgendaItemToDiscountRequest request) {
-        RequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation
-              = new LinkAgendaItemToDiscount.Sync(sdkConfiguration, _headers);
+        RequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation =
+                new LinkAgendaItemToDiscount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Unlink Agenda Item Discount
-     * 
+     *
      * <p>Unlinks an agenda item from a given event discount.
-     * 
+     *
      * @return The call builder
      */
     public UnlinkAgendaItemFromDiscountRequestBuilder unlinkAgendaItemFromDiscount() {
@@ -206,17 +207,17 @@ public class Discounts {
 
     /**
      * Unlink Agenda Item Discount
-     * 
+     *
      * <p>Unlinks an agenda item from a given event discount.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UnlinkAgendaItemFromDiscountResponse unlinkAgendaItemFromDiscount(@Nonnull UnlinkAgendaItemFromDiscountRequest request) {
-        RequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation
-              = new UnlinkAgendaItemFromDiscount.Sync(sdkConfiguration, _headers);
+    public UnlinkAgendaItemFromDiscountResponse unlinkAgendaItemFromDiscount(
+            @Nonnull UnlinkAgendaItemFromDiscountRequest request) {
+        RequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation =
+                new UnlinkAgendaItemFromDiscount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

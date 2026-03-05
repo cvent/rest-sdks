@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventAsyncResponseStatus
     {
-        [JsonProperty("Processing")]
-        Processing,
-        [JsonProperty("Created")]
-        Created,
-        [JsonProperty("Failed")]
-        Failed,
+        [JsonProperty("Processing")] Processing,
+        [JsonProperty("Created")] Created,
+        [JsonProperty("Failed")] Failed,
     }
 
     public static class EventAsyncResponseStatusExtension
     {
         public static string Value(this EventAsyncResponseStatus value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventAsyncResponseStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(EventAsyncResponseStatus).GetFields())
+            foreach (var field in typeof(EventAsyncResponseStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * LiveStreamRecordingStatusJson
- * 
+ *
  * <p>This is used to denote the status of the live stream recording job
  */
 public enum LiveStreamRecordingStatusJson {
@@ -30,13 +30,13 @@ public enum LiveStreamRecordingStatusJson {
     LiveStreamRecordingStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<LiveStreamRecordingStatusJson> fromValue(String value) {
-        for (LiveStreamRecordingStatusJson o: LiveStreamRecordingStatusJson.values()) {
+        for (LiveStreamRecordingStatusJson o : LiveStreamRecordingStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -44,4 +44,3 @@ public enum LiveStreamRecordingStatusJson {
         return Optional.empty();
     }
 }
-

@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable MeetingRequestDocumentPaginatedResponse meetingRequestDocumentPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.meetingRequestDocumentPaginatedResponse = meetingRequestDocumentPaginatedResponse;
     }
-    
+
     public ListMeetingRequestDocumentsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved the paginated list of documents for the meeting request.
      */
-    public ListMeetingRequestDocumentsResponse withMeetingRequestDocumentPaginatedResponse(@Nullable MeetingRequestDocumentPaginatedResponse meetingRequestDocumentPaginatedResponse) {
+    public ListMeetingRequestDocumentsResponse withMeetingRequestDocumentPaginatedResponse(
+            @Nullable MeetingRequestDocumentPaginatedResponse meetingRequestDocumentPaginatedResponse) {
         this.meetingRequestDocumentPaginatedResponse = meetingRequestDocumentPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,34 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
             return false;
         }
         ListMeetingRequestDocumentsResponse other = (ListMeetingRequestDocumentsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.meetingRequestDocumentPaginatedResponse, other.meetingRequestDocumentPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.meetingRequestDocumentPaginatedResponse, other.meetingRequestDocumentPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            meetingRequestDocumentPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, meetingRequestDocumentPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListMeetingRequestDocumentsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "meetingRequestDocumentPaginatedResponse", meetingRequestDocumentPaginatedResponse);
+        return Utils.toString(
+                ListMeetingRequestDocumentsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "meetingRequestDocumentPaginatedResponse",
+                meetingRequestDocumentPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +168,7 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
         private MeetingRequestDocumentPaginatedResponse meetingRequestDocumentPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +198,15 @@ public class ListMeetingRequestDocumentsResponse implements AsyncResponse {
         /**
          * Successfully retrieved the paginated list of documents for the meeting request.
          */
-        public Builder meetingRequestDocumentPaginatedResponse(@Nullable MeetingRequestDocumentPaginatedResponse meetingRequestDocumentPaginatedResponse) {
+        public Builder meetingRequestDocumentPaginatedResponse(
+                @Nullable MeetingRequestDocumentPaginatedResponse meetingRequestDocumentPaginatedResponse) {
             this.meetingRequestDocumentPaginatedResponse = meetingRequestDocumentPaginatedResponse;
             return this;
         }
 
         public ListMeetingRequestDocumentsResponse build() {
             return new ListMeetingRequestDocumentsResponse(
-                contentType, statusCode, rawResponse,
-                meetingRequestDocumentPaginatedResponse);
+                    contentType, statusCode, rawResponse, meetingRequestDocumentPaginatedResponse);
         }
-
     }
 }

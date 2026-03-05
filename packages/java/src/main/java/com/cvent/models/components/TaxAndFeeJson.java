@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * TaxAndFeeJson
- * 
+ *
  * <p>A single tax or fee applicable to a room.
  */
 public class TaxAndFeeJson {
@@ -48,7 +48,7 @@ public class TaxAndFeeJson {
     /**
      * Indicates if the tax or fee is included in the base room rate set by the hotel (before any taxes or
      * fees are applied).
-     * 
+     *
      * <p>- true: The tax or fee is already part of the nightly rate set by the hotel.
      * - false: The tax or fee will be added to the hotel nightly rate as a separate charge.
      */
@@ -57,7 +57,7 @@ public class TaxAndFeeJson {
 
     /**
      * Indicates if the tax or fee is included in the displayed rate shown to the guest.
-     * 
+     *
      * <p>- true: The tax or fee is included in the displayed rate as part of the room rate. (Displayed rate =
      * base room rate + tax/fee.)
      * - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is
@@ -74,13 +74,12 @@ public class TaxAndFeeJson {
             @JsonProperty("frequency") @Nonnull Frequency frequency,
             @JsonProperty("partOfBaseRate") boolean partOfBaseRate,
             @JsonProperty("partOfDisplayRate") boolean partOfDisplayRate) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.amount = amount;
         this.amountType = Optional.ofNullable(amountType)
-            .orElseThrow(() -> new IllegalArgumentException("amountType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("amountType cannot be null"));
         this.frequency = Optional.ofNullable(frequency)
-            .orElseThrow(() -> new IllegalArgumentException("frequency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("frequency cannot be null"));
         this.partOfBaseRate = partOfBaseRate;
         this.partOfDisplayRate = partOfDisplayRate;
     }
@@ -120,7 +119,7 @@ public class TaxAndFeeJson {
     /**
      * Indicates if the tax or fee is included in the base room rate set by the hotel (before any taxes or
      * fees are applied).
-     * 
+     *
      * <p>- true: The tax or fee is already part of the nightly rate set by the hotel.
      * - false: The tax or fee will be added to the hotel nightly rate as a separate charge.
      */
@@ -130,7 +129,7 @@ public class TaxAndFeeJson {
 
     /**
      * Indicates if the tax or fee is included in the displayed rate shown to the guest.
-     * 
+     *
      * <p>- true: The tax or fee is included in the displayed rate as part of the room rate. (Displayed rate =
      * base room rate + tax/fee.)
      * - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is
@@ -144,7 +143,6 @@ public class TaxAndFeeJson {
         return new Builder();
     }
 
-
     /**
      * Name of the tax or fee.
      */
@@ -152,7 +150,6 @@ public class TaxAndFeeJson {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * Amount or percentage value of the tax or fee.
@@ -162,7 +159,6 @@ public class TaxAndFeeJson {
         return this;
     }
 
-
     /**
      * Specifies if the amount is a fixed value or a percentage.
      */
@@ -170,7 +166,6 @@ public class TaxAndFeeJson {
         this.amountType = Utils.checkNotNull(amountType, "amountType");
         return this;
     }
-
 
     /**
      * Defines how often the tax or fee is applied.
@@ -184,11 +179,10 @@ public class TaxAndFeeJson {
         return this;
     }
 
-
     /**
      * Indicates if the tax or fee is included in the base room rate set by the hotel (before any taxes or
      * fees are applied).
-     * 
+     *
      * <p>- true: The tax or fee is already part of the nightly rate set by the hotel.
      * - false: The tax or fee will be added to the hotel nightly rate as a separate charge.
      */
@@ -197,10 +191,9 @@ public class TaxAndFeeJson {
         return this;
     }
 
-
     /**
      * Indicates if the tax or fee is included in the displayed rate shown to the guest.
-     * 
+     *
      * <p>- true: The tax or fee is included in the displayed rate as part of the room rate. (Displayed rate =
      * base room rate + tax/fee.)
      * - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is
@@ -211,7 +204,6 @@ public class TaxAndFeeJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -221,35 +213,39 @@ public class TaxAndFeeJson {
             return false;
         }
         TaxAndFeeJson other = (TaxAndFeeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.amountType, other.amountType) &&
-            Utils.enhancedDeepEquals(this.frequency, other.frequency) &&
-            Utils.enhancedDeepEquals(this.partOfBaseRate, other.partOfBaseRate) &&
-            Utils.enhancedDeepEquals(this.partOfDisplayRate, other.partOfDisplayRate);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.amountType, other.amountType)
+                && Utils.enhancedDeepEquals(this.frequency, other.frequency)
+                && Utils.enhancedDeepEquals(this.partOfBaseRate, other.partOfBaseRate)
+                && Utils.enhancedDeepEquals(this.partOfDisplayRate, other.partOfDisplayRate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, amount, amountType,
-            frequency, partOfBaseRate, partOfDisplayRate);
+        return Utils.enhancedHash(name, amount, amountType, frequency, partOfBaseRate, partOfDisplayRate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TaxAndFeeJson.class,
-                "name", name,
-                "amount", amount,
-                "amountType", amountType,
-                "frequency", frequency,
-                "partOfBaseRate", partOfBaseRate,
-                "partOfDisplayRate", partOfDisplayRate);
+        return Utils.toString(
+                TaxAndFeeJson.class,
+                "name",
+                name,
+                "amount",
+                amount,
+                "amountType",
+                amountType,
+                "frequency",
+                frequency,
+                "partOfBaseRate",
+                partOfBaseRate,
+                "partOfDisplayRate",
+                partOfDisplayRate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -264,7 +260,7 @@ public class TaxAndFeeJson {
         private boolean partOfDisplayRate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -306,7 +302,7 @@ public class TaxAndFeeJson {
         /**
          * Indicates if the tax or fee is included in the base room rate set by the hotel (before any taxes or
          * fees are applied).
-         * 
+         *
          * <p>- true: The tax or fee is already part of the nightly rate set by the hotel.
          * - false: The tax or fee will be added to the hotel nightly rate as a separate charge.
          */
@@ -317,7 +313,7 @@ public class TaxAndFeeJson {
 
         /**
          * Indicates if the tax or fee is included in the displayed rate shown to the guest.
-         * 
+         *
          * <p>- true: The tax or fee is included in the displayed rate as part of the room rate. (Displayed rate =
          * base room rate + tax/fee.)
          * - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is
@@ -329,10 +325,7 @@ public class TaxAndFeeJson {
         }
 
         public TaxAndFeeJson build() {
-            return new TaxAndFeeJson(
-                name, amount, amountType,
-                frequency, partOfBaseRate, partOfDisplayRate);
+            return new TaxAndFeeJson(name, amount, amountType, frequency, partOfBaseRate, partOfDisplayRate);
         }
-
     }
 }

@@ -40,7 +40,7 @@ public class ListAvailableTimesRequestBuilder {
     private ListAvailableTimesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListAvailableTimesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListAvailableTimesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListAvailableTimesResponse> call() {
-        AsyncRequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation
-              = new ListAvailableTimes.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation =
+                new ListAvailableTimes.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListAvailableTimesRequestBuilder {
      */
     public Publisher<ListAvailableTimesResponse> callAsPublisher() {
         ListAvailableTimesRequest request = this.request;
-        AsyncRequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation
-              = new ListAvailableTimes.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation =
+                new ListAvailableTimes.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListAvailableTimesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListAvailableTimesRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListAvailableTimesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

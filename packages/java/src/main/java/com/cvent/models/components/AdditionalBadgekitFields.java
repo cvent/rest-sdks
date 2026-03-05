@@ -10,18 +10,16 @@ import java.lang.String;
 
 /**
  * AdditionalBadgekitFields
- * 
+ *
  * <p>Map containing extra properties from badgekit provider
  */
 public class AdditionalBadgekitFields {
     @JsonCreator
-    public AdditionalBadgekitFields() {
-    }
+    public AdditionalBadgekitFields() {}
 
     public static Builder builder() {
         return new Builder();
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -33,29 +31,26 @@ public class AdditionalBadgekitFields {
         }
         return true;
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            );
+        return Utils.enhancedHash();
     }
-    
+
     @Override
     public String toString() {
         return Utils.toString(AdditionalBadgekitFields.class);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public AdditionalBadgekitFields build() {
-            return new AdditionalBadgekitFields(
-                );
+            return new AdditionalBadgekitFields();
         }
-
     }
 }

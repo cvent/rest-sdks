@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListMeetingRequestResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListMeetingRequestResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable MeetingRequestPaginatedResponse meetingRequestPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.meetingRequestPaginatedResponse = meetingRequestPaginatedResponse;
     }
-    
+
     public ListMeetingRequestResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListMeetingRequestResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListMeetingRequestResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListMeetingRequestResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListMeetingRequestResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of meeting requests.
      */
-    public ListMeetingRequestResponse withMeetingRequestPaginatedResponse(@Nullable MeetingRequestPaginatedResponse meetingRequestPaginatedResponse) {
+    public ListMeetingRequestResponse withMeetingRequestPaginatedResponse(
+            @Nullable MeetingRequestPaginatedResponse meetingRequestPaginatedResponse) {
         this.meetingRequestPaginatedResponse = meetingRequestPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListMeetingRequestResponse implements Response {
             return false;
         }
         ListMeetingRequestResponse other = (ListMeetingRequestResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.meetingRequestPaginatedResponse, other.meetingRequestPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.meetingRequestPaginatedResponse, other.meetingRequestPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            meetingRequestPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, meetingRequestPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListMeetingRequestResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "meetingRequestPaginatedResponse", meetingRequestPaginatedResponse);
+        return Utils.toString(
+                ListMeetingRequestResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "meetingRequestPaginatedResponse",
+                meetingRequestPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListMeetingRequestResponse implements Response {
         private MeetingRequestPaginatedResponse meetingRequestPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListMeetingRequestResponse implements Response {
         /**
          * Successfully retrieved a paginated list of meeting requests.
          */
-        public Builder meetingRequestPaginatedResponse(@Nullable MeetingRequestPaginatedResponse meetingRequestPaginatedResponse) {
+        public Builder meetingRequestPaginatedResponse(
+                @Nullable MeetingRequestPaginatedResponse meetingRequestPaginatedResponse) {
             this.meetingRequestPaginatedResponse = meetingRequestPaginatedResponse;
             return this;
         }
 
         public ListMeetingRequestResponse build() {
             return new ListMeetingRequestResponse(
-                contentType, statusCode, rawResponse,
-                meetingRequestPaginatedResponse);
+                    contentType, statusCode, rawResponse, meetingRequestPaginatedResponse);
         }
-
     }
 }

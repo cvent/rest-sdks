@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetStandardSurveyResponsesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable StandardSurveyResponsesPaginatedResponse standardSurveyResponsesPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.standardSurveyResponsesPaginatedResponse = standardSurveyResponsesPaginatedResponse;
     }
-    
+
     public GetStandardSurveyResponsesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated response of all the standalone survey responses.
      */
-    public GetStandardSurveyResponsesResponse withStandardSurveyResponsesPaginatedResponse(@Nullable StandardSurveyResponsesPaginatedResponse standardSurveyResponsesPaginatedResponse) {
+    public GetStandardSurveyResponsesResponse withStandardSurveyResponsesPaginatedResponse(
+            @Nullable StandardSurveyResponsesPaginatedResponse standardSurveyResponsesPaginatedResponse) {
         this.standardSurveyResponsesPaginatedResponse = standardSurveyResponsesPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,34 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
             return false;
         }
         GetStandardSurveyResponsesResponse other = (GetStandardSurveyResponsesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.standardSurveyResponsesPaginatedResponse, other.standardSurveyResponsesPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.standardSurveyResponsesPaginatedResponse, other.standardSurveyResponsesPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            standardSurveyResponsesPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, standardSurveyResponsesPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetStandardSurveyResponsesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "standardSurveyResponsesPaginatedResponse", standardSurveyResponsesPaginatedResponse);
+        return Utils.toString(
+                GetStandardSurveyResponsesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "standardSurveyResponsesPaginatedResponse",
+                standardSurveyResponsesPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +168,7 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
         private StandardSurveyResponsesPaginatedResponse standardSurveyResponsesPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +198,15 @@ public class GetStandardSurveyResponsesResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated response of all the standalone survey responses.
          */
-        public Builder standardSurveyResponsesPaginatedResponse(@Nullable StandardSurveyResponsesPaginatedResponse standardSurveyResponsesPaginatedResponse) {
+        public Builder standardSurveyResponsesPaginatedResponse(
+                @Nullable StandardSurveyResponsesPaginatedResponse standardSurveyResponsesPaginatedResponse) {
             this.standardSurveyResponsesPaginatedResponse = standardSurveyResponsesPaginatedResponse;
             return this;
         }
 
         public GetStandardSurveyResponsesResponse build() {
             return new GetStandardSurveyResponsesResponse(
-                contentType, statusCode, rawResponse,
-                standardSurveyResponsesPaginatedResponse);
+                    contentType, statusCode, rawResponse, standardSurveyResponsesPaginatedResponse);
         }
-
     }
 }

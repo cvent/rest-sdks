@@ -11,9 +11,9 @@ import java.util.Optional;
 
 /**
  * StakeholderJsonAddressType
- * 
+ *
  * <p>The type of address.
- * 
+ *
  * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -27,13 +27,13 @@ public enum StakeholderJsonAddressType {
     StakeholderJsonAddressType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<StakeholderJsonAddressType> fromValue(String value) {
-        for (StakeholderJsonAddressType o: StakeholderJsonAddressType.values()) {
+        for (StakeholderJsonAddressType o : StakeholderJsonAddressType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum StakeholderJsonAddressType {
         return Optional.empty();
     }
 }
-

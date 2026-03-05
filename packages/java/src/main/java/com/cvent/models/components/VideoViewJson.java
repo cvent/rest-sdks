@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * VideoViewJson
- * 
+ *
  * <p>Details of a single video view
  */
 public class VideoViewJson {
@@ -39,7 +39,7 @@ public class VideoViewJson {
 
     /**
      * The device details used to watched a video. This field has been deprecated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -101,11 +101,9 @@ public class VideoViewJson {
         this.watchDuration = watchDuration;
         this.watchPercentage = watchPercentage;
     }
-    
+
     public VideoViewJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -125,7 +123,7 @@ public class VideoViewJson {
 
     /**
      * The device details used to watched a video. This field has been deprecated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -172,7 +170,6 @@ public class VideoViewJson {
         return new Builder();
     }
 
-
     /**
      * The contact details who watched a video
      */
@@ -180,7 +177,6 @@ public class VideoViewJson {
         this.contact = contact;
         return this;
     }
-
 
     /**
      * The solution where the video exists. Attendee Hub and Events+ represent two different solutions
@@ -191,10 +187,9 @@ public class VideoViewJson {
         return this;
     }
 
-
     /**
      * The device details used to watched a video. This field has been deprecated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -202,7 +197,6 @@ public class VideoViewJson {
         this.device = device;
         return this;
     }
-
 
     /**
      * The details of a video
@@ -212,7 +206,6 @@ public class VideoViewJson {
         return this;
     }
 
-
     /**
      * The view type of the video. Videos can be viewed live or as a recording.
      */
@@ -220,7 +213,6 @@ public class VideoViewJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The total duration of the video (in milliseconds).
@@ -230,7 +222,6 @@ public class VideoViewJson {
         return this;
     }
 
-
     /**
      * The total duration of the video watched by the viewer (in milliseconds).
      */
@@ -239,7 +230,6 @@ public class VideoViewJson {
         return this;
     }
 
-
     /**
      * The percentage of the video watched by the viewer.
      */
@@ -247,7 +237,6 @@ public class VideoViewJson {
         this.watchPercentage = watchPercentage;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -258,40 +247,46 @@ public class VideoViewJson {
             return false;
         }
         VideoViewJson other = (VideoViewJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.solution, other.solution) &&
-            Utils.enhancedDeepEquals(this.device, other.device) &&
-            Utils.enhancedDeepEquals(this.video, other.video) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.totalDuration, other.totalDuration) &&
-            Utils.enhancedDeepEquals(this.watchDuration, other.watchDuration) &&
-            Utils.enhancedDeepEquals(this.watchPercentage, other.watchPercentage);
+        return Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.solution, other.solution)
+                && Utils.enhancedDeepEquals(this.device, other.device)
+                && Utils.enhancedDeepEquals(this.video, other.video)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.totalDuration, other.totalDuration)
+                && Utils.enhancedDeepEquals(this.watchDuration, other.watchDuration)
+                && Utils.enhancedDeepEquals(this.watchPercentage, other.watchPercentage);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            contact, solution, device,
-            video, type, totalDuration,
-            watchDuration, watchPercentage);
+                contact, solution, device, video, type, totalDuration, watchDuration, watchPercentage);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoViewJson.class,
-                "contact", contact,
-                "solution", solution,
-                "device", device,
-                "video", video,
-                "type", type,
-                "totalDuration", totalDuration,
-                "watchDuration", watchDuration,
-                "watchPercentage", watchPercentage);
+        return Utils.toString(
+                VideoViewJson.class,
+                "contact",
+                contact,
+                "solution",
+                solution,
+                "device",
+                device,
+                "video",
+                video,
+                "type",
+                type,
+                "totalDuration",
+                totalDuration,
+                "watchDuration",
+                watchDuration,
+                "watchPercentage",
+                watchPercentage);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ContactJson2 contact;
 
@@ -311,7 +306,7 @@ public class VideoViewJson {
         private Double watchPercentage;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -333,7 +328,7 @@ public class VideoViewJson {
 
         /**
          * The device details used to watched a video. This field has been deprecated.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -384,10 +379,7 @@ public class VideoViewJson {
 
         public VideoViewJson build() {
             return new VideoViewJson(
-                contact, solution, device,
-                video, type, totalDuration,
-                watchDuration, watchPercentage);
+                    contact, solution, device, video, type, totalDuration, watchDuration, watchPercentage);
         }
-
     }
 }

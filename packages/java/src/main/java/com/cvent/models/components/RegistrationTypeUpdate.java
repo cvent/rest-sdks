@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * RegistrationTypeUpdate
- * 
+ *
  * <p>Represents the details of an existing registration type.
  */
 public class RegistrationTypeUpdate {
@@ -112,18 +112,12 @@ public class RegistrationTypeUpdate {
         this.automaticOpenDate = automaticOpenDate;
         this.automaticEndDate = automaticEndDate;
         this.event = event;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.capacity = capacity;
     }
-    
-    public RegistrationTypeUpdate(
-            boolean openForRegistration,
-            @Nonnull String id) {
-        this(null, null, null,
-            null, openForRegistration, null,
-            null, null, id,
-            null);
+
+    public RegistrationTypeUpdate(boolean openForRegistration, @Nonnull String id) {
+        this(null, null, null, null, openForRegistration, null, null, null, id, null);
     }
 
     /**
@@ -202,7 +196,6 @@ public class RegistrationTypeUpdate {
         return new Builder();
     }
 
-
     /**
      * Name of the registration type.
      */
@@ -210,7 +203,6 @@ public class RegistrationTypeUpdate {
         this.name = name;
         return this;
     }
-
 
     /**
      * Code for this registration type.
@@ -220,7 +212,6 @@ public class RegistrationTypeUpdate {
         return this;
     }
 
-
     /**
      * Detailed description of the registration type.
      */
@@ -228,7 +219,6 @@ public class RegistrationTypeUpdate {
         this.description = description;
         return this;
     }
-
 
     /**
      * True indicates the registration type is virtual.
@@ -238,7 +228,6 @@ public class RegistrationTypeUpdate {
         return this;
     }
 
-
     /**
      * True indicates the registration type can be chosen for registration.
      */
@@ -246,7 +235,6 @@ public class RegistrationTypeUpdate {
         this.openForRegistration = openForRegistration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date-time (in UTC) the registration type automatically opens for
@@ -257,7 +245,6 @@ public class RegistrationTypeUpdate {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date-time (in UTC) the registration type automatically closes for
      * registration.
@@ -267,7 +254,6 @@ public class RegistrationTypeUpdate {
         return this;
     }
 
-
     /**
      * Event associated with the registration.
      */
@@ -275,7 +261,6 @@ public class RegistrationTypeUpdate {
         this.event = event;
         return this;
     }
-
 
     /**
      * A unique identifier of the registration type.
@@ -285,7 +270,6 @@ public class RegistrationTypeUpdate {
         return this;
     }
 
-
     /**
      * Represents capacity statistics of the registration type.
      */
@@ -293,7 +277,6 @@ public class RegistrationTypeUpdate {
         this.capacity = capacity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -304,45 +287,61 @@ public class RegistrationTypeUpdate {
             return false;
         }
         RegistrationTypeUpdate other = (RegistrationTypeUpdate) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.virtual, other.virtual) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticOpenDate, other.automaticOpenDate) &&
-            Utils.enhancedDeepEquals(this.automaticEndDate, other.automaticEndDate) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.virtual, other.virtual)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticOpenDate, other.automaticOpenDate)
+                && Utils.enhancedDeepEquals(this.automaticEndDate, other.automaticEndDate)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            name, code, description,
-            virtual, openForRegistration, automaticOpenDate,
-            automaticEndDate, event, id,
-            capacity);
+                name,
+                code,
+                description,
+                virtual,
+                openForRegistration,
+                automaticOpenDate,
+                automaticEndDate,
+                event,
+                id,
+                capacity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RegistrationTypeUpdate.class,
-                "name", name,
-                "code", code,
-                "description", description,
-                "virtual", virtual,
-                "openForRegistration", openForRegistration,
-                "automaticOpenDate", automaticOpenDate,
-                "automaticEndDate", automaticEndDate,
-                "event", event,
-                "id", id,
-                "capacity", capacity);
+        return Utils.toString(
+                RegistrationTypeUpdate.class,
+                "name",
+                name,
+                "code",
+                code,
+                "description",
+                description,
+                "virtual",
+                virtual,
+                "openForRegistration",
+                openForRegistration,
+                "automaticOpenDate",
+                automaticOpenDate,
+                "automaticEndDate",
+                automaticEndDate,
+                "event",
+                event,
+                "id",
+                id,
+                "capacity",
+                capacity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -365,7 +364,7 @@ public class RegistrationTypeUpdate {
         private CapacityJson1 capacity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -452,11 +451,16 @@ public class RegistrationTypeUpdate {
 
         public RegistrationTypeUpdate build() {
             return new RegistrationTypeUpdate(
-                name, code, description,
-                virtual, openForRegistration, automaticOpenDate,
-                automaticEndDate, event, id,
-                capacity);
+                    name,
+                    code,
+                    description,
+                    virtual,
+                    openForRegistration,
+                    automaticOpenDate,
+                    automaticEndDate,
+                    event,
+                    id,
+                    capacity);
         }
-
     }
 }

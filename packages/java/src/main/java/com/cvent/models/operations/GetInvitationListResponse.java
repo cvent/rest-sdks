@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetInvitationListResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetInvitationListResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable InvitationListPaginatedResponse invitationListPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.invitationListPaginatedResponse = invitationListPaginatedResponse;
     }
-    
+
     public GetInvitationListResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetInvitationListResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetInvitationListResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetInvitationListResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetInvitationListResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of invitation lists.
      */
-    public GetInvitationListResponse withInvitationListPaginatedResponse(@Nullable InvitationListPaginatedResponse invitationListPaginatedResponse) {
+    public GetInvitationListResponse withInvitationListPaginatedResponse(
+            @Nullable InvitationListPaginatedResponse invitationListPaginatedResponse) {
         this.invitationListPaginatedResponse = invitationListPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetInvitationListResponse implements Response {
             return false;
         }
         GetInvitationListResponse other = (GetInvitationListResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.invitationListPaginatedResponse, other.invitationListPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.invitationListPaginatedResponse, other.invitationListPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            invitationListPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, invitationListPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetInvitationListResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "invitationListPaginatedResponse", invitationListPaginatedResponse);
+        return Utils.toString(
+                GetInvitationListResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "invitationListPaginatedResponse",
+                invitationListPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetInvitationListResponse implements Response {
         private InvitationListPaginatedResponse invitationListPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class GetInvitationListResponse implements Response {
         /**
          * Successfully retrieved a paginated list of invitation lists.
          */
-        public Builder invitationListPaginatedResponse(@Nullable InvitationListPaginatedResponse invitationListPaginatedResponse) {
+        public Builder invitationListPaginatedResponse(
+                @Nullable InvitationListPaginatedResponse invitationListPaginatedResponse) {
             this.invitationListPaginatedResponse = invitationListPaginatedResponse;
             return this;
         }
 
         public GetInvitationListResponse build() {
-            return new GetInvitationListResponse(
-                contentType, statusCode, rawResponse,
-                invitationListPaginatedResponse);
+            return new GetInvitationListResponse(contentType, statusCode, rawResponse, invitationListPaginatedResponse);
         }
-
     }
 }

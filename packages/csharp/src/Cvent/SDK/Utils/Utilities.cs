@@ -22,8 +22,7 @@ namespace Cvent.SDK.Utils
     {
         public static JsonConverter[] GetDefaultJsonSerializers()
         {
-            return new JsonConverter[]
-            {
+            return new JsonConverter[] {
                 new IsoDateTimeSerializer(),
                 new EnumConverter()
             };
@@ -40,8 +39,7 @@ namespace Cvent.SDK.Utils
 
         public static JsonSerializerSettings GetDefaultJsonSerializerSettings()
         {
-            return new JsonSerializerSettings()
-            {
+            return new JsonSerializerSettings() {
                 NullValueHandling = NullValueHandling.Ignore,
                 Converters = GetDefaultJsonSerializers()
             };
@@ -49,8 +47,7 @@ namespace Cvent.SDK.Utils
 
         public static JsonSerializerSettings GetDefaultJsonDeserializerSettings()
         {
-            return new JsonSerializerSettings()
-            {
+            return new JsonSerializerSettings() {
                 NullValueHandling = NullValueHandling.Ignore,
                 Converters = GetDefaultJsonDeserializers()
             };
@@ -103,8 +100,7 @@ namespace Cvent.SDK.Utils
 
             return JsonConvert.SerializeObject(
                 obj,
-                new JsonSerializerSettings()
-                {
+                new JsonSerializerSettings() {
                     NullValueHandling = NullValueHandling.Ignore,
                     Converters = GetJsonSerializers(type, format)
                 }
@@ -115,18 +111,14 @@ namespace Cvent.SDK.Utils
         {
             if (o == null)
                 return false;
-            return o is IDictionary
-                && o.GetType().IsGenericType
-                && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(Dictionary<,>));
+            return o is IDictionary && o.GetType().IsGenericType && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(Dictionary<, >));
         }
 
         public static bool IsList(object? o)
         {
             if (o == null)
                 return false;
-            return o is IList
-                && o.GetType().IsGenericType
-                && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
+            return o is IList && o.GetType().IsGenericType && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
         }
 
         public static bool IsClass(object? o)
@@ -139,8 +131,7 @@ namespace Cvent.SDK.Utils
         // TODO: code review polyfilled for IsAssignableTo
         public static bool IsSameOrSubclass(Type potentialBase, Type potentialDescendant)
         {
-            return potentialDescendant.IsSubclassOf(potentialBase)
-                || potentialDescendant == potentialBase;
+            return potentialDescendant.IsSubclassOf(potentialBase) || potentialDescendant == potentialBase;
         }
 
         public static bool IsString(object? obj)
@@ -167,7 +158,7 @@ namespace Cvent.SDK.Utils
         {
             Regex surroundingQuotesRegex = new Regex("^\"(.*)\"$");
             var match = surroundingQuotesRegex.Match(input);
-            if(match.Groups.Values.Count() == 2)
+            if (match.Groups.Values.Count() == 2)
             {
                 return match.Groups.Values.Last().ToString();
             }
@@ -199,7 +190,7 @@ namespace Cvent.SDK.Utils
             else if (IsEnum(value))
             {
                 var method = Type.GetType(value.GetType().FullName + "Extension")
-                    ?.GetMethod("Value");
+                                 ?.GetMethod("Value");
                 if (method == null)
                 {
                     return Convert.ChangeType(value, Enum.GetUnderlyingType(value.GetType()))?.ToString() ?? "";
@@ -287,7 +278,9 @@ namespace Cvent.SDK.Utils
                     }
                 }
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+            }
 
             return false;
         }
@@ -313,7 +306,7 @@ namespace Cvent.SDK.Utils
 
         public static string TemplateUrl(string template, Dictionary<string, string> paramDict)
         {
-            foreach(KeyValuePair<string, string> entry in paramDict)
+            foreach (KeyValuePair<string, string> entry in paramDict)
             {
                 template = template.Replace('{' + entry.Key + '}', entry.Value);
             }

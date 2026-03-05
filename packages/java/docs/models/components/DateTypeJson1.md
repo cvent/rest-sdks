@@ -2,6 +2,14 @@
 
 The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and so on).
 
+## Example Usage
+
+```java
+import com.cvent.models.components.DateTypeJson1;
+
+DateTypeJson1 value = DateTypeJson1.PREFERRED;
+```
+
 
 ## Values
 

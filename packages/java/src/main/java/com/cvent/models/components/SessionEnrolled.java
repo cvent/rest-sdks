@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionEnrolled
- * 
+ *
  * <p>A session activity.
  */
 public class SessionEnrolled {
@@ -27,11 +27,10 @@ public class SessionEnrolled {
     private SessionActivity3 session;
 
     @JsonCreator
-    public SessionEnrolled(
-            @JsonProperty("session") @Nullable SessionActivity3 session) {
+    public SessionEnrolled(@JsonProperty("session") @Nullable SessionActivity3 session) {
         this.session = session;
     }
-    
+
     public SessionEnrolled() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class SessionEnrolled {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -55,7 +53,6 @@ public class SessionEnrolled {
         this.session = session;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class SessionEnrolled {
             return false;
         }
         SessionEnrolled other = (SessionEnrolled) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session);
+        return Utils.enhancedDeepEquals(this.session, other.session);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session);
+        return Utils.enhancedHash(session);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionEnrolled.class,
-                "session", session);
+        return Utils.toString(SessionEnrolled.class, "session", session);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity3 session;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class SessionEnrolled {
         }
 
         public SessionEnrolled build() {
-            return new SessionEnrolled(
-                session);
+            return new SessionEnrolled(session);
         }
-
     }
 }

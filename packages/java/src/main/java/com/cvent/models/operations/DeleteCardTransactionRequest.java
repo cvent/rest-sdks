@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteCardTransactionRequest {
     /**
      * Unique ID of a transaction.
@@ -20,10 +19,9 @@ public class DeleteCardTransactionRequest {
     private String transactionId;
 
     @JsonCreator
-    public DeleteCardTransactionRequest(
-            @Nonnull String transactionId) {
+    public DeleteCardTransactionRequest(@Nonnull String transactionId) {
         this.transactionId = Optional.ofNullable(transactionId)
-            .orElseThrow(() -> new IllegalArgumentException("transactionId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("transactionId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class DeleteCardTransactionRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a transaction.
      */
@@ -45,7 +42,6 @@ public class DeleteCardTransactionRequest {
         this.transactionId = Utils.checkNotNull(transactionId, "transactionId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class DeleteCardTransactionRequest {
             return false;
         }
         DeleteCardTransactionRequest other = (DeleteCardTransactionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
+        return Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            transactionId);
+        return Utils.enhancedHash(transactionId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteCardTransactionRequest.class,
-                "transactionId", transactionId);
+        return Utils.toString(DeleteCardTransactionRequest.class, "transactionId", transactionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String transactionId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class DeleteCardTransactionRequest {
         }
 
         public DeleteCardTransactionRequest build() {
-            return new DeleteCardTransactionRequest(
-                transactionId);
+            return new DeleteCardTransactionRequest(transactionId);
         }
-
     }
 }

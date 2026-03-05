@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventRoleAssignmentJsonUser
- * 
+ *
  * <p>The user to whom the event role is assigned. For more details, use the [Get
  * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
  */
@@ -28,11 +28,10 @@ public class EventRoleAssignmentJsonUser {
     private String id;
 
     @JsonCreator
-    public EventRoleAssignmentJsonUser(
-            @JsonProperty("id") @Nullable String id) {
+    public EventRoleAssignmentJsonUser(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public EventRoleAssignmentJsonUser() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class EventRoleAssignmentJsonUser {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the user.
      */
@@ -56,7 +54,6 @@ public class EventRoleAssignmentJsonUser {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class EventRoleAssignmentJsonUser {
             return false;
         }
         EventRoleAssignmentJsonUser other = (EventRoleAssignmentJsonUser) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventRoleAssignmentJsonUser.class,
-                "id", id);
+        return Utils.toString(EventRoleAssignmentJsonUser.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class EventRoleAssignmentJsonUser {
         }
 
         public EventRoleAssignmentJsonUser build() {
-            return new EventRoleAssignmentJsonUser(
-                id);
+            return new EventRoleAssignmentJsonUser(id);
         }
-
     }
 }

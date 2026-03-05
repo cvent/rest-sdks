@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CustomFieldJson4CustomFieldType
     {
-        [JsonProperty("Open Ended Text - Date/Time")]
-        OpenEndedTextDateTime,
-        [JsonProperty("Open Ended Text - One Line")]
-        OpenEndedTextOneLine,
-        [JsonProperty("Open Ended Text - Comment Box")]
-        OpenEndedTextCommentBox,
-        [JsonProperty("Choice - Single Answer")]
-        ChoiceSingleAnswer,
-        [JsonProperty("Choice - Multiple Answers")]
-        ChoiceMultipleAnswers,
+        [JsonProperty("Open Ended Text - Date/Time")] OpenEndedTextDateTime,
+        [JsonProperty("Open Ended Text - One Line")] OpenEndedTextOneLine,
+        [JsonProperty("Open Ended Text - Comment Box")] OpenEndedTextCommentBox,
+        [JsonProperty("Choice - Single Answer")] ChoiceSingleAnswer,
+        [JsonProperty("Choice - Multiple Answers")] ChoiceMultipleAnswers,
     }
 
     public static class CustomFieldJson4CustomFieldTypeExtension
     {
         public static string Value(this CustomFieldJson4CustomFieldType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CustomFieldJson4CustomFieldType ToEnum(this string value)
         {
-            foreach(var field in typeof(CustomFieldJson4CustomFieldType).GetFields())
+            foreach (var field in typeof(CustomFieldJson4CustomFieldType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

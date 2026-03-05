@@ -4,7 +4,6 @@
 package com.cvent.utils;
 
 import com.cvent.utils.reactive.ReactiveUtils;
-
 import java.net.URLEncoder;
 import java.net.http.HttpRequest.BodyPublisher;
 import java.net.http.HttpRequest.BodyPublishers;
@@ -19,7 +18,7 @@ public final class Multipart {
     private static final String CRLF = "\r\n";
     private static final String DASHES = "--";
     private static final Charset HDR_CS = StandardCharsets.ISO_8859_1; // headers
-    private static final Charset TXT_CS = StandardCharsets.UTF_8;      // text fields
+    private static final Charset TXT_CS = StandardCharsets.UTF_8; // text fields
     private static final String DEFAULT_FILE_CT = "application/octet-stream";
     public static final String DEFAULT_TEXT_CT = "text/plain; charset=UTF-8";
 
@@ -83,8 +82,7 @@ public final class Multipart {
             Utils.checkNotNull(name, "name");
             Utils.checkNotNull(blob, "blob");
             Utils.checkNotNull(filename, "filename");
-            parts.add(new FilePart(name, blob, filename,
-                    Optional.ofNullable(contentType).orElse(DEFAULT_FILE_CT)));
+            parts.add(new FilePart(name, blob, filename, Optional.ofNullable(contentType).orElse(DEFAULT_FILE_CT)));
             return this;
         }
 
@@ -128,10 +126,15 @@ public final class Multipart {
 
         @Override
         public BodyPublisher toPublisher(String boundary) {
-            String header = DASHES + boundary + CRLF +
-                    "Content-Disposition: form-data; name=\"" + escapeQuoted(name) + "\"" + CRLF +
-                    "Content-Type: " + contentType + CRLF +
-                    CRLF;
+            String header = DASHES + boundary + CRLF
+                    + "Content-Disposition: form-data; name=\""
+                    + escapeQuoted(name)
+                    + "\""
+                    + CRLF
+                    + "Content-Type: "
+                    + contentType
+                    + CRLF
+                    + CRLF;
 
             BodyPublisher h = BodyPublishers.ofString(header, HDR_CS);
             BodyPublisher b = BodyPublishers.ofString(value, TXT_CS);
@@ -160,10 +163,14 @@ public final class Multipart {
         @Override
         public BodyPublisher toPublisher(String boundary) {
             String cd = contentDispositionWithFilename(name, filename);
-            String header = DASHES + boundary + CRLF +
-                    "Content-Disposition: " + cd + CRLF +
-                    "Content-Type: " + contentType + CRLF +
-                    CRLF;
+            String header = DASHES + boundary + CRLF
+                    + "Content-Disposition: "
+                    + cd
+                    + CRLF
+                    + "Content-Type: "
+                    + contentType
+                    + CRLF
+                    + CRLF;
 
             BodyPublisher h = BodyPublishers.ofString(header, HDR_CS);
             BodyPublisher c = BodyPublishers.fromPublisher(blob.asPublisher()); // streaming
@@ -221,5 +228,4 @@ public final class Multipart {
         List<Flow.Publisher<ByteBuffer>> bufferPublishers = List.copyOf(publishers);
         return BodyPublishers.fromPublisher(ReactiveUtils.concat(bufferPublishers));
     }
-
 }

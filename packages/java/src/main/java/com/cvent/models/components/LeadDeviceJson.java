@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LeadDeviceJson
- * 
+ *
  * <p>A JSON object representing an electronic device used to capture leads.
  */
 public class LeadDeviceJson {
@@ -34,13 +34,11 @@ public class LeadDeviceJson {
     private String name;
 
     @JsonCreator
-    public LeadDeviceJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("name") @Nullable String name) {
+    public LeadDeviceJson(@JsonProperty("id") @Nullable String id, @JsonProperty("name") @Nullable String name) {
         this.id = id;
         this.name = name;
     }
-    
+
     public LeadDeviceJson() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class LeadDeviceJson {
         return new Builder();
     }
 
-
     /**
      * The id of device used to capture lead
      */
@@ -72,7 +69,6 @@ public class LeadDeviceJson {
         return this;
     }
 
-
     /**
      * The name of device used to capture lead
      */
@@ -80,7 +76,6 @@ public class LeadDeviceJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class LeadDeviceJson {
             return false;
         }
         LeadDeviceJson other = (LeadDeviceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadDeviceJson.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(LeadDeviceJson.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class LeadDeviceJson {
         }
 
         public LeadDeviceJson build() {
-            return new LeadDeviceJson(
-                id, name);
+            return new LeadDeviceJson(id, name);
         }
-
     }
 }

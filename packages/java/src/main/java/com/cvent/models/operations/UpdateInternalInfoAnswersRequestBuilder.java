@@ -28,7 +28,7 @@ public class UpdateInternalInfoAnswersRequestBuilder {
     private UpdateInternalInfoAnswersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateInternalInfoAnswersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateInternalInfoAnswersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateInternalInfoAnswersResponse call() {
-        RequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation
-              = new UpdateInternalInfoAnswers.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
+                new UpdateInternalInfoAnswers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,21 +15,21 @@ import java.util.Optional;
 
 /**
  * ContactObfuscationStatus
- * 
+ *
  * <p>Model representing an obfuscation status of a contact.
  */
 public class ContactObfuscationStatus {
     /**
      * Status of the request to obfuscate a contact.
-     * 
+     *
      * <p>INITIATED - The obfuscation request has been received.
-     * 
+     *
      * <p>QUEUED - The obfuscation request is currently waiting in the queue to be executed.
-     * 
+     *
      * <p>PROCESSING -  The obfuscation request is currently being processed.
-     * 
+     *
      * <p>COMPLETED -  The obfuscation request is complete.
-     * 
+     *
      * <p>FAILED - The obfuscation request failed due to an error.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -59,22 +59,22 @@ public class ContactObfuscationStatus {
         this.obfuscateId = obfuscateId;
         this.contact = contact;
     }
-    
+
     public ContactObfuscationStatus() {
         this(null, null, null);
     }
 
     /**
      * Status of the request to obfuscate a contact.
-     * 
+     *
      * <p>INITIATED - The obfuscation request has been received.
-     * 
+     *
      * <p>QUEUED - The obfuscation request is currently waiting in the queue to be executed.
-     * 
+     *
      * <p>PROCESSING -  The obfuscation request is currently being processed.
-     * 
+     *
      * <p>COMPLETED -  The obfuscation request is complete.
-     * 
+     *
      * <p>FAILED - The obfuscation request failed due to an error.
      */
     public Optional<ContactObfuscationStatusTypeJson> status() {
@@ -99,25 +99,23 @@ public class ContactObfuscationStatus {
         return new Builder();
     }
 
-
     /**
      * Status of the request to obfuscate a contact.
-     * 
+     *
      * <p>INITIATED - The obfuscation request has been received.
-     * 
+     *
      * <p>QUEUED - The obfuscation request is currently waiting in the queue to be executed.
-     * 
+     *
      * <p>PROCESSING -  The obfuscation request is currently being processed.
-     * 
+     *
      * <p>COMPLETED -  The obfuscation request is complete.
-     * 
+     *
      * <p>FAILED - The obfuscation request failed due to an error.
      */
     public ContactObfuscationStatus withStatus(@Nullable ContactObfuscationStatusTypeJson status) {
         this.status = status;
         return this;
     }
-
 
     /**
      * The obfuscation job identifier.
@@ -127,7 +125,6 @@ public class ContactObfuscationStatus {
         return this;
     }
 
-
     /**
      * A contact id.
      */
@@ -135,7 +132,6 @@ public class ContactObfuscationStatus {
         this.contact = contact;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,28 +142,24 @@ public class ContactObfuscationStatus {
             return false;
         }
         ContactObfuscationStatus other = (ContactObfuscationStatus) o;
-        return 
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.obfuscateId, other.obfuscateId) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact);
+        return Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.obfuscateId, other.obfuscateId)
+                && Utils.enhancedDeepEquals(this.contact, other.contact);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            status, obfuscateId, contact);
+        return Utils.enhancedHash(status, obfuscateId, contact);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactObfuscationStatus.class,
-                "status", status,
-                "obfuscateId", obfuscateId,
-                "contact", contact);
+        return Utils.toString(
+                ContactObfuscationStatus.class, "status", status, "obfuscateId", obfuscateId, "contact", contact);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ContactObfuscationStatusTypeJson status;
 
@@ -176,20 +168,20 @@ public class ContactObfuscationStatus {
         private ContactIdJson contact;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Status of the request to obfuscate a contact.
-         * 
+         *
          * <p>INITIATED - The obfuscation request has been received.
-         * 
+         *
          * <p>QUEUED - The obfuscation request is currently waiting in the queue to be executed.
-         * 
+         *
          * <p>PROCESSING -  The obfuscation request is currently being processed.
-         * 
+         *
          * <p>COMPLETED -  The obfuscation request is complete.
-         * 
+         *
          * <p>FAILED - The obfuscation request failed due to an error.
          */
         public Builder status(@Nullable ContactObfuscationStatusTypeJson status) {
@@ -214,9 +206,7 @@ public class ContactObfuscationStatus {
         }
 
         public ContactObfuscationStatus build() {
-            return new ContactObfuscationStatus(
-                status, obfuscateId, contact);
+            return new ContactObfuscationStatus(status, obfuscateId, contact);
         }
-
     }
 }

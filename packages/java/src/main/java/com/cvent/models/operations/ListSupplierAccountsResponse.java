@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSupplierAccountsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListSupplierAccountsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable TravelAccountSupplierAccountPaginatedResponse travelAccountSupplierAccountPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.travelAccountSupplierAccountPaginatedResponse = travelAccountSupplierAccountPaginatedResponse;
     }
-    
+
     public ListSupplierAccountsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListSupplierAccountsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListSupplierAccountsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListSupplierAccountsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListSupplierAccountsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of travel supplied accounts.
      */
-    public ListSupplierAccountsResponse withTravelAccountSupplierAccountPaginatedResponse(@Nullable TravelAccountSupplierAccountPaginatedResponse travelAccountSupplierAccountPaginatedResponse) {
+    public ListSupplierAccountsResponse withTravelAccountSupplierAccountPaginatedResponse(
+            @Nullable TravelAccountSupplierAccountPaginatedResponse travelAccountSupplierAccountPaginatedResponse) {
         this.travelAccountSupplierAccountPaginatedResponse = travelAccountSupplierAccountPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,35 @@ public class ListSupplierAccountsResponse implements Response {
             return false;
         }
         ListSupplierAccountsResponse other = (ListSupplierAccountsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.travelAccountSupplierAccountPaginatedResponse, other.travelAccountSupplierAccountPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.travelAccountSupplierAccountPaginatedResponse,
+                        other.travelAccountSupplierAccountPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            travelAccountSupplierAccountPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, travelAccountSupplierAccountPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSupplierAccountsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "travelAccountSupplierAccountPaginatedResponse", travelAccountSupplierAccountPaginatedResponse);
+        return Utils.toString(
+                ListSupplierAccountsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "travelAccountSupplierAccountPaginatedResponse",
+                travelAccountSupplierAccountPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +168,7 @@ public class ListSupplierAccountsResponse implements Response {
         private TravelAccountSupplierAccountPaginatedResponse travelAccountSupplierAccountPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +198,15 @@ public class ListSupplierAccountsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of travel supplied accounts.
          */
-        public Builder travelAccountSupplierAccountPaginatedResponse(@Nullable TravelAccountSupplierAccountPaginatedResponse travelAccountSupplierAccountPaginatedResponse) {
+        public Builder travelAccountSupplierAccountPaginatedResponse(
+                @Nullable TravelAccountSupplierAccountPaginatedResponse travelAccountSupplierAccountPaginatedResponse) {
             this.travelAccountSupplierAccountPaginatedResponse = travelAccountSupplierAccountPaginatedResponse;
             return this;
         }
 
         public ListSupplierAccountsResponse build() {
             return new ListSupplierAccountsResponse(
-                contentType, statusCode, rawResponse,
-                travelAccountSupplierAccountPaginatedResponse);
+                    contentType, statusCode, rawResponse, travelAccountSupplierAccountPaginatedResponse);
         }
-
     }
 }

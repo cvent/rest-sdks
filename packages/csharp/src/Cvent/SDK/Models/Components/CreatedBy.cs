@@ -18,38 +18,28 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CreatedBy
     {
-        [JsonProperty("ATTENDEE")]
-        Attendee,
-        [JsonProperty("PLANNER")]
-        Planner,
-        [JsonProperty("IMPORT")]
-        Import,
-        [JsonProperty("SOAP_API")]
-        SoapApi,
-        [JsonProperty("REST_API")]
-        RestApi,
-        [JsonProperty("MARKETO")]
-        Marketo,
-        [JsonProperty("SALEFORCE")]
-        Saleforce,
-        [JsonProperty("VIDEO_CENTER_MEMBER")]
-        VideoCenterMember,
-        [JsonProperty("RESPONDENT")]
-        Respondent,
-        [JsonProperty("NOT_SET")]
-        NotSet,
+        [JsonProperty("ATTENDEE")] Attendee,
+        [JsonProperty("PLANNER")] Planner,
+        [JsonProperty("IMPORT")] Import,
+        [JsonProperty("SOAP_API")] SoapApi,
+        [JsonProperty("REST_API")] RestApi,
+        [JsonProperty("MARKETO")] Marketo,
+        [JsonProperty("SALEFORCE")] Saleforce,
+        [JsonProperty("VIDEO_CENTER_MEMBER")] VideoCenterMember,
+        [JsonProperty("RESPONDENT")] Respondent,
+        [JsonProperty("NOT_SET")] NotSet,
     }
 
     public static class CreatedByExtension
     {
         public static string Value(this CreatedBy value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CreatedBy ToEnum(this string value)
         {
-            foreach(var field in typeof(CreatedBy).GetFields())
+            foreach (var field in typeof(CreatedBy).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

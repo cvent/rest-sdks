@@ -30,7 +30,7 @@ public class LaunchEventFeaturesRequestBuilder {
     private LaunchEventFeaturesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public LaunchEventFeaturesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class LaunchEventFeaturesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<LaunchEventFeaturesResponse> call() {
-        AsyncRequestOperation<LaunchEventFeaturesRequest, LaunchEventFeaturesResponse> operation
-              = new LaunchEventFeatures.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<LaunchEventFeaturesRequest, LaunchEventFeaturesResponse> operation =
+                new LaunchEventFeatures.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

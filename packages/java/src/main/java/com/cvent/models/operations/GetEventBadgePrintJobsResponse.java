@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEventBadgePrintJobsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetEventBadgePrintJobsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable BadgePrintJobsPaginatedResponse badgePrintJobsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.badgePrintJobsPaginatedResponse = badgePrintJobsPaginatedResponse;
     }
-    
+
     public GetEventBadgePrintJobsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetEventBadgePrintJobsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetEventBadgePrintJobsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetEventBadgePrintJobsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetEventBadgePrintJobsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of badge print jobs.
      */
-    public GetEventBadgePrintJobsResponse withBadgePrintJobsPaginatedResponse(@Nullable BadgePrintJobsPaginatedResponse badgePrintJobsPaginatedResponse) {
+    public GetEventBadgePrintJobsResponse withBadgePrintJobsPaginatedResponse(
+            @Nullable BadgePrintJobsPaginatedResponse badgePrintJobsPaginatedResponse) {
         this.badgePrintJobsPaginatedResponse = badgePrintJobsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetEventBadgePrintJobsResponse implements Response {
             return false;
         }
         GetEventBadgePrintJobsResponse other = (GetEventBadgePrintJobsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.badgePrintJobsPaginatedResponse, other.badgePrintJobsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.badgePrintJobsPaginatedResponse, other.badgePrintJobsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            badgePrintJobsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, badgePrintJobsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventBadgePrintJobsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "badgePrintJobsPaginatedResponse", badgePrintJobsPaginatedResponse);
+        return Utils.toString(
+                GetEventBadgePrintJobsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "badgePrintJobsPaginatedResponse",
+                badgePrintJobsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetEventBadgePrintJobsResponse implements Response {
         private BadgePrintJobsPaginatedResponse badgePrintJobsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetEventBadgePrintJobsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of badge print jobs.
          */
-        public Builder badgePrintJobsPaginatedResponse(@Nullable BadgePrintJobsPaginatedResponse badgePrintJobsPaginatedResponse) {
+        public Builder badgePrintJobsPaginatedResponse(
+                @Nullable BadgePrintJobsPaginatedResponse badgePrintJobsPaginatedResponse) {
             this.badgePrintJobsPaginatedResponse = badgePrintJobsPaginatedResponse;
             return this;
         }
 
         public GetEventBadgePrintJobsResponse build() {
             return new GetEventBadgePrintJobsResponse(
-                contentType, statusCode, rawResponse,
-                badgePrintJobsPaginatedResponse);
+                    contentType, statusCode, rawResponse, badgePrintJobsPaginatedResponse);
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * MessageRecipientsResponseJson
- * 
+ *
  * <p>Members of the channel who received a message.
  */
 public class MessageRecipientsResponseJson {
@@ -34,9 +34,9 @@ public class MessageRecipientsResponseJson {
             @JsonProperty("attendee") @Nonnull MessageRecipientsResponseJsonAttendee attendee,
             @JsonProperty("channel") @Nonnull Channel channel) {
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.channel = Optional.ofNullable(channel)
-            .orElseThrow(() -> new IllegalArgumentException("channel cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.channel =
+                Optional.ofNullable(channel).orElseThrow(() -> new IllegalArgumentException("channel cannot be null"));
     }
 
     /**
@@ -57,7 +57,6 @@ public class MessageRecipientsResponseJson {
         return new Builder();
     }
 
-
     /**
      * The attendee object
      */
@@ -66,7 +65,6 @@ public class MessageRecipientsResponseJson {
         return this;
     }
 
-
     /**
      * The channel object
      */
@@ -74,7 +72,6 @@ public class MessageRecipientsResponseJson {
         this.channel = Utils.checkNotNull(channel, "channel");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +82,29 @@ public class MessageRecipientsResponseJson {
             return false;
         }
         MessageRecipientsResponseJson other = (MessageRecipientsResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.channel, other.channel);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.channel, other.channel);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, channel);
+        return Utils.enhancedHash(attendee, channel);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MessageRecipientsResponseJson.class,
-                "attendee", attendee,
-                "channel", channel);
+        return Utils.toString(MessageRecipientsResponseJson.class, "attendee", attendee, "channel", channel);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private MessageRecipientsResponseJsonAttendee attendee;
 
         private Channel channel;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +124,7 @@ public class MessageRecipientsResponseJson {
         }
 
         public MessageRecipientsResponseJson build() {
-            return new MessageRecipientsResponseJson(
-                attendee, channel);
+            return new MessageRecipientsResponseJson(attendee, channel);
         }
-
     }
 }

@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateCustomFieldTranslationResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable Translation1 translation1) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.translation1 = translation1;
     }
-    
+
     public CreateCustomFieldTranslationResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +112,6 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully created translations for the custom field.
      */
@@ -127,7 +119,6 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         this.translation1 = translation1;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
             return false;
         }
         CreateCustomFieldTranslationResponse other = (CreateCustomFieldTranslationResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.translation1, other.translation1);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.translation1, other.translation1);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            translation1);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, translation1);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateCustomFieldTranslationResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "translation1", translation1);
+        return Utils.toString(
+                CreateCustomFieldTranslationResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "translation1",
+                translation1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         private Translation1 translation1;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class CreateCustomFieldTranslationResponse implements AsyncResponse {
         }
 
         public CreateCustomFieldTranslationResponse build() {
-            return new CreateCustomFieldTranslationResponse(
-                contentType, statusCode, rawResponse,
-                translation1);
+            return new CreateCustomFieldTranslationResponse(contentType, statusCode, rawResponse, translation1);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * BudgetItemInput
- * 
+ *
  * <p>Budget item updates associated with an event.
  */
 public class BudgetItemInput {
@@ -179,37 +179,36 @@ public class BudgetItemInput {
             @JsonProperty("conversionRateLocked") @Nullable Boolean conversionRateLocked,
             @JsonProperty("conversionRate") double conversionRate,
             @JsonProperty("costDetail") @Nullable List<BudgetCostDetailJsonInput> costDetail,
-            @JsonProperty("associatedRegistrants") @Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants,
+            @JsonProperty("associatedRegistrants") @Nullable
+                    List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants,
             @JsonProperty("associatedSession") @Nullable String associatedSession) {
         this.costType = Optional.ofNullable(costType)
-            .orElseThrow(() -> new IllegalArgumentException("costType cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("costType cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.code = code;
         this.category = Optional.ofNullable(category)
-            .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
         this.subCategory = subCategory;
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.vendor = vendor;
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.generalLedger = generalLedger;
         this.costAvoidance = costAvoidance;
         this.costIncludesTaxGratuity = costIncludesTaxGratuity;
         this.calculateTaxOnGratuity = calculateTaxOnGratuity;
         this.gratuityType = Optional.ofNullable(gratuityType)
-            .orElseThrow(() -> new IllegalArgumentException("gratuityType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("gratuityType cannot be null"));
         this.internalNote = internalNote;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.conversionRateLocked = conversionRateLocked;
         this.conversionRate = conversionRate;
         this.costDetail = costDetail;
         this.associatedRegistrants = associatedRegistrants;
         this.associatedSession = associatedSession;
     }
-    
+
     public BudgetItemInput(
             @Nonnull BudgetCostTypeJson costType,
             @Nonnull String name,
@@ -221,13 +220,27 @@ public class BudgetItemInput {
             @Nonnull BudgetTaxGratuityTypeJson gratuityType,
             @Nonnull String currency,
             double conversionRate) {
-        this(costType, name, null,
-            category, null, status,
-            null, date, null,
-            null, costIncludesTaxGratuity, calculateTaxOnGratuity,
-            gratuityType, null, currency,
-            null, conversionRate, null,
-            null, null);
+        this(
+                costType,
+                name,
+                null,
+                category,
+                null,
+                status,
+                null,
+                date,
+                null,
+                null,
+                costIncludesTaxGratuity,
+                calculateTaxOnGratuity,
+                gratuityType,
+                null,
+                currency,
+                null,
+                conversionRate,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -380,7 +393,6 @@ public class BudgetItemInput {
         return new Builder();
     }
 
-
     /**
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
      * costs are based on a quantity.
@@ -390,7 +402,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * Name of the budget item.
      */
@@ -398,7 +409,6 @@ public class BudgetItemInput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * User defined code of the budget item.
@@ -408,7 +418,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * Denotes the category assigned to the budget item.
      */
@@ -416,7 +425,6 @@ public class BudgetItemInput {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
-
 
     /**
      * This is used to denote the sub category for a budget.
@@ -426,7 +434,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * Denotes the status assigned to a budget item.
      */
@@ -435,7 +442,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * List of details for a vendor assigned to a budget item.
      */
@@ -443,7 +449,6 @@ public class BudgetItemInput {
         this.vendor = vendor;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of
@@ -454,7 +459,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * This is used to denote the general ledger code associated with budget.
      */
@@ -462,7 +466,6 @@ public class BudgetItemInput {
         this.generalLedger = generalLedger;
         return this;
     }
-
 
     /**
      * Budget cost avoidance information.
@@ -472,7 +475,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * True indicates the budget item cost includes tax and gratuity.
      */
@@ -480,7 +482,6 @@ public class BudgetItemInput {
         this.costIncludesTaxGratuity = costIncludesTaxGratuity;
         return this;
     }
-
 
     /**
      * True indicates the tax should be calculated on gratuity.
@@ -490,7 +491,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * Denotes the type of tax or gratuity.
      */
@@ -498,7 +498,6 @@ public class BudgetItemInput {
         this.gratuityType = Utils.checkNotNull(gratuityType, "gratuityType");
         return this;
     }
-
 
     /**
      * User defined note associated with the budget item.
@@ -508,7 +507,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * The ISO 4217 currency code assigned to the budget item's costs.
      */
@@ -516,7 +514,6 @@ public class BudgetItemInput {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     /**
      * Determines which conversion rate to apply when a currency has multiple conversion rates for the same
@@ -528,7 +525,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * Conversion rate for converting an amount into a different currency. Value must be greater than
      * 0.000001
@@ -538,7 +534,6 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * The list of cost details for a budget item.
      */
@@ -547,16 +542,15 @@ public class BudgetItemInput {
         return this;
     }
 
-
     /**
      * The list of registrants associated to a budget item. Typically used to attribute cost to specific
      * registrants in reporting.
      */
-    public BudgetItemInput withAssociatedRegistrants(@Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants) {
+    public BudgetItemInput withAssociatedRegistrants(
+            @Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants) {
         this.associatedRegistrants = associatedRegistrants;
         return this;
     }
-
 
     /**
      * Identifies the session associated with the budget item.
@@ -565,7 +559,6 @@ public class BudgetItemInput {
         this.associatedSession = associatedSession;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -576,68 +569,101 @@ public class BudgetItemInput {
             return false;
         }
         BudgetItemInput other = (BudgetItemInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.costType, other.costType) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subCategory, other.subCategory) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.vendor, other.vendor) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.costAvoidance, other.costAvoidance) &&
-            Utils.enhancedDeepEquals(this.costIncludesTaxGratuity, other.costIncludesTaxGratuity) &&
-            Utils.enhancedDeepEquals(this.calculateTaxOnGratuity, other.calculateTaxOnGratuity) &&
-            Utils.enhancedDeepEquals(this.gratuityType, other.gratuityType) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.conversionRateLocked, other.conversionRateLocked) &&
-            Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate) &&
-            Utils.enhancedDeepEquals(this.costDetail, other.costDetail) &&
-            Utils.enhancedDeepEquals(this.associatedRegistrants, other.associatedRegistrants) &&
-            Utils.enhancedDeepEquals(this.associatedSession, other.associatedSession);
+        return Utils.enhancedDeepEquals(this.costType, other.costType)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.vendor, other.vendor)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.costAvoidance, other.costAvoidance)
+                && Utils.enhancedDeepEquals(this.costIncludesTaxGratuity, other.costIncludesTaxGratuity)
+                && Utils.enhancedDeepEquals(this.calculateTaxOnGratuity, other.calculateTaxOnGratuity)
+                && Utils.enhancedDeepEquals(this.gratuityType, other.gratuityType)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.conversionRateLocked, other.conversionRateLocked)
+                && Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate)
+                && Utils.enhancedDeepEquals(this.costDetail, other.costDetail)
+                && Utils.enhancedDeepEquals(this.associatedRegistrants, other.associatedRegistrants)
+                && Utils.enhancedDeepEquals(this.associatedSession, other.associatedSession);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            costType, name, code,
-            category, subCategory, status,
-            vendor, date, generalLedger,
-            costAvoidance, costIncludesTaxGratuity, calculateTaxOnGratuity,
-            gratuityType, internalNote, currency,
-            conversionRateLocked, conversionRate, costDetail,
-            associatedRegistrants, associatedSession);
+                costType,
+                name,
+                code,
+                category,
+                subCategory,
+                status,
+                vendor,
+                date,
+                generalLedger,
+                costAvoidance,
+                costIncludesTaxGratuity,
+                calculateTaxOnGratuity,
+                gratuityType,
+                internalNote,
+                currency,
+                conversionRateLocked,
+                conversionRate,
+                costDetail,
+                associatedRegistrants,
+                associatedSession);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetItemInput.class,
-                "costType", costType,
-                "name", name,
-                "code", code,
-                "category", category,
-                "subCategory", subCategory,
-                "status", status,
-                "vendor", vendor,
-                "date", date,
-                "generalLedger", generalLedger,
-                "costAvoidance", costAvoidance,
-                "costIncludesTaxGratuity", costIncludesTaxGratuity,
-                "calculateTaxOnGratuity", calculateTaxOnGratuity,
-                "gratuityType", gratuityType,
-                "internalNote", internalNote,
-                "currency", currency,
-                "conversionRateLocked", conversionRateLocked,
-                "conversionRate", conversionRate,
-                "costDetail", costDetail,
-                "associatedRegistrants", associatedRegistrants,
-                "associatedSession", associatedSession);
+        return Utils.toString(
+                BudgetItemInput.class,
+                "costType",
+                costType,
+                "name",
+                name,
+                "code",
+                code,
+                "category",
+                category,
+                "subCategory",
+                subCategory,
+                "status",
+                status,
+                "vendor",
+                vendor,
+                "date",
+                date,
+                "generalLedger",
+                generalLedger,
+                "costAvoidance",
+                costAvoidance,
+                "costIncludesTaxGratuity",
+                costIncludesTaxGratuity,
+                "calculateTaxOnGratuity",
+                calculateTaxOnGratuity,
+                "gratuityType",
+                gratuityType,
+                "internalNote",
+                internalNote,
+                "currency",
+                currency,
+                "conversionRateLocked",
+                conversionRateLocked,
+                "conversionRate",
+                conversionRate,
+                "costDetail",
+                costDetail,
+                "associatedRegistrants",
+                associatedRegistrants,
+                "associatedSession",
+                associatedSession);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BudgetCostTypeJson costType;
 
@@ -680,7 +706,7 @@ public class BudgetItemInput {
         private String associatedSession;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -836,7 +862,8 @@ public class BudgetItemInput {
          * The list of registrants associated to a budget item. Typically used to attribute cost to specific
          * registrants in reporting.
          */
-        public Builder associatedRegistrants(@Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants) {
+        public Builder associatedRegistrants(
+                @Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants) {
             this.associatedRegistrants = associatedRegistrants;
             return this;
         }
@@ -851,14 +878,26 @@ public class BudgetItemInput {
 
         public BudgetItemInput build() {
             return new BudgetItemInput(
-                costType, name, code,
-                category, subCategory, status,
-                vendor, date, generalLedger,
-                costAvoidance, costIncludesTaxGratuity, calculateTaxOnGratuity,
-                gratuityType, internalNote, currency,
-                conversionRateLocked, conversionRate, costDetail,
-                associatedRegistrants, associatedSession);
+                    costType,
+                    name,
+                    code,
+                    category,
+                    subCategory,
+                    status,
+                    vendor,
+                    date,
+                    generalLedger,
+                    costAvoidance,
+                    costIncludesTaxGratuity,
+                    calculateTaxOnGratuity,
+                    gratuityType,
+                    internalNote,
+                    currency,
+                    conversionRateLocked,
+                    conversionRate,
+                    costDetail,
+                    associatedRegistrants,
+                    associatedSession);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TotalHighLevelEstimate
- * 
+ *
  * <p>Total High-level estimation details.
  */
 public class TotalHighLevelEstimate {
@@ -28,11 +28,10 @@ public class TotalHighLevelEstimate {
     private Double amount;
 
     @JsonCreator
-    public TotalHighLevelEstimate(
-            @JsonProperty("amount") @Nullable Double amount) {
+    public TotalHighLevelEstimate(@JsonProperty("amount") @Nullable Double amount) {
         this.amount = amount;
     }
-    
+
     public TotalHighLevelEstimate() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class TotalHighLevelEstimate {
         return new Builder();
     }
 
-
     /**
      * The total amount of high level estimate of the event.
      */
@@ -56,7 +54,6 @@ public class TotalHighLevelEstimate {
         this.amount = amount;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class TotalHighLevelEstimate {
             return false;
         }
         TotalHighLevelEstimate other = (TotalHighLevelEstimate) o;
-        return 
-            Utils.enhancedDeepEquals(this.amount, other.amount);
+        return Utils.enhancedDeepEquals(this.amount, other.amount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            amount);
+        return Utils.enhancedHash(amount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TotalHighLevelEstimate.class,
-                "amount", amount);
+        return Utils.toString(TotalHighLevelEstimate.class, "amount", amount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double amount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class TotalHighLevelEstimate {
         }
 
         public TotalHighLevelEstimate build() {
-            return new TotalHighLevelEstimate(
-                amount);
+            return new TotalHighLevelEstimate(amount);
         }
-
     }
 }

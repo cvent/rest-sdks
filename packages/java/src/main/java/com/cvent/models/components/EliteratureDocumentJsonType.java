@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EliteratureDocumentJsonType
- * 
+ *
  * <p>Type of eliterature document
  */
 public enum EliteratureDocumentJsonType {
@@ -23,13 +23,13 @@ public enum EliteratureDocumentJsonType {
     EliteratureDocumentJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EliteratureDocumentJsonType> fromValue(String value) {
-        for (EliteratureDocumentJsonType o: EliteratureDocumentJsonType.values()) {
+        for (EliteratureDocumentJsonType o : EliteratureDocumentJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum EliteratureDocumentJsonType {
         return Optional.empty();
     }
 }
-

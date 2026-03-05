@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventRegistrationCancelled
- * 
+ *
  * <p>An event-registered activity.
  */
 public class EventRegistrationCancelled {
@@ -40,7 +40,7 @@ public class EventRegistrationCancelled {
         this.event = event;
         this.status = status;
     }
-    
+
     public EventRegistrationCancelled() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class EventRegistrationCancelled {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -72,7 +71,6 @@ public class EventRegistrationCancelled {
         return this;
     }
 
-
     /**
      * This is used to denote the status of an attendee.
      */
@@ -80,7 +78,6 @@ public class EventRegistrationCancelled {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class EventRegistrationCancelled {
             return false;
         }
         EventRegistrationCancelled other = (EventRegistrationCancelled) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.event, other.event) && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, status);
+        return Utils.enhancedHash(event, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventRegistrationCancelled.class,
-                "event", event,
-                "status", status);
+        return Utils.toString(EventRegistrationCancelled.class, "event", event, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent8 event;
 
         private AttendeeStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class EventRegistrationCancelled {
         }
 
         public EventRegistrationCancelled build() {
-            return new EventRegistrationCancelled(
-                event, status);
+            return new EventRegistrationCancelled(event, status);
         }
-
     }
 }

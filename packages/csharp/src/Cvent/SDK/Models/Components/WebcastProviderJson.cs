@@ -18,52 +18,35 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum WebcastProviderJson
     {
-        [JsonProperty("None")]
-        None,
-        [JsonProperty("Zoom")]
-        Zoom,
-        [JsonProperty("ON24")]
-        On24,
-        [JsonProperty("Intrado")]
-        Intrado,
-        [JsonProperty("Adobe Connect")]
-        AdobeConnect,
-        [JsonProperty("GoToMeeting")]
-        GoToMeeting,
-        [JsonProperty("GoToWebinar")]
-        GoToWebinar,
-        [JsonProperty("GlobalMeet")]
-        GlobalMeet,
-        [JsonProperty("Amazon Chime")]
-        AmazonChime,
-        [JsonProperty("Cisco Webex")]
-        CiscoWebex,
-        [JsonProperty("BlueJeans")]
-        BlueJeans,
-        [JsonProperty("Microsoft Teams")]
-        MicrosoftTeams,
-        [JsonProperty("Vimeo")]
-        Vimeo,
-        [JsonProperty("YouTube Live")]
-        YouTubeLive,
-        [JsonProperty("Facebook Live")]
-        FacebookLive,
-        [JsonProperty("Brightcove")]
-        Brightcove,
-        [JsonProperty("Other")]
-        Other,
+        [JsonProperty("None")] None,
+        [JsonProperty("Zoom")] Zoom,
+        [JsonProperty("ON24")] On24,
+        [JsonProperty("Intrado")] Intrado,
+        [JsonProperty("Adobe Connect")] AdobeConnect,
+        [JsonProperty("GoToMeeting")] GoToMeeting,
+        [JsonProperty("GoToWebinar")] GoToWebinar,
+        [JsonProperty("GlobalMeet")] GlobalMeet,
+        [JsonProperty("Amazon Chime")] AmazonChime,
+        [JsonProperty("Cisco Webex")] CiscoWebex,
+        [JsonProperty("BlueJeans")] BlueJeans,
+        [JsonProperty("Microsoft Teams")] MicrosoftTeams,
+        [JsonProperty("Vimeo")] Vimeo,
+        [JsonProperty("YouTube Live")] YouTubeLive,
+        [JsonProperty("Facebook Live")] FacebookLive,
+        [JsonProperty("Brightcove")] Brightcove,
+        [JsonProperty("Other")] Other,
     }
 
     public static class WebcastProviderJsonExtension
     {
         public static string Value(this WebcastProviderJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static WebcastProviderJson ToEnum(this string value)
         {
-            foreach(var field in typeof(WebcastProviderJson).GetFields())
+            foreach (var field in typeof(WebcastProviderJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

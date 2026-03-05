@@ -28,7 +28,7 @@ public class PropertyApiGetPropertyRequestBuilder {
     private PropertyApiGetPropertyRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PropertyApiGetPropertyRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class PropertyApiGetPropertyRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public PropertyApiGetPropertyResponse call() {
-        RequestOperation<PropertyApiGetPropertyRequest, PropertyApiGetPropertyResponse> operation
-              = new PropertyApiGetProperty.Sync(sdkConfiguration, _headers);
+        RequestOperation<PropertyApiGetPropertyRequest, PropertyApiGetPropertyResponse> operation =
+                new PropertyApiGetProperty.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -16,7 +16,7 @@ namespace Cvent.SDK.Utils
     {
         public override bool CanConvert(System.Type objectType)
         {
-            var  nullableType = Nullable.GetUnderlyingType(objectType);
+            var nullableType = Nullable.GetUnderlyingType(objectType);
             if (nullableType != null)
             {
                 return nullableType.IsEnum;
@@ -39,7 +39,8 @@ namespace Cvent.SDK.Utils
 
             var extensionType = System.Type.GetType(objectType.FullName + "Extension");
 
-            if (Nullable.GetUnderlyingType(objectType) != null) {
+            if (Nullable.GetUnderlyingType(objectType) != null)
+            {
                 objectType = Nullable.GetUnderlyingType(objectType)!;
                 extensionType = System.Type.GetType(objectType!.FullName + "Extension");
             }
@@ -55,12 +56,14 @@ namespace Cvent.SDK.Utils
                 throw new Exception($"Unable to find ToEnum method on {extensionType.FullName}");
             }
 
-            try {
+            try
+            {
                 return method.Invoke(null, new[] { (string)reader.Value });
-            } catch(System.Reflection.TargetInvocationException e) {
+            }
+            catch (System.Reflection.TargetInvocationException e)
+            {
                 throw new Newtonsoft.Json.JsonSerializationException("Unable to convert value to enum", e);
             }
-
         }
 
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)

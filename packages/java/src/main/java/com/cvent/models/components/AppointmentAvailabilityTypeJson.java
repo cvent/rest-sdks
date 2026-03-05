@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AppointmentAvailabilityTypeJson
- * 
+ *
  * <p>Denotes whether an availability time range represents when an attendee is available or unavailable.
  */
 public enum AppointmentAvailabilityTypeJson {
@@ -23,13 +23,13 @@ public enum AppointmentAvailabilityTypeJson {
     AppointmentAvailabilityTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AppointmentAvailabilityTypeJson> fromValue(String value) {
-        for (AppointmentAvailabilityTypeJson o: AppointmentAvailabilityTypeJson.values()) {
+        for (AppointmentAvailabilityTypeJson o : AppointmentAvailabilityTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum AppointmentAvailabilityTypeJson {
         return Optional.empty();
     }
 }
-

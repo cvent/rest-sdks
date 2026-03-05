@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * ContactCreateRequestJsonEvent
- * 
+ *
  * <p>Event ID
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -27,7 +27,7 @@ public class ContactCreateRequestJsonEvent {
      * ID of the event where the contact was created, applicable when contact snapshot is enabled for an
      * event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be
      * automatically created through the Add attendees API.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -36,11 +36,10 @@ public class ContactCreateRequestJsonEvent {
     private String id;
 
     @JsonCreator
-    public ContactCreateRequestJsonEvent(
-            @JsonProperty("id") @Nullable String id) {
+    public ContactCreateRequestJsonEvent(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public ContactCreateRequestJsonEvent() {
         this(null);
     }
@@ -49,7 +48,7 @@ public class ContactCreateRequestJsonEvent {
      * ID of the event where the contact was created, applicable when contact snapshot is enabled for an
      * event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be
      * automatically created through the Add attendees API.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -61,12 +60,11 @@ public class ContactCreateRequestJsonEvent {
         return new Builder();
     }
 
-
     /**
      * ID of the event where the contact was created, applicable when contact snapshot is enabled for an
      * event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be
      * automatically created through the Add attendees API.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -74,7 +72,6 @@ public class ContactCreateRequestJsonEvent {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,37 +82,34 @@ public class ContactCreateRequestJsonEvent {
             return false;
         }
         ContactCreateRequestJsonEvent other = (ContactCreateRequestJsonEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactCreateRequestJsonEvent.class,
-                "id", id);
+        return Utils.toString(ContactCreateRequestJsonEvent.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         @Deprecated
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * ID of the event where the contact was created, applicable when contact snapshot is enabled for an
          * event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be
          * automatically created through the Add attendees API.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -125,9 +119,7 @@ public class ContactCreateRequestJsonEvent {
         }
 
         public ContactCreateRequestJsonEvent build() {
-            return new ContactCreateRequestJsonEvent(
-                id);
+            return new ContactCreateRequestJsonEvent(id);
         }
-
     }
 }

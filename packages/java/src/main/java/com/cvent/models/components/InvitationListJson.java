@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * InvitationListJson
- * 
+ *
  * <p>Object encapsulating relevant information about an invitation list.
  */
 public class InvitationListJson {
@@ -91,18 +91,14 @@ public class InvitationListJson {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.locale = locale;
         this.default_ = default_;
     }
-    
-    public InvitationListJson(
-            @Nonnull String id) {
-        this(null, null, null,
-            null, id, null,
-            null, null);
+
+    public InvitationListJson(@Nonnull String id) {
+        this(null, null, null, null, id, null, null, null);
     }
 
     /**
@@ -165,7 +161,6 @@ public class InvitationListJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -173,7 +168,6 @@ public class InvitationListJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -183,7 +177,6 @@ public class InvitationListJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -191,7 +184,6 @@ public class InvitationListJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -201,7 +193,6 @@ public class InvitationListJson {
         return this;
     }
 
-
     /**
      * The unique ID of the invitation list.
      */
@@ -209,7 +200,6 @@ public class InvitationListJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Name of the invitation list.
@@ -219,7 +209,6 @@ public class InvitationListJson {
         return this;
     }
 
-
     /**
      * Locale code
      */
@@ -228,7 +217,6 @@ public class InvitationListJson {
         return this;
     }
 
-
     /**
      * True indicates the default invitation list of an event.
      */
@@ -236,7 +224,6 @@ public class InvitationListJson {
         this.default_ = default_;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -247,40 +234,45 @@ public class InvitationListJson {
             return false;
         }
         InvitationListJson other = (InvitationListJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.default_, other.default_);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.default_, other.default_);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            locale, default_);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, id, name, locale, default_);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(InvitationListJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "locale", locale,
-                "default_", default_);
+        return Utils.toString(
+                InvitationListJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "locale",
+                locale,
+                "default_",
+                default_);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -299,7 +291,7 @@ public class InvitationListJson {
         private Boolean default_;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -367,11 +359,7 @@ public class InvitationListJson {
         }
 
         public InvitationListJson build() {
-            return new InvitationListJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                locale, default_);
+            return new InvitationListJson(created, createdBy, lastModified, lastModifiedBy, id, name, locale, default_);
         }
-
     }
 }

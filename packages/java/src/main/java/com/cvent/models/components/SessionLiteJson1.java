@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SessionLiteJson1
- * 
+ *
  * <p>The related session object.
  */
 public class SessionLiteJson1 {
@@ -24,10 +24,8 @@ public class SessionLiteJson1 {
     private String id;
 
     @JsonCreator
-    public SessionLiteJson1(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public SessionLiteJson1(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class SessionLiteJson1 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier for a session
      */
@@ -49,7 +46,6 @@ public class SessionLiteJson1 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class SessionLiteJson1 {
             return false;
         }
         SessionLiteJson1 other = (SessionLiteJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionLiteJson1.class,
-                "id", id);
+        return Utils.toString(SessionLiteJson1.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class SessionLiteJson1 {
         }
 
         public SessionLiteJson1 build() {
-            return new SessionLiteJson1(
-                id);
+            return new SessionLiteJson1(id);
         }
-
     }
 }

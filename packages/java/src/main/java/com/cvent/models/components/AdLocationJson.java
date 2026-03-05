@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AdLocationJson
- * 
+ *
  * <p>The placement of the ad within the specific product.
  */
 public enum AdLocationJson {
@@ -24,13 +24,13 @@ public enum AdLocationJson {
     AdLocationJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AdLocationJson> fromValue(String value) {
-        for (AdLocationJson o: AdLocationJson.values()) {
+        for (AdLocationJson o : AdLocationJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AdLocationJson {
         return Optional.empty();
     }
 }
-

@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * DiscountMethodTypeJson
- * 
+ *
  * <p>The method of the discount. All methods use the `value` field to determine the amount discounted.
  * `BY_PERCENTAGE`: Discounts the item by a percentage.
- * 
+ *
  * <p>`BY_AMOUNT`: Discount the item by a specific amount. `FLAT_PRICE`: Set the price of the item to a
  * specific value.
  */
@@ -28,13 +28,13 @@ public enum DiscountMethodTypeJson {
     DiscountMethodTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DiscountMethodTypeJson> fromValue(String value) {
-        for (DiscountMethodTypeJson o: DiscountMethodTypeJson.values()) {
+        for (DiscountMethodTypeJson o : DiscountMethodTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum DiscountMethodTypeJson {
         return Optional.empty();
     }
 }
-

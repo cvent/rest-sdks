@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteAccountUserGroupRequest {
     /**
      * The User Group's Id.
@@ -20,10 +19,9 @@ public class DeleteAccountUserGroupRequest {
     private String userGroupId;
 
     @JsonCreator
-    public DeleteAccountUserGroupRequest(
-            @Nonnull String userGroupId) {
+    public DeleteAccountUserGroupRequest(@Nonnull String userGroupId) {
         this.userGroupId = Optional.ofNullable(userGroupId)
-            .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class DeleteAccountUserGroupRequest {
         return new Builder();
     }
 
-
     /**
      * The User Group's Id.
      */
@@ -45,7 +42,6 @@ public class DeleteAccountUserGroupRequest {
         this.userGroupId = Utils.checkNotNull(userGroupId, "userGroupId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class DeleteAccountUserGroupRequest {
             return false;
         }
         DeleteAccountUserGroupRequest other = (DeleteAccountUserGroupRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId);
+        return Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            userGroupId);
+        return Utils.enhancedHash(userGroupId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteAccountUserGroupRequest.class,
-                "userGroupId", userGroupId);
+        return Utils.toString(DeleteAccountUserGroupRequest.class, "userGroupId", userGroupId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String userGroupId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class DeleteAccountUserGroupRequest {
         }
 
         public DeleteAccountUserGroupRequest build() {
-            return new DeleteAccountUserGroupRequest(
-                userGroupId);
+            return new DeleteAccountUserGroupRequest(userGroupId);
         }
-
     }
 }

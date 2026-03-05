@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * PaymentInfoJson
- * 
+ *
  * <p>Payment information.
  */
 public class PaymentInfoJson {
@@ -68,10 +68,9 @@ public class PaymentInfoJson {
         this.phone = phone;
         this.other = other;
     }
-    
+
     public PaymentInfoJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -114,7 +113,6 @@ public class PaymentInfoJson {
         return new Builder();
     }
 
-
     /**
      * Payment type.
      */
@@ -123,7 +121,6 @@ public class PaymentInfoJson {
         return this;
     }
 
-
     /**
      * Full name.
      */
@@ -131,7 +128,6 @@ public class PaymentInfoJson {
         this.fullName = fullName;
         return this;
     }
-
 
     /**
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
@@ -142,7 +138,6 @@ public class PaymentInfoJson {
         return this;
     }
 
-
     /**
      * Phone number.
      */
@@ -151,7 +146,6 @@ public class PaymentInfoJson {
         return this;
     }
 
-
     /**
      * Other payment details.
      */
@@ -159,7 +153,6 @@ public class PaymentInfoJson {
         this.other = other;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -170,33 +163,36 @@ public class PaymentInfoJson {
             return false;
         }
         PaymentInfoJson other = (PaymentInfoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.paymentType, other.paymentType) &&
-            Utils.enhancedDeepEquals(this.fullName, other.fullName) &&
-            Utils.enhancedDeepEquals(this.address, other.address) &&
-            Utils.enhancedDeepEquals(this.phone, other.phone) &&
-            Utils.enhancedDeepEquals(this.other, other.other);
+        return Utils.enhancedDeepEquals(this.paymentType, other.paymentType)
+                && Utils.enhancedDeepEquals(this.fullName, other.fullName)
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.other, other.other);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paymentType, fullName, address,
-            phone, other);
+        return Utils.enhancedHash(paymentType, fullName, address, phone, other);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PaymentInfoJson.class,
-                "paymentType", paymentType,
-                "fullName", fullName,
-                "address", address,
-                "phone", phone,
-                "other", other);
+        return Utils.toString(
+                PaymentInfoJson.class,
+                "paymentType",
+                paymentType,
+                "fullName",
+                fullName,
+                "address",
+                address,
+                "phone",
+                phone,
+                "other",
+                other);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PaymentTypesJson paymentType;
 
@@ -209,7 +205,7 @@ public class PaymentInfoJson {
         private OtherPaymentJson other;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +250,7 @@ public class PaymentInfoJson {
         }
 
         public PaymentInfoJson build() {
-            return new PaymentInfoJson(
-                paymentType, fullName, address,
-                phone, other);
+            return new PaymentInfoJson(paymentType, fullName, address, phone, other);
         }
-
     }
 }

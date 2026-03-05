@@ -2,6 +2,14 @@
 
 Defines the setup types of a meeting room requirement.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = MeetingRoomSetupTypeJson.Tenx10;
+```
+
 
 ## Values
 

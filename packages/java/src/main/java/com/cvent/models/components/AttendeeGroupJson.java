@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AttendeeGroupJson
- * 
+ *
  * <p>An attendee group.
  */
 public class AttendeeGroupJson {
@@ -50,7 +50,7 @@ public class AttendeeGroupJson {
         this.member = member;
         this.leader = leader;
     }
-    
+
     public AttendeeGroupJson() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class AttendeeGroupJson {
         return new Builder();
     }
 
-
     /**
      * Attendee group ID.
      */
@@ -88,7 +87,6 @@ public class AttendeeGroupJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * True indicates the attendee is a member of the attendee group.
@@ -98,7 +96,6 @@ public class AttendeeGroupJson {
         return this;
     }
 
-
     /**
      * True indicates the attendee is a group leader.
      */
@@ -106,7 +103,6 @@ public class AttendeeGroupJson {
         this.leader = leader;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,23 @@ public class AttendeeGroupJson {
             return false;
         }
         AttendeeGroupJson other = (AttendeeGroupJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.member, other.member) &&
-            Utils.enhancedDeepEquals(this.leader, other.leader);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.member, other.member)
+                && Utils.enhancedDeepEquals(this.leader, other.leader);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, member, leader);
+        return Utils.enhancedHash(id, member, leader);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeGroupJson.class,
-                "id", id,
-                "member", member,
-                "leader", leader);
+        return Utils.toString(AttendeeGroupJson.class, "id", id, "member", member, "leader", leader);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -147,7 +138,7 @@ public class AttendeeGroupJson {
         private Boolean leader;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +166,7 @@ public class AttendeeGroupJson {
         }
 
         public AttendeeGroupJson build() {
-            return new AttendeeGroupJson(
-                id, member, leader);
+            return new AttendeeGroupJson(id, member, leader);
         }
-
     }
 }

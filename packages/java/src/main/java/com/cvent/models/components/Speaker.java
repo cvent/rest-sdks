@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * Speaker
- * 
+ *
  * <p>An event speaker.
  */
 public class Speaker {
@@ -130,7 +130,7 @@ public class Speaker {
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -155,12 +155,11 @@ public class Speaker {
             @JsonProperty("internalNote") @Nullable String internalNote,
             @JsonProperty("featured") @Nullable Boolean featured,
             @JsonProperty("relevance") @Nullable Double relevance) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.firstName = Optional.ofNullable(firstName)
-            .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
         this.code = code;
         this.email = email;
         this.prefix = prefix;
@@ -169,25 +168,15 @@ public class Speaker {
         this.title = title;
         this.category = category;
         this.links = links;
-        this.visibility = Optional.ofNullable(visibility)
-            .orElse(Builder._SINGLETON_VALUE_Visibility.value());
+        this.visibility = Optional.ofNullable(visibility).orElse(Builder._SINGLETON_VALUE_Visibility.value());
         this.biography = biography;
         this.internalNote = internalNote;
-        this.featured = Optional.ofNullable(featured)
-            .orElse(Builder._SINGLETON_VALUE_Featured.value());
+        this.featured = Optional.ofNullable(featured).orElse(Builder._SINGLETON_VALUE_Featured.value());
         this.relevance = relevance;
     }
-    
-    public Speaker(
-            @Nonnull SpeakerEvent event,
-            @Nonnull String firstName,
-            @Nonnull String lastName) {
-        this(event, firstName, lastName,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public Speaker(@Nonnull SpeakerEvent event, @Nonnull String firstName, @Nonnull String lastName) {
+        this(event, firstName, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -299,7 +288,7 @@ public class Speaker {
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     public Optional<Double> relevance() {
@@ -310,7 +299,6 @@ public class Speaker {
         return new Builder();
     }
 
-
     /**
      * The event the speaker is linked to.
      */
@@ -318,7 +306,6 @@ public class Speaker {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The speaker's first name.
@@ -328,7 +315,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * The speaker's last name.
      */
@@ -336,7 +322,6 @@ public class Speaker {
         this.lastName = Utils.checkNotNull(lastName, "lastName");
         return this;
     }
-
 
     /**
      * The unique code associated with the speaker in an event
@@ -346,7 +331,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * The speaker's email address
      */
@@ -354,7 +338,6 @@ public class Speaker {
         this.email = email;
         return this;
     }
-
 
     /**
      * Used to denote what is traditionally a title of an individual. For example, Mr., Mrs., Dr., etc.
@@ -364,7 +347,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * The speaker's Designation
      */
@@ -372,7 +354,6 @@ public class Speaker {
         this.designation = designation;
         return this;
     }
-
 
     /**
      * The company to which the speaker is associated
@@ -382,7 +363,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * The speaker's title
      */
@@ -390,7 +370,6 @@ public class Speaker {
         this.title = title;
         return this;
     }
-
 
     /**
      * A defined speaker category.
@@ -400,7 +379,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * Collection of social media links for the contact.
      */
@@ -408,7 +386,6 @@ public class Speaker {
         this.links = links;
         return this;
     }
-
 
     /**
      * Indicates if a given speaker should be displayed on Event Website
@@ -418,7 +395,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * The speaker's biography
      */
@@ -426,7 +402,6 @@ public class Speaker {
         this.biography = biography;
         return this;
     }
-
 
     /**
      * The Internal Note of the speaker
@@ -436,7 +411,6 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * Indicates if a given speaker is a featured speaker
      */
@@ -445,19 +419,17 @@ public class Speaker {
         return this;
     }
 
-
     /**
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     public Speaker withRelevance(@Nullable Double relevance) {
         this.relevance = relevance;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -468,59 +440,85 @@ public class Speaker {
             return false;
         }
         Speaker other = (Speaker) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.visibility, other.visibility) &&
-            Utils.enhancedDeepEquals(this.biography, other.biography) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote) &&
-            Utils.enhancedDeepEquals(this.featured, other.featured) &&
-            Utils.enhancedDeepEquals(this.relevance, other.relevance);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.visibility, other.visibility)
+                && Utils.enhancedDeepEquals(this.biography, other.biography)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.relevance, other.relevance);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, firstName, lastName,
-            code, email, prefix,
-            designation, company, title,
-            category, links, visibility,
-            biography, internalNote, featured,
-            relevance);
+                event,
+                firstName,
+                lastName,
+                code,
+                email,
+                prefix,
+                designation,
+                company,
+                title,
+                category,
+                links,
+                visibility,
+                biography,
+                internalNote,
+                featured,
+                relevance);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Speaker.class,
-                "event", event,
-                "firstName", firstName,
-                "lastName", lastName,
-                "code", code,
-                "email", email,
-                "prefix", prefix,
-                "designation", designation,
-                "company", company,
-                "title", title,
-                "category", category,
-                "links", links,
-                "visibility", visibility,
-                "biography", biography,
-                "internalNote", internalNote,
-                "featured", featured,
-                "relevance", relevance);
+        return Utils.toString(
+                Speaker.class,
+                "event",
+                event,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "code",
+                code,
+                "email",
+                email,
+                "prefix",
+                prefix,
+                "designation",
+                designation,
+                "company",
+                company,
+                "title",
+                title,
+                "category",
+                category,
+                "links",
+                links,
+                "visibility",
+                visibility,
+                "biography",
+                biography,
+                "internalNote",
+                internalNote,
+                "featured",
+                featured,
+                "relevance",
+                relevance);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SpeakerEvent event;
 
@@ -555,7 +553,7 @@ public class Speaker {
         private Double relevance;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -682,7 +680,7 @@ public class Speaker {
          * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
          * the search result. Larger numbers represent higher relevance with respect to other search results in
          * the request.
-         * 
+         *
          * <p>Null if no `match` filter is provided.
          */
         public Builder relevance(@Nullable Double relevance) {
@@ -692,25 +690,28 @@ public class Speaker {
 
         public Speaker build() {
             return new Speaker(
-                event, firstName, lastName,
-                code, email, prefix,
-                designation, company, title,
-                category, links, visibility,
-                biography, internalNote, featured,
-                relevance);
+                    event,
+                    firstName,
+                    lastName,
+                    code,
+                    email,
+                    prefix,
+                    designation,
+                    company,
+                    title,
+                    category,
+                    links,
+                    visibility,
+                    biography,
+                    internalNote,
+                    featured,
+                    relevance);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Visibility =
-                new LazySingletonValue<>(
-                        "visibility",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("visibility", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Featured =
-                new LazySingletonValue<>(
-                        "featured",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("featured", "false", new TypeReference<Boolean>() {});
     }
 }

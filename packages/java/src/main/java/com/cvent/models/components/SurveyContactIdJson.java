@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SurveyContactIdJson
- * 
+ *
  * <p>A pair of survey and contact id.
  */
 public class SurveyContactIdJson {
@@ -31,12 +31,11 @@ public class SurveyContactIdJson {
 
     @JsonCreator
     public SurveyContactIdJson(
-            @JsonProperty("surveyId") @Nonnull String surveyId,
-            @JsonProperty("contactId") @Nonnull String contactId) {
+            @JsonProperty("surveyId") @Nonnull String surveyId, @JsonProperty("contactId") @Nonnull String contactId) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.contactId = Optional.ofNullable(contactId)
-            .orElseThrow(() -> new IllegalArgumentException("contactId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactId cannot be null"));
     }
 
     /**
@@ -57,7 +56,6 @@ public class SurveyContactIdJson {
         return new Builder();
     }
 
-
     /**
      * ID of the survey
      */
@@ -66,7 +64,6 @@ public class SurveyContactIdJson {
         return this;
     }
 
-
     /**
      * ID of the contact
      */
@@ -74,7 +71,6 @@ public class SurveyContactIdJson {
         this.contactId = Utils.checkNotNull(contactId, "contactId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +81,29 @@ public class SurveyContactIdJson {
             return false;
         }
         SurveyContactIdJson other = (SurveyContactIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.contactId, other.contactId);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.contactId, other.contactId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, contactId);
+        return Utils.enhancedHash(surveyId, contactId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SurveyContactIdJson.class,
-                "surveyId", surveyId,
-                "contactId", contactId);
+        return Utils.toString(SurveyContactIdJson.class, "surveyId", surveyId, "contactId", contactId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
         private String contactId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +123,7 @@ public class SurveyContactIdJson {
         }
 
         public SurveyContactIdJson build() {
-            return new SurveyContactIdJson(
-                surveyId, contactId);
+            return new SurveyContactIdJson(surveyId, contactId);
         }
-
     }
 }

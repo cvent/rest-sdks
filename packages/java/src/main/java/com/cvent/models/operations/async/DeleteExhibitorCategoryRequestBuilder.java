@@ -30,7 +30,7 @@ public class DeleteExhibitorCategoryRequestBuilder {
     private DeleteExhibitorCategoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExhibitorCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteExhibitorCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteExhibitorCategoryResponse> call() {
-        AsyncRequestOperation<DeleteExhibitorCategoryRequest, DeleteExhibitorCategoryResponse> operation
-              = new DeleteExhibitorCategory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteExhibitorCategoryRequest, DeleteExhibitorCategoryResponse> operation =
+                new DeleteExhibitorCategory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

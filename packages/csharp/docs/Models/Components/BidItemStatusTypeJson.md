@@ -2,6 +2,14 @@
 
 The status of the item in negotiation.  e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = BidItemStatusTypeJson.Requested;
+```
+
 
 ## Values
 

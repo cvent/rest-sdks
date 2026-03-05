@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EmailOpened
- * 
+ *
  * <p>An email-opened activity.
  */
 public class EmailOpened {
@@ -36,12 +36,11 @@ public class EmailOpened {
 
     @JsonCreator
     public EmailOpened(
-            @JsonProperty("type") @Nullable String type,
-            @JsonProperty("opened") @Nullable OffsetDateTime opened) {
+            @JsonProperty("type") @Nullable String type, @JsonProperty("opened") @Nullable OffsetDateTime opened) {
         this.type = type;
         this.opened = opened;
     }
-    
+
     public EmailOpened() {
         this(null, null);
     }
@@ -64,7 +63,6 @@ public class EmailOpened {
         return new Builder();
     }
 
-
     /**
      * Type of the email.
      */
@@ -73,7 +71,6 @@ public class EmailOpened {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an email was opened.
      */
@@ -81,7 +78,6 @@ public class EmailOpened {
         this.opened = opened;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +88,28 @@ public class EmailOpened {
             return false;
         }
         EmailOpened other = (EmailOpened) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.opened, other.opened);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.opened, other.opened);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, opened);
+        return Utils.enhancedHash(type, opened);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailOpened.class,
-                "type", type,
-                "opened", opened);
+        return Utils.toString(EmailOpened.class, "type", type, "opened", opened);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
         private OffsetDateTime opened;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +129,7 @@ public class EmailOpened {
         }
 
         public EmailOpened build() {
-            return new EmailOpened(
-                type, opened);
+            return new EmailOpened(type, opened);
         }
-
     }
 }

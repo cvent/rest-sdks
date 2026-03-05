@@ -30,7 +30,7 @@ public class DeleteExhibitorWeblinkRequestBuilder {
     private DeleteExhibitorWeblinkRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExhibitorWeblinkRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteExhibitorWeblinkRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteExhibitorWeblinkResponse> call() {
-        AsyncRequestOperation<DeleteExhibitorWeblinkRequest, DeleteExhibitorWeblinkResponse> operation
-              = new DeleteExhibitorWeblink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteExhibitorWeblinkRequest, DeleteExhibitorWeblinkResponse> operation =
+                new DeleteExhibitorWeblink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

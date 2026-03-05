@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateEventRequest {
     /**
      * Unique ID of an event.
@@ -27,13 +26,10 @@ public class UpdateEventRequest {
     private EventUpdateInput eventUpdate;
 
     @JsonCreator
-    public UpdateEventRequest(
-            @Nonnull String id,
-            @Nonnull EventUpdateInput eventUpdate) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateEventRequest(@Nonnull String id, @Nonnull EventUpdateInput eventUpdate) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.eventUpdate = Optional.ofNullable(eventUpdate)
-            .orElseThrow(() -> new IllegalArgumentException("eventUpdate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("eventUpdate cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class UpdateEventRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -63,7 +58,6 @@ public class UpdateEventRequest {
         return this;
     }
 
-
     /**
      * Event update details.
      */
@@ -71,7 +65,6 @@ public class UpdateEventRequest {
         this.eventUpdate = Utils.checkNotNull(eventUpdate, "eventUpdate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,28 @@ public class UpdateEventRequest {
             return false;
         }
         UpdateEventRequest other = (UpdateEventRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.eventUpdate, other.eventUpdate);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.eventUpdate, other.eventUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, eventUpdate);
+        return Utils.enhancedHash(id, eventUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateEventRequest.class,
-                "id", id,
-                "eventUpdate", eventUpdate);
+        return Utils.toString(UpdateEventRequest.class, "id", id, "eventUpdate", eventUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private EventUpdateInput eventUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +116,7 @@ public class UpdateEventRequest {
         }
 
         public UpdateEventRequest build() {
-            return new UpdateEventRequest(
-                id, eventUpdate);
+            return new UpdateEventRequest(id, eventUpdate);
         }
-
     }
 }

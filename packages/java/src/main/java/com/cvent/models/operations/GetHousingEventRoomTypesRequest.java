@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHousingEventRoomTypesRequest {
     /**
      * ID for a Passkey housing event.
@@ -44,14 +43,14 @@ public class GetHousingEventRoomTypesRequest {
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendeeTypes.id (eq)
      * * attendeeTypes.codes (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -75,18 +74,14 @@ public class GetHousingEventRoomTypesRequest {
             @Nullable String locale) {
         this.housingEventId = housingEventId;
         this.hotelId = hotelId;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
         this.locale = locale;
     }
-    
-    public GetHousingEventRoomTypesRequest(
-            long housingEventId,
-            long hotelId) {
-        this(housingEventId, hotelId, null,
-            null, null, null);
+
+    public GetHousingEventRoomTypesRequest(long housingEventId, long hotelId) {
+        this(housingEventId, hotelId, null, null, null, null);
     }
 
     /**
@@ -121,14 +116,14 @@ public class GetHousingEventRoomTypesRequest {
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendeeTypes.id (eq)
      * * attendeeTypes.codes (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -148,7 +143,6 @@ public class GetHousingEventRoomTypesRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -156,7 +150,6 @@ public class GetHousingEventRoomTypesRequest {
         this.housingEventId = housingEventId;
         return this;
     }
-
 
     /**
      * The hotel's unique ID.
@@ -166,7 +159,6 @@ public class GetHousingEventRoomTypesRequest {
         return this;
     }
 
-
     /**
      * Limit to this number of search results. Maximum of 200, default of 100.
      */
@@ -174,7 +166,6 @@ public class GetHousingEventRoomTypesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -185,18 +176,17 @@ public class GetHousingEventRoomTypesRequest {
         return this;
     }
 
-
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendeeTypes.id (eq)
      * * attendeeTypes.codes (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -206,7 +196,6 @@ public class GetHousingEventRoomTypesRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -214,7 +203,6 @@ public class GetHousingEventRoomTypesRequest {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -225,35 +213,39 @@ public class GetHousingEventRoomTypesRequest {
             return false;
         }
         GetHousingEventRoomTypesRequest other = (GetHousingEventRoomTypesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.hotelId, other.hotelId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.hotelId, other.hotelId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, hotelId, limit,
-            token, filter, locale);
+        return Utils.enhancedHash(housingEventId, hotelId, limit, token, filter, locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventRoomTypesRequest.class,
-                "housingEventId", housingEventId,
-                "hotelId", hotelId,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "locale", locale);
+        return Utils.toString(
+                GetHousingEventRoomTypesRequest.class,
+                "housingEventId",
+                housingEventId,
+                "hotelId",
+                hotelId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "locale",
+                locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -268,7 +260,7 @@ public class GetHousingEventRoomTypesRequest {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -307,14 +299,14 @@ public class GetHousingEventRoomTypesRequest {
         /**
          * "A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * attendeeTypes.id (eq)
          * * attendeeTypes.codes (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -333,16 +325,10 @@ public class GetHousingEventRoomTypesRequest {
         }
 
         public GetHousingEventRoomTypesRequest build() {
-            return new GetHousingEventRoomTypesRequest(
-                housingEventId, hotelId, limit,
-                token, filter, locale);
+            return new GetHousingEventRoomTypesRequest(housingEventId, hotelId, limit, token, filter, locale);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

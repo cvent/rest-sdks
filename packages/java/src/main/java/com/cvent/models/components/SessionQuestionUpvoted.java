@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionQuestionUpvoted
- * 
+ *
  * <p>This denotes the question asked in the session.
  */
 public class SessionQuestionUpvoted {
@@ -59,10 +59,9 @@ public class SessionQuestionUpvoted {
         this.platform = platform;
         this.votes = votes;
     }
-    
+
     public SessionQuestionUpvoted() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class SessionQuestionUpvoted {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -105,7 +103,6 @@ public class SessionQuestionUpvoted {
         this.session = session;
         return this;
     }
-
 
     /**
      * The question asked in a session.
@@ -115,7 +112,6 @@ public class SessionQuestionUpvoted {
         return this;
     }
 
-
     /**
      * The platform used by the user.
      */
@@ -124,7 +120,6 @@ public class SessionQuestionUpvoted {
         return this;
     }
 
-
     /**
      * The number of votes for a question.
      */
@@ -132,7 +127,6 @@ public class SessionQuestionUpvoted {
         this.votes = votes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,33 @@ public class SessionQuestionUpvoted {
             return false;
         }
         SessionQuestionUpvoted other = (SessionQuestionUpvoted) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.votes, other.votes);
+        return Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.votes, other.votes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session, question, platform,
-            votes);
+        return Utils.enhancedHash(session, question, platform, votes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionQuestionUpvoted.class,
-                "session", session,
-                "question", question,
-                "platform", platform,
-                "votes", votes);
+        return Utils.toString(
+                SessionQuestionUpvoted.class,
+                "session",
+                session,
+                "question",
+                question,
+                "platform",
+                platform,
+                "votes",
+                votes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity8 session;
 
@@ -178,7 +174,7 @@ public class SessionQuestionUpvoted {
         private Long votes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +210,7 @@ public class SessionQuestionUpvoted {
         }
 
         public SessionQuestionUpvoted build() {
-            return new SessionQuestionUpvoted(
-                session, question, platform,
-                votes);
+            return new SessionQuestionUpvoted(session, question, platform, votes);
         }
-
     }
 }

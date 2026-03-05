@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListAppointmentsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -46,7 +45,7 @@ public class ListAppointmentsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -54,12 +53,12 @@ public class ListAppointmentsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * appointmentEvent.id (eq)
      * * participants.attendee.contact.id (eq)
      * * code (eq)
-     * 
+     *
      * <p>No operators are available
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -74,15 +73,13 @@ public class ListAppointmentsRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListAppointmentsRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -118,7 +115,7 @@ public class ListAppointmentsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -126,12 +123,12 @@ public class ListAppointmentsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * appointmentEvent.id (eq)
      * * participants.attendee.contact.id (eq)
      * * code (eq)
-     * 
+     *
      * <p>No operators are available
      */
     public Optional<String> filter() {
@@ -142,7 +139,6 @@ public class ListAppointmentsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -152,7 +148,6 @@ public class ListAppointmentsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -161,7 +156,6 @@ public class ListAppointmentsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -169,7 +163,6 @@ public class ListAppointmentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -180,11 +173,10 @@ public class ListAppointmentsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -192,19 +184,18 @@ public class ListAppointmentsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * appointmentEvent.id (eq)
      * * participants.attendee.contact.id (eq)
      * * code (eq)
-     * 
+     *
      * <p>No operators are available
      */
     public ListAppointmentsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -215,33 +206,36 @@ public class ListAppointmentsRequest {
             return false;
         }
         ListAppointmentsRequest other = (ListAppointmentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAppointmentsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListAppointmentsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -254,7 +248,7 @@ public class ListAppointmentsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -294,7 +288,7 @@ public class ListAppointmentsRequest {
         /**
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are six comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -302,12 +296,12 @@ public class ListAppointmentsRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * appointmentEvent.id (eq)
          * * participants.attendee.contact.id (eq)
          * * code (eq)
-         * 
+         *
          * <p>No operators are available
          */
         public Builder filter(@Nullable String filter) {
@@ -316,16 +310,10 @@ public class ListAppointmentsRequest {
         }
 
         public ListAppointmentsRequest build() {
-            return new ListAppointmentsRequest(
-                after, before, limit,
-                token, filter);
+            return new ListAppointmentsRequest(after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

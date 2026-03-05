@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DateTypeJson1
- * 
+ *
  * <p>The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with
  * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
  * so on).
@@ -36,13 +36,13 @@ public enum DateTypeJson1 {
     DateTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DateTypeJson1> fromValue(String value) {
-        for (DateTypeJson1 o: DateTypeJson1.values()) {
+        for (DateTypeJson1 o : DateTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -50,4 +50,3 @@ public enum DateTypeJson1 {
         return Optional.empty();
     }
 }
-

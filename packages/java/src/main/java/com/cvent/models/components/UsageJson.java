@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * UsageJson
- * 
+ *
  * <p>A usage object represents the usage of a resource on a given day
  */
 public class UsageJson {
@@ -53,8 +53,7 @@ public class UsageJson {
         this.used = used;
         this.remaining = remaining;
         this.total = total;
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
     }
 
     /**
@@ -92,7 +91,6 @@ public class UsageJson {
         return new Builder();
     }
 
-
     /**
      * The number of API requests that have been made in the current usage period. Usage periods reset
      * daily at midnight UTC.
@@ -101,7 +99,6 @@ public class UsageJson {
         this.used = used;
         return this;
     }
-
 
     /**
      * The number of API requests remaining in the current usage period. Usage periods reset daily at
@@ -112,7 +109,6 @@ public class UsageJson {
         return this;
     }
 
-
     /**
      * The total number of API requests allowed in the current usage period. Usage periods reset daily at
      * midnight UTC.
@@ -122,7 +118,6 @@ public class UsageJson {
         return this;
     }
 
-
     /**
      * The date the usage occurred, as an ISO8601 date
      */
@@ -130,7 +125,6 @@ public class UsageJson {
         this.date = Utils.checkNotNull(date, "date");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -141,31 +135,24 @@ public class UsageJson {
             return false;
         }
         UsageJson other = (UsageJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.used, other.used) &&
-            Utils.enhancedDeepEquals(this.remaining, other.remaining) &&
-            Utils.enhancedDeepEquals(this.total, other.total) &&
-            Utils.enhancedDeepEquals(this.date, other.date);
+        return Utils.enhancedDeepEquals(this.used, other.used)
+                && Utils.enhancedDeepEquals(this.remaining, other.remaining)
+                && Utils.enhancedDeepEquals(this.total, other.total)
+                && Utils.enhancedDeepEquals(this.date, other.date);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            used, remaining, total,
-            date);
+        return Utils.enhancedHash(used, remaining, total, date);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UsageJson.class,
-                "used", used,
-                "remaining", remaining,
-                "total", total,
-                "date", date);
+        return Utils.toString(UsageJson.class, "used", used, "remaining", remaining, "total", total, "date", date);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long used;
 
@@ -176,7 +163,7 @@ public class UsageJson {
         private String date;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -215,10 +202,7 @@ public class UsageJson {
         }
 
         public UsageJson build() {
-            return new UsageJson(
-                used, remaining, total,
-                date);
+            return new UsageJson(used, remaining, total, date);
         }
-
     }
 }

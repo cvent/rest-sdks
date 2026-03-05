@@ -29,11 +29,11 @@ import jakarta.annotation.Nonnull;
  * planners, marketers, and exhibitors in targeting customers effectively, thereby enhancing engagement
  * and conversion rates for marketing campaigns. Utilize these APIs to fetch engagement score data from
  * your event and integrate it into your marketing systems.
- * 
+ *
  * <p>**Engagement Score** - Engagement scores are a container that track individual attendees' engagement
  * with your event. Attendees earn points by performing actions, which indicates their relative
  * engagement with your content.
- * 
+ *
  * <p>**Actions** - These are distinct, trackable activities that attendees can perform during an event.
  * Points are awarded for these actions and contribute to the engagement score.
  */
@@ -49,7 +49,7 @@ public class AttendeeInsights {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncAttendeeInsights async() {
@@ -58,12 +58,12 @@ public class AttendeeInsights {
 
     /**
      * List Engagement Scores
-     * 
+     *
      * <p>Gets a paginated list of engagement scores (attendee insights) and their associated events.
      * Use the returned IDs to retrieve further details using other attendee insight endpoints.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAttendeeInsightsRequestBuilder listAttendeeInsights() {
@@ -72,29 +72,29 @@ public class AttendeeInsights {
 
     /**
      * List Engagement Scores
-     * 
+     *
      * <p>Gets a paginated list of engagement scores (attendee insights) and their associated events.
      * Use the returned IDs to retrieve further details using other attendee insight endpoints.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAttendeeInsightsResponse listAttendeeInsights(@Nonnull ListAttendeeInsightsRequest request) {
-        RequestOperation<ListAttendeeInsightsRequest, ListAttendeeInsightsResponse> operation
-              = new ListAttendeeInsights.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAttendeeInsightsRequest, ListAttendeeInsightsResponse> operation =
+                new ListAttendeeInsights.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Engagement Score
-     * 
+     *
      * <p>Retrieve the details of a specific engagement score (attendee insight) using its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAttendeeInsightsByIdRequestBuilder getAttendeeInsightsById() {
@@ -103,29 +103,29 @@ public class AttendeeInsights {
 
     /**
      * Get Engagement Score
-     * 
+     *
      * <p>Retrieve the details of a specific engagement score (attendee insight) using its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAttendeeInsightsByIdResponse getAttendeeInsightsById(@Nonnull GetAttendeeInsightsByIdRequest request) {
-        RequestOperation<GetAttendeeInsightsByIdRequest, GetAttendeeInsightsByIdResponse> operation
-              = new GetAttendeeInsightsById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAttendeeInsightsByIdRequest, GetAttendeeInsightsByIdResponse> operation =
+                new GetAttendeeInsightsById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Scores
-     * 
+     *
      * <p>Retrieves a paginated list of attendees and their scores for the given engagement score (attendee
      * insight).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetScoresRequestBuilder getScores() {
@@ -134,29 +134,29 @@ public class AttendeeInsights {
 
     /**
      * Get Scores
-     * 
+     *
      * <p>Retrieves a paginated list of attendees and their scores for the given engagement score (attendee
      * insight).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetScoresResponse getScores(@Nonnull GetScoresRequest request) {
-        RequestOperation<GetScoresRequest, GetScoresResponse> operation
-              = new GetScores.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetScoresRequest, GetScoresResponse> operation =
+                new GetScores.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Stats
-     * 
+     *
      * <p>Retrieves a summary of scores for the given engagement score (attendee insight).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetStatsRequestBuilder getStats() {
@@ -165,19 +165,17 @@ public class AttendeeInsights {
 
     /**
      * Get Stats
-     * 
+     *
      * <p>Retrieves a summary of scores for the given engagement score (attendee insight).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetStatsResponse getStats(@Nonnull GetStatsRequest request) {
-        RequestOperation<GetStatsRequest, GetStatsResponse> operation
-              = new GetStats.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetStatsRequest, GetStatsResponse> operation = new GetStats.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

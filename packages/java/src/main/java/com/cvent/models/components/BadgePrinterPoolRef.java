@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BadgePrinterPoolRef
- * 
+ *
  * <p>A unique identifier of the badge printer pool.
  */
 public class BadgePrinterPoolRef {
@@ -24,10 +24,8 @@ public class BadgePrinterPoolRef {
     private String id;
 
     @JsonCreator
-    public BadgePrinterPoolRef(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public BadgePrinterPoolRef(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class BadgePrinterPoolRef {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -49,7 +46,6 @@ public class BadgePrinterPoolRef {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class BadgePrinterPoolRef {
             return false;
         }
         BadgePrinterPoolRef other = (BadgePrinterPoolRef) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BadgePrinterPoolRef.class,
-                "id", id);
+        return Utils.toString(BadgePrinterPoolRef.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class BadgePrinterPoolRef {
         }
 
         public BadgePrinterPoolRef build() {
-            return new BadgePrinterPoolRef(
-                id);
+            return new BadgePrinterPoolRef(id);
         }
-
     }
 }

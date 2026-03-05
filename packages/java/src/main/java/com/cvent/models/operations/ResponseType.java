@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * ResponseType
- * 
+ *
  * <p>The response type must be code. Indicates the client wants an authorization code (authorization code
  * grant flow).
- * 
+ *
  * <p>**Note:** *implicit flow* or the *token* value is not supported at this time.
  */
 public enum ResponseType {
@@ -25,13 +25,13 @@ public enum ResponseType {
     ResponseType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ResponseType> fromValue(String value) {
-        for (ResponseType o: ResponseType.values()) {
+        for (ResponseType o : ResponseType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum ResponseType {
         return Optional.empty();
     }
 }
-

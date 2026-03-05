@@ -2,6 +2,14 @@
 
 Credit Card Type
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CreditCardTypeJson.AmericanExpress;
+```
+
 
 ## Values
 

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * RegistrationEventCopyOverride
- * 
+ *
  * <p>Determines if registration feature data should be copied over from the source event.
  */
 public class RegistrationEventCopyOverride {
@@ -30,12 +30,10 @@ public class RegistrationEventCopyOverride {
     private Boolean featureData;
 
     @JsonCreator
-    public RegistrationEventCopyOverride(
-            @JsonProperty("featureData") @Nullable Boolean featureData) {
-        this.featureData = Optional.ofNullable(featureData)
-            .orElse(Builder._SINGLETON_VALUE_FeatureData.value());
+    public RegistrationEventCopyOverride(@JsonProperty("featureData") @Nullable Boolean featureData) {
+        this.featureData = Optional.ofNullable(featureData).orElse(Builder._SINGLETON_VALUE_FeatureData.value());
     }
-    
+
     public RegistrationEventCopyOverride() {
         this(null);
     }
@@ -51,7 +49,6 @@ public class RegistrationEventCopyOverride {
         return new Builder();
     }
 
-
     /**
      * True indicates the feature data should be copied from the source event.
      */
@@ -59,7 +56,6 @@ public class RegistrationEventCopyOverride {
         this.featureData = featureData;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -70,29 +66,26 @@ public class RegistrationEventCopyOverride {
             return false;
         }
         RegistrationEventCopyOverride other = (RegistrationEventCopyOverride) o;
-        return 
-            Utils.enhancedDeepEquals(this.featureData, other.featureData);
+        return Utils.enhancedDeepEquals(this.featureData, other.featureData);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            featureData);
+        return Utils.enhancedHash(featureData);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RegistrationEventCopyOverride.class,
-                "featureData", featureData);
+        return Utils.toString(RegistrationEventCopyOverride.class, "featureData", featureData);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean featureData;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,15 +97,10 @@ public class RegistrationEventCopyOverride {
         }
 
         public RegistrationEventCopyOverride build() {
-            return new RegistrationEventCopyOverride(
-                featureData);
+            return new RegistrationEventCopyOverride(featureData);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_FeatureData =
-                new LazySingletonValue<>(
-                        "featureData",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("featureData", "true", new TypeReference<Boolean>() {});
     }
 }

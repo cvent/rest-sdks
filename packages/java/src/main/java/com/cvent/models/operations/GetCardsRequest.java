@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetCardsRequest {
     /**
      * The maximum number of records to return per page.
@@ -33,10 +32,10 @@ public class GetCardsRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following field is filterable:
      * * event.id (eq)
      */
@@ -44,16 +43,12 @@ public class GetCardsRequest {
     private String filter;
 
     @JsonCreator
-    public GetCardsRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetCardsRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetCardsRequest() {
         this(null, null, null);
     }
@@ -77,10 +72,10 @@ public class GetCardsRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following field is filterable:
      * * event.id (eq)
      */
@@ -92,7 +87,6 @@ public class GetCardsRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -100,7 +94,6 @@ public class GetCardsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -111,15 +104,14 @@ public class GetCardsRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following field is filterable:
      * * event.id (eq)
      */
@@ -127,7 +119,6 @@ public class GetCardsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,28 +129,23 @@ public class GetCardsRequest {
             return false;
         }
         GetCardsRequest other = (GetCardsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCardsRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(GetCardsRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -168,7 +154,7 @@ public class GetCardsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -192,10 +178,10 @@ public class GetCardsRequest {
          * A filter string passed in the body of the request, narrows search results and supports the
          * combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There is one comparison type that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following field is filterable:
          * * event.id (eq)
          */
@@ -205,15 +191,10 @@ public class GetCardsRequest {
         }
 
         public GetCardsRequest build() {
-            return new GetCardsRequest(
-                limit, token, filter);
+            return new GetCardsRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

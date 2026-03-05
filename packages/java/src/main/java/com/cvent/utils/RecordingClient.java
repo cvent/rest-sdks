@@ -33,7 +33,7 @@ public final class RecordingClient implements HTTPClient {
         }
         requests.add(request);
         var response = client.send(request);
-        for (var hook: afterResponseHooks) {
+        for (var hook : afterResponseHooks) {
             response = hook.apply(response);
         }
         return response;
@@ -47,7 +47,7 @@ public final class RecordingClient implements HTTPClient {
         beforeRequestHooks.add(hook);
         return this;
     }
-    
+
     public RecordingClient afterResponse(UnaryOperator<HttpResponse<InputStream>> hook) {
         afterResponseHooks.add(hook);
         return this;
@@ -56,5 +56,4 @@ public final class RecordingClient implements HTTPClient {
     public void reset() {
         requests.clear();
     }
-
 }

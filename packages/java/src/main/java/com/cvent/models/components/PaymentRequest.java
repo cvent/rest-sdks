@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * PaymentRequest
- * 
+ *
  * <p>Payment request for a budget item in an event.
  */
 public class PaymentRequest {
@@ -83,29 +83,24 @@ public class PaymentRequest {
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("type") @Nullable PaymentTypeJson1 type,
             @JsonProperty("id") @Nonnull String id) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.referenceNumber = referenceNumber;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.amount = amount;
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.note = note;
         this.type = type;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
+
     public PaymentRequest(
             @Nonnull String name,
             @Nonnull String currency,
             double amount,
             @Nonnull LocalDate date,
             @Nonnull String id) {
-        this(name, null, currency,
-            amount, date, null,
-            null, id);
+        this(name, null, currency, amount, date, null, null, id);
     }
 
     /**
@@ -169,7 +164,6 @@ public class PaymentRequest {
         return new Builder();
     }
 
-
     /**
      * Name of the payment.
      */
@@ -177,7 +171,6 @@ public class PaymentRequest {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * Reference number for the payment. Assists the user in reconciling the payment with their bank
@@ -188,7 +181,6 @@ public class PaymentRequest {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code used of payment currency.
      */
@@ -196,7 +188,6 @@ public class PaymentRequest {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     /**
      * Payment amount.
@@ -206,7 +197,6 @@ public class PaymentRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
      */
@@ -214,7 +204,6 @@ public class PaymentRequest {
         this.date = Utils.checkNotNull(date, "date");
         return this;
     }
-
 
     /**
      * Note for the payment done.
@@ -224,7 +213,6 @@ public class PaymentRequest {
         return this;
     }
 
-
     /**
      * Denotes the method of payment.
      */
@@ -233,7 +221,6 @@ public class PaymentRequest {
         return this;
     }
 
-
     /**
      * The ID of the payment.
      */
@@ -241,7 +228,6 @@ public class PaymentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -252,40 +238,45 @@ public class PaymentRequest {
             return false;
         }
         PaymentRequest other = (PaymentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, referenceNumber, currency,
-            amount, date, note,
-            type, id);
+        return Utils.enhancedHash(name, referenceNumber, currency, amount, date, note, type, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PaymentRequest.class,
-                "name", name,
-                "referenceNumber", referenceNumber,
-                "currency", currency,
-                "amount", amount,
-                "date", date,
-                "note", note,
-                "type", type,
-                "id", id);
+        return Utils.toString(
+                PaymentRequest.class,
+                "name",
+                name,
+                "referenceNumber",
+                referenceNumber,
+                "currency",
+                currency,
+                "amount",
+                amount,
+                "date",
+                date,
+                "note",
+                note,
+                "type",
+                type,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -304,7 +295,7 @@ public class PaymentRequest {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -373,11 +364,7 @@ public class PaymentRequest {
         }
 
         public PaymentRequest build() {
-            return new PaymentRequest(
-                name, referenceNumber, currency,
-                amount, date, note,
-                type, id);
+            return new PaymentRequest(name, referenceNumber, currency, amount, date, note, type, id);
         }
-
     }
 }

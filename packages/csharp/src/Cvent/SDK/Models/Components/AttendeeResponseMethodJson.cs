@@ -35,66 +35,42 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttendeeResponseMethodJson
     {
-        [JsonProperty("Administrator Responded")]
-        AdministratorResponded,
-        [JsonProperty("Administrator Responded Widget")]
-        AdministratorRespondedWidget,
-        [JsonProperty("API-Responded")]
-        APIResponded,
-        [JsonProperty("Appointments Event Website")]
-        AppointmentsEventWebsite,
-        [JsonProperty("Cvent Salesforce App")]
-        CventSalesforceApp,
-        [JsonProperty("Cvent Salesforce App - Campaign Page")]
-        CventSalesforceAppCampaignPage,
-        [JsonProperty("Cvent Salesforce App - Contact Page")]
-        CventSalesforceAppContactPage,
-        [JsonProperty("Cvent Salesforce App - Event Page")]
-        CventSalesforceAppEventPage,
-        [JsonProperty("Cvent Salesforce App - Lead Page")]
-        CventSalesforceAppLeadPage,
-        [JsonProperty("Cvent Salesforce App - Person Account Page")]
-        CventSalesforceAppPersonAccountPage,
-        [JsonProperty("Cvent Salesforce App - Recommendation Widget")]
-        CventSalesforceAppRecommendationWidget,
-        [JsonProperty("External Registration")]
-        ExternalRegistration,
-        [JsonProperty("Group Leader Responded")]
-        GroupLeaderResponded,
-        [JsonProperty("Group Leader Responded Widget")]
-        GroupLeaderRespondedWidget,
-        [JsonProperty("Historical Import")]
-        HistoricalImport,
-        [JsonProperty("Imported")]
-        Imported,
-        [JsonProperty("No Response")]
-        NoResponse,
-        [JsonProperty("On-site Responded")]
-        OnSiteResponded,
-        [JsonProperty("Planner-Imported")]
-        PlannerImported,
-        [JsonProperty("Planner-Responded")]
-        PlannerResponded,
-        [JsonProperty("Post Event")]
-        PostEvent,
-        [JsonProperty("Self-Responded")]
-        SelfResponded,
-        [JsonProperty("Self-Responded Mobile")]
-        SelfRespondedMobile,
-        [JsonProperty("Self-Responded Widget")]
-        SelfRespondedWidget,
+        [JsonProperty("Administrator Responded")] AdministratorResponded,
+        [JsonProperty("Administrator Responded Widget")] AdministratorRespondedWidget,
+        [JsonProperty("API-Responded")] APIResponded,
+        [JsonProperty("Appointments Event Website")] AppointmentsEventWebsite,
+        [JsonProperty("Cvent Salesforce App")] CventSalesforceApp,
+        [JsonProperty("Cvent Salesforce App - Campaign Page")] CventSalesforceAppCampaignPage,
+        [JsonProperty("Cvent Salesforce App - Contact Page")] CventSalesforceAppContactPage,
+        [JsonProperty("Cvent Salesforce App - Event Page")] CventSalesforceAppEventPage,
+        [JsonProperty("Cvent Salesforce App - Lead Page")] CventSalesforceAppLeadPage,
+        [JsonProperty("Cvent Salesforce App - Person Account Page")] CventSalesforceAppPersonAccountPage,
+        [JsonProperty("Cvent Salesforce App - Recommendation Widget")] CventSalesforceAppRecommendationWidget,
+        [JsonProperty("External Registration")] ExternalRegistration,
+        [JsonProperty("Group Leader Responded")] GroupLeaderResponded,
+        [JsonProperty("Group Leader Responded Widget")] GroupLeaderRespondedWidget,
+        [JsonProperty("Historical Import")] HistoricalImport,
+        [JsonProperty("Imported")] Imported,
+        [JsonProperty("No Response")] NoResponse,
+        [JsonProperty("On-site Responded")] OnSiteResponded,
+        [JsonProperty("Planner-Imported")] PlannerImported,
+        [JsonProperty("Planner-Responded")] PlannerResponded,
+        [JsonProperty("Post Event")] PostEvent,
+        [JsonProperty("Self-Responded")] SelfResponded,
+        [JsonProperty("Self-Responded Mobile")] SelfRespondedMobile,
+        [JsonProperty("Self-Responded Widget")] SelfRespondedWidget,
     }
 
     public static class AttendeeResponseMethodJsonExtension
     {
         public static string Value(this AttendeeResponseMethodJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttendeeResponseMethodJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttendeeResponseMethodJson).GetFields())
+            foreach (var field in typeof(AttendeeResponseMethodJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

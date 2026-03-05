@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * AttendeeTypeIdJson
- * 
+ *
  * <p>Contains the unique ID of the attendee type.
  */
 public class AttendeeTypeIdJson {
@@ -22,8 +22,7 @@ public class AttendeeTypeIdJson {
     private long id;
 
     @JsonCreator
-    public AttendeeTypeIdJson(
-            @JsonProperty("id") long id) {
+    public AttendeeTypeIdJson(@JsonProperty("id") long id) {
         this.id = id;
     }
 
@@ -38,7 +37,6 @@ public class AttendeeTypeIdJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the attendee type.
      */
@@ -46,7 +44,6 @@ public class AttendeeTypeIdJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,29 +54,26 @@ public class AttendeeTypeIdJson {
             return false;
         }
         AttendeeTypeIdJson other = (AttendeeTypeIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeTypeIdJson.class,
-                "id", id);
+        return Utils.toString(AttendeeTypeIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -91,9 +85,7 @@ public class AttendeeTypeIdJson {
         }
 
         public AttendeeTypeIdJson build() {
-            return new AttendeeTypeIdJson(
-                id);
+            return new AttendeeTypeIdJson(id);
         }
-
     }
 }

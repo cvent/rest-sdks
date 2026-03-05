@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * StatusSummaryJson
- * 
+ *
  * <p>Represents a summary of status associated with this proposal.
  */
 public class StatusSummaryJson {
@@ -35,12 +35,11 @@ public class StatusSummaryJson {
 
     @JsonCreator
     public StatusSummaryJson(
-            @JsonProperty("reason") @Nullable String reason,
-            @JsonProperty("comment") @Nullable String comment) {
+            @JsonProperty("reason") @Nullable String reason, @JsonProperty("comment") @Nullable String comment) {
         this.reason = reason;
         this.comment = comment;
     }
-    
+
     public StatusSummaryJson() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class StatusSummaryJson {
         return new Builder();
     }
 
-
     /**
      * Reason provided by the planner for status update
      */
@@ -72,7 +70,6 @@ public class StatusSummaryJson {
         return this;
     }
 
-
     /**
      * Comment provided by the planner while updating the status of the proposal.
      */
@@ -80,7 +77,6 @@ public class StatusSummaryJson {
         this.comment = comment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class StatusSummaryJson {
             return false;
         }
         StatusSummaryJson other = (StatusSummaryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.reason, other.reason) &&
-            Utils.enhancedDeepEquals(this.comment, other.comment);
+        return Utils.enhancedDeepEquals(this.reason, other.reason) && Utils.enhancedDeepEquals(this.comment, other.comment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            reason, comment);
+        return Utils.enhancedHash(reason, comment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StatusSummaryJson.class,
-                "reason", reason,
-                "comment", comment);
+        return Utils.toString(StatusSummaryJson.class, "reason", reason, "comment", comment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String reason;
 
         private String comment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class StatusSummaryJson {
         }
 
         public StatusSummaryJson build() {
-            return new StatusSummaryJson(
-                reason, comment);
+            return new StatusSummaryJson(reason, comment);
         }
-
     }
 }

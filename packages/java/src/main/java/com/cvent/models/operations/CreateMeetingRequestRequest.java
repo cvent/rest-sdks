@@ -15,7 +15,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class CreateMeetingRequestRequest {
     /**
      * Meeting request form ID.
@@ -40,16 +39,13 @@ public class CreateMeetingRequestRequest {
             @Nonnull String id,
             @Nullable Boolean skipRequiredQuestionValidation,
             @Nonnull List<MeetingRequestCreateJson> requestBody) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.skipRequiredQuestionValidation = skipRequiredQuestionValidation;
         this.requestBody = Optional.ofNullable(requestBody)
-            .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
-    
-    public CreateMeetingRequestRequest(
-            @Nonnull String id,
-            @Nonnull List<MeetingRequestCreateJson> requestBody) {
+
+    public CreateMeetingRequestRequest(@Nonnull String id, @Nonnull List<MeetingRequestCreateJson> requestBody) {
         this(id, null, requestBody);
     }
 
@@ -78,7 +74,6 @@ public class CreateMeetingRequestRequest {
         return new Builder();
     }
 
-
     /**
      * Meeting request form ID.
      */
@@ -87,15 +82,14 @@ public class CreateMeetingRequestRequest {
         return this;
     }
 
-
     /**
      * Flag `true` to skip required field validation.
      */
-    public CreateMeetingRequestRequest withSkipRequiredQuestionValidation(@Nullable Boolean skipRequiredQuestionValidation) {
+    public CreateMeetingRequestRequest withSkipRequiredQuestionValidation(
+            @Nullable Boolean skipRequiredQuestionValidation) {
         this.skipRequiredQuestionValidation = skipRequiredQuestionValidation;
         return this;
     }
-
 
     /**
      * Up to **5 meeting requests** can be created per call.
@@ -104,7 +98,6 @@ public class CreateMeetingRequestRequest {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -115,28 +108,30 @@ public class CreateMeetingRequestRequest {
             return false;
         }
         CreateMeetingRequestRequest other = (CreateMeetingRequestRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.skipRequiredQuestionValidation, other.skipRequiredQuestionValidation) &&
-            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.skipRequiredQuestionValidation, other.skipRequiredQuestionValidation)
+                && Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, skipRequiredQuestionValidation, requestBody);
+        return Utils.enhancedHash(id, skipRequiredQuestionValidation, requestBody);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateMeetingRequestRequest.class,
-                "id", id,
-                "skipRequiredQuestionValidation", skipRequiredQuestionValidation,
-                "requestBody", requestBody);
+        return Utils.toString(
+                CreateMeetingRequestRequest.class,
+                "id",
+                id,
+                "skipRequiredQuestionValidation",
+                skipRequiredQuestionValidation,
+                "requestBody",
+                requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -145,7 +140,7 @@ public class CreateMeetingRequestRequest {
         private List<MeetingRequestCreateJson> requestBody;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -173,9 +168,7 @@ public class CreateMeetingRequestRequest {
         }
 
         public CreateMeetingRequestRequest build() {
-            return new CreateMeetingRequestRequest(
-                id, skipRequiredQuestionValidation, requestBody);
+            return new CreateMeetingRequestRequest(id, skipRequiredQuestionValidation, requestBody);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BulkJobWithDataOperation
- * 
+ *
  * <p>Operation to be performed in the destination API.
  */
 public enum BulkJobWithDataOperation {
@@ -25,13 +25,13 @@ public enum BulkJobWithDataOperation {
     BulkJobWithDataOperation(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BulkJobWithDataOperation> fromValue(String value) {
-        for (BulkJobWithDataOperation o: BulkJobWithDataOperation.values()) {
+        for (BulkJobWithDataOperation o : BulkJobWithDataOperation.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum BulkJobWithDataOperation {
         return Optional.empty();
     }
 }
-

@@ -29,7 +29,7 @@ public class CreateContactGroupRequestBuilder {
     private ContactGroupInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateContactGroupResponse call() {
-        RequestOperation<ContactGroupInput, CreateContactGroupResponse> operation
-              = new CreateContactGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<ContactGroupInput, CreateContactGroupResponse> operation =
+                new CreateContactGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

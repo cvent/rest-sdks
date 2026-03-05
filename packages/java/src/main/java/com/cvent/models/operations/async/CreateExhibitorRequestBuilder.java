@@ -30,7 +30,7 @@ public class CreateExhibitorRequestBuilder {
     private CreateExhibitorRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateExhibitorRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateExhibitorRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateExhibitorResponse> call() {
-        AsyncRequestOperation<CreateExhibitorRequest, CreateExhibitorResponse> operation
-              = new CreateExhibitor.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateExhibitorRequest, CreateExhibitorResponse> operation =
+                new CreateExhibitor.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -76,22 +76,21 @@ public class AsyncAttendees {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Attendees sync() {
         return syncSDK;
     }
 
-
     /**
      * List Attendance Duration
-     * 
+     *
      * <p>Gets a paginated list of durations attendees were engaged (in person or virtually) in a session,
      * appointment or watching a video.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListDurationsRequestBuilder listDurations() {
@@ -100,30 +99,28 @@ public class AsyncAttendees {
 
     /**
      * List Attendance Duration
-     * 
+     *
      * <p>Gets a paginated list of durations attendees were engaged (in person or virtually) in a session,
      * appointment or watching a video.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListDurationsResponse>} - The async response
      */
     public CompletableFuture<ListDurationsResponse> listDurations(@Nonnull ListDurationsRequest request) {
-        AsyncRequestOperation<ListDurationsRequest, ListDurationsResponse> operation
-              = new ListDurations.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListDurationsRequest, ListDurationsResponse> operation =
+                new ListDurations.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Add Attendees
-     * 
+     *
      * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateAttendeeRequestBuilder createAttendee() {
@@ -132,29 +129,27 @@ public class AsyncAttendees {
 
     /**
      * Add Attendees
-     * 
+     *
      * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateAttendeeResponse>} - The async response
      */
     public CompletableFuture<CreateAttendeeResponse> createAttendee(@Nonnull List<AttendeeAddJson> request) {
-        AsyncRequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation
-              = new CreateAttendee.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+                new CreateAttendee.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAttendeesRequestBuilder listAttendees() {
@@ -163,31 +158,29 @@ public class AsyncAttendees {
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAttendeesResponse>} - The async response
      */
     public CompletableFuture<ListAttendeesResponse> listAttendees(@Nonnull ListAttendeesRequest request) {
-        AsyncRequestOperation<ListAttendeesRequest, ListAttendeesResponse> operation
-              = new ListAttendees.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAttendeesRequest, ListAttendeesResponse> operation =
+                new ListAttendees.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
      * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAttendeesPostFilterRequestBuilder listAttendeesPostFilter() {
@@ -196,31 +189,30 @@ public class AsyncAttendees {
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
      * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAttendeesPostFilterResponse>} - The async response
      */
-    public CompletableFuture<ListAttendeesPostFilterResponse> listAttendeesPostFilter(@Nonnull ListAttendeesPostFilterRequest request) {
-        AsyncRequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation
-              = new ListAttendeesPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAttendeesPostFilterResponse> listAttendeesPostFilter(
+            @Nonnull ListAttendeesPostFilterRequest request) {
+        AsyncRequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation =
+                new ListAttendeesPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Attendee
-     * 
+     *
      * <p>Gets a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAttendeeByIdRequestBuilder getAttendeeById() {
@@ -229,29 +221,27 @@ public class AsyncAttendees {
 
     /**
      * Get Attendee
-     * 
+     *
      * <p>Gets a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAttendeeByIdResponse>} - The async response
      */
     public CompletableFuture<GetAttendeeByIdResponse> getAttendeeById(@Nonnull GetAttendeeByIdRequest request) {
-        AsyncRequestOperation<GetAttendeeByIdRequest, GetAttendeeByIdResponse> operation
-              = new GetAttendeeById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAttendeeByIdRequest, GetAttendeeByIdResponse> operation =
+                new GetAttendeeById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Attendee
-     * 
+     *
      * <p>Updates a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateAttendeeRequestBuilder updateAttendee() {
@@ -260,29 +250,27 @@ public class AsyncAttendees {
 
     /**
      * Update Attendee
-     * 
+     *
      * <p>Updates a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateAttendeeResponse>} - The async response
      */
     public CompletableFuture<UpdateAttendeeResponse> updateAttendee(@Nonnull UpdateAttendeeRequest request) {
-        AsyncRequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation
-              = new UpdateAttendee.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation =
+                new UpdateAttendee.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Email Subscription
-     * 
+     *
      * <p>Updates an attendee's email subscription status for a specific event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateAttendeeSubscriptionStatusRequestBuilder updateAttendeeSubscriptionStatus() {
@@ -291,30 +279,29 @@ public class AsyncAttendees {
 
     /**
      * Update Email Subscription
-     * 
+     *
      * <p>Updates an attendee's email subscription status for a specific event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateAttendeeSubscriptionStatusResponse>} - The async response
      */
-    public CompletableFuture<UpdateAttendeeSubscriptionStatusResponse> updateAttendeeSubscriptionStatus(@Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
-        AsyncRequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation
-              = new UpdateAttendeeSubscriptionStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateAttendeeSubscriptionStatusResponse> updateAttendeeSubscriptionStatus(
+            @Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
+        AsyncRequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation =
+                new UpdateAttendeeSubscriptionStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Internal Information
-     * 
+     *
      * <p>Update internal information answers for an attendee. Use either question code or id to identify
      * which question's answers are being updated.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateInternalInfoAnswersRequestBuilder updateInternalInfoAnswers() {
@@ -323,30 +310,29 @@ public class AsyncAttendees {
 
     /**
      * Update Internal Information
-     * 
+     *
      * <p>Update internal information answers for an attendee. Use either question code or id to identify
      * which question's answers are being updated.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateInternalInfoAnswersResponse>} - The async response
      */
-    public CompletableFuture<UpdateInternalInfoAnswersResponse> updateInternalInfoAnswers(@Nonnull UpdateInternalInfoAnswersRequest request) {
-        AsyncRequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation
-              = new UpdateInternalInfoAnswers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateInternalInfoAnswersResponse> updateInternalInfoAnswers(
+            @Nonnull UpdateInternalInfoAnswersRequest request) {
+        AsyncRequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
+                new UpdateInternalInfoAnswers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Badge
-     * 
+     *
      * <p>Create a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public PostBadgeRequestBuilder postBadge() {
@@ -355,29 +341,27 @@ public class AsyncAttendees {
 
     /**
      * Create Badge
-     * 
+     *
      * <p>Create a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<PostBadgeResponse>} - The async response
      */
     public CompletableFuture<PostBadgeResponse> postBadge(@Nonnull PostBadgeRequest request) {
-        AsyncRequestOperation<PostBadgeRequest, PostBadgeResponse> operation
-              = new PostBadge.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<PostBadgeRequest, PostBadgeResponse> operation =
+                new PostBadge.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Badge
-     * 
+     *
      * <p>Retrieves a list of third-party badge associations for attendees within the event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBadgeRequestBuilder getBadge() {
@@ -386,30 +370,28 @@ public class AsyncAttendees {
 
     /**
      * Get Badge
-     * 
+     *
      * <p>Retrieves a list of third-party badge associations for attendees within the event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBadgeResponse>} - The async response
      */
     public CompletableFuture<GetBadgeResponse> getBadge(@Nonnull GetBadgeRequest request) {
-        AsyncRequestOperation<GetBadgeRequest, GetBadgeResponse> operation
-              = new GetBadge.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBadgeRequest, GetBadgeResponse> operation =
+                new GetBadge.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Badges
-     * 
+     *
      * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
      * return the same data as the getBadge but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBadgesPostFiltersRequestBuilder getBadgesPostFilters() {
@@ -418,30 +400,29 @@ public class AsyncAttendees {
 
     /**
      * Get Badges
-     * 
+     *
      * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
      * return the same data as the getBadge but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBadgesPostFiltersResponse>} - The async response
      */
-    public CompletableFuture<GetBadgesPostFiltersResponse> getBadgesPostFilters(@Nonnull GetBadgesPostFiltersRequest request) {
-        AsyncRequestOperation<GetBadgesPostFiltersRequest, GetBadgesPostFiltersResponse> operation
-              = new GetBadgesPostFilters.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetBadgesPostFiltersResponse> getBadgesPostFilters(
+            @Nonnull GetBadgesPostFiltersRequest request) {
+        AsyncRequestOperation<GetBadgesPostFiltersRequest, GetBadgesPostFiltersResponse> operation =
+                new GetBadgesPostFilters.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Badge
-     * 
+     *
      * <p>Update a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateBadgeRequestBuilder updateBadge() {
@@ -450,19 +431,17 @@ public class AsyncAttendees {
 
     /**
      * Update Badge
-     * 
+     *
      * <p>Update a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateBadgeResponse>} - The async response
      */
     public CompletableFuture<UpdateBadgeResponse> updateBadge(@Nonnull UpdateBadgeRequest request) {
-        AsyncRequestOperation<UpdateBadgeRequest, UpdateBadgeResponse> operation
-              = new UpdateBadge.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateBadgeRequest, UpdateBadgeResponse> operation =
+                new UpdateBadge.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

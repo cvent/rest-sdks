@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * RespondentEventSurveyReferenceJson
- * 
+ *
  * <p>Respondent event survey reference.
  */
 public class RespondentEventSurveyReferenceJson {
@@ -78,10 +78,9 @@ public class RespondentEventSurveyReferenceJson {
         this.percentageScore = percentageScore;
         this.session = session;
     }
-    
+
     public RespondentEventSurveyReferenceJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -131,7 +130,6 @@ public class RespondentEventSurveyReferenceJson {
         return new Builder();
     }
 
-
     /**
      * Respondent chapter reference ID.
      */
@@ -139,7 +137,6 @@ public class RespondentEventSurveyReferenceJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * In case of Event Survey this represents Survey Status and in case of Standard Survey this represents
@@ -150,7 +147,6 @@ public class RespondentEventSurveyReferenceJson {
         return this;
     }
 
-
     /**
      * Score
      */
@@ -158,7 +154,6 @@ public class RespondentEventSurveyReferenceJson {
         this.score = score;
         return this;
     }
-
 
     /**
      * Maximum Possible Score
@@ -168,7 +163,6 @@ public class RespondentEventSurveyReferenceJson {
         return this;
     }
 
-
     /**
      * Percentage Score
      */
@@ -177,7 +171,6 @@ public class RespondentEventSurveyReferenceJson {
         return this;
     }
 
-
     /**
      * Associated session.
      */
@@ -185,7 +178,6 @@ public class RespondentEventSurveyReferenceJson {
         this.session = session;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -196,35 +188,39 @@ public class RespondentEventSurveyReferenceJson {
             return false;
         }
         RespondentEventSurveyReferenceJson other = (RespondentEventSurveyReferenceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore) &&
-            Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore) &&
-            Utils.enhancedDeepEquals(this.session, other.session);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore)
+                && Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore)
+                && Utils.enhancedDeepEquals(this.session, other.session);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status, score,
-            maxPossibleScore, percentageScore, session);
+        return Utils.enhancedHash(id, status, score, maxPossibleScore, percentageScore, session);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RespondentEventSurveyReferenceJson.class,
-                "id", id,
-                "status", status,
-                "score", score,
-                "maxPossibleScore", maxPossibleScore,
-                "percentageScore", percentageScore,
-                "session", session);
+        return Utils.toString(
+                RespondentEventSurveyReferenceJson.class,
+                "id",
+                id,
+                "status",
+                status,
+                "score",
+                score,
+                "maxPossibleScore",
+                maxPossibleScore,
+                "percentageScore",
+                percentageScore,
+                "session",
+                session);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -239,7 +235,7 @@ public class RespondentEventSurveyReferenceJson {
         private RespondentEventSurveyReferenceJsonSession session;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -293,9 +289,7 @@ public class RespondentEventSurveyReferenceJson {
 
         public RespondentEventSurveyReferenceJson build() {
             return new RespondentEventSurveyReferenceJson(
-                id, status, score,
-                maxPossibleScore, percentageScore, session);
+                    id, status, score, maxPossibleScore, percentageScore, session);
         }
-
     }
 }

@@ -30,7 +30,7 @@ public class UpdateRegistrationPackRequestBuilder {
     private UpdateRegistrationPackRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateRegistrationPackRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateRegistrationPackRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateRegistrationPackResponse> call() {
-        AsyncRequestOperation<UpdateRegistrationPackRequest, UpdateRegistrationPackResponse> operation
-              = new UpdateRegistrationPack.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateRegistrationPackRequest, UpdateRegistrationPackResponse> operation =
+                new UpdateRegistrationPack.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

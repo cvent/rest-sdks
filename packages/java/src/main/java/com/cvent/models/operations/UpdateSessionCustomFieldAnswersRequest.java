@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateSessionCustomFieldAnswersRequest {
     /**
      * Unique Id of a session
@@ -34,15 +33,12 @@ public class UpdateSessionCustomFieldAnswersRequest {
 
     @JsonCreator
     public UpdateSessionCustomFieldAnswersRequest(
-            @Nonnull String id,
-            @Nonnull String customFieldId,
-            @Nonnull CustomField1Input customField1) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomField1Input customField1) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.customField1 = Optional.ofNullable(customField1)
-            .orElseThrow(() -> new IllegalArgumentException("customField1 cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customField1 cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class UpdateSessionCustomFieldAnswersRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of a session
      */
@@ -78,7 +73,6 @@ public class UpdateSessionCustomFieldAnswersRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique Id of a custom field
@@ -88,7 +82,6 @@ public class UpdateSessionCustomFieldAnswersRequest {
         return this;
     }
 
-
     /**
      * Contains the custom field you're updating, and the new answer.
      */
@@ -96,7 +89,6 @@ public class UpdateSessionCustomFieldAnswersRequest {
         this.customField1 = Utils.checkNotNull(customField1, "customField1");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +99,30 @@ public class UpdateSessionCustomFieldAnswersRequest {
             return false;
         }
         UpdateSessionCustomFieldAnswersRequest other = (UpdateSessionCustomFieldAnswersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.customField1, other.customField1);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.customField1, other.customField1);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, customFieldId, customField1);
+        return Utils.enhancedHash(id, customFieldId, customField1);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateSessionCustomFieldAnswersRequest.class,
-                "id", id,
-                "customFieldId", customFieldId,
-                "customField1", customField1);
+        return Utils.toString(
+                UpdateSessionCustomFieldAnswersRequest.class,
+                "id",
+                id,
+                "customFieldId",
+                customFieldId,
+                "customField1",
+                customField1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +131,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
         private CustomField1Input customField1;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +159,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
         }
 
         public UpdateSessionCustomFieldAnswersRequest build() {
-            return new UpdateSessionCustomFieldAnswersRequest(
-                id, customFieldId, customField1);
+            return new UpdateSessionCustomFieldAnswersRequest(id, customFieldId, customField1);
         }
-
     }
 }

@@ -18,80 +18,49 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ProductLineJson
     {
-        [JsonProperty("ABSTRACT_MANAGEMENT")]
-        AbstractManagement,
-        [JsonProperty("ADMIN")]
-        Admin,
-        [JsonProperty("API_PLATFORM")]
-        ApiPlatform,
-        [JsonProperty("APPOINTMENTS")]
-        Appointments,
-        [JsonProperty("AUTO_BLOCK")]
-        AutoBlock,
-        [JsonProperty("BOOK")]
-        Book,
-        [JsonProperty("CHANNEL_PUBLISHER")]
-        ChannelPublisher,
-        [JsonProperty("CONTACT")]
-        Contact,
-        [JsonProperty("CROWD_COMPASS")]
-        CrowdCompass,
-        [JsonProperty("CSN")]
-        Csn,
-        [JsonProperty("DASHBOARD")]
-        Dashboard,
-        [JsonProperty("DEFAULT")]
-        Default,
-        [JsonProperty("E_MARKETING")]
-        EMarketing,
-        [JsonProperty("ENGAGEMENTS_AND_PROJECTS")]
-        EngagementsAndProjects,
-        [JsonProperty("EVENT")]
-        Event,
-        [JsonProperty("LEGACY_SURVEY")]
-        LegacySurvey,
-        [JsonProperty("MEMBERSHIP")]
-        Membership,
-        [JsonProperty("OPT_IN")]
-        OptIn,
-        [JsonProperty("ORGANIZATION")]
-        Organization,
-        [JsonProperty("OSS")]
-        Oss,
-        [JsonProperty("PORTAL")]
-        Portal,
-        [JsonProperty("RATE_INTEGRITY")]
-        RateIntegrity,
-        [JsonProperty("RES_DESK")]
-        ResDesk,
-        [JsonProperty("REVERSE_AUCTION")]
-        ReverseAuction,
-        [JsonProperty("RFP")]
-        Rfp,
-        [JsonProperty("RFP_ALERTS")]
-        RfpAlerts,
-        [JsonProperty("RFP_PUBLISHER")]
-        RfpPublisher,
-        [JsonProperty("STARGATE")]
-        Stargate,
-        [JsonProperty("SURVEY")]
-        Survey,
-        [JsonProperty("USER_ADMINISTRATION")]
-        UserAdministration,
-        [JsonProperty("VAULT_MAIL")]
-        VaultMail,
+        [JsonProperty("ABSTRACT_MANAGEMENT")] AbstractManagement,
+        [JsonProperty("ADMIN")] Admin,
+        [JsonProperty("API_PLATFORM")] ApiPlatform,
+        [JsonProperty("APPOINTMENTS")] Appointments,
+        [JsonProperty("AUTO_BLOCK")] AutoBlock,
+        [JsonProperty("BOOK")] Book,
+        [JsonProperty("CHANNEL_PUBLISHER")] ChannelPublisher,
+        [JsonProperty("CONTACT")] Contact,
+        [JsonProperty("CROWD_COMPASS")] CrowdCompass,
+        [JsonProperty("CSN")] Csn,
+        [JsonProperty("DASHBOARD")] Dashboard,
+        [JsonProperty("DEFAULT")] Default,
+        [JsonProperty("E_MARKETING")] EMarketing,
+        [JsonProperty("ENGAGEMENTS_AND_PROJECTS")] EngagementsAndProjects,
+        [JsonProperty("EVENT")] Event,
+        [JsonProperty("LEGACY_SURVEY")] LegacySurvey,
+        [JsonProperty("MEMBERSHIP")] Membership,
+        [JsonProperty("OPT_IN")] OptIn,
+        [JsonProperty("ORGANIZATION")] Organization,
+        [JsonProperty("OSS")] Oss,
+        [JsonProperty("PORTAL")] Portal,
+        [JsonProperty("RATE_INTEGRITY")] RateIntegrity,
+        [JsonProperty("RES_DESK")] ResDesk,
+        [JsonProperty("REVERSE_AUCTION")] ReverseAuction,
+        [JsonProperty("RFP")] Rfp,
+        [JsonProperty("RFP_ALERTS")] RfpAlerts,
+        [JsonProperty("RFP_PUBLISHER")] RfpPublisher,
+        [JsonProperty("STARGATE")] Stargate,
+        [JsonProperty("SURVEY")] Survey,
+        [JsonProperty("USER_ADMINISTRATION")] UserAdministration,
+        [JsonProperty("VAULT_MAIL")] VaultMail,
     }
 
     public static class ProductLineJsonExtension
     {
         public static string Value(this ProductLineJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ProductLineJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ProductLineJson).GetFields())
+            foreach (var field in typeof(ProductLineJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

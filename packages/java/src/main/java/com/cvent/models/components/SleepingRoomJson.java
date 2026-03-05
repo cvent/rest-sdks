@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * SleepingRoomJson
- * 
+ *
  * <p>The sleeping room.
  */
 public class SleepingRoomJson {
@@ -149,8 +149,8 @@ public class SleepingRoomJson {
             @JsonProperty("highestAvailableRoomCount") @Nullable Long highestAvailableRoomCount,
             @JsonProperty("notes") @Nullable String notes,
             @JsonProperty("sleepingRoomBlocks") @Nullable List<SleepingRoomBlockJson> sleepingRoomBlocks) {
-        this.proposalDateType = Optional.ofNullable(proposalDateType)
-            .orElse(Builder._SINGLETON_VALUE_ProposalDateType.value());
+        this.proposalDateType =
+                Optional.ofNullable(proposalDateType).orElse(Builder._SINGLETON_VALUE_ProposalDateType.value());
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.peakRoomNights = peakRoomNights;
@@ -166,13 +166,9 @@ public class SleepingRoomJson {
         this.notes = notes;
         this.sleepingRoomBlocks = sleepingRoomBlocks;
     }
-    
+
     public SleepingRoomJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -286,7 +282,6 @@ public class SleepingRoomJson {
         return new Builder();
     }
 
-
     /**
      * The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
@@ -297,7 +292,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * The check in date for attendees.
      */
@@ -305,7 +299,6 @@ public class SleepingRoomJson {
         this.checkInDate = checkInDate;
         return this;
     }
-
 
     /**
      * The check out date for attendees.
@@ -315,7 +308,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * The night during an event when the most sleeping rooms are occupied.
      */
@@ -323,7 +315,6 @@ public class SleepingRoomJson {
         this.peakRoomNights = peakRoomNights;
         return this;
     }
-
 
     /**
      * The total number of room nights available over the entire event.
@@ -333,7 +324,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * The lowest room rate offered by the venue.
      */
@@ -341,7 +331,6 @@ public class SleepingRoomJson {
         this.lowestRate = lowestRate;
         return this;
     }
-
 
     /**
      * The highest room rate offered by the venue.
@@ -351,7 +340,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * The lowest average daily rate.
      */
@@ -359,7 +347,6 @@ public class SleepingRoomJson {
         this.lowestAverageDailyRate = lowestAverageDailyRate;
         return this;
     }
-
 
     /**
      * The highest average daily rate.
@@ -369,7 +356,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * The total room cost to attendees.
      */
@@ -377,7 +363,6 @@ public class SleepingRoomJson {
         this.totalRoomCost = totalRoomCost;
         return this;
     }
-
 
     /**
      * The planner's budgeted room rate.
@@ -387,7 +372,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * Minimum number of available rooms.
      */
@@ -395,7 +379,6 @@ public class SleepingRoomJson {
         this.lowestAvailableRoomCount = lowestAvailableRoomCount;
         return this;
     }
-
 
     /**
      * Maximum number of available rooms.
@@ -405,7 +388,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * Additional notes of the sleeping room.
      */
@@ -414,7 +396,6 @@ public class SleepingRoomJson {
         return this;
     }
 
-
     /**
      * List of sleeping room blocks for this sleeping room type.
      */
@@ -422,7 +403,6 @@ public class SleepingRoomJson {
         this.sleepingRoomBlocks = sleepingRoomBlocks;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -433,56 +413,81 @@ public class SleepingRoomJson {
             return false;
         }
         SleepingRoomJson other = (SleepingRoomJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.proposalDateType, other.proposalDateType) &&
-            Utils.enhancedDeepEquals(this.checkInDate, other.checkInDate) &&
-            Utils.enhancedDeepEquals(this.checkOutDate, other.checkOutDate) &&
-            Utils.enhancedDeepEquals(this.peakRoomNights, other.peakRoomNights) &&
-            Utils.enhancedDeepEquals(this.totalRoomNights, other.totalRoomNights) &&
-            Utils.enhancedDeepEquals(this.lowestRate, other.lowestRate) &&
-            Utils.enhancedDeepEquals(this.maximumRate, other.maximumRate) &&
-            Utils.enhancedDeepEquals(this.lowestAverageDailyRate, other.lowestAverageDailyRate) &&
-            Utils.enhancedDeepEquals(this.highestAverageDailyRate, other.highestAverageDailyRate) &&
-            Utils.enhancedDeepEquals(this.totalRoomCost, other.totalRoomCost) &&
-            Utils.enhancedDeepEquals(this.budgetedRoomRate, other.budgetedRoomRate) &&
-            Utils.enhancedDeepEquals(this.lowestAvailableRoomCount, other.lowestAvailableRoomCount) &&
-            Utils.enhancedDeepEquals(this.highestAvailableRoomCount, other.highestAvailableRoomCount) &&
-            Utils.enhancedDeepEquals(this.notes, other.notes) &&
-            Utils.enhancedDeepEquals(this.sleepingRoomBlocks, other.sleepingRoomBlocks);
+        return Utils.enhancedDeepEquals(this.proposalDateType, other.proposalDateType)
+                && Utils.enhancedDeepEquals(this.checkInDate, other.checkInDate)
+                && Utils.enhancedDeepEquals(this.checkOutDate, other.checkOutDate)
+                && Utils.enhancedDeepEquals(this.peakRoomNights, other.peakRoomNights)
+                && Utils.enhancedDeepEquals(this.totalRoomNights, other.totalRoomNights)
+                && Utils.enhancedDeepEquals(this.lowestRate, other.lowestRate)
+                && Utils.enhancedDeepEquals(this.maximumRate, other.maximumRate)
+                && Utils.enhancedDeepEquals(this.lowestAverageDailyRate, other.lowestAverageDailyRate)
+                && Utils.enhancedDeepEquals(this.highestAverageDailyRate, other.highestAverageDailyRate)
+                && Utils.enhancedDeepEquals(this.totalRoomCost, other.totalRoomCost)
+                && Utils.enhancedDeepEquals(this.budgetedRoomRate, other.budgetedRoomRate)
+                && Utils.enhancedDeepEquals(this.lowestAvailableRoomCount, other.lowestAvailableRoomCount)
+                && Utils.enhancedDeepEquals(this.highestAvailableRoomCount, other.highestAvailableRoomCount)
+                && Utils.enhancedDeepEquals(this.notes, other.notes)
+                && Utils.enhancedDeepEquals(this.sleepingRoomBlocks, other.sleepingRoomBlocks);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            proposalDateType, checkInDate, checkOutDate,
-            peakRoomNights, totalRoomNights, lowestRate,
-            maximumRate, lowestAverageDailyRate, highestAverageDailyRate,
-            totalRoomCost, budgetedRoomRate, lowestAvailableRoomCount,
-            highestAvailableRoomCount, notes, sleepingRoomBlocks);
+                proposalDateType,
+                checkInDate,
+                checkOutDate,
+                peakRoomNights,
+                totalRoomNights,
+                lowestRate,
+                maximumRate,
+                lowestAverageDailyRate,
+                highestAverageDailyRate,
+                totalRoomCost,
+                budgetedRoomRate,
+                lowestAvailableRoomCount,
+                highestAvailableRoomCount,
+                notes,
+                sleepingRoomBlocks);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SleepingRoomJson.class,
-                "proposalDateType", proposalDateType,
-                "checkInDate", checkInDate,
-                "checkOutDate", checkOutDate,
-                "peakRoomNights", peakRoomNights,
-                "totalRoomNights", totalRoomNights,
-                "lowestRate", lowestRate,
-                "maximumRate", maximumRate,
-                "lowestAverageDailyRate", lowestAverageDailyRate,
-                "highestAverageDailyRate", highestAverageDailyRate,
-                "totalRoomCost", totalRoomCost,
-                "budgetedRoomRate", budgetedRoomRate,
-                "lowestAvailableRoomCount", lowestAvailableRoomCount,
-                "highestAvailableRoomCount", highestAvailableRoomCount,
-                "notes", notes,
-                "sleepingRoomBlocks", sleepingRoomBlocks);
+        return Utils.toString(
+                SleepingRoomJson.class,
+                "proposalDateType",
+                proposalDateType,
+                "checkInDate",
+                checkInDate,
+                "checkOutDate",
+                checkOutDate,
+                "peakRoomNights",
+                peakRoomNights,
+                "totalRoomNights",
+                totalRoomNights,
+                "lowestRate",
+                lowestRate,
+                "maximumRate",
+                maximumRate,
+                "lowestAverageDailyRate",
+                lowestAverageDailyRate,
+                "highestAverageDailyRate",
+                highestAverageDailyRate,
+                "totalRoomCost",
+                totalRoomCost,
+                "budgetedRoomRate",
+                budgetedRoomRate,
+                "lowestAvailableRoomCount",
+                lowestAvailableRoomCount,
+                "highestAvailableRoomCount",
+                highestAvailableRoomCount,
+                "notes",
+                notes,
+                "sleepingRoomBlocks",
+                sleepingRoomBlocks);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DateTypeJson1 proposalDateType;
 
@@ -515,7 +520,7 @@ public class SleepingRoomJson {
         private List<SleepingRoomBlockJson> sleepingRoomBlocks;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -642,18 +647,24 @@ public class SleepingRoomJson {
 
         public SleepingRoomJson build() {
             return new SleepingRoomJson(
-                proposalDateType, checkInDate, checkOutDate,
-                peakRoomNights, totalRoomNights, lowestRate,
-                maximumRate, lowestAverageDailyRate, highestAverageDailyRate,
-                totalRoomCost, budgetedRoomRate, lowestAvailableRoomCount,
-                highestAvailableRoomCount, notes, sleepingRoomBlocks);
+                    proposalDateType,
+                    checkInDate,
+                    checkOutDate,
+                    peakRoomNights,
+                    totalRoomNights,
+                    lowestRate,
+                    maximumRate,
+                    lowestAverageDailyRate,
+                    highestAverageDailyRate,
+                    totalRoomCost,
+                    budgetedRoomRate,
+                    lowestAvailableRoomCount,
+                    highestAvailableRoomCount,
+                    notes,
+                    sleepingRoomBlocks);
         }
 
-
         private static final LazySingletonValue<DateTypeJson1> _SINGLETON_VALUE_ProposalDateType =
-                new LazySingletonValue<>(
-                        "proposalDateType",
-                        "\"PREFERRED\"",
-                        new TypeReference<DateTypeJson1>() {});
+                new LazySingletonValue<>("proposalDateType", "\"PREFERRED\"", new TypeReference<DateTypeJson1>() {});
     }
 }

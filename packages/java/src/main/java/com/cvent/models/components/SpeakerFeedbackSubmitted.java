@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SpeakerFeedbackSubmitted
- * 
+ *
  * <p>A speaker feedback-submitted activity.
  */
 public class SpeakerFeedbackSubmitted {
@@ -49,7 +49,7 @@ public class SpeakerFeedbackSubmitted {
         this.speaker = speaker;
         this.survey = survey;
     }
-    
+
     public SpeakerFeedbackSubmitted() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class SpeakerFeedbackSubmitted {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -87,7 +86,6 @@ public class SpeakerFeedbackSubmitted {
         this.session = session;
         return this;
     }
-
 
     /**
      * An activity speaker.
@@ -97,7 +95,6 @@ public class SpeakerFeedbackSubmitted {
         return this;
     }
 
-
     /**
      * A survey response.
      */
@@ -105,7 +102,6 @@ public class SpeakerFeedbackSubmitted {
         this.survey = survey;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class SpeakerFeedbackSubmitted {
             return false;
         }
         SpeakerFeedbackSubmitted other = (SpeakerFeedbackSubmitted) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey);
+        return Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker)
+                && Utils.enhancedDeepEquals(this.survey, other.survey);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session, speaker, survey);
+        return Utils.enhancedHash(session, speaker, survey);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerFeedbackSubmitted.class,
-                "session", session,
-                "speaker", speaker,
-                "survey", survey);
+        return Utils.toString(SpeakerFeedbackSubmitted.class, "session", session, "speaker", speaker, "survey", survey);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity11 session;
 
@@ -146,7 +137,7 @@ public class SpeakerFeedbackSubmitted {
         private SurveyResponseJson survey;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class SpeakerFeedbackSubmitted {
         }
 
         public SpeakerFeedbackSubmitted build() {
-            return new SpeakerFeedbackSubmitted(
-                session, speaker, survey);
+            return new SpeakerFeedbackSubmitted(session, speaker, survey);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 Denotes the file format of the audio track.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AudioTrackTypeJson.Asf;
+```
+
 
 ## Values
 

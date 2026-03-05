@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EvaluationResultJson
- * 
+ *
  * <p>This represents the evaluation status of an assessment chapter.
  */
 public enum EvaluationResultJson {
@@ -24,13 +24,13 @@ public enum EvaluationResultJson {
     EvaluationResultJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EvaluationResultJson> fromValue(String value) {
-        for (EvaluationResultJson o: EvaluationResultJson.values()) {
+        for (EvaluationResultJson o : EvaluationResultJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum EvaluationResultJson {
         return Optional.empty();
     }
 }
-

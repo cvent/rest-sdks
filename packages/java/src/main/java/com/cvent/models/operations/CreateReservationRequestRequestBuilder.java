@@ -29,7 +29,7 @@ public class CreateReservationRequestRequestBuilder {
     private ReservationRequestInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateReservationRequestRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateReservationRequestRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateReservationRequestResponse call() {
-        RequestOperation<ReservationRequestInput, CreateReservationRequestResponse> operation
-              = new CreateReservationRequest.Sync(sdkConfiguration, _headers);
+        RequestOperation<ReservationRequestInput, CreateReservationRequestResponse> operation =
+                new CreateReservationRequest.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

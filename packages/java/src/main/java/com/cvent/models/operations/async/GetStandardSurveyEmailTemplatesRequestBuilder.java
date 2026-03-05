@@ -32,7 +32,8 @@ public class GetStandardSurveyEmailTemplatesRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public GetStandardSurveyEmailTemplatesRequestBuilder request(@Nonnull GetStandardSurveyEmailTemplatesRequest request) {
+    public GetStandardSurveyEmailTemplatesRequestBuilder request(
+            @Nonnull GetStandardSurveyEmailTemplatesRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class GetStandardSurveyEmailTemplatesRequestBuilder {
     private GetStandardSurveyEmailTemplatesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetStandardSurveyEmailTemplatesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,16 @@ public class GetStandardSurveyEmailTemplatesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetStandardSurveyEmailTemplatesResponse> call() {
-        AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation
-              = new GetStandardSurveyEmailTemplates.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation =
+                new GetStandardSurveyEmailTemplates.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +76,17 @@ public class GetStandardSurveyEmailTemplatesRequestBuilder {
      */
     public Publisher<GetStandardSurveyEmailTemplatesResponse> callAsPublisher() {
         GetStandardSurveyEmailTemplatesRequest request = this.request;
-        AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation
-              = new GetStandardSurveyEmailTemplates.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation =
+                new GetStandardSurveyEmailTemplates.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetStandardSurveyEmailTemplatesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetStandardSurveyEmailTemplatesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetStandardSurveyEmailTemplatesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetStandardSurveyEmailTemplatesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

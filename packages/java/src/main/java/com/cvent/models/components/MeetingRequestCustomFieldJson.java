@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestCustomFieldJson
- * 
+ *
  * <p>Custom field for a meeting request.
  */
 public class MeetingRequestCustomFieldJson {
@@ -137,12 +137,10 @@ public class MeetingRequestCustomFieldJson {
             @JsonProperty("maxChoice") @Nullable Double maxChoice,
             @JsonProperty("minDate") @Nullable String minDate,
             @JsonProperty("maxDate") @Nullable String maxDate) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.type = type;
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.order = order;
         this.field = field;
         this.hidden = hidden;
@@ -154,15 +152,9 @@ public class MeetingRequestCustomFieldJson {
         this.minDate = minDate;
         this.maxDate = maxDate;
     }
-    
-    public MeetingRequestCustomFieldJson(
-            @Nonnull String id,
-            @Nonnull List<String> value) {
-        this(id, null, null,
-            value, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+
+    public MeetingRequestCustomFieldJson(@Nonnull String id, @Nonnull List<String> value) {
+        this(id, null, null, value, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -268,7 +260,6 @@ public class MeetingRequestCustomFieldJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this custom field.
      */
@@ -276,7 +267,6 @@ public class MeetingRequestCustomFieldJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The actual text of the custom field.
@@ -286,7 +276,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * The type of data collected by a custom field.
      */
@@ -294,7 +283,6 @@ public class MeetingRequestCustomFieldJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The set of answers or possible answers to a question.
@@ -304,7 +292,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * The order of this question in the bigger list of questions.
      */
@@ -313,7 +300,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * The actual text of the custom field.
      */
@@ -321,7 +307,6 @@ public class MeetingRequestCustomFieldJson {
         this.field = field;
         return this;
     }
-
 
     /**
      * True indicates a question on the meeting request form should be hidden from the user filling out the
@@ -332,7 +317,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * True indicates the given question must be answered.
      */
@@ -340,7 +324,6 @@ public class MeetingRequestCustomFieldJson {
         this.required = required;
         return this;
     }
-
 
     /**
      * The minimum length of a text field.
@@ -350,7 +333,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * The maximum length of a text field.
      */
@@ -358,7 +340,6 @@ public class MeetingRequestCustomFieldJson {
         this.maxLength = maxLength;
         return this;
     }
-
 
     /**
      * The minimum number of choices required for a multi-choice field.
@@ -368,7 +349,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * The maximum number of choices allowed for a multi-choice field.
      */
@@ -376,7 +356,6 @@ public class MeetingRequestCustomFieldJson {
         this.maxChoice = maxChoice;
         return this;
     }
-
 
     /**
      * The ISO 8601 minimum date value for a date field.
@@ -386,7 +365,6 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 maximum date value for a date field.
      */
@@ -394,7 +372,6 @@ public class MeetingRequestCustomFieldJson {
         this.maxDate = maxDate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -405,54 +382,77 @@ public class MeetingRequestCustomFieldJson {
             return false;
         }
         MeetingRequestCustomFieldJson other = (MeetingRequestCustomFieldJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.field, other.field) &&
-            Utils.enhancedDeepEquals(this.hidden, other.hidden) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.minLength, other.minLength) &&
-            Utils.enhancedDeepEquals(this.maxLength, other.maxLength) &&
-            Utils.enhancedDeepEquals(this.minChoice, other.minChoice) &&
-            Utils.enhancedDeepEquals(this.maxChoice, other.maxChoice) &&
-            Utils.enhancedDeepEquals(this.minDate, other.minDate) &&
-            Utils.enhancedDeepEquals(this.maxDate, other.maxDate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.field, other.field)
+                && Utils.enhancedDeepEquals(this.hidden, other.hidden)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.minLength, other.minLength)
+                && Utils.enhancedDeepEquals(this.maxLength, other.maxLength)
+                && Utils.enhancedDeepEquals(this.minChoice, other.minChoice)
+                && Utils.enhancedDeepEquals(this.maxChoice, other.maxChoice)
+                && Utils.enhancedDeepEquals(this.minDate, other.minDate)
+                && Utils.enhancedDeepEquals(this.maxDate, other.maxDate);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, name, type,
-            value, order, field,
-            hidden, required, minLength,
-            maxLength, minChoice, maxChoice,
-            minDate, maxDate);
+                id,
+                name,
+                type,
+                value,
+                order,
+                field,
+                hidden,
+                required,
+                minLength,
+                maxLength,
+                minChoice,
+                maxChoice,
+                minDate,
+                maxDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestCustomFieldJson.class,
-                "id", id,
-                "name", name,
-                "type", type,
-                "value", value,
-                "order", order,
-                "field", field,
-                "hidden", hidden,
-                "required", required,
-                "minLength", minLength,
-                "maxLength", maxLength,
-                "minChoice", minChoice,
-                "maxChoice", maxChoice,
-                "minDate", minDate,
-                "maxDate", maxDate);
+        return Utils.toString(
+                MeetingRequestCustomFieldJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "type",
+                type,
+                "value",
+                value,
+                "order",
+                order,
+                "field",
+                field,
+                "hidden",
+                hidden,
+                "required",
+                required,
+                "minLength",
+                minLength,
+                "maxLength",
+                maxLength,
+                "minChoice",
+                minChoice,
+                "maxChoice",
+                maxChoice,
+                "minDate",
+                minDate,
+                "maxDate",
+                maxDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -483,7 +483,7 @@ public class MeetingRequestCustomFieldJson {
         private String maxDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -601,12 +601,20 @@ public class MeetingRequestCustomFieldJson {
 
         public MeetingRequestCustomFieldJson build() {
             return new MeetingRequestCustomFieldJson(
-                id, name, type,
-                value, order, field,
-                hidden, required, minLength,
-                maxLength, minChoice, maxChoice,
-                minDate, maxDate);
+                    id,
+                    name,
+                    type,
+                    value,
+                    order,
+                    field,
+                    hidden,
+                    required,
+                    minLength,
+                    maxLength,
+                    minChoice,
+                    maxChoice,
+                    minDate,
+                    maxDate);
         }
-
     }
 }

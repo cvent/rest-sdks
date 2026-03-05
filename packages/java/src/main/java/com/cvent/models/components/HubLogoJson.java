@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * HubLogoJson
- * 
+ *
  * <p>The logo for the Events+ hub.
  */
 public class HubLogoJson {
@@ -50,7 +50,7 @@ public class HubLogoJson {
         this.originalUrl = originalUrl;
         this.altText = altText;
     }
-    
+
     public HubLogoJson() {
         this(null, null, null);
     }
@@ -81,7 +81,6 @@ public class HubLogoJson {
         return new Builder();
     }
 
-
     /**
      * The optimized Events+ hub logo image URL.
      */
@@ -89,7 +88,6 @@ public class HubLogoJson {
         this.url = url;
         return this;
     }
-
 
     /**
      * The original URL of the logo image that was uploaded to the Events+ hub. Supported file types are
@@ -100,7 +98,6 @@ public class HubLogoJson {
         return this;
     }
 
-
     /**
      * Alternate text for the logo image.
      */
@@ -108,7 +105,6 @@ public class HubLogoJson {
         this.altText = altText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -119,28 +115,23 @@ public class HubLogoJson {
             return false;
         }
         HubLogoJson other = (HubLogoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.originalUrl, other.originalUrl) &&
-            Utils.enhancedDeepEquals(this.altText, other.altText);
+        return Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.originalUrl, other.originalUrl)
+                && Utils.enhancedDeepEquals(this.altText, other.altText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            url, originalUrl, altText);
+        return Utils.enhancedHash(url, originalUrl, altText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubLogoJson.class,
-                "url", url,
-                "originalUrl", originalUrl,
-                "altText", altText);
+        return Utils.toString(HubLogoJson.class, "url", url, "originalUrl", originalUrl, "altText", altText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String url;
 
@@ -149,7 +140,7 @@ public class HubLogoJson {
         private String altText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,9 +169,7 @@ public class HubLogoJson {
         }
 
         public HubLogoJson build() {
-            return new HubLogoJson(
-                url, originalUrl, altText);
+            return new HubLogoJson(url, originalUrl, altText);
         }
-
     }
 }

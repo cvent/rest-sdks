@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * MeetingRoomAgendaItemTypeJson
- * 
+ *
  * <p>Defines the agenda item types of a meeting room requirement.
  */
 public enum MeetingRoomAgendaItemTypeJson {
@@ -40,13 +40,13 @@ public enum MeetingRoomAgendaItemTypeJson {
     MeetingRoomAgendaItemTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<MeetingRoomAgendaItemTypeJson> fromValue(String value) {
-        for (MeetingRoomAgendaItemTypeJson o: MeetingRoomAgendaItemTypeJson.values()) {
+        for (MeetingRoomAgendaItemTypeJson o : MeetingRoomAgendaItemTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -54,4 +54,3 @@ public enum MeetingRoomAgendaItemTypeJson {
         return Optional.empty();
     }
 }
-

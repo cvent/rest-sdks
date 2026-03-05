@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CancelledReason
- * 
+ *
  * <p>CancelledReason
  */
 public enum CancelledReason {
@@ -31,13 +31,13 @@ public enum CancelledReason {
     CancelledReason(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CancelledReason> fromValue(String value) {
-        for (CancelledReason o: CancelledReason.values()) {
+        for (CancelledReason o : CancelledReason.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -45,4 +45,3 @@ public enum CancelledReason {
         return Optional.empty();
     }
 }
-

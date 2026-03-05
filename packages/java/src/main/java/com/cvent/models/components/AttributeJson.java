@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AttributeJson
- * 
+ *
  * <p>Attribute
  */
 public class AttributeJson {
@@ -132,12 +132,9 @@ public class AttributeJson {
         this.referenceTypes = referenceTypes;
         this.subAttributes = subAttributes;
     }
-    
+
     public AttributeJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -228,7 +225,6 @@ public class AttributeJson {
         return new Builder();
     }
 
-
     /**
      * The name of the attribute.
      */
@@ -236,7 +232,6 @@ public class AttributeJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * This is used to denote the type of the attribute.
@@ -246,7 +241,6 @@ public class AttributeJson {
         return this;
     }
 
-
     /**
      * Indicates if the attribute is multivalued.
      */
@@ -254,7 +248,6 @@ public class AttributeJson {
         this.multiValued = multiValued;
         return this;
     }
-
 
     /**
      * The description of the attribute.
@@ -264,7 +257,6 @@ public class AttributeJson {
         return this;
     }
 
-
     /**
      * True indicates the attribute is required.
      */
@@ -272,7 +264,6 @@ public class AttributeJson {
         this.required = required;
         return this;
     }
-
 
     /**
      * True indicates the attribute is case sensitive.
@@ -282,7 +273,6 @@ public class AttributeJson {
         return this;
     }
 
-
     /**
      * This is used to denote the mutability of the attribute.
      */
@@ -290,7 +280,6 @@ public class AttributeJson {
         this.mutability = mutability;
         return this;
     }
-
 
     /**
      * The list of canonical values of the attribute.
@@ -300,7 +289,6 @@ public class AttributeJson {
         return this;
     }
 
-
     /**
      * This is used to denote the returned type of the attribute.
      */
@@ -308,7 +296,6 @@ public class AttributeJson {
         this.returned = returned;
         return this;
     }
-
 
     /**
      * This is used to denote the uniqueness type of the attribute.
@@ -318,7 +305,6 @@ public class AttributeJson {
         return this;
     }
 
-
     /**
      * This is used to denote the reference type of the attribute.
      */
@@ -327,7 +313,6 @@ public class AttributeJson {
         return this;
     }
 
-
     /**
      * A collection of sub-attributes. Has the same structure as this attribute object.
      */
@@ -335,7 +320,6 @@ public class AttributeJson {
         this.subAttributes = subAttributes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -346,49 +330,69 @@ public class AttributeJson {
             return false;
         }
         AttributeJson other = (AttributeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.multiValued, other.multiValued) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.caseExact, other.caseExact) &&
-            Utils.enhancedDeepEquals(this.mutability, other.mutability) &&
-            Utils.enhancedDeepEquals(this.canonicalValues, other.canonicalValues) &&
-            Utils.enhancedDeepEquals(this.returned, other.returned) &&
-            Utils.enhancedDeepEquals(this.uniqueness, other.uniqueness) &&
-            Utils.enhancedDeepEquals(this.referenceTypes, other.referenceTypes) &&
-            Utils.enhancedDeepEquals(this.subAttributes, other.subAttributes);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.multiValued, other.multiValued)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.caseExact, other.caseExact)
+                && Utils.enhancedDeepEquals(this.mutability, other.mutability)
+                && Utils.enhancedDeepEquals(this.canonicalValues, other.canonicalValues)
+                && Utils.enhancedDeepEquals(this.returned, other.returned)
+                && Utils.enhancedDeepEquals(this.uniqueness, other.uniqueness)
+                && Utils.enhancedDeepEquals(this.referenceTypes, other.referenceTypes)
+                && Utils.enhancedDeepEquals(this.subAttributes, other.subAttributes);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            name, type, multiValued,
-            description, required, caseExact,
-            mutability, canonicalValues, returned,
-            uniqueness, referenceTypes, subAttributes);
+                name,
+                type,
+                multiValued,
+                description,
+                required,
+                caseExact,
+                mutability,
+                canonicalValues,
+                returned,
+                uniqueness,
+                referenceTypes,
+                subAttributes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttributeJson.class,
-                "name", name,
-                "type", type,
-                "multiValued", multiValued,
-                "description", description,
-                "required", required,
-                "caseExact", caseExact,
-                "mutability", mutability,
-                "canonicalValues", canonicalValues,
-                "returned", returned,
-                "uniqueness", uniqueness,
-                "referenceTypes", referenceTypes,
-                "subAttributes", subAttributes);
+        return Utils.toString(
+                AttributeJson.class,
+                "name",
+                name,
+                "type",
+                type,
+                "multiValued",
+                multiValued,
+                "description",
+                description,
+                "required",
+                required,
+                "caseExact",
+                caseExact,
+                "mutability",
+                mutability,
+                "canonicalValues",
+                canonicalValues,
+                "returned",
+                returned,
+                "uniqueness",
+                uniqueness,
+                "referenceTypes",
+                referenceTypes,
+                "subAttributes",
+                subAttributes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -415,7 +419,7 @@ public class AttributeJson {
         private List<AttributeJson> subAttributes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -516,11 +520,18 @@ public class AttributeJson {
 
         public AttributeJson build() {
             return new AttributeJson(
-                name, type, multiValued,
-                description, required, caseExact,
-                mutability, canonicalValues, returned,
-                uniqueness, referenceTypes, subAttributes);
+                    name,
+                    type,
+                    multiValued,
+                    description,
+                    required,
+                    caseExact,
+                    mutability,
+                    canonicalValues,
+                    returned,
+                    uniqueness,
+                    referenceTypes,
+                    subAttributes);
         }
-
     }
 }

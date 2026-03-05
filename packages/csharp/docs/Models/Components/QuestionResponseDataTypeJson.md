@@ -2,6 +2,14 @@
 
 Code representing the expected data type of the question response.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = QuestionResponseDataTypeJson.Text;
+```
+
 
 ## Values
 

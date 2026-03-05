@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * DonationItemJson1
- * 
+ *
  * <p>Represents a donation item. Donation items give event invitees the option to contribute money to an
  * association, charity, or cause during registration.
  */
@@ -129,12 +129,9 @@ public class DonationItemJson1 {
         this.openForRegistration = openForRegistration;
         this.automaticallyClosesOn = automaticallyClosesOn;
     }
-    
+
     public DonationItemJson1() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -221,7 +218,6 @@ public class DonationItemJson1 {
         return new Builder();
     }
 
-
     /**
      * This text will be displayed in emails using the registration information widget.
      */
@@ -229,7 +225,6 @@ public class DonationItemJson1 {
         this.registrantInformation = registrantInformation;
         return this;
     }
-
 
     /**
      * A unique identifier of the donation item.
@@ -239,7 +234,6 @@ public class DonationItemJson1 {
         return this;
     }
 
-
     /**
      * Title of the donation item.
      */
@@ -247,7 +241,6 @@ public class DonationItemJson1 {
         this.name = name;
         return this;
     }
-
 
     /**
      * Description of the donation item.
@@ -257,7 +250,6 @@ public class DonationItemJson1 {
         return this;
     }
 
-
     /**
      * A planner-specified code for the donation item. By default, it matches the title.
      */
@@ -265,7 +257,6 @@ public class DonationItemJson1 {
         this.code = code;
         return this;
     }
-
 
     /**
      * The minimum amount of money an invitee can donate during registration. Donations are in the event
@@ -276,7 +267,6 @@ public class DonationItemJson1 {
         return this;
     }
 
-
     /**
      * The maximum amount of money an invitee can donate during registration. Donations are in the event
      * currency.
@@ -286,7 +276,6 @@ public class DonationItemJson1 {
         return this;
     }
 
-
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
@@ -294,7 +283,6 @@ public class DonationItemJson1 {
         this.generalLedger = generalLedger;
         return this;
     }
-
 
     /**
      * Contains unique identifiers for registration types associated with this donation item.
@@ -304,7 +292,6 @@ public class DonationItemJson1 {
         return this;
     }
 
-
     /**
      * True indicates the donation item is selectable during registration.
      */
@@ -312,7 +299,6 @@ public class DonationItemJson1 {
         this.openForRegistration = openForRegistration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date when the donation item registration automatically closes. The item
@@ -323,7 +309,6 @@ public class DonationItemJson1 {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -333,47 +318,65 @@ public class DonationItemJson1 {
             return false;
         }
         DonationItemJson1 other = (DonationItemJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.minimumAmountAllowedPerInvitee, other.minimumAmountAllowedPerInvitee) &&
-            Utils.enhancedDeepEquals(this.maximumAmountAllowedPerInvitee, other.maximumAmountAllowedPerInvitee) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn);
+        return Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.minimumAmountAllowedPerInvitee, other.minimumAmountAllowedPerInvitee)
+                && Utils.enhancedDeepEquals(this.maximumAmountAllowedPerInvitee, other.maximumAmountAllowedPerInvitee)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            registrantInformation, id, name,
-            description, code, minimumAmountAllowedPerInvitee,
-            maximumAmountAllowedPerInvitee, generalLedger, registrationTypes,
-            openForRegistration, automaticallyClosesOn);
+                registrantInformation,
+                id,
+                name,
+                description,
+                code,
+                minimumAmountAllowedPerInvitee,
+                maximumAmountAllowedPerInvitee,
+                generalLedger,
+                registrationTypes,
+                openForRegistration,
+                automaticallyClosesOn);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DonationItemJson1.class,
-                "registrantInformation", registrantInformation,
-                "id", id,
-                "name", name,
-                "description", description,
-                "code", code,
-                "minimumAmountAllowedPerInvitee", minimumAmountAllowedPerInvitee,
-                "maximumAmountAllowedPerInvitee", maximumAmountAllowedPerInvitee,
-                "generalLedger", generalLedger,
-                "registrationTypes", registrationTypes,
-                "openForRegistration", openForRegistration,
-                "automaticallyClosesOn", automaticallyClosesOn);
+        return Utils.toString(
+                DonationItemJson1.class,
+                "registrantInformation",
+                registrantInformation,
+                "id",
+                id,
+                "name",
+                name,
+                "description",
+                description,
+                "code",
+                code,
+                "minimumAmountAllowedPerInvitee",
+                minimumAmountAllowedPerInvitee,
+                "maximumAmountAllowedPerInvitee",
+                maximumAmountAllowedPerInvitee,
+                "generalLedger",
+                generalLedger,
+                "registrationTypes",
+                registrationTypes,
+                "openForRegistration",
+                openForRegistration,
+                "automaticallyClosesOn",
+                automaticallyClosesOn);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String registrantInformation;
 
@@ -398,7 +401,7 @@ public class DonationItemJson1 {
         private LocalDate automaticallyClosesOn;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -494,11 +497,17 @@ public class DonationItemJson1 {
 
         public DonationItemJson1 build() {
             return new DonationItemJson1(
-                registrantInformation, id, name,
-                description, code, minimumAmountAllowedPerInvitee,
-                maximumAmountAllowedPerInvitee, generalLedger, registrationTypes,
-                openForRegistration, automaticallyClosesOn);
+                    registrantInformation,
+                    id,
+                    name,
+                    description,
+                    code,
+                    minimumAmountAllowedPerInvitee,
+                    maximumAmountAllowedPerInvitee,
+                    generalLedger,
+                    registrationTypes,
+                    openForRegistration,
+                    automaticallyClosesOn);
         }
-
     }
 }

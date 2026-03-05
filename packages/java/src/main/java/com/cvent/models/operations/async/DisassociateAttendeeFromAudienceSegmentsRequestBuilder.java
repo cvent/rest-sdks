@@ -22,7 +22,8 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DisassociateAttendeeFromAudienceSegmentsRequestBuilder request(@Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
+    public DisassociateAttendeeFromAudienceSegmentsRequestBuilder request(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
     private DisassociateAttendeeFromAudienceSegmentsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DisassociateAttendeeFromAudienceSegmentsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,15 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DisassociateAttendeeFromAudienceSegmentsResponse> call() {
-        AsyncRequestOperation<DisassociateAttendeeFromAudienceSegmentsRequest, DisassociateAttendeeFromAudienceSegmentsResponse> operation
-              = new DisassociateAttendeeFromAudienceSegments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<
+                        DisassociateAttendeeFromAudienceSegmentsRequest,
+                        DisassociateAttendeeFromAudienceSegmentsResponse>
+                operation = new DisassociateAttendeeFromAudienceSegments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

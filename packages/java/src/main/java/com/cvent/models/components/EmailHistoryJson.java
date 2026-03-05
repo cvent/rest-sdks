@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EmailHistoryJson
- * 
+ *
  * <p>Email History record.
  */
 public class EmailHistoryJson {
@@ -204,15 +204,29 @@ public class EmailHistoryJson {
         this.firstClicked = firstClicked;
         this.bounced = bounced;
     }
-    
+
     public EmailHistoryJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -359,7 +373,6 @@ public class EmailHistoryJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -367,7 +380,6 @@ public class EmailHistoryJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -377,7 +389,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -385,7 +396,6 @@ public class EmailHistoryJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -395,7 +405,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * Unique Id of an email history record.
      */
@@ -403,7 +412,6 @@ public class EmailHistoryJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Event Id for email history record.
@@ -413,7 +421,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * Contact Id for email history record.
      */
@@ -421,7 +428,6 @@ public class EmailHistoryJson {
         this.contact = contact;
         return this;
     }
-
 
     /**
      * Attendee Id for email history record.
@@ -431,7 +437,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * Subject of the email.
      */
@@ -439,7 +444,6 @@ public class EmailHistoryJson {
         this.subject = subject;
         return this;
     }
-
 
     /**
      * From email address of the email.
@@ -449,7 +453,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * Recipient address of the email.
      */
@@ -457,7 +460,6 @@ public class EmailHistoryJson {
         this.to = to;
         return this;
     }
-
 
     /**
      * Denotes the type of the email.
@@ -467,7 +469,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this email was sent.
      */
@@ -475,7 +476,6 @@ public class EmailHistoryJson {
         this.sent = sent;
         return this;
     }
-
 
     /**
      * This is used to denote the status of the email sending
@@ -485,7 +485,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * Flag to indicate if email was undelivered.
      */
@@ -493,7 +492,6 @@ public class EmailHistoryJson {
         this.undeliverable = undeliverable;
         return this;
     }
-
 
     /**
      * Flag to indicate if email was opened.
@@ -503,7 +501,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when the email was first opened.
      */
@@ -511,7 +508,6 @@ public class EmailHistoryJson {
         this.firstOpened = firstOpened;
         return this;
     }
-
 
     /**
      * Flag to indicate if any link in the email was clicked.
@@ -521,7 +517,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when any link in the email was first clicked.
      */
@@ -530,7 +525,6 @@ public class EmailHistoryJson {
         return this;
     }
 
-
     /**
      * Flag to indicate if the email was bounced.
      */
@@ -538,7 +532,6 @@ public class EmailHistoryJson {
         this.bounced = bounced;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -549,68 +542,101 @@ public class EmailHistoryJson {
             return false;
         }
         EmailHistoryJson other = (EmailHistoryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.subject, other.subject) &&
-            Utils.enhancedDeepEquals(this.from, other.from) &&
-            Utils.enhancedDeepEquals(this.to, other.to) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.sent, other.sent) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.undeliverable, other.undeliverable) &&
-            Utils.enhancedDeepEquals(this.opened, other.opened) &&
-            Utils.enhancedDeepEquals(this.firstOpened, other.firstOpened) &&
-            Utils.enhancedDeepEquals(this.clicked, other.clicked) &&
-            Utils.enhancedDeepEquals(this.firstClicked, other.firstClicked) &&
-            Utils.enhancedDeepEquals(this.bounced, other.bounced);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.subject, other.subject)
+                && Utils.enhancedDeepEquals(this.from, other.from)
+                && Utils.enhancedDeepEquals(this.to, other.to)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.sent, other.sent)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.undeliverable, other.undeliverable)
+                && Utils.enhancedDeepEquals(this.opened, other.opened)
+                && Utils.enhancedDeepEquals(this.firstOpened, other.firstOpened)
+                && Utils.enhancedDeepEquals(this.clicked, other.clicked)
+                && Utils.enhancedDeepEquals(this.firstClicked, other.firstClicked)
+                && Utils.enhancedDeepEquals(this.bounced, other.bounced);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            contact, attendee, subject,
-            from, to, type,
-            sent, status, undeliverable,
-            opened, firstOpened, clicked,
-            firstClicked, bounced);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                contact,
+                attendee,
+                subject,
+                from,
+                to,
+                type,
+                sent,
+                status,
+                undeliverable,
+                opened,
+                firstOpened,
+                clicked,
+                firstClicked,
+                bounced);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailHistoryJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "contact", contact,
-                "attendee", attendee,
-                "subject", subject,
-                "from", from,
-                "to", to,
-                "type", type,
-                "sent", sent,
-                "status", status,
-                "undeliverable", undeliverable,
-                "opened", opened,
-                "firstOpened", firstOpened,
-                "clicked", clicked,
-                "firstClicked", firstClicked,
-                "bounced", bounced);
+        return Utils.toString(
+                EmailHistoryJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "contact",
+                contact,
+                "attendee",
+                attendee,
+                "subject",
+                subject,
+                "from",
+                from,
+                "to",
+                to,
+                "type",
+                type,
+                "sent",
+                sent,
+                "status",
+                status,
+                "undeliverable",
+                undeliverable,
+                "opened",
+                opened,
+                "firstOpened",
+                firstOpened,
+                "clicked",
+                clicked,
+                "firstClicked",
+                firstClicked,
+                "bounced",
+                bounced);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -653,7 +679,7 @@ public class EmailHistoryJson {
         private Boolean bounced;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -818,14 +844,26 @@ public class EmailHistoryJson {
 
         public EmailHistoryJson build() {
             return new EmailHistoryJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                contact, attendee, subject,
-                from, to, type,
-                sent, status, undeliverable,
-                opened, firstOpened, clicked,
-                firstClicked, bounced);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    contact,
+                    attendee,
+                    subject,
+                    from,
+                    to,
+                    type,
+                    sent,
+                    status,
+                    undeliverable,
+                    opened,
+                    firstOpened,
+                    clicked,
+                    firstClicked,
+                    bounced);
         }
-
     }
 }

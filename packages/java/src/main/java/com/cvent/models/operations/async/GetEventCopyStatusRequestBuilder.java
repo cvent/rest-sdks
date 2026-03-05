@@ -30,7 +30,7 @@ public class GetEventCopyStatusRequestBuilder {
     private GetEventCopyStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventCopyStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEventCopyStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventCopyStatusResponse> call() {
-        AsyncRequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation
-              = new GetEventCopyStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation =
+                new GetEventCopyStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

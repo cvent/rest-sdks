@@ -2,6 +2,14 @@
 
 This is used to denote the mutability of the attribute.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = MutabilityJson.ReadOnly;
+```
+
 
 ## Values
 

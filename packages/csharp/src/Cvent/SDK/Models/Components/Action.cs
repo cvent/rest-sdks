@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum Action
     {
-        [JsonProperty("DO_NOT_SELL")]
-        DoNotSell,
-        [JsonProperty("OK_TO_SELL")]
-        OkToSell,
+        [JsonProperty("DO_NOT_SELL")] DoNotSell,
+        [JsonProperty("OK_TO_SELL")] OkToSell,
     }
 
     public static class ActionExtension
     {
         public static string Value(this Action value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Action ToEnum(this string value)
         {
-            foreach(var field in typeof(Action).GetFields())
+            foreach (var field in typeof(Action).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

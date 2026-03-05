@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * UserGroupJson1
- * 
+ *
  * <p>Contains information about a user group associated with an event
  */
 public class UserGroupJson1 {
@@ -30,13 +30,9 @@ public class UserGroupJson1 {
     private String name;
 
     @JsonCreator
-    public UserGroupJson1(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("name") @Nonnull String name) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+    public UserGroupJson1(@JsonProperty("id") @Nonnull String id, @JsonProperty("name") @Nonnull String name) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
     }
 
     /**
@@ -57,7 +53,6 @@ public class UserGroupJson1 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the user group
      */
@@ -66,7 +61,6 @@ public class UserGroupJson1 {
         return this;
     }
 
-
     /**
      * The name of the user group
      */
@@ -74,7 +68,6 @@ public class UserGroupJson1 {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +78,28 @@ public class UserGroupJson1 {
             return false;
         }
         UserGroupJson1 other = (UserGroupJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UserGroupJson1.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(UserGroupJson1.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +119,7 @@ public class UserGroupJson1 {
         }
 
         public UserGroupJson1 build() {
-            return new UserGroupJson1(
-                id, name);
+            return new UserGroupJson1(id, name);
         }
-
     }
 }

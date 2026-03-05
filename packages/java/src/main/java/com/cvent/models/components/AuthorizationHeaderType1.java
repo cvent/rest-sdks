@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AuthorizationHeaderType1
- * 
+ *
  * <p>Authorization header support characterizing the authentication type to be used for callbacks to the
  * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
  */
@@ -24,13 +24,13 @@ public enum AuthorizationHeaderType1 {
     AuthorizationHeaderType1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AuthorizationHeaderType1> fromValue(String value) {
-        for (AuthorizationHeaderType1 o: AuthorizationHeaderType1.values()) {
+        for (AuthorizationHeaderType1 o : AuthorizationHeaderType1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AuthorizationHeaderType1 {
         return Optional.empty();
     }
 }
-

@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorRequest {
     /**
      * ID of an event.
@@ -34,15 +33,12 @@ public class UpdateExhibitorRequest {
 
     @JsonCreator
     public UpdateExhibitorRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull ExhibitorRequest exhibitorRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull ExhibitorRequest exhibitorRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.exhibitorRequest = Optional.ofNullable(exhibitorRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorRequest cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class UpdateExhibitorRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +73,6 @@ public class UpdateExhibitorRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -88,7 +82,6 @@ public class UpdateExhibitorRequest {
         return this;
     }
 
-
     /**
      * Exhibitor details
      */
@@ -96,7 +89,6 @@ public class UpdateExhibitorRequest {
         this.exhibitorRequest = Utils.checkNotNull(exhibitorRequest, "exhibitorRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +99,30 @@ public class UpdateExhibitorRequest {
             return false;
         }
         UpdateExhibitorRequest other = (UpdateExhibitorRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.exhibitorRequest, other.exhibitorRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.exhibitorRequest, other.exhibitorRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, exhibitorRequest);
+        return Utils.enhancedHash(id, exhibitorId, exhibitorRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "exhibitorRequest", exhibitorRequest);
+        return Utils.toString(
+                UpdateExhibitorRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "exhibitorRequest",
+                exhibitorRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +131,7 @@ public class UpdateExhibitorRequest {
         private ExhibitorRequest exhibitorRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +159,7 @@ public class UpdateExhibitorRequest {
         }
 
         public UpdateExhibitorRequest build() {
-            return new UpdateExhibitorRequest(
-                id, exhibitorId, exhibitorRequest);
+            return new UpdateExhibitorRequest(id, exhibitorId, exhibitorRequest);
         }
-
     }
 }

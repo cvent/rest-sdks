@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExternalActivityTypeJson
     {
-        [JsonProperty("event.external")]
-        EventExternal,
-        [JsonProperty("session.external")]
-        SessionExternal,
-        [JsonProperty("appointment.external")]
-        AppointmentExternal,
-        [JsonProperty("exhibitor.external")]
-        ExhibitorExternal,
+        [JsonProperty("event.external")] EventExternal,
+        [JsonProperty("session.external")] SessionExternal,
+        [JsonProperty("appointment.external")] AppointmentExternal,
+        [JsonProperty("exhibitor.external")] ExhibitorExternal,
     }
 
     public static class ExternalActivityTypeJsonExtension
     {
         public static string Value(this ExternalActivityTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExternalActivityTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ExternalActivityTypeJson).GetFields())
+            foreach (var field in typeof(ExternalActivityTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

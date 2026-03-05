@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ChatTypeJson
- * 
+ *
  * <p>The chat type
  */
 public enum ChatTypeJson {
@@ -26,13 +26,13 @@ public enum ChatTypeJson {
     ChatTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ChatTypeJson> fromValue(String value) {
-        for (ChatTypeJson o: ChatTypeJson.values()) {
+        for (ChatTypeJson o : ChatTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum ChatTypeJson {
         return Optional.empty();
     }
 }
-

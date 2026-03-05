@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CustomFieldCategoryJson
- * 
+ *
  * <p>This is used to denote the category of a custom field.
  */
 public enum CustomFieldCategoryJson {
@@ -32,13 +32,13 @@ public enum CustomFieldCategoryJson {
     CustomFieldCategoryJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CustomFieldCategoryJson> fromValue(String value) {
-        for (CustomFieldCategoryJson o: CustomFieldCategoryJson.values()) {
+        for (CustomFieldCategoryJson o : CustomFieldCategoryJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -46,4 +46,3 @@ public enum CustomFieldCategoryJson {
         return Optional.empty();
     }
 }
-

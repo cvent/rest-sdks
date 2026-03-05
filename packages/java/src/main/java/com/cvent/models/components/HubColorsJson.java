@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * HubColorsJson
- * 
+ *
  * <p>All the colors associated with the Events+ hub.
  */
 public class HubColorsJson {
@@ -59,13 +59,11 @@ public class HubColorsJson {
         this.action = action;
         this.background = background;
         this.main = main;
-        this.mood = Optional.ofNullable(mood)
-            .orElse(Builder._SINGLETON_VALUE_Mood.value());
+        this.mood = Optional.ofNullable(mood).orElse(Builder._SINGLETON_VALUE_Mood.value());
     }
-    
+
     public HubColorsJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -101,7 +99,6 @@ public class HubColorsJson {
         return new Builder();
     }
 
-
     /**
      * The secondary color of an Events+ hub.
      */
@@ -109,7 +106,6 @@ public class HubColorsJson {
         this.action = action;
         return this;
     }
-
 
     /**
      * The background color of an Events+ hub.
@@ -119,7 +115,6 @@ public class HubColorsJson {
         return this;
     }
 
-
     /**
      * The primary color of an Events+ hub.
      */
@@ -127,7 +122,6 @@ public class HubColorsJson {
         this.main = main;
         return this;
     }
-
 
     /**
      * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main
@@ -138,7 +132,6 @@ public class HubColorsJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -148,31 +141,25 @@ public class HubColorsJson {
             return false;
         }
         HubColorsJson other = (HubColorsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.action, other.action) &&
-            Utils.enhancedDeepEquals(this.background, other.background) &&
-            Utils.enhancedDeepEquals(this.main, other.main) &&
-            Utils.enhancedDeepEquals(this.mood, other.mood);
+        return Utils.enhancedDeepEquals(this.action, other.action)
+                && Utils.enhancedDeepEquals(this.background, other.background)
+                && Utils.enhancedDeepEquals(this.main, other.main)
+                && Utils.enhancedDeepEquals(this.mood, other.mood);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            action, background, main,
-            mood);
+        return Utils.enhancedHash(action, background, main, mood);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubColorsJson.class,
-                "action", action,
-                "background", background,
-                "main", main,
-                "mood", mood);
+        return Utils.toString(
+                HubColorsJson.class, "action", action, "background", background, "main", main, "mood", mood);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String action;
 
@@ -183,7 +170,7 @@ public class HubColorsJson {
         private String mood;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -220,16 +207,10 @@ public class HubColorsJson {
         }
 
         public HubColorsJson build() {
-            return new HubColorsJson(
-                action, background, main,
-                mood);
+            return new HubColorsJson(action, background, main, mood);
         }
 
-
         private static final LazySingletonValue<String> _SINGLETON_VALUE_Mood =
-                new LazySingletonValue<>(
-                        "mood",
-                        "\"#FFFFFF\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("mood", "\"#FFFFFF\"", new TypeReference<String>() {});
     }
 }

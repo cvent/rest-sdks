@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EventJson8
- * 
+ *
  * <p>An event reference used in attendee insights to identify the event context for engagement data
  */
 public class EventJson8 {
@@ -24,10 +24,8 @@ public class EventJson8 {
     private String id;
 
     @JsonCreator
-    public EventJson8(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public EventJson8(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class EventJson8 {
         return new Builder();
     }
 
-
     /**
      * A unique identifier (UUID) for the event where the engagement score applies
      */
@@ -49,7 +46,6 @@ public class EventJson8 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class EventJson8 {
             return false;
         }
         EventJson8 other = (EventJson8) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventJson8.class,
-                "id", id);
+        return Utils.toString(EventJson8.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class EventJson8 {
         }
 
         public EventJson8 build() {
-            return new EventJson8(
-                id);
+            return new EventJson8(id);
         }
-
     }
 }

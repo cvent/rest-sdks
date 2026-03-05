@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExternalCodeTypeJson
- * 
+ *
  * <p>Type of the external Code.
  */
 public enum ExternalCodeTypeJson {
@@ -26,13 +26,13 @@ public enum ExternalCodeTypeJson {
     ExternalCodeTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExternalCodeTypeJson> fromValue(String value) {
-        for (ExternalCodeTypeJson o: ExternalCodeTypeJson.values()) {
+        for (ExternalCodeTypeJson o : ExternalCodeTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum ExternalCodeTypeJson {
         return Optional.empty();
     }
 }
-

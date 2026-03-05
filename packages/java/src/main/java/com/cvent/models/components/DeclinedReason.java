@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DeclinedReason
- * 
+ *
  * <p>The set of decline reasons available for proposals
  */
 public enum DeclinedReason {
@@ -38,13 +38,13 @@ public enum DeclinedReason {
     DeclinedReason(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DeclinedReason> fromValue(String value) {
-        for (DeclinedReason o: DeclinedReason.values()) {
+        for (DeclinedReason o : DeclinedReason.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -52,4 +52,3 @@ public enum DeclinedReason {
         return Optional.empty();
     }
 }
-

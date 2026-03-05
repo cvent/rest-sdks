@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ProposalDateJson
- * 
+ *
  * <p>The proposal date.
  */
 public class ProposalDateJson {
@@ -50,12 +50,11 @@ public class ProposalDateJson {
             @JsonProperty("dateType") @Nullable DateTypeJson1 dateType,
             @JsonProperty("startDate") @Nullable LocalDate startDate,
             @JsonProperty("endDate") @Nullable LocalDate endDate) {
-        this.dateType = Optional.ofNullable(dateType)
-            .orElse(Builder._SINGLETON_VALUE_DateType.value());
+        this.dateType = Optional.ofNullable(dateType).orElse(Builder._SINGLETON_VALUE_DateType.value());
         this.startDate = startDate;
         this.endDate = endDate;
     }
-    
+
     public ProposalDateJson() {
         this(null, null, null);
     }
@@ -87,7 +86,6 @@ public class ProposalDateJson {
         return new Builder();
     }
 
-
     /**
      * The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
@@ -98,7 +96,6 @@ public class ProposalDateJson {
         return this;
     }
 
-
     /**
      * The start date of the event.
      */
@@ -107,7 +104,6 @@ public class ProposalDateJson {
         return this;
     }
 
-
     /**
      * The end date of the event.
      */
@@ -115,7 +111,6 @@ public class ProposalDateJson {
         this.endDate = endDate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -126,28 +121,23 @@ public class ProposalDateJson {
             return false;
         }
         ProposalDateJson other = (ProposalDateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.dateType, other.dateType) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate);
+        return Utils.enhancedDeepEquals(this.dateType, other.dateType)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            dateType, startDate, endDate);
+        return Utils.enhancedHash(dateType, startDate, endDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProposalDateJson.class,
-                "dateType", dateType,
-                "startDate", startDate,
-                "endDate", endDate);
+        return Utils.toString(ProposalDateJson.class, "dateType", dateType, "startDate", startDate, "endDate", endDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DateTypeJson1 dateType;
 
@@ -156,7 +146,7 @@ public class ProposalDateJson {
         private LocalDate endDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -186,15 +176,10 @@ public class ProposalDateJson {
         }
 
         public ProposalDateJson build() {
-            return new ProposalDateJson(
-                dateType, startDate, endDate);
+            return new ProposalDateJson(dateType, startDate, endDate);
         }
 
-
         private static final LazySingletonValue<DateTypeJson1> _SINGLETON_VALUE_DateType =
-                new LazySingletonValue<>(
-                        "dateType",
-                        "\"PREFERRED\"",
-                        new TypeReference<DateTypeJson1>() {});
+                new LazySingletonValue<>("dateType", "\"PREFERRED\"", new TypeReference<DateTypeJson1>() {});
     }
 }

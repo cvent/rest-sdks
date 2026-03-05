@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionSpeakerAssignment
- * 
+ *
  * <p>Holds fields that can be applied to a session speaker assignment.
  */
 public class SessionSpeakerAssignment {
@@ -42,7 +42,7 @@ public class SessionSpeakerAssignment {
         this.speakerCategory = speakerCategory;
         this.order = order;
     }
-    
+
     public SessionSpeakerAssignment() {
         this(null, null);
     }
@@ -66,7 +66,6 @@ public class SessionSpeakerAssignment {
         return new Builder();
     }
 
-
     /**
      * An object that holds the id for a category
      */
@@ -74,7 +73,6 @@ public class SessionSpeakerAssignment {
         this.speakerCategory = speakerCategory;
         return this;
     }
-
 
     /**
      * Preferred position where the speaker will appear in an ordered list for a session. Smaller values
@@ -85,7 +83,6 @@ public class SessionSpeakerAssignment {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -95,33 +92,29 @@ public class SessionSpeakerAssignment {
             return false;
         }
         SessionSpeakerAssignment other = (SessionSpeakerAssignment) o;
-        return 
-            Utils.enhancedDeepEquals(this.speakerCategory, other.speakerCategory) &&
-            Utils.enhancedDeepEquals(this.order, other.order);
+        return Utils.enhancedDeepEquals(this.speakerCategory, other.speakerCategory)
+                && Utils.enhancedDeepEquals(this.order, other.order);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            speakerCategory, order);
+        return Utils.enhancedHash(speakerCategory, order);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionSpeakerAssignment.class,
-                "speakerCategory", speakerCategory,
-                "order", order);
+        return Utils.toString(SessionSpeakerAssignment.class, "speakerCategory", speakerCategory, "order", order);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CategoryIdJson speakerCategory;
 
         private Long order;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -142,9 +135,7 @@ public class SessionSpeakerAssignment {
         }
 
         public SessionSpeakerAssignment build() {
-            return new SessionSpeakerAssignment(
-                speakerCategory, order);
+            return new SessionSpeakerAssignment(speakerCategory, order);
         }
-
     }
 }

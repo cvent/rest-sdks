@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class GetChoicesForQuestionResponse
     {
-        public Func<Task<GetChoicesForQuestionResponse?>>? Next {get;set;}
+        public Func<Task<GetChoicesForQuestionResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

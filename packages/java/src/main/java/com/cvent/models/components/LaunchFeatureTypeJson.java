@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * LaunchFeatureTypeJson
- * 
+ *
  * <p>These are the types of features used in the event container events that can be launched.
  */
 public enum LaunchFeatureTypeJson {
@@ -23,13 +23,13 @@ public enum LaunchFeatureTypeJson {
     LaunchFeatureTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<LaunchFeatureTypeJson> fromValue(String value) {
-        for (LaunchFeatureTypeJson o: LaunchFeatureTypeJson.values()) {
+        for (LaunchFeatureTypeJson o : LaunchFeatureTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum LaunchFeatureTypeJson {
         return Optional.empty();
     }
 }
-

@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DisassociateAttendeeFromAudienceSegmentsRequest {
     /**
      * ID of an attendee.
@@ -20,10 +19,9 @@ public class DisassociateAttendeeFromAudienceSegmentsRequest {
     private String attendeeId;
 
     @JsonCreator
-    public DisassociateAttendeeFromAudienceSegmentsRequest(
-            @Nonnull String attendeeId) {
+    public DisassociateAttendeeFromAudienceSegmentsRequest(@Nonnull String attendeeId) {
         this.attendeeId = Optional.ofNullable(attendeeId)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class DisassociateAttendeeFromAudienceSegmentsRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an attendee.
      */
@@ -45,7 +42,6 @@ public class DisassociateAttendeeFromAudienceSegmentsRequest {
         this.attendeeId = Utils.checkNotNull(attendeeId, "attendeeId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class DisassociateAttendeeFromAudienceSegmentsRequest {
             return false;
         }
         DisassociateAttendeeFromAudienceSegmentsRequest other = (DisassociateAttendeeFromAudienceSegmentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendeeId, other.attendeeId);
+        return Utils.enhancedDeepEquals(this.attendeeId, other.attendeeId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendeeId);
+        return Utils.enhancedHash(attendeeId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DisassociateAttendeeFromAudienceSegmentsRequest.class,
-                "attendeeId", attendeeId);
+        return Utils.toString(DisassociateAttendeeFromAudienceSegmentsRequest.class, "attendeeId", attendeeId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String attendeeId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class DisassociateAttendeeFromAudienceSegmentsRequest {
         }
 
         public DisassociateAttendeeFromAudienceSegmentsRequest build() {
-            return new DisassociateAttendeeFromAudienceSegmentsRequest(
-                attendeeId);
+            return new DisassociateAttendeeFromAudienceSegmentsRequest(attendeeId);
         }
-
     }
 }

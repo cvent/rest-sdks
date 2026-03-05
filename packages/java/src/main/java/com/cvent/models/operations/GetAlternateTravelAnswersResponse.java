@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetAlternateTravelAnswersResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetAlternateTravelAnswersResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AlternateTravelPaginatedResponse alternateTravelPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.alternateTravelPaginatedResponse = alternateTravelPaginatedResponse;
     }
-    
+
     public GetAlternateTravelAnswersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetAlternateTravelAnswersResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetAlternateTravelAnswersResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetAlternateTravelAnswersResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetAlternateTravelAnswersResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved the alternate travel answers.
      */
-    public GetAlternateTravelAnswersResponse withAlternateTravelPaginatedResponse(@Nullable AlternateTravelPaginatedResponse alternateTravelPaginatedResponse) {
+    public GetAlternateTravelAnswersResponse withAlternateTravelPaginatedResponse(
+            @Nullable AlternateTravelPaginatedResponse alternateTravelPaginatedResponse) {
         this.alternateTravelPaginatedResponse = alternateTravelPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetAlternateTravelAnswersResponse implements Response {
             return false;
         }
         GetAlternateTravelAnswersResponse other = (GetAlternateTravelAnswersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.alternateTravelPaginatedResponse, other.alternateTravelPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.alternateTravelPaginatedResponse, other.alternateTravelPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            alternateTravelPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, alternateTravelPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAlternateTravelAnswersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "alternateTravelPaginatedResponse", alternateTravelPaginatedResponse);
+        return Utils.toString(
+                GetAlternateTravelAnswersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "alternateTravelPaginatedResponse",
+                alternateTravelPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetAlternateTravelAnswersResponse implements Response {
         private AlternateTravelPaginatedResponse alternateTravelPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetAlternateTravelAnswersResponse implements Response {
         /**
          * Successfully retrieved the alternate travel answers.
          */
-        public Builder alternateTravelPaginatedResponse(@Nullable AlternateTravelPaginatedResponse alternateTravelPaginatedResponse) {
+        public Builder alternateTravelPaginatedResponse(
+                @Nullable AlternateTravelPaginatedResponse alternateTravelPaginatedResponse) {
             this.alternateTravelPaginatedResponse = alternateTravelPaginatedResponse;
             return this;
         }
 
         public GetAlternateTravelAnswersResponse build() {
             return new GetAlternateTravelAnswersResponse(
-                contentType, statusCode, rawResponse,
-                alternateTravelPaginatedResponse);
+                    contentType, statusCode, rawResponse, alternateTravelPaginatedResponse);
         }
-
     }
 }

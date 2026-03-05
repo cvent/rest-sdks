@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * ThumbnailStatusJson
- * 
+ *
  * <p>Denotes the status of a thumbnail. Started indicates the request to upload in the API was submitted,
  * and the URL you'll upload a thumbnail to was returned. Uploaded indicates that the upload was
  * completed.
- * 
+ *
  * <p>Processing indicates that a virus scan is in progress. Available indicates the thumbnail passed the
  * scan and is ready for use. Rejected indicates there was a problem processing the thumbnail.
  */
@@ -31,13 +31,13 @@ public enum ThumbnailStatusJson {
     ThumbnailStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ThumbnailStatusJson> fromValue(String value) {
-        for (ThumbnailStatusJson o: ThumbnailStatusJson.values()) {
+        for (ThumbnailStatusJson o : ThumbnailStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -45,4 +45,3 @@ public enum ThumbnailStatusJson {
         return Optional.empty();
     }
 }
-

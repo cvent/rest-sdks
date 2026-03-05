@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetExhibitorRegistrationPacksResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.exhibitorRegistrationPackListResponse = exhibitorRegistrationPackListResponse;
     }
-    
+
     public GetExhibitorRegistrationPacksResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved the registration packs.
      */
-    public GetExhibitorRegistrationPacksResponse withExhibitorRegistrationPackListResponse(@Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {
+    public GetExhibitorRegistrationPacksResponse withExhibitorRegistrationPackListResponse(
+            @Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {
         this.exhibitorRegistrationPackListResponse = exhibitorRegistrationPackListResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
             return false;
         }
         GetExhibitorRegistrationPacksResponse other = (GetExhibitorRegistrationPacksResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.exhibitorRegistrationPackListResponse, other.exhibitorRegistrationPackListResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.exhibitorRegistrationPackListResponse, other.exhibitorRegistrationPackListResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            exhibitorRegistrationPackListResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, exhibitorRegistrationPackListResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorRegistrationPacksResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "exhibitorRegistrationPackListResponse", exhibitorRegistrationPackListResponse);
+        return Utils.toString(
+                GetExhibitorRegistrationPacksResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "exhibitorRegistrationPackListResponse",
+                exhibitorRegistrationPackListResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         private ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         /**
          * Successfully retrieved the registration packs.
          */
-        public Builder exhibitorRegistrationPackListResponse(@Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {
+        public Builder exhibitorRegistrationPackListResponse(
+                @Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {
             this.exhibitorRegistrationPackListResponse = exhibitorRegistrationPackListResponse;
             return this;
         }
 
         public GetExhibitorRegistrationPacksResponse build() {
             return new GetExhibitorRegistrationPacksResponse(
-                contentType, statusCode, rawResponse,
-                exhibitorRegistrationPackListResponse);
+                    contentType, statusCode, rawResponse, exhibitorRegistrationPackListResponse);
         }
-
     }
 }

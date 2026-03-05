@@ -2,6 +2,14 @@
 
 Describes the availability of the event survey
 
+## Example Usage
+
+```java
+import com.cvent.models.components.EventSurveyAvailabilityJson;
+
+EventSurveyAvailabilityJson value = EventSurveyAvailabilityJson.EVENT_REGISTRANTS;
+```
+
 
 ## Values
 

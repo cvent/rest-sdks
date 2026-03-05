@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateCustomFieldAdvancedLogicRequest {
     /**
      * The unique identifier of a custom field.
@@ -27,13 +26,11 @@ public class UpdateCustomFieldAdvancedLogicRequest {
     private AdvancedLogic advancedLogic;
 
     @JsonCreator
-    public UpdateCustomFieldAdvancedLogicRequest(
-            @Nonnull String customFieldId,
-            @Nonnull AdvancedLogic advancedLogic) {
+    public UpdateCustomFieldAdvancedLogicRequest(@Nonnull String customFieldId, @Nonnull AdvancedLogic advancedLogic) {
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.advancedLogic = Optional.ofNullable(advancedLogic)
-            .orElseThrow(() -> new IllegalArgumentException("advancedLogic cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("advancedLogic cannot be null"));
     }
 
     /**
@@ -54,7 +51,6 @@ public class UpdateCustomFieldAdvancedLogicRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a custom field.
      */
@@ -63,7 +59,6 @@ public class UpdateCustomFieldAdvancedLogicRequest {
         return this;
     }
 
-
     /**
      * Advanced logic rules to apply to the given custom field.
      */
@@ -71,7 +66,6 @@ public class UpdateCustomFieldAdvancedLogicRequest {
         this.advancedLogic = Utils.checkNotNull(advancedLogic, "advancedLogic");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +76,34 @@ public class UpdateCustomFieldAdvancedLogicRequest {
             return false;
         }
         UpdateCustomFieldAdvancedLogicRequest other = (UpdateCustomFieldAdvancedLogicRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.advancedLogic, other.advancedLogic);
+        return Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.advancedLogic, other.advancedLogic);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            customFieldId, advancedLogic);
+        return Utils.enhancedHash(customFieldId, advancedLogic);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateCustomFieldAdvancedLogicRequest.class,
-                "customFieldId", customFieldId,
-                "advancedLogic", advancedLogic);
+        return Utils.toString(
+                UpdateCustomFieldAdvancedLogicRequest.class,
+                "customFieldId",
+                customFieldId,
+                "advancedLogic",
+                advancedLogic);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String customFieldId;
 
         private AdvancedLogic advancedLogic;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +123,7 @@ public class UpdateCustomFieldAdvancedLogicRequest {
         }
 
         public UpdateCustomFieldAdvancedLogicRequest build() {
-            return new UpdateCustomFieldAdvancedLogicRequest(
-                customFieldId, advancedLogic);
+            return new UpdateCustomFieldAdvancedLogicRequest(customFieldId, advancedLogic);
         }
-
     }
 }

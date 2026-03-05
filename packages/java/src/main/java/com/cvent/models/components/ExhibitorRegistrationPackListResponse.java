@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorRegistrationPackListResponse
- * 
+ *
  * <p>This entity is used to represent registration packs list response.
  */
 public class ExhibitorRegistrationPackListResponse {
@@ -32,7 +32,7 @@ public class ExhibitorRegistrationPackListResponse {
             @JsonProperty("data") @Nullable List<ExistingRegistrationPackJson> data) {
         this.data = data;
     }
-    
+
     public ExhibitorRegistrationPackListResponse() {
         this(null);
     }
@@ -48,7 +48,6 @@ public class ExhibitorRegistrationPackListResponse {
         return new Builder();
     }
 
-
     /**
      * List of registration packs for an exhibitor.
      */
@@ -56,7 +55,6 @@ public class ExhibitorRegistrationPackListResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +65,26 @@ public class ExhibitorRegistrationPackListResponse {
             return false;
         }
         ExhibitorRegistrationPackListResponse other = (ExhibitorRegistrationPackListResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorRegistrationPackListResponse.class,
-                "data", data);
+        return Utils.toString(ExhibitorRegistrationPackListResponse.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ExistingRegistrationPackJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +96,7 @@ public class ExhibitorRegistrationPackListResponse {
         }
 
         public ExhibitorRegistrationPackListResponse build() {
-            return new ExhibitorRegistrationPackListResponse(
-                data);
+            return new ExhibitorRegistrationPackListResponse(data);
         }
-
     }
 }

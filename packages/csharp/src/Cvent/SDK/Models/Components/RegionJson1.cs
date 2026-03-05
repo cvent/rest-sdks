@@ -18,34 +18,26 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RegionJson1
     {
-        [JsonProperty("Oregon")]
-        Oregon,
-        [JsonProperty("Virginia")]
-        Virginia,
-        [JsonProperty("Tokyo")]
-        Tokyo,
-        [JsonProperty("Singapore")]
-        Singapore,
-        [JsonProperty("Sydney")]
-        Sydney,
-        [JsonProperty("Mumbai")]
-        Mumbai,
-        [JsonProperty("Frankfurt")]
-        Frankfurt,
-        [JsonProperty("Ireland")]
-        Ireland,
+        [JsonProperty("Oregon")] Oregon,
+        [JsonProperty("Virginia")] Virginia,
+        [JsonProperty("Tokyo")] Tokyo,
+        [JsonProperty("Singapore")] Singapore,
+        [JsonProperty("Sydney")] Sydney,
+        [JsonProperty("Mumbai")] Mumbai,
+        [JsonProperty("Frankfurt")] Frankfurt,
+        [JsonProperty("Ireland")] Ireland,
     }
 
     public static class RegionJson1Extension
     {
         public static string Value(this RegionJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RegionJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(RegionJson1).GetFields())
+            foreach (var field in typeof(RegionJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

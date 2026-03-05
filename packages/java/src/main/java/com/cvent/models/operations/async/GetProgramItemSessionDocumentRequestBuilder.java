@@ -30,7 +30,7 @@ public class GetProgramItemSessionDocumentRequestBuilder {
     private GetProgramItemSessionDocumentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetProgramItemSessionDocumentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetProgramItemSessionDocumentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetProgramItemSessionDocumentResponse> call() {
-        AsyncRequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation
-              = new GetProgramItemSessionDocument.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation =
+                new GetProgramItemSessionDocument.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

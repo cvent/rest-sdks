@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SegmentAttendeeResponseJson
- * 
+ *
  * <p>Represents the attendees that are associated/disassociated to/from a segment
  */
 public class SegmentAttendeeResponseJson {
@@ -88,11 +88,9 @@ public class SegmentAttendeeResponseJson {
         this.id = id;
         this.disassociated = disassociated;
     }
-    
+
     public SegmentAttendeeResponseJson() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -149,7 +147,6 @@ public class SegmentAttendeeResponseJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -157,7 +154,6 @@ public class SegmentAttendeeResponseJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -167,7 +163,6 @@ public class SegmentAttendeeResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -175,7 +170,6 @@ public class SegmentAttendeeResponseJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -185,7 +179,6 @@ public class SegmentAttendeeResponseJson {
         return this;
     }
 
-
     /**
      * Segment details
      */
@@ -194,7 +187,6 @@ public class SegmentAttendeeResponseJson {
         return this;
     }
 
-
     /**
      * ID of the attendee.
      */
@@ -202,7 +194,6 @@ public class SegmentAttendeeResponseJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Represents whether the attendee is dissociated from the segment. True if the attendee is
@@ -213,7 +204,6 @@ public class SegmentAttendeeResponseJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -223,38 +213,42 @@ public class SegmentAttendeeResponseJson {
             return false;
         }
         SegmentAttendeeResponseJson other = (SegmentAttendeeResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.segment, other.segment) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.disassociated, other.disassociated);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.segment, other.segment)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.disassociated, other.disassociated);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, segment, id,
-            disassociated);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, segment, id, disassociated);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SegmentAttendeeResponseJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "segment", segment,
-                "id", id,
-                "disassociated", disassociated);
+        return Utils.toString(
+                SegmentAttendeeResponseJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "segment",
+                segment,
+                "id",
+                id,
+                "disassociated",
+                disassociated);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -271,7 +265,7 @@ public class SegmentAttendeeResponseJson {
         private Boolean disassociated;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -333,10 +327,7 @@ public class SegmentAttendeeResponseJson {
 
         public SegmentAttendeeResponseJson build() {
             return new SegmentAttendeeResponseJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, segment, id,
-                disassociated);
+                    created, createdBy, lastModified, lastModifiedBy, segment, id, disassociated);
         }
-
     }
 }

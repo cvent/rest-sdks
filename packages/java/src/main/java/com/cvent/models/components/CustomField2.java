@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * CustomField2
- * 
+ *
  * <p>This is used to denote the custom field data.
  */
 public class CustomField2 {
@@ -73,7 +73,7 @@ public class CustomField2 {
      * This option allows you to choose whether to display the custom field in emails. The field name and
      * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
      * display always or only when answered.
-     * 
+     *
      * <p>Only applicable to session custom fields.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -133,39 +133,29 @@ public class CustomField2 {
             @JsonProperty("displayInEventCreationWizard") @Nullable Boolean displayInEventCreationWizard,
             @JsonProperty("pageVisibility") @Nullable PageVisibilityJson pageVisibility) {
         this.category = Optional.ofNullable(category)
-            .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.required = Optional.ofNullable(required)
-            .orElse(Builder._SINGLETON_VALUE_Required.value());
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.details = details;
         this.helpText = helpText;
-        this.displayInDataTag = Optional.ofNullable(displayInDataTag)
-            .orElse(Builder._SINGLETON_VALUE_DisplayInDataTag.value());
+        this.displayInDataTag =
+                Optional.ofNullable(displayInDataTag).orElse(Builder._SINGLETON_VALUE_DisplayInDataTag.value());
         this.defaultTagText = defaultTagText;
-        this.consentField = Optional.ofNullable(consentField)
-            .orElse(Builder._SINGLETON_VALUE_ConsentField.value());
-        this.active = Optional.ofNullable(active)
-            .orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.consentField = Optional.ofNullable(consentField).orElse(Builder._SINGLETON_VALUE_ConsentField.value());
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
         this.displayInEventCreationWizard = Optional.ofNullable(displayInEventCreationWizard)
-            .orElse(Builder._SINGLETON_VALUE_DisplayInEventCreationWizard.value());
+                .orElse(Builder._SINGLETON_VALUE_DisplayInEventCreationWizard.value());
         this.pageVisibility = pageVisibility;
     }
-    
+
     public CustomField2(
             @Nonnull CustomFieldCategoryJson category,
             @Nonnull String name,
             @Nonnull String code,
             @Nonnull CustomFieldTypeJson1 type) {
-        this(category, name, code,
-            null, type, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(category, name, code, null, type, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -222,7 +212,7 @@ public class CustomField2 {
      * This option allows you to choose whether to display the custom field in emails. The field name and
      * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
      * display always or only when answered.
-     * 
+     *
      * <p>Only applicable to session custom fields.
      */
     public Optional<DisplayInDataTagJson> displayInDataTag() {
@@ -270,7 +260,6 @@ public class CustomField2 {
         return new Builder();
     }
 
-
     /**
      * This is used to denote the category of a custom field.
      */
@@ -278,7 +267,6 @@ public class CustomField2 {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
-
 
     /**
      * The actual text of the custom field.
@@ -288,7 +276,6 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * Code to uniquely identify custom field.
      */
@@ -297,7 +284,6 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * Whether answer to custom field is mandatory or not.
      */
@@ -305,7 +291,6 @@ public class CustomField2 {
         this.required = required;
         return this;
     }
-
 
     /**
      * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
@@ -316,7 +301,6 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * Type-specific details of the custom-field.
      */
@@ -324,7 +308,6 @@ public class CustomField2 {
         this.details = details;
         return this;
     }
-
 
     /**
      * The help text of the custom field.
@@ -334,19 +317,17 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * This option allows you to choose whether to display the custom field in emails. The field name and
      * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
      * display always or only when answered.
-     * 
+     *
      * <p>Only applicable to session custom fields.
      */
     public CustomField2 withDisplayInDataTag(@Nullable DisplayInDataTagJson displayInDataTag) {
         this.displayInDataTag = displayInDataTag;
         return this;
     }
-
 
     /**
      * Default text in emails when a contact does not have a value answered for this custom field. Only
@@ -357,7 +338,6 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * True means that this is a consent field. Only applicable to contact custom fields.
      */
@@ -366,7 +346,6 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * True means that this custom field is active. Determines visibility for event custom fields.
      */
@@ -374,7 +353,6 @@ public class CustomField2 {
         this.active = active;
         return this;
     }
-
 
     /**
      * True means that the field will be displayed in the event creation wizard. Only applicable to event
@@ -385,7 +363,6 @@ public class CustomField2 {
         return this;
     }
 
-
     /**
      * Visibility of the custom field on various pages/forms.
      */
@@ -393,7 +370,6 @@ public class CustomField2 {
         this.pageVisibility = pageVisibility;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -404,52 +380,73 @@ public class CustomField2 {
             return false;
         }
         CustomField2 other = (CustomField2) o;
-        return 
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.details, other.details) &&
-            Utils.enhancedDeepEquals(this.helpText, other.helpText) &&
-            Utils.enhancedDeepEquals(this.displayInDataTag, other.displayInDataTag) &&
-            Utils.enhancedDeepEquals(this.defaultTagText, other.defaultTagText) &&
-            Utils.enhancedDeepEquals(this.consentField, other.consentField) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.displayInEventCreationWizard, other.displayInEventCreationWizard) &&
-            Utils.enhancedDeepEquals(this.pageVisibility, other.pageVisibility);
+        return Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.details, other.details)
+                && Utils.enhancedDeepEquals(this.helpText, other.helpText)
+                && Utils.enhancedDeepEquals(this.displayInDataTag, other.displayInDataTag)
+                && Utils.enhancedDeepEquals(this.defaultTagText, other.defaultTagText)
+                && Utils.enhancedDeepEquals(this.consentField, other.consentField)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.displayInEventCreationWizard, other.displayInEventCreationWizard)
+                && Utils.enhancedDeepEquals(this.pageVisibility, other.pageVisibility);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            category, name, code,
-            required, type, details,
-            helpText, displayInDataTag, defaultTagText,
-            consentField, active, displayInEventCreationWizard,
-            pageVisibility);
+                category,
+                name,
+                code,
+                required,
+                type,
+                details,
+                helpText,
+                displayInDataTag,
+                defaultTagText,
+                consentField,
+                active,
+                displayInEventCreationWizard,
+                pageVisibility);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomField2.class,
-                "category", category,
-                "name", name,
-                "code", code,
-                "required", required,
-                "type", type,
-                "details", details,
-                "helpText", helpText,
-                "displayInDataTag", displayInDataTag,
-                "defaultTagText", defaultTagText,
-                "consentField", consentField,
-                "active", active,
-                "displayInEventCreationWizard", displayInEventCreationWizard,
-                "pageVisibility", pageVisibility);
+        return Utils.toString(
+                CustomField2.class,
+                "category",
+                category,
+                "name",
+                name,
+                "code",
+                code,
+                "required",
+                required,
+                "type",
+                type,
+                "details",
+                details,
+                "helpText",
+                helpText,
+                "displayInDataTag",
+                displayInDataTag,
+                "defaultTagText",
+                defaultTagText,
+                "consentField",
+                consentField,
+                "active",
+                active,
+                "displayInEventCreationWizard",
+                displayInEventCreationWizard,
+                "pageVisibility",
+                pageVisibility);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CustomFieldCategoryJson category;
 
@@ -478,7 +475,7 @@ public class CustomField2 {
         private PageVisibilityJson pageVisibility;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -542,7 +539,7 @@ public class CustomField2 {
          * This option allows you to choose whether to display the custom field in emails. The field name and
          * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
          * display always or only when answered.
-         * 
+         *
          * <p>Only applicable to session custom fields.
          */
         public Builder displayInDataTag(@Nullable DisplayInDataTagJson displayInDataTag) {
@@ -594,42 +591,34 @@ public class CustomField2 {
 
         public CustomField2 build() {
             return new CustomField2(
-                category, name, code,
-                required, type, details,
-                helpText, displayInDataTag, defaultTagText,
-                consentField, active, displayInEventCreationWizard,
-                pageVisibility);
+                    category,
+                    name,
+                    code,
+                    required,
+                    type,
+                    details,
+                    helpText,
+                    displayInDataTag,
+                    defaultTagText,
+                    consentField,
+                    active,
+                    displayInEventCreationWizard,
+                    pageVisibility);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
-                new LazySingletonValue<>(
-                        "required",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("required", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<DisplayInDataTagJson> _SINGLETON_VALUE_DisplayInDataTag =
-                new LazySingletonValue<>(
-                        "displayInDataTag",
-                        "\"No\"",
-                        new TypeReference<DisplayInDataTagJson>() {});
+                new LazySingletonValue<>("displayInDataTag", "\"No\"", new TypeReference<DisplayInDataTagJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ConsentField =
-                new LazySingletonValue<>(
-                        "consentField",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("consentField", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
-                new LazySingletonValue<>(
-                        "active",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("active", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DisplayInEventCreationWizard =
-                new LazySingletonValue<>(
-                        "displayInEventCreationWizard",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("displayInEventCreationWizard", "false", new TypeReference<Boolean>() {});
     }
 }

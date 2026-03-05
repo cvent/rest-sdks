@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class UpdateAttendeeSubscriptionStatus {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -50,7 +49,7 @@ public class UpdateAttendeeSubscriptionStatus {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -86,28 +85,18 @@ public class UpdateAttendeeSubscriptionStatus {
                     java.util.Optional.of(java.util.List.of("event/attendees:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/attendees/{id}/email-subscriptions",
-                    request, null);
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(klass, this.baseUrl, "/attendees/{id}/email-subscriptions", request, null);
             HTTPRequest req = new HTTPRequest(url, "PUT");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "attendeeSubscriptionRequest",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "attendeeSubscriptionRequest", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -116,21 +105,25 @@ public class UpdateAttendeeSubscriptionStatus {
     }
 
     public static class Sync extends Base
-            implements RequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> {
+            implements RequestOperation<
+                    UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private HttpRequest onBuildRequest(UpdateAttendeeSubscriptionStatusRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, UpdateAttendeeSubscriptionStatusRequest.class, new TypeReference<UpdateAttendeeSubscriptionStatusRequest>() {});
+            HttpRequest req = buildRequest(
+                    request,
+                    UpdateAttendeeSubscriptionStatusRequest.class,
+                    new TypeReference<UpdateAttendeeSubscriptionStatusRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -155,25 +148,21 @@ public class UpdateAttendeeSubscriptionStatus {
             return httpRes;
         }
 
-
         @Override
         public UpdateAttendeeSubscriptionStatusResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             UpdateAttendeeSubscriptionStatusResponse.Builder resBuilder =
-                    UpdateAttendeeSubscriptionStatusResponse
-                            .builder()
+                    UpdateAttendeeSubscriptionStatusResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             UpdateAttendeeSubscriptionStatusResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withAttendeeSubscriptionResponse(Utils.unmarshal(response, new TypeReference<AttendeeSubscriptionResponse>() {}));
+                    return res.withAttendeeSubscriptionResponse(
+                            Utils.unmarshal(response, new TypeReference<AttendeeSubscriptionResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -196,15 +185,22 @@ public class UpdateAttendeeSubscriptionStatus {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<UpdateAttendeeSubscriptionStatusRequest, com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse> {
+            implements AsyncRequestOperation<
+                    UpdateAttendeeSubscriptionStatusRequest,
+                    com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(UpdateAttendeeSubscriptionStatusRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, UpdateAttendeeSubscriptionStatusRequest.class, new TypeReference<UpdateAttendeeSubscriptionStatusRequest>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(UpdateAttendeeSubscriptionStatusRequest request)
+                throws Exception {
+            HttpRequest req = buildRequest(
+                    request,
+                    UpdateAttendeeSubscriptionStatusRequest.class,
+                    new TypeReference<UpdateAttendeeSubscriptionStatusRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -218,7 +214,9 @@ public class UpdateAttendeeSubscriptionStatus {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(UpdateAttendeeSubscriptionStatusRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -233,21 +231,17 @@ public class UpdateAttendeeSubscriptionStatus {
         }
 
         @Override
-        public CompletableFuture<com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse> handleResponse(
-                HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+        public CompletableFuture<com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse>
+                handleResponse(HttpResponse<Blob> response) {
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse
-                            .builder()
+                    com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.UpdateAttendeeSubscriptionStatusResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<AttendeeSubscriptionResponse>() {})
@@ -258,8 +252,7 @@ public class UpdateAttendeeSubscriptionStatus {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

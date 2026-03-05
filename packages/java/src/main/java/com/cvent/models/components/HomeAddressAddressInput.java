@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * HomeAddressAddressInput
- * 
+ *
  * <p>Address details
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -89,11 +89,9 @@ public class HomeAddressAddressInput {
         this.postalCode = postalCode;
         this.regionCode = regionCode;
     }
-    
+
     public HomeAddressAddressInput() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -149,7 +147,6 @@ public class HomeAddressAddressInput {
         return new Builder();
     }
 
-
     /**
      * The first line of an address.
      */
@@ -157,7 +154,6 @@ public class HomeAddressAddressInput {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * The second line of an address.
@@ -167,7 +163,6 @@ public class HomeAddressAddressInput {
         return this;
     }
 
-
     /**
      * The third line of an address.
      */
@@ -175,7 +170,6 @@ public class HomeAddressAddressInput {
         this.address3 = address3;
         return this;
     }
-
 
     /**
      * The name of the city.
@@ -185,7 +179,6 @@ public class HomeAddressAddressInput {
         return this;
     }
 
-
     /**
      * ISO 3166 two-letter (alpha-2) country code.
      */
@@ -193,7 +186,6 @@ public class HomeAddressAddressInput {
         this.countryCode = countryCode;
         return this;
     }
-
 
     /**
      * Postal code (also known as zipcode) of the address.
@@ -203,7 +195,6 @@ public class HomeAddressAddressInput {
         return this;
     }
 
-
     /**
      * The abbreviation of the state/province/region of the address.
      */
@@ -211,7 +202,6 @@ public class HomeAddressAddressInput {
         this.regionCode = regionCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -222,38 +212,42 @@ public class HomeAddressAddressInput {
             return false;
         }
         HomeAddressAddressInput other = (HomeAddressAddressInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.address3, other.address3) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.address3, other.address3)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            address1, address2, address3,
-            city, countryCode, postalCode,
-            regionCode);
+        return Utils.enhancedHash(address1, address2, address3, city, countryCode, postalCode, regionCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HomeAddressAddressInput.class,
-                "address1", address1,
-                "address2", address2,
-                "address3", address3,
-                "city", city,
-                "countryCode", countryCode,
-                "postalCode", postalCode,
-                "regionCode", regionCode);
+        return Utils.toString(
+                HomeAddressAddressInput.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "address3",
+                address3,
+                "city",
+                city,
+                "countryCode",
+                countryCode,
+                "postalCode",
+                postalCode,
+                "regionCode",
+                regionCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -270,7 +264,7 @@ public class HomeAddressAddressInput {
         private String regionCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -330,11 +324,7 @@ public class HomeAddressAddressInput {
         }
 
         public HomeAddressAddressInput build() {
-            return new HomeAddressAddressInput(
-                address1, address2, address3,
-                city, countryCode, postalCode,
-                regionCode);
+            return new HomeAddressAddressInput(address1, address2, address3, city, countryCode, postalCode, regionCode);
         }
-
     }
 }

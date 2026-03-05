@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CopyEventRequest {
     /**
      * Unique ID of an event.
@@ -27,13 +26,10 @@ public class CopyEventRequest {
     private EventCopy eventCopy;
 
     @JsonCreator
-    public CopyEventRequest(
-            @Nonnull String id,
-            @Nonnull EventCopy eventCopy) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CopyEventRequest(@Nonnull String id, @Nonnull EventCopy eventCopy) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.eventCopy = Optional.ofNullable(eventCopy)
-            .orElseThrow(() -> new IllegalArgumentException("eventCopy cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("eventCopy cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class CopyEventRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -63,7 +58,6 @@ public class CopyEventRequest {
         return this;
     }
 
-
     /**
      * Event copy details.
      */
@@ -71,7 +65,6 @@ public class CopyEventRequest {
         this.eventCopy = Utils.checkNotNull(eventCopy, "eventCopy");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,28 @@ public class CopyEventRequest {
             return false;
         }
         CopyEventRequest other = (CopyEventRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.eventCopy, other.eventCopy);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.eventCopy, other.eventCopy);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, eventCopy);
+        return Utils.enhancedHash(id, eventCopy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CopyEventRequest.class,
-                "id", id,
-                "eventCopy", eventCopy);
+        return Utils.toString(CopyEventRequest.class, "id", id, "eventCopy", eventCopy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private EventCopy eventCopy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +116,7 @@ public class CopyEventRequest {
         }
 
         public CopyEventRequest build() {
-            return new CopyEventRequest(
-                id, eventCopy);
+            return new CopyEventRequest(id, eventCopy);
         }
-
     }
 }

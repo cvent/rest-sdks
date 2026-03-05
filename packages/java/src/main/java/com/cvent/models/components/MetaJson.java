@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * MetaJson
- * 
+ *
  * <p>Metadata of the resource.
  */
 public class MetaJson {
@@ -59,10 +59,9 @@ public class MetaJson {
         this.created = created;
         this.lastModified = lastModified;
     }
-    
+
     public MetaJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class MetaJson {
         return new Builder();
     }
 
-
     /**
      * The type of the resource.
      */
@@ -105,7 +103,6 @@ public class MetaJson {
         this.resourceType = resourceType;
         return this;
     }
-
 
     /**
      * The location (URI) of the resource.
@@ -115,7 +112,6 @@ public class MetaJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -124,7 +120,6 @@ public class MetaJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was modified.
      */
@@ -132,7 +127,6 @@ public class MetaJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,33 @@ public class MetaJson {
             return false;
         }
         MetaJson other = (MetaJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.resourceType, other.resourceType) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
+        return Utils.enhancedDeepEquals(this.resourceType, other.resourceType)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            resourceType, location, created,
-            lastModified);
+        return Utils.enhancedHash(resourceType, location, created, lastModified);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MetaJson.class,
-                "resourceType", resourceType,
-                "location", location,
-                "created", created,
-                "lastModified", lastModified);
+        return Utils.toString(
+                MetaJson.class,
+                "resourceType",
+                resourceType,
+                "location",
+                location,
+                "created",
+                created,
+                "lastModified",
+                lastModified);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String resourceType;
 
@@ -178,7 +174,7 @@ public class MetaJson {
         private OffsetDateTime lastModified;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +210,7 @@ public class MetaJson {
         }
 
         public MetaJson build() {
-            return new MetaJson(
-                resourceType, location, created,
-                lastModified);
+            return new MetaJson(resourceType, location, created, lastModified);
         }
-
     }
 }

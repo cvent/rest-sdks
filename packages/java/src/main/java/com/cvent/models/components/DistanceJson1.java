@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * DistanceJson1
- * 
+ *
  * <p>Distance information.
  */
 public class DistanceJson1 {
@@ -35,7 +35,7 @@ public class DistanceJson1 {
             @JsonProperty("distanceUnit") @Nonnull DistanceUnit distanceUnit) {
         this.distance = distance;
         this.distanceUnit = Optional.ofNullable(distanceUnit)
-            .orElseThrow(() -> new IllegalArgumentException("distanceUnit cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("distanceUnit cannot be null"));
     }
 
     /**
@@ -56,7 +56,6 @@ public class DistanceJson1 {
         return new Builder();
     }
 
-
     /**
      * Distance from the hotel to the venue.
      */
@@ -65,7 +64,6 @@ public class DistanceJson1 {
         return this;
     }
 
-
     /**
      * Unit of measurement for the distance.
      */
@@ -73,7 +71,6 @@ public class DistanceJson1 {
         this.distanceUnit = Utils.checkNotNull(distanceUnit, "distanceUnit");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -84,33 +81,29 @@ public class DistanceJson1 {
             return false;
         }
         DistanceJson1 other = (DistanceJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.distance, other.distance) &&
-            Utils.enhancedDeepEquals(this.distanceUnit, other.distanceUnit);
+        return Utils.enhancedDeepEquals(this.distance, other.distance)
+                && Utils.enhancedDeepEquals(this.distanceUnit, other.distanceUnit);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            distance, distanceUnit);
+        return Utils.enhancedHash(distance, distanceUnit);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DistanceJson1.class,
-                "distance", distance,
-                "distanceUnit", distanceUnit);
+        return Utils.toString(DistanceJson1.class, "distance", distance, "distanceUnit", distanceUnit);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double distance;
 
         private DistanceUnit distanceUnit;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -130,9 +123,7 @@ public class DistanceJson1 {
         }
 
         public DistanceJson1 build() {
-            return new DistanceJson1(
-                distance, distanceUnit);
+            return new DistanceJson1(distance, distanceUnit);
         }
-
     }
 }

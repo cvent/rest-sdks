@@ -7,8 +7,8 @@ import com.cvent.models.components.ErrorScimTypeJson;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -36,20 +36,20 @@ public class ErrorResponseJson20 extends CventSDKError {
     private final Throwable deserializationException;
 
     public ErrorResponseJson20(
-                int code,
-                byte[] body,
-                HttpResponse<?> rawResponse,
-                @Nullable Data data,
-                @Nullable Throwable deserializationException) {
+            int code,
+            byte[] body,
+            HttpResponse<?> rawResponse,
+            @Nullable Data data,
+            @Nullable Throwable deserializationException) {
         super("API error occurred", code, body, rawResponse, null);
         this.data = data;
         this.deserializationException = deserializationException;
     }
 
     /**
-    * Parse a response into an instance of ErrorResponseJson20. If deserialization of the response body fails,
-    * the resulting ErrorResponseJson20 instance will have a null data() value and a non-null deserializationException().
-    */
+     * Parse a response into an instance of ErrorResponseJson20. If deserialization of the response body fails,
+     * the resulting ErrorResponseJson20 instance will have a null data() value and a non-null deserializationException().
+     */
     public static ErrorResponseJson20 from(HttpResponse<InputStream> response) {
         try {
             byte[] bytes = Utils.extractByteArrayFromBody(response);
@@ -61,42 +61,28 @@ public class ErrorResponseJson20 extends CventSDKError {
     }
 
     /**
-    * Parse a response into an instance of ErrorResponseJson20 asynchronously. If deserialization of the response body fails,
-    * the resulting ErrorResponseJson20 instance will have a null data() value and a non-null deserializationException().
-    */
+     * Parse a response into an instance of ErrorResponseJson20 asynchronously. If deserialization of the response body fails,
+     * the resulting ErrorResponseJson20 instance will have a null data() value and a non-null deserializationException().
+     */
     public static CompletableFuture<ErrorResponseJson20> fromAsync(HttpResponse<Blob> response) {
-        return response.body()
-                .toByteArray()
-                .handle((bytes, err) -> {
-                    // if a body read error occurs, we want to transform the exception
-                    if (err != null) {
-                        throw new AsyncAPIException(
-                                "Error reading response body: " + err.getMessage(),
-                                response.statusCode(),
-                                null,
-                                response,
-                                err);
-                    }
+        return response.body().toByteArray().handle((bytes, err) -> {
+            // if a body read error occurs, we want to transform the exception
+            if (err != null) {
+                throw new AsyncAPIException(
+                        "Error reading response body: " + err.getMessage(), response.statusCode(), null, response, err);
+            }
 
-                    try {
-                        return new ErrorResponseJson20(
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                Utils.mapper().readValue(
-                                        bytes,
-                                        new TypeReference<Data>() {
-                                        }),
-                                null);
-                    } catch (Exception e) {
-                        return new ErrorResponseJson20(
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                null,
-                                e);
-                    }
-                });
+            try {
+                return new ErrorResponseJson20(
+                        response.statusCode(),
+                        bytes,
+                        response,
+                        Utils.mapper().readValue(bytes, new TypeReference<Data>() {}),
+                        null);
+            } catch (Exception e) {
+                return new ErrorResponseJson20(response.statusCode(), bytes, response, null, e);
+            }
+        });
     }
 
     /**
@@ -143,7 +129,7 @@ public class ErrorResponseJson20 extends CventSDKError {
     }
     /**
      * Data
-     * 
+     *
      * <p>The error response.
      */
     public static class Data {
@@ -182,15 +168,12 @@ public class ErrorResponseJson20 extends CventSDKError {
             this.schemas = schemas;
             this.status = status;
             this.detail = Optional.ofNullable(detail)
-                .orElseThrow(() -> new IllegalArgumentException("detail cannot be null"));
+                    .orElseThrow(() -> new IllegalArgumentException("detail cannot be null"));
             this.scimType = scimType;
         }
-        
-        public Data(
-                long status,
-                @Nonnull String detail) {
-            this(null, status, detail,
-                null);
+
+        public Data(long status, @Nonnull String detail) {
+            this(null, status, detail, null);
         }
 
         /**
@@ -225,7 +208,6 @@ public class ErrorResponseJson20 extends CventSDKError {
             return new Builder();
         }
 
-
         /**
          * The collection of error schemas.
          */
@@ -233,7 +215,6 @@ public class ErrorResponseJson20 extends CventSDKError {
             this.schemas = schemas;
             return this;
         }
-
 
         /**
          * Status code for error.
@@ -243,7 +224,6 @@ public class ErrorResponseJson20 extends CventSDKError {
             return this;
         }
 
-
         /**
          * Details of the error.
          */
@@ -252,7 +232,6 @@ public class ErrorResponseJson20 extends CventSDKError {
             return this;
         }
 
-
         /**
          * This is used to denote the scim type of the error.
          */
@@ -260,7 +239,6 @@ public class ErrorResponseJson20 extends CventSDKError {
             this.scimType = scimType;
             return this;
         }
-
 
         @Override
         public boolean equals(java.lang.Object o) {
@@ -271,31 +249,25 @@ public class ErrorResponseJson20 extends CventSDKError {
                 return false;
             }
             Data other = (Data) o;
-            return 
-                Utils.enhancedDeepEquals(this.schemas, other.schemas) &&
-                Utils.enhancedDeepEquals(this.status, other.status) &&
-                Utils.enhancedDeepEquals(this.detail, other.detail) &&
-                Utils.enhancedDeepEquals(this.scimType, other.scimType);
+            return Utils.enhancedDeepEquals(this.schemas, other.schemas)
+                    && Utils.enhancedDeepEquals(this.status, other.status)
+                    && Utils.enhancedDeepEquals(this.detail, other.detail)
+                    && Utils.enhancedDeepEquals(this.scimType, other.scimType);
         }
-        
+
         @Override
         public int hashCode() {
-            return Utils.enhancedHash(
-                schemas, status, detail,
-                scimType);
+            return Utils.enhancedHash(schemas, status, detail, scimType);
         }
-        
+
         @Override
         public String toString() {
-            return Utils.toString(Data.class,
-                    "schemas", schemas,
-                    "status", status,
-                    "detail", detail,
-                    "scimType", scimType);
+            return Utils.toString(
+                    Data.class, "schemas", schemas, "status", status, "detail", detail, "scimType", scimType);
         }
 
         @SuppressWarnings("UnusedReturnValue")
-        public final static class Builder {
+        public static final class Builder {
 
             private List<String> schemas;
 
@@ -306,7 +278,7 @@ public class ErrorResponseJson20 extends CventSDKError {
             private ErrorScimTypeJson scimType;
 
             private Builder() {
-              // force use of static builder() method
+                // force use of static builder() method
             }
 
             /**
@@ -342,13 +314,8 @@ public class ErrorResponseJson20 extends CventSDKError {
             }
 
             public Data build() {
-                return new Data(
-                    schemas, status, detail,
-                    scimType);
+                return new Data(schemas, status, detail, scimType);
             }
-
         }
     }
-
 }
-

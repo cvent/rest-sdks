@@ -30,7 +30,7 @@ public class UpdateCurrencyConversionRateRequestBuilder {
     private UpdateCurrencyConversionRateRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateCurrencyConversionRateRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateCurrencyConversionRateRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateCurrencyConversionRateResponse> call() {
-        AsyncRequestOperation<UpdateCurrencyConversionRateRequest, UpdateCurrencyConversionRateResponse> operation
-              = new UpdateCurrencyConversionRate.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateCurrencyConversionRateRequest, UpdateCurrencyConversionRateResponse> operation =
+                new UpdateCurrencyConversionRate.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

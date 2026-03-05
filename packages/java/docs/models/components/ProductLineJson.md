@@ -2,6 +2,14 @@
 
 Cvent product lines or additional features.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ProductLineJson;
+
+ProductLineJson value = ProductLineJson.ABSTRACT_MANAGEMENT;
+```
+
 
 ## Values
 

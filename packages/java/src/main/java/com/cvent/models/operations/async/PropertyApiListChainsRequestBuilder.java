@@ -40,7 +40,7 @@ public class PropertyApiListChainsRequestBuilder {
     private PropertyApiListChainsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PropertyApiListChainsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class PropertyApiListChainsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<PropertyApiListChainsResponse> call() {
-        AsyncRequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation
-              = new PropertyApiListChains.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation =
+                new PropertyApiListChains.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class PropertyApiListChainsRequestBuilder {
      */
     public Publisher<PropertyApiListChainsResponse> callAsPublisher() {
         PropertyApiListChainsRequest request = this.request;
-        AsyncRequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation
-              = new PropertyApiListChains.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation =
+                new PropertyApiListChains.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            PropertyApiListChainsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                PropertyApiListChainsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<PropertyApiListChainsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<PropertyApiListChainsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

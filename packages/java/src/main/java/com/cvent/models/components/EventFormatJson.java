@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventFormatJson
- * 
+ *
  * <p>Denotes the format of an event.
  */
 public enum EventFormatJson {
@@ -24,13 +24,13 @@ public enum EventFormatJson {
     EventFormatJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventFormatJson> fromValue(String value) {
-        for (EventFormatJson o: EventFormatJson.values()) {
+        for (EventFormatJson o : EventFormatJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum EventFormatJson {
         return Optional.empty();
     }
 }
-

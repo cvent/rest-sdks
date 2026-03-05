@@ -2,6 +2,14 @@
 
 Name of the webcast provider.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = WebcastProviderJson.None;
+```
+
 
 ## Values
 

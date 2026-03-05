@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ComplianceScope
- * 
+ *
  * <p>Scope of privacy compliance.
  */
 public enum ComplianceScope {
@@ -22,13 +22,13 @@ public enum ComplianceScope {
     ComplianceScope(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ComplianceScope> fromValue(String value) {
-        for (ComplianceScope o: ComplianceScope.values()) {
+        for (ComplianceScope o : ComplianceScope.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -36,4 +36,3 @@ public enum ComplianceScope {
         return Optional.empty();
     }
 }
-

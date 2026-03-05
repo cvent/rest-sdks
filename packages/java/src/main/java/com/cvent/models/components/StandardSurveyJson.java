@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveyJson
- * 
+ *
  * <p>A standard survey.
  */
 public class StandardSurveyJson {
@@ -160,13 +160,9 @@ public class StandardSurveyJson {
         this.archiveAfter = archiveAfter;
         this.customFields = customFields;
     }
-    
+
     public StandardSurveyJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -278,7 +274,6 @@ public class StandardSurveyJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -286,7 +281,6 @@ public class StandardSurveyJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -296,7 +290,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -304,7 +297,6 @@ public class StandardSurveyJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -314,7 +306,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * Id of the survey or Id of the chapter in case of event survey
      */
@@ -322,7 +313,6 @@ public class StandardSurveyJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Title of the survey or Title of the chapter in case of event survey
@@ -332,7 +322,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * Survey Code or Chapter Code in case of event survey
      */
@@ -340,7 +329,6 @@ public class StandardSurveyJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * Timezone of the survey
@@ -350,7 +338,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * Author of the survey
      */
@@ -358,7 +345,6 @@ public class StandardSurveyJson {
         this.author = author;
         return this;
     }
-
 
     /**
      * Survey description
@@ -368,7 +354,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * The survey will be closed after this ISO 8601 formatted date and time.
      */
@@ -376,7 +361,6 @@ public class StandardSurveyJson {
         this.closeAfter = closeAfter;
         return this;
     }
-
 
     /**
      * The count of responses.
@@ -386,7 +370,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * Survey Status
      */
@@ -394,7 +377,6 @@ public class StandardSurveyJson {
         this.status = status;
         return this;
     }
-
 
     /**
      * The survey will be archived after this ISO 8601 formatted date and time.
@@ -404,7 +386,6 @@ public class StandardSurveyJson {
         return this;
     }
 
-
     /**
      * Collection of survey custom fields.
      */
@@ -412,7 +393,6 @@ public class StandardSurveyJson {
         this.customFields = customFields;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -423,56 +403,81 @@ public class StandardSurveyJson {
             return false;
         }
         StandardSurveyJson other = (StandardSurveyJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.author, other.author) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter) &&
-            Utils.enhancedDeepEquals(this.responseCount, other.responseCount) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.archiveAfter, other.archiveAfter) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.author, other.author)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.responseCount, other.responseCount)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.archiveAfter, other.archiveAfter)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, title,
-            code, timezone, author,
-            description, closeAfter, responseCount,
-            status, archiveAfter, customFields);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                title,
+                code,
+                timezone,
+                author,
+                description,
+                closeAfter,
+                responseCount,
+                status,
+                archiveAfter,
+                customFields);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveyJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "title", title,
-                "code", code,
-                "timezone", timezone,
-                "author", author,
-                "description", description,
-                "closeAfter", closeAfter,
-                "responseCount", responseCount,
-                "status", status,
-                "archiveAfter", archiveAfter,
-                "customFields", customFields);
+        return Utils.toString(
+                StandardSurveyJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "title",
+                title,
+                "code",
+                code,
+                "timezone",
+                timezone,
+                "author",
+                author,
+                "description",
+                description,
+                "closeAfter",
+                closeAfter,
+                "responseCount",
+                responseCount,
+                "status",
+                status,
+                "archiveAfter",
+                archiveAfter,
+                "customFields",
+                customFields);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -505,7 +510,7 @@ public class StandardSurveyJson {
         private List<CustomFieldJson4> customFields;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -630,12 +635,21 @@ public class StandardSurveyJson {
 
         public StandardSurveyJson build() {
             return new StandardSurveyJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, title,
-                code, timezone, author,
-                description, closeAfter, responseCount,
-                status, archiveAfter, customFields);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    title,
+                    code,
+                    timezone,
+                    author,
+                    description,
+                    closeAfter,
+                    responseCount,
+                    status,
+                    archiveAfter,
+                    customFields);
         }
-
     }
 }

@@ -30,7 +30,7 @@ public class GetSeatingRequestBuilder {
     private GetSeatingRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSeatingRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetSeatingRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSeatingResponse> call() {
-        AsyncRequestOperation<GetSeatingRequest, GetSeatingResponse> operation
-              = new GetSeating.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSeatingRequest, GetSeatingResponse> operation =
+                new GetSeating.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

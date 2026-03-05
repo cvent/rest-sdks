@@ -14,7 +14,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class GetTableRequest {
     /**
      * ID of an event.
@@ -38,13 +37,13 @@ public class GetTableRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a table will
      * have the list of seats IDs associated with the table. You can expand these objects in-line using the
      * expand query parameter.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seats
      * * **Scope**: seating/seats:read
@@ -59,21 +58,16 @@ public class GetTableRequest {
             @Nonnull String seatingId,
             @Nonnull String tableId,
             @Nullable List<TableExpand> expand) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.seatingId = Optional.ofNullable(seatingId)
-            .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
-        this.tableId = Optional.ofNullable(tableId)
-            .orElseThrow(() -> new IllegalArgumentException("tableId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
+        this.tableId =
+                Optional.ofNullable(tableId).orElseThrow(() -> new IllegalArgumentException("tableId cannot be null"));
         this.expand = expand;
     }
-    
-    public GetTableRequest(
-            @Nonnull String id,
-            @Nonnull String seatingId,
-            @Nonnull String tableId) {
-        this(id, seatingId, tableId,
-            null);
+
+    public GetTableRequest(@Nonnull String id, @Nonnull String seatingId, @Nonnull String tableId) {
+        this(id, seatingId, tableId, null);
     }
 
     /**
@@ -101,13 +95,13 @@ public class GetTableRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a table will
      * have the list of seats IDs associated with the table. You can expand these objects in-line using the
      * expand query parameter.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seats
      * * **Scope**: seating/seats:read
@@ -121,7 +115,6 @@ public class GetTableRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -129,7 +122,6 @@ public class GetTableRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of a seating.
@@ -139,7 +131,6 @@ public class GetTableRequest {
         return this;
     }
 
-
     /**
      * ID of a table.
      */
@@ -148,18 +139,17 @@ public class GetTableRequest {
         return this;
     }
 
-
     /**
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a table will
      * have the list of seats IDs associated with the table. You can expand these objects in-line using the
      * expand query parameter.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seats
      * * **Scope**: seating/seats:read
@@ -170,7 +160,6 @@ public class GetTableRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -180,31 +169,25 @@ public class GetTableRequest {
             return false;
         }
         GetTableRequest other = (GetTableRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.seatingId, other.seatingId) &&
-            Utils.enhancedDeepEquals(this.tableId, other.tableId) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.seatingId, other.seatingId)
+                && Utils.enhancedDeepEquals(this.tableId, other.tableId)
+                && Utils.enhancedDeepEquals(this.expand, other.expand);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, seatingId, tableId,
-            expand);
+        return Utils.enhancedHash(id, seatingId, tableId, expand);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTableRequest.class,
-                "id", id,
-                "seatingId", seatingId,
-                "tableId", tableId,
-                "expand", expand);
+        return Utils.toString(
+                GetTableRequest.class, "id", id, "seatingId", seatingId, "tableId", tableId, "expand", expand);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -215,7 +198,7 @@ public class GetTableRequest {
         private List<TableExpand> expand;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -246,13 +229,13 @@ public class GetTableRequest {
          * This endpoint allows you to request additional information as an expanded response using the expand
          * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
          * value.
-         * 
+         *
          * <p>An object contains the ID of a related object in its response properties. For example, a table will
          * have the list of seats IDs associated with the table. You can expand these objects in-line using the
          * expand query parameter.
-         * 
+         *
          * <p>The respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * seats
          * * **Scope**: seating/seats:read
@@ -264,10 +247,7 @@ public class GetTableRequest {
         }
 
         public GetTableRequest build() {
-            return new GetTableRequest(
-                id, seatingId, tableId,
-                expand);
+            return new GetTableRequest(id, seatingId, tableId, expand);
         }
-
     }
 }

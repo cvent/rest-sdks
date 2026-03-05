@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PropertyApiGetPropertyRequest {
     /**
      * The ID of the property.
@@ -20,10 +19,9 @@ public class PropertyApiGetPropertyRequest {
     private String propertyId;
 
     @JsonCreator
-    public PropertyApiGetPropertyRequest(
-            @Nonnull String propertyId) {
+    public PropertyApiGetPropertyRequest(@Nonnull String propertyId) {
         this.propertyId = Optional.ofNullable(propertyId)
-            .orElseThrow(() -> new IllegalArgumentException("propertyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("propertyId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class PropertyApiGetPropertyRequest {
         return new Builder();
     }
 
-
     /**
      * The ID of the property.
      */
@@ -45,7 +42,6 @@ public class PropertyApiGetPropertyRequest {
         this.propertyId = Utils.checkNotNull(propertyId, "propertyId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class PropertyApiGetPropertyRequest {
             return false;
         }
         PropertyApiGetPropertyRequest other = (PropertyApiGetPropertyRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.propertyId, other.propertyId);
+        return Utils.enhancedDeepEquals(this.propertyId, other.propertyId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            propertyId);
+        return Utils.enhancedHash(propertyId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyApiGetPropertyRequest.class,
-                "propertyId", propertyId);
+        return Utils.toString(PropertyApiGetPropertyRequest.class, "propertyId", propertyId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String propertyId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class PropertyApiGetPropertyRequest {
         }
 
         public PropertyApiGetPropertyRequest build() {
-            return new PropertyApiGetPropertyRequest(
-                propertyId);
+            return new PropertyApiGetPropertyRequest(propertyId);
         }
-
     }
 }

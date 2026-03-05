@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyRespondentInput
- * 
+ *
  * <p>Respondent detail object for event survey.
  */
 public class EventSurveyRespondentInput {
@@ -28,11 +28,11 @@ public class EventSurveyRespondentInput {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -80,10 +80,9 @@ public class EventSurveyRespondentInput {
         this.sourceId = sourceId;
         this.attendee = attendee;
     }
-    
+
     public EventSurveyRespondentInput() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -95,11 +94,11 @@ public class EventSurveyRespondentInput {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -138,7 +137,6 @@ public class EventSurveyRespondentInput {
         return new Builder();
     }
 
-
     /**
      * Locale Id of the respondent using the IETF Language Tag format
      */
@@ -147,14 +145,13 @@ public class EventSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -168,7 +165,6 @@ public class EventSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
      * weblinks with different values of referenceId query param in them.
@@ -178,7 +174,6 @@ public class EventSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Source IDs track respondents in an external system integrated with the Cvent survey.
      */
@@ -187,7 +182,6 @@ public class EventSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Associated attendee.
      */
@@ -195,7 +189,6 @@ public class EventSurveyRespondentInput {
         this.attendee = attendee;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -206,33 +199,36 @@ public class EventSurveyRespondentInput {
             return false;
         }
         EventSurveyRespondentInput other = (EventSurveyRespondentInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.localeId, other.localeId) &&
-            Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee);
+        return Utils.enhancedDeepEquals(this.localeId, other.localeId)
+                && Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            localeId, respondedThrough, referenceId,
-            sourceId, attendee);
+        return Utils.enhancedHash(localeId, respondedThrough, referenceId, sourceId, attendee);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyRespondentInput.class,
-                "localeId", localeId,
-                "respondedThrough", respondedThrough,
-                "referenceId", referenceId,
-                "sourceId", sourceId,
-                "attendee", attendee);
+        return Utils.toString(
+                EventSurveyRespondentInput.class,
+                "localeId",
+                localeId,
+                "respondedThrough",
+                respondedThrough,
+                "referenceId",
+                referenceId,
+                "sourceId",
+                sourceId,
+                "attendee",
+                attendee);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String localeId;
 
@@ -245,7 +241,7 @@ public class EventSurveyRespondentInput {
         private EventSurveyRespondentAttendee attendee;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -258,11 +254,11 @@ public class EventSurveyRespondentInput {
 
         /**
          * Indicates the mode by which a respondent submitted their response.
-         * 
+         *
          * <p>This field contains one of the enumerated, string constants listed below.
-         * 
+         *
          * <p>Enum values:
-         * 
+         *
          * <p>- "Not Responded": Respondent did not provide a response.
          * - "API": Response was submitted via an API.
          * - "Import": Response was created by a bulk import process.
@@ -302,10 +298,7 @@ public class EventSurveyRespondentInput {
         }
 
         public EventSurveyRespondentInput build() {
-            return new EventSurveyRespondentInput(
-                localeId, respondedThrough, referenceId,
-                sourceId, attendee);
+            return new EventSurveyRespondentInput(localeId, respondedThrough, referenceId, sourceId, attendee);
         }
-
     }
 }

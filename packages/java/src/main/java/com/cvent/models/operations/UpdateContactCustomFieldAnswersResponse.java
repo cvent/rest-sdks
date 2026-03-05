@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateContactCustomFieldAnswersResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CustomField customField) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.customField = customField;
     }
-    
+
     public UpdateContactCustomFieldAnswersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated custom field answers for a contact
      */
@@ -126,7 +118,6 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         this.customField = customField;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
             return false;
         }
         UpdateContactCustomFieldAnswersResponse other = (UpdateContactCustomFieldAnswersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.customField, other.customField);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.customField, other.customField);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            customField);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateContactCustomFieldAnswersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "customField", customField);
+        return Utils.toString(
+                UpdateContactCustomFieldAnswersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "customField",
+                customField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         private CustomField customField;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class UpdateContactCustomFieldAnswersResponse implements Response {
         }
 
         public UpdateContactCustomFieldAnswersResponse build() {
-            return new UpdateContactCustomFieldAnswersResponse(
-                contentType, statusCode, rawResponse,
-                customField);
+            return new UpdateContactCustomFieldAnswersResponse(contentType, statusCode, rawResponse, customField);
         }
-
     }
 }

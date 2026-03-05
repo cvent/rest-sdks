@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf9
- * 
+ *
  * <p>Information about housing event with key information, providing a summarized view.
  */
 public class ZeroAllOf9 {
@@ -79,20 +79,16 @@ public class ZeroAllOf9 {
             @JsonProperty("venue") @Nonnull VenueJson1 venue,
             @JsonProperty("status") @Nonnull HousingEventStatusesJson status) {
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
-        this.cutOff = Optional.ofNullable(cutOff)
-            .orElseThrow(() -> new IllegalArgumentException("cutOff cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.cutOff =
+                Optional.ofNullable(cutOff).orElseThrow(() -> new IllegalArgumentException("cutOff cannot be null"));
         this.timeZone = Optional.ofNullable(timeZone)
-            .orElseThrow(() -> new IllegalArgumentException("timeZone cannot be null"));
-        this.venue = Optional.ofNullable(venue)
-            .orElseThrow(() -> new IllegalArgumentException("venue cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("timeZone cannot be null"));
+        this.venue = Optional.ofNullable(venue).orElseThrow(() -> new IllegalArgumentException("venue cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
     }
 
     /**
@@ -157,7 +153,6 @@ public class ZeroAllOf9 {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the housing event.
      */
@@ -166,7 +161,6 @@ public class ZeroAllOf9 {
         return this;
     }
 
-
     /**
      * Event name.
      */
@@ -174,7 +168,6 @@ public class ZeroAllOf9 {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
@@ -185,7 +178,6 @@ public class ZeroAllOf9 {
         return this;
     }
 
-
     /**
      * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
      */
@@ -193,7 +185,6 @@ public class ZeroAllOf9 {
         this.end = Utils.checkNotNull(end, "end");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
@@ -204,7 +195,6 @@ public class ZeroAllOf9 {
         return this;
     }
 
-
     /**
      * The event timezone from the Olson specification.
      */
@@ -212,7 +202,6 @@ public class ZeroAllOf9 {
         this.timeZone = Utils.checkNotNull(timeZone, "timeZone");
         return this;
     }
-
 
     /**
      * Event venue details.
@@ -222,7 +211,6 @@ public class ZeroAllOf9 {
         return this;
     }
 
-
     /**
      * Housing event status.
      */
@@ -230,7 +218,6 @@ public class ZeroAllOf9 {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -241,40 +228,45 @@ public class ZeroAllOf9 {
             return false;
         }
         ZeroAllOf9 other = (ZeroAllOf9) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.cutOff, other.cutOff) &&
-            Utils.enhancedDeepEquals(this.timeZone, other.timeZone) &&
-            Utils.enhancedDeepEquals(this.venue, other.venue) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.cutOff, other.cutOff)
+                && Utils.enhancedDeepEquals(this.timeZone, other.timeZone)
+                && Utils.enhancedDeepEquals(this.venue, other.venue)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, start,
-            end, cutOff, timeZone,
-            venue, status);
+        return Utils.enhancedHash(id, name, start, end, cutOff, timeZone, venue, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf9.class,
-                "id", id,
-                "name", name,
-                "start", start,
-                "end", end,
-                "cutOff", cutOff,
-                "timeZone", timeZone,
-                "venue", venue,
-                "status", status);
+        return Utils.toString(
+                ZeroAllOf9.class,
+                "id",
+                id,
+                "name",
+                name,
+                "start",
+                start,
+                "end",
+                end,
+                "cutOff",
+                cutOff,
+                "timeZone",
+                timeZone,
+                "venue",
+                venue,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -293,7 +285,7 @@ public class ZeroAllOf9 {
         private HousingEventStatusesJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -363,11 +355,7 @@ public class ZeroAllOf9 {
         }
 
         public ZeroAllOf9 build() {
-            return new ZeroAllOf9(
-                id, name, start,
-                end, cutOff, timeZone,
-                venue, status);
+            return new ZeroAllOf9(id, name, start, end, cutOff, timeZone, venue, status);
         }
-
     }
 }

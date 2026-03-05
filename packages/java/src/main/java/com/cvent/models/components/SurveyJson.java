@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * SurveyJson
- * 
+ *
  * <p>Parent survey detail object. It can be of two types namely: 'Event' and 'Standalone'
  */
 public class SurveyJson {
@@ -116,7 +116,7 @@ public class SurveyJson {
     /**
      * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
      * `Event` indicates the survey is an event or session feedback survey.
-     * 
+     *
      * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -172,14 +172,9 @@ public class SurveyJson {
         this.activateDate = activateDate;
         this.events = events;
     }
-    
+
     public SurveyJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -276,7 +271,7 @@ public class SurveyJson {
     /**
      * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
      * `Event` indicates the survey is an event or session feedback survey.
-     * 
+     *
      * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
      */
     public Optional<SurveyTypeJson> type() {
@@ -301,7 +296,6 @@ public class SurveyJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -309,7 +303,6 @@ public class SurveyJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -319,7 +312,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -327,7 +319,6 @@ public class SurveyJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -337,7 +328,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * Id of the survey or Id of the chapter in case of event survey
      */
@@ -345,7 +335,6 @@ public class SurveyJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Title of the survey or Title of the chapter in case of event survey
@@ -355,7 +344,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * Survey Code or Chapter Code in case of event survey
      */
@@ -363,7 +351,6 @@ public class SurveyJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * Timezone of the survey
@@ -373,7 +360,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * Author of the survey
      */
@@ -381,7 +367,6 @@ public class SurveyJson {
         this.author = author;
         return this;
     }
-
 
     /**
      * Survey description
@@ -391,7 +376,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * The survey will be closed after this ISO 8601 formatted date and time.
      */
@@ -399,7 +383,6 @@ public class SurveyJson {
         this.closeAfter = closeAfter;
         return this;
     }
-
 
     /**
      * Count of responses.
@@ -409,7 +392,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * Survey Status
      */
@@ -418,18 +400,16 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
      * `Event` indicates the survey is an event or session feedback survey.
-     * 
+     *
      * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
      */
     public SurveyJson withType(@Nullable SurveyTypeJson type) {
         this.type = type;
         return this;
     }
-
 
     /**
      * The survey will be activated on this ISO 8601 formatted date and time.
@@ -439,7 +419,6 @@ public class SurveyJson {
         return this;
     }
 
-
     /**
      * List of events with which this survey is linked.
      */
@@ -447,7 +426,6 @@ public class SurveyJson {
         this.events = events;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -458,59 +436,85 @@ public class SurveyJson {
             return false;
         }
         SurveyJson other = (SurveyJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.author, other.author) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter) &&
-            Utils.enhancedDeepEquals(this.responseCount, other.responseCount) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.activateDate, other.activateDate) &&
-            Utils.enhancedDeepEquals(this.events, other.events);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.author, other.author)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.responseCount, other.responseCount)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.activateDate, other.activateDate)
+                && Utils.enhancedDeepEquals(this.events, other.events);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, title,
-            code, timezone, author,
-            description, closeAfter, responseCount,
-            status, type, activateDate,
-            events);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                title,
+                code,
+                timezone,
+                author,
+                description,
+                closeAfter,
+                responseCount,
+                status,
+                type,
+                activateDate,
+                events);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SurveyJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "title", title,
-                "code", code,
-                "timezone", timezone,
-                "author", author,
-                "description", description,
-                "closeAfter", closeAfter,
-                "responseCount", responseCount,
-                "status", status,
-                "type", type,
-                "activateDate", activateDate,
-                "events", events);
+        return Utils.toString(
+                SurveyJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "title",
+                title,
+                "code",
+                code,
+                "timezone",
+                timezone,
+                "author",
+                author,
+                "description",
+                description,
+                "closeAfter",
+                closeAfter,
+                "responseCount",
+                responseCount,
+                "status",
+                status,
+                "type",
+                type,
+                "activateDate",
+                activateDate,
+                "events",
+                events);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -545,7 +549,7 @@ public class SurveyJson {
         private List<EventJson6> events;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -655,7 +659,7 @@ public class SurveyJson {
         /**
          * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
          * `Event` indicates the survey is an event or session feedback survey.
-         * 
+         *
          * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
          */
         public Builder type(@Nullable SurveyTypeJson type) {
@@ -681,13 +685,22 @@ public class SurveyJson {
 
         public SurveyJson build() {
             return new SurveyJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, title,
-                code, timezone, author,
-                description, closeAfter, responseCount,
-                status, type, activateDate,
-                events);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    title,
+                    code,
+                    timezone,
+                    author,
+                    description,
+                    closeAfter,
+                    responseCount,
+                    status,
+                    type,
+                    activateDate,
+                    events);
         }
-
     }
 }

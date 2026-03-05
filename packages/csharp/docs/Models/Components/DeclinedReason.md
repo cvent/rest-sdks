@@ -2,6 +2,14 @@
 
 The set of decline reasons available for proposals
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = DeclinedReason.DidNotMeetRequirements;
+```
+
 
 ## Values
 

@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -32,10 +32,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class DeleteAccountUserGroup {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -44,7 +43,7 @@ public class DeleteAccountUserGroup {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -80,15 +79,11 @@ public class DeleteAccountUserGroup {
                     java.util.Optional.of(java.util.List.of("account/user-groups:delete")),
                     securitySource());
         }
-        <T>HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/account-user-groups/{userGroupId}",
-                    request, null);
+
+        <T> HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
+            String url = Utils.generateURL(klass, this.baseUrl, "/account-user-groups/{userGroupId}", request, null);
             HTTPRequest req = new HTTPRequest(url, "DELETE");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -107,11 +102,11 @@ public class DeleteAccountUserGroup {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -136,22 +131,16 @@ public class DeleteAccountUserGroup {
             return httpRes;
         }
 
-
         @Override
         public DeleteAccountUserGroupResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            DeleteAccountUserGroupResponse.Builder resBuilder =
-                    DeleteAccountUserGroupResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            DeleteAccountUserGroupResponse.Builder resBuilder = DeleteAccountUserGroupResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             DeleteAccountUserGroupResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "204")) {
                 // no content
                 return res;
@@ -174,8 +163,10 @@ public class DeleteAccountUserGroup {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<DeleteAccountUserGroupRequest, com.cvent.models.operations.async.DeleteAccountUserGroupResponse> {
+            implements AsyncRequestOperation<
+                    DeleteAccountUserGroupRequest, com.cvent.models.operations.async.DeleteAccountUserGroupResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
@@ -196,7 +187,9 @@ public class DeleteAccountUserGroup {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(DeleteAccountUserGroupRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -213,27 +206,22 @@ public class DeleteAccountUserGroup {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.DeleteAccountUserGroupResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.DeleteAccountUserGroupResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.DeleteAccountUserGroupResponse
-                            .builder()
+                    com.cvent.models.operations.async.DeleteAccountUserGroupResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.DeleteAccountUserGroupResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "204")) {
                 // no content
                 return CompletableFuture.completedFuture(res);
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

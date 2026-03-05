@@ -35,7 +35,7 @@ import jakarta.annotation.Nonnull;
 /**
  * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
  * processes the uploaded data asynchronously making API calls on behalf of the caller.
- * 
+ *
  * <p>Consumers of the bulk API will do the following:
  * * [Create a bulk job](#operation/createBulkJob) with or without data
  * * *(Optional)* If a bulk job was created without data, then [upload bulk job
@@ -43,9 +43,9 @@ import jakarta.annotation.Nonnull;
  * * *(Optional)* [Run bulk job](#operation/runBulkJob)
  * * Use [get bulk job](#operation/getBulkJobById) to track status
  * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
- * 
+ *
  * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
- * 
+ *
  * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
  * will expire
  * 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The
@@ -65,7 +65,7 @@ public class Bulk {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncBulk async() {
@@ -74,9 +74,9 @@ public class Bulk {
 
     /**
      * Create Bulk Job
-     * 
+     *
      * <p>Creates a bulk job.
-     * 
+     *
      * <p>**Note:** When creating a bulk job you can optionally include the data in the create request.
      * If data is supplied the job will be started and there is no need to call the [run bulk
      * job](#operation/runBulkJob) endpoint.
@@ -86,7 +86,7 @@ public class Bulk {
      * In addition, if data is supplied and your account has reached its limit for concurrently running
      * bulk jobs,
      * the job will not be created.
-     * 
+     *
      * @return The call builder
      */
     public CreateBulkJobRequestBuilder createBulkJob() {
@@ -95,9 +95,9 @@ public class Bulk {
 
     /**
      * Create Bulk Job
-     * 
+     *
      * <p>Creates a bulk job.
-     * 
+     *
      * <p>**Note:** When creating a bulk job you can optionally include the data in the create request.
      * If data is supplied the job will be started and there is no need to call the [run bulk
      * job](#operation/runBulkJob) endpoint.
@@ -107,22 +107,22 @@ public class Bulk {
      * In addition, if data is supplied and your account has reached its limit for concurrently running
      * bulk jobs,
      * the job will not be created.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateBulkJobResponse createBulkJob(@Nonnull BulkJobWithDataInput request) {
-        RequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation
-              = new CreateBulkJob.Sync(sdkConfiguration, _headers);
+        RequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation =
+                new CreateBulkJob.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Bulk Job
-     * 
+     *
      * <p>Gets a bulk job by its identifier.
-     * 
+     *
      * @return The call builder
      */
     public GetBulkJobByIdRequestBuilder getBulkJobById() {
@@ -131,25 +131,25 @@ public class Bulk {
 
     /**
      * Get Bulk Job
-     * 
+     *
      * <p>Gets a bulk job by its identifier.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBulkJobByIdResponse getBulkJobById(@Nonnull GetBulkJobByIdRequest request) {
-        RequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation
-              = new GetBulkJobById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation =
+                new GetBulkJobById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Cancel Bulk Job
-     * 
+     *
      * <p>Cancels the bulk job. The job will stop processing after it finishes processing its current batch,
      * if any.
-     * 
+     *
      * @return The call builder
      */
     public CancelBulkJobRequestBuilder cancelBulkJob() {
@@ -158,31 +158,31 @@ public class Bulk {
 
     /**
      * Cancel Bulk Job
-     * 
+     *
      * <p>Cancels the bulk job. The job will stop processing after it finishes processing its current batch,
      * if any.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CancelBulkJobResponse cancelBulkJob(@Nonnull CancelBulkJobRequest request) {
-        RequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation
-              = new CancelBulkJob.Sync(sdkConfiguration, _headers);
+        RequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation =
+                new CancelBulkJob.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Upload Bulk Job Data
-     * 
+     *
      * <p>This will upload data to be processed by a bulk job. There is a limit on the number of records that
      * can be uploaded per call and this endpoint can be called multiple times before starting a job run.
-     * 
+     *
      * <p>Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.
      * If you have a need for a greater limit, this can be increased for your account (up to a hard limit
      * of 150,000)
      * by contacting Cvent support.
-     * 
+     *
      * @return The call builder
      */
     public UploadBulkJobDataRequestBuilder uploadBulkJobData() {
@@ -191,30 +191,30 @@ public class Bulk {
 
     /**
      * Upload Bulk Job Data
-     * 
+     *
      * <p>This will upload data to be processed by a bulk job. There is a limit on the number of records that
      * can be uploaded per call and this endpoint can be called multiple times before starting a job run.
-     * 
+     *
      * <p>Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.
      * If you have a need for a greater limit, this can be increased for your account (up to a hard limit
      * of 150,000)
      * by contacting Cvent support.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UploadBulkJobDataResponse uploadBulkJobData(@Nonnull UploadBulkJobDataRequest request) {
-        RequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation
-              = new UploadBulkJobData.Sync(sdkConfiguration, _headers);
+        RequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
+                new UploadBulkJobData.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Bulk Job Result
-     * 
+     *
      * <p>Used to list the results of a bulk Job.
-     * 
+     *
      * @return The call builder
      */
     public ListBulkJobResultRequestBuilder listBulkJobResult() {
@@ -223,26 +223,26 @@ public class Bulk {
 
     /**
      * List Bulk Job Result
-     * 
+     *
      * <p>Used to list the results of a bulk Job.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListBulkJobResultResponse listBulkJobResult(@Nonnull ListBulkJobResultRequest request) {
-        RequestOperation<ListBulkJobResultRequest, ListBulkJobResultResponse> operation
-              = new ListBulkJobResult.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListBulkJobResultRequest, ListBulkJobResultResponse> operation =
+                new ListBulkJobResult.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Run Bulk Job
-     * 
+     *
      * <p>Begins the processing of data uploaded in a bulk job.
-     * 
+     *
      * <p>**Note**: You can have a maximum of two bulk jobs running concurrently.
-     * 
+     *
      * @return The call builder
      */
     public RunBulkJobRequestBuilder runBulkJob() {
@@ -251,19 +251,18 @@ public class Bulk {
 
     /**
      * Run Bulk Job
-     * 
+     *
      * <p>Begins the processing of data uploaded in a bulk job.
-     * 
+     *
      * <p>**Note**: You can have a maximum of two bulk jobs running concurrently.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public RunBulkJobResponse runBulkJob(@Nonnull RunBulkJobRequest request) {
-        RequestOperation<RunBulkJobRequest, RunBulkJobResponse> operation
-              = new RunBulkJob.Sync(sdkConfiguration, _headers);
+        RequestOperation<RunBulkJobRequest, RunBulkJobResponse> operation =
+                new RunBulkJob.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

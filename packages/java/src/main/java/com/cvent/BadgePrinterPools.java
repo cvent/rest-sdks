@@ -31,7 +31,7 @@ public class BadgePrinterPools {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncBadgePrinterPools async() {
@@ -40,11 +40,11 @@ public class BadgePrinterPools {
 
     /**
      * List Badge Printer Pools
-     * 
+     *
      * <p>Gets a paginated list of badge printer pools
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetBadgePrinterPoolsRequestBuilder getBadgePrinterPools() {
@@ -53,28 +53,28 @@ public class BadgePrinterPools {
 
     /**
      * List Badge Printer Pools
-     * 
+     *
      * <p>Gets a paginated list of badge printer pools
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgePrinterPoolsResponse getBadgePrinterPools(@Nonnull GetBadgePrinterPoolsRequest request) {
-        RequestOperation<GetBadgePrinterPoolsRequest, GetBadgePrinterPoolsResponse> operation
-              = new GetBadgePrinterPools.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBadgePrinterPoolsRequest, GetBadgePrinterPoolsResponse> operation =
+                new GetBadgePrinterPools.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Badge Printer Pool
-     * 
+     *
      * <p>Gets a single badge printer pool by its ID
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetBadgePrinterPoolRequestBuilder getBadgePrinterPool() {
@@ -83,19 +83,18 @@ public class BadgePrinterPools {
 
     /**
      * Get Badge Printer Pool
-     * 
+     *
      * <p>Gets a single badge printer pool by its ID
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgePrinterPoolResponse getBadgePrinterPool(@Nonnull GetBadgePrinterPoolRequest request) {
-        RequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation
-              = new GetBadgePrinterPool.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation =
+                new GetBadgePrinterPool.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * LeadQualificationQuestionJson
- * 
+ *
  * <p>A JSON schema representing a Lead Qualification Question model
  */
 public class LeadQualificationQuestionJson {
@@ -151,13 +151,9 @@ public class LeadQualificationQuestionJson {
         this.required = required;
         this.text = text;
     }
-    
+
     public LeadQualificationQuestionJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -262,7 +258,6 @@ public class LeadQualificationQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -270,7 +265,6 @@ public class LeadQualificationQuestionJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -280,7 +274,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -288,7 +281,6 @@ public class LeadQualificationQuestionJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -298,7 +290,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * Lead Qualification Question id
      */
@@ -306,7 +297,6 @@ public class LeadQualificationQuestionJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The Associated Event.
@@ -316,7 +306,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * The Associated Exhibitor.
      */
@@ -324,7 +313,6 @@ public class LeadQualificationQuestionJson {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * Type of question
@@ -334,7 +322,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * question code
      */
@@ -342,7 +329,6 @@ public class LeadQualificationQuestionJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * List of available choices for the question
@@ -352,7 +338,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * Contains text of additional choice
      */
@@ -360,7 +345,6 @@ public class LeadQualificationQuestionJson {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
-
 
     /**
      * Contains text of additional choice
@@ -370,7 +354,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * A boolean indicating whether the question is mandatory or not
      */
@@ -379,7 +362,6 @@ public class LeadQualificationQuestionJson {
         return this;
     }
 
-
     /**
      * text of the question
      */
@@ -387,7 +369,6 @@ public class LeadQualificationQuestionJson {
         this.text = text;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -398,54 +379,77 @@ public class LeadQualificationQuestionJson {
             return false;
         }
         LeadQualificationQuestionJson other = (LeadQualificationQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.choices, other.choices) &&
-            Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer) &&
-            Utils.enhancedDeepEquals(this.otherAnswers, other.otherAnswers) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.choices, other.choices)
+                && Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer)
+                && Utils.enhancedDeepEquals(this.otherAnswers, other.otherAnswers)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            exhibitor, type, code,
-            choices, notApplicableAnswer, otherAnswers,
-            required, text);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                exhibitor,
+                type,
+                code,
+                choices,
+                notApplicableAnswer,
+                otherAnswers,
+                required,
+                text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadQualificationQuestionJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "exhibitor", exhibitor,
-                "type", type,
-                "code", code,
-                "choices", choices,
-                "notApplicableAnswer", notApplicableAnswer,
-                "otherAnswers", otherAnswers,
-                "required", required,
-                "text", text);
+        return Utils.toString(
+                LeadQualificationQuestionJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "type",
+                type,
+                "code",
+                code,
+                "choices",
+                choices,
+                "notApplicableAnswer",
+                notApplicableAnswer,
+                "otherAnswers",
+                otherAnswers,
+                "required",
+                required,
+                "text",
+                text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -476,7 +480,7 @@ public class LeadQualificationQuestionJson {
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -593,12 +597,20 @@ public class LeadQualificationQuestionJson {
 
         public LeadQualificationQuestionJson build() {
             return new LeadQualificationQuestionJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                exhibitor, type, code,
-                choices, notApplicableAnswer, otherAnswers,
-                required, text);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    exhibitor,
+                    type,
+                    code,
+                    choices,
+                    notApplicableAnswer,
+                    otherAnswers,
+                    required,
+                    text);
         }
-
     }
 }

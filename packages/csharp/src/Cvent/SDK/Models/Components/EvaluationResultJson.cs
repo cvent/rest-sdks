@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EvaluationResultJson
     {
-        [JsonProperty("Passed")]
-        Passed,
-        [JsonProperty("Failed")]
-        Failed,
-        [JsonProperty("Unevaluated")]
-        Unevaluated,
+        [JsonProperty("Passed")] Passed,
+        [JsonProperty("Failed")] Failed,
+        [JsonProperty("Unevaluated")] Unevaluated,
     }
 
     public static class EvaluationResultJsonExtension
     {
         public static string Value(this EvaluationResultJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EvaluationResultJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EvaluationResultJson).GetFields())
+            foreach (var field in typeof(EvaluationResultJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

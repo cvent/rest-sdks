@@ -18,44 +18,31 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DateTypeJson1
     {
-        [JsonProperty("PREFERRED")]
-        Preferred,
-        [JsonProperty("ALTERNATE_1")]
-        Alternate1,
-        [JsonProperty("ALTERNATE_2")]
-        Alternate2,
-        [JsonProperty("ALTERNATE_3")]
-        Alternate3,
-        [JsonProperty("ALTERNATE_4")]
-        Alternate4,
-        [JsonProperty("ALTERNATE_5")]
-        Alternate5,
-        [JsonProperty("ALTERNATE_6")]
-        Alternate6,
-        [JsonProperty("ALTERNATE_7")]
-        Alternate7,
-        [JsonProperty("ALTERNATE_8")]
-        Alternate8,
-        [JsonProperty("ALTERNATE_9")]
-        Alternate9,
-        [JsonProperty("ALTERNATE_10")]
-        Alternate10,
-        [JsonProperty("ALTERNATE_11")]
-        Alternate11,
-        [JsonProperty("ALTERNATE_12")]
-        Alternate12,
+        [JsonProperty("PREFERRED")] Preferred,
+        [JsonProperty("ALTERNATE_1")] Alternate1,
+        [JsonProperty("ALTERNATE_2")] Alternate2,
+        [JsonProperty("ALTERNATE_3")] Alternate3,
+        [JsonProperty("ALTERNATE_4")] Alternate4,
+        [JsonProperty("ALTERNATE_5")] Alternate5,
+        [JsonProperty("ALTERNATE_6")] Alternate6,
+        [JsonProperty("ALTERNATE_7")] Alternate7,
+        [JsonProperty("ALTERNATE_8")] Alternate8,
+        [JsonProperty("ALTERNATE_9")] Alternate9,
+        [JsonProperty("ALTERNATE_10")] Alternate10,
+        [JsonProperty("ALTERNATE_11")] Alternate11,
+        [JsonProperty("ALTERNATE_12")] Alternate12,
     }
 
     public static class DateTypeJson1Extension
     {
         public static string Value(this DateTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DateTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(DateTypeJson1).GetFields())
+            foreach (var field in typeof(DateTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * CompositeValueJson
- * 
+ *
  * <p>A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room
  * requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID
  * determines the type of requirement: Meeting Room requirement for
@@ -31,26 +31,26 @@ public class CompositeValueJson {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private CompositeValueJson(TypedObject value) {
         this.value = value;
     }
 
     public static CompositeValueJson ofMeetingRoomRequirementJson(List<MeetingRoomRequirementJson> value) {
         Utils.checkNotNull(value, "value");
-        return new CompositeValueJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new CompositeValueJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static CompositeValueJson ofSleepingRoomRequirementJson(List<SleepingRoomRequirementJson> value) {
         Utils.checkNotNull(value, "value");
-        return new CompositeValueJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new CompositeValueJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static CompositeValueJson ofBudgetEstimateJson(List<BudgetEstimateJson> value) {
         Utils.checkNotNull(value, "value");
-        return new CompositeValueJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new CompositeValueJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
@@ -58,22 +58,22 @@ public class CompositeValueJson {
      * <li>{@code java.util.List<com.cvent.models.components.SleepingRoomRequirementJson>}</li>
      * <li>{@code java.util.List<com.cvent.models.components.BudgetEstimateJson>}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -85,28 +85,29 @@ public class CompositeValueJson {
         CompositeValueJson other = (CompositeValueJson) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<CompositeValueJson> {
 
         public _Deserializer() {
-            super(CompositeValueJson.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<List<MeetingRoomRequirementJson>>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<List<SleepingRoomRequirementJson>>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<List<BudgetEstimateJson>>() {}, JsonShape.DEFAULT));
+            super(
+                    CompositeValueJson.class,
+                    false,
+                    TypeReferenceWithShape.of(
+                            new TypeReference<List<MeetingRoomRequirementJson>>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<List<SleepingRoomRequirementJson>>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<List<BudgetEstimateJson>>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CompositeValueJson.class,
-                "value", value);
+        return Utils.toString(CompositeValueJson.class, "value", value);
     }
-
 }
-

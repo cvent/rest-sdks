@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ChoiceTypeJson
     {
-        [JsonProperty("StandardChoice")]
-        StandardChoice,
-        [JsonProperty("OtherChoice")]
-        OtherChoice,
-        [JsonProperty("NotApplicableChoice")]
-        NotApplicableChoice,
+        [JsonProperty("StandardChoice")] StandardChoice,
+        [JsonProperty("OtherChoice")] OtherChoice,
+        [JsonProperty("NotApplicableChoice")] NotApplicableChoice,
     }
 
     public static class ChoiceTypeJsonExtension
     {
         public static string Value(this ChoiceTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ChoiceTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ChoiceTypeJson).GetFields())
+            foreach (var field in typeof(ChoiceTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

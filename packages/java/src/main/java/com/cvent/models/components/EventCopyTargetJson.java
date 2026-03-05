@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventCopyTargetJson
- * 
+ *
  * <p>Represents the target event information for an event copy operation.
  */
 public class EventCopyTargetJson {
@@ -28,11 +28,10 @@ public class EventCopyTargetJson {
     private String id;
 
     @JsonCreator
-    public EventCopyTargetJson(
-            @JsonProperty("id") @Nullable String id) {
+    public EventCopyTargetJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public EventCopyTargetJson() {
         this(null);
     }
@@ -49,7 +48,6 @@ public class EventCopyTargetJson {
         return new Builder();
     }
 
-
     /**
      * The ID of an existing event that you want to copy the source event data into. If this value is not
      * present, a new event is created.
@@ -58,7 +56,6 @@ public class EventCopyTargetJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -69,29 +66,26 @@ public class EventCopyTargetJson {
             return false;
         }
         EventCopyTargetJson other = (EventCopyTargetJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCopyTargetJson.class,
-                "id", id);
+        return Utils.toString(EventCopyTargetJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,9 +98,7 @@ public class EventCopyTargetJson {
         }
 
         public EventCopyTargetJson build() {
-            return new EventCopyTargetJson(
-                id);
+            return new EventCopyTargetJson(id);
         }
-
     }
 }

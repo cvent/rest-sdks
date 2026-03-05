@@ -30,7 +30,7 @@ public class GetReservationRequestBuilder {
     private GetReservationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetReservationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetReservationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetReservationResponse> call() {
-        AsyncRequestOperation<GetReservationRequest, GetReservationResponse> operation
-              = new GetReservation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetReservationRequest, GetReservationResponse> operation =
+                new GetReservation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AppointmentAccepted
- * 
+ *
  * <p>Appointment activity
  */
 public class AppointmentAccepted {
@@ -40,7 +40,7 @@ public class AppointmentAccepted {
         this.appointment = appointment;
         this.contact = contact;
     }
-    
+
     public AppointmentAccepted() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class AppointmentAccepted {
         return new Builder();
     }
 
-
     /**
      * An activity appointment.
      */
@@ -72,7 +71,6 @@ public class AppointmentAccepted {
         return this;
     }
 
-
     /**
      * An activity contact.
      */
@@ -80,7 +78,6 @@ public class AppointmentAccepted {
         this.contact = contact;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,29 @@ public class AppointmentAccepted {
             return false;
         }
         AppointmentAccepted other = (AppointmentAccepted) o;
-        return 
-            Utils.enhancedDeepEquals(this.appointment, other.appointment) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact);
+        return Utils.enhancedDeepEquals(this.appointment, other.appointment)
+                && Utils.enhancedDeepEquals(this.contact, other.contact);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            appointment, contact);
+        return Utils.enhancedHash(appointment, contact);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentAccepted.class,
-                "appointment", appointment,
-                "contact", contact);
+        return Utils.toString(AppointmentAccepted.class, "appointment", appointment, "contact", contact);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityAppointmentJson appointment;
 
         private ActivityContactJson contact;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +130,7 @@ public class AppointmentAccepted {
         }
 
         public AppointmentAccepted build() {
-            return new AppointmentAccepted(
-                appointment, contact);
+            return new AppointmentAccepted(appointment, contact);
         }
-
     }
 }

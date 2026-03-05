@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListRegistrationPathsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable RegistrationPathPaginatedResponse registrationPathPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.registrationPathPaginatedResponse = registrationPathPaginatedResponse;
     }
-    
+
     public ListRegistrationPathsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of registration paths.
      */
-    public ListRegistrationPathsResponse withRegistrationPathPaginatedResponse(@Nullable RegistrationPathPaginatedResponse registrationPathPaginatedResponse) {
+    public ListRegistrationPathsResponse withRegistrationPathPaginatedResponse(
+            @Nullable RegistrationPathPaginatedResponse registrationPathPaginatedResponse) {
         this.registrationPathPaginatedResponse = registrationPathPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
             return false;
         }
         ListRegistrationPathsResponse other = (ListRegistrationPathsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.registrationPathPaginatedResponse, other.registrationPathPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.registrationPathPaginatedResponse, other.registrationPathPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            registrationPathPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, registrationPathPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListRegistrationPathsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "registrationPathPaginatedResponse", registrationPathPaginatedResponse);
+        return Utils.toString(
+                ListRegistrationPathsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "registrationPathPaginatedResponse",
+                registrationPathPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
         private RegistrationPathPaginatedResponse registrationPathPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class ListRegistrationPathsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of registration paths.
          */
-        public Builder registrationPathPaginatedResponse(@Nullable RegistrationPathPaginatedResponse registrationPathPaginatedResponse) {
+        public Builder registrationPathPaginatedResponse(
+                @Nullable RegistrationPathPaginatedResponse registrationPathPaginatedResponse) {
             this.registrationPathPaginatedResponse = registrationPathPaginatedResponse;
             return this;
         }
 
         public ListRegistrationPathsResponse build() {
             return new ListRegistrationPathsResponse(
-                contentType, statusCode, rawResponse,
-                registrationPathPaginatedResponse);
+                    contentType, statusCode, rawResponse, registrationPathPaginatedResponse);
         }
-
     }
 }

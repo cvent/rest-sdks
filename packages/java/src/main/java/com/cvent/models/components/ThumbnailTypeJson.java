@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ThumbnailTypeJson
- * 
+ *
  * <p>This is used to denote the file type of a thumbnail
  */
 public enum ThumbnailTypeJson {
@@ -28,13 +28,13 @@ public enum ThumbnailTypeJson {
     ThumbnailTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ThumbnailTypeJson> fromValue(String value) {
-        for (ThumbnailTypeJson o: ThumbnailTypeJson.values()) {
+        for (ThumbnailTypeJson o : ThumbnailTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum ThumbnailTypeJson {
         return Optional.empty();
     }
 }
-

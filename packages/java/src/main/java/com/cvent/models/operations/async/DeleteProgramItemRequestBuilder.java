@@ -30,7 +30,7 @@ public class DeleteProgramItemRequestBuilder {
     private DeleteProgramItemRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteProgramItemRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteProgramItemRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteProgramItemResponse> call() {
-        AsyncRequestOperation<DeleteProgramItemRequest, DeleteProgramItemResponse> operation
-              = new DeleteProgramItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteProgramItemRequest, DeleteProgramItemResponse> operation =
+                new DeleteProgramItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

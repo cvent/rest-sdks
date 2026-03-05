@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAdmissionItemsPostFiltersResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AdmissionItemsPaginatedResponse admissionItemsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.admissionItemsPaginatedResponse = admissionItemsPaginatedResponse;
     }
-    
+
     public ListAdmissionItemsPostFiltersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of admission items.
      */
-    public ListAdmissionItemsPostFiltersResponse withAdmissionItemsPaginatedResponse(@Nullable AdmissionItemsPaginatedResponse admissionItemsPaginatedResponse) {
+    public ListAdmissionItemsPostFiltersResponse withAdmissionItemsPaginatedResponse(
+            @Nullable AdmissionItemsPaginatedResponse admissionItemsPaginatedResponse) {
         this.admissionItemsPaginatedResponse = admissionItemsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
             return false;
         }
         ListAdmissionItemsPostFiltersResponse other = (ListAdmissionItemsPostFiltersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.admissionItemsPaginatedResponse, other.admissionItemsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.admissionItemsPaginatedResponse, other.admissionItemsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            admissionItemsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, admissionItemsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAdmissionItemsPostFiltersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "admissionItemsPaginatedResponse", admissionItemsPaginatedResponse);
+        return Utils.toString(
+                ListAdmissionItemsPostFiltersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "admissionItemsPaginatedResponse",
+                admissionItemsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
         private AdmissionItemsPaginatedResponse admissionItemsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListAdmissionItemsPostFiltersResponse implements Response {
         /**
          * Successfully retrieved a paginated list of admission items.
          */
-        public Builder admissionItemsPaginatedResponse(@Nullable AdmissionItemsPaginatedResponse admissionItemsPaginatedResponse) {
+        public Builder admissionItemsPaginatedResponse(
+                @Nullable AdmissionItemsPaginatedResponse admissionItemsPaginatedResponse) {
             this.admissionItemsPaginatedResponse = admissionItemsPaginatedResponse;
             return this;
         }
 
         public ListAdmissionItemsPostFiltersResponse build() {
             return new ListAdmissionItemsPostFiltersResponse(
-                contentType, statusCode, rawResponse,
-                admissionItemsPaginatedResponse);
+                    contentType, statusCode, rawResponse, admissionItemsPaginatedResponse);
         }
-
     }
 }

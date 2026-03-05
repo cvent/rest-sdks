@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateStandardSurveyResponsesRequest {
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -38,11 +37,11 @@ public class CreateStandardSurveyResponsesRequest {
             @Nonnull String respondentId,
             @Nonnull StandardSurveyResponseInput standardSurveyResponse) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.respondentId = Optional.ofNullable(respondentId)
-            .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
         this.standardSurveyResponse = Optional.ofNullable(standardSurveyResponse)
-            .orElseThrow(() -> new IllegalArgumentException("standardSurveyResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("standardSurveyResponse cannot be null"));
     }
 
     /**
@@ -70,7 +69,6 @@ public class CreateStandardSurveyResponsesRequest {
         return new Builder();
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -78,7 +76,6 @@ public class CreateStandardSurveyResponsesRequest {
         this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
         return this;
     }
-
 
     /**
      * Id of a respondent
@@ -88,15 +85,14 @@ public class CreateStandardSurveyResponsesRequest {
         return this;
     }
 
-
     /**
      * Used to create responses for a standalone survey's respondent.
      */
-    public CreateStandardSurveyResponsesRequest withStandardSurveyResponse(@Nonnull StandardSurveyResponseInput standardSurveyResponse) {
+    public CreateStandardSurveyResponsesRequest withStandardSurveyResponse(
+            @Nonnull StandardSurveyResponseInput standardSurveyResponse) {
         this.standardSurveyResponse = Utils.checkNotNull(standardSurveyResponse, "standardSurveyResponse");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +103,30 @@ public class CreateStandardSurveyResponsesRequest {
             return false;
         }
         CreateStandardSurveyResponsesRequest other = (CreateStandardSurveyResponsesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.respondentId, other.respondentId) &&
-            Utils.enhancedDeepEquals(this.standardSurveyResponse, other.standardSurveyResponse);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.respondentId, other.respondentId)
+                && Utils.enhancedDeepEquals(this.standardSurveyResponse, other.standardSurveyResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, respondentId, standardSurveyResponse);
+        return Utils.enhancedHash(surveyId, respondentId, standardSurveyResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateStandardSurveyResponsesRequest.class,
-                "surveyId", surveyId,
-                "respondentId", respondentId,
-                "standardSurveyResponse", standardSurveyResponse);
+        return Utils.toString(
+                CreateStandardSurveyResponsesRequest.class,
+                "surveyId",
+                surveyId,
+                "respondentId",
+                respondentId,
+                "standardSurveyResponse",
+                standardSurveyResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
@@ -137,7 +135,7 @@ public class CreateStandardSurveyResponsesRequest {
         private StandardSurveyResponseInput standardSurveyResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +163,7 @@ public class CreateStandardSurveyResponsesRequest {
         }
 
         public CreateStandardSurveyResponsesRequest build() {
-            return new CreateStandardSurveyResponsesRequest(
-                surveyId, respondentId, standardSurveyResponse);
+            return new CreateStandardSurveyResponsesRequest(surveyId, respondentId, standardSurveyResponse);
         }
-
     }
 }

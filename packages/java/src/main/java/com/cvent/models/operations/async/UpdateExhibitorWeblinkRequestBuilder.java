@@ -30,7 +30,7 @@ public class UpdateExhibitorWeblinkRequestBuilder {
     private UpdateExhibitorWeblinkRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateExhibitorWeblinkRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateExhibitorWeblinkRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateExhibitorWeblinkResponse> call() {
-        AsyncRequestOperation<UpdateExhibitorWeblinkRequest, UpdateExhibitorWeblinkResponse> operation
-              = new UpdateExhibitorWeblink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateExhibitorWeblinkRequest, UpdateExhibitorWeblinkResponse> operation =
+                new UpdateExhibitorWeblink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

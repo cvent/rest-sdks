@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttributeUniquenessTypeJson
     {
-        [JsonProperty("none")]
-        None,
-        [JsonProperty("server")]
-        Server,
-        [JsonProperty("global")]
-        Global,
+        [JsonProperty("none")] None,
+        [JsonProperty("server")] Server,
+        [JsonProperty("global")] Global,
     }
 
     public static class AttributeUniquenessTypeJsonExtension
     {
         public static string Value(this AttributeUniquenessTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttributeUniquenessTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttributeUniquenessTypeJson).GetFields())
+            foreach (var field in typeof(AttributeUniquenessTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

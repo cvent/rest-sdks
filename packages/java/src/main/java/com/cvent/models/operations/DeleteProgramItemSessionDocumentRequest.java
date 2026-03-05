@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteProgramItemSessionDocumentRequest {
     /**
      * Unique ID of a session program item.
@@ -26,13 +25,11 @@ public class DeleteProgramItemSessionDocumentRequest {
     private String fileId;
 
     @JsonCreator
-    public DeleteProgramItemSessionDocumentRequest(
-            @Nonnull String programItemId,
-            @Nonnull String fileId) {
+    public DeleteProgramItemSessionDocumentRequest(@Nonnull String programItemId, @Nonnull String fileId) {
         this.programItemId = Optional.ofNullable(programItemId)
-            .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
-        this.fileId = Optional.ofNullable(fileId)
-            .orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
+        this.fileId =
+                Optional.ofNullable(fileId).orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class DeleteProgramItemSessionDocumentRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a session program item.
      */
@@ -62,7 +58,6 @@ public class DeleteProgramItemSessionDocumentRequest {
         return this;
     }
 
-
     /**
      * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
      */
@@ -70,7 +65,6 @@ public class DeleteProgramItemSessionDocumentRequest {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,30 @@ public class DeleteProgramItemSessionDocumentRequest {
             return false;
         }
         DeleteProgramItemSessionDocumentRequest other = (DeleteProgramItemSessionDocumentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programItemId, other.programItemId) &&
-            Utils.enhancedDeepEquals(this.fileId, other.fileId);
+        return Utils.enhancedDeepEquals(this.programItemId, other.programItemId)
+                && Utils.enhancedDeepEquals(this.fileId, other.fileId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programItemId, fileId);
+        return Utils.enhancedHash(programItemId, fileId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteProgramItemSessionDocumentRequest.class,
-                "programItemId", programItemId,
-                "fileId", fileId);
+        return Utils.toString(
+                DeleteProgramItemSessionDocumentRequest.class, "programItemId", programItemId, "fileId", fileId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programItemId;
 
         private String fileId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +118,7 @@ public class DeleteProgramItemSessionDocumentRequest {
         }
 
         public DeleteProgramItemSessionDocumentRequest build() {
-            return new DeleteProgramItemSessionDocumentRequest(
-                programItemId, fileId);
+            return new DeleteProgramItemSessionDocumentRequest(programItemId, fileId);
         }
-
     }
 }

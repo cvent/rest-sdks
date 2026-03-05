@@ -17,16 +17,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class CreateContactsRequest {
     /**
      * This parameter determines whether the POST operation should be treated as an upsert. Upserts update
      * existing contacts if they already exist, and otherwise create new contacts.
-     * 
+     *
      * <p>True indicates that this operation creates new contacts and updates existing contacts if they exist.
      * False means that it only creates new contacts, and attempting to create an existing contact will
      * result in the API returning an error.
-     * 
+     *
      * <p>Existing contacts are matched to the upsert request via the account's [match
      * key](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address).
      * By default, the match key for contacts is their email. The match key can also be altered to match
@@ -42,28 +41,24 @@ public class CreateContactsRequest {
     private List<ContactCreateRequestJson> requestBody;
 
     @JsonCreator
-    public CreateContactsRequest(
-            @Nullable Boolean upsert,
-            @Nonnull List<ContactCreateRequestJson> requestBody) {
-        this.upsert = Optional.ofNullable(upsert)
-            .orElse(Builder._SINGLETON_VALUE_Upsert.value());
+    public CreateContactsRequest(@Nullable Boolean upsert, @Nonnull List<ContactCreateRequestJson> requestBody) {
+        this.upsert = Optional.ofNullable(upsert).orElse(Builder._SINGLETON_VALUE_Upsert.value());
         this.requestBody = Optional.ofNullable(requestBody)
-            .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
-    
-    public CreateContactsRequest(
-            @Nonnull List<ContactCreateRequestJson> requestBody) {
+
+    public CreateContactsRequest(@Nonnull List<ContactCreateRequestJson> requestBody) {
         this(null, requestBody);
     }
 
     /**
      * This parameter determines whether the POST operation should be treated as an upsert. Upserts update
      * existing contacts if they already exist, and otherwise create new contacts.
-     * 
+     *
      * <p>True indicates that this operation creates new contacts and updates existing contacts if they exist.
      * False means that it only creates new contacts, and attempting to create an existing contact will
      * result in the API returning an error.
-     * 
+     *
      * <p>Existing contacts are matched to the upsert request via the account's [match
      * key](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address).
      * By default, the match key for contacts is their email. The match key can also be altered to match
@@ -84,15 +79,14 @@ public class CreateContactsRequest {
         return new Builder();
     }
 
-
     /**
      * This parameter determines whether the POST operation should be treated as an upsert. Upserts update
      * existing contacts if they already exist, and otherwise create new contacts.
-     * 
+     *
      * <p>True indicates that this operation creates new contacts and updates existing contacts if they exist.
      * False means that it only creates new contacts, and attempting to create an existing contact will
      * result in the API returning an error.
-     * 
+     *
      * <p>Existing contacts are matched to the upsert request via the account's [match
      * key](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address).
      * By default, the match key for contacts is their email. The match key can also be altered to match
@@ -103,7 +97,6 @@ public class CreateContactsRequest {
         return this;
     }
 
-
     /**
      * List of contacts to be created. Up to **10 contacts** can be created per call.
      */
@@ -111,7 +104,6 @@ public class CreateContactsRequest {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -122,43 +114,39 @@ public class CreateContactsRequest {
             return false;
         }
         CreateContactsRequest other = (CreateContactsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.upsert, other.upsert) &&
-            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
+        return Utils.enhancedDeepEquals(this.upsert, other.upsert)
+                && Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            upsert, requestBody);
+        return Utils.enhancedHash(upsert, requestBody);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateContactsRequest.class,
-                "upsert", upsert,
-                "requestBody", requestBody);
+        return Utils.toString(CreateContactsRequest.class, "upsert", upsert, "requestBody", requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean upsert;
 
         private List<ContactCreateRequestJson> requestBody;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * This parameter determines whether the POST operation should be treated as an upsert. Upserts update
          * existing contacts if they already exist, and otherwise create new contacts.
-         * 
+         *
          * <p>True indicates that this operation creates new contacts and updates existing contacts if they exist.
          * False means that it only creates new contacts, and attempting to create an existing contact will
          * result in the API returning an error.
-         * 
+         *
          * <p>Existing contacts are matched to the upsert request via the account's [match
          * key](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address).
          * By default, the match key for contacts is their email. The match key can also be altered to match
@@ -178,15 +166,10 @@ public class CreateContactsRequest {
         }
 
         public CreateContactsRequest build() {
-            return new CreateContactsRequest(
-                upsert, requestBody);
+            return new CreateContactsRequest(upsert, requestBody);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Upsert =
-                new LazySingletonValue<>(
-                        "upsert",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("upsert", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -28,7 +28,7 @@ public class GetProgramItemSessionDocumentRequestBuilder {
     private GetProgramItemSessionDocumentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetProgramItemSessionDocumentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetProgramItemSessionDocumentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetProgramItemSessionDocumentResponse call() {
-        RequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation
-              = new GetProgramItemSessionDocument.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation =
+                new GetProgramItemSessionDocument.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

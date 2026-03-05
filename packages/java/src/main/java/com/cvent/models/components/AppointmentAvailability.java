@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AppointmentAvailability
- * 
+ *
  * <p>Appointment availability details.
  */
 public class AppointmentAvailability {
@@ -89,11 +89,9 @@ public class AppointmentAvailability {
         this.lastModified = lastModified;
         this.deleted = deleted;
     }
-    
+
     public AppointmentAvailability() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -150,7 +148,6 @@ public class AppointmentAvailability {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the attendee's availability in an appointment event.
      */
@@ -158,7 +155,6 @@ public class AppointmentAvailability {
         this.id = id;
         return this;
     }
-
 
     /**
      * The appointment attendee the availability is associated with.
@@ -168,7 +164,6 @@ public class AppointmentAvailability {
         return this;
     }
 
-
     /**
      * Represents an appointment event ID.
      */
@@ -176,7 +171,6 @@ public class AppointmentAvailability {
         this.appointmentEvent = appointmentEvent;
         return this;
     }
-
 
     /**
      * A list of time ranges when the attendee is available for appointments. Times are in the appointment
@@ -187,7 +181,6 @@ public class AppointmentAvailability {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted datetime when the attendee availability was created.
      */
@@ -195,7 +188,6 @@ public class AppointmentAvailability {
         this.created = created;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date/time when the attendee availability was last modified.
@@ -205,7 +197,6 @@ public class AppointmentAvailability {
         return this;
     }
 
-
     /**
      * True indicates the record is deleted.
      */
@@ -213,7 +204,6 @@ public class AppointmentAvailability {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -224,38 +214,42 @@ public class AppointmentAvailability {
             return false;
         }
         AppointmentAvailability other = (AppointmentAvailability) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
-            Utils.enhancedDeepEquals(this.timeRanges, other.timeRanges) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent)
+                && Utils.enhancedDeepEquals(this.timeRanges, other.timeRanges)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendee, appointmentEvent,
-            timeRanges, created, lastModified,
-            deleted);
+        return Utils.enhancedHash(id, attendee, appointmentEvent, timeRanges, created, lastModified, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentAvailability.class,
-                "id", id,
-                "attendee", attendee,
-                "appointmentEvent", appointmentEvent,
-                "timeRanges", timeRanges,
-                "created", created,
-                "lastModified", lastModified,
-                "deleted", deleted);
+        return Utils.toString(
+                AppointmentAvailability.class,
+                "id",
+                id,
+                "attendee",
+                attendee,
+                "appointmentEvent",
+                appointmentEvent,
+                "timeRanges",
+                timeRanges,
+                "created",
+                created,
+                "lastModified",
+                lastModified,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -272,7 +266,7 @@ public class AppointmentAvailability {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -334,10 +328,7 @@ public class AppointmentAvailability {
 
         public AppointmentAvailability build() {
             return new AppointmentAvailability(
-                id, attendee, appointmentEvent,
-                timeRanges, created, lastModified,
-                deleted);
+                    id, attendee, appointmentEvent, timeRanges, created, lastModified, deleted);
         }
-
     }
 }

@@ -40,7 +40,7 @@ public class GetAttendeeMessagesMembersRequestBuilder {
     private GetAttendeeMessagesMembersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAttendeeMessagesMembersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetAttendeeMessagesMembersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAttendeeMessagesMembersResponse> call() {
-        AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation
-              = new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
+                new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetAttendeeMessagesMembersRequestBuilder {
      */
     public Publisher<GetAttendeeMessagesMembersResponse> callAsPublisher() {
         GetAttendeeMessagesMembersRequest request = this.request;
-        AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation
-              = new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
+                new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetAttendeeMessagesMembersRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetAttendeeMessagesMembersRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetAttendeeMessagesMembersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetAttendeeMessagesMembersResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * Modifiers
- * 
+ *
  * <p>Specifies reservation options for customizing reservation behavior.
  */
 public class Modifiers {
@@ -30,12 +30,10 @@ public class Modifiers {
     private Boolean allowWaitList;
 
     @JsonCreator
-    public Modifiers(
-            @JsonProperty("allowWaitList") @Nullable Boolean allowWaitList) {
-        this.allowWaitList = Optional.ofNullable(allowWaitList)
-            .orElse(Builder._SINGLETON_VALUE_AllowWaitList.value());
+    public Modifiers(@JsonProperty("allowWaitList") @Nullable Boolean allowWaitList) {
+        this.allowWaitList = Optional.ofNullable(allowWaitList).orElse(Builder._SINGLETON_VALUE_AllowWaitList.value());
     }
-    
+
     public Modifiers() {
         this(null);
     }
@@ -51,7 +49,6 @@ public class Modifiers {
         return new Builder();
     }
 
-
     /**
      * Indicates if waitlisted nights are allowed.
      */
@@ -59,7 +56,6 @@ public class Modifiers {
         this.allowWaitList = allowWaitList;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -70,29 +66,26 @@ public class Modifiers {
             return false;
         }
         Modifiers other = (Modifiers) o;
-        return 
-            Utils.enhancedDeepEquals(this.allowWaitList, other.allowWaitList);
+        return Utils.enhancedDeepEquals(this.allowWaitList, other.allowWaitList);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            allowWaitList);
+        return Utils.enhancedHash(allowWaitList);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Modifiers.class,
-                "allowWaitList", allowWaitList);
+        return Utils.toString(Modifiers.class, "allowWaitList", allowWaitList);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean allowWaitList;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,15 +97,10 @@ public class Modifiers {
         }
 
         public Modifiers build() {
-            return new Modifiers(
-                allowWaitList);
+            return new Modifiers(allowWaitList);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_AllowWaitList =
-                new LazySingletonValue<>(
-                        "allowWaitList",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("allowWaitList", "false", new TypeReference<Boolean>() {});
     }
 }

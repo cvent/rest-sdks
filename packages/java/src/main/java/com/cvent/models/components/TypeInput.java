@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * TypeInput
- * 
+ *
  * <p>Planner type.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -31,11 +31,10 @@ public class TypeInput {
     private String id;
 
     @JsonCreator
-    public TypeInput(
-            @JsonProperty("id") @Nullable String id) {
+    public TypeInput(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public TypeInput() {
         this(null);
     }
@@ -51,7 +50,6 @@ public class TypeInput {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the contact type.
      */
@@ -59,7 +57,6 @@ public class TypeInput {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -70,29 +67,26 @@ public class TypeInput {
             return false;
         }
         TypeInput other = (TypeInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TypeInput.class,
-                "id", id);
+        return Utils.toString(TypeInput.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,9 +98,7 @@ public class TypeInput {
         }
 
         public TypeInput build() {
-            return new TypeInput(
-                id);
+            return new TypeInput(id);
         }
-
     }
 }

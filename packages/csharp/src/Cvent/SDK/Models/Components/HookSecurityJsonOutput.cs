@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class HookSecurityJsonOutputType
     {
-        private HookSecurityJsonOutputType(string value) { Value = value; }
+        private HookSecurityJsonOutputType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static HookSecurityJsonOutputType APIKeyAuthenticationOutput { get { return new HookSecurityJsonOutputType("API Key Authentication_output"); } }
+        public static HookSecurityJsonOutputType APIKeyAuthenticationOutput
+        {
+            get {
+                return new HookSecurityJsonOutputType("API Key Authentication_output");
+            }
+        }
 
-        public static HookSecurityJsonOutputType BasicAuthenticationOutput { get { return new HookSecurityJsonOutputType("Basic Authentication_output"); } }
+        public static HookSecurityJsonOutputType BasicAuthenticationOutput
+        {
+            get {
+                return new HookSecurityJsonOutputType("Basic Authentication_output");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(HookSecurityJsonOutputType v) { return v.Value; }
-        public static HookSecurityJsonOutputType FromString(string v) {
-            switch(v) {
-                case "API Key Authentication_output": return APIKeyAuthenticationOutput;
-                case "Basic Authentication_output": return BasicAuthenticationOutput;
-                default: throw new ArgumentException("Invalid value for HookSecurityJsonOutputType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(HookSecurityJsonOutputType v)
+        {
+            return v.Value;
+        }
+        public static HookSecurityJsonOutputType FromString(string v)
+        {
+            switch (v)
+            {
+                case "API Key Authentication_output":
+                    return APIKeyAuthenticationOutput;
+                case "Basic Authentication_output":
+                    return BasicAuthenticationOutput;
+                default:
+                    throw new ArgumentException("Invalid value for HookSecurityJsonOutputType");
             }
         }
         public override bool Equals(object? obj)
@@ -105,8 +129,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new HookSecurityJsonOutput(HookSecurityJsonOutputType.BasicAuthenticationOutput)
-                    {
+                    return new HookSecurityJsonOutput(HookSecurityJsonOutputType.BasicAuthenticationOutput) {
                         BasicAuthenticationOutput = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<BasicAuthenticationOutput>(json)
                     };
                 }
@@ -125,8 +148,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new HookSecurityJsonOutput(HookSecurityJsonOutputType.APIKeyAuthenticationOutput)
-                    {
+                    return new HookSecurityJsonOutput(HookSecurityJsonOutputType.APIKeyAuthenticationOutput) {
                         APIKeyAuthenticationOutput = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<APIKeyAuthenticationOutput>(json)
                     };
                 }
@@ -146,7 +168,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -187,8 +209,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

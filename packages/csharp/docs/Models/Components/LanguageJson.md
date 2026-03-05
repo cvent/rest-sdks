@@ -2,6 +2,14 @@
 
 IETF language code used to specify a target language for the translation.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = LanguageJson.AfZA;
+```
+
 
 ## Values
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionSpeakerJson
- * 
+ *
  * <p>A session speaker
  */
 public class SessionSpeakerJson {
@@ -59,10 +59,9 @@ public class SessionSpeakerJson {
         this.category = category;
         this.order = order;
     }
-    
+
     public SessionSpeakerJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class SessionSpeakerJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -105,7 +103,6 @@ public class SessionSpeakerJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The unique identifier of a session.
@@ -115,7 +112,6 @@ public class SessionSpeakerJson {
         return this;
     }
 
-
     /**
      * A defined speaker category.
      */
@@ -124,7 +120,6 @@ public class SessionSpeakerJson {
         return this;
     }
 
-
     /**
      * The order of the speaker in a session.
      */
@@ -132,7 +127,6 @@ public class SessionSpeakerJson {
         this.order = order;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,25 @@ public class SessionSpeakerJson {
             return false;
         }
         SessionSpeakerJson other = (SessionSpeakerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.order, other.order);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.order, other.order);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, session, category,
-            order);
+        return Utils.enhancedHash(id, session, category, order);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionSpeakerJson.class,
-                "id", id,
-                "session", session,
-                "category", category,
-                "order", order);
+        return Utils.toString(
+                SessionSpeakerJson.class, "id", id, "session", session, "category", category, "order", order);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -178,7 +166,7 @@ public class SessionSpeakerJson {
         private Long order;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +202,7 @@ public class SessionSpeakerJson {
         }
 
         public SessionSpeakerJson build() {
-            return new SessionSpeakerJson(
-                id, session, category,
-                order);
+            return new SessionSpeakerJson(id, session, category, order);
         }
-
     }
 }

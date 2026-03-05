@@ -30,7 +30,7 @@ public class CreateBulkJobRequestBuilder {
     private BulkJobWithDataInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateBulkJobRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateBulkJobRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateBulkJobResponse> call() {
-        AsyncRequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation
-              = new CreateBulkJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation =
+                new CreateBulkJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

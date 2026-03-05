@@ -19,7 +19,6 @@ public class GetConfigurationRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetConfigurationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -28,14 +27,13 @@ public class GetConfigurationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetConfigurationResponse> call() {
-        AsyncRequestlessOperation<GetConfigurationResponse> operation
-            = new GetConfiguration.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetConfigurationResponse> operation =
+                new GetConfiguration.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

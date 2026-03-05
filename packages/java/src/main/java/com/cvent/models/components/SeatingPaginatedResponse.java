@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SeatingPaginatedResponse
- * 
+ *
  * <p>The response from a request to get the event seating for the event.
  */
 public class SeatingPaginatedResponse {
@@ -39,12 +39,10 @@ public class SeatingPaginatedResponse {
             @JsonProperty("paging") @Nullable PagingJson paging,
             @JsonProperty("data") @Nonnull List<ExistingSeating> data) {
         this.paging = paging;
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
-    
-    public SeatingPaginatedResponse(
-            @Nonnull List<ExistingSeating> data) {
+
+    public SeatingPaginatedResponse(@Nonnull List<ExistingSeating> data) {
         this(null, data);
     }
 
@@ -66,7 +64,6 @@ public class SeatingPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -75,7 +72,6 @@ public class SeatingPaginatedResponse {
         return this;
     }
 
-
     /**
      * A list of event seating
      */
@@ -83,7 +79,6 @@ public class SeatingPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -94,33 +89,28 @@ public class SeatingPaginatedResponse {
             return false;
         }
         SeatingPaginatedResponse other = (SeatingPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SeatingPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(SeatingPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<ExistingSeating> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -140,9 +130,7 @@ public class SeatingPaginatedResponse {
         }
 
         public SeatingPaginatedResponse build() {
-            return new SeatingPaginatedResponse(
-                paging, data);
+            return new SeatingPaginatedResponse(paging, data);
         }
-
     }
 }

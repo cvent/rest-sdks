@@ -1,5 +1,13 @@
 # Expand
 
+## Example Usage
+
+```java
+import com.cvent.models.components.Expand;
+
+Expand value = Expand.ANSWERS_QUESTION;
+```
+
 
 ## Values
 

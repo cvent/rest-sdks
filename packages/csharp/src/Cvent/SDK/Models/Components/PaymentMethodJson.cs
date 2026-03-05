@@ -18,114 +18,66 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum PaymentMethodJson
     {
-        [JsonProperty("AIRPLUS")]
-        Airplus,
-        [JsonProperty("American Express")]
-        AmericanExpress,
-        [JsonProperty("Aurora")]
-        Aurora,
-        [JsonProperty("Aurore")]
-        Aurore,
-        [JsonProperty("Authorize.Net SIM")]
-        AuthorizeNetSIM,
-        [JsonProperty("Bank Transfer")]
-        BankTransfer,
-        [JsonProperty("BCMC")]
-        Bcmc,
-        [JsonProperty("Billy")]
-        Billy,
-        [JsonProperty("Cash")]
-        Cash,
-        [JsonProperty("CB")]
-        Cb,
-        [JsonProperty("Check")]
-        Check,
-        [JsonProperty("Corporate Card")]
-        CorporateCard,
-        [JsonProperty("Cofinoga")]
-        Cofinoga,
-        [JsonProperty("Credit")]
-        Credit,
-        [JsonProperty("Cybersource Hosted Order Page")]
-        CybersourceHostedOrderPage,
-        [JsonProperty("Cybersource Secure Acceptance")]
-        CybersourceSecureAcceptance,
-        [JsonProperty("Diners Club")]
-        DinersClub,
-        [JsonProperty("Direct Bill")]
-        DirectBill,
-        [JsonProperty("Discover")]
-        Discover,
-        [JsonProperty("Dankort")]
-        Dankort,
-        [JsonProperty("Eurocard Mastercard")]
-        EurocardMastercard,
-        [JsonProperty("Invoice")]
-        Invoice,
-        [JsonProperty("JCB")]
-        Jcb,
-        [JsonProperty("Laser")]
-        Laser,
-        [JsonProperty("Maestro")]
-        Maestro,
-        [JsonProperty("Maestrouk")]
-        Maestrouk,
-        [JsonProperty("Mastercard")]
-        Mastercard,
-        [JsonProperty("Mastercard Debit")]
-        MastercardDebit,
-        [JsonProperty("Money Order")]
-        MoneyOrder,
-        [JsonProperty("Netreserve")]
-        Netreserve,
-        [JsonProperty("Other")]
-        Other,
-        [JsonProperty("Other 2")]
-        Other2,
-        [JsonProperty("Other 3")]
-        Other3,
-        [JsonProperty("Pay.gov")]
-        PayGov,
-        [JsonProperty("Paypal")]
-        Paypal,
-        [JsonProperty("P-Card")]
-        PCard,
-        [JsonProperty("Payment Credits")]
-        PaymentCredits,
-        [JsonProperty("PRIVILEGE")]
-        Privilege,
-        [JsonProperty("Purchase Order")]
-        PurchaseOrder,
-        [JsonProperty("Solo")]
-        Solo,
-        [JsonProperty("Touchnet")]
-        Touchnet,
-        [JsonProperty("UATP")]
-        Uatp,
-        [JsonProperty("Unionpay")]
-        Unionpay,
-        [JsonProperty("Visa")]
-        Visa,
-        [JsonProperty("Visa Debit")]
-        VisaDebit,
-        [JsonProperty("Visa Electron")]
-        VisaElectron,
-        [JsonProperty("WPM")]
-        Wpm,
-        [JsonProperty("Express Payment")]
-        ExpressPayment,
+        [JsonProperty("AIRPLUS")] Airplus,
+        [JsonProperty("American Express")] AmericanExpress,
+        [JsonProperty("Aurora")] Aurora,
+        [JsonProperty("Aurore")] Aurore,
+        [JsonProperty("Authorize.Net SIM")] AuthorizeNetSIM,
+        [JsonProperty("Bank Transfer")] BankTransfer,
+        [JsonProperty("BCMC")] Bcmc,
+        [JsonProperty("Billy")] Billy,
+        [JsonProperty("Cash")] Cash,
+        [JsonProperty("CB")] Cb,
+        [JsonProperty("Check")] Check,
+        [JsonProperty("Corporate Card")] CorporateCard,
+        [JsonProperty("Cofinoga")] Cofinoga,
+        [JsonProperty("Credit")] Credit,
+        [JsonProperty("Cybersource Hosted Order Page")] CybersourceHostedOrderPage,
+        [JsonProperty("Cybersource Secure Acceptance")] CybersourceSecureAcceptance,
+        [JsonProperty("Diners Club")] DinersClub,
+        [JsonProperty("Direct Bill")] DirectBill,
+        [JsonProperty("Discover")] Discover,
+        [JsonProperty("Dankort")] Dankort,
+        [JsonProperty("Eurocard Mastercard")] EurocardMastercard,
+        [JsonProperty("Invoice")] Invoice,
+        [JsonProperty("JCB")] Jcb,
+        [JsonProperty("Laser")] Laser,
+        [JsonProperty("Maestro")] Maestro,
+        [JsonProperty("Maestrouk")] Maestrouk,
+        [JsonProperty("Mastercard")] Mastercard,
+        [JsonProperty("Mastercard Debit")] MastercardDebit,
+        [JsonProperty("Money Order")] MoneyOrder,
+        [JsonProperty("Netreserve")] Netreserve,
+        [JsonProperty("Other")] Other,
+        [JsonProperty("Other 2")] Other2,
+        [JsonProperty("Other 3")] Other3,
+        [JsonProperty("Pay.gov")] PayGov,
+        [JsonProperty("Paypal")] Paypal,
+        [JsonProperty("P-Card")] PCard,
+        [JsonProperty("Payment Credits")] PaymentCredits,
+        [JsonProperty("PRIVILEGE")] Privilege,
+        [JsonProperty("Purchase Order")] PurchaseOrder,
+        [JsonProperty("Solo")] Solo,
+        [JsonProperty("Touchnet")] Touchnet,
+        [JsonProperty("UATP")] Uatp,
+        [JsonProperty("Unionpay")] Unionpay,
+        [JsonProperty("Visa")] Visa,
+        [JsonProperty("Visa Debit")] VisaDebit,
+        [JsonProperty("Visa Electron")] VisaElectron,
+        [JsonProperty("WPM")] Wpm,
+        [JsonProperty("Express Payment")] ExpressPayment,
     }
 
     public static class PaymentMethodJsonExtension
     {
         public static string Value(this PaymentMethodJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static PaymentMethodJson ToEnum(this string value)
         {
-            foreach(var field in typeof(PaymentMethodJson).GetFields())
+            foreach (var field in typeof(PaymentMethodJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

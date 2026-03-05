@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListTravelProposalBidsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable TravelProposalBidPaginatedResponse travelProposalBidPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.travelProposalBidPaginatedResponse = travelProposalBidPaginatedResponse;
     }
-    
+
     public ListTravelProposalBidsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of travel proposal bids.
      */
-    public ListTravelProposalBidsResponse withTravelProposalBidPaginatedResponse(@Nullable TravelProposalBidPaginatedResponse travelProposalBidPaginatedResponse) {
+    public ListTravelProposalBidsResponse withTravelProposalBidPaginatedResponse(
+            @Nullable TravelProposalBidPaginatedResponse travelProposalBidPaginatedResponse) {
         this.travelProposalBidPaginatedResponse = travelProposalBidPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
             return false;
         }
         ListTravelProposalBidsResponse other = (ListTravelProposalBidsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.travelProposalBidPaginatedResponse, other.travelProposalBidPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.travelProposalBidPaginatedResponse, other.travelProposalBidPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            travelProposalBidPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, travelProposalBidPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelProposalBidsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "travelProposalBidPaginatedResponse", travelProposalBidPaginatedResponse);
+        return Utils.toString(
+                ListTravelProposalBidsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "travelProposalBidPaginatedResponse",
+                travelProposalBidPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
         private TravelProposalBidPaginatedResponse travelProposalBidPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class ListTravelProposalBidsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of travel proposal bids.
          */
-        public Builder travelProposalBidPaginatedResponse(@Nullable TravelProposalBidPaginatedResponse travelProposalBidPaginatedResponse) {
+        public Builder travelProposalBidPaginatedResponse(
+                @Nullable TravelProposalBidPaginatedResponse travelProposalBidPaginatedResponse) {
             this.travelProposalBidPaginatedResponse = travelProposalBidPaginatedResponse;
             return this;
         }
 
         public ListTravelProposalBidsResponse build() {
             return new ListTravelProposalBidsResponse(
-                contentType, statusCode, rawResponse,
-                travelProposalBidPaginatedResponse);
+                    contentType, statusCode, rawResponse, travelProposalBidPaginatedResponse);
         }
-
     }
 }

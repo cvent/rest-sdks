@@ -30,7 +30,7 @@ public class GetAccountUserGroupRequestBuilder {
     private GetAccountUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAccountUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetAccountUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAccountUserGroupResponse> call() {
-        AsyncRequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation
-              = new GetAccountUserGroup.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation =
+                new GetAccountUserGroup.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -13,15 +13,15 @@ import java.util.concurrent.CompletableFuture;
  * <p>
  * This class provides adapter methods that convert synchronous hook implementations
  * ({@link Hook.BeforeRequest}, {@link Hook.AfterSuccess}, {@link Hook.AfterError})
- * to their asynchronous counterparts ({@link AsyncHook.BeforeRequest}, 
+ * to their asynchronous counterparts ({@link AsyncHook.BeforeRequest},
  * {@link AsyncHook.AfterSuccess}, {@link AsyncHook.AfterError}).
  * <p>
- * <b>Performance Note:</b> The execution of synchronous hooks is offloaded to the 
- * global {@link java.util.concurrent.ForkJoinPool#commonPool() ForkJoinPool}. 
- * For better performance in high-throughput scenarios, consider re-implementing 
+ * <b>Performance Note:</b> The execution of synchronous hooks is offloaded to the
+ * global {@link java.util.concurrent.ForkJoinPool#commonPool() ForkJoinPool}.
+ * For better performance in high-throughput scenarios, consider re-implementing
  * hooks using non-blocking I/O (NIO) patterns instead of relying on these adapters.
  * <p>
- * <b>Thread Safety:</b> All adapter methods are thread-safe and can be called 
+ * <b>Thread Safety:</b> All adapter methods are thread-safe and can be called
  * concurrently from multiple threads.
  *
  * @see Hook
@@ -54,7 +54,8 @@ public final class HookAdapters {
      */
     public static AsyncHook.BeforeRequest toAsync(Hook.BeforeRequest beforeRequestHook) {
         return ((context, request) -> CompletableFuture.supplyAsync(
-                () -> Exceptions.unchecked(() -> beforeRequestHook.beforeRequest(context, request)).get()));
+                () -> Exceptions.unchecked(() -> beforeRequestHook.beforeRequest(context, request))
+                        .get()));
     }
 
     /**
@@ -69,7 +70,7 @@ public final class HookAdapters {
      *       for the asynchronous interface</li>
      * </ul>
      * <p>
-     * The synchronous hook execution is <b>offloaded to the global 
+     * The synchronous hook execution is <b>offloaded to the global
      * {@link java.util.concurrent.ForkJoinPool#commonPool() ForkJoinPool}</b>.
      * Any exceptions thrown by the synchronous hook are wrapped as unchecked
      * exceptions and propagated through the returned {@link CompletableFuture}.
@@ -84,19 +85,14 @@ public final class HookAdapters {
      * @throws NullPointerException if {@code afterErrorHook} is {@code null}
      */
     public static AsyncHook.AfterError toAsync(Hook.AfterError afterErrorHook) {
-        return (context, response, error) -> toStreamResponse(response)
-                .thenCompose(backCompatResp -> {
-                    CompletableFuture<HttpResponse<InputStream>> processedResp = CompletableFuture.supplyAsync(() ->
-                            Exceptions.unchecked(() ->
-                                    afterErrorHook.afterError(
-                                            context,
-                                            Optional.of(backCompatResp),
-                                            Optional.of(Exceptions.coerceException(error)))).get());
+        return (context, response, error) -> toStreamResponse(response).thenCompose(backCompatResp -> {
+            CompletableFuture<HttpResponse<InputStream>> processedResp = CompletableFuture.supplyAsync(
+                    () -> Exceptions.unchecked(() -> afterErrorHook.afterError(
+                            context, Optional.of(backCompatResp), Optional.of(Exceptions.coerceException(error))))
+                            .get());
 
-                    return processedResp
-                            .thenApply(HookAdapters::toBlobResponse);
-                });
-
+            return processedResp.thenApply(HookAdapters::toBlobResponse);
+        });
     }
 
     /**
@@ -126,18 +122,13 @@ public final class HookAdapters {
      * @throws NullPointerException if {@code afterSuccessHook} is {@code null}
      */
     public static AsyncHook.AfterSuccess toAsync(Hook.AfterSuccess afterSuccessHook) {
-        return (context, response) -> toStreamResponse(response)
-                .thenCompose(backCompatResp -> {
-                    CompletableFuture<HttpResponse<InputStream>> processedResp = CompletableFuture.supplyAsync(() ->
-                            Exceptions.unchecked(() ->
-                                    afterSuccessHook.afterSuccess(
-                                            context,
-                                            backCompatResp)).get());
+        return (context, response) -> toStreamResponse(response).thenCompose(backCompatResp -> {
+            CompletableFuture<HttpResponse<InputStream>> processedResp = CompletableFuture.supplyAsync(
+                    () -> Exceptions.unchecked(() -> afterSuccessHook.afterSuccess(context, backCompatResp))
+                            .get());
 
-                    return processedResp
-                            .thenApply(HookAdapters::toBlobResponse);
-                });
-
+            return processedResp.thenApply(HookAdapters::toBlobResponse);
+        });
     }
 
     /**
@@ -148,7 +139,7 @@ public final class HookAdapters {
      * preserving all other response metadata (status code, headers, etc.).
      * <p>
      * <b>Note:</b> The resulting {@link Blob} is created from the InputStream,
-     * which means it may not support retries effectively if the InputStream 
+     * which means it may not support retries effectively if the InputStream
      * gets consumed during the first attempt.
      *
      * @param response the response with InputStream body to convert

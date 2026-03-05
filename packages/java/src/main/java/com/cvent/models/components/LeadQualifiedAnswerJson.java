@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LeadQualifiedAnswerJson
- * 
+ *
  * <p>A question answer.
  */
 public class LeadQualifiedAnswerJson {
@@ -49,7 +49,7 @@ public class LeadQualifiedAnswerJson {
         this.text = text;
         this.type = type;
     }
-    
+
     public LeadQualifiedAnswerJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class LeadQualifiedAnswerJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the question.
      */
@@ -87,7 +86,6 @@ public class LeadQualifiedAnswerJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Question text.
@@ -97,7 +95,6 @@ public class LeadQualifiedAnswerJson {
         return this;
     }
 
-
     /**
      * Data type of an answer.
      */
@@ -105,7 +102,6 @@ public class LeadQualifiedAnswerJson {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class LeadQualifiedAnswerJson {
             return false;
         }
         LeadQualifiedAnswerJson other = (LeadQualifiedAnswerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, type);
+        return Utils.enhancedHash(id, text, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadQualifiedAnswerJson.class,
-                "id", id,
-                "text", text,
-                "type", type);
+        return Utils.toString(LeadQualifiedAnswerJson.class, "id", id, "text", text, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class LeadQualifiedAnswerJson {
         private String type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class LeadQualifiedAnswerJson {
         }
 
         public LeadQualifiedAnswerJson build() {
-            return new LeadQualifiedAnswerJson(
-                id, text, type);
+            return new LeadQualifiedAnswerJson(id, text, type);
         }
-
     }
 }

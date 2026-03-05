@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHousingEventReservationsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetHousingEventReservationsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ReservationsPaginatedResponse reservationsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.reservationsPaginatedResponse = reservationsPaginatedResponse;
     }
-    
+
     public GetHousingEventReservationsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetHousingEventReservationsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetHousingEventReservationsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetHousingEventReservationsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetHousingEventReservationsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully returned reservations details.
      */
-    public GetHousingEventReservationsResponse withReservationsPaginatedResponse(@Nullable ReservationsPaginatedResponse reservationsPaginatedResponse) {
+    public GetHousingEventReservationsResponse withReservationsPaginatedResponse(
+            @Nullable ReservationsPaginatedResponse reservationsPaginatedResponse) {
         this.reservationsPaginatedResponse = reservationsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetHousingEventReservationsResponse implements Response {
             return false;
         }
         GetHousingEventReservationsResponse other = (GetHousingEventReservationsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.reservationsPaginatedResponse, other.reservationsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.reservationsPaginatedResponse, other.reservationsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            reservationsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, reservationsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventReservationsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "reservationsPaginatedResponse", reservationsPaginatedResponse);
+        return Utils.toString(
+                GetHousingEventReservationsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "reservationsPaginatedResponse",
+                reservationsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetHousingEventReservationsResponse implements Response {
         private ReservationsPaginatedResponse reservationsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetHousingEventReservationsResponse implements Response {
         /**
          * Successfully returned reservations details.
          */
-        public Builder reservationsPaginatedResponse(@Nullable ReservationsPaginatedResponse reservationsPaginatedResponse) {
+        public Builder reservationsPaginatedResponse(
+                @Nullable ReservationsPaginatedResponse reservationsPaginatedResponse) {
             this.reservationsPaginatedResponse = reservationsPaginatedResponse;
             return this;
         }
 
         public GetHousingEventReservationsResponse build() {
             return new GetHousingEventReservationsResponse(
-                contentType, statusCode, rawResponse,
-                reservationsPaginatedResponse);
+                    contentType, statusCode, rawResponse, reservationsPaginatedResponse);
         }
-
     }
 }

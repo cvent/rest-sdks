@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventBannerLinkClicked
- * 
+ *
  * <p>The link on the banner clicked by an attendee.
  */
 public class EventBannerLinkClicked {
@@ -58,10 +58,9 @@ public class EventBannerLinkClicked {
         this.banner = banner;
         this.target = target;
     }
-    
+
     public EventBannerLinkClicked() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class EventBannerLinkClicked {
         return new Builder();
     }
 
-
     /**
      * An exhibitor.
      */
@@ -104,7 +102,6 @@ public class EventBannerLinkClicked {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -114,7 +111,6 @@ public class EventBannerLinkClicked {
         return this;
     }
 
-
     /**
      * The related banner
      */
@@ -123,7 +119,6 @@ public class EventBannerLinkClicked {
         return this;
     }
 
-
     /**
      * The target of the link clicked on the banner.
      */
@@ -131,7 +126,6 @@ public class EventBannerLinkClicked {
         this.target = target;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class EventBannerLinkClicked {
             return false;
         }
         EventBannerLinkClicked other = (EventBannerLinkClicked) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.banner, other.banner) &&
-            Utils.enhancedDeepEquals(this.target, other.target);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.banner, other.banner)
+                && Utils.enhancedDeepEquals(this.target, other.target);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, platform, banner,
-            target);
+        return Utils.enhancedHash(exhibitor, platform, banner, target);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventBannerLinkClicked.class,
-                "exhibitor", exhibitor,
-                "platform", platform,
-                "banner", banner,
-                "target", target);
+        return Utils.toString(
+                EventBannerLinkClicked.class,
+                "exhibitor",
+                exhibitor,
+                "platform",
+                platform,
+                "banner",
+                banner,
+                "target",
+                target);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson1 exhibitor;
 
@@ -177,7 +173,7 @@ public class EventBannerLinkClicked {
         private BannerLinkTargetJson target;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class EventBannerLinkClicked {
         }
 
         public EventBannerLinkClicked build() {
-            return new EventBannerLinkClicked(
-                exhibitor, platform, banner,
-                target);
+            return new EventBannerLinkClicked(exhibitor, platform, banner, target);
         }
-
     }
 }

@@ -40,7 +40,7 @@ public class GetSessionLocationRequestBuilder {
     private GetSessionLocationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSessionLocationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetSessionLocationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSessionLocationResponse> call() {
-        AsyncRequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation
-              = new GetSessionLocation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation =
+                new GetSessionLocation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetSessionLocationRequestBuilder {
      */
     public Publisher<GetSessionLocationResponse> callAsPublisher() {
         GetSessionLocationRequest request = this.request;
-        AsyncRequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation
-              = new GetSessionLocation.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation =
+                new GetSessionLocation.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetSessionLocationRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetSessionLocationRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetSessionLocationResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

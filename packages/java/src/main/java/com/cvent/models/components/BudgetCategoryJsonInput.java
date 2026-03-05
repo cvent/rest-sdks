@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * BudgetCategoryJsonInput
- * 
+ *
  * <p>Denotes the category assigned to the budget item.
  */
 public class BudgetCategoryJsonInput {
@@ -22,8 +22,7 @@ public class BudgetCategoryJsonInput {
     private long id;
 
     @JsonCreator
-    public BudgetCategoryJsonInput(
-            @JsonProperty("id") long id) {
+    public BudgetCategoryJsonInput(@JsonProperty("id") long id) {
         this.id = id;
     }
 
@@ -38,7 +37,6 @@ public class BudgetCategoryJsonInput {
         return new Builder();
     }
 
-
     /**
      * Unique identifier of the budget category.
      */
@@ -46,7 +44,6 @@ public class BudgetCategoryJsonInput {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,29 +54,26 @@ public class BudgetCategoryJsonInput {
             return false;
         }
         BudgetCategoryJsonInput other = (BudgetCategoryJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetCategoryJsonInput.class,
-                "id", id);
+        return Utils.toString(BudgetCategoryJsonInput.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -91,9 +85,7 @@ public class BudgetCategoryJsonInput {
         }
 
         public BudgetCategoryJsonInput build() {
-            return new BudgetCategoryJsonInput(
-                id);
+            return new BudgetCategoryJsonInput(id);
         }
-
     }
 }

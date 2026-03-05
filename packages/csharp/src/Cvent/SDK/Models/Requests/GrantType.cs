@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Requests
     /// </summary>
     public enum GrantType
     {
-        [JsonProperty("client_credentials")]
-        ClientCredentials,
-        [JsonProperty("authorization_code")]
-        AuthorizationCode,
-        [JsonProperty("refresh_token")]
-        RefreshToken,
+        [JsonProperty("client_credentials")] ClientCredentials,
+        [JsonProperty("authorization_code")] AuthorizationCode,
+        [JsonProperty("refresh_token")] RefreshToken,
     }
 
     public static class GrantTypeExtension
     {
         public static string Value(this GrantType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static GrantType ToEnum(this string value)
         {
-            foreach(var field in typeof(GrantType).GetFields())
+            foreach (var field in typeof(GrantType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

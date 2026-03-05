@@ -10,14 +10,14 @@ import java.util.Optional;
 
 /**
  * ProductTypeJson
- * 
+ *
  * <p>Represents a product's type. `AdmissionItem`: Product is a ticket to an event, typically denotes the
  * day(s) the individual is attending. Every attendee must have an admission item.
- * 
+ *
  * <p>`Session`: Product is a agenda item at the event. Typically denotes a talk, presentation, or other
  * scheduled occurrence at the event. `SessionBundle`: Product is a session bundle that enrolls the
  * attendee into all the sessions included in the bundle, sometimes at a discounted rate.
- * 
+ *
  * <p>`QuantityItem`: Product is a quantity of things an attendee is purchasing at an event, like t-shirts
  * or raffle tickets.
  */
@@ -33,13 +33,13 @@ public enum ProductTypeJson {
     ProductTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ProductTypeJson> fromValue(String value) {
-        for (ProductTypeJson o: ProductTypeJson.values()) {
+        for (ProductTypeJson o : ProductTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -47,4 +47,3 @@ public enum ProductTypeJson {
         return Optional.empty();
     }
 }
-

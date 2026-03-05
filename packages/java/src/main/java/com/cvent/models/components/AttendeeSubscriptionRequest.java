@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * AttendeeSubscriptionRequest
- * 
+ *
  * <p>Request body for updating an attendee's email subscription status.
  */
 public class AttendeeSubscriptionRequest {
@@ -23,8 +23,7 @@ public class AttendeeSubscriptionRequest {
     private boolean unsubscribed;
 
     @JsonCreator
-    public AttendeeSubscriptionRequest(
-            @JsonProperty("unsubscribed") boolean unsubscribed) {
+    public AttendeeSubscriptionRequest(@JsonProperty("unsubscribed") boolean unsubscribed) {
         this.unsubscribed = unsubscribed;
     }
 
@@ -40,7 +39,6 @@ public class AttendeeSubscriptionRequest {
         return new Builder();
     }
 
-
     /**
      * The subscription status to set. True means the attendee will be unsubscribed from email
      * communications, false means they will be subscribed.
@@ -49,7 +47,6 @@ public class AttendeeSubscriptionRequest {
         this.unsubscribed = unsubscribed;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +57,26 @@ public class AttendeeSubscriptionRequest {
             return false;
         }
         AttendeeSubscriptionRequest other = (AttendeeSubscriptionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed);
+        return Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            unsubscribed);
+        return Utils.enhancedHash(unsubscribed);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeSubscriptionRequest.class,
-                "unsubscribed", unsubscribed);
+        return Utils.toString(AttendeeSubscriptionRequest.class, "unsubscribed", unsubscribed);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private boolean unsubscribed;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -95,9 +89,7 @@ public class AttendeeSubscriptionRequest {
         }
 
         public AttendeeSubscriptionRequest build() {
-            return new AttendeeSubscriptionRequest(
-                unsubscribed);
+            return new AttendeeSubscriptionRequest(unsubscribed);
         }
-
     }
 }

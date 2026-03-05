@@ -10,18 +10,16 @@ import java.lang.String;
 
 /**
  * AssetLocationJsonInput
- * 
+ *
  * <p>A URL associated with the asset.
  */
 public class AssetLocationJsonInput {
     @JsonCreator
-    public AssetLocationJsonInput() {
-    }
+    public AssetLocationJsonInput() {}
 
     public static Builder builder() {
         return new Builder();
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -33,29 +31,26 @@ public class AssetLocationJsonInput {
         }
         return true;
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            );
+        return Utils.enhancedHash();
     }
-    
+
     @Override
     public String toString() {
         return Utils.toString(AssetLocationJsonInput.class);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public AssetLocationJsonInput build() {
-            return new AssetLocationJsonInput(
-                );
+            return new AssetLocationJsonInput();
         }
-
     }
 }

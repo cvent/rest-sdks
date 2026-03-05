@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TimeRangeTypeJson
- * 
+ *
  * <p>DEFINED: Appointments of this type can be created at time intervals and locations created by the
  * planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom
  * location of the host's choosing or within time intervals and locations created by the planner.
@@ -25,13 +25,13 @@ public enum TimeRangeTypeJson {
     TimeRangeTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TimeRangeTypeJson> fromValue(String value) {
-        for (TimeRangeTypeJson o: TimeRangeTypeJson.values()) {
+        for (TimeRangeTypeJson o : TimeRangeTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum TimeRangeTypeJson {
         return Optional.empty();
     }
 }
-

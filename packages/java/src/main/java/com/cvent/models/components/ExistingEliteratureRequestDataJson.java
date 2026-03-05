@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExistingEliteratureRequestDataJson
- * 
+ *
  * <p>A JSON Schema for an existing e-literature request data for a lead.
  */
 public class ExistingEliteratureRequestDataJson {
@@ -96,25 +96,21 @@ public class ExistingEliteratureRequestDataJson {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
-        this.lead = Optional.ofNullable(lead)
-            .orElseThrow(() -> new IllegalArgumentException("lead cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+        this.lead = Optional.ofNullable(lead).orElseThrow(() -> new IllegalArgumentException("lead cannot be null"));
         this.documents = Optional.ofNullable(documents)
-            .orElseThrow(() -> new IllegalArgumentException("documents cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("documents cannot be null"));
         this.id = id;
     }
-    
+
     public ExistingEliteratureRequestDataJson(
             @Nonnull EventJson5 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull LeadJson lead,
             @Nonnull List<EliteratureDocumentJson> documents) {
-        this(null, null, null,
-            null, event, exhibitor,
-            lead, documents, null);
+        this(null, null, null, null, event, exhibitor, lead, documents, null);
     }
 
     /**
@@ -184,7 +180,6 @@ public class ExistingEliteratureRequestDataJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -192,7 +187,6 @@ public class ExistingEliteratureRequestDataJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -202,7 +196,6 @@ public class ExistingEliteratureRequestDataJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -210,7 +203,6 @@ public class ExistingEliteratureRequestDataJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -220,7 +212,6 @@ public class ExistingEliteratureRequestDataJson {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -228,7 +219,6 @@ public class ExistingEliteratureRequestDataJson {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -238,7 +228,6 @@ public class ExistingEliteratureRequestDataJson {
         return this;
     }
 
-
     /**
      * JSON schema for the Lead object
      */
@@ -246,7 +235,6 @@ public class ExistingEliteratureRequestDataJson {
         this.lead = Utils.checkNotNull(lead, "lead");
         return this;
     }
-
 
     /**
      * Collection of E-literature documents sent to lead.
@@ -256,7 +244,6 @@ public class ExistingEliteratureRequestDataJson {
         return this;
     }
 
-
     /**
      * Request identifier
      */
@@ -264,7 +251,6 @@ public class ExistingEliteratureRequestDataJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -275,42 +261,49 @@ public class ExistingEliteratureRequestDataJson {
             return false;
         }
         ExistingEliteratureRequestDataJson other = (ExistingEliteratureRequestDataJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.lead, other.lead) &&
-            Utils.enhancedDeepEquals(this.documents, other.documents) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.lead, other.lead)
+                && Utils.enhancedDeepEquals(this.documents, other.documents)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, exhibitor,
-            lead, documents, id);
+                created, createdBy, lastModified, lastModifiedBy, event, exhibitor, lead, documents, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingEliteratureRequestDataJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "exhibitor", exhibitor,
-                "lead", lead,
-                "documents", documents,
-                "id", id);
+        return Utils.toString(
+                ExistingEliteratureRequestDataJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "lead",
+                lead,
+                "documents",
+                documents,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -331,7 +324,7 @@ public class ExistingEliteratureRequestDataJson {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -408,10 +401,7 @@ public class ExistingEliteratureRequestDataJson {
 
         public ExistingEliteratureRequestDataJson build() {
             return new ExistingEliteratureRequestDataJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, exhibitor,
-                lead, documents, id);
+                    created, createdBy, lastModified, lastModifiedBy, event, exhibitor, lead, documents, id);
         }
-
     }
 }

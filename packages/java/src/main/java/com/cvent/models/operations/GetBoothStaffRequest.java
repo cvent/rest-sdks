@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetBoothStaffRequest {
     /**
      * ID of an event.
@@ -32,16 +31,12 @@ public class GetBoothStaffRequest {
     private String boothstaffId;
 
     @JsonCreator
-    public GetBoothStaffRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String boothstaffId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetBoothStaffRequest(@Nonnull String id, @Nonnull String exhibitorId, @Nonnull String boothstaffId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.boothstaffId = Optional.ofNullable(boothstaffId)
-            .orElseThrow(() -> new IllegalArgumentException("boothstaffId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("boothstaffId cannot be null"));
     }
 
     /**
@@ -69,7 +64,6 @@ public class GetBoothStaffRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +71,6 @@ public class GetBoothStaffRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -87,7 +80,6 @@ public class GetBoothStaffRequest {
         return this;
     }
 
-
     /**
      * ID of a booth staff member.
      */
@@ -95,7 +87,6 @@ public class GetBoothStaffRequest {
         this.boothstaffId = Utils.checkNotNull(boothstaffId, "boothstaffId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,24 @@ public class GetBoothStaffRequest {
             return false;
         }
         GetBoothStaffRequest other = (GetBoothStaffRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.boothstaffId, other.boothstaffId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.boothstaffId, other.boothstaffId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, boothstaffId);
+        return Utils.enhancedHash(id, exhibitorId, boothstaffId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBoothStaffRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "boothstaffId", boothstaffId);
+        return Utils.toString(
+                GetBoothStaffRequest.class, "id", id, "exhibitorId", exhibitorId, "boothstaffId", boothstaffId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +123,7 @@ public class GetBoothStaffRequest {
         private String boothstaffId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +151,7 @@ public class GetBoothStaffRequest {
         }
 
         public GetBoothStaffRequest build() {
-            return new GetBoothStaffRequest(
-                id, exhibitorId, boothstaffId);
+            return new GetBoothStaffRequest(id, exhibitorId, boothstaffId);
         }
-
     }
 }

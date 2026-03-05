@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExistingCapacityJsonRegistrationType
- * 
+ *
  * <p>Registration type information
  */
 public class ExistingCapacityJsonRegistrationType {
@@ -24,10 +24,8 @@ public class ExistingCapacityJsonRegistrationType {
     private String id;
 
     @JsonCreator
-    public ExistingCapacityJsonRegistrationType(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public ExistingCapacityJsonRegistrationType(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ExistingCapacityJsonRegistrationType {
         return new Builder();
     }
 
-
     /**
      * Registration type id
      */
@@ -49,7 +46,6 @@ public class ExistingCapacityJsonRegistrationType {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ExistingCapacityJsonRegistrationType {
             return false;
         }
         ExistingCapacityJsonRegistrationType other = (ExistingCapacityJsonRegistrationType) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingCapacityJsonRegistrationType.class,
-                "id", id);
+        return Utils.toString(ExistingCapacityJsonRegistrationType.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ExistingCapacityJsonRegistrationType {
         }
 
         public ExistingCapacityJsonRegistrationType build() {
-            return new ExistingCapacityJsonRegistrationType(
-                id);
+            return new ExistingCapacityJsonRegistrationType(id);
         }
-
     }
 }

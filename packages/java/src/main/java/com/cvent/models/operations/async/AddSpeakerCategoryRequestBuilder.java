@@ -30,7 +30,7 @@ public class AddSpeakerCategoryRequestBuilder {
     private SpeakerCategory _buildRequest() {
         return this.request;
     }
-    
+
     public AddSpeakerCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AddSpeakerCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AddSpeakerCategoryResponse> call() {
-        AsyncRequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation
-              = new AddSpeakerCategory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
+                new AddSpeakerCategory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

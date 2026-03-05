@@ -28,7 +28,7 @@ public class DeleteExhibitorBannerRequestBuilder {
     private DeleteExhibitorBannerRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExhibitorBannerRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteExhibitorBannerRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteExhibitorBannerResponse call() {
-        RequestOperation<DeleteExhibitorBannerRequest, DeleteExhibitorBannerResponse> operation
-              = new DeleteExhibitorBanner.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteExhibitorBannerRequest, DeleteExhibitorBannerResponse> operation =
+                new DeleteExhibitorBanner.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

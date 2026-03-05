@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ChoiceJson3
- * 
+ *
  * <p>A survey choice.
  */
 public class ChoiceJson3 {
@@ -58,10 +58,9 @@ public class ChoiceJson3 {
         this.shortText = shortText;
         this.label = label;
     }
-    
+
     public ChoiceJson3() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ChoiceJson3 {
         return new Builder();
     }
 
-
     /**
      * Text field ID.
      */
@@ -104,7 +102,6 @@ public class ChoiceJson3 {
         this.id = id;
         return this;
     }
-
 
     /**
      * text Value of the Field
@@ -114,7 +111,6 @@ public class ChoiceJson3 {
         return this;
     }
 
-
     /**
      * Reporting value of the Category, Its like a custom abbreviation
      */
@@ -123,7 +119,6 @@ public class ChoiceJson3 {
         return this;
     }
 
-
     /**
      * Label of choice
      */
@@ -131,7 +126,6 @@ public class ChoiceJson3 {
         this.label = label;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,24 @@ public class ChoiceJson3 {
             return false;
         }
         ChoiceJson3 other = (ChoiceJson3) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.shortText, other.shortText) &&
-            Utils.enhancedDeepEquals(this.label, other.label);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.label, other.label);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, shortText,
-            label);
+        return Utils.enhancedHash(id, text, shortText, label);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChoiceJson3.class,
-                "id", id,
-                "text", text,
-                "shortText", shortText,
-                "label", label);
+        return Utils.toString(ChoiceJson3.class, "id", id, "text", text, "shortText", shortText, "label", label);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +164,7 @@ public class ChoiceJson3 {
         private String label;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +200,7 @@ public class ChoiceJson3 {
         }
 
         public ChoiceJson3 build() {
-            return new ChoiceJson3(
-                id, text, shortText,
-                label);
+            return new ChoiceJson3(id, text, shortText, label);
         }
-
     }
 }

@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * SurveyTypeJson
- * 
+ *
  * <p>Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
  * `Event` indicates the survey is an event or session feedback survey.
- * 
+ *
  * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
  */
 public enum SurveyTypeJson {
@@ -27,13 +27,13 @@ public enum SurveyTypeJson {
     SurveyTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SurveyTypeJson> fromValue(String value) {
-        for (SurveyTypeJson o: SurveyTypeJson.values()) {
+        for (SurveyTypeJson o : SurveyTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum SurveyTypeJson {
         return Optional.empty();
     }
 }
-

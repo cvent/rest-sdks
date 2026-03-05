@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BadgePrintJobErrorCodeJson
     {
-        [JsonProperty("BadgeNotFound")]
-        BadgeNotFound,
-        [JsonProperty("BadgeRenderIssue")]
-        BadgeRenderIssue,
-        [JsonProperty("Connection")]
-        Connection,
-        [JsonProperty("PrinterError")]
-        PrinterError,
-        [JsonProperty("AttendeeDataMissing")]
-        AttendeeDataMissing,
-        [JsonProperty("Unknown")]
-        Unknown,
+        [JsonProperty("BadgeNotFound")] BadgeNotFound,
+        [JsonProperty("BadgeRenderIssue")] BadgeRenderIssue,
+        [JsonProperty("Connection")] Connection,
+        [JsonProperty("PrinterError")] PrinterError,
+        [JsonProperty("AttendeeDataMissing")] AttendeeDataMissing,
+        [JsonProperty("Unknown")] Unknown,
     }
 
     public static class BadgePrintJobErrorCodeJsonExtension
     {
         public static string Value(this BadgePrintJobErrorCodeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BadgePrintJobErrorCodeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BadgePrintJobErrorCodeJson).GetFields())
+            foreach (var field in typeof(BadgePrintJobErrorCodeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

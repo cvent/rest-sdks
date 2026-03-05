@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * VenueAddressJson
- * 
+ *
  * <p>Venue Address details
  */
 public class VenueAddressJson {
@@ -122,12 +122,9 @@ public class VenueAddressJson {
         this.latitude = latitude;
         this.longitude = longitude;
     }
-    
+
     public VenueAddressJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -211,7 +208,6 @@ public class VenueAddressJson {
         return new Builder();
     }
 
-
     /**
      * The first line of an address.
      */
@@ -219,7 +215,6 @@ public class VenueAddressJson {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * The second line of an address.
@@ -229,7 +224,6 @@ public class VenueAddressJson {
         return this;
     }
 
-
     /**
      * The third line of an address.
      */
@@ -237,7 +231,6 @@ public class VenueAddressJson {
         this.address3 = address3;
         return this;
     }
-
 
     /**
      * The name of the city.
@@ -247,7 +240,6 @@ public class VenueAddressJson {
         return this;
     }
 
-
     /**
      * ISO 3166 two-letter (alpha-2) country code.
      */
@@ -255,7 +247,6 @@ public class VenueAddressJson {
         this.countryCode = countryCode;
         return this;
     }
-
 
     /**
      * Postal code (also known as zipcode) of the address.
@@ -265,7 +256,6 @@ public class VenueAddressJson {
         return this;
     }
 
-
     /**
      * The name of the state/province/region of the address.
      */
@@ -273,7 +263,6 @@ public class VenueAddressJson {
         this.region = region;
         return this;
     }
-
 
     /**
      * The abbreviation of the state/province/region of the address.
@@ -283,7 +272,6 @@ public class VenueAddressJson {
         return this;
     }
 
-
     /**
      * Name of the country for example, 'United States'
      */
@@ -291,7 +279,6 @@ public class VenueAddressJson {
         this.country = country;
         return this;
     }
-
 
     /**
      * The geo latitude of the address.
@@ -301,7 +288,6 @@ public class VenueAddressJson {
         return this;
     }
 
-
     /**
      * The geo longitude of the address.
      */
@@ -309,7 +295,6 @@ public class VenueAddressJson {
         this.longitude = longitude;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -320,47 +305,65 @@ public class VenueAddressJson {
             return false;
         }
         VenueAddressJson other = (VenueAddressJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.address3, other.address3) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.latitude, other.latitude) &&
-            Utils.enhancedDeepEquals(this.longitude, other.longitude);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.address3, other.address3)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.latitude, other.latitude)
+                && Utils.enhancedDeepEquals(this.longitude, other.longitude);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            address1, address2, address3,
-            city, countryCode, postalCode,
-            region, regionCode, country,
-            latitude, longitude);
+                address1,
+                address2,
+                address3,
+                city,
+                countryCode,
+                postalCode,
+                region,
+                regionCode,
+                country,
+                latitude,
+                longitude);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VenueAddressJson.class,
-                "address1", address1,
-                "address2", address2,
-                "address3", address3,
-                "city", city,
-                "countryCode", countryCode,
-                "postalCode", postalCode,
-                "region", region,
-                "regionCode", regionCode,
-                "country", country,
-                "latitude", latitude,
-                "longitude", longitude);
+        return Utils.toString(
+                VenueAddressJson.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "address3",
+                address3,
+                "city",
+                city,
+                "countryCode",
+                countryCode,
+                "postalCode",
+                postalCode,
+                "region",
+                region,
+                "regionCode",
+                regionCode,
+                "country",
+                country,
+                "latitude",
+                latitude,
+                "longitude",
+                longitude);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -385,7 +388,7 @@ public class VenueAddressJson {
         private Double longitude;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -478,11 +481,17 @@ public class VenueAddressJson {
 
         public VenueAddressJson build() {
             return new VenueAddressJson(
-                address1, address2, address3,
-                city, countryCode, postalCode,
-                region, regionCode, country,
-                latitude, longitude);
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    countryCode,
+                    postalCode,
+                    region,
+                    regionCode,
+                    country,
+                    latitude,
+                    longitude);
         }
-
     }
 }

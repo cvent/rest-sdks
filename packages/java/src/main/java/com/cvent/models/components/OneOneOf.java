@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * OneOneOf
- * 
+ *
  * <p>This is used to denote the open ended date time type of custom field.
  */
 public class OneOneOf {
@@ -69,13 +69,12 @@ public class OneOneOf {
         this.to = to;
         this.format = format;
         this.defaultToCurrentDate = defaultToCurrentDate;
-        this.displayPopUpCalendar = Optional.ofNullable(displayPopUpCalendar)
-            .orElse(Builder._SINGLETON_VALUE_DisplayPopUpCalendar.value());
+        this.displayPopUpCalendar =
+                Optional.ofNullable(displayPopUpCalendar).orElse(Builder._SINGLETON_VALUE_DisplayPopUpCalendar.value());
     }
-    
+
     public OneOneOf() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -117,7 +116,6 @@ public class OneOneOf {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned minimum date time accepted.
      */
@@ -125,7 +123,6 @@ public class OneOneOf {
         this.from = from;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned maximum date time accepted.
@@ -135,7 +132,6 @@ public class OneOneOf {
         return this;
     }
 
-
     /**
      * This is used to denote the display format type of date time type custom field.
      */
@@ -143,7 +139,6 @@ public class OneOneOf {
         this.format = format;
         return this;
     }
-
 
     /**
      * Whether it needs to be pre populated with current date.
@@ -153,7 +148,6 @@ public class OneOneOf {
         return this;
     }
 
-
     /**
      * True means that a pop-up calendar will be displayed to assist date selection on UI.
      */
@@ -161,7 +155,6 @@ public class OneOneOf {
         this.displayPopUpCalendar = displayPopUpCalendar;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,33 +165,36 @@ public class OneOneOf {
             return false;
         }
         OneOneOf other = (OneOneOf) o;
-        return 
-            Utils.enhancedDeepEquals(this.from, other.from) &&
-            Utils.enhancedDeepEquals(this.to, other.to) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.defaultToCurrentDate, other.defaultToCurrentDate) &&
-            Utils.enhancedDeepEquals(this.displayPopUpCalendar, other.displayPopUpCalendar);
+        return Utils.enhancedDeepEquals(this.from, other.from)
+                && Utils.enhancedDeepEquals(this.to, other.to)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.defaultToCurrentDate, other.defaultToCurrentDate)
+                && Utils.enhancedDeepEquals(this.displayPopUpCalendar, other.displayPopUpCalendar);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            from, to, format,
-            defaultToCurrentDate, displayPopUpCalendar);
+        return Utils.enhancedHash(from, to, format, defaultToCurrentDate, displayPopUpCalendar);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OneOneOf.class,
-                "from", from,
-                "to", to,
-                "format", format,
-                "defaultToCurrentDate", defaultToCurrentDate,
-                "displayPopUpCalendar", displayPopUpCalendar);
+        return Utils.toString(
+                OneOneOf.class,
+                "from",
+                from,
+                "to",
+                to,
+                "format",
+                format,
+                "defaultToCurrentDate",
+                defaultToCurrentDate,
+                "displayPopUpCalendar",
+                displayPopUpCalendar);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime from;
 
@@ -211,7 +207,7 @@ public class OneOneOf {
         private Boolean displayPopUpCalendar;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -255,16 +251,10 @@ public class OneOneOf {
         }
 
         public OneOneOf build() {
-            return new OneOneOf(
-                from, to, format,
-                defaultToCurrentDate, displayPopUpCalendar);
+            return new OneOneOf(from, to, format, defaultToCurrentDate, displayPopUpCalendar);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DisplayPopUpCalendar =
-                new LazySingletonValue<>(
-                        "displayPopUpCalendar",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("displayPopUpCalendar", "false", new TypeReference<Boolean>() {});
     }
 }

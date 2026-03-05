@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelBidWeekendDayJson
- * 
+ *
  * <p>Days considered weekend days for pricing purposes in the travel bid.
  */
 public enum TravelBidWeekendDayJson {
@@ -28,13 +28,13 @@ public enum TravelBidWeekendDayJson {
     TravelBidWeekendDayJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelBidWeekendDayJson> fromValue(String value) {
-        for (TravelBidWeekendDayJson o: TravelBidWeekendDayJson.values()) {
+        for (TravelBidWeekendDayJson o : TravelBidWeekendDayJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum TravelBidWeekendDayJson {
         return Optional.empty();
     }
 }
-

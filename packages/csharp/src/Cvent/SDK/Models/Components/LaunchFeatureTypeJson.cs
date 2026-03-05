@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum LaunchFeatureTypeJson
     {
-        [JsonProperty("Website")]
-        Website,
-        [JsonProperty("Registration")]
-        Registration,
+        [JsonProperty("Website")] Website,
+        [JsonProperty("Registration")] Registration,
     }
 
     public static class LaunchFeatureTypeJsonExtension
     {
         public static string Value(this LaunchFeatureTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static LaunchFeatureTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(LaunchFeatureTypeJson).GetFields())
+            foreach (var field in typeof(LaunchFeatureTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

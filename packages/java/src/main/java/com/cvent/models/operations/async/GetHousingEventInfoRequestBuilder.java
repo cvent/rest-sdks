@@ -30,7 +30,7 @@ public class GetHousingEventInfoRequestBuilder {
     private GetHousingEventInfoRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingEventInfoRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetHousingEventInfoRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetHousingEventInfoResponse> call() {
-        AsyncRequestOperation<GetHousingEventInfoRequest, GetHousingEventInfoResponse> operation
-              = new GetHousingEventInfo.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHousingEventInfoRequest, GetHousingEventInfoResponse> operation =
+                new GetHousingEventInfo.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

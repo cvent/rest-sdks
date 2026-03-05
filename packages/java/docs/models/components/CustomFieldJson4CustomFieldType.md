@@ -2,6 +2,14 @@
 
 This is used to denote the type of data collected by a custom field.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CustomFieldJson4CustomFieldType;
+
+CustomFieldJson4CustomFieldType value = CustomFieldJson4CustomFieldType.OPEN_ENDED_TEXT_DATE_TIME;
+```
+
 
 ## Values
 

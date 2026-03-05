@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * CreditCardRequestJson
- * 
+ *
  * <p>Credit Card Request Object
  */
 public class CreditCardRequestJson {
@@ -78,7 +78,7 @@ public class CreditCardRequestJson {
 
     /**
      * State of billing address.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -155,44 +155,24 @@ public class CreditCardRequestJson {
         this.accountHolderName = JsonNullable.of(accountHolderName);
         this.expMonth = expMonth;
         this.expYear = expYear;
-        this.cvv = Optional.ofNullable(cvv)
-            .orElse(JsonNullable.undefined());
-        this.addressLine1 = Optional.ofNullable(addressLine1)
-            .orElse(JsonNullable.undefined());
-        this.addressLine2 = Optional.ofNullable(addressLine2)
-            .orElse(JsonNullable.undefined());
-        this.addressLine3 = Optional.ofNullable(addressLine3)
-            .orElse(JsonNullable.undefined());
-        this.addressCity = Optional.ofNullable(addressCity)
-            .orElse(JsonNullable.undefined());
-        this.addressState = Optional.ofNullable(addressState)
-            .orElse(JsonNullable.undefined());
-        this.addressStateProvince = Optional.ofNullable(addressStateProvince)
-            .orElse(JsonNullable.undefined());
-        this.addressPostalCode = Optional.ofNullable(addressPostalCode)
-            .orElse(JsonNullable.undefined());
-        this.addressCountry = Optional.ofNullable(addressCountry)
-            .orElse(JsonNullable.undefined());
-        this.addressCountryAlpha2 = Optional.ofNullable(addressCountryAlpha2)
-            .orElse(JsonNullable.undefined());
-        this.contactPhone = Optional.ofNullable(contactPhone)
-            .orElse(JsonNullable.undefined());
-        this.email = Optional.ofNullable(email)
-            .orElse(JsonNullable.undefined());
-        this.number = Optional.ofNullable(number)
-            .orElseThrow(() -> new IllegalArgumentException("number cannot be null"));
+        this.cvv = Optional.ofNullable(cvv).orElse(JsonNullable.undefined());
+        this.addressLine1 = Optional.ofNullable(addressLine1).orElse(JsonNullable.undefined());
+        this.addressLine2 = Optional.ofNullable(addressLine2).orElse(JsonNullable.undefined());
+        this.addressLine3 = Optional.ofNullable(addressLine3).orElse(JsonNullable.undefined());
+        this.addressCity = Optional.ofNullable(addressCity).orElse(JsonNullable.undefined());
+        this.addressState = Optional.ofNullable(addressState).orElse(JsonNullable.undefined());
+        this.addressStateProvince = Optional.ofNullable(addressStateProvince).orElse(JsonNullable.undefined());
+        this.addressPostalCode = Optional.ofNullable(addressPostalCode).orElse(JsonNullable.undefined());
+        this.addressCountry = Optional.ofNullable(addressCountry).orElse(JsonNullable.undefined());
+        this.addressCountryAlpha2 = Optional.ofNullable(addressCountryAlpha2).orElse(JsonNullable.undefined());
+        this.contactPhone = Optional.ofNullable(contactPhone).orElse(JsonNullable.undefined());
+        this.email = Optional.ofNullable(email).orElse(JsonNullable.undefined());
+        this.number =
+                Optional.ofNullable(number).orElseThrow(() -> new IllegalArgumentException("number cannot be null"));
     }
-    
-    public CreditCardRequestJson(
-            long expMonth,
-            long expYear,
-            @Nonnull String number) {
-        this(null, expMonth, expYear,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            number);
+
+    public CreditCardRequestJson(long expMonth, long expYear, @Nonnull String number) {
+        this(null, expMonth, expYear, null, null, null, null, null, null, null, null, null, null, null, null, number);
     }
 
     /**
@@ -253,7 +233,7 @@ public class CreditCardRequestJson {
 
     /**
      * State of billing address.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -314,7 +294,6 @@ public class CreditCardRequestJson {
         return new Builder();
     }
 
-
     /**
      * Name on the credit card.
      */
@@ -322,7 +301,6 @@ public class CreditCardRequestJson {
         this.accountHolderName = JsonNullable.of(accountHolderName);
         return this;
     }
-
 
     /**
      * Credit card expiration month.
@@ -332,7 +310,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * Credit card expiration year.
      */
@@ -340,7 +317,6 @@ public class CreditCardRequestJson {
         this.expYear = expYear;
         return this;
     }
-
 
     /**
      * Credit card security code (CVV).
@@ -350,7 +326,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * Billing address line 1, typically used for the number and name of the street.
      */
@@ -358,7 +333,6 @@ public class CreditCardRequestJson {
         this.addressLine1 = JsonNullable.of(addressLine1);
         return this;
     }
-
 
     /**
      * Billing address line 2, typically used for adding any additional information regarding the address.
@@ -368,7 +342,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * Billing address line 3, typically used for adding any additional information regarding the address.
      */
@@ -376,7 +349,6 @@ public class CreditCardRequestJson {
         this.addressLine3 = JsonNullable.of(addressLine3);
         return this;
     }
-
 
     /**
      * City of billing address.
@@ -386,10 +358,9 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * State of billing address.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -397,7 +368,6 @@ public class CreditCardRequestJson {
         this.addressState = JsonNullable.of(addressState);
         return this;
     }
-
 
     /**
      * State or Province of billing address.
@@ -407,7 +377,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * ZIP or postal code of billing address.
      */
@@ -415,7 +384,6 @@ public class CreditCardRequestJson {
         this.addressPostalCode = JsonNullable.of(addressPostalCode);
         return this;
     }
-
 
     /**
      * Country of billing address in ISO 3166 alpha-3 format.
@@ -425,7 +393,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * Country of billing address in ISO 3166 alpha-2 format.
      */
@@ -433,7 +400,6 @@ public class CreditCardRequestJson {
         this.addressCountryAlpha2 = JsonNullable.of(addressCountryAlpha2);
         return this;
     }
-
 
     /**
      * Cardholder's phone number.
@@ -443,7 +409,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * Cardholder's email address.
      */
@@ -452,7 +417,6 @@ public class CreditCardRequestJson {
         return this;
     }
 
-
     /**
      * Credit card number.
      */
@@ -460,7 +424,6 @@ public class CreditCardRequestJson {
         this.number = Utils.checkNotNull(number, "number");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -471,59 +434,85 @@ public class CreditCardRequestJson {
             return false;
         }
         CreditCardRequestJson other = (CreditCardRequestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.accountHolderName, other.accountHolderName) &&
-            Utils.enhancedDeepEquals(this.expMonth, other.expMonth) &&
-            Utils.enhancedDeepEquals(this.expYear, other.expYear) &&
-            Utils.enhancedDeepEquals(this.cvv, other.cvv) &&
-            Utils.enhancedDeepEquals(this.addressLine1, other.addressLine1) &&
-            Utils.enhancedDeepEquals(this.addressLine2, other.addressLine2) &&
-            Utils.enhancedDeepEquals(this.addressLine3, other.addressLine3) &&
-            Utils.enhancedDeepEquals(this.addressCity, other.addressCity) &&
-            Utils.enhancedDeepEquals(this.addressState, other.addressState) &&
-            Utils.enhancedDeepEquals(this.addressStateProvince, other.addressStateProvince) &&
-            Utils.enhancedDeepEquals(this.addressPostalCode, other.addressPostalCode) &&
-            Utils.enhancedDeepEquals(this.addressCountry, other.addressCountry) &&
-            Utils.enhancedDeepEquals(this.addressCountryAlpha2, other.addressCountryAlpha2) &&
-            Utils.enhancedDeepEquals(this.contactPhone, other.contactPhone) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.number, other.number);
+        return Utils.enhancedDeepEquals(this.accountHolderName, other.accountHolderName)
+                && Utils.enhancedDeepEquals(this.expMonth, other.expMonth)
+                && Utils.enhancedDeepEquals(this.expYear, other.expYear)
+                && Utils.enhancedDeepEquals(this.cvv, other.cvv)
+                && Utils.enhancedDeepEquals(this.addressLine1, other.addressLine1)
+                && Utils.enhancedDeepEquals(this.addressLine2, other.addressLine2)
+                && Utils.enhancedDeepEquals(this.addressLine3, other.addressLine3)
+                && Utils.enhancedDeepEquals(this.addressCity, other.addressCity)
+                && Utils.enhancedDeepEquals(this.addressState, other.addressState)
+                && Utils.enhancedDeepEquals(this.addressStateProvince, other.addressStateProvince)
+                && Utils.enhancedDeepEquals(this.addressPostalCode, other.addressPostalCode)
+                && Utils.enhancedDeepEquals(this.addressCountry, other.addressCountry)
+                && Utils.enhancedDeepEquals(this.addressCountryAlpha2, other.addressCountryAlpha2)
+                && Utils.enhancedDeepEquals(this.contactPhone, other.contactPhone)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.number, other.number);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            accountHolderName, expMonth, expYear,
-            cvv, addressLine1, addressLine2,
-            addressLine3, addressCity, addressState,
-            addressStateProvince, addressPostalCode, addressCountry,
-            addressCountryAlpha2, contactPhone, email,
-            number);
+                accountHolderName,
+                expMonth,
+                expYear,
+                cvv,
+                addressLine1,
+                addressLine2,
+                addressLine3,
+                addressCity,
+                addressState,
+                addressStateProvince,
+                addressPostalCode,
+                addressCountry,
+                addressCountryAlpha2,
+                contactPhone,
+                email,
+                number);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreditCardRequestJson.class,
-                "accountHolderName", accountHolderName,
-                "expMonth", expMonth,
-                "expYear", expYear,
-                "cvv", cvv,
-                "addressLine1", addressLine1,
-                "addressLine2", addressLine2,
-                "addressLine3", addressLine3,
-                "addressCity", addressCity,
-                "addressState", addressState,
-                "addressStateProvince", addressStateProvince,
-                "addressPostalCode", addressPostalCode,
-                "addressCountry", addressCountry,
-                "addressCountryAlpha2", addressCountryAlpha2,
-                "contactPhone", contactPhone,
-                "email", email,
-                "number", number);
+        return Utils.toString(
+                CreditCardRequestJson.class,
+                "accountHolderName",
+                accountHolderName,
+                "expMonth",
+                expMonth,
+                "expYear",
+                expYear,
+                "cvv",
+                cvv,
+                "addressLine1",
+                addressLine1,
+                "addressLine2",
+                addressLine2,
+                "addressLine3",
+                addressLine3,
+                "addressCity",
+                addressCity,
+                "addressState",
+                addressState,
+                "addressStateProvince",
+                addressStateProvince,
+                "addressPostalCode",
+                addressPostalCode,
+                "addressCountry",
+                addressCountry,
+                "addressCountryAlpha2",
+                addressCountryAlpha2,
+                "contactPhone",
+                contactPhone,
+                "email",
+                email,
+                "number",
+                number);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String accountHolderName;
 
@@ -559,7 +548,7 @@ public class CreditCardRequestJson {
         private String number;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -628,7 +617,7 @@ public class CreditCardRequestJson {
 
         /**
          * State of billing address.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -695,13 +684,22 @@ public class CreditCardRequestJson {
 
         public CreditCardRequestJson build() {
             return new CreditCardRequestJson(
-                accountHolderName, expMonth, expYear,
-                cvv, addressLine1, addressLine2,
-                addressLine3, addressCity, addressState,
-                addressStateProvince, addressPostalCode, addressCountry,
-                addressCountryAlpha2, contactPhone, email,
-                number);
+                    accountHolderName,
+                    expMonth,
+                    expYear,
+                    cvv,
+                    addressLine1,
+                    addressLine2,
+                    addressLine3,
+                    addressCity,
+                    addressState,
+                    addressStateProvince,
+                    addressPostalCode,
+                    addressCountry,
+                    addressCountryAlpha2,
+                    contactPhone,
+                    email,
+                    number);
         }
-
     }
 }

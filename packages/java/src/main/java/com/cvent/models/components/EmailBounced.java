@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * EmailBounced
- * 
+ *
  * <p>An email-bounced activity.
  */
 public class EmailBounced {
@@ -88,14 +88,11 @@ public class EmailBounced {
         this.bounced = bounced;
         this.smtpCode = smtpCode;
         this.dsnDiagnostic = dsnDiagnostic;
-        this.optOut = Optional.ofNullable(optOut)
-            .orElse(Builder._SINGLETON_VALUE_OptOut.value());
+        this.optOut = Optional.ofNullable(optOut).orElse(Builder._SINGLETON_VALUE_OptOut.value());
     }
-    
+
     public EmailBounced() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -151,7 +148,6 @@ public class EmailBounced {
         return new Builder();
     }
 
-
     /**
      * Type of the email.
      */
@@ -159,7 +155,6 @@ public class EmailBounced {
         this.type = type;
         return this;
     }
-
 
     /**
      * Reason for the bounced email.
@@ -169,7 +164,6 @@ public class EmailBounced {
         return this;
     }
 
-
     /**
      * An activity contact.
      */
@@ -177,7 +171,6 @@ public class EmailBounced {
         this.contact = contact;
         return this;
     }
-
 
     /**
      * ISO 8601 date and time when an email bounced.
@@ -187,7 +180,6 @@ public class EmailBounced {
         return this;
     }
 
-
     /**
      * The Simple Mail Transfer Protocol (SMTP) response status code.
      */
@@ -195,7 +187,6 @@ public class EmailBounced {
         this.smtpCode = smtpCode;
         return this;
     }
-
 
     /**
      * Delivery Status Notification diagnostic details.
@@ -205,7 +196,6 @@ public class EmailBounced {
         return this;
     }
 
-
     /**
      * Used to denote if a recipient has opted-out of receiving emails.
      */
@@ -213,7 +203,6 @@ public class EmailBounced {
         this.optOut = optOut;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -224,38 +213,42 @@ public class EmailBounced {
             return false;
         }
         EmailBounced other = (EmailBounced) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.reason, other.reason) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.bounced, other.bounced) &&
-            Utils.enhancedDeepEquals(this.smtpCode, other.smtpCode) &&
-            Utils.enhancedDeepEquals(this.dsnDiagnostic, other.dsnDiagnostic) &&
-            Utils.enhancedDeepEquals(this.optOut, other.optOut);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.reason, other.reason)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.bounced, other.bounced)
+                && Utils.enhancedDeepEquals(this.smtpCode, other.smtpCode)
+                && Utils.enhancedDeepEquals(this.dsnDiagnostic, other.dsnDiagnostic)
+                && Utils.enhancedDeepEquals(this.optOut, other.optOut);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, reason, contact,
-            bounced, smtpCode, dsnDiagnostic,
-            optOut);
+        return Utils.enhancedHash(type, reason, contact, bounced, smtpCode, dsnDiagnostic, optOut);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailBounced.class,
-                "type", type,
-                "reason", reason,
-                "contact", contact,
-                "bounced", bounced,
-                "smtpCode", smtpCode,
-                "dsnDiagnostic", dsnDiagnostic,
-                "optOut", optOut);
+        return Utils.toString(
+                EmailBounced.class,
+                "type",
+                type,
+                "reason",
+                reason,
+                "contact",
+                contact,
+                "bounced",
+                bounced,
+                "smtpCode",
+                smtpCode,
+                "dsnDiagnostic",
+                dsnDiagnostic,
+                "optOut",
+                optOut);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
@@ -272,7 +265,7 @@ public class EmailBounced {
         private Boolean optOut;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -332,17 +325,10 @@ public class EmailBounced {
         }
 
         public EmailBounced build() {
-            return new EmailBounced(
-                type, reason, contact,
-                bounced, smtpCode, dsnDiagnostic,
-                optOut);
+            return new EmailBounced(type, reason, contact, bounced, smtpCode, dsnDiagnostic, optOut);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_OptOut =
-                new LazySingletonValue<>(
-                        "optOut",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("optOut", "false", new TypeReference<Boolean>() {});
     }
 }

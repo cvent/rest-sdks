@@ -45,7 +45,7 @@ import jakarta.annotation.Nonnull;
  * portal. In the portal, they are able to complete pre-event tasks, manage their team, purchase
  * LeadCapture (if applicable), and download leads. Use this API to get details for existing admins,
  * create new admins, and update admin details.
- * 
+ *
  * <p>* **Exhibitor Booth Staff -** Exhibitor booth staff is someone that manages the frontline of the
  * exhibitor's booth onsite or virtually. Booth staff needs to be registered for the event in order to
  * be associated with an exhibitor. Use this API to get details for the existing booth staff(s) for a
@@ -64,7 +64,7 @@ public class ExhibitorTeam {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncExhibitorTeam async() {
@@ -73,11 +73,11 @@ public class ExhibitorTeam {
 
     /**
      * List Exhibitor Admins
-     * 
+     *
      * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListExhibitorAdminsRequestBuilder listExhibitorAdmins() {
@@ -86,28 +86,28 @@ public class ExhibitorTeam {
 
     /**
      * List Exhibitor Admins
-     * 
+     *
      * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListExhibitorAdminsResponse listExhibitorAdmins(@Nonnull ListExhibitorAdminsRequest request) {
-        RequestOperation<ListExhibitorAdminsRequest, ListExhibitorAdminsResponse> operation
-              = new ListExhibitorAdmins.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListExhibitorAdminsRequest, ListExhibitorAdminsResponse> operation =
+                new ListExhibitorAdmins.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Exhibitor Admin
-     * 
+     *
      * <p>Creates an exhibitor admin for the given exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public PostExhibitorAdminRequestBuilder postExhibitorAdmin() {
@@ -116,28 +116,28 @@ public class ExhibitorTeam {
 
     /**
      * Create Exhibitor Admin
-     * 
+     *
      * <p>Creates an exhibitor admin for the given exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PostExhibitorAdminResponse postExhibitorAdmin(@Nonnull PostExhibitorAdminRequest request) {
-        RequestOperation<PostExhibitorAdminRequest, PostExhibitorAdminResponse> operation
-              = new PostExhibitorAdmin.Sync(sdkConfiguration, _headers);
+        RequestOperation<PostExhibitorAdminRequest, PostExhibitorAdminResponse> operation =
+                new PostExhibitorAdmin.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Exhibitor Admin
-     * 
+     *
      * <p>Gets the details of a single exhibitor admin, such as name or contact email.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetExhibitorAdminRequestBuilder getExhibitorAdmin() {
@@ -146,28 +146,28 @@ public class ExhibitorTeam {
 
     /**
      * Get Exhibitor Admin
-     * 
+     *
      * <p>Gets the details of a single exhibitor admin, such as name or contact email.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetExhibitorAdminResponse getExhibitorAdmin(@Nonnull GetExhibitorAdminRequest request) {
-        RequestOperation<GetExhibitorAdminRequest, GetExhibitorAdminResponse> operation
-              = new GetExhibitorAdmin.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetExhibitorAdminRequest, GetExhibitorAdminResponse> operation =
+                new GetExhibitorAdmin.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Exhibitor Admin
-     * 
+     *
      * <p>Updates a single exhibitor admin.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateExhibitorAdminRequestBuilder updateExhibitorAdmin() {
@@ -176,28 +176,28 @@ public class ExhibitorTeam {
 
     /**
      * Update Exhibitor Admin
-     * 
+     *
      * <p>Updates a single exhibitor admin.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateExhibitorAdminResponse updateExhibitorAdmin(@Nonnull UpdateExhibitorAdminRequest request) {
-        RequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation
-              = new UpdateExhibitorAdmin.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation =
+                new UpdateExhibitorAdmin.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Booth Staff
-     * 
+     *
      * <p>Gets a list of booth staff members for a given event and exhibitor id.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListBoothStaffRequestBuilder listBoothStaff() {
@@ -206,28 +206,28 @@ public class ExhibitorTeam {
 
     /**
      * List Booth Staff
-     * 
+     *
      * <p>Gets a list of booth staff members for a given event and exhibitor id.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListBoothStaffResponse listBoothStaff(@Nonnull ListBoothStaffRequest request) {
-        RequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation
-              = new ListBoothStaff.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation =
+                new ListBoothStaff.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Booth Staff
-     * 
+     *
      * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public AssociateBoothStaffRequestBuilder associateBoothStaff() {
@@ -236,28 +236,28 @@ public class ExhibitorTeam {
 
     /**
      * Create Booth Staff
-     * 
+     *
      * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public AssociateBoothStaffResponse associateBoothStaff(@Nonnull AssociateBoothStaffRequest request) {
-        RequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation
-              = new AssociateBoothStaff.Sync(sdkConfiguration, _headers);
+        RequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation =
+                new AssociateBoothStaff.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Booth Staff member
-     * 
+     *
      * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetBoothStaffRequestBuilder getBoothStaff() {
@@ -266,28 +266,28 @@ public class ExhibitorTeam {
 
     /**
      * Get Booth Staff member
-     * 
+     *
      * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBoothStaffResponse getBoothStaff(@Nonnull GetBoothStaffRequest request) {
-        RequestOperation<GetBoothStaffRequest, GetBoothStaffResponse> operation
-              = new GetBoothStaff.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBoothStaffRequest, GetBoothStaffResponse> operation =
+                new GetBoothStaff.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Booth Staff member
-     * 
+     *
      * <p>Disassociate a single booth staff member from a single exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteBoothStaffRequestBuilder deleteBoothStaff() {
@@ -296,19 +296,18 @@ public class ExhibitorTeam {
 
     /**
      * Delete Booth Staff member
-     * 
+     *
      * <p>Disassociate a single booth staff member from a single exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteBoothStaffResponse deleteBoothStaff(@Nonnull DeleteBoothStaffRequest request) {
-        RequestOperation<DeleteBoothStaffRequest, DeleteBoothStaffResponse> operation
-              = new DeleteBoothStaff.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteBoothStaffRequest, DeleteBoothStaffResponse> operation =
+                new DeleteBoothStaff.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

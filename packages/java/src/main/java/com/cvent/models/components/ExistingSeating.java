@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ExistingSeating
- * 
+ *
  * <p>The response from a request to get the event seating for the event.
  */
 public class ExistingSeating {
@@ -64,18 +64,15 @@ public class ExistingSeating {
             @JsonProperty("readOnly") @Nullable Boolean readOnly,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("id") @Nullable String id) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.code = code;
         this.readOnly = readOnly;
         this.sourceId = sourceId;
         this.id = id;
     }
-    
-    public ExistingSeating(
-            @Nonnull String name) {
-        this(name, null, null,
-            null, null);
+
+    public ExistingSeating(@Nonnull String name) {
+        this(name, null, null, null, null);
     }
 
     /**
@@ -119,7 +116,6 @@ public class ExistingSeating {
         return new Builder();
     }
 
-
     /**
      * Seating's plain name.
      */
@@ -128,7 +124,6 @@ public class ExistingSeating {
         return this;
     }
 
-
     /**
      * Seating's code set by the planner. Must be unique in the event.
      */
@@ -136,7 +131,6 @@ public class ExistingSeating {
         this.code = code;
         return this;
     }
-
 
     /**
      * True indicates the seating data is coming from outside Cvent and should not be editable in the
@@ -147,7 +141,6 @@ public class ExistingSeating {
         return this;
     }
 
-
     /**
      * This is a ID for the seating in an external system. Use this field to supply your own ID for
      * tracking purposes.
@@ -157,7 +150,6 @@ public class ExistingSeating {
         return this;
     }
 
-
     /**
      * The unique ID of the seating.
      */
@@ -165,7 +157,6 @@ public class ExistingSeating {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -176,33 +167,36 @@ public class ExistingSeating {
             return false;
         }
         ExistingSeating other = (ExistingSeating) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.readOnly, other.readOnly) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.readOnly, other.readOnly)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, code, readOnly,
-            sourceId, id);
+        return Utils.enhancedHash(name, code, readOnly, sourceId, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingSeating.class,
-                "name", name,
-                "code", code,
-                "readOnly", readOnly,
-                "sourceId", sourceId,
-                "id", id);
+        return Utils.toString(
+                ExistingSeating.class,
+                "name",
+                name,
+                "code",
+                code,
+                "readOnly",
+                readOnly,
+                "sourceId",
+                sourceId,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -215,7 +209,7 @@ public class ExistingSeating {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -261,10 +255,7 @@ public class ExistingSeating {
         }
 
         public ExistingSeating build() {
-            return new ExistingSeating(
-                name, code, readOnly,
-                sourceId, id);
+            return new ExistingSeating(name, code, readOnly, sourceId, id);
         }
-
     }
 }

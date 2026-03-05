@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttributeDataTypeJson
     {
-        [JsonProperty("string")]
-        String,
-        [JsonProperty("boolean")]
-        Boolean,
-        [JsonProperty("decimal")]
-        Decimal,
-        [JsonProperty("integer")]
-        Integer,
-        [JsonProperty("dateTime")]
-        DateTime,
-        [JsonProperty("reference")]
-        Reference,
-        [JsonProperty("complex")]
-        Complex,
+        [JsonProperty("string")] String,
+        [JsonProperty("boolean")] Boolean,
+        [JsonProperty("decimal")] Decimal,
+        [JsonProperty("integer")] Integer,
+        [JsonProperty("dateTime")] DateTime,
+        [JsonProperty("reference")] Reference,
+        [JsonProperty("complex")] Complex,
     }
 
     public static class AttributeDataTypeJsonExtension
     {
         public static string Value(this AttributeDataTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttributeDataTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttributeDataTypeJson).GetFields())
+            foreach (var field in typeof(AttributeDataTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

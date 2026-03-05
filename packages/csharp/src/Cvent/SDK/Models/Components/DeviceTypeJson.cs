@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DeviceTypeJson
     {
-        [JsonProperty("DESKTOP")]
-        Desktop,
-        [JsonProperty("MOBILE")]
-        Mobile,
-        [JsonProperty("TABLET")]
-        Tablet,
+        [JsonProperty("DESKTOP")] Desktop,
+        [JsonProperty("MOBILE")] Mobile,
+        [JsonProperty("TABLET")] Tablet,
     }
 
     public static class DeviceTypeJsonExtension
     {
         public static string Value(this DeviceTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DeviceTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DeviceTypeJson).GetFields())
+            foreach (var field in typeof(DeviceTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AggregatedCostJson
- * 
+ *
  * <p>The aggregated cost
  */
 public class AggregatedCostJson {
@@ -41,7 +41,7 @@ public class AggregatedCostJson {
         this.totalFoodAndBeverageCost = totalFoodAndBeverageCost;
         this.totalMiscCost = totalMiscCost;
     }
-    
+
     public AggregatedCostJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class AggregatedCostJson {
         return new Builder();
     }
 
-
     /**
      * The cost of the food and beverage.
      */
@@ -73,7 +72,6 @@ public class AggregatedCostJson {
         return this;
     }
 
-
     /**
      * The total misc cost.
      */
@@ -81,7 +79,6 @@ public class AggregatedCostJson {
         this.totalMiscCost = totalMiscCost;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,34 @@ public class AggregatedCostJson {
             return false;
         }
         AggregatedCostJson other = (AggregatedCostJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.totalFoodAndBeverageCost, other.totalFoodAndBeverageCost) &&
-            Utils.enhancedDeepEquals(this.totalMiscCost, other.totalMiscCost);
+        return Utils.enhancedDeepEquals(this.totalFoodAndBeverageCost, other.totalFoodAndBeverageCost)
+                && Utils.enhancedDeepEquals(this.totalMiscCost, other.totalMiscCost);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            totalFoodAndBeverageCost, totalMiscCost);
+        return Utils.enhancedHash(totalFoodAndBeverageCost, totalMiscCost);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AggregatedCostJson.class,
-                "totalFoodAndBeverageCost", totalFoodAndBeverageCost,
-                "totalMiscCost", totalMiscCost);
+        return Utils.toString(
+                AggregatedCostJson.class,
+                "totalFoodAndBeverageCost",
+                totalFoodAndBeverageCost,
+                "totalMiscCost",
+                totalMiscCost);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double totalFoodAndBeverageCost;
 
         private Double totalMiscCost;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +136,7 @@ public class AggregatedCostJson {
         }
 
         public AggregatedCostJson build() {
-            return new AggregatedCostJson(
-                totalFoodAndBeverageCost, totalMiscCost);
+            return new AggregatedCostJson(totalFoodAndBeverageCost, totalMiscCost);
         }
-
     }
 }

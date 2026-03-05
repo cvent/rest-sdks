@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetSchemaRequest {
     /**
      * Unique ID for a schema.
@@ -20,10 +19,8 @@ public class GetSchemaRequest {
     private String id;
 
     @JsonCreator
-    public GetSchemaRequest(
-            @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetSchemaRequest(@Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -37,7 +34,6 @@ public class GetSchemaRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID for a schema.
      */
@@ -45,7 +41,6 @@ public class GetSchemaRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +51,26 @@ public class GetSchemaRequest {
             return false;
         }
         GetSchemaRequest other = (GetSchemaRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSchemaRequest.class,
-                "id", id);
+        return Utils.toString(GetSchemaRequest.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +82,7 @@ public class GetSchemaRequest {
         }
 
         public GetSchemaRequest build() {
-            return new GetSchemaRequest(
-                id);
+            return new GetSchemaRequest(id);
         }
-
     }
 }

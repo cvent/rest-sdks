@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BudgetAllocatebyJson
- * 
+ *
  * <p>Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
  * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
  * budget).
@@ -25,13 +25,13 @@ public enum BudgetAllocatebyJson {
     BudgetAllocatebyJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BudgetAllocatebyJson> fromValue(String value) {
-        for (BudgetAllocatebyJson o: BudgetAllocatebyJson.values()) {
+        for (BudgetAllocatebyJson o : BudgetAllocatebyJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum BudgetAllocatebyJson {
         return Optional.empty();
     }
 }
-

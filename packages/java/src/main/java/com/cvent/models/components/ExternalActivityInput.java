@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExternalActivityInput
- * 
+ *
  * <p>An external attendee activity.
  */
 public class ExternalActivityInput {
@@ -55,15 +55,11 @@ public class ExternalActivityInput {
             @JsonProperty("type") @Nonnull ExternalActivityTypeJson type,
             @JsonProperty("data") @Nonnull ExternalActivityDataJson data) {
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -105,7 +101,6 @@ public class ExternalActivityInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -113,7 +108,6 @@ public class ExternalActivityInput {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * Details for an event activity.
@@ -123,7 +117,6 @@ public class ExternalActivityInput {
         return this;
     }
 
-
     /**
      * Name for the external attendee activity.
      */
@@ -131,7 +124,6 @@ public class ExternalActivityInput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * This is used to denote the type of the external attendee activity.
@@ -141,7 +133,6 @@ public class ExternalActivityInput {
         return this;
     }
 
-
     /**
      * This is used to denote the type of the external attendee activity.
      */
@@ -149,7 +140,6 @@ public class ExternalActivityInput {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -160,33 +150,36 @@ public class ExternalActivityInput {
             return false;
         }
         ExternalActivityInput other = (ExternalActivityInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, event, name,
-            type, data);
+        return Utils.enhancedHash(attendee, event, name, type, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivityInput.class,
-                "attendee", attendee,
-                "event", event,
-                "name", name,
-                "type", type,
-                "data", data);
+        return Utils.toString(
+                ExternalActivityInput.class,
+                "attendee",
+                attendee,
+                "event",
+                event,
+                "name",
+                name,
+                "type",
+                type,
+                "data",
+                data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson attendee;
 
@@ -199,7 +192,7 @@ public class ExternalActivityInput {
         private ExternalActivityDataJson data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -243,10 +236,7 @@ public class ExternalActivityInput {
         }
 
         public ExternalActivityInput build() {
-            return new ExternalActivityInput(
-                attendee, event, name,
-                type, data);
+            return new ExternalActivityInput(attendee, event, name, type, data);
         }
-
     }
 }

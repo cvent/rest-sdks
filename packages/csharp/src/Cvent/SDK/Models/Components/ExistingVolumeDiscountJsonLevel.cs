@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExistingVolumeDiscountJsonLevel
     {
-        [JsonProperty("EVENT")]
-        Event,
-        [JsonProperty("ACCOUNT")]
-        Account,
+        [JsonProperty("EVENT")] Event,
+        [JsonProperty("ACCOUNT")] Account,
     }
 
     public static class ExistingVolumeDiscountJsonLevelExtension
     {
         public static string Value(this ExistingVolumeDiscountJsonLevel value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExistingVolumeDiscountJsonLevel ToEnum(this string value)
         {
-            foreach(var field in typeof(ExistingVolumeDiscountJsonLevel).GetFields())
+            foreach (var field in typeof(ExistingVolumeDiscountJsonLevel).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

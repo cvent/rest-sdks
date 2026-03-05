@@ -2,6 +2,14 @@
 
 The management level of the travel account.  Defined by the supply-side.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ManagementLevelTypeJson1.Global;
+```
+
 
 ## Values
 

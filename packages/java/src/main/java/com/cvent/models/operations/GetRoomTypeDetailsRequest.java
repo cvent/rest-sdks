@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetRoomTypeDetailsRequest {
     /**
      * ID for a Passkey housing event.
@@ -38,23 +37,15 @@ public class GetRoomTypeDetailsRequest {
     private String locale;
 
     @JsonCreator
-    public GetRoomTypeDetailsRequest(
-            long housingEventId,
-            long hotelId,
-            long roomTypeId,
-            @Nullable String locale) {
+    public GetRoomTypeDetailsRequest(long housingEventId, long hotelId, long roomTypeId, @Nullable String locale) {
         this.housingEventId = housingEventId;
         this.hotelId = hotelId;
         this.roomTypeId = roomTypeId;
         this.locale = locale;
     }
-    
-    public GetRoomTypeDetailsRequest(
-            long housingEventId,
-            long hotelId,
-            long roomTypeId) {
-        this(housingEventId, hotelId, roomTypeId,
-            null);
+
+    public GetRoomTypeDetailsRequest(long housingEventId, long hotelId, long roomTypeId) {
+        this(housingEventId, hotelId, roomTypeId, null);
     }
 
     /**
@@ -89,7 +80,6 @@ public class GetRoomTypeDetailsRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -97,7 +87,6 @@ public class GetRoomTypeDetailsRequest {
         this.housingEventId = housingEventId;
         return this;
     }
-
 
     /**
      * The hotel's unique ID.
@@ -107,7 +96,6 @@ public class GetRoomTypeDetailsRequest {
         return this;
     }
 
-
     /**
      * Room Type ID.
      */
@@ -116,7 +104,6 @@ public class GetRoomTypeDetailsRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -124,7 +111,6 @@ public class GetRoomTypeDetailsRequest {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -135,31 +121,33 @@ public class GetRoomTypeDetailsRequest {
             return false;
         }
         GetRoomTypeDetailsRequest other = (GetRoomTypeDetailsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.hotelId, other.hotelId) &&
-            Utils.enhancedDeepEquals(this.roomTypeId, other.roomTypeId) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.hotelId, other.hotelId)
+                && Utils.enhancedDeepEquals(this.roomTypeId, other.roomTypeId)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, hotelId, roomTypeId,
-            locale);
+        return Utils.enhancedHash(housingEventId, hotelId, roomTypeId, locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetRoomTypeDetailsRequest.class,
-                "housingEventId", housingEventId,
-                "hotelId", hotelId,
-                "roomTypeId", roomTypeId,
-                "locale", locale);
+        return Utils.toString(
+                GetRoomTypeDetailsRequest.class,
+                "housingEventId",
+                housingEventId,
+                "hotelId",
+                hotelId,
+                "roomTypeId",
+                roomTypeId,
+                "locale",
+                locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -170,7 +158,7 @@ public class GetRoomTypeDetailsRequest {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -206,10 +194,7 @@ public class GetRoomTypeDetailsRequest {
         }
 
         public GetRoomTypeDetailsRequest build() {
-            return new GetRoomTypeDetailsRequest(
-                housingEventId, hotelId, roomTypeId,
-                locale);
+            return new GetRoomTypeDetailsRequest(housingEventId, hotelId, roomTypeId, locale);
         }
-
     }
 }

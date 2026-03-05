@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHousingEventInventoryResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetHousingEventInventoryResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable InventoryDetailsList inventoryDetailsList) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.inventoryDetailsList = inventoryDetailsList;
     }
-    
+
     public GetHousingEventInventoryResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetHousingEventInventoryResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetHousingEventInventoryResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetHousingEventInventoryResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetHousingEventInventoryResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of housing event inventory details.
      */
-    public GetHousingEventInventoryResponse withInventoryDetailsList(@Nullable InventoryDetailsList inventoryDetailsList) {
+    public GetHousingEventInventoryResponse withInventoryDetailsList(
+            @Nullable InventoryDetailsList inventoryDetailsList) {
         this.inventoryDetailsList = inventoryDetailsList;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetHousingEventInventoryResponse implements Response {
             return false;
         }
         GetHousingEventInventoryResponse other = (GetHousingEventInventoryResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.inventoryDetailsList, other.inventoryDetailsList);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.inventoryDetailsList, other.inventoryDetailsList);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            inventoryDetailsList);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, inventoryDetailsList);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventInventoryResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "inventoryDetailsList", inventoryDetailsList);
+        return Utils.toString(
+                GetHousingEventInventoryResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "inventoryDetailsList",
+                inventoryDetailsList);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetHousingEventInventoryResponse implements Response {
         private InventoryDetailsList inventoryDetailsList;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class GetHousingEventInventoryResponse implements Response {
         }
 
         public GetHousingEventInventoryResponse build() {
-            return new GetHousingEventInventoryResponse(
-                contentType, statusCode, rawResponse,
-                inventoryDetailsList);
+            return new GetHousingEventInventoryResponse(contentType, statusCode, rawResponse, inventoryDetailsList);
         }
-
     }
 }

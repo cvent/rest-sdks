@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionResponseDataTypeJson
     {
-        [JsonProperty("text")]
-        Text,
-        [JsonProperty("date")]
-        Date,
-        [JsonProperty("date_time")]
-        DateTime,
-        [JsonProperty("time")]
-        Time,
-        [JsonProperty("number")]
-        Number,
-        [JsonProperty("email")]
-        Email,
-        [JsonProperty("boolean")]
-        Boolean,
+        [JsonProperty("text")] Text,
+        [JsonProperty("date")] Date,
+        [JsonProperty("date_time")] DateTime,
+        [JsonProperty("time")] Time,
+        [JsonProperty("number")] Number,
+        [JsonProperty("email")] Email,
+        [JsonProperty("boolean")] Boolean,
     }
 
     public static class QuestionResponseDataTypeJsonExtension
     {
         public static string Value(this QuestionResponseDataTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionResponseDataTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionResponseDataTypeJson).GetFields())
+            foreach (var field in typeof(QuestionResponseDataTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

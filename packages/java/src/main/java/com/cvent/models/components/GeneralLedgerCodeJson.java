@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * GeneralLedgerCodeJson
- * 
+ *
  * <p>A general ledger code associated to a fee.
  */
 public class GeneralLedgerCodeJson {
@@ -59,10 +59,9 @@ public class GeneralLedgerCodeJson {
         this.code = code;
         this.allocation = allocation;
     }
-    
+
     public GeneralLedgerCodeJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class GeneralLedgerCodeJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier of the general ledger.
      */
@@ -105,7 +103,6 @@ public class GeneralLedgerCodeJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Name of the General Ledger.
@@ -115,7 +112,6 @@ public class GeneralLedgerCodeJson {
         return this;
     }
 
-
     /**
      * General Ledger Code.
      */
@@ -124,7 +120,6 @@ public class GeneralLedgerCodeJson {
         return this;
     }
 
-
     /**
      * The percentage of the fee that is attributed to the general ledger code.
      */
@@ -132,7 +127,6 @@ public class GeneralLedgerCodeJson {
         this.allocation = allocation;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,25 @@ public class GeneralLedgerCodeJson {
             return false;
         }
         GeneralLedgerCodeJson other = (GeneralLedgerCodeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.allocation, other.allocation);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.allocation, other.allocation);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, code,
-            allocation);
+        return Utils.enhancedHash(id, name, code, allocation);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GeneralLedgerCodeJson.class,
-                "id", id,
-                "name", name,
-                "code", code,
-                "allocation", allocation);
+        return Utils.toString(
+                GeneralLedgerCodeJson.class, "id", id, "name", name, "code", code, "allocation", allocation);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -178,7 +166,7 @@ public class GeneralLedgerCodeJson {
         private Double allocation;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +202,7 @@ public class GeneralLedgerCodeJson {
         }
 
         public GeneralLedgerCodeJson build() {
-            return new GeneralLedgerCodeJson(
-                id, name, code,
-                allocation);
+            return new GeneralLedgerCodeJson(id, name, code, allocation);
         }
-
     }
 }

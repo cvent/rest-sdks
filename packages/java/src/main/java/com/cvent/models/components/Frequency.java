@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Frequency
- * 
+ *
  * <p>Defines how often the tax or fee is applied.
  * - per_guest: Applied per guest.
  * - per_room: Applied per room.
@@ -29,13 +29,13 @@ public enum Frequency {
     Frequency(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Frequency> fromValue(String value) {
-        for (Frequency o: Frequency.values()) {
+        for (Frequency o : Frequency.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum Frequency {
         return Optional.empty();
     }
 }
-

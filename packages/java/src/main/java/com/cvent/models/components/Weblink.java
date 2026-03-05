@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * Weblink
- * 
+ *
  * <p>Content of exhibitor weblink.
  */
 public class Weblink {
@@ -68,27 +68,22 @@ public class Weblink {
             @JsonProperty("url") @Nonnull String url,
             @JsonProperty("hidden") @Nullable Boolean hidden,
             @JsonProperty("order") long order) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.url = Optional.ofNullable(url)
-            .orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
-        this.hidden = Optional.ofNullable(hidden)
-            .orElse(Builder._SINGLETON_VALUE_Hidden.value());
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.url = Optional.ofNullable(url).orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
+        this.hidden = Optional.ofNullable(hidden).orElse(Builder._SINGLETON_VALUE_Hidden.value());
         this.order = order;
     }
-    
+
     public Weblink(
             @Nonnull EventJson5 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull String name,
             @Nonnull String url,
             long order) {
-        this(event, exhibitor, name,
-            url, null, order);
+        this(event, exhibitor, name, url, null, order);
     }
 
     /**
@@ -137,7 +132,6 @@ public class Weblink {
         return new Builder();
     }
 
-
     /**
      * The Associated Event.
      */
@@ -145,7 +139,6 @@ public class Weblink {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -155,7 +148,6 @@ public class Weblink {
         return this;
     }
 
-
     /**
      * Display name of the weblink.
      */
@@ -163,7 +155,6 @@ public class Weblink {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The URL of the weblink.
@@ -173,7 +164,6 @@ public class Weblink {
         return this;
     }
 
-
     /**
      * True indicates the weblink is hidden from attendees.
      */
@@ -182,7 +172,6 @@ public class Weblink {
         return this;
     }
 
-
     /**
      * Display order for exhibitor weblink content.
      */
@@ -190,7 +179,6 @@ public class Weblink {
         this.order = order;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -201,35 +189,39 @@ public class Weblink {
             return false;
         }
         Weblink other = (Weblink) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.hidden, other.hidden) &&
-            Utils.enhancedDeepEquals(this.order, other.order);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.hidden, other.hidden)
+                && Utils.enhancedDeepEquals(this.order, other.order);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, exhibitor, name,
-            url, hidden, order);
+        return Utils.enhancedHash(event, exhibitor, name, url, hidden, order);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Weblink.class,
-                "event", event,
-                "exhibitor", exhibitor,
-                "name", name,
-                "url", url,
-                "hidden", hidden,
-                "order", order);
+        return Utils.toString(
+                Weblink.class,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "name",
+                name,
+                "url",
+                url,
+                "hidden",
+                hidden,
+                "order",
+                order);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson5 event;
 
@@ -244,7 +236,7 @@ public class Weblink {
         private long order;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -296,16 +288,10 @@ public class Weblink {
         }
 
         public Weblink build() {
-            return new Weblink(
-                event, exhibitor, name,
-                url, hidden, order);
+            return new Weblink(event, exhibitor, name, url, hidden, order);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Hidden =
-                new LazySingletonValue<>(
-                        "hidden",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("hidden", "false", new TypeReference<Boolean>() {});
     }
 }

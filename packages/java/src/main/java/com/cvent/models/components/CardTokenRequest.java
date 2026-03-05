@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * CardTokenRequest
- * 
+ *
  * <p>Generate a card token for a credit card.
  */
 public class CardTokenRequest {
@@ -24,10 +24,9 @@ public class CardTokenRequest {
     private CreditCardRequestJson creditCard;
 
     @JsonCreator
-    public CardTokenRequest(
-            @JsonProperty("creditCard") @Nonnull CreditCardRequestJson creditCard) {
+    public CardTokenRequest(@JsonProperty("creditCard") @Nonnull CreditCardRequestJson creditCard) {
         this.creditCard = Optional.ofNullable(creditCard)
-            .orElseThrow(() -> new IllegalArgumentException("creditCard cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("creditCard cannot be null"));
     }
 
     /**
@@ -41,7 +40,6 @@ public class CardTokenRequest {
         return new Builder();
     }
 
-
     /**
      * Credit Card Request Object
      */
@@ -49,7 +47,6 @@ public class CardTokenRequest {
         this.creditCard = Utils.checkNotNull(creditCard, "creditCard");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +57,26 @@ public class CardTokenRequest {
             return false;
         }
         CardTokenRequest other = (CardTokenRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.creditCard, other.creditCard);
+        return Utils.enhancedDeepEquals(this.creditCard, other.creditCard);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            creditCard);
+        return Utils.enhancedHash(creditCard);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CardTokenRequest.class,
-                "creditCard", creditCard);
+        return Utils.toString(CardTokenRequest.class, "creditCard", creditCard);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CreditCardRequestJson creditCard;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +88,7 @@ public class CardTokenRequest {
         }
 
         public CardTokenRequest build() {
-            return new CardTokenRequest(
-                creditCard);
+            return new CardTokenRequest(creditCard);
         }
-
     }
 }

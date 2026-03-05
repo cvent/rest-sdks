@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateQuantityItemRegistrationForAttendeeRequest {
     /**
      * Unique ID of a quantity item.
@@ -29,15 +28,13 @@ public class UpdateQuantityItemRegistrationForAttendeeRequest {
 
     @JsonCreator
     public UpdateQuantityItemRegistrationForAttendeeRequest(
-            @Nonnull String quantityItemId,
-            @Nullable QuantityItemUpdate quantityItemUpdate) {
+            @Nonnull String quantityItemId, @Nullable QuantityItemUpdate quantityItemUpdate) {
         this.quantityItemId = Optional.ofNullable(quantityItemId)
-            .orElseThrow(() -> new IllegalArgumentException("quantityItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("quantityItemId cannot be null"));
         this.quantityItemUpdate = quantityItemUpdate;
     }
-    
-    public UpdateQuantityItemRegistrationForAttendeeRequest(
-            @Nonnull String quantityItemId) {
+
+    public UpdateQuantityItemRegistrationForAttendeeRequest(@Nonnull String quantityItemId) {
         this(quantityItemId, null);
     }
 
@@ -59,7 +56,6 @@ public class UpdateQuantityItemRegistrationForAttendeeRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a quantity item.
      */
@@ -68,15 +64,14 @@ public class UpdateQuantityItemRegistrationForAttendeeRequest {
         return this;
     }
 
-
     /**
      * Details in body required to update quantity item for an attendee.
      */
-    public UpdateQuantityItemRegistrationForAttendeeRequest withQuantityItemUpdate(@Nullable QuantityItemUpdate quantityItemUpdate) {
+    public UpdateQuantityItemRegistrationForAttendeeRequest withQuantityItemUpdate(
+            @Nullable QuantityItemUpdate quantityItemUpdate) {
         this.quantityItemUpdate = quantityItemUpdate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -87,33 +82,34 @@ public class UpdateQuantityItemRegistrationForAttendeeRequest {
             return false;
         }
         UpdateQuantityItemRegistrationForAttendeeRequest other = (UpdateQuantityItemRegistrationForAttendeeRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.quantityItemId, other.quantityItemId) &&
-            Utils.enhancedDeepEquals(this.quantityItemUpdate, other.quantityItemUpdate);
+        return Utils.enhancedDeepEquals(this.quantityItemId, other.quantityItemId)
+                && Utils.enhancedDeepEquals(this.quantityItemUpdate, other.quantityItemUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            quantityItemId, quantityItemUpdate);
+        return Utils.enhancedHash(quantityItemId, quantityItemUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateQuantityItemRegistrationForAttendeeRequest.class,
-                "quantityItemId", quantityItemId,
-                "quantityItemUpdate", quantityItemUpdate);
+        return Utils.toString(
+                UpdateQuantityItemRegistrationForAttendeeRequest.class,
+                "quantityItemId",
+                quantityItemId,
+                "quantityItemUpdate",
+                quantityItemUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String quantityItemId;
 
         private QuantityItemUpdate quantityItemUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -133,9 +129,7 @@ public class UpdateQuantityItemRegistrationForAttendeeRequest {
         }
 
         public UpdateQuantityItemRegistrationForAttendeeRequest build() {
-            return new UpdateQuantityItemRegistrationForAttendeeRequest(
-                quantityItemId, quantityItemUpdate);
+            return new UpdateQuantityItemRegistrationForAttendeeRequest(quantityItemId, quantityItemUpdate);
         }
-
     }
 }

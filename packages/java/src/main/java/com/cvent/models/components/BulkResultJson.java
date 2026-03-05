@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * BulkResultJson
- * 
+ *
  * <p>This entity is used to represent a single item that is returned as part of a Bulk Job Result call.
  */
 public class BulkResultJson {
@@ -80,8 +80,7 @@ public class BulkResultJson {
             @JsonProperty("id") @Nullable Long id,
             @JsonProperty("job") @Nullable Job job,
             @JsonProperty("failed") @Nullable Boolean failed) {
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
         this.status = status;
         this.message = message;
         this.request = request;
@@ -89,13 +88,9 @@ public class BulkResultJson {
         this.job = job;
         this.failed = failed;
     }
-    
-    public BulkResultJson(
-            @Nonnull BulkDataProperty data,
-            long status) {
-        this(data, status, null,
-            null, null, null,
-            null);
+
+    public BulkResultJson(@Nonnull BulkDataProperty data, long status) {
+        this(data, status, null, null, null, null, null);
     }
 
     /**
@@ -151,7 +146,6 @@ public class BulkResultJson {
         return new Builder();
     }
 
-
     /**
      * The response data for the bulk operation.
      */
@@ -159,7 +153,6 @@ public class BulkResultJson {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     /**
      * http status code representing processing status of a single item
@@ -169,7 +162,6 @@ public class BulkResultJson {
         return this;
     }
 
-
     /**
      * Quick description of what happened with processing
      */
@@ -177,7 +169,6 @@ public class BulkResultJson {
         this.message = message;
         return this;
     }
-
 
     /**
      * The processed request tied to this response. This field is only sent when processing fails.
@@ -187,7 +178,6 @@ public class BulkResultJson {
         return this;
     }
 
-
     /**
      * The bulk result identifier.
      */
@@ -195,7 +185,6 @@ public class BulkResultJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Unique identifier of the bulk job linked to this result.
@@ -205,7 +194,6 @@ public class BulkResultJson {
         return this;
     }
 
-
     /**
      * Indicator that specifies if the bulk result failed.
      */
@@ -213,7 +201,6 @@ public class BulkResultJson {
         this.failed = failed;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -224,38 +211,42 @@ public class BulkResultJson {
             return false;
         }
         BulkResultJson other = (BulkResultJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.request, other.request) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.job, other.job) &&
-            Utils.enhancedDeepEquals(this.failed, other.failed);
+        return Utils.enhancedDeepEquals(this.data, other.data)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.request, other.request)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.job, other.job)
+                && Utils.enhancedDeepEquals(this.failed, other.failed);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data, status, message,
-            request, id, job,
-            failed);
+        return Utils.enhancedHash(data, status, message, request, id, job, failed);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BulkResultJson.class,
-                "data", data,
-                "status", status,
-                "message", message,
-                "request", request,
-                "id", id,
-                "job", job,
-                "failed", failed);
+        return Utils.toString(
+                BulkResultJson.class,
+                "data",
+                data,
+                "status",
+                status,
+                "message",
+                message,
+                "request",
+                request,
+                "id",
+                id,
+                "job",
+                job,
+                "failed",
+                failed);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BulkDataProperty data;
 
@@ -272,7 +263,7 @@ public class BulkResultJson {
         private Boolean failed;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -332,11 +323,7 @@ public class BulkResultJson {
         }
 
         public BulkResultJson build() {
-            return new BulkResultJson(
-                data, status, message,
-                request, id, job,
-                failed);
+            return new BulkResultJson(data, status, message, request, id, job, failed);
         }
-
     }
 }

@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * AttendeeAddStatusJson
- * 
+ *
  * <p>Denotes the status of an attendee being added. No Response: The attendee was added to an invitation
  * list but hasn't taken any action. Accepted: The attendee is registered for the event.
- * 
+ *
  * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
  * waiting to be approved by the planner.
  */
@@ -28,13 +28,13 @@ public enum AttendeeAddStatusJson {
     AttendeeAddStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeAddStatusJson> fromValue(String value) {
-        for (AttendeeAddStatusJson o: AttendeeAddStatusJson.values()) {
+        for (AttendeeAddStatusJson o : AttendeeAddStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum AttendeeAddStatusJson {
         return Optional.empty();
     }
 }
-

@@ -29,7 +29,7 @@ public class CreateAttendeeActivityRequestBuilder {
     private ExternalActivityInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateAttendeeActivityRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateAttendeeActivityRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateAttendeeActivityResponse call() {
-        RequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation
-              = new CreateAttendeeActivity.Sync(sdkConfiguration, _headers);
+        RequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation =
+                new CreateAttendeeActivity.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

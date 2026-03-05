@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EventWeblinksPaginatedResponsePaging
- * 
+ *
  * <p>Represents pagination information for a collection of resources.
  */
 public class EventWeblinksPaginatedResponsePaging {
@@ -78,14 +78,11 @@ public class EventWeblinksPaginatedResponsePaging {
         this.nextToken = nextToken;
         this.currentToken = currentToken;
         this.totalCount = totalCount;
-        this.links = Optional.ofNullable(links)
-            .orElseThrow(() -> new IllegalArgumentException("links cannot be null"));
+        this.links = Optional.ofNullable(links).orElseThrow(() -> new IllegalArgumentException("links cannot be null"));
     }
-    
-    public EventWeblinksPaginatedResponsePaging(
-            @Nonnull PaginationLinksJson links) {
-        this(null, null, null,
-            null, null, links);
+
+    public EventWeblinksPaginatedResponsePaging(@Nonnull PaginationLinksJson links) {
+        this(null, null, null, null, null, links);
     }
 
     /**
@@ -137,7 +134,6 @@ public class EventWeblinksPaginatedResponsePaging {
         return new Builder();
     }
 
-
     /**
      * The number of records to return on the page. Not to exceed 200.
      */
@@ -145,7 +141,6 @@ public class EventWeblinksPaginatedResponsePaging {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The pagination token for the previous page, if one exists. You can use this token to navigate to the
@@ -156,7 +151,6 @@ public class EventWeblinksPaginatedResponsePaging {
         return this;
     }
 
-
     /**
      * The pagination token for the next page. If this value is present in the response, there is another
      * page of data you can fetch.
@@ -166,7 +160,6 @@ public class EventWeblinksPaginatedResponsePaging {
         return this;
     }
 
-
     /**
      * The pagination token for the current page.
      */
@@ -174,7 +167,6 @@ public class EventWeblinksPaginatedResponsePaging {
         this.currentToken = currentToken;
         return this;
     }
-
 
     /**
      * The total number of records available. This field may return blank, even if there are more records.
@@ -185,7 +177,6 @@ public class EventWeblinksPaginatedResponsePaging {
         return this;
     }
 
-
     /**
      * Represents pagination links for navigating between pages of data.
      */
@@ -193,7 +184,6 @@ public class EventWeblinksPaginatedResponsePaging {
         this.links = Utils.checkNotNull(links, "links");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -204,35 +194,39 @@ public class EventWeblinksPaginatedResponsePaging {
             return false;
         }
         EventWeblinksPaginatedResponsePaging other = (EventWeblinksPaginatedResponsePaging) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.previousToken, other.previousToken) &&
-            Utils.enhancedDeepEquals(this.nextToken, other.nextToken) &&
-            Utils.enhancedDeepEquals(this.currentToken, other.currentToken) &&
-            Utils.enhancedDeepEquals(this.totalCount, other.totalCount) &&
-            Utils.enhancedDeepEquals(this.links, other.links);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.previousToken, other.previousToken)
+                && Utils.enhancedDeepEquals(this.nextToken, other.nextToken)
+                && Utils.enhancedDeepEquals(this.currentToken, other.currentToken)
+                && Utils.enhancedDeepEquals(this.totalCount, other.totalCount)
+                && Utils.enhancedDeepEquals(this.links, other.links);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, previousToken, nextToken,
-            currentToken, totalCount, links);
+        return Utils.enhancedHash(limit, previousToken, nextToken, currentToken, totalCount, links);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventWeblinksPaginatedResponsePaging.class,
-                "limit", limit,
-                "previousToken", previousToken,
-                "nextToken", nextToken,
-                "currentToken", currentToken,
-                "totalCount", totalCount,
-                "links", links);
+        return Utils.toString(
+                EventWeblinksPaginatedResponsePaging.class,
+                "limit",
+                limit,
+                "previousToken",
+                previousToken,
+                "nextToken",
+                nextToken,
+                "currentToken",
+                currentToken,
+                "totalCount",
+                totalCount,
+                "links",
+                links);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -247,7 +241,7 @@ public class EventWeblinksPaginatedResponsePaging {
         private PaginationLinksJson links;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -303,9 +297,7 @@ public class EventWeblinksPaginatedResponsePaging {
 
         public EventWeblinksPaginatedResponsePaging build() {
             return new EventWeblinksPaginatedResponsePaging(
-                limit, previousToken, nextToken,
-                currentToken, totalCount, links);
+                    limit, previousToken, nextToken, currentToken, totalCount, links);
         }
-
     }
 }

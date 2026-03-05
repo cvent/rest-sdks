@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetScoresRequest {
     /**
      * Identifier of an engagement score (attendee insight).
@@ -40,10 +39,10 @@ public class GetScoresRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendee.id (eq)
      */
@@ -51,23 +50,15 @@ public class GetScoresRequest {
     private String filter;
 
     @JsonCreator
-    public GetScoresRequest(
-            @Nonnull String id,
-            @Nullable String token,
-            @Nullable Long limit,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetScoresRequest(@Nonnull String id, @Nullable String token, @Nullable Long limit, @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.token = token;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.filter = filter;
     }
-    
-    public GetScoresRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public GetScoresRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -96,10 +87,10 @@ public class GetScoresRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendee.id (eq)
      */
@@ -111,7 +102,6 @@ public class GetScoresRequest {
         return new Builder();
     }
 
-
     /**
      * Identifier of an engagement score (attendee insight).
      */
@@ -119,7 +109,6 @@ public class GetScoresRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -130,7 +119,6 @@ public class GetScoresRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -139,15 +127,14 @@ public class GetScoresRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendee.id (eq)
      */
@@ -155,7 +142,6 @@ public class GetScoresRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -166,31 +152,24 @@ public class GetScoresRequest {
             return false;
         }
         GetScoresRequest other = (GetScoresRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, token, limit,
-            filter);
+        return Utils.enhancedHash(id, token, limit, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetScoresRequest.class,
-                "id", id,
-                "token", token,
-                "limit", limit,
-                "filter", filter);
+        return Utils.toString(GetScoresRequest.class, "id", id, "token", token, "limit", limit, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -201,7 +180,7 @@ public class GetScoresRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -233,10 +212,10 @@ public class GetScoresRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There is one comparison type that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * attendee.id (eq)
          */
@@ -246,16 +225,10 @@ public class GetScoresRequest {
         }
 
         public GetScoresRequest build() {
-            return new GetScoresRequest(
-                id, token, limit,
-                filter);
+            return new GetScoresRequest(id, token, limit, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

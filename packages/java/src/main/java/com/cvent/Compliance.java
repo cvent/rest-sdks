@@ -3,8 +3,8 @@
  */
 package com.cvent;
 
-import static com.cvent.operations.Operations.RequestlessOperation;
 import static com.cvent.operations.Operations.RequestOperation;
+import static com.cvent.operations.Operations.RequestlessOperation;
 
 import com.cvent.models.components.CommunicationConfiguration;
 import com.cvent.models.operations.FilterCommunicationLogMessagesRequest;
@@ -26,7 +26,7 @@ import jakarta.annotation.Nonnull;
 
 /**
  * These API's provide compliance support for regulated industries.
- * 
+ *
  * <p>**Communication Compliance** lets you view communication activities across your account.
  * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
  * push notifications
@@ -44,7 +44,7 @@ public class Compliance {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncCompliance async() {
@@ -53,12 +53,12 @@ public class Compliance {
 
     /**
      * Get Communication Config
-     * 
+     *
      * <p>Gets communication compliance configuration for an account. For example, gets the communication
      * types enabled for an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetConfigurationRequestBuilder getConfiguration() {
@@ -67,29 +67,29 @@ public class Compliance {
 
     /**
      * Get Communication Config
-     * 
+     *
      * <p>Gets communication compliance configuration for an account. For example, gets the communication
      * types enabled for an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetConfigurationResponse getConfigurationDirect() {
-        RequestlessOperation<GetConfigurationResponse> operation
-            = new GetConfiguration.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<GetConfigurationResponse> operation =
+                new GetConfiguration.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 
     /**
      * Update Communication Config
-     * 
+     *
      * <p>Update the communication compliance configuration for an account. For example, configure which
      * communication types will be recorded in the communication log.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateConfigurationRequestBuilder updateConfiguration() {
@@ -98,38 +98,38 @@ public class Compliance {
 
     /**
      * Update Communication Config
-     * 
+     *
      * <p>Update the communication compliance configuration for an account. For example, configure which
      * communication types will be recorded in the communication log.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateConfigurationResponse updateConfiguration(@Nonnull CommunicationConfiguration request) {
-        RequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation
-              = new UpdateConfiguration.Sync(sdkConfiguration, _headers);
+        RequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation =
+                new UpdateConfiguration.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter is not required.
      * If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetCommunicationLogMessagesRequestBuilder getCommunicationLogMessages() {
@@ -138,46 +138,47 @@ public class Compliance {
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter is not required.
      * If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetCommunicationLogMessagesResponse getCommunicationLogMessages(@Nonnull GetCommunicationLogMessagesRequest request) {
-        RequestOperation<GetCommunicationLogMessagesRequest, GetCommunicationLogMessagesResponse> operation
-              = new GetCommunicationLogMessages.Sync(sdkConfiguration, _headers);
+    public GetCommunicationLogMessagesResponse getCommunicationLogMessages(
+            @Nonnull GetCommunicationLogMessagesRequest request) {
+        RequestOperation<GetCommunicationLogMessagesRequest, GetCommunicationLogMessagesResponse> operation =
+                new GetCommunicationLogMessages.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter in the request
      * body is not required. If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public FilterCommunicationLogMessagesRequestBuilder filterCommunicationLogMessages() {
@@ -186,28 +187,28 @@ public class Compliance {
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter in the request
      * body is not required. If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public FilterCommunicationLogMessagesResponse filterCommunicationLogMessages(@Nonnull FilterCommunicationLogMessagesRequest request) {
-        RequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation
-              = new FilterCommunicationLogMessages.Sync(sdkConfiguration, _headers);
+    public FilterCommunicationLogMessagesResponse filterCommunicationLogMessages(
+            @Nonnull FilterCommunicationLogMessagesRequest request) {
+        RequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
+                new FilterCommunicationLogMessages.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

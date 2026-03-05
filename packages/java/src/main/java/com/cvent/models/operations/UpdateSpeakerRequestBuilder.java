@@ -28,7 +28,7 @@ public class UpdateSpeakerRequestBuilder {
     private UpdateSpeakerRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateSpeakerRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateSpeakerRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateSpeakerResponse call() {
-        RequestOperation<UpdateSpeakerRequest, UpdateSpeakerResponse> operation
-              = new UpdateSpeaker.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateSpeakerRequest, UpdateSpeakerResponse> operation =
+                new UpdateSpeaker.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

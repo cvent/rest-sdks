@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttributeReferenceTypeJson
     {
-        [JsonProperty("User")]
-        User,
-        [JsonProperty("Group")]
-        Group,
-        [JsonProperty("external")]
-        External,
-        [JsonProperty("uri")]
-        Uri,
+        [JsonProperty("User")] User,
+        [JsonProperty("Group")] Group,
+        [JsonProperty("external")] External,
+        [JsonProperty("uri")] Uri,
     }
 
     public static class AttributeReferenceTypeJsonExtension
     {
         public static string Value(this AttributeReferenceTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttributeReferenceTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttributeReferenceTypeJson).GetFields())
+            foreach (var field in typeof(AttributeReferenceTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

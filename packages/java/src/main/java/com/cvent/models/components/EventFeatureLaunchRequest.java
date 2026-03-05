@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * EventFeatureLaunchRequest
- * 
+ *
  * <p>Event-features launch request parameters.
  */
 public class EventFeatureLaunchRequest {
@@ -30,12 +30,11 @@ public class EventFeatureLaunchRequest {
     private Boolean deleteTestData;
 
     @JsonCreator
-    public EventFeatureLaunchRequest(
-            @JsonProperty("deleteTestData") @Nullable Boolean deleteTestData) {
-        this.deleteTestData = Optional.ofNullable(deleteTestData)
-            .orElse(Builder._SINGLETON_VALUE_DeleteTestData.value());
+    public EventFeatureLaunchRequest(@JsonProperty("deleteTestData") @Nullable Boolean deleteTestData) {
+        this.deleteTestData =
+                Optional.ofNullable(deleteTestData).orElse(Builder._SINGLETON_VALUE_DeleteTestData.value());
     }
-    
+
     public EventFeatureLaunchRequest() {
         this(null);
     }
@@ -51,7 +50,6 @@ public class EventFeatureLaunchRequest {
         return new Builder();
     }
 
-
     /**
      * True keeps email data collected in test mode, prior to the registration feature being launched.
      */
@@ -59,7 +57,6 @@ public class EventFeatureLaunchRequest {
         this.deleteTestData = deleteTestData;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -70,29 +67,26 @@ public class EventFeatureLaunchRequest {
             return false;
         }
         EventFeatureLaunchRequest other = (EventFeatureLaunchRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.deleteTestData, other.deleteTestData);
+        return Utils.enhancedDeepEquals(this.deleteTestData, other.deleteTestData);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            deleteTestData);
+        return Utils.enhancedHash(deleteTestData);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventFeatureLaunchRequest.class,
-                "deleteTestData", deleteTestData);
+        return Utils.toString(EventFeatureLaunchRequest.class, "deleteTestData", deleteTestData);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean deleteTestData;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,15 +98,10 @@ public class EventFeatureLaunchRequest {
         }
 
         public EventFeatureLaunchRequest build() {
-            return new EventFeatureLaunchRequest(
-                deleteTestData);
+            return new EventFeatureLaunchRequest(deleteTestData);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DeleteTestData =
-                new LazySingletonValue<>(
-                        "deleteTestData",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleteTestData", "false", new TypeReference<Boolean>() {});
     }
 }

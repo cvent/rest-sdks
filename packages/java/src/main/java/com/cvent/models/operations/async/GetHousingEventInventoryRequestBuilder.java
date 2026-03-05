@@ -30,7 +30,7 @@ public class GetHousingEventInventoryRequestBuilder {
     private GetHousingEventInventoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingEventInventoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetHousingEventInventoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetHousingEventInventoryResponse> call() {
-        AsyncRequestOperation<GetHousingEventInventoryRequest, GetHousingEventInventoryResponse> operation
-              = new GetHousingEventInventory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHousingEventInventoryRequest, GetHousingEventInventoryResponse> operation =
+                new GetHousingEventInventory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

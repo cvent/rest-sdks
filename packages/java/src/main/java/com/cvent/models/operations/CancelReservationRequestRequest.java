@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CancelReservationRequestRequest {
     /**
      * Unique room reservation request ID.
@@ -20,10 +19,9 @@ public class CancelReservationRequestRequest {
     private String reservationRequestsId;
 
     @JsonCreator
-    public CancelReservationRequestRequest(
-            @Nonnull String reservationRequestsId) {
+    public CancelReservationRequestRequest(@Nonnull String reservationRequestsId) {
         this.reservationRequestsId = Optional.ofNullable(reservationRequestsId)
-            .orElseThrow(() -> new IllegalArgumentException("reservationRequestsId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationRequestsId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class CancelReservationRequestRequest {
         return new Builder();
     }
 
-
     /**
      * Unique room reservation request ID.
      */
@@ -45,7 +42,6 @@ public class CancelReservationRequestRequest {
         this.reservationRequestsId = Utils.checkNotNull(reservationRequestsId, "reservationRequestsId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class CancelReservationRequestRequest {
             return false;
         }
         CancelReservationRequestRequest other = (CancelReservationRequestRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.reservationRequestsId, other.reservationRequestsId);
+        return Utils.enhancedDeepEquals(this.reservationRequestsId, other.reservationRequestsId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            reservationRequestsId);
+        return Utils.enhancedHash(reservationRequestsId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CancelReservationRequestRequest.class,
-                "reservationRequestsId", reservationRequestsId);
+        return Utils.toString(CancelReservationRequestRequest.class, "reservationRequestsId", reservationRequestsId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String reservationRequestsId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class CancelReservationRequestRequest {
         }
 
         public CancelReservationRequestRequest build() {
-            return new CancelReservationRequestRequest(
-                reservationRequestsId);
+            return new CancelReservationRequestRequest(reservationRequestsId);
         }
-
     }
 }

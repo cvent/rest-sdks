@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DiscountMethodTypeJson
     {
-        [JsonProperty("BY_AMOUNT")]
-        ByAmount,
-        [JsonProperty("BY_PERCENTAGE")]
-        ByPercentage,
-        [JsonProperty("FLAT_PRICE")]
-        FlatPrice,
+        [JsonProperty("BY_AMOUNT")] ByAmount,
+        [JsonProperty("BY_PERCENTAGE")] ByPercentage,
+        [JsonProperty("FLAT_PRICE")] FlatPrice,
     }
 
     public static class DiscountMethodTypeJsonExtension
     {
         public static string Value(this DiscountMethodTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DiscountMethodTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DiscountMethodTypeJson).GetFields())
+            foreach (var field in typeof(DiscountMethodTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

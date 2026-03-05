@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelProgramStatusJson
- * 
+ *
  * <p>Code representing the status of the travel program.
  */
 public enum TravelProgramStatusJson {
@@ -24,13 +24,13 @@ public enum TravelProgramStatusJson {
     TravelProgramStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelProgramStatusJson> fromValue(String value) {
-        for (TravelProgramStatusJson o: TravelProgramStatusJson.values()) {
+        for (TravelProgramStatusJson o : TravelProgramStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum TravelProgramStatusJson {
         return Optional.empty();
     }
 }
-

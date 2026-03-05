@@ -40,7 +40,7 @@ public class ListMembershipItemsRequestBuilder {
     private ListMembershipItemsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListMembershipItemsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListMembershipItemsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListMembershipItemsResponse> call() {
-        AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation
-              = new ListMembershipItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation =
+                new ListMembershipItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListMembershipItemsRequestBuilder {
      */
     public Publisher<ListMembershipItemsResponse> callAsPublisher() {
         ListMembershipItemsRequest request = this.request;
-        AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation
-              = new ListMembershipItems.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation =
+                new ListMembershipItems.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListMembershipItemsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListMembershipItemsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListMembershipItemsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AppointmentTypesPaginatedResponse
- * 
+ *
  * <p>The response for a request of appointment types configured for scheduling appointments.
  */
 public class AppointmentTypesPaginatedResponse {
@@ -41,7 +41,7 @@ public class AppointmentTypesPaginatedResponse {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public AppointmentTypesPaginatedResponse() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class AppointmentTypesPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +72,6 @@ public class AppointmentTypesPaginatedResponse {
         return this;
     }
 
-
     /**
      * The collection of appointment types object.
      */
@@ -81,7 +79,6 @@ public class AppointmentTypesPaginatedResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class AppointmentTypesPaginatedResponse {
             return false;
         }
         AppointmentTypesPaginatedResponse other = (AppointmentTypesPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentTypesPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(AppointmentTypesPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<AppointmentTypeJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class AppointmentTypesPaginatedResponse {
         }
 
         public AppointmentTypesPaginatedResponse build() {
-            return new AppointmentTypesPaginatedResponse(
-                paging, data);
+            return new AppointmentTypesPaginatedResponse(paging, data);
         }
-
     }
 }

@@ -28,7 +28,7 @@ public class GetExhibitorFileRequestBuilder {
     private GetExhibitorFileRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorFileRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetExhibitorFileRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetExhibitorFileResponse call() {
-        RequestOperation<GetExhibitorFileRequest, GetExhibitorFileResponse> operation
-              = new GetExhibitorFile.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetExhibitorFileRequest, GetExhibitorFileResponse> operation =
+                new GetExhibitorFile.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

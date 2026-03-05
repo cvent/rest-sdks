@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * RespondentJson
- * 
+ *
  * <p>Respondent object for survey respondents.
  */
 public class RespondentJson {
@@ -81,11 +81,11 @@ public class RespondentJson {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -266,17 +266,34 @@ public class RespondentJson {
         this.invitationList = invitationList;
         this.transactionId = transactionId;
     }
-    
+
     public RespondentJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -337,11 +354,11 @@ public class RespondentJson {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -473,7 +490,6 @@ public class RespondentJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -481,7 +497,6 @@ public class RespondentJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -491,7 +506,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -499,7 +513,6 @@ public class RespondentJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -509,7 +522,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Id of the respondent that has to be in a format matching the industry standard uuid
      */
@@ -517,7 +529,6 @@ public class RespondentJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Response Code
@@ -527,7 +538,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Time taken by respondent to respond to the survey (in seconds)
      */
@@ -535,7 +545,6 @@ public class RespondentJson {
         this.responseDuration = responseDuration;
         return this;
     }
-
 
     /**
      * Locale Id of the respondent using the IETF Language Tag format
@@ -545,14 +554,13 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -566,7 +574,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
      * weblinks with different values of referenceId query param in them.
@@ -576,7 +583,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Respondent Score
      */
@@ -584,7 +590,6 @@ public class RespondentJson {
         this.score = score;
         return this;
     }
-
 
     /**
      * Respondent Maximum Possible Score
@@ -594,7 +599,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Respondent Percentage Score
      */
@@ -602,7 +606,6 @@ public class RespondentJson {
         this.percentageScore = percentageScore;
         return this;
     }
-
 
     /**
      * Related links.
@@ -612,7 +615,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Source IDs track respondents in an external system integrated with the Cvent survey.
      */
@@ -620,7 +622,6 @@ public class RespondentJson {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Detail object of an event which is associated to a survey.
@@ -630,7 +631,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -638,7 +638,6 @@ public class RespondentJson {
         this.contact = contact;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -648,7 +647,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -656,7 +654,6 @@ public class RespondentJson {
         this.survey = survey;
         return this;
     }
-
 
     /**
      * Respondent Status
@@ -666,7 +663,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * True indicates the respondent has unsubscribed from recieving emails from the survey.
      */
@@ -674,7 +670,6 @@ public class RespondentJson {
         this.unsubscribed = unsubscribed;
         return this;
     }
-
 
     /**
      * Who unsubscribed the respondent.
@@ -684,7 +679,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Survey respondent chapters.
      */
@@ -693,7 +687,6 @@ public class RespondentJson {
         return this;
     }
 
-
     /**
      * Invitation list of respondents
      */
@@ -701,7 +694,6 @@ public class RespondentJson {
         this.invitationList = invitationList;
         return this;
     }
-
 
     /**
      * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
@@ -713,7 +705,6 @@ public class RespondentJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -723,80 +714,121 @@ public class RespondentJson {
             return false;
         }
         RespondentJson other = (RespondentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.responseCode, other.responseCode) &&
-            Utils.enhancedDeepEquals(this.responseDuration, other.responseDuration) &&
-            Utils.enhancedDeepEquals(this.localeId, other.localeId) &&
-            Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore) &&
-            Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed) &&
-            Utils.enhancedDeepEquals(this.unsubscribedBy, other.unsubscribedBy) &&
-            Utils.enhancedDeepEquals(this.chapters, other.chapters) &&
-            Utils.enhancedDeepEquals(this.invitationList, other.invitationList) &&
-            Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.responseCode, other.responseCode)
+                && Utils.enhancedDeepEquals(this.responseDuration, other.responseDuration)
+                && Utils.enhancedDeepEquals(this.localeId, other.localeId)
+                && Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore)
+                && Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed)
+                && Utils.enhancedDeepEquals(this.unsubscribedBy, other.unsubscribedBy)
+                && Utils.enhancedDeepEquals(this.chapters, other.chapters)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList)
+                && Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, responseCode,
-            responseDuration, localeId, respondedThrough,
-            referenceId, score, maxPossibleScore,
-            percentageScore, links, sourceId,
-            event, contact, attendee,
-            survey, status, unsubscribed,
-            unsubscribedBy, chapters, invitationList,
-            transactionId);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                responseCode,
+                responseDuration,
+                localeId,
+                respondedThrough,
+                referenceId,
+                score,
+                maxPossibleScore,
+                percentageScore,
+                links,
+                sourceId,
+                event,
+                contact,
+                attendee,
+                survey,
+                status,
+                unsubscribed,
+                unsubscribedBy,
+                chapters,
+                invitationList,
+                transactionId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RespondentJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "responseCode", responseCode,
-                "responseDuration", responseDuration,
-                "localeId", localeId,
-                "respondedThrough", respondedThrough,
-                "referenceId", referenceId,
-                "score", score,
-                "maxPossibleScore", maxPossibleScore,
-                "percentageScore", percentageScore,
-                "links", links,
-                "sourceId", sourceId,
-                "event", event,
-                "contact", contact,
-                "attendee", attendee,
-                "survey", survey,
-                "status", status,
-                "unsubscribed", unsubscribed,
-                "unsubscribedBy", unsubscribedBy,
-                "chapters", chapters,
-                "invitationList", invitationList,
-                "transactionId", transactionId);
+        return Utils.toString(
+                RespondentJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "responseCode",
+                responseCode,
+                "responseDuration",
+                responseDuration,
+                "localeId",
+                localeId,
+                "respondedThrough",
+                respondedThrough,
+                "referenceId",
+                referenceId,
+                "score",
+                score,
+                "maxPossibleScore",
+                maxPossibleScore,
+                "percentageScore",
+                percentageScore,
+                "links",
+                links,
+                "sourceId",
+                sourceId,
+                "event",
+                event,
+                "contact",
+                contact,
+                "attendee",
+                attendee,
+                "survey",
+                survey,
+                "status",
+                status,
+                "unsubscribed",
+                unsubscribed,
+                "unsubscribedBy",
+                unsubscribedBy,
+                "chapters",
+                chapters,
+                "invitationList",
+                invitationList,
+                "transactionId",
+                transactionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -849,7 +881,7 @@ public class RespondentJson {
         private String transactionId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -918,11 +950,11 @@ public class RespondentJson {
 
         /**
          * Indicates the mode by which a respondent submitted their response.
-         * 
+         *
          * <p>This field contains one of the enumerated, string constants listed below.
-         * 
+         *
          * <p>Enum values:
-         * 
+         *
          * <p>- "Not Responded": Respondent did not provide a response.
          * - "API": Response was submitted via an API.
          * - "Import": Response was created by a bulk import process.
@@ -1069,16 +1101,31 @@ public class RespondentJson {
 
         public RespondentJson build() {
             return new RespondentJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, responseCode,
-                responseDuration, localeId, respondedThrough,
-                referenceId, score, maxPossibleScore,
-                percentageScore, links, sourceId,
-                event, contact, attendee,
-                survey, status, unsubscribed,
-                unsubscribedBy, chapters, invitationList,
-                transactionId);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    responseCode,
+                    responseDuration,
+                    localeId,
+                    respondedThrough,
+                    referenceId,
+                    score,
+                    maxPossibleScore,
+                    percentageScore,
+                    links,
+                    sourceId,
+                    event,
+                    contact,
+                    attendee,
+                    survey,
+                    status,
+                    unsubscribed,
+                    unsubscribedBy,
+                    chapters,
+                    invitationList,
+                    transactionId);
         }
-
     }
 }

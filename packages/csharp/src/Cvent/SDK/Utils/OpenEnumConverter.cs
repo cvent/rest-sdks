@@ -35,9 +35,12 @@ namespace Cvent.SDK.Utils
             {
                 throw new Exception($"Unable to find Of method on {objectType}");
             }
-            try {
+            try
+            {
                 return method.Invoke(null, new[] { reader.Value });
-            } catch(System.Reflection.TargetInvocationException e) {
+            }
+            catch (System.Reflection.TargetInvocationException e)
+            {
                 throw new Newtonsoft.Json.JsonSerializationException("Unable to convert value to open enum", e);
             }
         }

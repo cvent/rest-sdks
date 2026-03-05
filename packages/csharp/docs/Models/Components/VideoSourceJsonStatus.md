@@ -2,6 +2,14 @@
 
 Denotes the status of the video in the third-party system.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = VideoSourceJsonStatus.Active;
+```
+
 
 ## Values
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * VenueAddressJson1
- * 
+ *
  * <p>Address details for venue.
  */
 public class VenueAddressJson1 {
@@ -113,12 +113,9 @@ public class VenueAddressJson1 {
         this.latitude = latitude;
         this.longitude = longitude;
     }
-    
+
     public VenueAddressJson1() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -195,7 +192,6 @@ public class VenueAddressJson1 {
         return new Builder();
     }
 
-
     /**
      * Address line 1.
      */
@@ -203,7 +199,6 @@ public class VenueAddressJson1 {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * Address line 2.
@@ -213,7 +208,6 @@ public class VenueAddressJson1 {
         return this;
     }
 
-
     /**
      * City name.
      */
@@ -221,7 +215,6 @@ public class VenueAddressJson1 {
         this.city = city;
         return this;
     }
-
 
     /**
      * Region name.
@@ -231,7 +224,6 @@ public class VenueAddressJson1 {
         return this;
     }
 
-
     /**
      * Region code.
      */
@@ -239,7 +231,6 @@ public class VenueAddressJson1 {
         this.regionCode = regionCode;
         return this;
     }
-
 
     /**
      * Postal code.
@@ -249,7 +240,6 @@ public class VenueAddressJson1 {
         return this;
     }
 
-
     /**
      * Country name.
      */
@@ -257,7 +247,6 @@ public class VenueAddressJson1 {
         this.country = country;
         return this;
     }
-
 
     /**
      * ISO 3166 alpha-2 country code.
@@ -267,7 +256,6 @@ public class VenueAddressJson1 {
         return this;
     }
 
-
     /**
      * Location latitude.
      */
@@ -276,7 +264,6 @@ public class VenueAddressJson1 {
         return this;
     }
 
-
     /**
      * Location longitude.
      */
@@ -284,7 +271,6 @@ public class VenueAddressJson1 {
         this.longitude = longitude;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -295,45 +281,52 @@ public class VenueAddressJson1 {
             return false;
         }
         VenueAddressJson1 other = (VenueAddressJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode) &&
-            Utils.enhancedDeepEquals(this.latitude, other.latitude) &&
-            Utils.enhancedDeepEquals(this.longitude, other.longitude);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.latitude, other.latitude)
+                && Utils.enhancedDeepEquals(this.longitude, other.longitude);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            address1, address2, city,
-            region, regionCode, postalCode,
-            country, countryCode, latitude,
-            longitude);
+                address1, address2, city, region, regionCode, postalCode, country, countryCode, latitude, longitude);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VenueAddressJson1.class,
-                "address1", address1,
-                "address2", address2,
-                "city", city,
-                "region", region,
-                "regionCode", regionCode,
-                "postalCode", postalCode,
-                "country", country,
-                "countryCode", countryCode,
-                "latitude", latitude,
-                "longitude", longitude);
+        return Utils.toString(
+                VenueAddressJson1.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "city",
+                city,
+                "region",
+                region,
+                "regionCode",
+                regionCode,
+                "postalCode",
+                postalCode,
+                "country",
+                country,
+                "countryCode",
+                countryCode,
+                "latitude",
+                latitude,
+                "longitude",
+                longitude);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -356,7 +349,7 @@ public class VenueAddressJson1 {
         private Double longitude;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -441,11 +434,16 @@ public class VenueAddressJson1 {
 
         public VenueAddressJson1 build() {
             return new VenueAddressJson1(
-                address1, address2, city,
-                region, regionCode, postalCode,
-                country, countryCode, latitude,
-                longitude);
+                    address1,
+                    address2,
+                    city,
+                    region,
+                    regionCode,
+                    postalCode,
+                    country,
+                    countryCode,
+                    latitude,
+                    longitude);
         }
-
     }
 }

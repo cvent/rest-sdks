@@ -30,7 +30,7 @@ public class GetAudienceSegmentByIdRequestBuilder {
     private GetAudienceSegmentByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAudienceSegmentByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetAudienceSegmentByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAudienceSegmentByIdResponse> call() {
-        AsyncRequestOperation<GetAudienceSegmentByIdRequest, GetAudienceSegmentByIdResponse> operation
-              = new GetAudienceSegmentById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAudienceSegmentByIdRequest, GetAudienceSegmentByIdResponse> operation =
+                new GetAudienceSegmentById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

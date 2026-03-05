@@ -11,10 +11,10 @@ import java.util.Optional;
 
 /**
  * DeprecatedAttendeeResponseMethodJson
- * 
+ *
  * <p>Method by which attendee registered for the event. Note: This field is deprecated. Previous
  * documentation incorrectly listed support for this feature.
- * 
+ *
  * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -50,13 +50,13 @@ public enum DeprecatedAttendeeResponseMethodJson {
     DeprecatedAttendeeResponseMethodJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DeprecatedAttendeeResponseMethodJson> fromValue(String value) {
-        for (DeprecatedAttendeeResponseMethodJson o: DeprecatedAttendeeResponseMethodJson.values()) {
+        for (DeprecatedAttendeeResponseMethodJson o : DeprecatedAttendeeResponseMethodJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -64,4 +64,3 @@ public enum DeprecatedAttendeeResponseMethodJson {
         return Optional.empty();
     }
 }
-

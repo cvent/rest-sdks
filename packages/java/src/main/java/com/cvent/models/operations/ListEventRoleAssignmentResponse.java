@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListEventRoleAssignmentResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListEventRoleAssignmentResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable EventRoleAssignmentsPaginatedResponse eventRoleAssignmentsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventRoleAssignmentsPaginatedResponse = eventRoleAssignmentsPaginatedResponse;
     }
-    
+
     public ListEventRoleAssignmentResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListEventRoleAssignmentResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListEventRoleAssignmentResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListEventRoleAssignmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListEventRoleAssignmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of event role assignments.
      */
-    public ListEventRoleAssignmentResponse withEventRoleAssignmentsPaginatedResponse(@Nullable EventRoleAssignmentsPaginatedResponse eventRoleAssignmentsPaginatedResponse) {
+    public ListEventRoleAssignmentResponse withEventRoleAssignmentsPaginatedResponse(
+            @Nullable EventRoleAssignmentsPaginatedResponse eventRoleAssignmentsPaginatedResponse) {
         this.eventRoleAssignmentsPaginatedResponse = eventRoleAssignmentsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class ListEventRoleAssignmentResponse implements Response {
             return false;
         }
         ListEventRoleAssignmentResponse other = (ListEventRoleAssignmentResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventRoleAssignmentsPaginatedResponse, other.eventRoleAssignmentsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.eventRoleAssignmentsPaginatedResponse, other.eventRoleAssignmentsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventRoleAssignmentsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventRoleAssignmentsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListEventRoleAssignmentResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventRoleAssignmentsPaginatedResponse", eventRoleAssignmentsPaginatedResponse);
+        return Utils.toString(
+                ListEventRoleAssignmentResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventRoleAssignmentsPaginatedResponse",
+                eventRoleAssignmentsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class ListEventRoleAssignmentResponse implements Response {
         private EventRoleAssignmentsPaginatedResponse eventRoleAssignmentsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class ListEventRoleAssignmentResponse implements Response {
         /**
          * Successfully retrieved a paginated list of event role assignments.
          */
-        public Builder eventRoleAssignmentsPaginatedResponse(@Nullable EventRoleAssignmentsPaginatedResponse eventRoleAssignmentsPaginatedResponse) {
+        public Builder eventRoleAssignmentsPaginatedResponse(
+                @Nullable EventRoleAssignmentsPaginatedResponse eventRoleAssignmentsPaginatedResponse) {
             this.eventRoleAssignmentsPaginatedResponse = eventRoleAssignmentsPaginatedResponse;
             return this;
         }
 
         public ListEventRoleAssignmentResponse build() {
             return new ListEventRoleAssignmentResponse(
-                contentType, statusCode, rawResponse,
-                eventRoleAssignmentsPaginatedResponse);
+                    contentType, statusCode, rawResponse, eventRoleAssignmentsPaginatedResponse);
         }
-
     }
 }

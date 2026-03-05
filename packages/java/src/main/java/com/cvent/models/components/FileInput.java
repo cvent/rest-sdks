@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * FileInput
- * 
+ *
  * <p>Content of exhibitor file.
  */
 public class FileInput {
@@ -61,24 +61,18 @@ public class FileInput {
             @JsonProperty("displayName") @Nonnull String displayName,
             @JsonProperty("hidden") @Nullable Boolean hidden,
             @JsonProperty("order") long order) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
         this.displayName = Optional.ofNullable(displayName)
-            .orElseThrow(() -> new IllegalArgumentException("displayName cannot be null"));
-        this.hidden = Optional.ofNullable(hidden)
-            .orElse(Builder._SINGLETON_VALUE_Hidden.value());
+                .orElseThrow(() -> new IllegalArgumentException("displayName cannot be null"));
+        this.hidden = Optional.ofNullable(hidden).orElse(Builder._SINGLETON_VALUE_Hidden.value());
         this.order = order;
     }
-    
+
     public FileInput(
-            @Nonnull EventJson5 event,
-            @Nonnull ExhibitorJson exhibitor,
-            @Nonnull String displayName,
-            long order) {
-        this(event, exhibitor, displayName,
-            null, order);
+            @Nonnull EventJson5 event, @Nonnull ExhibitorJson exhibitor, @Nonnull String displayName, long order) {
+        this(event, exhibitor, displayName, null, order);
     }
 
     /**
@@ -120,7 +114,6 @@ public class FileInput {
         return new Builder();
     }
 
-
     /**
      * The Associated Event.
      */
@@ -128,7 +121,6 @@ public class FileInput {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -138,7 +130,6 @@ public class FileInput {
         return this;
     }
 
-
     /**
      * Display name of the file.
      */
@@ -146,7 +137,6 @@ public class FileInput {
         this.displayName = Utils.checkNotNull(displayName, "displayName");
         return this;
     }
-
 
     /**
      * True indicates the file is hidden from attendees.
@@ -156,7 +146,6 @@ public class FileInput {
         return this;
     }
 
-
     /**
      * Display order for exhibitor file content.
      */
@@ -164,7 +153,6 @@ public class FileInput {
         this.order = order;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -175,33 +163,36 @@ public class FileInput {
             return false;
         }
         FileInput other = (FileInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.displayName, other.displayName) &&
-            Utils.enhancedDeepEquals(this.hidden, other.hidden) &&
-            Utils.enhancedDeepEquals(this.order, other.order);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.displayName, other.displayName)
+                && Utils.enhancedDeepEquals(this.hidden, other.hidden)
+                && Utils.enhancedDeepEquals(this.order, other.order);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, exhibitor, displayName,
-            hidden, order);
+        return Utils.enhancedHash(event, exhibitor, displayName, hidden, order);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FileInput.class,
-                "event", event,
-                "exhibitor", exhibitor,
-                "displayName", displayName,
-                "hidden", hidden,
-                "order", order);
+        return Utils.toString(
+                FileInput.class,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "displayName",
+                displayName,
+                "hidden",
+                hidden,
+                "order",
+                order);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson5 event;
 
@@ -214,7 +205,7 @@ public class FileInput {
         private long order;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -258,16 +249,10 @@ public class FileInput {
         }
 
         public FileInput build() {
-            return new FileInput(
-                event, exhibitor, displayName,
-                hidden, order);
+            return new FileInput(event, exhibitor, displayName, hidden, order);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Hidden =
-                new LazySingletonValue<>(
-                        "hidden",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("hidden", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -2,6 +2,14 @@
 
 Proposal format.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = FormatTypeJson.Gbta2013;
+```
+
 
 ## Values
 

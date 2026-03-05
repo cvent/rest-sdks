@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AmountType
- * 
+ *
  * <p>Specifies if the amount is a fixed value or a percentage.
  */
 public enum AmountType {
@@ -23,13 +23,13 @@ public enum AmountType {
     AmountType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AmountType> fromValue(String value) {
-        for (AmountType o: AmountType.values()) {
+        for (AmountType o : AmountType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum AmountType {
         return Optional.empty();
     }
 }
-

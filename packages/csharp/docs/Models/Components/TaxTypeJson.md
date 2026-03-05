@@ -2,6 +2,14 @@
 
 Bid tax type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TaxTypeJson.CityTax;
+```
+
 
 ## Values
 

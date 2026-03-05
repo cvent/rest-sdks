@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * StatusJson
- * 
+ *
  * <p>In case of Event Survey this represents Survey Status and in case of Standard Survey this represents
  * Chapter Status
  */
@@ -25,13 +25,13 @@ public enum StatusJson {
     StatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<StatusJson> fromValue(String value) {
-        for (StatusJson o: StatusJson.values()) {
+        for (StatusJson o : StatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum StatusJson {
         return Optional.empty();
     }
 }
-

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityBaseAppointmentJson
- * 
+ *
  * <p>Base entity of an activity appointment.
  */
 public class ActivityBaseAppointmentJson {
@@ -40,7 +40,6 @@ public class ActivityBaseAppointmentJson {
     @JsonProperty("code")
     private String code;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointmentEvent")
     private ActivityBaseAppointmentJsonAppointmentEvent appointmentEvent;
@@ -56,10 +55,9 @@ public class ActivityBaseAppointmentJson {
         this.code = code;
         this.appointmentEvent = appointmentEvent;
     }
-    
+
     public ActivityBaseAppointmentJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -91,7 +89,6 @@ public class ActivityBaseAppointmentJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -99,7 +96,6 @@ public class ActivityBaseAppointmentJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the appointment.
@@ -109,7 +105,6 @@ public class ActivityBaseAppointmentJson {
         return this;
     }
 
-
     /**
      * The code of an appointment.
      */
@@ -118,12 +113,11 @@ public class ActivityBaseAppointmentJson {
         return this;
     }
 
-
-    public ActivityBaseAppointmentJson withAppointmentEvent(@Nullable ActivityBaseAppointmentJsonAppointmentEvent appointmentEvent) {
+    public ActivityBaseAppointmentJson withAppointmentEvent(
+            @Nullable ActivityBaseAppointmentJsonAppointmentEvent appointmentEvent) {
         this.appointmentEvent = appointmentEvent;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -134,31 +128,33 @@ public class ActivityBaseAppointmentJson {
             return false;
         }
         ActivityBaseAppointmentJson other = (ActivityBaseAppointmentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, code,
-            appointmentEvent);
+        return Utils.enhancedHash(id, name, code, appointmentEvent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityBaseAppointmentJson.class,
-                "id", id,
-                "name", name,
-                "code", code,
-                "appointmentEvent", appointmentEvent);
+        return Utils.toString(
+                ActivityBaseAppointmentJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "appointmentEvent",
+                appointmentEvent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -169,7 +165,7 @@ public class ActivityBaseAppointmentJson {
         private ActivityBaseAppointmentJsonAppointmentEvent appointmentEvent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,10 +198,7 @@ public class ActivityBaseAppointmentJson {
         }
 
         public ActivityBaseAppointmentJson build() {
-            return new ActivityBaseAppointmentJson(
-                id, name, code,
-                appointmentEvent);
+            return new ActivityBaseAppointmentJson(id, name, code, appointmentEvent);
         }
-
     }
 }

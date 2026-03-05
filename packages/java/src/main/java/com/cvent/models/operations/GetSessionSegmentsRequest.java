@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetSessionSegmentsRequest {
     /**
      * The maximum number of records to return per page.
@@ -33,15 +32,15 @@ public class GetSessionSegmentsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are two comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following field is filterable:
      * * segment.id (eq|in)
      * * session.id (eq|in)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -50,16 +49,12 @@ public class GetSessionSegmentsRequest {
     private String filter;
 
     @JsonCreator
-    public GetSessionSegmentsRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetSessionSegmentsRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetSessionSegmentsRequest() {
         this(null, null, null);
     }
@@ -83,15 +78,15 @@ public class GetSessionSegmentsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are two comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following field is filterable:
      * * segment.id (eq|in)
      * * session.id (eq|in)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -104,7 +99,6 @@ public class GetSessionSegmentsRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -112,7 +106,6 @@ public class GetSessionSegmentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -123,20 +116,19 @@ public class GetSessionSegmentsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are two comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following field is filterable:
      * * segment.id (eq|in)
      * * session.id (eq|in)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -145,7 +137,6 @@ public class GetSessionSegmentsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -156,28 +147,23 @@ public class GetSessionSegmentsRequest {
             return false;
         }
         GetSessionSegmentsRequest other = (GetSessionSegmentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSessionSegmentsRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(GetSessionSegmentsRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -186,7 +172,7 @@ public class GetSessionSegmentsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -210,15 +196,15 @@ public class GetSessionSegmentsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are two comparison types that can be used in filter expressions:
          * * equal: eq
          * * includes value(s): in
-         * 
+         *
          * <p>The following field is filterable:
          * * segment.id (eq|in)
          * * session.id (eq|in)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -229,15 +215,10 @@ public class GetSessionSegmentsRequest {
         }
 
         public GetSessionSegmentsRequest build() {
-            return new GetSessionSegmentsRequest(
-                limit, token, filter);
+            return new GetSessionSegmentsRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

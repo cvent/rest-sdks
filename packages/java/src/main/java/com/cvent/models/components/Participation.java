@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * Participation
- * 
+ *
  * <p>The attendee's participation status.
  */
 public class Participation {
@@ -28,11 +28,10 @@ public class Participation {
     private Boolean participated;
 
     @JsonCreator
-    public Participation(
-            @JsonProperty("participated") @Nullable Boolean participated) {
+    public Participation(@JsonProperty("participated") @Nullable Boolean participated) {
         this.participated = participated;
     }
-    
+
     public Participation() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class Participation {
         return new Builder();
     }
 
-
     /**
      * True indicates the attendee was marked as a participant in the appointment.
      */
@@ -56,7 +54,6 @@ public class Participation {
         this.participated = participated;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class Participation {
             return false;
         }
         Participation other = (Participation) o;
-        return 
-            Utils.enhancedDeepEquals(this.participated, other.participated);
+        return Utils.enhancedDeepEquals(this.participated, other.participated);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            participated);
+        return Utils.enhancedHash(participated);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Participation.class,
-                "participated", participated);
+        return Utils.toString(Participation.class, "participated", participated);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean participated;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class Participation {
         }
 
         public Participation build() {
-            return new Participation(
-                participated);
+            return new Participation(participated);
         }
-
     }
 }

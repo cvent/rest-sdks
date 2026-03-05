@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * Filter
- * 
+ *
  * <p>A filter which is sent through the body of the request.
  */
 public class Filter {
@@ -27,11 +27,10 @@ public class Filter {
     private String filter;
 
     @JsonCreator
-    public Filter(
-            @JsonProperty("filter") @Nullable String filter) {
+    public Filter(@JsonProperty("filter") @Nullable String filter) {
         this.filter = filter;
     }
-    
+
     public Filter() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class Filter {
         return new Builder();
     }
 
-
     /**
      * Filter included in the request.
      */
@@ -55,7 +53,6 @@ public class Filter {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class Filter {
             return false;
         }
         Filter other = (Filter) o;
-        return 
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            filter);
+        return Utils.enhancedHash(filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Filter.class,
-                "filter", filter);
+        return Utils.toString(Filter.class, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class Filter {
         }
 
         public Filter build() {
-            return new Filter(
-                filter);
+            return new Filter(filter);
         }
-
     }
 }

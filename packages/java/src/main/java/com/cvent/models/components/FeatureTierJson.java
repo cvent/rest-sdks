@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * FeatureTierJson
- * 
+ *
  * <p>Tier available for the feature
  */
 public class FeatureTierJson {
@@ -46,14 +46,12 @@ public class FeatureTierJson {
             @JsonProperty("name") @Nonnull TierJson name,
             @JsonProperty("locked") @Nullable Boolean locked,
             @JsonProperty("lockReason") @Nullable String lockReason) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.locked = locked;
         this.lockReason = lockReason;
     }
-    
-    public FeatureTierJson(
-            @Nonnull TierJson name) {
+
+    public FeatureTierJson(@Nonnull TierJson name) {
         this(name, null, null);
     }
 
@@ -82,7 +80,6 @@ public class FeatureTierJson {
         return new Builder();
     }
 
-
     /**
      * Represents the type of license that the user can choose.
      */
@@ -90,7 +87,6 @@ public class FeatureTierJson {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * If a particular tier is locked to perform any mutation over it
@@ -100,7 +96,6 @@ public class FeatureTierJson {
         return this;
     }
 
-
     /**
      * Generic message informing tier to be locked due to some feature in use
      */
@@ -108,7 +103,6 @@ public class FeatureTierJson {
         this.lockReason = lockReason;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -119,28 +113,23 @@ public class FeatureTierJson {
             return false;
         }
         FeatureTierJson other = (FeatureTierJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.locked, other.locked) &&
-            Utils.enhancedDeepEquals(this.lockReason, other.lockReason);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.locked, other.locked)
+                && Utils.enhancedDeepEquals(this.lockReason, other.lockReason);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, locked, lockReason);
+        return Utils.enhancedHash(name, locked, lockReason);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FeatureTierJson.class,
-                "name", name,
-                "locked", locked,
-                "lockReason", lockReason);
+        return Utils.toString(FeatureTierJson.class, "name", name, "locked", locked, "lockReason", lockReason);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TierJson name;
 
@@ -149,7 +138,7 @@ public class FeatureTierJson {
         private String lockReason;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -177,9 +166,7 @@ public class FeatureTierJson {
         }
 
         public FeatureTierJson build() {
-            return new FeatureTierJson(
-                name, locked, lockReason);
+            return new FeatureTierJson(name, locked, lockReason);
         }
-
     }
 }

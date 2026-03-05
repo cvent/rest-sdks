@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityDataJsonEvent10
- * 
+ *
  * <p>The event in which this activity occurred.
  */
 public class ActivityDataJsonEvent10 {
@@ -27,11 +27,10 @@ public class ActivityDataJsonEvent10 {
     private String id;
 
     @JsonCreator
-    public ActivityDataJsonEvent10(
-            @JsonProperty("id") @Nullable String id) {
+    public ActivityDataJsonEvent10(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public ActivityDataJsonEvent10() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class ActivityDataJsonEvent10 {
         return new Builder();
     }
 
-
     /**
      * Event ID.
      */
@@ -55,7 +53,6 @@ public class ActivityDataJsonEvent10 {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class ActivityDataJsonEvent10 {
             return false;
         }
         ActivityDataJsonEvent10 other = (ActivityDataJsonEvent10) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityDataJsonEvent10.class,
-                "id", id);
+        return Utils.toString(ActivityDataJsonEvent10.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class ActivityDataJsonEvent10 {
         }
 
         public ActivityDataJsonEvent10 build() {
-            return new ActivityDataJsonEvent10(
-                id);
+            return new ActivityDataJsonEvent10(id);
         }
-
     }
 }

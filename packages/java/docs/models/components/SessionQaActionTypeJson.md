@@ -7,6 +7,14 @@ The user action that just occurred.
  `question.answered` - Either question was answered or the earlier provided answer was updated.
  `answer.deleted` - An answer was deleted.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.SessionQaActionTypeJson;
+
+SessionQaActionTypeJson value = SessionQaActionTypeJson.QUESTION_ASKED;
+```
+
 
 ## Values
 

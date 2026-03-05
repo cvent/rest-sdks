@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Layout
- * 
+ *
  * <p>The initial layout style used by front-ends to render the associated calendar.
  */
 public enum Layout {
@@ -23,13 +23,13 @@ public enum Layout {
     Layout(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Layout> fromValue(String value) {
-        for (Layout o: Layout.values()) {
+        for (Layout o : Layout.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum Layout {
         return Optional.empty();
     }
 }
-

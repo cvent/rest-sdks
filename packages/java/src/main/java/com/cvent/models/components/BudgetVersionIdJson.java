@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BudgetVersionIdJson
- * 
+ *
  * <p>Budget Version ID Information.
  */
 public class BudgetVersionIdJson {
@@ -27,11 +27,10 @@ public class BudgetVersionIdJson {
     private String id;
 
     @JsonCreator
-    public BudgetVersionIdJson(
-            @JsonProperty("id") @Nullable String id) {
+    public BudgetVersionIdJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public BudgetVersionIdJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class BudgetVersionIdJson {
         return new Builder();
     }
 
-
     /**
      * Identifier of a particular budget version.
      */
@@ -55,7 +53,6 @@ public class BudgetVersionIdJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class BudgetVersionIdJson {
             return false;
         }
         BudgetVersionIdJson other = (BudgetVersionIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetVersionIdJson.class,
-                "id", id);
+        return Utils.toString(BudgetVersionIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class BudgetVersionIdJson {
         }
 
         public BudgetVersionIdJson build() {
-            return new BudgetVersionIdJson(
-                id);
+            return new BudgetVersionIdJson(id);
         }
-
     }
 }

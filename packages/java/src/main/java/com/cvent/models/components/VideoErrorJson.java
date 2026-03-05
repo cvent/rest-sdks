@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * VideoErrorJson
- * 
+ *
  * <p>This is used to denote the errors for a video entity.
  */
 public class VideoErrorJson {
@@ -32,12 +32,10 @@ public class VideoErrorJson {
 
     @JsonCreator
     public VideoErrorJson(
-            @JsonProperty("code") @Nonnull VideoErrorCodeJson code,
-            @JsonProperty("message") @Nonnull String message) {
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+            @JsonProperty("code") @Nonnull VideoErrorCodeJson code, @JsonProperty("message") @Nonnull String message) {
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
     }
 
     /**
@@ -59,7 +57,6 @@ public class VideoErrorJson {
         return new Builder();
     }
 
-
     /**
      * This is used to denote the error codes for a video entity.
      */
@@ -67,7 +64,6 @@ public class VideoErrorJson {
         this.code = Utils.checkNotNull(code, "code");
         return this;
     }
-
 
     /**
      * Error message for the video. Message is a developer convenience never to be used in any context that
@@ -78,7 +74,6 @@ public class VideoErrorJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -88,33 +83,28 @@ public class VideoErrorJson {
             return false;
         }
         VideoErrorJson other = (VideoErrorJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.message, other.message);
+        return Utils.enhancedDeepEquals(this.code, other.code) && Utils.enhancedDeepEquals(this.message, other.message);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            code, message);
+        return Utils.enhancedHash(code, message);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoErrorJson.class,
-                "code", code,
-                "message", message);
+        return Utils.toString(VideoErrorJson.class, "code", code, "message", message);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private VideoErrorCodeJson code;
 
         private String message;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -135,9 +125,7 @@ public class VideoErrorJson {
         }
 
         public VideoErrorJson build() {
-            return new VideoErrorJson(
-                code, message);
+            return new VideoErrorJson(code, message);
         }
-
     }
 }

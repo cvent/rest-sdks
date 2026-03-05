@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class ListContactGroupsResponse
     {
-        public Func<Task<ListContactGroupsResponse?>>? Next {get;set;}
+        public Func<Task<ListContactGroupsResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

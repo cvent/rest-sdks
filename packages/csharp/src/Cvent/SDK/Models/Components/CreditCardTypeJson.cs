@@ -18,46 +18,32 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CreditCardTypeJson
     {
-        [JsonProperty("AMERICAN_EXPRESS")]
-        AmericanExpress,
-        [JsonProperty("CHINA_UNIONPAY")]
-        ChinaUnionpay,
-        [JsonProperty("DANKORT")]
-        Dankort,
-        [JsonProperty("DINERS_CLUB_CARTEBLANCHE")]
-        DinersClubCarteblanche,
-        [JsonProperty("DINERS_CLUB_ENROUTE")]
-        DinersClubEnroute,
-        [JsonProperty("DINERS_CLUB_INTERNATIONAL")]
-        DinersClubInternational,
-        [JsonProperty("DISCOVER")]
-        Discover,
-        [JsonProperty("INSTA_PAYMENT")]
-        InstaPayment,
-        [JsonProperty("JCB")]
-        Jcb,
-        [JsonProperty("MAESTRO")]
-        Maestro,
-        [JsonProperty("MASTERCARD")]
-        Mastercard,
-        [JsonProperty("UATP")]
-        Uatp,
-        [JsonProperty("VISA")]
-        Visa,
-        [JsonProperty("UNKNOWN")]
-        Unknown,
+        [JsonProperty("AMERICAN_EXPRESS")] AmericanExpress,
+        [JsonProperty("CHINA_UNIONPAY")] ChinaUnionpay,
+        [JsonProperty("DANKORT")] Dankort,
+        [JsonProperty("DINERS_CLUB_CARTEBLANCHE")] DinersClubCarteblanche,
+        [JsonProperty("DINERS_CLUB_ENROUTE")] DinersClubEnroute,
+        [JsonProperty("DINERS_CLUB_INTERNATIONAL")] DinersClubInternational,
+        [JsonProperty("DISCOVER")] Discover,
+        [JsonProperty("INSTA_PAYMENT")] InstaPayment,
+        [JsonProperty("JCB")] Jcb,
+        [JsonProperty("MAESTRO")] Maestro,
+        [JsonProperty("MASTERCARD")] Mastercard,
+        [JsonProperty("UATP")] Uatp,
+        [JsonProperty("VISA")] Visa,
+        [JsonProperty("UNKNOWN")] Unknown,
     }
 
     public static class CreditCardTypeJsonExtension
     {
         public static string Value(this CreditCardTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CreditCardTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(CreditCardTypeJson).GetFields())
+            foreach (var field in typeof(CreditCardTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

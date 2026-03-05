@@ -28,7 +28,7 @@ public class UpdateExhibitorBannerRequestBuilder {
     private UpdateExhibitorBannerRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateExhibitorBannerRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateExhibitorBannerRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateExhibitorBannerResponse call() {
-        RequestOperation<UpdateExhibitorBannerRequest, UpdateExhibitorBannerResponse> operation
-              = new UpdateExhibitorBanner.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateExhibitorBannerRequest, UpdateExhibitorBannerResponse> operation =
+                new UpdateExhibitorBanner.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

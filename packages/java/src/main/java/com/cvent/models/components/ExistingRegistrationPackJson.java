@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ExistingRegistrationPackJson
- * 
+ *
  * <p>Schema for existing registration pack object
  */
 public class ExistingRegistrationPackJson {
@@ -48,14 +48,12 @@ public class ExistingRegistrationPackJson {
             @JsonProperty("event") @Nonnull EventJson5 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("capacities") @Nonnull List<ExistingCapacityJson> capacities) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
         this.capacities = Optional.ofNullable(capacities)
-            .orElseThrow(() -> new IllegalArgumentException("capacities cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("capacities cannot be null"));
     }
 
     /**
@@ -90,7 +88,6 @@ public class ExistingRegistrationPackJson {
         return new Builder();
     }
 
-
     /**
      * Registration pack id
      */
@@ -98,7 +95,6 @@ public class ExistingRegistrationPackJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The Associated Event.
@@ -108,7 +104,6 @@ public class ExistingRegistrationPackJson {
         return this;
     }
 
-
     /**
      * The Associated Exhibitor.
      */
@@ -117,7 +112,6 @@ public class ExistingRegistrationPackJson {
         return this;
     }
 
-
     /**
      * Array of capacities
      */
@@ -125,7 +119,6 @@ public class ExistingRegistrationPackJson {
         this.capacities = Utils.checkNotNull(capacities, "capacities");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -136,31 +129,33 @@ public class ExistingRegistrationPackJson {
             return false;
         }
         ExistingRegistrationPackJson other = (ExistingRegistrationPackJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.capacities, other.capacities);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.capacities, other.capacities);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, event, exhibitor,
-            capacities);
+        return Utils.enhancedHash(id, event, exhibitor, capacities);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingRegistrationPackJson.class,
-                "id", id,
-                "event", event,
-                "exhibitor", exhibitor,
-                "capacities", capacities);
+        return Utils.toString(
+                ExistingRegistrationPackJson.class,
+                "id",
+                id,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "capacities",
+                capacities);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -171,7 +166,7 @@ public class ExistingRegistrationPackJson {
         private List<ExistingCapacityJson> capacities;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -207,10 +202,7 @@ public class ExistingRegistrationPackJson {
         }
 
         public ExistingRegistrationPackJson build() {
-            return new ExistingRegistrationPackJson(
-                id, event, exhibitor,
-                capacities);
+            return new ExistingRegistrationPackJson(id, event, exhibitor, capacities);
         }
-
     }
 }

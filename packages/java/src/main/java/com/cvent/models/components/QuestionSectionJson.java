@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * QuestionSectionJson
- * 
+ *
  * <p>Code representing the section where the question belongs. Currently, program_client (client
  * specific) and program_g_and_m (group and meeting) are supported.
  */
@@ -24,13 +24,13 @@ public enum QuestionSectionJson {
     QuestionSectionJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<QuestionSectionJson> fromValue(String value) {
-        for (QuestionSectionJson o: QuestionSectionJson.values()) {
+        for (QuestionSectionJson o : QuestionSectionJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum QuestionSectionJson {
         return Optional.empty();
     }
 }
-

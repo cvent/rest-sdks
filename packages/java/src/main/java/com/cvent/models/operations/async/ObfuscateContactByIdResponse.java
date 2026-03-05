@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 public class ObfuscateContactByIdResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -41,7 +40,6 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
      */
     private ContactObfuscationStatus contactObfuscationStatus;
 
-
     private Map<String, List<String>> headers;
 
     @JsonCreator
@@ -53,22 +51,21 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
             @Nonnull Map<String, List<String>> headers) {
         headers = Utils.emptyMapIfNull(headers);
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.contactObfuscationStatus = contactObfuscationStatus;
-        this.headers = Optional.ofNullable(headers)
-            .orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
+        this.headers =
+                Optional.ofNullable(headers).orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
     }
-    
+
     public ObfuscateContactByIdResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nonnull Map<String, List<String>> headers) {
-        this(contentType, statusCode, rawResponse,
-            null, headers);
+        this(contentType, statusCode, rawResponse, null, headers);
     }
 
     /**
@@ -108,7 +105,6 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -116,7 +112,6 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -126,7 +121,6 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -135,22 +129,20 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully initiated obfuscation of the contact. Check the <a
      * href="#operation/getContactObfuscationStatusById">contact's obfuscation status</a>.
      */
-    public ObfuscateContactByIdResponse withContactObfuscationStatus(@Nullable ContactObfuscationStatus contactObfuscationStatus) {
+    public ObfuscateContactByIdResponse withContactObfuscationStatus(
+            @Nullable ContactObfuscationStatus contactObfuscationStatus) {
         this.contactObfuscationStatus = contactObfuscationStatus;
         return this;
     }
-
 
     public ObfuscateContactByIdResponse withHeaders(@Nonnull Map<String, List<String>> headers) {
         this.headers = Utils.checkNotNull(headers, "headers");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -161,33 +153,36 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
             return false;
         }
         ObfuscateContactByIdResponse other = (ObfuscateContactByIdResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.contactObfuscationStatus, other.contactObfuscationStatus) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.contactObfuscationStatus, other.contactObfuscationStatus)
+                && Utils.enhancedDeepEquals(this.headers, other.headers);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            contactObfuscationStatus, headers);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, contactObfuscationStatus, headers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ObfuscateContactByIdResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "contactObfuscationStatus", contactObfuscationStatus,
-                "headers", headers);
+        return Utils.toString(
+                ObfuscateContactByIdResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "contactObfuscationStatus",
+                contactObfuscationStatus,
+                "headers",
+                headers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -200,7 +195,7 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
         private Map<String, List<String>> headers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -243,9 +238,7 @@ public class ObfuscateContactByIdResponse implements AsyncResponse {
 
         public ObfuscateContactByIdResponse build() {
             return new ObfuscateContactByIdResponse(
-                contentType, statusCode, rawResponse,
-                contactObfuscationStatus, headers);
+                    contentType, statusCode, rawResponse, contactObfuscationStatus, headers);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BaseChoiceJson
- * 
+ *
  * <p>A JSON schema representing a base choice object
  */
 public class BaseChoiceJson {
@@ -34,13 +34,11 @@ public class BaseChoiceJson {
     private String text;
 
     @JsonCreator
-    public BaseChoiceJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text) {
+    public BaseChoiceJson(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nullable String text) {
         this.id = id;
         this.text = text;
     }
-    
+
     public BaseChoiceJson() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class BaseChoiceJson {
         return new Builder();
     }
 
-
     /**
      * Unique identifier for the choice
      */
@@ -72,7 +69,6 @@ public class BaseChoiceJson {
         return this;
     }
 
-
     /**
      * Text value of the field
      */
@@ -80,7 +76,6 @@ public class BaseChoiceJson {
         this.text = text;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class BaseChoiceJson {
             return false;
         }
         BaseChoiceJson other = (BaseChoiceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text);
+        return Utils.enhancedHash(id, text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BaseChoiceJson.class,
-                "id", id,
-                "text", text);
+        return Utils.toString(BaseChoiceJson.class, "id", id, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class BaseChoiceJson {
         }
 
         public BaseChoiceJson build() {
-            return new BaseChoiceJson(
-                id, text);
+            return new BaseChoiceJson(id, text);
         }
-
     }
 }

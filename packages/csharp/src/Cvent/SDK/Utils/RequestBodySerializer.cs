@@ -16,7 +16,6 @@ namespace Cvent.SDK.Utils
     using System.Reflection;
     using System.Text;
 
-
     internal class RequestBodySerializer
     {
 
@@ -85,11 +84,13 @@ namespace Cvent.SDK.Utils
                 mediaType = new Dictionary<string, string>()
                 {
                     { "json", "application/json" },
-                    { "form", "application/x-www-form-urlencoded" },
-                    { "multipart", "multipart/form-data" },
-                    { "raw", "application/octet-stream" },
-                    { "string", "text/plain" },
-                }[serializationMethod];
+                        { "form", "application/x-www-form-urlencoded" },
+                        { "multipart", "multipart/form-data" },
+                        { "raw", "application/octet-stream" },
+                        { "string", "text/plain" },
+                }
+                [serializationMethod]
+                ;
             }
 
             switch (serializationMethod)
@@ -113,11 +114,7 @@ namespace Cvent.SDK.Utils
                     else
                     {
                         throw new Exception(
-                            "Cannot serialize request body of type "
-                                + request.GetType().Name
-                                + " with serialization method "
-                                + serializationMethod
-                                + ""
+                            "Cannot serialize request body of type " + request.GetType().Name + " with serialization method " + serializationMethod + ""
                         );
                     }
             }
@@ -225,7 +222,7 @@ namespace Cvent.SDK.Utils
                 );
             }
 
-            var formData = new List<KeyValuePair<string?, string?>>();
+            var formData = new List < KeyValuePair < string ?, string? >>();
 
             foreach (var key in form.Keys)
             {
@@ -396,28 +393,28 @@ namespace Cvent.SDK.Utils
 
                             if (Utilities.IsList(val))
                             {
-                                foreach(var item in (IEnumerable)val)
+                                foreach (var item in (IEnumerable)val)
                                 {
                                     form[metadata.Name].Add(Utilities.ValueToString(item));
                                 }
                             }
                             else
                             {
-                              form[metadata.Name].Add(Utilities.ValueToString(val));
+                                form[metadata.Name].Add(Utilities.ValueToString(val));
                             }
                         }
                         else
                         {
                             if (Utilities.IsList(val))
                             {
-                                foreach(var item in (IEnumerable)val)
+                                foreach (var item in (IEnumerable)val)
                                 {
                                     items.Add($"{metadata.Name},{Utilities.ValueToString(item)}");
                                 }
                             }
                             else
                             {
-                              items.Add($"{metadata.Name},{Utilities.ValueToString(val)}");
+                                items.Add($"{metadata.Name},{Utilities.ValueToString(val)}");
                             }
                         }
                     }
@@ -524,12 +521,10 @@ namespace Cvent.SDK.Utils
             foreach (var fileProp in fileProps)
             {
                 var fileMetadata = fileProp
-                    .GetCustomAttribute<SpeakeasyMetadata>()
-                    ?.GetMultipartFormMetadata();
+                                       .GetCustomAttribute<SpeakeasyMetadata>()
+                                       ?.GetMultipartFormMetadata();
                 if (
-                    fileMetadata == null
-                    || (!fileMetadata.Content && fileMetadata.Name == "")
-                )
+                    fileMetadata == null || (!fileMetadata.Content && fileMetadata.Name == ""))
                 {
                     continue;
                 }
@@ -555,8 +550,7 @@ namespace Cvent.SDK.Utils
         private static string GetMimeType(string fileName)
         {
             var ext = System.IO.Path.GetExtension(fileName)?.ToLowerInvariant();
-            return ext switch
-            {
+            return ext switch {
                 ".json" => "application/json",
                 ".xml" => "application/xml",
                 ".txt" => "text/plain",

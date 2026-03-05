@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 java:
-  version: 1.0.9
+  version: 1.0.10
   additionalDependencies: []
   additionalPlugins: []
   artifactID: sdk
@@ -46,14 +46,16 @@ java:
   companyURL: www.cvent.com
   defaultErrorName: APIException
   enableCustomCodeRegions: false
-  enableFormatting: false
+  enableFormatting: true
   enableSlf4jLogging: false
   enableStreamingUploads: false
+  explicitDocImports: false
   flattenGlobalSecurity: false
   forwardCompatibleEnumsByDefault: false
   forwardCompatibleUnionsByDefault: "false"
   generateOptionalUnionAccessors: false
   generateSpringBootStarter: false
+  generateUnionDocs: false
   githubURL: https://github.com/cvent/rest-sdks
   groupID: com.cvent
   imports:
@@ -79,5 +81,6 @@ java:
   packageName: com.cvent
   projectName: cvent-sdk
   respectTitlesForPrimitiveUnionMembers: false
+  showSetterGetterTypesInDocs: false
   templateVersion: v2
   unionStrategy: populated-fields

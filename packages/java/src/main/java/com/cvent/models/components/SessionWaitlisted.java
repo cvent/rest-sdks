@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionWaitlisted
- * 
+ *
  * <p>A session activity.
  */
 public class SessionWaitlisted {
@@ -27,11 +27,10 @@ public class SessionWaitlisted {
     private SessionActivity10 session;
 
     @JsonCreator
-    public SessionWaitlisted(
-            @JsonProperty("session") @Nullable SessionActivity10 session) {
+    public SessionWaitlisted(@JsonProperty("session") @Nullable SessionActivity10 session) {
         this.session = session;
     }
-    
+
     public SessionWaitlisted() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class SessionWaitlisted {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -55,7 +53,6 @@ public class SessionWaitlisted {
         this.session = session;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class SessionWaitlisted {
             return false;
         }
         SessionWaitlisted other = (SessionWaitlisted) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session);
+        return Utils.enhancedDeepEquals(this.session, other.session);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session);
+        return Utils.enhancedHash(session);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionWaitlisted.class,
-                "session", session);
+        return Utils.toString(SessionWaitlisted.class, "session", session);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity10 session;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class SessionWaitlisted {
         }
 
         public SessionWaitlisted build() {
-            return new SessionWaitlisted(
-                session);
+            return new SessionWaitlisted(session);
         }
-
     }
 }

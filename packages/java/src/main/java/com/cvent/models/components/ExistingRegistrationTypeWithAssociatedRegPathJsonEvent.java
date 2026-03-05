@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExistingRegistrationTypeWithAssociatedRegPathJsonEvent
- * 
+ *
  * <p>Event associated with the registration.
  */
 public class ExistingRegistrationTypeWithAssociatedRegPathJsonEvent {
@@ -27,11 +27,10 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJsonEvent {
     private String id;
 
     @JsonCreator
-    public ExistingRegistrationTypeWithAssociatedRegPathJsonEvent(
-            @JsonProperty("id") @Nullable String id) {
+    public ExistingRegistrationTypeWithAssociatedRegPathJsonEvent(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public ExistingRegistrationTypeWithAssociatedRegPathJsonEvent() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJsonEvent {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the event.
      */
@@ -55,7 +53,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJsonEvent {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -65,30 +62,28 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJsonEvent {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ExistingRegistrationTypeWithAssociatedRegPathJsonEvent other = (ExistingRegistrationTypeWithAssociatedRegPathJsonEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        ExistingRegistrationTypeWithAssociatedRegPathJsonEvent other =
+                (ExistingRegistrationTypeWithAssociatedRegPathJsonEvent) o;
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingRegistrationTypeWithAssociatedRegPathJsonEvent.class,
-                "id", id);
+        return Utils.toString(ExistingRegistrationTypeWithAssociatedRegPathJsonEvent.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +95,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJsonEvent {
         }
 
         public ExistingRegistrationTypeWithAssociatedRegPathJsonEvent build() {
-            return new ExistingRegistrationTypeWithAssociatedRegPathJsonEvent(
-                id);
+            return new ExistingRegistrationTypeWithAssociatedRegPathJsonEvent(id);
         }
-
     }
 }

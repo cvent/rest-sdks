@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetTravelAccountRequest {
     /**
      * A uuid used to uniquely identify the travel account.
@@ -20,10 +19,9 @@ public class GetTravelAccountRequest {
     private String travelAccountId;
 
     @JsonCreator
-    public GetTravelAccountRequest(
-            @Nonnull String travelAccountId) {
+    public GetTravelAccountRequest(@Nonnull String travelAccountId) {
         this.travelAccountId = Optional.ofNullable(travelAccountId)
-            .orElseThrow(() -> new IllegalArgumentException("travelAccountId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("travelAccountId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetTravelAccountRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid used to uniquely identify the travel account.
      */
@@ -45,7 +42,6 @@ public class GetTravelAccountRequest {
         this.travelAccountId = Utils.checkNotNull(travelAccountId, "travelAccountId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetTravelAccountRequest {
             return false;
         }
         GetTravelAccountRequest other = (GetTravelAccountRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.travelAccountId, other.travelAccountId);
+        return Utils.enhancedDeepEquals(this.travelAccountId, other.travelAccountId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            travelAccountId);
+        return Utils.enhancedHash(travelAccountId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTravelAccountRequest.class,
-                "travelAccountId", travelAccountId);
+        return Utils.toString(GetTravelAccountRequest.class, "travelAccountId", travelAccountId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String travelAccountId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetTravelAccountRequest {
         }
 
         public GetTravelAccountRequest build() {
-            return new GetTravelAccountRequest(
-                travelAccountId);
+            return new GetTravelAccountRequest(travelAccountId);
         }
-
     }
 }

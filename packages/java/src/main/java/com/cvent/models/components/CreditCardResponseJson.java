@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * CreditCardResponseJson
- * 
+ *
  * <p>Credit Card Response Object
  */
 public class CreditCardResponseJson {
@@ -71,20 +71,16 @@ public class CreditCardResponseJson {
             @JsonProperty("expMonth") @Nullable Long expMonth,
             @JsonProperty("expYear") @Nullable Long expYear,
             @JsonProperty("number") @Nullable String number) {
-        this.cardType = Optional.ofNullable(cardType)
-            .orElse(JsonNullable.undefined());
-        this.last4Digits = Optional.ofNullable(last4Digits)
-            .orElse(JsonNullable.undefined());
-        this.accountHolderName = Optional.ofNullable(accountHolderName)
-            .orElse(JsonNullable.undefined());
+        this.cardType = Optional.ofNullable(cardType).orElse(JsonNullable.undefined());
+        this.last4Digits = Optional.ofNullable(last4Digits).orElse(JsonNullable.undefined());
+        this.accountHolderName = Optional.ofNullable(accountHolderName).orElse(JsonNullable.undefined());
         this.expMonth = expMonth;
         this.expYear = expYear;
         this.number = number;
     }
-    
+
     public CreditCardResponseJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -133,7 +129,6 @@ public class CreditCardResponseJson {
         return new Builder();
     }
 
-
     /**
      * Credit Card Type
      */
@@ -141,7 +136,6 @@ public class CreditCardResponseJson {
         this.cardType = JsonNullable.of(cardType);
         return this;
     }
-
 
     /**
      * Last 4 digits of the credit card.
@@ -151,7 +145,6 @@ public class CreditCardResponseJson {
         return this;
     }
 
-
     /**
      * Name on the credit card.
      */
@@ -159,7 +152,6 @@ public class CreditCardResponseJson {
         this.accountHolderName = JsonNullable.of(accountHolderName);
         return this;
     }
-
 
     /**
      * Credit card expiration month.
@@ -169,7 +161,6 @@ public class CreditCardResponseJson {
         return this;
     }
 
-
     /**
      * Credit card expiration year.
      */
@@ -178,7 +169,6 @@ public class CreditCardResponseJson {
         return this;
     }
 
-
     /**
      * Masked credit card number.
      */
@@ -186,7 +176,6 @@ public class CreditCardResponseJson {
         this.number = number;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -197,35 +186,39 @@ public class CreditCardResponseJson {
             return false;
         }
         CreditCardResponseJson other = (CreditCardResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.cardType, other.cardType) &&
-            Utils.enhancedDeepEquals(this.last4Digits, other.last4Digits) &&
-            Utils.enhancedDeepEquals(this.accountHolderName, other.accountHolderName) &&
-            Utils.enhancedDeepEquals(this.expMonth, other.expMonth) &&
-            Utils.enhancedDeepEquals(this.expYear, other.expYear) &&
-            Utils.enhancedDeepEquals(this.number, other.number);
+        return Utils.enhancedDeepEquals(this.cardType, other.cardType)
+                && Utils.enhancedDeepEquals(this.last4Digits, other.last4Digits)
+                && Utils.enhancedDeepEquals(this.accountHolderName, other.accountHolderName)
+                && Utils.enhancedDeepEquals(this.expMonth, other.expMonth)
+                && Utils.enhancedDeepEquals(this.expYear, other.expYear)
+                && Utils.enhancedDeepEquals(this.number, other.number);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            cardType, last4Digits, accountHolderName,
-            expMonth, expYear, number);
+        return Utils.enhancedHash(cardType, last4Digits, accountHolderName, expMonth, expYear, number);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreditCardResponseJson.class,
-                "cardType", cardType,
-                "last4Digits", last4Digits,
-                "accountHolderName", accountHolderName,
-                "expMonth", expMonth,
-                "expYear", expYear,
-                "number", number);
+        return Utils.toString(
+                CreditCardResponseJson.class,
+                "cardType",
+                cardType,
+                "last4Digits",
+                last4Digits,
+                "accountHolderName",
+                accountHolderName,
+                "expMonth",
+                expMonth,
+                "expYear",
+                expYear,
+                "number",
+                number);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private JsonNullable<CreditCardTypeJson> cardType;
 
@@ -240,7 +233,7 @@ public class CreditCardResponseJson {
         private String number;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -292,10 +285,7 @@ public class CreditCardResponseJson {
         }
 
         public CreditCardResponseJson build() {
-            return new CreditCardResponseJson(
-                cardType, last4Digits, accountHolderName,
-                expMonth, expYear, number);
+            return new CreditCardResponseJson(cardType, last4Digits, accountHolderName, expMonth, expYear, number);
         }
-
     }
 }

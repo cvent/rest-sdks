@@ -32,7 +32,8 @@ public class FilterCommunicationLogMessagesRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public FilterCommunicationLogMessagesRequestBuilder request(@Nonnull FilterCommunicationLogMessagesRequest request) {
+    public FilterCommunicationLogMessagesRequestBuilder request(
+            @Nonnull FilterCommunicationLogMessagesRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class FilterCommunicationLogMessagesRequestBuilder {
     private FilterCommunicationLogMessagesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public FilterCommunicationLogMessagesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,16 @@ public class FilterCommunicationLogMessagesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<FilterCommunicationLogMessagesResponse> call() {
-        AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation
-              = new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
+                new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +76,17 @@ public class FilterCommunicationLogMessagesRequestBuilder {
      */
     public Publisher<FilterCommunicationLogMessagesResponse> callAsPublisher() {
         FilterCommunicationLogMessagesRequest request = this.request;
-        AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation
-              = new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
+                new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            FilterCommunicationLogMessagesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                FilterCommunicationLogMessagesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<FilterCommunicationLogMessagesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<FilterCommunicationLogMessagesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

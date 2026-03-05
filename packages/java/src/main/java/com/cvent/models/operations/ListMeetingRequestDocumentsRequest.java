@@ -16,7 +16,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListMeetingRequestDocumentsRequest {
     /**
      * Meeting request ID.
@@ -46,13 +45,13 @@ public class ListMeetingRequestDocumentsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * name (eq|ne)
@@ -69,19 +68,16 @@ public class ListMeetingRequestDocumentsRequest {
             @Nullable Boolean includeReferenceLink,
             @Nullable String filter) {
         this.requestId = Optional.ofNullable(requestId)
-            .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
-        this.includeReferenceLink = Optional.ofNullable(includeReferenceLink)
-            .orElse(Builder._SINGLETON_VALUE_IncludeReferenceLink.value());
+        this.includeReferenceLink =
+                Optional.ofNullable(includeReferenceLink).orElse(Builder._SINGLETON_VALUE_IncludeReferenceLink.value());
         this.filter = filter;
     }
-    
-    public ListMeetingRequestDocumentsRequest(
-            @Nonnull String requestId) {
-        this(requestId, null, null,
-            null, null);
+
+    public ListMeetingRequestDocumentsRequest(@Nonnull String requestId) {
+        this(requestId, null, null, null, null);
     }
 
     /**
@@ -116,13 +112,13 @@ public class ListMeetingRequestDocumentsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * name (eq|ne)
@@ -136,7 +132,6 @@ public class ListMeetingRequestDocumentsRequest {
         return new Builder();
     }
 
-
     /**
      * Meeting request ID.
      */
@@ -145,7 +140,6 @@ public class ListMeetingRequestDocumentsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of Documents that can be fetched at once.
      */
@@ -153,7 +147,6 @@ public class ListMeetingRequestDocumentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -164,7 +157,6 @@ public class ListMeetingRequestDocumentsRequest {
         return this;
     }
 
-
     /**
      * Set to `false` to exclude the field `referenceLink` from the response.
      */
@@ -173,17 +165,16 @@ public class ListMeetingRequestDocumentsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * name (eq|ne)
@@ -194,7 +185,6 @@ public class ListMeetingRequestDocumentsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -204,33 +194,36 @@ public class ListMeetingRequestDocumentsRequest {
             return false;
         }
         ListMeetingRequestDocumentsRequest other = (ListMeetingRequestDocumentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.requestId, other.requestId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.includeReferenceLink, other.includeReferenceLink) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.requestId, other.requestId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.includeReferenceLink, other.includeReferenceLink)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            requestId, limit, token,
-            includeReferenceLink, filter);
+        return Utils.enhancedHash(requestId, limit, token, includeReferenceLink, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListMeetingRequestDocumentsRequest.class,
-                "requestId", requestId,
-                "limit", limit,
-                "token", token,
-                "includeReferenceLink", includeReferenceLink,
-                "filter", filter);
+        return Utils.toString(
+                ListMeetingRequestDocumentsRequest.class,
+                "requestId",
+                requestId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "includeReferenceLink",
+                includeReferenceLink,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String requestId;
 
@@ -243,7 +236,7 @@ public class ListMeetingRequestDocumentsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -282,13 +275,13 @@ public class ListMeetingRequestDocumentsRequest {
         /**
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>The following comparison types can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
          * * greater or equal: ge
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq|ne)
          * * name (eq|ne)
@@ -300,22 +293,13 @@ public class ListMeetingRequestDocumentsRequest {
         }
 
         public ListMeetingRequestDocumentsRequest build() {
-            return new ListMeetingRequestDocumentsRequest(
-                requestId, limit, token,
-                includeReferenceLink, filter);
+            return new ListMeetingRequestDocumentsRequest(requestId, limit, token, includeReferenceLink, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "10",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "10", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludeReferenceLink =
-                new LazySingletonValue<>(
-                        "includeReferenceLink",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("includeReferenceLink", "true", new TypeReference<Boolean>() {});
     }
 }

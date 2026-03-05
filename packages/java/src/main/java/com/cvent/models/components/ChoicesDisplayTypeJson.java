@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ChoicesDisplayTypeJson
- * 
+ *
  * <p>Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field
  * type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to
  * MultiSelectBox.
@@ -27,13 +27,13 @@ public enum ChoicesDisplayTypeJson {
     ChoicesDisplayTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ChoicesDisplayTypeJson> fromValue(String value) {
-        for (ChoicesDisplayTypeJson o: ChoicesDisplayTypeJson.values()) {
+        for (ChoicesDisplayTypeJson o : ChoicesDisplayTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum ChoicesDisplayTypeJson {
         return Optional.empty();
     }
 }
-

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * BulkJobWithData
- * 
+ *
  * <p>The model representing a bulk job that can load data asynchronously including the data
  */
 public class BulkJobWithData {
@@ -168,10 +168,9 @@ public class BulkJobWithData {
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
         this.description = description;
-        this.url = Optional.ofNullable(url)
-            .orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
+        this.url = Optional.ofNullable(url).orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
         this.operation = Optional.ofNullable(operation)
-            .orElseThrow(() -> new IllegalArgumentException("operation cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("operation cannot be null"));
         this.headers = headers;
         this.queryParams = queryParams;
         this.started = started;
@@ -182,16 +181,9 @@ public class BulkJobWithData {
         this.failed = failed;
         this.data = data;
     }
-    
-    public BulkJobWithData(
-            @Nonnull String url,
-            @Nonnull BulkJobWithDataOperation operation) {
-        this(null, null, null,
-            null, null, null,
-            url, operation, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+
+    public BulkJobWithData(@Nonnull String url, @Nonnull BulkJobWithDataOperation operation) {
+        this(null, null, null, null, null, null, url, operation, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -319,7 +311,6 @@ public class BulkJobWithData {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -327,7 +318,6 @@ public class BulkJobWithData {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -337,7 +327,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -345,7 +334,6 @@ public class BulkJobWithData {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -355,7 +343,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Bulk job identifier
      */
@@ -364,7 +351,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Description of the bulk job.
      */
@@ -372,7 +358,6 @@ public class BulkJobWithData {
         this.description = description;
         return this;
     }
-
 
     /**
      * URL of the destination public API being called. This can be the full path or the relative path to
@@ -384,7 +369,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Operation to be performed in the destination API.
      */
@@ -392,7 +376,6 @@ public class BulkJobWithData {
         this.operation = Utils.checkNotNull(operation, "operation");
         return this;
     }
-
 
     /**
      * Headers to be passed on the destination API. Values must NOT be null.
@@ -402,7 +385,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Query Params to be passed on to the destination API. Values must NOT be null.
      */
@@ -410,7 +392,6 @@ public class BulkJobWithData {
         this.queryParams = queryParams;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when the job started.
@@ -420,7 +401,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when the job completed.
      */
@@ -428,7 +408,6 @@ public class BulkJobWithData {
         this.completed = completed;
         return this;
     }
-
 
     /**
      * The current status of the bulk job.
@@ -438,7 +417,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Total number of records uploaded for the bulk job.
      */
@@ -446,7 +424,6 @@ public class BulkJobWithData {
         this.totalRecords = totalRecords;
         return this;
     }
-
 
     /**
      * Total number of records that were successfully processed by the bulk job.
@@ -456,7 +433,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Total number of records that were unsuccessfully processed by the bulk job.
      */
@@ -465,7 +441,6 @@ public class BulkJobWithData {
         return this;
     }
 
-
     /**
      * Collection of objects to be processed
      */
@@ -473,7 +448,6 @@ public class BulkJobWithData {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -484,61 +458,89 @@ public class BulkJobWithData {
             return false;
         }
         BulkJobWithData other = (BulkJobWithData) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.operation, other.operation) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers) &&
-            Utils.enhancedDeepEquals(this.queryParams, other.queryParams) &&
-            Utils.enhancedDeepEquals(this.started, other.started) &&
-            Utils.enhancedDeepEquals(this.completed, other.completed) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.totalRecords, other.totalRecords) &&
-            Utils.enhancedDeepEquals(this.successful, other.successful) &&
-            Utils.enhancedDeepEquals(this.failed, other.failed) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.operation, other.operation)
+                && Utils.enhancedDeepEquals(this.headers, other.headers)
+                && Utils.enhancedDeepEquals(this.queryParams, other.queryParams)
+                && Utils.enhancedDeepEquals(this.started, other.started)
+                && Utils.enhancedDeepEquals(this.completed, other.completed)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.totalRecords, other.totalRecords)
+                && Utils.enhancedDeepEquals(this.successful, other.successful)
+                && Utils.enhancedDeepEquals(this.failed, other.failed)
+                && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, description,
-            url, operation, headers,
-            queryParams, started, completed,
-            status, totalRecords, successful,
-            failed, data);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                description,
+                url,
+                operation,
+                headers,
+                queryParams,
+                started,
+                completed,
+                status,
+                totalRecords,
+                successful,
+                failed,
+                data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BulkJobWithData.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "description", description,
-                "url", url,
-                "operation", operation,
-                "headers", headers,
-                "queryParams", queryParams,
-                "started", started,
-                "completed", completed,
-                "status", status,
-                "totalRecords", totalRecords,
-                "successful", successful,
-                "failed", failed,
-                "data", data);
+        return Utils.toString(
+                BulkJobWithData.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "description",
+                description,
+                "url",
+                url,
+                "operation",
+                operation,
+                "headers",
+                headers,
+                "queryParams",
+                queryParams,
+                "started",
+                started,
+                "completed",
+                completed,
+                "status",
+                status,
+                "totalRecords",
+                totalRecords,
+                "successful",
+                successful,
+                "failed",
+                failed,
+                "data",
+                data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -575,7 +577,7 @@ public class BulkJobWithData {
         private List<BulkDataPropertyJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -718,13 +720,23 @@ public class BulkJobWithData {
 
         public BulkJobWithData build() {
             return new BulkJobWithData(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, description,
-                url, operation, headers,
-                queryParams, started, completed,
-                status, totalRecords, successful,
-                failed, data);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    description,
+                    url,
+                    operation,
+                    headers,
+                    queryParams,
+                    started,
+                    completed,
+                    status,
+                    totalRecords,
+                    successful,
+                    failed,
+                    data);
         }
-
     }
 }

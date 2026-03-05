@@ -28,7 +28,7 @@ public class GetAvailabilityByIdRequestBuilder {
     private GetAvailabilityByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAvailabilityByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetAvailabilityByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetAvailabilityByIdResponse call() {
-        RequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation
-              = new GetAvailabilityById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation =
+                new GetAvailabilityById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * HousingEventHotel
- * 
+ *
  * <p>Hotel details including name, description, policies and IDs.
  */
 public class HousingEventHotel {
@@ -102,11 +102,10 @@ public class HousingEventHotel {
             @JsonProperty("address") @Nullable AddressJson3 address) {
         this.id = id;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = Optional.ofNullable(description)
-            .orElseThrow(() -> new IllegalArgumentException("description cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("description cannot be null"));
         this.childPolicy = childPolicy;
         this.images = images;
         this.proximity = proximity;
@@ -114,16 +113,10 @@ public class HousingEventHotel {
         this.rating = rating;
         this.address = address;
     }
-    
+
     public HousingEventHotel(
-            long id,
-            @Nonnull HousingEventIdJson housingEvent,
-            @Nonnull String name,
-            @Nonnull String description) {
-        this(id, housingEvent, name,
-            description, null, null,
-            null, null, null,
-            null);
+            long id, @Nonnull HousingEventIdJson housingEvent, @Nonnull String name, @Nonnull String description) {
+        this(id, housingEvent, name, description, null, null, null, null, null, null);
     }
 
     /**
@@ -201,7 +194,6 @@ public class HousingEventHotel {
         return new Builder();
     }
 
-
     /**
      * The hotel's unique ID.
      */
@@ -209,7 +201,6 @@ public class HousingEventHotel {
         this.id = id;
         return this;
     }
-
 
     /**
      * Contains unique ID of the housing event.
@@ -219,7 +210,6 @@ public class HousingEventHotel {
         return this;
     }
 
-
     /**
      * The hotel's name.
      */
@@ -227,7 +217,6 @@ public class HousingEventHotel {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The hotel's description.
@@ -237,7 +226,6 @@ public class HousingEventHotel {
         return this;
     }
 
-
     /**
      * The hotel's child policy.
      */
@@ -245,7 +233,6 @@ public class HousingEventHotel {
         this.childPolicy = childPolicy;
         return this;
     }
-
 
     /**
      * List of hotel images.
@@ -255,7 +242,6 @@ public class HousingEventHotel {
         return this;
     }
 
-
     /**
      * Proximity of the event venue to the hotel.
      */
@@ -263,7 +249,6 @@ public class HousingEventHotel {
         this.proximity = proximity;
         return this;
     }
-
 
     /**
      * List of available amenities at the hotel.
@@ -273,7 +258,6 @@ public class HousingEventHotel {
         return this;
     }
 
-
     /**
      * The hotel's rating, used to classify the hotel's quality.
      */
@@ -281,7 +265,6 @@ public class HousingEventHotel {
         this.rating = rating;
         return this;
     }
-
 
     /**
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
@@ -292,7 +275,6 @@ public class HousingEventHotel {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -302,45 +284,52 @@ public class HousingEventHotel {
             return false;
         }
         HousingEventHotel other = (HousingEventHotel) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.childPolicy, other.childPolicy) &&
-            Utils.enhancedDeepEquals(this.images, other.images) &&
-            Utils.enhancedDeepEquals(this.proximity, other.proximity) &&
-            Utils.enhancedDeepEquals(this.amenities, other.amenities) &&
-            Utils.enhancedDeepEquals(this.rating, other.rating) &&
-            Utils.enhancedDeepEquals(this.address, other.address);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.childPolicy, other.childPolicy)
+                && Utils.enhancedDeepEquals(this.images, other.images)
+                && Utils.enhancedDeepEquals(this.proximity, other.proximity)
+                && Utils.enhancedDeepEquals(this.amenities, other.amenities)
+                && Utils.enhancedDeepEquals(this.rating, other.rating)
+                && Utils.enhancedDeepEquals(this.address, other.address);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, housingEvent, name,
-            description, childPolicy, images,
-            proximity, amenities, rating,
-            address);
+                id, housingEvent, name, description, childPolicy, images, proximity, amenities, rating, address);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HousingEventHotel.class,
-                "id", id,
-                "housingEvent", housingEvent,
-                "name", name,
-                "description", description,
-                "childPolicy", childPolicy,
-                "images", images,
-                "proximity", proximity,
-                "amenities", amenities,
-                "rating", rating,
-                "address", address);
+        return Utils.toString(
+                HousingEventHotel.class,
+                "id",
+                id,
+                "housingEvent",
+                housingEvent,
+                "name",
+                name,
+                "description",
+                description,
+                "childPolicy",
+                childPolicy,
+                "images",
+                images,
+                "proximity",
+                proximity,
+                "amenities",
+                amenities,
+                "rating",
+                rating,
+                "address",
+                address);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -363,7 +352,7 @@ public class HousingEventHotel {
         private AddressJson3 address;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -449,11 +438,7 @@ public class HousingEventHotel {
 
         public HousingEventHotel build() {
             return new HousingEventHotel(
-                id, housingEvent, name,
-                description, childPolicy, images,
-                proximity, amenities, rating,
-                address);
+                    id, housingEvent, name, description, childPolicy, images, proximity, amenities, rating, address);
         }
-
     }
 }

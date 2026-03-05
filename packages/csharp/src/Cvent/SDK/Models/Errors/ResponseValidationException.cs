@@ -25,6 +25,8 @@ namespace Cvent.SDK.Models.Errors
             HttpResponseMessage response,
             string body,
             Exception innerException
-        ): base(message, request, response, body, innerException) {}
+        ) : base(message, request, response, body, innerException)
+        {
+        }
     }
 }

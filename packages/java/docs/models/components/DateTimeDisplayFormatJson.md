@@ -2,6 +2,14 @@
 
 This is used to denote the display format type of date time type custom field.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.DateTimeDisplayFormatJson;
+
+DateTimeDisplayFormatJson value = DateTimeDisplayFormatJson.DATE_AND_TIME_MONTH_FIRST12_HOUR_TIME;
+```
+
 
 ## Values
 

@@ -30,7 +30,7 @@ public class Oauth2AuthorizeRequestBuilder {
     private Oauth2AuthorizeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public Oauth2AuthorizeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class Oauth2AuthorizeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<Oauth2AuthorizeResponse> call() {
-        AsyncRequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation
-              = new Oauth2Authorize.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
+                new Oauth2Authorize.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

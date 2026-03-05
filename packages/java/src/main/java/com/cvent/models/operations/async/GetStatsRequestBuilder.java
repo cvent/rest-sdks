@@ -30,7 +30,7 @@ public class GetStatsRequestBuilder {
     private GetStatsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetStatsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetStatsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetStatsResponse> call() {
-        AsyncRequestOperation<GetStatsRequest, GetStatsResponse> operation
-              = new GetStats.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetStatsRequest, GetStatsResponse> operation =
+                new GetStats.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

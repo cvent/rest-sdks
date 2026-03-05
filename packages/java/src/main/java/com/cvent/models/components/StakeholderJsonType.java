@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * StakeholderJsonType
- * 
+ *
  * <p>Type of the stakeholder.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -38,13 +38,11 @@ public class StakeholderJsonType {
     private String name;
 
     @JsonCreator
-    public StakeholderJsonType(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("name") @Nullable String name) {
+    public StakeholderJsonType(@JsonProperty("id") @Nullable String id, @JsonProperty("name") @Nullable String name) {
         this.id = id;
         this.name = name;
     }
-    
+
     public StakeholderJsonType() {
         this(null, null);
     }
@@ -67,7 +65,6 @@ public class StakeholderJsonType {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the contact type.
      */
@@ -76,7 +73,6 @@ public class StakeholderJsonType {
         return this;
     }
 
-
     /**
      * A descriptive name for the contact type.
      */
@@ -84,7 +80,6 @@ public class StakeholderJsonType {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -95,33 +90,28 @@ public class StakeholderJsonType {
             return false;
         }
         StakeholderJsonType other = (StakeholderJsonType) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StakeholderJsonType.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(StakeholderJsonType.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -141,9 +131,7 @@ public class StakeholderJsonType {
         }
 
         public StakeholderJsonType build() {
-            return new StakeholderJsonType(
-                id, name);
+            return new StakeholderJsonType(id, name);
         }
-
     }
 }

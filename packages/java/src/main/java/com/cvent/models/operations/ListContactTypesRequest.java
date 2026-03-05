@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListContactTypesRequest {
     /**
      * The maximum number of records to return per page.
@@ -37,26 +36,22 @@ public class ListContactTypesRequest {
      * * not equal: ne
      * * starts with: sw
      * * contains a value: contains
-     * 
+     *
      * <p>The following fields are filterable:
      * * name (eq|ne|sw|contains)
-     * 
+     *
      * <p>No logical operators are supported on this endpoint, only one filter can be passed in each request.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
     @JsonCreator
-    public ListContactTypesRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public ListContactTypesRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListContactTypesRequest() {
         this(null, null, null);
     }
@@ -84,10 +79,10 @@ public class ListContactTypesRequest {
      * * not equal: ne
      * * starts with: sw
      * * contains a value: contains
-     * 
+     *
      * <p>The following fields are filterable:
      * * name (eq|ne|sw|contains)
-     * 
+     *
      * <p>No logical operators are supported on this endpoint, only one filter can be passed in each request.
      */
     public Optional<String> filter() {
@@ -98,7 +93,6 @@ public class ListContactTypesRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -106,7 +100,6 @@ public class ListContactTypesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -117,7 +110,6 @@ public class ListContactTypesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
@@ -126,17 +118,16 @@ public class ListContactTypesRequest {
      * * not equal: ne
      * * starts with: sw
      * * contains a value: contains
-     * 
+     *
      * <p>The following fields are filterable:
      * * name (eq|ne|sw|contains)
-     * 
+     *
      * <p>No logical operators are supported on this endpoint, only one filter can be passed in each request.
      */
     public ListContactTypesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -147,28 +138,23 @@ public class ListContactTypesRequest {
             return false;
         }
         ListContactTypesRequest other = (ListContactTypesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListContactTypesRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(ListContactTypesRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -177,7 +163,7 @@ public class ListContactTypesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -205,10 +191,10 @@ public class ListContactTypesRequest {
          * * not equal: ne
          * * starts with: sw
          * * contains a value: contains
-         * 
+         *
          * <p>The following fields are filterable:
          * * name (eq|ne|sw|contains)
-         * 
+         *
          * <p>No logical operators are supported on this endpoint, only one filter can be passed in each request.
          */
         public Builder filter(@Nullable String filter) {
@@ -217,15 +203,10 @@ public class ListContactTypesRequest {
         }
 
         public ListContactTypesRequest build() {
-            return new ListContactTypesRequest(
-                limit, token, filter);
+            return new ListContactTypesRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

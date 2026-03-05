@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * VideoTextTrackStatusJson
- * 
+ *
  * <p>Denotes the status of a video text track (VTT). Started indicates a request to upload in the API,
  * and the URL to upload to was returned. Uploaded indicates that the upload was completed.
- * 
+ *
  * <p>Available indicates the VTT is available for use. Rejected indicates a failed virus scan. Error
  * indicates there was a problem processing the VTT.
  */
@@ -34,13 +34,13 @@ public enum VideoTextTrackStatusJson {
     VideoTextTrackStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VideoTextTrackStatusJson> fromValue(String value) {
-        for (VideoTextTrackStatusJson o: VideoTextTrackStatusJson.values()) {
+        for (VideoTextTrackStatusJson o : VideoTextTrackStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -48,4 +48,3 @@ public enum VideoTextTrackStatusJson {
         return Optional.empty();
     }
 }
-

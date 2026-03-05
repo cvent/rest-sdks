@@ -2,6 +2,14 @@
 
 Field Type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.FieldTypeJson1;
+
+FieldTypeJson1 value = FieldTypeJson1.SINGLE_CHOICE;
+```
+
 
 ## Values
 

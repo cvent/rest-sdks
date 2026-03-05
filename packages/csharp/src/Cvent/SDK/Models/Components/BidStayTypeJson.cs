@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BidStayTypeJson
     {
-        [JsonProperty("daily")]
-        Daily,
-        [JsonProperty("extended")]
-        Extended,
+        [JsonProperty("daily")] Daily,
+        [JsonProperty("extended")] Extended,
     }
 
     public static class BidStayTypeJsonExtension
     {
         public static string Value(this BidStayTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BidStayTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BidStayTypeJson).GetFields())
+            foreach (var field in typeof(BidStayTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

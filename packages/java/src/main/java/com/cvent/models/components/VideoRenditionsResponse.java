@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * VideoRenditionsResponse
- * 
+ *
  * <p>The response from a request to get the list of video renditions.
  */
 public class VideoRenditionsResponse {
@@ -28,11 +28,10 @@ public class VideoRenditionsResponse {
     private List<VideoRenditionJson> data;
 
     @JsonCreator
-    public VideoRenditionsResponse(
-            @JsonProperty("data") @Nullable List<VideoRenditionJson> data) {
+    public VideoRenditionsResponse(@JsonProperty("data") @Nullable List<VideoRenditionJson> data) {
         this.data = data;
     }
-    
+
     public VideoRenditionsResponse() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class VideoRenditionsResponse {
         return new Builder();
     }
 
-
     /**
      * Collection of video renditions.
      */
@@ -56,7 +54,6 @@ public class VideoRenditionsResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class VideoRenditionsResponse {
             return false;
         }
         VideoRenditionsResponse other = (VideoRenditionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoRenditionsResponse.class,
-                "data", data);
+        return Utils.toString(VideoRenditionsResponse.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<VideoRenditionJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class VideoRenditionsResponse {
         }
 
         public VideoRenditionsResponse build() {
-            return new VideoRenditionsResponse(
-                data);
+            return new VideoRenditionsResponse(data);
         }
-
     }
 }

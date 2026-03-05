@@ -28,7 +28,7 @@ public class DeleteAccountUserGroupRequestBuilder {
     private DeleteAccountUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteAccountUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteAccountUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteAccountUserGroupResponse call() {
-        RequestOperation<DeleteAccountUserGroupRequest, DeleteAccountUserGroupResponse> operation
-              = new DeleteAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteAccountUserGroupRequest, DeleteAccountUserGroupResponse> operation =
+                new DeleteAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

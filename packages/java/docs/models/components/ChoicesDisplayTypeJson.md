@@ -2,6 +2,14 @@
 
 Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ChoicesDisplayTypeJson;
+
+ChoicesDisplayTypeJson value = ChoicesDisplayTypeJson.DROPDOWN;
+```
+
 
 ## Values
 

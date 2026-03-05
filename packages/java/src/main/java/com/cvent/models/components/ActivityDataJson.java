@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +17,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * ActivityDataJson
- * 
+ *
  * <p>This is used to denote the type of the attendee activity
  */
 @JsonDeserialize(using = ActivityDataJson._Deserializer.class)
@@ -25,271 +25,271 @@ public class ActivityDataJson {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private ActivityDataJson(TypedObject value) {
         this.value = value;
     }
 
     public static ActivityDataJson of(AppointmentAccepted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(AppointmentCancelled value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(AppointmentCheckedIn value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(AppointmentCreated value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(AppointmentDeclined value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(AppointmentDenied value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(AppointmentRescheduled value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EmailBounced value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EmailClicked value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EmailOpened value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EmailSent value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EmailUndelivered value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventAttendeeHubVisited value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventAttendeeSubstituted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventBannerLinkClicked value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventCheckedIn value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventCheckedOut value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventCustomCardOpened value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventFeedbackSubmitted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventNoShow value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventPageVisitTracked value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventRegistered value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventRegistrationAbandoned value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventRegistrationCancelled value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventVideoPlayed value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventWaitlisted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ExhibitorDocumentOpened value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ExhibitorSocialLinkOpened value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ExhibitorViewed value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ExhibitorVirtualBoothJoined value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ExhibitorWeblinkOpened value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(LeadInboundCreated value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(LeadQualified value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(LeadScanned value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionCheckedIn value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionCheckedOut value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionEnrolled value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionFeedbackSubmitted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionNoShow value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionPollResponseSubmitted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionQuestionAsked value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionQuestionUpvoted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionUnenrolled value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SessionWaitlisted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SpeakerFeedbackSubmitted value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(SpeakerFileDownloaded value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ActivityDataJsonAppointmentExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ActivityDataJsonEventExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ActivityDataJsonExhibitorExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(ActivityDataJsonSessionExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventAdViewed value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ActivityDataJson of(EventAdClicked value) {
         Utils.checkNotNull(value, "value");
-        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
@@ -346,22 +346,22 @@ public class ActivityDataJson {
      * <li>{@code com.cvent.models.components.EventAdViewed}</li>
      * <li>{@code com.cvent.models.components.EventAdClicked}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -373,77 +373,79 @@ public class ActivityDataJson {
         ActivityDataJson other = (ActivityDataJson) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<ActivityDataJson> {
 
         public _Deserializer() {
-            super(ActivityDataJson.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentAccepted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentCancelled>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentCheckedIn>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentCreated>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentDeclined>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentDenied>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AppointmentRescheduled>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EmailBounced>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EmailClicked>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EmailOpened>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EmailSent>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EmailUndelivered>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventAttendeeHubVisited>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventAttendeeSubstituted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventBannerLinkClicked>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventCheckedIn>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventCheckedOut>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventCustomCardOpened>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventFeedbackSubmitted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventNoShow>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventPageVisitTracked>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventRegistered>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventRegistrationAbandoned>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventRegistrationCancelled>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventVideoPlayed>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventWaitlisted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExhibitorDocumentOpened>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExhibitorSocialLinkOpened>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExhibitorViewed>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExhibitorVirtualBoothJoined>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExhibitorWeblinkOpened>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<LeadInboundCreated>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<LeadQualified>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<LeadScanned>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionCheckedIn>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionCheckedOut>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionEnrolled>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionFeedbackSubmitted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionNoShow>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionPollResponseSubmitted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionQuestionAsked>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionQuestionUpvoted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionUnenrolled>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionWaitlisted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SpeakerFeedbackSubmitted>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SpeakerFileDownloaded>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ActivityDataJsonAppointmentExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ActivityDataJsonEventExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ActivityDataJsonExhibitorExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ActivityDataJsonSessionExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventAdViewed>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<EventAdClicked>() {}, JsonShape.DEFAULT));
+            super(
+                    ActivityDataJson.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentAccepted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentCancelled>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentCheckedIn>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentCreated>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentDeclined>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentDenied>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<AppointmentRescheduled>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EmailBounced>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EmailClicked>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EmailOpened>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EmailSent>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EmailUndelivered>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventAttendeeHubVisited>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventAttendeeSubstituted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventBannerLinkClicked>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventCheckedIn>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventCheckedOut>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventCustomCardOpened>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventFeedbackSubmitted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventNoShow>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventPageVisitTracked>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventRegistered>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventRegistrationAbandoned>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventRegistrationCancelled>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventVideoPlayed>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventWaitlisted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ExhibitorDocumentOpened>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ExhibitorSocialLinkOpened>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ExhibitorViewed>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ExhibitorVirtualBoothJoined>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ExhibitorWeblinkOpened>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<LeadInboundCreated>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<LeadQualified>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<LeadScanned>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionCheckedIn>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionCheckedOut>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionEnrolled>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionFeedbackSubmitted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionNoShow>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionPollResponseSubmitted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionQuestionAsked>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionQuestionUpvoted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionUnenrolled>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionWaitlisted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SpeakerFeedbackSubmitted>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SpeakerFileDownloaded>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ActivityDataJsonAppointmentExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ActivityDataJsonEventExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ActivityDataJsonExhibitorExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ActivityDataJsonSessionExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventAdViewed>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<EventAdClicked>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityDataJson.class,
-                "value", value);
+        return Utils.toString(ActivityDataJson.class, "value", value);
     }
-
 }
-

@@ -29,7 +29,7 @@ public class ProcessForm {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncProcessForm async() {
@@ -38,11 +38,11 @@ public class ProcessForm {
 
     /**
      * List Process Form Submissions
-     * 
+     *
      * <p>Gets a paginated list of process form submissions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListProcessFormSubmissionRequestBuilder listProcessFormSubmission() {
@@ -51,19 +51,19 @@ public class ProcessForm {
 
     /**
      * List Process Form Submissions
-     * 
+     *
      * <p>Gets a paginated list of process form submissions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListProcessFormSubmissionResponse listProcessFormSubmission(@Nonnull ListProcessFormSubmissionRequest request) {
-        RequestOperation<ListProcessFormSubmissionRequest, ListProcessFormSubmissionResponse> operation
-              = new ListProcessFormSubmission.Sync(sdkConfiguration, _headers);
+    public ListProcessFormSubmissionResponse listProcessFormSubmission(
+            @Nonnull ListProcessFormSubmissionRequest request) {
+        RequestOperation<ListProcessFormSubmissionRequest, ListProcessFormSubmissionResponse> operation =
+                new ListProcessFormSubmission.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

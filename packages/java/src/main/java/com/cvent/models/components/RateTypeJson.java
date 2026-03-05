@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * RateTypeJson
- * 
+ *
  * <p>Rate type.
  */
 public enum RateTypeJson {
@@ -24,13 +24,13 @@ public enum RateTypeJson {
     RateTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RateTypeJson> fromValue(String value) {
-        for (RateTypeJson o: RateTypeJson.values()) {
+        for (RateTypeJson o : RateTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum RateTypeJson {
         return Optional.empty();
     }
 }
-

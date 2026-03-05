@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -22,7 +22,7 @@ import java.util.Optional;
 
 /**
  * ExistingVideoResponse
- * 
+ *
  * <p>Response schema for GET/List endpoints, extending ExistingVideo and adding errors/warnings.
  */
 public class ExistingVideoResponse {
@@ -105,11 +105,11 @@ public class ExistingVideoResponse {
     /**
      * Denotes the status of a video. Started indicates the request to upload in the API was submitted, and
      * the URL to upload to was returned. Uploaded indicates that the upload was completed.
-     * 
+     *
      * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
      * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
      * Rejected indicates a failed virus scan.
-     * 
+     *
      * <p>Error indicates there was a problem processing the video. Available indicates the video is available
      * for use.
      */
@@ -141,7 +141,7 @@ public class ExistingVideoResponse {
 
     /**
      * Event video asset was created with. This field has been deprecated. Use events instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -152,7 +152,7 @@ public class ExistingVideoResponse {
     /**
      * List of locations for HLS recordings that will be combined to form a new video. This field has been
      * deprecated. Use hlsInputsWithClips instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -297,8 +297,7 @@ public class ExistingVideoResponse {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.description = description;
         this.filename = filename;
         this.events = events;
@@ -313,10 +312,9 @@ public class ExistingVideoResponse {
         this.hlsInputs = hlsInputs;
         this.hlsInputsWithClips = hlsInputsWithClips;
         this.recording = recording;
-        this.encodingProfile = Optional.ofNullable(encodingProfile)
-            .orElse(Builder._SINGLETON_VALUE_EncodingProfile.value());
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.encodingProfile =
+                Optional.ofNullable(encodingProfile).orElse(Builder._SINGLETON_VALUE_EncodingProfile.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.url = url;
         this.size = size;
         this.sessions = sessions;
@@ -328,21 +326,40 @@ public class ExistingVideoResponse {
         this.errors = errors;
         this.warnings = warnings;
     }
-    
-    public ExistingVideoResponse(
-            @Nonnull String title,
-            @Nonnull String id) {
-        this(null, null, null,
-            null, title, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, id,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public ExistingVideoResponse(@Nonnull String title, @Nonnull String id) {
+        this(
+                null,
+                null,
+                null,
+                null,
+                title,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                id,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -425,11 +442,11 @@ public class ExistingVideoResponse {
     /**
      * Denotes the status of a video. Started indicates the request to upload in the API was submitted, and
      * the URL to upload to was returned. Uploaded indicates that the upload was completed.
-     * 
+     *
      * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
      * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
      * Rejected indicates a failed virus scan.
-     * 
+     *
      * <p>Error indicates there was a problem processing the video. Available indicates the video is available
      * for use.
      */
@@ -461,7 +478,7 @@ public class ExistingVideoResponse {
 
     /**
      * Event video asset was created with. This field has been deprecated. Use events instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -472,7 +489,7 @@ public class ExistingVideoResponse {
     /**
      * List of locations for HLS recordings that will be combined to form a new video. This field has been
      * deprecated. Use hlsInputsWithClips instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -585,7 +602,6 @@ public class ExistingVideoResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -593,7 +609,6 @@ public class ExistingVideoResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -603,7 +618,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -611,7 +625,6 @@ public class ExistingVideoResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -621,7 +634,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * The title of the video
      */
@@ -629,7 +641,6 @@ public class ExistingVideoResponse {
         this.title = Utils.checkNotNull(title, "title");
         return this;
     }
-
 
     /**
      * Description of the video
@@ -639,7 +650,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Filename associated with the video at time of upload. Cannot be modified.
      */
@@ -647,7 +657,6 @@ public class ExistingVideoResponse {
         this.filename = filename;
         return this;
     }
-
 
     /**
      * A list of events associated with this video asset
@@ -657,7 +666,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Video duration (milliseconds)
      */
@@ -665,7 +673,6 @@ public class ExistingVideoResponse {
         this.duration = duration;
         return this;
     }
-
 
     /**
      * Video thumbnail
@@ -675,7 +682,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Video thumbnail
      */
@@ -684,15 +690,14 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Denotes the status of a video. Started indicates the request to upload in the API was submitted, and
      * the URL to upload to was returned. Uploaded indicates that the upload was completed.
-     * 
+     *
      * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
      * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
      * Rejected indicates a failed virus scan.
-     * 
+     *
      * <p>Error indicates there was a problem processing the video. Available indicates the video is available
      * for use.
      */
@@ -701,7 +706,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Source of video.
      */
@@ -709,7 +713,6 @@ public class ExistingVideoResponse {
         this.source = source;
         return this;
     }
-
 
     /**
      * A list of tags associated with this video. This feature is a developer extensability framework to
@@ -720,7 +723,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * This is used to denote type of a video
      */
@@ -729,10 +731,9 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Event video asset was created with. This field has been deprecated. Use events instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -741,11 +742,10 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * List of locations for HLS recordings that will be combined to form a new video. This field has been
      * deprecated. Use hlsInputsWithClips instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -753,7 +753,6 @@ public class ExistingVideoResponse {
         this.hlsInputs = hlsInputs;
         return this;
     }
-
 
     /**
      * A list of input object locations &amp; clip information for HTTP Live Streaming (HLS) recordings.
@@ -764,7 +763,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Recording details of video to be transcoded
      */
@@ -772,7 +770,6 @@ public class ExistingVideoResponse {
         this.recording = recording;
         return this;
     }
-
 
     /**
      * Denotes the profile to use when encoding the video. Planner profile is for encoding high-quality
@@ -784,7 +781,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * The identifier of a video.
      */
@@ -792,7 +788,6 @@ public class ExistingVideoResponse {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * A URL associated with the asset.
@@ -802,7 +797,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * File size in bytes for the video asset.
      */
@@ -810,7 +804,6 @@ public class ExistingVideoResponse {
         this.size = size;
         return this;
     }
-
 
     /**
      * Sessions associated with the video asset.
@@ -820,7 +813,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * Exhibitors associated with the video asset.
      */
@@ -828,7 +820,6 @@ public class ExistingVideoResponse {
         this.exhibitors = exhibitors;
         return this;
     }
-
 
     /**
      * Speakers associated with the video asset.
@@ -838,7 +829,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when the upload started.
      */
@@ -846,7 +836,6 @@ public class ExistingVideoResponse {
         this.uploadStarted = uploadStarted;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when the uploaded ended.
@@ -856,7 +845,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * The ID of the video this was created from.
      */
@@ -864,7 +852,6 @@ public class ExistingVideoResponse {
         this.parent = parent;
         return this;
     }
-
 
     /**
      * This is used to denote the errors for a video entity.
@@ -874,7 +861,6 @@ public class ExistingVideoResponse {
         return this;
     }
 
-
     /**
      * This is used to denote the warnings for a video entity.
      */
@@ -882,7 +868,6 @@ public class ExistingVideoResponse {
         this.warnings = warnings;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -893,94 +878,145 @@ public class ExistingVideoResponse {
             return false;
         }
         ExistingVideoResponse other = (ExistingVideoResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.filename, other.filename) &&
-            Utils.enhancedDeepEquals(this.events, other.events) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.thumbnail, other.thumbnail) &&
-            Utils.enhancedDeepEquals(this.generatedThumbnail, other.generatedThumbnail) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.source, other.source) &&
-            Utils.enhancedDeepEquals(this.tags, other.tags) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.hlsInputs, other.hlsInputs) &&
-            Utils.enhancedDeepEquals(this.hlsInputsWithClips, other.hlsInputsWithClips) &&
-            Utils.enhancedDeepEquals(this.recording, other.recording) &&
-            Utils.enhancedDeepEquals(this.encodingProfile, other.encodingProfile) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.size, other.size) &&
-            Utils.enhancedDeepEquals(this.sessions, other.sessions) &&
-            Utils.enhancedDeepEquals(this.exhibitors, other.exhibitors) &&
-            Utils.enhancedDeepEquals(this.speakers, other.speakers) &&
-            Utils.enhancedDeepEquals(this.uploadStarted, other.uploadStarted) &&
-            Utils.enhancedDeepEquals(this.uploadCompleted, other.uploadCompleted) &&
-            Utils.enhancedDeepEquals(this.parent, other.parent) &&
-            Utils.enhancedDeepEquals(this.errors, other.errors) &&
-            Utils.enhancedDeepEquals(this.warnings, other.warnings);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.filename, other.filename)
+                && Utils.enhancedDeepEquals(this.events, other.events)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.thumbnail, other.thumbnail)
+                && Utils.enhancedDeepEquals(this.generatedThumbnail, other.generatedThumbnail)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.source, other.source)
+                && Utils.enhancedDeepEquals(this.tags, other.tags)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.hlsInputs, other.hlsInputs)
+                && Utils.enhancedDeepEquals(this.hlsInputsWithClips, other.hlsInputsWithClips)
+                && Utils.enhancedDeepEquals(this.recording, other.recording)
+                && Utils.enhancedDeepEquals(this.encodingProfile, other.encodingProfile)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.size, other.size)
+                && Utils.enhancedDeepEquals(this.sessions, other.sessions)
+                && Utils.enhancedDeepEquals(this.exhibitors, other.exhibitors)
+                && Utils.enhancedDeepEquals(this.speakers, other.speakers)
+                && Utils.enhancedDeepEquals(this.uploadStarted, other.uploadStarted)
+                && Utils.enhancedDeepEquals(this.uploadCompleted, other.uploadCompleted)
+                && Utils.enhancedDeepEquals(this.parent, other.parent)
+                && Utils.enhancedDeepEquals(this.errors, other.errors)
+                && Utils.enhancedDeepEquals(this.warnings, other.warnings);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, title, description,
-            filename, events, duration,
-            thumbnail, generatedThumbnail, status,
-            source, tags, type,
-            event, hlsInputs, hlsInputsWithClips,
-            recording, encodingProfile, id,
-            url, size, sessions,
-            exhibitors, speakers, uploadStarted,
-            uploadCompleted, parent, errors,
-            warnings);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                title,
+                description,
+                filename,
+                events,
+                duration,
+                thumbnail,
+                generatedThumbnail,
+                status,
+                source,
+                tags,
+                type,
+                event,
+                hlsInputs,
+                hlsInputsWithClips,
+                recording,
+                encodingProfile,
+                id,
+                url,
+                size,
+                sessions,
+                exhibitors,
+                speakers,
+                uploadStarted,
+                uploadCompleted,
+                parent,
+                errors,
+                warnings);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingVideoResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "title", title,
-                "description", description,
-                "filename", filename,
-                "events", events,
-                "duration", duration,
-                "thumbnail", thumbnail,
-                "generatedThumbnail", generatedThumbnail,
-                "status", status,
-                "source", source,
-                "tags", tags,
-                "type", type,
-                "event", event,
-                "hlsInputs", hlsInputs,
-                "hlsInputsWithClips", hlsInputsWithClips,
-                "recording", recording,
-                "encodingProfile", encodingProfile,
-                "id", id,
-                "url", url,
-                "size", size,
-                "sessions", sessions,
-                "exhibitors", exhibitors,
-                "speakers", speakers,
-                "uploadStarted", uploadStarted,
-                "uploadCompleted", uploadCompleted,
-                "parent", parent,
-                "errors", errors,
-                "warnings", warnings);
+        return Utils.toString(
+                ExistingVideoResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "title",
+                title,
+                "description",
+                description,
+                "filename",
+                filename,
+                "events",
+                events,
+                "duration",
+                duration,
+                "thumbnail",
+                thumbnail,
+                "generatedThumbnail",
+                generatedThumbnail,
+                "status",
+                status,
+                "source",
+                source,
+                "tags",
+                tags,
+                "type",
+                type,
+                "event",
+                event,
+                "hlsInputs",
+                hlsInputs,
+                "hlsInputsWithClips",
+                hlsInputsWithClips,
+                "recording",
+                recording,
+                "encodingProfile",
+                encodingProfile,
+                "id",
+                id,
+                "url",
+                url,
+                "size",
+                size,
+                "sessions",
+                sessions,
+                "exhibitors",
+                exhibitors,
+                "speakers",
+                speakers,
+                "uploadStarted",
+                uploadStarted,
+                "uploadCompleted",
+                uploadCompleted,
+                "parent",
+                parent,
+                "errors",
+                errors,
+                "warnings",
+                warnings);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -1047,7 +1083,7 @@ public class ExistingVideoResponse {
         private List<VideoWarningJson> warnings;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1141,11 +1177,11 @@ public class ExistingVideoResponse {
         /**
          * Denotes the status of a video. Started indicates the request to upload in the API was submitted, and
          * the URL to upload to was returned. Uploaded indicates that the upload was completed.
-         * 
+         *
          * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
          * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
          * Rejected indicates a failed virus scan.
-         * 
+         *
          * <p>Error indicates there was a problem processing the video. Available indicates the video is available
          * for use.
          */
@@ -1181,7 +1217,7 @@ public class ExistingVideoResponse {
 
         /**
          * Event video asset was created with. This field has been deprecated. Use events instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1193,7 +1229,7 @@ public class ExistingVideoResponse {
         /**
          * List of locations for HLS recordings that will be combined to form a new video. This field has been
          * deprecated. Use hlsInputsWithClips instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1319,24 +1355,40 @@ public class ExistingVideoResponse {
 
         public ExistingVideoResponse build() {
             return new ExistingVideoResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, title, description,
-                filename, events, duration,
-                thumbnail, generatedThumbnail, status,
-                source, tags, type,
-                event, hlsInputs, hlsInputsWithClips,
-                recording, encodingProfile, id,
-                url, size, sessions,
-                exhibitors, speakers, uploadStarted,
-                uploadCompleted, parent, errors,
-                warnings);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    title,
+                    description,
+                    filename,
+                    events,
+                    duration,
+                    thumbnail,
+                    generatedThumbnail,
+                    status,
+                    source,
+                    tags,
+                    type,
+                    event,
+                    hlsInputs,
+                    hlsInputsWithClips,
+                    recording,
+                    encodingProfile,
+                    id,
+                    url,
+                    size,
+                    sessions,
+                    exhibitors,
+                    speakers,
+                    uploadStarted,
+                    uploadCompleted,
+                    parent,
+                    errors,
+                    warnings);
         }
 
-
         private static final LazySingletonValue<EncodingProfileJson> _SINGLETON_VALUE_EncodingProfile =
-                new LazySingletonValue<>(
-                        "encodingProfile",
-                        "\"Planner\"",
-                        new TypeReference<EncodingProfileJson>() {});
+                new LazySingletonValue<>("encodingProfile", "\"Planner\"", new TypeReference<EncodingProfileJson>() {});
     }
 }

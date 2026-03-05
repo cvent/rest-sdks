@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * SessionDocumentPaginatedResponse
- * 
+ *
  * <p>The response from a request to get the list of documents for a single session. This includes the
  * paging object as well as the collection of documents.
  */
@@ -33,12 +33,10 @@ public class SessionDocumentPaginatedResponse {
 
     @JsonCreator
     public SessionDocumentPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<SessionFile> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<SessionFile> data) {
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -59,7 +57,6 @@ public class SessionDocumentPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -68,7 +65,6 @@ public class SessionDocumentPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of a session's documents.
      */
@@ -76,7 +72,6 @@ public class SessionDocumentPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -87,33 +82,28 @@ public class SessionDocumentPaginatedResponse {
             return false;
         }
         SessionDocumentPaginatedResponse other = (SessionDocumentPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionDocumentPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(SessionDocumentPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<SessionFile> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -133,9 +123,7 @@ public class SessionDocumentPaginatedResponse {
         }
 
         public SessionDocumentPaginatedResponse build() {
-            return new SessionDocumentPaginatedResponse(
-                paging, data);
+            return new SessionDocumentPaginatedResponse(paging, data);
         }
-
     }
 }

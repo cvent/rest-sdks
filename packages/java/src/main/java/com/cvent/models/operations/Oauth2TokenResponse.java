@@ -14,7 +14,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class Oauth2TokenResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -43,19 +42,16 @@ public class Oauth2TokenResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable Oauth2TokenResponseBody object) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.object = object;
     }
-    
+
     public Oauth2TokenResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -90,7 +86,6 @@ public class Oauth2TokenResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -98,7 +93,6 @@ public class Oauth2TokenResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -108,7 +102,6 @@ public class Oauth2TokenResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -117,7 +110,6 @@ public class Oauth2TokenResponse implements Response {
         return this;
     }
 
-
     /**
      * A successful response returning an access token and a possible refresh token.
      */
@@ -125,7 +117,6 @@ public class Oauth2TokenResponse implements Response {
         this.object = object;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -136,31 +127,33 @@ public class Oauth2TokenResponse implements Response {
             return false;
         }
         Oauth2TokenResponse other = (Oauth2TokenResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.object, other.object);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.object, other.object);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            object);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, object);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Oauth2TokenResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "object", object);
+        return Utils.toString(
+                Oauth2TokenResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "object",
+                object);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -171,7 +164,7 @@ public class Oauth2TokenResponse implements Response {
         private Oauth2TokenResponseBody object;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -207,10 +200,7 @@ public class Oauth2TokenResponse implements Response {
         }
 
         public Oauth2TokenResponse build() {
-            return new Oauth2TokenResponse(
-                contentType, statusCode, rawResponse,
-                object);
+            return new Oauth2TokenResponse(contentType, statusCode, rawResponse, object);
         }
-
     }
 }

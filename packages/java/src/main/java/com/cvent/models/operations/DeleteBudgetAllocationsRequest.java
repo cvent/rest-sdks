@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteBudgetAllocationsRequest {
     /**
      * Unique ID of an event.
@@ -26,13 +25,10 @@ public class DeleteBudgetAllocationsRequest {
     private String budgetItemId;
 
     @JsonCreator
-    public DeleteBudgetAllocationsRequest(
-            @Nonnull String id,
-            @Nonnull String budgetItemId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeleteBudgetAllocationsRequest(@Nonnull String id, @Nonnull String budgetItemId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DeleteBudgetAllocationsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -62,7 +57,6 @@ public class DeleteBudgetAllocationsRequest {
         return this;
     }
 
-
     /**
      * Unique ID of a budget item.
      */
@@ -70,7 +64,6 @@ public class DeleteBudgetAllocationsRequest {
         this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,29 @@ public class DeleteBudgetAllocationsRequest {
             return false;
         }
         DeleteBudgetAllocationsRequest other = (DeleteBudgetAllocationsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId);
+        return Utils.enhancedHash(id, budgetItemId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteBudgetAllocationsRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId);
+        return Utils.toString(DeleteBudgetAllocationsRequest.class, "id", id, "budgetItemId", budgetItemId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String budgetItemId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class DeleteBudgetAllocationsRequest {
         }
 
         public DeleteBudgetAllocationsRequest build() {
-            return new DeleteBudgetAllocationsRequest(
-                id, budgetItemId);
+            return new DeleteBudgetAllocationsRequest(id, budgetItemId);
         }
-
     }
 }

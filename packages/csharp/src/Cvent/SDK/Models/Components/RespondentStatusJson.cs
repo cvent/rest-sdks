@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RespondentStatusJson
     {
-        [JsonProperty("No Response")]
-        NoResponse,
-        [JsonProperty("Preloaded")]
-        Preloaded,
-        [JsonProperty("Visited")]
-        Visited,
-        [JsonProperty("Partial Response")]
-        PartialResponse,
-        [JsonProperty("Complete Response")]
-        CompleteResponse,
-        [JsonProperty("Disqualified Response")]
-        DisqualifiedResponse,
+        [JsonProperty("No Response")] NoResponse,
+        [JsonProperty("Preloaded")] Preloaded,
+        [JsonProperty("Visited")] Visited,
+        [JsonProperty("Partial Response")] PartialResponse,
+        [JsonProperty("Complete Response")] CompleteResponse,
+        [JsonProperty("Disqualified Response")] DisqualifiedResponse,
     }
 
     public static class RespondentStatusJsonExtension
     {
         public static string Value(this RespondentStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RespondentStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RespondentStatusJson).GetFields())
+            foreach (var field in typeof(RespondentStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

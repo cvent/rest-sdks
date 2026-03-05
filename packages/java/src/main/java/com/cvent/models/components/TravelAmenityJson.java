@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelAmenityJson
- * 
+ *
  * <p>Group and meeting amenity info.
  */
 public class TravelAmenityJson {
@@ -96,11 +96,9 @@ public class TravelAmenityJson {
         this.complementaryParkingIncluded = complementaryParkingIncluded;
         this.whatCompanyProvidesAVEquipment = whatCompanyProvidesAVEquipment;
     }
-    
+
     public TravelAmenityJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -163,7 +161,6 @@ public class TravelAmenityJson {
         return new Builder();
     }
 
-
     /**
      * True indicates a liquid crystal display (LCD) is included in the amenity.
      */
@@ -171,7 +168,6 @@ public class TravelAmenityJson {
         this.lcdIncluded = lcdIncluded;
         return this;
     }
-
 
     /**
      * Price of the liquid crystal display (LCD).
@@ -181,7 +177,6 @@ public class TravelAmenityJson {
         return this;
     }
 
-
     /**
      * True indicates a screen is included in the amenity.
      */
@@ -189,7 +184,6 @@ public class TravelAmenityJson {
         this.screenIncluded = screenIncluded;
         return this;
     }
-
 
     /**
      * Price of the screen.
@@ -199,7 +193,6 @@ public class TravelAmenityJson {
         return this;
     }
 
-
     /**
      * True indicates high speed internet access is included in the amenity.
      */
@@ -207,7 +200,6 @@ public class TravelAmenityJson {
         this.hsiaIncluded = hsiaIncluded;
         return this;
     }
-
 
     /**
      * Price of high speed internet access (HSIA).
@@ -217,7 +209,6 @@ public class TravelAmenityJson {
         return this;
     }
 
-
     /**
      * True indicates parking is included in the amenity.
      */
@@ -226,7 +217,6 @@ public class TravelAmenityJson {
         return this;
     }
 
-
     /**
      * Name of company providing AV equipment.
      */
@@ -234,7 +224,6 @@ public class TravelAmenityJson {
         this.whatCompanyProvidesAVEquipment = whatCompanyProvidesAVEquipment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -245,40 +234,53 @@ public class TravelAmenityJson {
             return false;
         }
         TravelAmenityJson other = (TravelAmenityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.lcdIncluded, other.lcdIncluded) &&
-            Utils.enhancedDeepEquals(this.lcdPrice, other.lcdPrice) &&
-            Utils.enhancedDeepEquals(this.screenIncluded, other.screenIncluded) &&
-            Utils.enhancedDeepEquals(this.screenPrice, other.screenPrice) &&
-            Utils.enhancedDeepEquals(this.hsiaIncluded, other.hsiaIncluded) &&
-            Utils.enhancedDeepEquals(this.hsiaPrice, other.hsiaPrice) &&
-            Utils.enhancedDeepEquals(this.complementaryParkingIncluded, other.complementaryParkingIncluded) &&
-            Utils.enhancedDeepEquals(this.whatCompanyProvidesAVEquipment, other.whatCompanyProvidesAVEquipment);
+        return Utils.enhancedDeepEquals(this.lcdIncluded, other.lcdIncluded)
+                && Utils.enhancedDeepEquals(this.lcdPrice, other.lcdPrice)
+                && Utils.enhancedDeepEquals(this.screenIncluded, other.screenIncluded)
+                && Utils.enhancedDeepEquals(this.screenPrice, other.screenPrice)
+                && Utils.enhancedDeepEquals(this.hsiaIncluded, other.hsiaIncluded)
+                && Utils.enhancedDeepEquals(this.hsiaPrice, other.hsiaPrice)
+                && Utils.enhancedDeepEquals(this.complementaryParkingIncluded, other.complementaryParkingIncluded)
+                && Utils.enhancedDeepEquals(this.whatCompanyProvidesAVEquipment, other.whatCompanyProvidesAVEquipment);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            lcdIncluded, lcdPrice, screenIncluded,
-            screenPrice, hsiaIncluded, hsiaPrice,
-            complementaryParkingIncluded, whatCompanyProvidesAVEquipment);
+                lcdIncluded,
+                lcdPrice,
+                screenIncluded,
+                screenPrice,
+                hsiaIncluded,
+                hsiaPrice,
+                complementaryParkingIncluded,
+                whatCompanyProvidesAVEquipment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelAmenityJson.class,
-                "lcdIncluded", lcdIncluded,
-                "lcdPrice", lcdPrice,
-                "screenIncluded", screenIncluded,
-                "screenPrice", screenPrice,
-                "hsiaIncluded", hsiaIncluded,
-                "hsiaPrice", hsiaPrice,
-                "complementaryParkingIncluded", complementaryParkingIncluded,
-                "whatCompanyProvidesAVEquipment", whatCompanyProvidesAVEquipment);
+        return Utils.toString(
+                TravelAmenityJson.class,
+                "lcdIncluded",
+                lcdIncluded,
+                "lcdPrice",
+                lcdPrice,
+                "screenIncluded",
+                screenIncluded,
+                "screenPrice",
+                screenPrice,
+                "hsiaIncluded",
+                hsiaIncluded,
+                "hsiaPrice",
+                hsiaPrice,
+                "complementaryParkingIncluded",
+                complementaryParkingIncluded,
+                "whatCompanyProvidesAVEquipment",
+                whatCompanyProvidesAVEquipment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean lcdIncluded;
 
@@ -297,7 +299,7 @@ public class TravelAmenityJson {
         private String whatCompanyProvidesAVEquipment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -366,10 +368,14 @@ public class TravelAmenityJson {
 
         public TravelAmenityJson build() {
             return new TravelAmenityJson(
-                lcdIncluded, lcdPrice, screenIncluded,
-                screenPrice, hsiaIncluded, hsiaPrice,
-                complementaryParkingIncluded, whatCompanyProvidesAVEquipment);
+                    lcdIncluded,
+                    lcdPrice,
+                    screenIncluded,
+                    screenPrice,
+                    hsiaIncluded,
+                    hsiaPrice,
+                    complementaryParkingIncluded,
+                    whatCompanyProvidesAVEquipment);
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class RunBulkJobResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class RunBulkJobResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable BulkJob bulkJob) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.bulkJob = bulkJob;
     }
-    
+
     public RunBulkJobResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class RunBulkJobResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class RunBulkJobResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class RunBulkJobResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class RunBulkJobResponse implements Response {
         return this;
     }
 
-
     /**
      * Bulk job details with status that shows the job has begun processing.
      */
@@ -126,7 +118,6 @@ public class RunBulkJobResponse implements Response {
         this.bulkJob = bulkJob;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class RunBulkJobResponse implements Response {
             return false;
         }
         RunBulkJobResponse other = (RunBulkJobResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.bulkJob, other.bulkJob);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.bulkJob, other.bulkJob);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            bulkJob);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, bulkJob);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RunBulkJobResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "bulkJob", bulkJob);
+        return Utils.toString(
+                RunBulkJobResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "bulkJob",
+                bulkJob);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class RunBulkJobResponse implements Response {
         private BulkJob bulkJob;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class RunBulkJobResponse implements Response {
         }
 
         public RunBulkJobResponse build() {
-            return new RunBulkJobResponse(
-                contentType, statusCode, rawResponse,
-                bulkJob);
+            return new RunBulkJobResponse(contentType, statusCode, rawResponse, bulkJob);
         }
-
     }
 }

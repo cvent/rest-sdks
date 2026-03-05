@@ -3,9 +3,9 @@
  */
 package com.cvent.utils.pagination;
 
-import com.jayway.jsonpath.ReadContext;
-
 import static com.cvent.utils.Utils.castLong;
+
+import com.jayway.jsonpath.ReadContext;
 
 // Internal API only
 
@@ -33,10 +33,7 @@ public class ResultsPageTracker<ProgressParamT extends Number> implements Progre
      * @param minItems            Minimum number of items required to continue pagination
      */
     public ResultsPageTracker(
-            String resultSizeExpression,
-            Class<ProgressParamT> pageType,
-            long fromPage,
-            long minItems) {
+            String resultSizeExpression, Class<ProgressParamT> pageType, long fromPage, long minItems) {
         this.resultSizeExpression = resultSizeExpression;
         this.pageType = pageType;
         this.currentPage = fromPage;

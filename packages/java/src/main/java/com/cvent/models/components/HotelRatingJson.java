@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * HotelRatingJson
- * 
+ *
  * <p>The hotel's rating, used to classify the hotel's quality.
  */
 public enum HotelRatingJson {
@@ -28,13 +28,13 @@ public enum HotelRatingJson {
     HotelRatingJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<HotelRatingJson> fromValue(String value) {
-        for (HotelRatingJson o: HotelRatingJson.values()) {
+        for (HotelRatingJson o : HotelRatingJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum HotelRatingJson {
         return Optional.empty();
     }
 }
-

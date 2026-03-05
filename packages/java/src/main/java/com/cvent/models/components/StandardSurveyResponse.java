@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveyResponse
- * 
+ *
  * <p>A standard survey response.
  */
 public class StandardSurveyResponse {
@@ -59,7 +59,6 @@ public class StandardSurveyResponse {
     @JsonProperty("id")
     private String id;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondent")
     private StandardSurveyResponseUUID respondent;
@@ -78,7 +77,7 @@ public class StandardSurveyResponse {
 
     /**
      * Answer score (This property is not supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -121,21 +120,16 @@ public class StandardSurveyResponse {
         this.id = id;
         this.respondent = respondent;
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.answers = Optional.ofNullable(answers)
-            .orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.answers =
+                Optional.ofNullable(answers).orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
         this.score = score;
         this.survey = survey;
         this.loopingChoice = loopingChoice;
     }
-    
-    public StandardSurveyResponse(
-            @Nonnull UuidJson question,
-            @Nonnull List<AnswerJson1> answers) {
-        this(null, null, null,
-            null, null, null,
-            question, answers, null,
-            null, null);
+
+    public StandardSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+        this(null, null, null, null, null, null, question, answers, null, null, null);
     }
 
     /**
@@ -193,7 +187,7 @@ public class StandardSurveyResponse {
 
     /**
      * Answer score (This property is not supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -220,7 +214,6 @@ public class StandardSurveyResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -228,7 +221,6 @@ public class StandardSurveyResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -238,7 +230,6 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -246,7 +237,6 @@ public class StandardSurveyResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -256,7 +246,6 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     /**
      * Response ID
      */
@@ -265,12 +254,10 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     public StandardSurveyResponse withRespondent(@Nullable StandardSurveyResponseUUID respondent) {
         this.respondent = respondent;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -280,7 +267,6 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     /**
      * List of responded survey answers.
      */
@@ -289,10 +275,9 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     /**
      * Answer score (This property is not supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -301,7 +286,6 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -309,7 +293,6 @@ public class StandardSurveyResponse {
         this.survey = survey;
         return this;
     }
-
 
     /**
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
@@ -320,7 +303,6 @@ public class StandardSurveyResponse {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -330,47 +312,65 @@ public class StandardSurveyResponse {
             return false;
         }
         StandardSurveyResponse other = (StandardSurveyResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.respondent, other.respondent) &&
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.respondent, other.respondent)
+                && Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, respondent,
-            question, answers, score,
-            survey, loopingChoice);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                respondent,
+                question,
+                answers,
+                score,
+                survey,
+                loopingChoice);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveyResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "respondent", respondent,
-                "question", question,
-                "answers", answers,
-                "score", score,
-                "survey", survey,
-                "loopingChoice", loopingChoice);
+        return Utils.toString(
+                StandardSurveyResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "respondent",
+                respondent,
+                "question",
+                question,
+                "answers",
+                answers,
+                "score",
+                score,
+                "survey",
+                survey,
+                "loopingChoice",
+                loopingChoice);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -396,7 +396,7 @@ public class StandardSurveyResponse {
         private LoopingChoiceJson loopingChoice;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -462,7 +462,7 @@ public class StandardSurveyResponse {
 
         /**
          * Answer score (This property is not supported).
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -490,11 +490,17 @@ public class StandardSurveyResponse {
 
         public StandardSurveyResponse build() {
             return new StandardSurveyResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, respondent,
-                question, answers, score,
-                survey, loopingChoice);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    respondent,
+                    question,
+                    answers,
+                    score,
+                    survey,
+                    loopingChoice);
         }
-
     }
 }

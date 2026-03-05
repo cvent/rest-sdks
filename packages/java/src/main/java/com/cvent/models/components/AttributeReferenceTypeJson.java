@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttributeReferenceTypeJson
- * 
+ *
  * <p>This is used to denote the reference type of the attribute.
  */
 public enum AttributeReferenceTypeJson {
@@ -25,13 +25,13 @@ public enum AttributeReferenceTypeJson {
     AttributeReferenceTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttributeReferenceTypeJson> fromValue(String value) {
-        for (AttributeReferenceTypeJson o: AttributeReferenceTypeJson.values()) {
+        for (AttributeReferenceTypeJson o : AttributeReferenceTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum AttributeReferenceTypeJson {
         return Optional.empty();
     }
 }
-

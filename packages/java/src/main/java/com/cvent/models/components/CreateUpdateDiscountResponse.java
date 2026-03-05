@@ -3,15 +3,15 @@
  */
 package com.cvent.models.components;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import java.lang.String;
 
 /**
  * CreateUpdateDiscountResponse
- * 
+ *
  * <p>Representation of an existing discount response
  */
 @JsonTypeInfo(
@@ -19,12 +19,9 @@ import java.lang.String;
         property = "type",
         include = As.EXISTING_PROPERTY,
         visible = true,
-        defaultImpl = UnknownCreateUpdateDiscountResponse.class
-)
+        defaultImpl = UnknownCreateUpdateDiscountResponse.class)
 @JsonTypeIdResolver(CreateUpdateDiscountResponseTypeIdResolver.class)
 public interface CreateUpdateDiscountResponse {
 
     String type();
-
 }
-

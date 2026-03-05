@@ -38,7 +38,7 @@ public class Authentication {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncAuthentication async() {
@@ -47,14 +47,14 @@ public class Authentication {
 
     /**
      * Authorize
-     * 
+     *
      * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
      * through a browser.
-     * 
+     *
      * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
      * authorization endpoint
      * except for http://localhost for testing purposes only.
-     * 
+     *
      * @return The call builder
      */
     public Oauth2AuthorizeRequestBuilder oauth2Authorize() {
@@ -63,32 +63,32 @@ public class Authentication {
 
     /**
      * Authorize
-     * 
+     *
      * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
      * through a browser.
-     * 
+     *
      * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
      * authorization endpoint
      * except for http://localhost for testing purposes only.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public Oauth2AuthorizeResponse oauth2Authorize(@Nonnull Oauth2AuthorizeRequest request) {
-        RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation
-              = new Oauth2Authorize.Sync(sdkConfiguration, _headers);
+        RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
+                new Oauth2Authorize.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Token
-     * 
+     *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
      * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
-     * 
+     *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
-     * 
+     *
      * @return The call builder
      */
     public Oauth2TokenRequestBuilder oauth2Token() {
@@ -97,12 +97,12 @@ public class Authentication {
 
     /**
      * Token
-     * 
+     *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
      * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
-     * 
+     *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
-     * 
+     *
      * @param security The security details to use for authentication.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
@@ -113,30 +113,31 @@ public class Authentication {
 
     /**
      * Token
-     * 
+     *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
      * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
-     * 
+     *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @param security The security details to use for authentication.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public Oauth2TokenResponse oauth2Token(@Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security) {
-        RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation
-              = new Oauth2Token.Sync(sdkConfiguration, security, _headers);
+    public Oauth2TokenResponse oauth2Token(
+            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security) {
+        RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
+                new Oauth2Token.Sync(sdkConfiguration, security, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Validate Token
-     * 
+     *
      * <p>Verifies presented authentication token is valid.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ValidateTokenRequestBuilder validateToken() {
@@ -145,18 +146,16 @@ public class Authentication {
 
     /**
      * Validate Token
-     * 
+     *
      * <p>Verifies presented authentication token is valid.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ValidateTokenResponse validateTokenDirect() {
-        RequestlessOperation<ValidateTokenResponse> operation
-            = new ValidateToken.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<ValidateTokenResponse> operation = new ValidateToken.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
-
 }

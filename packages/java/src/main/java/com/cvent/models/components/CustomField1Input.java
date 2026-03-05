@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * CustomField1Input
- * 
+ *
  * <p>A Custom Field
  */
 public class CustomField1Input {
@@ -45,16 +45,12 @@ public class CustomField1Input {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("value") @Nonnull List<String> value,
             @JsonProperty("type") @Nullable CustomField1CustomFieldType type) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.type = type;
     }
-    
-    public CustomField1Input(
-            @Nonnull String id,
-            @Nonnull List<String> value) {
+
+    public CustomField1Input(@Nonnull String id, @Nonnull List<String> value) {
         this(id, value, null);
     }
 
@@ -83,7 +79,6 @@ public class CustomField1Input {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this custom field.
      */
@@ -91,7 +86,6 @@ public class CustomField1Input {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The set of answers or possible answers to a question.
@@ -101,7 +95,6 @@ public class CustomField1Input {
         return this;
     }
 
-
     /**
      * The type of data collected by a custom field.
      */
@@ -109,7 +102,6 @@ public class CustomField1Input {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +112,23 @@ public class CustomField1Input {
             return false;
         }
         CustomField1Input other = (CustomField1Input) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, value, type);
+        return Utils.enhancedHash(id, value, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomField1Input.class,
-                "id", id,
-                "value", value,
-                "type", type);
+        return Utils.toString(CustomField1Input.class, "id", id, "value", value, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -150,7 +137,7 @@ public class CustomField1Input {
         private CustomField1CustomFieldType type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,9 +165,7 @@ public class CustomField1Input {
         }
 
         public CustomField1Input build() {
-            return new CustomField1Input(
-                id, value, type);
+            return new CustomField1Input(id, value, type);
         }
-
     }
 }

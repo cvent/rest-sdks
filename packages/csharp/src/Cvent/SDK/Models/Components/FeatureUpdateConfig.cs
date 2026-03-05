@@ -20,18 +20,36 @@ namespace Cvent.SDK.Models.Components
 
     public class FeatureUpdateConfigType
     {
-        private FeatureUpdateConfigType(string value) { Value = value; }
+        private FeatureUpdateConfigType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static FeatureUpdateConfigType ZeroAnyOf { get { return new FeatureUpdateConfigType("0_AnyOf"); } }
+        public static FeatureUpdateConfigType ZeroAnyOf
+        {
+            get {
+                return new FeatureUpdateConfigType("0_AnyOf");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(FeatureUpdateConfigType v) { return v.Value; }
-        public static FeatureUpdateConfigType FromString(string v) {
-            switch(v) {
-                case "0_AnyOf": return ZeroAnyOf;
-                default: throw new ArgumentException("Invalid value for FeatureUpdateConfigType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(FeatureUpdateConfigType v)
+        {
+            return v.Value;
+        }
+        public static FeatureUpdateConfigType FromString(string v)
+        {
+            switch (v)
+            {
+                case "0_AnyOf":
+                    return ZeroAnyOf;
+                default:
+                    throw new ArgumentException("Invalid value for FeatureUpdateConfigType");
             }
         }
         public override bool Equals(object? obj)
@@ -91,8 +109,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new FeatureUpdateConfig(FeatureUpdateConfigType.ZeroAnyOf)
-                    {
+                    return new FeatureUpdateConfig(FeatureUpdateConfigType.ZeroAnyOf) {
                         ZeroAnyOf = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroAnyOf>(json)
                     };
                 }
@@ -112,7 +129,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -147,8 +164,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

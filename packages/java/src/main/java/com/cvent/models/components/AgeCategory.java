@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AgeCategory
- * 
+ *
  * <p>Age category of the requester.
  */
 public enum AgeCategory {
@@ -25,13 +25,13 @@ public enum AgeCategory {
     AgeCategory(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AgeCategory> fromValue(String value) {
-        for (AgeCategory o: AgeCategory.values()) {
+        for (AgeCategory o : AgeCategory.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum AgeCategory {
         return Optional.empty();
     }
 }
-

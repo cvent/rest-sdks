@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * WorkAddressJson
- * 
+ *
  * <p>Member's work address details.
  */
 public class WorkAddressJson {
@@ -49,7 +49,7 @@ public class WorkAddressJson {
         this.state = state;
         this.country = country;
     }
-    
+
     public WorkAddressJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class WorkAddressJson {
         return new Builder();
     }
 
-
     /**
      * Member's work address city.
      */
@@ -87,7 +86,6 @@ public class WorkAddressJson {
         this.city = city;
         return this;
     }
-
 
     /**
      * Member's Work address state.
@@ -97,7 +95,6 @@ public class WorkAddressJson {
         return this;
     }
 
-
     /**
      * Member's work address country.
      */
@@ -105,7 +102,6 @@ public class WorkAddressJson {
         this.country = country;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class WorkAddressJson {
             return false;
         }
         WorkAddressJson other = (WorkAddressJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.state, other.state) &&
-            Utils.enhancedDeepEquals(this.country, other.country);
+        return Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.state, other.state)
+                && Utils.enhancedDeepEquals(this.country, other.country);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            city, state, country);
+        return Utils.enhancedHash(city, state, country);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(WorkAddressJson.class,
-                "city", city,
-                "state", state,
-                "country", country);
+        return Utils.toString(WorkAddressJson.class, "city", city, "state", state, "country", country);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String city;
 
@@ -146,7 +137,7 @@ public class WorkAddressJson {
         private String country;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class WorkAddressJson {
         }
 
         public WorkAddressJson build() {
-            return new WorkAddressJson(
-                city, state, country);
+            return new WorkAddressJson(city, state, country);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * WebcastLinksJson
- * 
+ *
  * <p>webcast link references
  */
 public class WebcastLinksJson {
@@ -58,10 +58,9 @@ public class WebcastLinksJson {
         this.host = host;
         this.recording = recording;
     }
-    
+
     public WebcastLinksJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class WebcastLinksJson {
         return new Builder();
     }
 
-
     /**
      * Link details for a webcast.
      */
@@ -104,7 +102,6 @@ public class WebcastLinksJson {
         this.join = join;
         return this;
     }
-
 
     /**
      * Link details for a webcast.
@@ -114,7 +111,6 @@ public class WebcastLinksJson {
         return this;
     }
 
-
     /**
      * Link details for a webcast host.
      */
@@ -123,7 +119,6 @@ public class WebcastLinksJson {
         return this;
     }
 
-
     /**
      * Link details for a webcast.
      */
@@ -131,7 +126,6 @@ public class WebcastLinksJson {
         this.recording = recording;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,25 @@ public class WebcastLinksJson {
             return false;
         }
         WebcastLinksJson other = (WebcastLinksJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.join, other.join) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker) &&
-            Utils.enhancedDeepEquals(this.host, other.host) &&
-            Utils.enhancedDeepEquals(this.recording, other.recording);
+        return Utils.enhancedDeepEquals(this.join, other.join)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker)
+                && Utils.enhancedDeepEquals(this.host, other.host)
+                && Utils.enhancedDeepEquals(this.recording, other.recording);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            join, speaker, host,
-            recording);
+        return Utils.enhancedHash(join, speaker, host, recording);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(WebcastLinksJson.class,
-                "join", join,
-                "speaker", speaker,
-                "host", host,
-                "recording", recording);
+        return Utils.toString(
+                WebcastLinksJson.class, "join", join, "speaker", speaker, "host", host, "recording", recording);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private WebcastLinkJson join;
 
@@ -177,7 +165,7 @@ public class WebcastLinksJson {
         private WebcastLinkJson recording;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +201,7 @@ public class WebcastLinksJson {
         }
 
         public WebcastLinksJson build() {
-            return new WebcastLinksJson(
-                join, speaker, host,
-                recording);
+            return new WebcastLinksJson(join, speaker, host, recording);
         }
-
     }
 }

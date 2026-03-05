@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * QuestionPaginatedResponse
- * 
+ *
  * <p>A paginated list of Questions.
  */
 public class QuestionPaginatedResponse {
@@ -36,12 +36,11 @@ public class QuestionPaginatedResponse {
 
     @JsonCreator
     public QuestionPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<Question> data) {
+            @JsonProperty("paging") @Nullable PagingJson paging, @JsonProperty("data") @Nullable List<Question> data) {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public QuestionPaginatedResponse() {
         this(null, null);
     }
@@ -64,7 +63,6 @@ public class QuestionPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +71,6 @@ public class QuestionPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of Questions.
      */
@@ -81,7 +78,6 @@ public class QuestionPaginatedResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +88,28 @@ public class QuestionPaginatedResponse {
             return false;
         }
         QuestionPaginatedResponse other = (QuestionPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(QuestionPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<Question> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +129,7 @@ public class QuestionPaginatedResponse {
         }
 
         public QuestionPaginatedResponse build() {
-            return new QuestionPaginatedResponse(
-                paging, data);
+            return new QuestionPaginatedResponse(paging, data);
         }
-
     }
 }

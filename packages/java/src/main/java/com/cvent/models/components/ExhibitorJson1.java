@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorJson1
- * 
+ *
  * <p>An exhibitor.
  */
 public class ExhibitorJson1 {
@@ -59,10 +59,9 @@ public class ExhibitorJson1 {
         this.featured = featured;
         this.eventSponsor = eventSponsor;
     }
-    
+
     public ExhibitorJson1() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class ExhibitorJson1 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the exhibitor.
      */
@@ -105,7 +103,6 @@ public class ExhibitorJson1 {
         this.id = id;
         return this;
     }
-
 
     /**
      * The Name of an exhibitor.
@@ -115,7 +112,6 @@ public class ExhibitorJson1 {
         return this;
     }
 
-
     /**
      * If the exhibitor is featured.
      */
@@ -124,7 +120,6 @@ public class ExhibitorJson1 {
         return this;
     }
 
-
     /**
      * If the exhibitor is an event sponsor.
      */
@@ -132,7 +127,6 @@ public class ExhibitorJson1 {
         this.eventSponsor = eventSponsor;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,25 @@ public class ExhibitorJson1 {
             return false;
         }
         ExhibitorJson1 other = (ExhibitorJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.featured, other.featured) &&
-            Utils.enhancedDeepEquals(this.eventSponsor, other.eventSponsor);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.eventSponsor, other.eventSponsor);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, featured,
-            eventSponsor);
+        return Utils.enhancedHash(id, name, featured, eventSponsor);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorJson1.class,
-                "id", id,
-                "name", name,
-                "featured", featured,
-                "eventSponsor", eventSponsor);
+        return Utils.toString(
+                ExhibitorJson1.class, "id", id, "name", name, "featured", featured, "eventSponsor", eventSponsor);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -178,7 +166,7 @@ public class ExhibitorJson1 {
         private Boolean eventSponsor;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +202,7 @@ public class ExhibitorJson1 {
         }
 
         public ExhibitorJson1 build() {
-            return new ExhibitorJson1(
-                id, name, featured,
-                eventSponsor);
+            return new ExhibitorJson1(id, name, featured, eventSponsor);
         }
-
     }
 }

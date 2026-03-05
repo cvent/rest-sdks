@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListEventDiscountsRequest {
     /**
      * Unique ID of an event.
@@ -40,11 +39,11 @@ public class ListEventDiscountsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts.
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * name
      * * code
@@ -61,17 +60,17 @@ public class ListEventDiscountsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are two comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (in)
      * * method.type (eq)
      * * type (eq)
      * * level (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -101,22 +100,17 @@ public class ListEventDiscountsRequest {
             @Nullable String filter,
             @Nullable OffsetDateTime before,
             @Nullable OffsetDateTime after) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
         this.filter = filter;
         this.before = before;
         this.after = after;
     }
-    
-    public ListEventDiscountsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null,
-            null);
+
+    public ListEventDiscountsRequest(@Nonnull String id) {
+        this(id, null, null, null, null, null, null);
     }
 
     /**
@@ -144,11 +138,11 @@ public class ListEventDiscountsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts.
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * name
      * * code
@@ -166,17 +160,17 @@ public class ListEventDiscountsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are two comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (in)
      * * method.type (eq)
      * * type (eq)
      * * level (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -204,7 +198,6 @@ public class ListEventDiscountsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -213,7 +206,6 @@ public class ListEventDiscountsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -221,7 +213,6 @@ public class ListEventDiscountsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -232,15 +223,14 @@ public class ListEventDiscountsRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts.
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * name
      * * code
@@ -255,22 +245,21 @@ public class ListEventDiscountsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are two comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (in)
      * * method.type (eq)
      * * type (eq)
      * * level (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -280,7 +269,6 @@ public class ListEventDiscountsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -288,7 +276,6 @@ public class ListEventDiscountsRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -299,7 +286,6 @@ public class ListEventDiscountsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -309,38 +295,42 @@ public class ListEventDiscountsRequest {
             return false;
         }
         ListEventDiscountsRequest other = (ListEventDiscountsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            sort, filter, before,
-            after);
+        return Utils.enhancedHash(id, limit, token, sort, filter, before, after);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListEventDiscountsRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "filter", filter,
-                "before", before,
-                "after", after);
+        return Utils.toString(
+                ListEventDiscountsRequest.class,
+                "id",
+                id,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "filter",
+                filter,
+                "before",
+                before,
+                "after",
+                after);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -357,7 +347,7 @@ public class ListEventDiscountsRequest {
         private OffsetDateTime after;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -388,11 +378,11 @@ public class ListEventDiscountsRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts.
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * name
          * * code
@@ -411,17 +401,17 @@ public class ListEventDiscountsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are two comparison types that can be used in filter expressions:
          * * equal: eq
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (in)
          * * method.type (eq)
          * * type (eq)
          * * level (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -449,17 +439,10 @@ public class ListEventDiscountsRequest {
         }
 
         public ListEventDiscountsRequest build() {
-            return new ListEventDiscountsRequest(
-                id, limit, token,
-                sort, filter, before,
-                after);
+            return new ListEventDiscountsRequest(id, limit, token, sort, filter, before, after);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

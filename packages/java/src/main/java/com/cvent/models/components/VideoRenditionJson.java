@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * VideoRenditionJson
- * 
+ *
  * <p>Video rendition
  */
 public class VideoRenditionJson {
@@ -105,11 +105,9 @@ public class VideoRenditionJson {
         this.width = width;
         this.height = height;
     }
-    
+
     public VideoRenditionJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -179,7 +177,6 @@ public class VideoRenditionJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -187,7 +184,6 @@ public class VideoRenditionJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -197,7 +193,6 @@ public class VideoRenditionJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -205,7 +200,6 @@ public class VideoRenditionJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -215,7 +209,6 @@ public class VideoRenditionJson {
         return this;
     }
 
-
     /**
      * Video that this asset was created with.
      */
@@ -223,7 +216,6 @@ public class VideoRenditionJson {
         this.video = video;
         return this;
     }
-
 
     /**
      * Denotes the type of rendition.
@@ -233,7 +225,6 @@ public class VideoRenditionJson {
         return this;
     }
 
-
     /**
      * Location where the rendition is stored.
      */
@@ -241,7 +232,6 @@ public class VideoRenditionJson {
         this.location = location;
         return this;
     }
-
 
     /**
      * The video's frame width in pixels.
@@ -251,7 +241,6 @@ public class VideoRenditionJson {
         return this;
     }
 
-
     /**
      * The video's frame height in pixels.
      */
@@ -259,7 +248,6 @@ public class VideoRenditionJson {
         this.height = height;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -270,42 +258,49 @@ public class VideoRenditionJson {
             return false;
         }
         VideoRenditionJson other = (VideoRenditionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.video, other.video) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.width, other.width) &&
-            Utils.enhancedDeepEquals(this.height, other.height);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.video, other.video)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.width, other.width)
+                && Utils.enhancedDeepEquals(this.height, other.height);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, video, type,
-            location, width, height);
+                created, createdBy, lastModified, lastModifiedBy, video, type, location, width, height);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoRenditionJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "video", video,
-                "type", type,
-                "location", location,
-                "width", width,
-                "height", height);
+        return Utils.toString(
+                VideoRenditionJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "video",
+                video,
+                "type",
+                type,
+                "location",
+                location,
+                "width",
+                width,
+                "height",
+                height);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -326,7 +321,7 @@ public class VideoRenditionJson {
         private Long height;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -403,10 +398,7 @@ public class VideoRenditionJson {
 
         public VideoRenditionJson build() {
             return new VideoRenditionJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, video, type,
-                location, width, height);
+                    created, createdBy, lastModified, lastModifiedBy, video, type, location, width, height);
         }
-
     }
 }

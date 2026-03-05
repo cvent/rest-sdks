@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * UserTypeJson
- * 
+ *
  * <p>The type of the user.
  */
 public enum UserTypeJson {
@@ -22,13 +22,13 @@ public enum UserTypeJson {
     UserTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<UserTypeJson> fromValue(String value) {
-        for (UserTypeJson o: UserTypeJson.values()) {
+        for (UserTypeJson o : UserTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -36,4 +36,3 @@ public enum UserTypeJson {
         return Optional.empty();
     }
 }
-

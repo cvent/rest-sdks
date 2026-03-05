@@ -29,7 +29,7 @@ public class CreateUserRequestBuilder {
     private UserInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateUserRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,12 @@ public class CreateUserRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateUserResponse call() {
-        RequestOperation<UserInput, CreateUserResponse> operation
-              = new CreateUser.Sync(sdkConfiguration, _headers);
+        RequestOperation<UserInput, CreateUserResponse> operation = new CreateUser.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

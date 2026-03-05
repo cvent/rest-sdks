@@ -2,6 +2,14 @@
 
 Represents the type of license that the user can choose.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TierJson.Pro;
+```
+
 
 ## Values
 

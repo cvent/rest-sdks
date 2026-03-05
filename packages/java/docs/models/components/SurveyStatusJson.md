@@ -2,6 +2,14 @@
 
 Survey Status
 
+## Example Usage
+
+```java
+import com.cvent.models.components.SurveyStatusJson;
+
+SurveyStatusJson value = SurveyStatusJson.DRAFT;
+```
+
 
 ## Values
 

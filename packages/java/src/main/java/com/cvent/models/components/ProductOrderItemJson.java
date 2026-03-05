@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ProductOrderItemJson
- * 
+ *
  * <p>This is used to denote the product details in an order item
  */
 public class ProductOrderItemJson {
@@ -37,13 +37,11 @@ public class ProductOrderItemJson {
 
     @JsonCreator
     public ProductOrderItemJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("type") @Nullable OrderItemTypeJson type) {
+            @JsonProperty("id") @Nullable String id, @JsonProperty("type") @Nullable OrderItemTypeJson type) {
         this.id = id;
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
     }
-    
+
     public ProductOrderItemJson() {
         this(null, null);
     }
@@ -66,7 +64,6 @@ public class ProductOrderItemJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -75,7 +72,6 @@ public class ProductOrderItemJson {
         return this;
     }
 
-
     /**
      * This is used to denote the product type.
      */
@@ -83,7 +79,6 @@ public class ProductOrderItemJson {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -94,33 +89,28 @@ public class ProductOrderItemJson {
             return false;
         }
         ProductOrderItemJson other = (ProductOrderItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type);
+        return Utils.enhancedHash(id, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProductOrderItemJson.class,
-                "id", id,
-                "type", type);
+        return Utils.toString(ProductOrderItemJson.class, "id", id, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private OrderItemTypeJson type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -140,15 +130,10 @@ public class ProductOrderItemJson {
         }
 
         public ProductOrderItemJson build() {
-            return new ProductOrderItemJson(
-                id, type);
+            return new ProductOrderItemJson(id, type);
         }
 
-
         private static final LazySingletonValue<OrderItemTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"Session\"",
-                        new TypeReference<OrderItemTypeJson>() {});
+                new LazySingletonValue<>("type", "\"Session\"", new TypeReference<OrderItemTypeJson>() {});
     }
 }

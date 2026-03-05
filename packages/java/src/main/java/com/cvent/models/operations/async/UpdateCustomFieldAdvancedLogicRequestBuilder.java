@@ -22,7 +22,8 @@ public class UpdateCustomFieldAdvancedLogicRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public UpdateCustomFieldAdvancedLogicRequestBuilder request(@Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
+    public UpdateCustomFieldAdvancedLogicRequestBuilder request(
+            @Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class UpdateCustomFieldAdvancedLogicRequestBuilder {
     private UpdateCustomFieldAdvancedLogicRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateCustomFieldAdvancedLogicRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class UpdateCustomFieldAdvancedLogicRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateCustomFieldAdvancedLogicResponse> call() {
-        AsyncRequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation
-              = new UpdateCustomFieldAdvancedLogic.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation =
+                new UpdateCustomFieldAdvancedLogic.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

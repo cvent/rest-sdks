@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AttendeeInternalInfoQuestion
- * 
+ *
  * <p>The registration question. Use either question ID or code to identify the question. If both are
  * provided, they must match the same question.
  */
@@ -36,12 +36,11 @@ public class AttendeeInternalInfoQuestion {
 
     @JsonCreator
     public AttendeeInternalInfoQuestion(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("code") @Nullable String code) {
+            @JsonProperty("id") @Nullable String id, @JsonProperty("code") @Nullable String code) {
         this.id = id;
         this.code = code;
     }
-    
+
     public AttendeeInternalInfoQuestion() {
         this(null, null);
     }
@@ -64,7 +63,6 @@ public class AttendeeInternalInfoQuestion {
         return new Builder();
     }
 
-
     /**
      * The question ID.
      */
@@ -73,7 +71,6 @@ public class AttendeeInternalInfoQuestion {
         return this;
     }
 
-
     /**
      * The planner configured internal information question code.
      */
@@ -81,7 +78,6 @@ public class AttendeeInternalInfoQuestion {
         this.code = code;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +88,28 @@ public class AttendeeInternalInfoQuestion {
             return false;
         }
         AttendeeInternalInfoQuestion other = (AttendeeInternalInfoQuestion) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.code, other.code);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code);
+        return Utils.enhancedHash(id, code);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeInternalInfoQuestion.class,
-                "id", id,
-                "code", code);
+        return Utils.toString(AttendeeInternalInfoQuestion.class, "id", id, "code", code);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String code;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +129,7 @@ public class AttendeeInternalInfoQuestion {
         }
 
         public AttendeeInternalInfoQuestion build() {
-            return new AttendeeInternalInfoQuestion(
-                id, code);
+            return new AttendeeInternalInfoQuestion(id, code);
         }
-
     }
 }

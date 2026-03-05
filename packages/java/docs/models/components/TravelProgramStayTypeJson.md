@@ -2,6 +2,14 @@
 
 Code representing the stay types requested by the program.  Programs can accept daily only, or daily and extended stay proposals.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TravelProgramStayTypeJson;
+
+TravelProgramStayTypeJson value = TravelProgramStayTypeJson.DAILY;
+```
+
 
 ## Values
 

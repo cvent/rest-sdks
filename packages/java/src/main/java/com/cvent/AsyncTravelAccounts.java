@@ -40,19 +40,18 @@ public class AsyncTravelAccounts {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public TravelAccounts sync() {
         return syncSDK;
     }
 
-
     /**
      * List Travel Accounts
-     * 
+     *
      * <p>Gets a paginated list of travel accounts.
-     * 
+     *
      * @return The async call builder
      */
     public ListTravelAccountsRequestBuilder listTravelAccounts() {
@@ -61,25 +60,24 @@ public class AsyncTravelAccounts {
 
     /**
      * List Travel Accounts
-     * 
+     *
      * <p>Gets a paginated list of travel accounts.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTravelAccountsResponse>} - The async response
      */
-    public CompletableFuture<ListTravelAccountsResponse> listTravelAccounts(@Nonnull ListTravelAccountsRequest request) {
-        AsyncRequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation
-              = new ListTravelAccounts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListTravelAccountsResponse> listTravelAccounts(
+            @Nonnull ListTravelAccountsRequest request) {
+        AsyncRequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation =
+                new ListTravelAccounts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Supplier Accounts
-     * 
+     *
      * <p>Gets a paginated list of supplier travel accounts.
-     * 
+     *
      * @return The async call builder
      */
     public ListSupplierAccountsRequestBuilder listSupplierAccounts() {
@@ -88,25 +86,24 @@ public class AsyncTravelAccounts {
 
     /**
      * List Supplier Accounts
-     * 
+     *
      * <p>Gets a paginated list of supplier travel accounts.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSupplierAccountsResponse>} - The async response
      */
-    public CompletableFuture<ListSupplierAccountsResponse> listSupplierAccounts(@Nonnull ListSupplierAccountsRequest request) {
-        AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation
-              = new ListSupplierAccounts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListSupplierAccountsResponse> listSupplierAccounts(
+            @Nonnull ListSupplierAccountsRequest request) {
+        AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation =
+                new ListSupplierAccounts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Travel Account
-     * 
+     *
      * <p>Returns the details of a single travel account based on the specified travel account ID.
-     * 
+     *
      * @return The async call builder
      */
     public GetTravelAccountRequestBuilder getTravelAccount() {
@@ -115,25 +112,23 @@ public class AsyncTravelAccounts {
 
     /**
      * Get Travel Account
-     * 
+     *
      * <p>Returns the details of a single travel account based on the specified travel account ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTravelAccountResponse>} - The async response
      */
     public CompletableFuture<GetTravelAccountResponse> getTravelAccount(@Nonnull GetTravelAccountRequest request) {
-        AsyncRequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation
-              = new GetTravelAccount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation =
+                new GetTravelAccount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Supplier Account
-     * 
+     *
      * <p>Returns the details of a single supplied travel account based on the specified travel account ID.
-     * 
+     *
      * @return The async call builder
      */
     public GetSupplierAccountRequestBuilder getSupplierAccount() {
@@ -142,17 +137,16 @@ public class AsyncTravelAccounts {
 
     /**
      * Get Supplier Account
-     * 
+     *
      * <p>Returns the details of a single supplied travel account based on the specified travel account ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSupplierAccountResponse>} - The async response
      */
-    public CompletableFuture<GetSupplierAccountResponse> getSupplierAccount(@Nonnull GetSupplierAccountRequest request) {
-        AsyncRequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation
-              = new GetSupplierAccount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetSupplierAccountResponse> getSupplierAccount(
+            @Nonnull GetSupplierAccountRequest request) {
+        AsyncRequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation =
+                new GetSupplierAccount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

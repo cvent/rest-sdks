@@ -6,8 +6,8 @@ package com.cvent.models.operations;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * Oauth2TokenResponseBody
- * 
+ *
  * <p>A successful response returning an access token and a possible refresh token.
  */
 public class Oauth2TokenResponseBody {
@@ -56,19 +56,15 @@ public class Oauth2TokenResponseBody {
             @JsonProperty("token_type") @Nonnull String tokenType,
             @JsonProperty("expires_in") @Nullable Long expiresIn) {
         this.accessToken = Optional.ofNullable(accessToken)
-            .orElseThrow(() -> new IllegalArgumentException("accessToken cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("accessToken cannot be null"));
         this.refreshToken = refreshToken;
         this.tokenType = Optional.ofNullable(tokenType)
-            .orElseThrow(() -> new IllegalArgumentException("tokenType cannot be null"));
-        this.expiresIn = Optional.ofNullable(expiresIn)
-            .orElse(Builder._SINGLETON_VALUE_ExpiresIn.value());
+                .orElseThrow(() -> new IllegalArgumentException("tokenType cannot be null"));
+        this.expiresIn = Optional.ofNullable(expiresIn).orElse(Builder._SINGLETON_VALUE_ExpiresIn.value());
     }
-    
-    public Oauth2TokenResponseBody(
-            @Nonnull String accessToken,
-            @Nonnull String tokenType) {
-        this(accessToken, null, tokenType,
-            null);
+
+    public Oauth2TokenResponseBody(@Nonnull String accessToken, @Nonnull String tokenType) {
+        this(accessToken, null, tokenType, null);
     }
 
     /**
@@ -103,7 +99,6 @@ public class Oauth2TokenResponseBody {
         return new Builder();
     }
 
-
     /**
      * The access token contains scopes and groups and is used to grant access to authorized resources.
      */
@@ -111,7 +106,6 @@ public class Oauth2TokenResponseBody {
         this.accessToken = Utils.checkNotNull(accessToken, "accessToken");
         return this;
     }
-
 
     /**
      * The refresh token contains the information necessary to obtain a new access token.
@@ -121,7 +115,6 @@ public class Oauth2TokenResponseBody {
         return this;
     }
 
-
     /**
      * The token type.
      */
@@ -130,7 +123,6 @@ public class Oauth2TokenResponseBody {
         return this;
     }
 
-
     /**
      * The lifetime in seconds of the access token.
      */
@@ -138,7 +130,6 @@ public class Oauth2TokenResponseBody {
         this.expiresIn = expiresIn;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -149,31 +140,33 @@ public class Oauth2TokenResponseBody {
             return false;
         }
         Oauth2TokenResponseBody other = (Oauth2TokenResponseBody) o;
-        return 
-            Utils.enhancedDeepEquals(this.accessToken, other.accessToken) &&
-            Utils.enhancedDeepEquals(this.refreshToken, other.refreshToken) &&
-            Utils.enhancedDeepEquals(this.tokenType, other.tokenType) &&
-            Utils.enhancedDeepEquals(this.expiresIn, other.expiresIn);
+        return Utils.enhancedDeepEquals(this.accessToken, other.accessToken)
+                && Utils.enhancedDeepEquals(this.refreshToken, other.refreshToken)
+                && Utils.enhancedDeepEquals(this.tokenType, other.tokenType)
+                && Utils.enhancedDeepEquals(this.expiresIn, other.expiresIn);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            accessToken, refreshToken, tokenType,
-            expiresIn);
+        return Utils.enhancedHash(accessToken, refreshToken, tokenType, expiresIn);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Oauth2TokenResponseBody.class,
-                "accessToken", accessToken,
-                "refreshToken", refreshToken,
-                "tokenType", tokenType,
-                "expiresIn", expiresIn);
+        return Utils.toString(
+                Oauth2TokenResponseBody.class,
+                "accessToken",
+                accessToken,
+                "refreshToken",
+                refreshToken,
+                "tokenType",
+                tokenType,
+                "expiresIn",
+                expiresIn);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String accessToken;
 
@@ -184,7 +177,7 @@ public class Oauth2TokenResponseBody {
         private Long expiresIn;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -220,16 +213,10 @@ public class Oauth2TokenResponseBody {
         }
 
         public Oauth2TokenResponseBody build() {
-            return new Oauth2TokenResponseBody(
-                accessToken, refreshToken, tokenType,
-                expiresIn);
+            return new Oauth2TokenResponseBody(accessToken, refreshToken, tokenType, expiresIn);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_ExpiresIn =
-                new LazySingletonValue<>(
-                        "expires_in",
-                        "3600",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("expires_in", "3600", new TypeReference<Long>() {});
     }
 }

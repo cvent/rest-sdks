@@ -20,171 +20,495 @@ namespace Cvent.SDK.Models.Components
 
     public class ActivityDataJsonType
     {
-        private ActivityDataJsonType(string value) { Value = value; }
+        private ActivityDataJsonType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static ActivityDataJsonType AppointmentAccepted { get { return new ActivityDataJsonType("appointment.accepted"); } }
+        public static ActivityDataJsonType AppointmentAccepted
+        {
+            get {
+                return new ActivityDataJsonType("appointment.accepted");
+            }
+        }
 
-        public static ActivityDataJsonType AppointmentCancelled { get { return new ActivityDataJsonType("appointment.cancelled"); } }
+        public static ActivityDataJsonType AppointmentCancelled
+        {
+            get {
+                return new ActivityDataJsonType("appointment.cancelled");
+            }
+        }
 
-        public static ActivityDataJsonType AppointmentCheckedIn { get { return new ActivityDataJsonType("appointment.checkedIn"); } }
+        public static ActivityDataJsonType AppointmentCheckedIn
+        {
+            get {
+                return new ActivityDataJsonType("appointment.checkedIn");
+            }
+        }
 
-        public static ActivityDataJsonType AppointmentCreated { get { return new ActivityDataJsonType("appointment.created"); } }
+        public static ActivityDataJsonType AppointmentCreated
+        {
+            get {
+                return new ActivityDataJsonType("appointment.created");
+            }
+        }
 
-        public static ActivityDataJsonType AppointmentDeclined { get { return new ActivityDataJsonType("appointment.declined"); } }
+        public static ActivityDataJsonType AppointmentDeclined
+        {
+            get {
+                return new ActivityDataJsonType("appointment.declined");
+            }
+        }
 
-        public static ActivityDataJsonType AppointmentDenied { get { return new ActivityDataJsonType("appointment.denied"); } }
+        public static ActivityDataJsonType AppointmentDenied
+        {
+            get {
+                return new ActivityDataJsonType("appointment.denied");
+            }
+        }
 
-        public static ActivityDataJsonType AppointmentRescheduled { get { return new ActivityDataJsonType("appointment.rescheduled"); } }
+        public static ActivityDataJsonType AppointmentRescheduled
+        {
+            get {
+                return new ActivityDataJsonType("appointment.rescheduled");
+            }
+        }
 
-        public static ActivityDataJsonType EmailBounced { get { return new ActivityDataJsonType("email.bounced"); } }
+        public static ActivityDataJsonType EmailBounced
+        {
+            get {
+                return new ActivityDataJsonType("email.bounced");
+            }
+        }
 
-        public static ActivityDataJsonType EmailClicked { get { return new ActivityDataJsonType("email.clicked"); } }
+        public static ActivityDataJsonType EmailClicked
+        {
+            get {
+                return new ActivityDataJsonType("email.clicked");
+            }
+        }
 
-        public static ActivityDataJsonType EmailOpened { get { return new ActivityDataJsonType("email.opened"); } }
+        public static ActivityDataJsonType EmailOpened
+        {
+            get {
+                return new ActivityDataJsonType("email.opened");
+            }
+        }
 
-        public static ActivityDataJsonType EmailSent { get { return new ActivityDataJsonType("email.sent"); } }
+        public static ActivityDataJsonType EmailSent
+        {
+            get {
+                return new ActivityDataJsonType("email.sent");
+            }
+        }
 
-        public static ActivityDataJsonType EmailUndelivered { get { return new ActivityDataJsonType("email.undelivered"); } }
+        public static ActivityDataJsonType EmailUndelivered
+        {
+            get {
+                return new ActivityDataJsonType("email.undelivered");
+            }
+        }
 
-        public static ActivityDataJsonType EventAttendeeHubVisited { get { return new ActivityDataJsonType("event.attendeeHubVisited"); } }
+        public static ActivityDataJsonType EventAttendeeHubVisited
+        {
+            get {
+                return new ActivityDataJsonType("event.attendeeHubVisited");
+            }
+        }
 
-        public static ActivityDataJsonType EventAttendeeSubstituted { get { return new ActivityDataJsonType("event.attendeeSubstituted"); } }
+        public static ActivityDataJsonType EventAttendeeSubstituted
+        {
+            get {
+                return new ActivityDataJsonType("event.attendeeSubstituted");
+            }
+        }
 
-        public static ActivityDataJsonType EventBannerLinkClicked { get { return new ActivityDataJsonType("event.bannerLinkClicked"); } }
+        public static ActivityDataJsonType EventBannerLinkClicked
+        {
+            get {
+                return new ActivityDataJsonType("event.bannerLinkClicked");
+            }
+        }
 
-        public static ActivityDataJsonType EventCheckedIn { get { return new ActivityDataJsonType("event.checkedIn"); } }
+        public static ActivityDataJsonType EventCheckedIn
+        {
+            get {
+                return new ActivityDataJsonType("event.checkedIn");
+            }
+        }
 
-        public static ActivityDataJsonType EventCheckedOut { get { return new ActivityDataJsonType("event.checkedOut"); } }
+        public static ActivityDataJsonType EventCheckedOut
+        {
+            get {
+                return new ActivityDataJsonType("event.checkedOut");
+            }
+        }
 
-        public static ActivityDataJsonType EventCustomCardOpened { get { return new ActivityDataJsonType("event.customCardOpened"); } }
+        public static ActivityDataJsonType EventCustomCardOpened
+        {
+            get {
+                return new ActivityDataJsonType("event.customCardOpened");
+            }
+        }
 
-        public static ActivityDataJsonType EventFeedbackSubmitted { get { return new ActivityDataJsonType("event.feedbackSubmitted"); } }
+        public static ActivityDataJsonType EventFeedbackSubmitted
+        {
+            get {
+                return new ActivityDataJsonType("event.feedbackSubmitted");
+            }
+        }
 
-        public static ActivityDataJsonType EventNoShow { get { return new ActivityDataJsonType("event.noShow"); } }
+        public static ActivityDataJsonType EventNoShow
+        {
+            get {
+                return new ActivityDataJsonType("event.noShow");
+            }
+        }
 
-        public static ActivityDataJsonType EventPageVisitTracked { get { return new ActivityDataJsonType("event.pageVisitTracked"); } }
+        public static ActivityDataJsonType EventPageVisitTracked
+        {
+            get {
+                return new ActivityDataJsonType("event.pageVisitTracked");
+            }
+        }
 
-        public static ActivityDataJsonType EventRegistered { get { return new ActivityDataJsonType("event.registered"); } }
+        public static ActivityDataJsonType EventRegistered
+        {
+            get {
+                return new ActivityDataJsonType("event.registered");
+            }
+        }
 
-        public static ActivityDataJsonType EventRegistrationAbandoned { get { return new ActivityDataJsonType("event.registrationAbandoned"); } }
+        public static ActivityDataJsonType EventRegistrationAbandoned
+        {
+            get {
+                return new ActivityDataJsonType("event.registrationAbandoned");
+            }
+        }
 
-        public static ActivityDataJsonType EventRegistrationCancelled { get { return new ActivityDataJsonType("event.registrationCancelled"); } }
+        public static ActivityDataJsonType EventRegistrationCancelled
+        {
+            get {
+                return new ActivityDataJsonType("event.registrationCancelled");
+            }
+        }
 
-        public static ActivityDataJsonType EventVideoPlayed { get { return new ActivityDataJsonType("event.videoPlayed"); } }
+        public static ActivityDataJsonType EventVideoPlayed
+        {
+            get {
+                return new ActivityDataJsonType("event.videoPlayed");
+            }
+        }
 
-        public static ActivityDataJsonType EventWaitlisted { get { return new ActivityDataJsonType("event.waitlisted"); } }
+        public static ActivityDataJsonType EventWaitlisted
+        {
+            get {
+                return new ActivityDataJsonType("event.waitlisted");
+            }
+        }
 
-        public static ActivityDataJsonType ExhibitorDocumentOpened { get { return new ActivityDataJsonType("exhibitor.documentOpened"); } }
+        public static ActivityDataJsonType ExhibitorDocumentOpened
+        {
+            get {
+                return new ActivityDataJsonType("exhibitor.documentOpened");
+            }
+        }
 
-        public static ActivityDataJsonType ExhibitorSocialLinkOpened { get { return new ActivityDataJsonType("exhibitor.socialLinkOpened"); } }
+        public static ActivityDataJsonType ExhibitorSocialLinkOpened
+        {
+            get {
+                return new ActivityDataJsonType("exhibitor.socialLinkOpened");
+            }
+        }
 
-        public static ActivityDataJsonType ExhibitorViewed { get { return new ActivityDataJsonType("exhibitor.viewed"); } }
+        public static ActivityDataJsonType ExhibitorViewed
+        {
+            get {
+                return new ActivityDataJsonType("exhibitor.viewed");
+            }
+        }
 
-        public static ActivityDataJsonType ExhibitorVirtualBoothJoined { get { return new ActivityDataJsonType("exhibitor.virtualBoothJoined"); } }
+        public static ActivityDataJsonType ExhibitorVirtualBoothJoined
+        {
+            get {
+                return new ActivityDataJsonType("exhibitor.virtualBoothJoined");
+            }
+        }
 
-        public static ActivityDataJsonType ExhibitorWeblinkOpened { get { return new ActivityDataJsonType("exhibitor.weblinkOpened"); } }
+        public static ActivityDataJsonType ExhibitorWeblinkOpened
+        {
+            get {
+                return new ActivityDataJsonType("exhibitor.weblinkOpened");
+            }
+        }
 
-        public static ActivityDataJsonType LeadInboundCreated { get { return new ActivityDataJsonType("lead.inboundCreated"); } }
+        public static ActivityDataJsonType LeadInboundCreated
+        {
+            get {
+                return new ActivityDataJsonType("lead.inboundCreated");
+            }
+        }
 
-        public static ActivityDataJsonType LeadQualified { get { return new ActivityDataJsonType("lead.qualified"); } }
+        public static ActivityDataJsonType LeadQualified
+        {
+            get {
+                return new ActivityDataJsonType("lead.qualified");
+            }
+        }
 
-        public static ActivityDataJsonType LeadScanned { get { return new ActivityDataJsonType("lead.scanned"); } }
+        public static ActivityDataJsonType LeadScanned
+        {
+            get {
+                return new ActivityDataJsonType("lead.scanned");
+            }
+        }
 
-        public static ActivityDataJsonType SessionCheckedIn { get { return new ActivityDataJsonType("session.checkedIn"); } }
+        public static ActivityDataJsonType SessionCheckedIn
+        {
+            get {
+                return new ActivityDataJsonType("session.checkedIn");
+            }
+        }
 
-        public static ActivityDataJsonType SessionCheckedOut { get { return new ActivityDataJsonType("session.checkedOut"); } }
+        public static ActivityDataJsonType SessionCheckedOut
+        {
+            get {
+                return new ActivityDataJsonType("session.checkedOut");
+            }
+        }
 
-        public static ActivityDataJsonType SessionEnrolled { get { return new ActivityDataJsonType("session.enrolled"); } }
+        public static ActivityDataJsonType SessionEnrolled
+        {
+            get {
+                return new ActivityDataJsonType("session.enrolled");
+            }
+        }
 
-        public static ActivityDataJsonType SessionFeedbackSubmitted { get { return new ActivityDataJsonType("session.feedbackSubmitted"); } }
+        public static ActivityDataJsonType SessionFeedbackSubmitted
+        {
+            get {
+                return new ActivityDataJsonType("session.feedbackSubmitted");
+            }
+        }
 
-        public static ActivityDataJsonType SessionNoShow { get { return new ActivityDataJsonType("session.noShow"); } }
+        public static ActivityDataJsonType SessionNoShow
+        {
+            get {
+                return new ActivityDataJsonType("session.noShow");
+            }
+        }
 
-        public static ActivityDataJsonType SessionPollResponseSubmitted { get { return new ActivityDataJsonType("session.pollResponseSubmitted"); } }
+        public static ActivityDataJsonType SessionPollResponseSubmitted
+        {
+            get {
+                return new ActivityDataJsonType("session.pollResponseSubmitted");
+            }
+        }
 
-        public static ActivityDataJsonType SessionQuestionAsked { get { return new ActivityDataJsonType("session.questionAsked"); } }
+        public static ActivityDataJsonType SessionQuestionAsked
+        {
+            get {
+                return new ActivityDataJsonType("session.questionAsked");
+            }
+        }
 
-        public static ActivityDataJsonType SessionQuestionUpvoted { get { return new ActivityDataJsonType("session.questionUpvoted"); } }
+        public static ActivityDataJsonType SessionQuestionUpvoted
+        {
+            get {
+                return new ActivityDataJsonType("session.questionUpvoted");
+            }
+        }
 
-        public static ActivityDataJsonType SessionUnenrolled { get { return new ActivityDataJsonType("session.unenrolled"); } }
+        public static ActivityDataJsonType SessionUnenrolled
+        {
+            get {
+                return new ActivityDataJsonType("session.unenrolled");
+            }
+        }
 
-        public static ActivityDataJsonType SessionWaitlisted { get { return new ActivityDataJsonType("session.waitlisted"); } }
+        public static ActivityDataJsonType SessionWaitlisted
+        {
+            get {
+                return new ActivityDataJsonType("session.waitlisted");
+            }
+        }
 
-        public static ActivityDataJsonType SpeakerFeedbackSubmitted { get { return new ActivityDataJsonType("speaker.feedbackSubmitted"); } }
+        public static ActivityDataJsonType SpeakerFeedbackSubmitted
+        {
+            get {
+                return new ActivityDataJsonType("speaker.feedbackSubmitted");
+            }
+        }
 
-        public static ActivityDataJsonType SpeakerFileDownloaded { get { return new ActivityDataJsonType("speaker.fileDownloaded"); } }
+        public static ActivityDataJsonType SpeakerFileDownloaded
+        {
+            get {
+                return new ActivityDataJsonType("speaker.fileDownloaded");
+            }
+        }
 
-        public static ActivityDataJsonType ActivityDataJsonAppointmentExternal { get { return new ActivityDataJsonType("activity-data.json_appointment.external"); } }
+        public static ActivityDataJsonType ActivityDataJsonAppointmentExternal
+        {
+            get {
+                return new ActivityDataJsonType("activity-data.json_appointment.external");
+            }
+        }
 
-        public static ActivityDataJsonType ActivityDataJsonEventExternal { get { return new ActivityDataJsonType("activity-data.json_event.external"); } }
+        public static ActivityDataJsonType ActivityDataJsonEventExternal
+        {
+            get {
+                return new ActivityDataJsonType("activity-data.json_event.external");
+            }
+        }
 
-        public static ActivityDataJsonType ActivityDataJsonExhibitorExternal { get { return new ActivityDataJsonType("activity-data.json_exhibitor.external"); } }
+        public static ActivityDataJsonType ActivityDataJsonExhibitorExternal
+        {
+            get {
+                return new ActivityDataJsonType("activity-data.json_exhibitor.external");
+            }
+        }
 
-        public static ActivityDataJsonType ActivityDataJsonSessionExternal { get { return new ActivityDataJsonType("activity-data.json_session.external"); } }
+        public static ActivityDataJsonType ActivityDataJsonSessionExternal
+        {
+            get {
+                return new ActivityDataJsonType("activity-data.json_session.external");
+            }
+        }
 
-        public static ActivityDataJsonType EventAdViewed { get { return new ActivityDataJsonType("event.adViewed"); } }
+        public static ActivityDataJsonType EventAdViewed
+        {
+            get {
+                return new ActivityDataJsonType("event.adViewed");
+            }
+        }
 
-        public static ActivityDataJsonType EventAdClicked { get { return new ActivityDataJsonType("event.adClicked"); } }
+        public static ActivityDataJsonType EventAdClicked
+        {
+            get {
+                return new ActivityDataJsonType("event.adClicked");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(ActivityDataJsonType v) { return v.Value; }
-        public static ActivityDataJsonType FromString(string v) {
-            switch(v) {
-                case "appointment.accepted": return AppointmentAccepted;
-                case "appointment.cancelled": return AppointmentCancelled;
-                case "appointment.checkedIn": return AppointmentCheckedIn;
-                case "appointment.created": return AppointmentCreated;
-                case "appointment.declined": return AppointmentDeclined;
-                case "appointment.denied": return AppointmentDenied;
-                case "appointment.rescheduled": return AppointmentRescheduled;
-                case "email.bounced": return EmailBounced;
-                case "email.clicked": return EmailClicked;
-                case "email.opened": return EmailOpened;
-                case "email.sent": return EmailSent;
-                case "email.undelivered": return EmailUndelivered;
-                case "event.attendeeHubVisited": return EventAttendeeHubVisited;
-                case "event.attendeeSubstituted": return EventAttendeeSubstituted;
-                case "event.bannerLinkClicked": return EventBannerLinkClicked;
-                case "event.checkedIn": return EventCheckedIn;
-                case "event.checkedOut": return EventCheckedOut;
-                case "event.customCardOpened": return EventCustomCardOpened;
-                case "event.feedbackSubmitted": return EventFeedbackSubmitted;
-                case "event.noShow": return EventNoShow;
-                case "event.pageVisitTracked": return EventPageVisitTracked;
-                case "event.registered": return EventRegistered;
-                case "event.registrationAbandoned": return EventRegistrationAbandoned;
-                case "event.registrationCancelled": return EventRegistrationCancelled;
-                case "event.videoPlayed": return EventVideoPlayed;
-                case "event.waitlisted": return EventWaitlisted;
-                case "exhibitor.documentOpened": return ExhibitorDocumentOpened;
-                case "exhibitor.socialLinkOpened": return ExhibitorSocialLinkOpened;
-                case "exhibitor.viewed": return ExhibitorViewed;
-                case "exhibitor.virtualBoothJoined": return ExhibitorVirtualBoothJoined;
-                case "exhibitor.weblinkOpened": return ExhibitorWeblinkOpened;
-                case "lead.inboundCreated": return LeadInboundCreated;
-                case "lead.qualified": return LeadQualified;
-                case "lead.scanned": return LeadScanned;
-                case "session.checkedIn": return SessionCheckedIn;
-                case "session.checkedOut": return SessionCheckedOut;
-                case "session.enrolled": return SessionEnrolled;
-                case "session.feedbackSubmitted": return SessionFeedbackSubmitted;
-                case "session.noShow": return SessionNoShow;
-                case "session.pollResponseSubmitted": return SessionPollResponseSubmitted;
-                case "session.questionAsked": return SessionQuestionAsked;
-                case "session.questionUpvoted": return SessionQuestionUpvoted;
-                case "session.unenrolled": return SessionUnenrolled;
-                case "session.waitlisted": return SessionWaitlisted;
-                case "speaker.feedbackSubmitted": return SpeakerFeedbackSubmitted;
-                case "speaker.fileDownloaded": return SpeakerFileDownloaded;
-                case "activity-data.json_appointment.external": return ActivityDataJsonAppointmentExternal;
-                case "activity-data.json_event.external": return ActivityDataJsonEventExternal;
-                case "activity-data.json_exhibitor.external": return ActivityDataJsonExhibitorExternal;
-                case "activity-data.json_session.external": return ActivityDataJsonSessionExternal;
-                case "event.adViewed": return EventAdViewed;
-                case "event.adClicked": return EventAdClicked;
-                default: throw new ArgumentException("Invalid value for ActivityDataJsonType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(ActivityDataJsonType v)
+        {
+            return v.Value;
+        }
+        public static ActivityDataJsonType FromString(string v)
+        {
+            switch (v)
+            {
+                case "appointment.accepted":
+                    return AppointmentAccepted;
+                case "appointment.cancelled":
+                    return AppointmentCancelled;
+                case "appointment.checkedIn":
+                    return AppointmentCheckedIn;
+                case "appointment.created":
+                    return AppointmentCreated;
+                case "appointment.declined":
+                    return AppointmentDeclined;
+                case "appointment.denied":
+                    return AppointmentDenied;
+                case "appointment.rescheduled":
+                    return AppointmentRescheduled;
+                case "email.bounced":
+                    return EmailBounced;
+                case "email.clicked":
+                    return EmailClicked;
+                case "email.opened":
+                    return EmailOpened;
+                case "email.sent":
+                    return EmailSent;
+                case "email.undelivered":
+                    return EmailUndelivered;
+                case "event.attendeeHubVisited":
+                    return EventAttendeeHubVisited;
+                case "event.attendeeSubstituted":
+                    return EventAttendeeSubstituted;
+                case "event.bannerLinkClicked":
+                    return EventBannerLinkClicked;
+                case "event.checkedIn":
+                    return EventCheckedIn;
+                case "event.checkedOut":
+                    return EventCheckedOut;
+                case "event.customCardOpened":
+                    return EventCustomCardOpened;
+                case "event.feedbackSubmitted":
+                    return EventFeedbackSubmitted;
+                case "event.noShow":
+                    return EventNoShow;
+                case "event.pageVisitTracked":
+                    return EventPageVisitTracked;
+                case "event.registered":
+                    return EventRegistered;
+                case "event.registrationAbandoned":
+                    return EventRegistrationAbandoned;
+                case "event.registrationCancelled":
+                    return EventRegistrationCancelled;
+                case "event.videoPlayed":
+                    return EventVideoPlayed;
+                case "event.waitlisted":
+                    return EventWaitlisted;
+                case "exhibitor.documentOpened":
+                    return ExhibitorDocumentOpened;
+                case "exhibitor.socialLinkOpened":
+                    return ExhibitorSocialLinkOpened;
+                case "exhibitor.viewed":
+                    return ExhibitorViewed;
+                case "exhibitor.virtualBoothJoined":
+                    return ExhibitorVirtualBoothJoined;
+                case "exhibitor.weblinkOpened":
+                    return ExhibitorWeblinkOpened;
+                case "lead.inboundCreated":
+                    return LeadInboundCreated;
+                case "lead.qualified":
+                    return LeadQualified;
+                case "lead.scanned":
+                    return LeadScanned;
+                case "session.checkedIn":
+                    return SessionCheckedIn;
+                case "session.checkedOut":
+                    return SessionCheckedOut;
+                case "session.enrolled":
+                    return SessionEnrolled;
+                case "session.feedbackSubmitted":
+                    return SessionFeedbackSubmitted;
+                case "session.noShow":
+                    return SessionNoShow;
+                case "session.pollResponseSubmitted":
+                    return SessionPollResponseSubmitted;
+                case "session.questionAsked":
+                    return SessionQuestionAsked;
+                case "session.questionUpvoted":
+                    return SessionQuestionUpvoted;
+                case "session.unenrolled":
+                    return SessionUnenrolled;
+                case "session.waitlisted":
+                    return SessionWaitlisted;
+                case "speaker.feedbackSubmitted":
+                    return SpeakerFeedbackSubmitted;
+                case "speaker.fileDownloaded":
+                    return SpeakerFileDownloaded;
+                case "activity-data.json_appointment.external":
+                    return ActivityDataJsonAppointmentExternal;
+                case "activity-data.json_event.external":
+                    return ActivityDataJsonEventExternal;
+                case "activity-data.json_exhibitor.external":
+                    return ActivityDataJsonExhibitorExternal;
+                case "activity-data.json_session.external":
+                    return ActivityDataJsonSessionExternal;
+                case "event.adViewed":
+                    return EventAdViewed;
+                case "event.adClicked":
+                    return EventAdClicked;
+                default:
+                    throw new ArgumentException("Invalid value for ActivityDataJsonType");
             }
         }
         public override bool Equals(object? obj)
@@ -805,8 +1129,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionUnenrolled)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionUnenrolled) {
                         SessionUnenrolled = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionUnenrolled>(json)
                     };
                 }
@@ -825,8 +1148,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventNoShow)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventNoShow) {
                         EventNoShow = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventNoShow>(json)
                     };
                 }
@@ -845,8 +1167,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionWaitlisted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionWaitlisted) {
                         SessionWaitlisted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionWaitlisted>(json)
                     };
                 }
@@ -865,8 +1186,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionEnrolled)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionEnrolled) {
                         SessionEnrolled = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionEnrolled>(json)
                     };
                 }
@@ -885,8 +1205,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionNoShow)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionNoShow) {
                         SessionNoShow = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionNoShow>(json)
                     };
                 }
@@ -905,8 +1224,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionFeedbackSubmitted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionFeedbackSubmitted) {
                         SessionFeedbackSubmitted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionFeedbackSubmitted>(json)
                     };
                 }
@@ -925,8 +1243,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionCheckedOut)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionCheckedOut) {
                         SessionCheckedOut = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionCheckedOut>(json)
                     };
                 }
@@ -945,8 +1262,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentDenied)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentDenied) {
                         AppointmentDenied = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentDenied>(json)
                     };
                 }
@@ -965,8 +1281,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionPollResponseSubmitted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionPollResponseSubmitted) {
                         SessionPollResponseSubmitted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionPollResponseSubmitted>(json)
                     };
                 }
@@ -985,8 +1300,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EmailOpened)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EmailOpened) {
                         EmailOpened = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EmailOpened>(json)
                     };
                 }
@@ -1005,8 +1319,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EmailSent)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EmailSent) {
                         EmailSent = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EmailSent>(json)
                     };
                 }
@@ -1025,8 +1338,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentDeclined)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentDeclined) {
                         AppointmentDeclined = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentDeclined>(json)
                     };
                 }
@@ -1045,8 +1357,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventWaitlisted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventWaitlisted) {
                         EventWaitlisted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventWaitlisted>(json)
                     };
                 }
@@ -1065,8 +1376,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentCreated)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentCreated) {
                         AppointmentCreated = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentCreated>(json)
                     };
                 }
@@ -1085,8 +1395,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentRescheduled)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentRescheduled) {
                         AppointmentRescheduled = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentRescheduled>(json)
                     };
                 }
@@ -1105,8 +1414,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventCheckedIn)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventCheckedIn) {
                         EventCheckedIn = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventCheckedIn>(json)
                     };
                 }
@@ -1125,8 +1433,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventCheckedOut)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventCheckedOut) {
                         EventCheckedOut = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventCheckedOut>(json)
                     };
                 }
@@ -1145,8 +1452,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionCheckedIn)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionCheckedIn) {
                         SessionCheckedIn = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionCheckedIn>(json)
                     };
                 }
@@ -1165,8 +1471,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventFeedbackSubmitted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventFeedbackSubmitted) {
                         EventFeedbackSubmitted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventFeedbackSubmitted>(json)
                     };
                 }
@@ -1185,8 +1490,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentCancelled)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentCancelled) {
                         AppointmentCancelled = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentCancelled>(json)
                     };
                 }
@@ -1205,8 +1509,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.LeadScanned)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.LeadScanned) {
                         LeadScanned = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<LeadScanned>(json)
                     };
                 }
@@ -1225,8 +1528,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventRegistered)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventRegistered) {
                         EventRegistered = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventRegistered>(json)
                     };
                 }
@@ -1245,8 +1547,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.LeadInboundCreated)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.LeadInboundCreated) {
                         LeadInboundCreated = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<LeadInboundCreated>(json)
                     };
                 }
@@ -1265,8 +1566,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventRegistrationCancelled)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventRegistrationCancelled) {
                         EventRegistrationCancelled = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventRegistrationCancelled>(json)
                     };
                 }
@@ -1285,8 +1585,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentAccepted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentAccepted) {
                         AppointmentAccepted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentAccepted>(json)
                     };
                 }
@@ -1305,8 +1604,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorDocumentOpened)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorDocumentOpened) {
                         ExhibitorDocumentOpened = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExhibitorDocumentOpened>(json)
                     };
                 }
@@ -1325,8 +1623,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EmailUndelivered)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EmailUndelivered) {
                         EmailUndelivered = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EmailUndelivered>(json)
                     };
                 }
@@ -1345,8 +1642,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventAdClicked)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventAdClicked) {
                         EventAdClicked = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventAdClicked>(json)
                     };
                 }
@@ -1365,8 +1661,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventAdViewed)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventAdViewed) {
                         EventAdViewed = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventAdViewed>(json)
                     };
                 }
@@ -1385,8 +1680,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonSessionExternal)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonSessionExternal) {
                         ActivityDataJsonSessionExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ActivityDataJsonSessionExternal>(json)
                     };
                 }
@@ -1405,8 +1699,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorWeblinkOpened)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorWeblinkOpened) {
                         ExhibitorWeblinkOpened = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExhibitorWeblinkOpened>(json)
                     };
                 }
@@ -1425,8 +1718,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventRegistrationAbandoned)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventRegistrationAbandoned) {
                         EventRegistrationAbandoned = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventRegistrationAbandoned>(json)
                     };
                 }
@@ -1445,8 +1737,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.LeadQualified)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.LeadQualified) {
                         LeadQualified = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<LeadQualified>(json)
                     };
                 }
@@ -1465,8 +1756,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonExhibitorExternal)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonExhibitorExternal) {
                         ActivityDataJsonExhibitorExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ActivityDataJsonExhibitorExternal>(json)
                     };
                 }
@@ -1485,8 +1775,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonEventExternal)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonEventExternal) {
                         ActivityDataJsonEventExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ActivityDataJsonEventExternal>(json)
                     };
                 }
@@ -1505,8 +1794,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonAppointmentExternal)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ActivityDataJsonAppointmentExternal) {
                         ActivityDataJsonAppointmentExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ActivityDataJsonAppointmentExternal>(json)
                     };
                 }
@@ -1525,8 +1813,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventAttendeeSubstituted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventAttendeeSubstituted) {
                         EventAttendeeSubstituted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventAttendeeSubstituted>(json)
                     };
                 }
@@ -1545,8 +1832,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SpeakerFeedbackSubmitted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SpeakerFeedbackSubmitted) {
                         SpeakerFeedbackSubmitted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SpeakerFeedbackSubmitted>(json)
                     };
                 }
@@ -1565,8 +1851,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.AppointmentCheckedIn)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.AppointmentCheckedIn) {
                         AppointmentCheckedIn = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AppointmentCheckedIn>(json)
                     };
                 }
@@ -1585,8 +1870,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorViewed)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorViewed) {
                         ExhibitorViewed = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExhibitorViewed>(json)
                     };
                 }
@@ -1605,8 +1889,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionQuestionUpvoted)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionQuestionUpvoted) {
                         SessionQuestionUpvoted = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionQuestionUpvoted>(json)
                     };
                 }
@@ -1625,8 +1908,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EmailClicked)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EmailClicked) {
                         EmailClicked = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EmailClicked>(json)
                     };
                 }
@@ -1645,8 +1927,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventVideoPlayed)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventVideoPlayed) {
                         EventVideoPlayed = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventVideoPlayed>(json)
                     };
                 }
@@ -1665,8 +1946,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventAttendeeHubVisited)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventAttendeeHubVisited) {
                         EventAttendeeHubVisited = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventAttendeeHubVisited>(json)
                     };
                 }
@@ -1685,8 +1965,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventBannerLinkClicked)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventBannerLinkClicked) {
                         EventBannerLinkClicked = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventBannerLinkClicked>(json)
                     };
                 }
@@ -1705,8 +1984,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventCustomCardOpened)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventCustomCardOpened) {
                         EventCustomCardOpened = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventCustomCardOpened>(json)
                     };
                 }
@@ -1725,8 +2003,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorVirtualBoothJoined)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorVirtualBoothJoined) {
                         ExhibitorVirtualBoothJoined = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExhibitorVirtualBoothJoined>(json)
                     };
                 }
@@ -1745,8 +2022,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SessionQuestionAsked)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SessionQuestionAsked) {
                         SessionQuestionAsked = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionQuestionAsked>(json)
                     };
                 }
@@ -1765,8 +2041,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.SpeakerFileDownloaded)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.SpeakerFileDownloaded) {
                         SpeakerFileDownloaded = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SpeakerFileDownloaded>(json)
                     };
                 }
@@ -1785,8 +2060,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorSocialLinkOpened)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.ExhibitorSocialLinkOpened) {
                         ExhibitorSocialLinkOpened = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExhibitorSocialLinkOpened>(json)
                     };
                 }
@@ -1805,8 +2079,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EmailBounced)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EmailBounced) {
                         EmailBounced = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EmailBounced>(json)
                     };
                 }
@@ -1825,8 +2098,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ActivityDataJson(ActivityDataJsonType.EventPageVisitTracked)
-                    {
+                    return new ActivityDataJson(ActivityDataJsonType.EventPageVisitTracked) {
                         EventPageVisitTracked = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EventPageVisitTracked>(json)
                     };
                 }
@@ -1846,7 +2118,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -2187,8 +2459,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 Name of the place where this change was updated through.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = UpdatedThroughNamePropertyJson.AbstractGuestSideAuthorUpdate;
+```
+
 
 ## Values
 

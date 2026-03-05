@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * DistributionListInfoJsonInput
- * 
+ *
  * <p>Model representing a distribution list info. Only required if the contact group type is
  * DISTRIBUTION_LIST.
  */
@@ -24,7 +24,7 @@ public class DistributionListInfoJsonInput {
      * Type of distribution list security. For a public list, contacts can sign up themselves. For a
      * semi-private list, contacts can add themselves, but a planner must approve their membership before
      * they can receive emails.
-     * 
+     *
      * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
      * on the Manage Profile page.
      */
@@ -46,7 +46,7 @@ public class DistributionListInfoJsonInput {
         this.securityType = securityType;
         this.internalNote = internalNote;
     }
-    
+
     public DistributionListInfoJsonInput() {
         this(null, null);
     }
@@ -55,7 +55,7 @@ public class DistributionListInfoJsonInput {
      * Type of distribution list security. For a public list, contacts can sign up themselves. For a
      * semi-private list, contacts can add themselves, but a planner must approve their membership before
      * they can receive emails.
-     * 
+     *
      * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
      * on the Manage Profile page.
      */
@@ -74,12 +74,11 @@ public class DistributionListInfoJsonInput {
         return new Builder();
     }
 
-
     /**
      * Type of distribution list security. For a public list, contacts can sign up themselves. For a
      * semi-private list, contacts can add themselves, but a planner must approve their membership before
      * they can receive emails.
-     * 
+     *
      * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
      * on the Manage Profile page.
      */
@@ -88,7 +87,6 @@ public class DistributionListInfoJsonInput {
         return this;
     }
 
-
     /**
      * Internal note for Distribution Lists.
      */
@@ -96,7 +94,6 @@ public class DistributionListInfoJsonInput {
         this.internalNote = internalNote;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,40 +104,37 @@ public class DistributionListInfoJsonInput {
             return false;
         }
         DistributionListInfoJsonInput other = (DistributionListInfoJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.securityType, other.securityType) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote);
+        return Utils.enhancedDeepEquals(this.securityType, other.securityType)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            securityType, internalNote);
+        return Utils.enhancedHash(securityType, internalNote);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DistributionListInfoJsonInput.class,
-                "securityType", securityType,
-                "internalNote", internalNote);
+        return Utils.toString(
+                DistributionListInfoJsonInput.class, "securityType", securityType, "internalNote", internalNote);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DistributionListSecurityTypeJson securityType;
 
         private String internalNote;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Type of distribution list security. For a public list, contacts can sign up themselves. For a
          * semi-private list, contacts can add themselves, but a planner must approve their membership before
          * they can receive emails.
-         * 
+         *
          * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
          * on the Manage Profile page.
          */
@@ -158,9 +152,7 @@ public class DistributionListInfoJsonInput {
         }
 
         public DistributionListInfoJsonInput build() {
-            return new DistributionListInfoJsonInput(
-                securityType, internalNote);
+            return new DistributionListInfoJsonInput(securityType, internalNote);
         }
-
     }
 }

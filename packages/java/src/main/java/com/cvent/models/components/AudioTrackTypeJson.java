@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AudioTrackTypeJson
- * 
+ *
  * <p>Denotes the file format of the audio track.
  */
 public enum AudioTrackTypeJson {
@@ -31,13 +31,13 @@ public enum AudioTrackTypeJson {
     AudioTrackTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AudioTrackTypeJson> fromValue(String value) {
-        for (AudioTrackTypeJson o: AudioTrackTypeJson.values()) {
+        for (AudioTrackTypeJson o : AudioTrackTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -45,4 +45,3 @@ public enum AudioTrackTypeJson {
         return Optional.empty();
     }
 }
-

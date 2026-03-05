@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateExhibitorCategoryRequest {
     /**
      * ID of an event.
@@ -28,12 +27,10 @@ public class CreateExhibitorCategoryRequest {
 
     @JsonCreator
     public CreateExhibitorCategoryRequest(
-            @Nonnull String id,
-            @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorCategoryRequest = Optional.ofNullable(exhibitorCategoryRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryRequest cannot be null"));
     }
 
     /**
@@ -54,7 +51,6 @@ public class CreateExhibitorCategoryRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -63,15 +59,14 @@ public class CreateExhibitorCategoryRequest {
         return this;
     }
 
-
     /**
      * Exhibitor Category details
      */
-    public CreateExhibitorCategoryRequest withExhibitorCategoryRequest(@Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
+    public CreateExhibitorCategoryRequest withExhibitorCategoryRequest(
+            @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
         this.exhibitorCategoryRequest = Utils.checkNotNull(exhibitorCategoryRequest, "exhibitorCategoryRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +77,30 @@ public class CreateExhibitorCategoryRequest {
             return false;
         }
         CreateExhibitorCategoryRequest other = (CreateExhibitorCategoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryRequest, other.exhibitorCategoryRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryRequest, other.exhibitorCategoryRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorCategoryRequest);
+        return Utils.enhancedHash(id, exhibitorCategoryRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateExhibitorCategoryRequest.class,
-                "id", id,
-                "exhibitorCategoryRequest", exhibitorCategoryRequest);
+        return Utils.toString(
+                CreateExhibitorCategoryRequest.class, "id", id, "exhibitorCategoryRequest", exhibitorCategoryRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ExhibitorCategoryRequest exhibitorCategoryRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +120,7 @@ public class CreateExhibitorCategoryRequest {
         }
 
         public CreateExhibitorCategoryRequest build() {
-            return new CreateExhibitorCategoryRequest(
-                id, exhibitorCategoryRequest);
+            return new CreateExhibitorCategoryRequest(id, exhibitorCategoryRequest);
         }
-
     }
 }

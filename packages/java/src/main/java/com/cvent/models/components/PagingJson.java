@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * PagingJson
- * 
+ *
  * <p>Represents pagination information for a collection of resources.
  */
 public class PagingJson {
@@ -78,14 +78,11 @@ public class PagingJson {
         this.currentToken = currentToken;
         this.limit = limit;
         this.totalCount = totalCount;
-        this.links = Optional.ofNullable(links)
-            .orElseThrow(() -> new IllegalArgumentException("links cannot be null"));
+        this.links = Optional.ofNullable(links).orElseThrow(() -> new IllegalArgumentException("links cannot be null"));
     }
-    
-    public PagingJson(
-            @Nonnull PaginationLinksJson links) {
-        this(null, null, null,
-            null, null, links);
+
+    public PagingJson(@Nonnull PaginationLinksJson links) {
+        this(null, null, null, null, null, links);
     }
 
     /**
@@ -137,7 +134,6 @@ public class PagingJson {
         return new Builder();
     }
 
-
     /**
      * The pagination token for the previous page, if one exists. You can use this token to navigate to the
      * previous page of data.
@@ -146,7 +142,6 @@ public class PagingJson {
         this.previousToken = previousToken;
         return this;
     }
-
 
     /**
      * The pagination token for the next page. If this value is present in the response, there is another
@@ -157,7 +152,6 @@ public class PagingJson {
         return this;
     }
 
-
     /**
      * The pagination token for the current page.
      */
@@ -166,7 +160,6 @@ public class PagingJson {
         return this;
     }
 
-
     /**
      * The number of records to return on the page. Not to exceed 200.
      */
@@ -174,7 +167,6 @@ public class PagingJson {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The total number of records available. This field may return blank, even if there are more records.
@@ -185,7 +177,6 @@ public class PagingJson {
         return this;
     }
 
-
     /**
      * Represents pagination links for navigating between pages of data.
      */
@@ -193,7 +184,6 @@ public class PagingJson {
         this.links = Utils.checkNotNull(links, "links");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -204,35 +194,39 @@ public class PagingJson {
             return false;
         }
         PagingJson other = (PagingJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.previousToken, other.previousToken) &&
-            Utils.enhancedDeepEquals(this.nextToken, other.nextToken) &&
-            Utils.enhancedDeepEquals(this.currentToken, other.currentToken) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.totalCount, other.totalCount) &&
-            Utils.enhancedDeepEquals(this.links, other.links);
+        return Utils.enhancedDeepEquals(this.previousToken, other.previousToken)
+                && Utils.enhancedDeepEquals(this.nextToken, other.nextToken)
+                && Utils.enhancedDeepEquals(this.currentToken, other.currentToken)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.totalCount, other.totalCount)
+                && Utils.enhancedDeepEquals(this.links, other.links);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            previousToken, nextToken, currentToken,
-            limit, totalCount, links);
+        return Utils.enhancedHash(previousToken, nextToken, currentToken, limit, totalCount, links);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PagingJson.class,
-                "previousToken", previousToken,
-                "nextToken", nextToken,
-                "currentToken", currentToken,
-                "limit", limit,
-                "totalCount", totalCount,
-                "links", links);
+        return Utils.toString(
+                PagingJson.class,
+                "previousToken",
+                previousToken,
+                "nextToken",
+                nextToken,
+                "currentToken",
+                currentToken,
+                "limit",
+                limit,
+                "totalCount",
+                totalCount,
+                "links",
+                links);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String previousToken;
 
@@ -247,7 +241,7 @@ public class PagingJson {
         private PaginationLinksJson links;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -302,10 +296,7 @@ public class PagingJson {
         }
 
         public PagingJson build() {
-            return new PagingJson(
-                previousToken, nextToken, currentToken,
-                limit, totalCount, links);
+            return new PagingJson(previousToken, nextToken, currentToken, limit, totalCount, links);
         }
-
     }
 }

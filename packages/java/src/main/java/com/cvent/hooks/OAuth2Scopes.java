@@ -11,7 +11,7 @@ public final class OAuth2Scopes {
 
     /**
      * Available scopes for the OAuth2.authorizationCode OAuth 2.0 scheme (authorizationCode flow).
-     * 
+     *
      * <p>OAuth2 Authorization Code Flow
      */
     public static enum OAuth2AuthorizationCode {
@@ -932,7 +932,7 @@ public final class OAuth2Scopes {
         }
 
         public static java.util.Optional<OAuth2AuthorizationCode> fromValue(java.lang.String value) {
-            for (OAuth2AuthorizationCode o: OAuth2AuthorizationCode.values()) {
+            for (OAuth2AuthorizationCode o : OAuth2AuthorizationCode.values()) {
                 if (java.util.Objects.deepEquals(o.value, value)) {
                     return java.util.Optional.of(o);
                 }
@@ -943,7 +943,7 @@ public final class OAuth2Scopes {
 
     /**
      * Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
-     * 
+     *
      * <p>OAuth2 Client Credentials Flow
      */
     public static enum OAuth2ClientCredentials {
@@ -2009,7 +2009,7 @@ public final class OAuth2Scopes {
         }
 
         public static java.util.Optional<OAuth2ClientCredentials> fromValue(java.lang.String value) {
-            for (OAuth2ClientCredentials o: OAuth2ClientCredentials.values()) {
+            for (OAuth2ClientCredentials o : OAuth2ClientCredentials.values()) {
                 if (java.util.Objects.deepEquals(o.value, value)) {
                     return java.util.Optional.of(o);
                 }

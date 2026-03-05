@@ -2,6 +2,14 @@
 
 This is used to denote how a contact is opt'd out of Cvent system.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.OptoutByJson;
+
+OptoutByJson value = OptoutByJson.ABUSE_COMPLAINT;
+```
+
 
 ## Values
 

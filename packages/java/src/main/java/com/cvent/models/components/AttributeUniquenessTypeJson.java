@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttributeUniquenessTypeJson
- * 
+ *
  * <p>This is used to denote the uniqueness type of the attribute.
  */
 public enum AttributeUniquenessTypeJson {
@@ -24,13 +24,13 @@ public enum AttributeUniquenessTypeJson {
     AttributeUniquenessTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttributeUniquenessTypeJson> fromValue(String value) {
-        for (AttributeUniquenessTypeJson o: AttributeUniquenessTypeJson.values()) {
+        for (AttributeUniquenessTypeJson o : AttributeUniquenessTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AttributeUniquenessTypeJson {
         return Optional.empty();
     }
 }
-

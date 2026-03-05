@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetSessionProgramSpeakersResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.programItemSpeakerPaginatedResponse = programItemSpeakerPaginatedResponse;
     }
-    
+
     public GetSessionProgramSpeakersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a list of session program item and speaker associations.
      */
-    public GetSessionProgramSpeakersResponse withProgramItemSpeakerPaginatedResponse(@Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
+    public GetSessionProgramSpeakersResponse withProgramItemSpeakerPaginatedResponse(
+            @Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
         this.programItemSpeakerPaginatedResponse = programItemSpeakerPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
             return false;
         }
         GetSessionProgramSpeakersResponse other = (GetSessionProgramSpeakersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.programItemSpeakerPaginatedResponse, other.programItemSpeakerPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.programItemSpeakerPaginatedResponse, other.programItemSpeakerPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            programItemSpeakerPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, programItemSpeakerPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSessionProgramSpeakersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "programItemSpeakerPaginatedResponse", programItemSpeakerPaginatedResponse);
+        return Utils.toString(
+                GetSessionProgramSpeakersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "programItemSpeakerPaginatedResponse",
+                programItemSpeakerPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
         private ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class GetSessionProgramSpeakersResponse implements AsyncResponse {
         /**
          * Successfully retrieved a list of session program item and speaker associations.
          */
-        public Builder programItemSpeakerPaginatedResponse(@Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
+        public Builder programItemSpeakerPaginatedResponse(
+                @Nullable ProgramItemSpeakerPaginatedResponse programItemSpeakerPaginatedResponse) {
             this.programItemSpeakerPaginatedResponse = programItemSpeakerPaginatedResponse;
             return this;
         }
 
         public GetSessionProgramSpeakersResponse build() {
             return new GetSessionProgramSpeakersResponse(
-                contentType, statusCode, rawResponse,
-                programItemSpeakerPaginatedResponse);
+                    contentType, statusCode, rawResponse, programItemSpeakerPaginatedResponse);
         }
-
     }
 }

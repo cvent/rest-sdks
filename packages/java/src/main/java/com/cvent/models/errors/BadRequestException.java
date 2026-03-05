@@ -6,8 +6,8 @@ package com.cvent.models.errors;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -32,20 +32,20 @@ public class BadRequestException extends CventSDKError {
     private final Throwable deserializationException;
 
     public BadRequestException(
-                int code,
-                byte[] body,
-                HttpResponse<?> rawResponse,
-                @Nullable Data data,
-                @Nullable Throwable deserializationException) {
+            int code,
+            byte[] body,
+            HttpResponse<?> rawResponse,
+            @Nullable Data data,
+            @Nullable Throwable deserializationException) {
         super("API error occurred", code, body, rawResponse, null);
         this.data = data;
         this.deserializationException = deserializationException;
     }
 
     /**
-    * Parse a response into an instance of BadRequestException. If deserialization of the response body fails,
-    * the resulting BadRequestException instance will have a null data() value and a non-null deserializationException().
-    */
+     * Parse a response into an instance of BadRequestException. If deserialization of the response body fails,
+     * the resulting BadRequestException instance will have a null data() value and a non-null deserializationException().
+     */
     public static BadRequestException from(HttpResponse<InputStream> response) {
         try {
             byte[] bytes = Utils.extractByteArrayFromBody(response);
@@ -57,42 +57,28 @@ public class BadRequestException extends CventSDKError {
     }
 
     /**
-    * Parse a response into an instance of BadRequestException asynchronously. If deserialization of the response body fails,
-    * the resulting BadRequestException instance will have a null data() value and a non-null deserializationException().
-    */
+     * Parse a response into an instance of BadRequestException asynchronously. If deserialization of the response body fails,
+     * the resulting BadRequestException instance will have a null data() value and a non-null deserializationException().
+     */
     public static CompletableFuture<BadRequestException> fromAsync(HttpResponse<Blob> response) {
-        return response.body()
-                .toByteArray()
-                .handle((bytes, err) -> {
-                    // if a body read error occurs, we want to transform the exception
-                    if (err != null) {
-                        throw new AsyncAPIException(
-                                "Error reading response body: " + err.getMessage(),
-                                response.statusCode(),
-                                null,
-                                response,
-                                err);
-                    }
+        return response.body().toByteArray().handle((bytes, err) -> {
+            // if a body read error occurs, we want to transform the exception
+            if (err != null) {
+                throw new AsyncAPIException(
+                        "Error reading response body: " + err.getMessage(), response.statusCode(), null, response, err);
+            }
 
-                    try {
-                        return new BadRequestException(
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                Utils.mapper().readValue(
-                                        bytes,
-                                        new TypeReference<Data>() {
-                                        }),
-                                null);
-                    } catch (Exception e) {
-                        return new BadRequestException(
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                null,
-                                e);
-                    }
-                });
+            try {
+                return new BadRequestException(
+                        response.statusCode(),
+                        bytes,
+                        response,
+                        Utils.mapper().readValue(bytes, new TypeReference<Data>() {}),
+                        null);
+            } catch (Exception e) {
+                return new BadRequestException(response.statusCode(), bytes, response, null, e);
+            }
+        });
     }
 
     /**
@@ -105,28 +91,28 @@ public class BadRequestException extends CventSDKError {
 
     /**
      * **invalid_request**
-     * 
+     *
      * <p>The request is missing a required parameter, includes an unsupported parameter value (other than
      * unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but
      * refresh_token is not included.
-     * 
+     *
      * <p>**invalid_client**
-     * 
+     *
      * <p>Client authentication failed. For example, when the client includes client_id and client_secret in
      * the authorization header, but there's no such client with that client_id and client_secret.
-     * 
+     *
      * <p>**invalid_grant**
-     * 
+     *
      * <p>Refresh token has been revoked.
-     * 
+     *
      * <p>Authorization code has been consumed already or does not exist.
-     * 
+     *
      * <p>**unauthorized_client**
-     * 
+     *
      * <p>Client is not allowed for code grant flow or for refreshing tokens.
-     * 
+     *
      * <p>**unsupported_grant_type**
-     * 
+     *
      * <p>Returned if grant_type is anything other than authorization_code or refresh_token.
      */
     @Deprecated
@@ -146,7 +132,7 @@ public class BadRequestException extends CventSDKError {
     }
     /**
      * Data
-     * 
+     *
      * <p>A bad token response.
      */
     public static class Data {
@@ -159,28 +145,28 @@ public class BadRequestException extends CventSDKError {
 
         /**
          * **invalid_request**
-         * 
+         *
          * <p>The request is missing a required parameter, includes an unsupported parameter value (other than
          * unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but
          * refresh_token is not included.
-         * 
+         *
          * <p>**invalid_client**
-         * 
+         *
          * <p>Client authentication failed. For example, when the client includes client_id and client_secret in
          * the authorization header, but there's no such client with that client_id and client_secret.
-         * 
+         *
          * <p>**invalid_grant**
-         * 
+         *
          * <p>Refresh token has been revoked.
-         * 
+         *
          * <p>Authorization code has been consumed already or does not exist.
-         * 
+         *
          * <p>**unauthorized_client**
-         * 
+         *
          * <p>Client is not allowed for code grant flow or for refreshing tokens.
-         * 
+         *
          * <p>**unsupported_grant_type**
-         * 
+         *
          * <p>Returned if grant_type is anything other than authorization_code or refresh_token.
          */
         @JsonInclude(Include.NON_ABSENT)
@@ -194,7 +180,7 @@ public class BadRequestException extends CventSDKError {
             this.errorDescription = errorDescription;
             this.error = error;
         }
-        
+
         public Data() {
             this(null, null);
         }
@@ -208,28 +194,28 @@ public class BadRequestException extends CventSDKError {
 
         /**
          * **invalid_request**
-         * 
+         *
          * <p>The request is missing a required parameter, includes an unsupported parameter value (other than
          * unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but
          * refresh_token is not included.
-         * 
+         *
          * <p>**invalid_client**
-         * 
+         *
          * <p>Client authentication failed. For example, when the client includes client_id and client_secret in
          * the authorization header, but there's no such client with that client_id and client_secret.
-         * 
+         *
          * <p>**invalid_grant**
-         * 
+         *
          * <p>Refresh token has been revoked.
-         * 
+         *
          * <p>Authorization code has been consumed already or does not exist.
-         * 
+         *
          * <p>**unauthorized_client**
-         * 
+         *
          * <p>Client is not allowed for code grant flow or for refreshing tokens.
-         * 
+         *
          * <p>**unsupported_grant_type**
-         * 
+         *
          * <p>Returned if grant_type is anything other than authorization_code or refresh_token.
          */
         public Optional<Error> error() {
@@ -240,7 +226,6 @@ public class BadRequestException extends CventSDKError {
             return new Builder();
         }
 
-
         /**
          * May be returned with additional information regarding the error.
          */
@@ -249,38 +234,36 @@ public class BadRequestException extends CventSDKError {
             return this;
         }
 
-
         /**
          * **invalid_request**
-         * 
+         *
          * <p>The request is missing a required parameter, includes an unsupported parameter value (other than
          * unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but
          * refresh_token is not included.
-         * 
+         *
          * <p>**invalid_client**
-         * 
+         *
          * <p>Client authentication failed. For example, when the client includes client_id and client_secret in
          * the authorization header, but there's no such client with that client_id and client_secret.
-         * 
+         *
          * <p>**invalid_grant**
-         * 
+         *
          * <p>Refresh token has been revoked.
-         * 
+         *
          * <p>Authorization code has been consumed already or does not exist.
-         * 
+         *
          * <p>**unauthorized_client**
-         * 
+         *
          * <p>Client is not allowed for code grant flow or for refreshing tokens.
-         * 
+         *
          * <p>**unsupported_grant_type**
-         * 
+         *
          * <p>Returned if grant_type is anything other than authorization_code or refresh_token.
          */
         public Data withError(@Nullable Error error) {
             this.error = error;
             return this;
         }
-
 
         @Override
         public boolean equals(java.lang.Object o) {
@@ -291,33 +274,29 @@ public class BadRequestException extends CventSDKError {
                 return false;
             }
             Data other = (Data) o;
-            return 
-                Utils.enhancedDeepEquals(this.errorDescription, other.errorDescription) &&
-                Utils.enhancedDeepEquals(this.error, other.error);
+            return Utils.enhancedDeepEquals(this.errorDescription, other.errorDescription)
+                    && Utils.enhancedDeepEquals(this.error, other.error);
         }
-        
+
         @Override
         public int hashCode() {
-            return Utils.enhancedHash(
-                errorDescription, error);
+            return Utils.enhancedHash(errorDescription, error);
         }
-        
+
         @Override
         public String toString() {
-            return Utils.toString(Data.class,
-                    "errorDescription", errorDescription,
-                    "error", error);
+            return Utils.toString(Data.class, "errorDescription", errorDescription, "error", error);
         }
 
         @SuppressWarnings("UnusedReturnValue")
-        public final static class Builder {
+        public static final class Builder {
 
             private String errorDescription;
 
             private Error error;
 
             private Builder() {
-              // force use of static builder() method
+                // force use of static builder() method
             }
 
             /**
@@ -330,28 +309,28 @@ public class BadRequestException extends CventSDKError {
 
             /**
              * **invalid_request**
-             * 
+             *
              * <p>The request is missing a required parameter, includes an unsupported parameter value (other than
              * unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but
              * refresh_token is not included.
-             * 
+             *
              * <p>**invalid_client**
-             * 
+             *
              * <p>Client authentication failed. For example, when the client includes client_id and client_secret in
              * the authorization header, but there's no such client with that client_id and client_secret.
-             * 
+             *
              * <p>**invalid_grant**
-             * 
+             *
              * <p>Refresh token has been revoked.
-             * 
+             *
              * <p>Authorization code has been consumed already or does not exist.
-             * 
+             *
              * <p>**unauthorized_client**
-             * 
+             *
              * <p>Client is not allowed for code grant flow or for refreshing tokens.
-             * 
+             *
              * <p>**unsupported_grant_type**
-             * 
+             *
              * <p>Returned if grant_type is anything other than authorization_code or refresh_token.
              */
             public Builder error(@Nullable Error error) {
@@ -360,12 +339,8 @@ public class BadRequestException extends CventSDKError {
             }
 
             public Data build() {
-                return new Data(
-                    errorDescription, error);
+                return new Data(errorDescription, error);
             }
-
         }
     }
-
 }
-

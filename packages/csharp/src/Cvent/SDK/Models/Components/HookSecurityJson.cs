@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class HookSecurityJsonType
     {
-        private HookSecurityJsonType(string value) { Value = value; }
+        private HookSecurityJsonType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static HookSecurityJsonType APIKeyAuthentication { get { return new HookSecurityJsonType("API Key Authentication"); } }
+        public static HookSecurityJsonType APIKeyAuthentication
+        {
+            get {
+                return new HookSecurityJsonType("API Key Authentication");
+            }
+        }
 
-        public static HookSecurityJsonType BasicAuthentication { get { return new HookSecurityJsonType("Basic Authentication"); } }
+        public static HookSecurityJsonType BasicAuthentication
+        {
+            get {
+                return new HookSecurityJsonType("Basic Authentication");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(HookSecurityJsonType v) { return v.Value; }
-        public static HookSecurityJsonType FromString(string v) {
-            switch(v) {
-                case "API Key Authentication": return APIKeyAuthentication;
-                case "Basic Authentication": return BasicAuthentication;
-                default: throw new ArgumentException("Invalid value for HookSecurityJsonType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(HookSecurityJsonType v)
+        {
+            return v.Value;
+        }
+        public static HookSecurityJsonType FromString(string v)
+        {
+            switch (v)
+            {
+                case "API Key Authentication":
+                    return APIKeyAuthentication;
+                case "Basic Authentication":
+                    return BasicAuthentication;
+                default:
+                    throw new ArgumentException("Invalid value for HookSecurityJsonType");
             }
         }
         public override bool Equals(object? obj)
@@ -105,8 +129,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new HookSecurityJson(HookSecurityJsonType.BasicAuthentication)
-                    {
+                    return new HookSecurityJson(HookSecurityJsonType.BasicAuthentication) {
                         BasicAuthentication = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<BasicAuthentication>(json)
                     };
                 }
@@ -125,8 +148,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new HookSecurityJson(HookSecurityJsonType.APIKeyAuthentication)
-                    {
+                    return new HookSecurityJson(HookSecurityJsonType.APIKeyAuthentication) {
                         APIKeyAuthentication = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<APIKeyAuthentication>(json)
                     };
                 }
@@ -146,7 +168,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -187,8 +209,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateStandardSurveyRespondentRequest {
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -38,11 +37,11 @@ public class UpdateStandardSurveyRespondentRequest {
             @Nonnull String respondentId,
             @Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.respondentId = Optional.ofNullable(respondentId)
-            .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
         this.standardSurveyRespondent = Optional.ofNullable(standardSurveyRespondent)
-            .orElseThrow(() -> new IllegalArgumentException("standardSurveyRespondent cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("standardSurveyRespondent cannot be null"));
     }
 
     /**
@@ -70,7 +69,6 @@ public class UpdateStandardSurveyRespondentRequest {
         return new Builder();
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -78,7 +76,6 @@ public class UpdateStandardSurveyRespondentRequest {
         this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
         return this;
     }
-
 
     /**
      * Id of a respondent
@@ -88,15 +85,14 @@ public class UpdateStandardSurveyRespondentRequest {
         return this;
     }
 
-
     /**
      * Used to update respondent for a standalone survey.
      */
-    public UpdateStandardSurveyRespondentRequest withStandardSurveyRespondent(@Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
+    public UpdateStandardSurveyRespondentRequest withStandardSurveyRespondent(
+            @Nonnull StandardSurveyRespondentInput standardSurveyRespondent) {
         this.standardSurveyRespondent = Utils.checkNotNull(standardSurveyRespondent, "standardSurveyRespondent");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +103,30 @@ public class UpdateStandardSurveyRespondentRequest {
             return false;
         }
         UpdateStandardSurveyRespondentRequest other = (UpdateStandardSurveyRespondentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.respondentId, other.respondentId) &&
-            Utils.enhancedDeepEquals(this.standardSurveyRespondent, other.standardSurveyRespondent);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.respondentId, other.respondentId)
+                && Utils.enhancedDeepEquals(this.standardSurveyRespondent, other.standardSurveyRespondent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, respondentId, standardSurveyRespondent);
+        return Utils.enhancedHash(surveyId, respondentId, standardSurveyRespondent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateStandardSurveyRespondentRequest.class,
-                "surveyId", surveyId,
-                "respondentId", respondentId,
-                "standardSurveyRespondent", standardSurveyRespondent);
+        return Utils.toString(
+                UpdateStandardSurveyRespondentRequest.class,
+                "surveyId",
+                surveyId,
+                "respondentId",
+                respondentId,
+                "standardSurveyRespondent",
+                standardSurveyRespondent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
@@ -137,7 +135,7 @@ public class UpdateStandardSurveyRespondentRequest {
         private StandardSurveyRespondentInput standardSurveyRespondent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +163,7 @@ public class UpdateStandardSurveyRespondentRequest {
         }
 
         public UpdateStandardSurveyRespondentRequest build() {
-            return new UpdateStandardSurveyRespondentRequest(
-                surveyId, respondentId, standardSurveyRespondent);
+            return new UpdateStandardSurveyRespondentRequest(surveyId, respondentId, standardSurveyRespondent);
         }
-
     }
 }

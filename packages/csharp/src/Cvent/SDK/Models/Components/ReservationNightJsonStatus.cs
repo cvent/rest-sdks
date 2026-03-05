@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ReservationNightJsonStatus
     {
-        [JsonProperty("confirmed")]
-        Confirmed,
-        [JsonProperty("waitlisted")]
-        Waitlisted,
+        [JsonProperty("confirmed")] Confirmed,
+        [JsonProperty("waitlisted")] Waitlisted,
     }
 
     public static class ReservationNightJsonStatusExtension
     {
         public static string Value(this ReservationNightJsonStatus value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ReservationNightJsonStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(ReservationNightJsonStatus).GetFields())
+            foreach (var field in typeof(ReservationNightJsonStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

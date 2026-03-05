@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * QuestionTypeJson1
- * 
+ *
  * <p>Denotes the type of data collected by a question.
  */
 public enum QuestionTypeJson1 {
@@ -40,13 +40,13 @@ public enum QuestionTypeJson1 {
     QuestionTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<QuestionTypeJson1> fromValue(String value) {
-        for (QuestionTypeJson1 o: QuestionTypeJson1.values()) {
+        for (QuestionTypeJson1 o : QuestionTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -54,4 +54,3 @@ public enum QuestionTypeJson1 {
         return Optional.empty();
     }
 }
-

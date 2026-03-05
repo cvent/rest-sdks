@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetMeetingInterestByIdResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetMeetingInterestByIdResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AttendeeAppointmentMeetingInterest attendeeAppointmentMeetingInterest) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeAppointmentMeetingInterest = attendeeAppointmentMeetingInterest;
     }
-    
+
     public GetMeetingInterestByIdResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetMeetingInterestByIdResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetMeetingInterestByIdResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetMeetingInterestByIdResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetMeetingInterestByIdResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved an attendees appointment meeting interests in the given event.
      */
-    public GetMeetingInterestByIdResponse withAttendeeAppointmentMeetingInterest(@Nullable AttendeeAppointmentMeetingInterest attendeeAppointmentMeetingInterest) {
+    public GetMeetingInterestByIdResponse withAttendeeAppointmentMeetingInterest(
+            @Nullable AttendeeAppointmentMeetingInterest attendeeAppointmentMeetingInterest) {
         this.attendeeAppointmentMeetingInterest = attendeeAppointmentMeetingInterest;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetMeetingInterestByIdResponse implements Response {
             return false;
         }
         GetMeetingInterestByIdResponse other = (GetMeetingInterestByIdResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeAppointmentMeetingInterest, other.attendeeAppointmentMeetingInterest);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeAppointmentMeetingInterest, other.attendeeAppointmentMeetingInterest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeAppointmentMeetingInterest);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeAppointmentMeetingInterest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetMeetingInterestByIdResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeAppointmentMeetingInterest", attendeeAppointmentMeetingInterest);
+        return Utils.toString(
+                GetMeetingInterestByIdResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeAppointmentMeetingInterest",
+                attendeeAppointmentMeetingInterest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetMeetingInterestByIdResponse implements Response {
         private AttendeeAppointmentMeetingInterest attendeeAppointmentMeetingInterest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetMeetingInterestByIdResponse implements Response {
         /**
          * Successfully retrieved an attendees appointment meeting interests in the given event.
          */
-        public Builder attendeeAppointmentMeetingInterest(@Nullable AttendeeAppointmentMeetingInterest attendeeAppointmentMeetingInterest) {
+        public Builder attendeeAppointmentMeetingInterest(
+                @Nullable AttendeeAppointmentMeetingInterest attendeeAppointmentMeetingInterest) {
             this.attendeeAppointmentMeetingInterest = attendeeAppointmentMeetingInterest;
             return this;
         }
 
         public GetMeetingInterestByIdResponse build() {
             return new GetMeetingInterestByIdResponse(
-                contentType, statusCode, rawResponse,
-                attendeeAppointmentMeetingInterest);
+                    contentType, statusCode, rawResponse, attendeeAppointmentMeetingInterest);
         }
-
     }
 }

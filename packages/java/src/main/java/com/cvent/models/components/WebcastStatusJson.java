@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * WebcastStatusJson
- * 
+ *
  * <p>This is used to denote the status of a webcast
  */
 public enum WebcastStatusJson {
@@ -25,13 +25,13 @@ public enum WebcastStatusJson {
     WebcastStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<WebcastStatusJson> fromValue(String value) {
-        for (WebcastStatusJson o: WebcastStatusJson.values()) {
+        for (WebcastStatusJson o : WebcastStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum WebcastStatusJson {
         return Optional.empty();
     }
 }
-

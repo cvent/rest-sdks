@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AnswerJson2
- * 
+ *
  * <p>A question answer.
  */
 public class AnswerJson2 {
@@ -36,7 +36,7 @@ public class AnswerJson2 {
 
     /**
      * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -53,7 +53,7 @@ public class AnswerJson2 {
         this.text = text;
         this.type = type;
     }
-    
+
     public AnswerJson2() {
         this(null, null, null);
     }
@@ -74,7 +74,7 @@ public class AnswerJson2 {
 
     /**
      * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -86,7 +86,6 @@ public class AnswerJson2 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the question.
      */
@@ -94,7 +93,6 @@ public class AnswerJson2 {
         this.id = id;
         return this;
     }
-
 
     /**
      * Question text.
@@ -104,10 +102,9 @@ public class AnswerJson2 {
         return this;
     }
 
-
     /**
      * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -115,7 +112,6 @@ public class AnswerJson2 {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -126,28 +122,23 @@ public class AnswerJson2 {
             return false;
         }
         AnswerJson2 other = (AnswerJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, type);
+        return Utils.enhancedHash(id, text, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AnswerJson2.class,
-                "id", id,
-                "text", text,
-                "type", type);
+        return Utils.toString(AnswerJson2.class, "id", id, "text", text, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -157,7 +148,7 @@ public class AnswerJson2 {
         private String type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,7 +169,7 @@ public class AnswerJson2 {
 
         /**
          * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -188,9 +179,7 @@ public class AnswerJson2 {
         }
 
         public AnswerJson2 build() {
-            return new AnswerJson2(
-                id, text, type);
+            return new AnswerJson2(id, text, type);
         }
-
     }
 }

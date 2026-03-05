@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSegmentAssociatedAttendeesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SegmentAttendeesAssociatedPaginatedResponse segmentAttendeesAssociatedPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.segmentAttendeesAssociatedPaginatedResponse = segmentAttendeesAssociatedPaginatedResponse;
     }
-    
+
     public ListSegmentAssociatedAttendeesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved list of attendees associated/disassociated to/from an audience segment.
      */
-    public ListSegmentAssociatedAttendeesResponse withSegmentAttendeesAssociatedPaginatedResponse(@Nullable SegmentAttendeesAssociatedPaginatedResponse segmentAttendeesAssociatedPaginatedResponse) {
+    public ListSegmentAssociatedAttendeesResponse withSegmentAttendeesAssociatedPaginatedResponse(
+            @Nullable SegmentAttendeesAssociatedPaginatedResponse segmentAttendeesAssociatedPaginatedResponse) {
         this.segmentAttendeesAssociatedPaginatedResponse = segmentAttendeesAssociatedPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
             return false;
         }
         ListSegmentAssociatedAttendeesResponse other = (ListSegmentAssociatedAttendeesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.segmentAttendeesAssociatedPaginatedResponse, other.segmentAttendeesAssociatedPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.segmentAttendeesAssociatedPaginatedResponse, other.segmentAttendeesAssociatedPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            segmentAttendeesAssociatedPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, segmentAttendeesAssociatedPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSegmentAssociatedAttendeesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "segmentAttendeesAssociatedPaginatedResponse", segmentAttendeesAssociatedPaginatedResponse);
+        return Utils.toString(
+                ListSegmentAssociatedAttendeesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "segmentAttendeesAssociatedPaginatedResponse",
+                segmentAttendeesAssociatedPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
         private SegmentAttendeesAssociatedPaginatedResponse segmentAttendeesAssociatedPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class ListSegmentAssociatedAttendeesResponse implements Response {
         /**
          * Successfully retrieved list of attendees associated/disassociated to/from an audience segment.
          */
-        public Builder segmentAttendeesAssociatedPaginatedResponse(@Nullable SegmentAttendeesAssociatedPaginatedResponse segmentAttendeesAssociatedPaginatedResponse) {
+        public Builder segmentAttendeesAssociatedPaginatedResponse(
+                @Nullable SegmentAttendeesAssociatedPaginatedResponse segmentAttendeesAssociatedPaginatedResponse) {
             this.segmentAttendeesAssociatedPaginatedResponse = segmentAttendeesAssociatedPaginatedResponse;
             return this;
         }
 
         public ListSegmentAssociatedAttendeesResponse build() {
             return new ListSegmentAssociatedAttendeesResponse(
-                contentType, statusCode, rawResponse,
-                segmentAttendeesAssociatedPaginatedResponse);
+                    contentType, statusCode, rawResponse, segmentAttendeesAssociatedPaginatedResponse);
         }
-
     }
 }

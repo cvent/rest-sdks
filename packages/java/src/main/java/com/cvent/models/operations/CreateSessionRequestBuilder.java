@@ -29,7 +29,7 @@ public class CreateSessionRequestBuilder {
     private SessionInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateSessionRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateSessionRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateSessionResponse call() {
-        RequestOperation<SessionInput, CreateSessionResponse> operation
-              = new CreateSession.Sync(sdkConfiguration, _headers);
+        RequestOperation<SessionInput, CreateSessionResponse> operation =
+                new CreateSession.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

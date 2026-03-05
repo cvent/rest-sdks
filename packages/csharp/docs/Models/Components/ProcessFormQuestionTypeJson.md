@@ -2,6 +2,14 @@
 
 Denotes the type of data collected by a question.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ProcessFormQuestionTypeJson.CommentBox;
+```
+
 
 ## Values
 

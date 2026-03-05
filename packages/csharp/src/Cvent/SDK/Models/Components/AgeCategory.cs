@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AgeCategory
     {
-        [JsonProperty("Adult")]
-        Adult,
-        [JsonProperty("Senior")]
-        Senior,
-        [JsonProperty("Child")]
-        Child,
-        [JsonProperty("Infant")]
-        Infant,
+        [JsonProperty("Adult")] Adult,
+        [JsonProperty("Senior")] Senior,
+        [JsonProperty("Child")] Child,
+        [JsonProperty("Infant")] Infant,
     }
 
     public static class AgeCategoryExtension
     {
         public static string Value(this AgeCategory value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AgeCategory ToEnum(this string value)
         {
-            foreach(var field in typeof(AgeCategory).GetFields())
+            foreach (var field in typeof(AgeCategory).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

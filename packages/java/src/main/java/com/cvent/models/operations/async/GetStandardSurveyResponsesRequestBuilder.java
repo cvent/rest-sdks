@@ -40,7 +40,7 @@ public class GetStandardSurveyResponsesRequestBuilder {
     private GetStandardSurveyResponsesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetStandardSurveyResponsesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetStandardSurveyResponsesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetStandardSurveyResponsesResponse> call() {
-        AsyncRequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation
-              = new GetStandardSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation =
+                new GetStandardSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetStandardSurveyResponsesRequestBuilder {
      */
     public Publisher<GetStandardSurveyResponsesResponse> callAsPublisher() {
         GetStandardSurveyResponsesRequest request = this.request;
-        AsyncRequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation
-              = new GetStandardSurveyResponses.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation =
+                new GetStandardSurveyResponses.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetStandardSurveyResponsesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetStandardSurveyResponsesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetStandardSurveyResponsesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetStandardSurveyResponsesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AttendeeInsights
- * 
+ *
  * <p>Attendee insights.
  */
 public class AttendeeInsights {
@@ -95,24 +95,15 @@ public class AttendeeInsights {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.default_ = default_;
     }
-    
-    public AttendeeInsights(
-            @Nonnull String id,
-            @Nonnull String name,
-            @Nonnull EventJson8 event,
-            boolean default_) {
-        this(null, null, null,
-            null, id, name,
-            null, event, default_);
+
+    public AttendeeInsights(@Nonnull String id, @Nonnull String name, @Nonnull EventJson8 event, boolean default_) {
+        this(null, null, null, null, id, name, null, event, default_);
     }
 
     /**
@@ -182,7 +173,6 @@ public class AttendeeInsights {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -190,7 +180,6 @@ public class AttendeeInsights {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -200,7 +189,6 @@ public class AttendeeInsights {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -208,7 +196,6 @@ public class AttendeeInsights {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -218,7 +205,6 @@ public class AttendeeInsights {
         return this;
     }
 
-
     /**
      * The identifier of the engagement score.
      */
@@ -226,7 +212,6 @@ public class AttendeeInsights {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Name of the engagement score.
@@ -236,7 +221,6 @@ public class AttendeeInsights {
         return this;
     }
 
-
     /**
      * Description of the engagement score.
      */
@@ -244,7 +228,6 @@ public class AttendeeInsights {
         this.description = description;
         return this;
     }
-
 
     /**
      * An event reference used in attendee insights to identify the event context for engagement data
@@ -254,7 +237,6 @@ public class AttendeeInsights {
         return this;
     }
 
-
     /**
      * True indicates this is the default engagement score in the event.
      */
@@ -262,7 +244,6 @@ public class AttendeeInsights {
         this.default_ = default_;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -273,42 +254,49 @@ public class AttendeeInsights {
             return false;
         }
         AttendeeInsights other = (AttendeeInsights) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.default_, other.default_);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.default_, other.default_);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            description, event, default_);
+                created, createdBy, lastModified, lastModifiedBy, id, name, description, event, default_);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeInsights.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "description", description,
-                "event", event,
-                "default_", default_);
+        return Utils.toString(
+                AttendeeInsights.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "description",
+                description,
+                "event",
+                event,
+                "default_",
+                default_);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -329,7 +317,7 @@ public class AttendeeInsights {
         private boolean default_;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -406,10 +394,7 @@ public class AttendeeInsights {
 
         public AttendeeInsights build() {
             return new AttendeeInsights(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                description, event, default_);
+                    created, createdBy, lastModified, lastModifiedBy, id, name, description, event, default_);
         }
-
     }
 }

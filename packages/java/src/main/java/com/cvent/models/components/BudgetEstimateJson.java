@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BudgetEstimateJson
- * 
+ *
  * <p>The estimated budget of the Meeting Request.
  */
 public class BudgetEstimateJson {
@@ -54,7 +54,7 @@ public class BudgetEstimateJson {
         this.costType = costType;
         this.costDetail = costDetail;
     }
-    
+
     public BudgetEstimateJson() {
         this(null, null, null);
     }
@@ -88,7 +88,6 @@ public class BudgetEstimateJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 4217 standard format currency code used for this budget. Note: the allowed currencies are
      * configured per account. A **BAD REQUEST (400)** error will be returned if the specified currency is
@@ -99,7 +98,6 @@ public class BudgetEstimateJson {
         return this;
     }
 
-
     /**
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
      * costs are based on a quantity.
@@ -108,7 +106,6 @@ public class BudgetEstimateJson {
         this.costType = costType;
         return this;
     }
-
 
     /**
      * A list of budget entry details. Each entry consists of the budget category or sub-category, the
@@ -119,7 +116,6 @@ public class BudgetEstimateJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -129,28 +125,24 @@ public class BudgetEstimateJson {
             return false;
         }
         BudgetEstimateJson other = (BudgetEstimateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.costType, other.costType) &&
-            Utils.enhancedDeepEquals(this.costDetail, other.costDetail);
+        return Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.costType, other.costType)
+                && Utils.enhancedDeepEquals(this.costDetail, other.costDetail);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            currency, costType, costDetail);
+        return Utils.enhancedHash(currency, costType, costDetail);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetEstimateJson.class,
-                "currency", currency,
-                "costType", costType,
-                "costDetail", costDetail);
+        return Utils.toString(
+                BudgetEstimateJson.class, "currency", currency, "costType", costType, "costDetail", costDetail);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String currency;
 
@@ -159,7 +151,7 @@ public class BudgetEstimateJson {
         private List<BudgetCostDetailJson1> costDetail;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -191,9 +183,7 @@ public class BudgetEstimateJson {
         }
 
         public BudgetEstimateJson build() {
-            return new BudgetEstimateJson(
-                currency, costType, costDetail);
+            return new BudgetEstimateJson(currency, costType, costDetail);
         }
-
     }
 }

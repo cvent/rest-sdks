@@ -18,38 +18,28 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AudioTrackTypeJson
     {
-        [JsonProperty("asf")]
-        Asf,
-        [JsonProperty("wma")]
-        Wma,
-        [JsonProperty("wmv")]
-        Wmv,
-        [JsonProperty("mp3")]
-        Mp3,
-        [JsonProperty("ts")]
-        Ts,
-        [JsonProperty("mp4")]
-        Mp4,
-        [JsonProperty("mka")]
-        Mka,
-        [JsonProperty("oga")]
-        Oga,
-        [JsonProperty("mov")]
-        Mov,
-        [JsonProperty("wav")]
-        Wav,
+        [JsonProperty("asf")] Asf,
+        [JsonProperty("wma")] Wma,
+        [JsonProperty("wmv")] Wmv,
+        [JsonProperty("mp3")] Mp3,
+        [JsonProperty("ts")] Ts,
+        [JsonProperty("mp4")] Mp4,
+        [JsonProperty("mka")] Mka,
+        [JsonProperty("oga")] Oga,
+        [JsonProperty("mov")] Mov,
+        [JsonProperty("wav")] Wav,
     }
 
     public static class AudioTrackTypeJsonExtension
     {
         public static string Value(this AudioTrackTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AudioTrackTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AudioTrackTypeJson).GetFields())
+            foreach (var field in typeof(AudioTrackTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

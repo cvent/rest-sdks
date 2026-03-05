@@ -40,7 +40,7 @@ public class ListAttendeesPostFilterRequestBuilder {
     private ListAttendeesPostFilterRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListAttendeesPostFilterRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListAttendeesPostFilterRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListAttendeesPostFilterResponse> call() {
-        AsyncRequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation
-              = new ListAttendeesPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation =
+                new ListAttendeesPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListAttendeesPostFilterRequestBuilder {
      */
     public Publisher<ListAttendeesPostFilterResponse> callAsPublisher() {
         ListAttendeesPostFilterRequest request = this.request;
-        AsyncRequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation
-              = new ListAttendeesPostFilter.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation =
+                new ListAttendeesPostFilter.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListAttendeesPostFilterRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListAttendeesPostFilterRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListAttendeesPostFilterResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListAttendeesPostFilterResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

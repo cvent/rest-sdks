@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateEventSurveyResponsesRequest {
     /**
      * Id of an event
@@ -44,14 +43,13 @@ public class CreateEventSurveyResponsesRequest {
             @Nonnull String surveyId,
             @Nonnull String respondentId,
             @Nonnull EventSurveyResponseInput eventSurveyResponse) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.respondentId = Optional.ofNullable(respondentId)
-            .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("respondentId cannot be null"));
         this.eventSurveyResponse = Optional.ofNullable(eventSurveyResponse)
-            .orElseThrow(() -> new IllegalArgumentException("eventSurveyResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("eventSurveyResponse cannot be null"));
     }
 
     /**
@@ -86,7 +84,6 @@ public class CreateEventSurveyResponsesRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -94,7 +91,6 @@ public class CreateEventSurveyResponsesRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -104,7 +100,6 @@ public class CreateEventSurveyResponsesRequest {
         return this;
     }
 
-
     /**
      * Id of a respondent
      */
@@ -113,15 +108,14 @@ public class CreateEventSurveyResponsesRequest {
         return this;
     }
 
-
     /**
      * Used to create responses for an event survey's respondent.
      */
-    public CreateEventSurveyResponsesRequest withEventSurveyResponse(@Nonnull EventSurveyResponseInput eventSurveyResponse) {
+    public CreateEventSurveyResponsesRequest withEventSurveyResponse(
+            @Nonnull EventSurveyResponseInput eventSurveyResponse) {
         this.eventSurveyResponse = Utils.checkNotNull(eventSurveyResponse, "eventSurveyResponse");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +126,33 @@ public class CreateEventSurveyResponsesRequest {
             return false;
         }
         CreateEventSurveyResponsesRequest other = (CreateEventSurveyResponsesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.respondentId, other.respondentId) &&
-            Utils.enhancedDeepEquals(this.eventSurveyResponse, other.eventSurveyResponse);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.respondentId, other.respondentId)
+                && Utils.enhancedDeepEquals(this.eventSurveyResponse, other.eventSurveyResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, surveyId, respondentId,
-            eventSurveyResponse);
+        return Utils.enhancedHash(id, surveyId, respondentId, eventSurveyResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateEventSurveyResponsesRequest.class,
-                "id", id,
-                "surveyId", surveyId,
-                "respondentId", respondentId,
-                "eventSurveyResponse", eventSurveyResponse);
+        return Utils.toString(
+                CreateEventSurveyResponsesRequest.class,
+                "id",
+                id,
+                "surveyId",
+                surveyId,
+                "respondentId",
+                respondentId,
+                "eventSurveyResponse",
+                eventSurveyResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +163,7 @@ public class CreateEventSurveyResponsesRequest {
         private EventSurveyResponseInput eventSurveyResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +199,7 @@ public class CreateEventSurveyResponsesRequest {
         }
 
         public CreateEventSurveyResponsesRequest build() {
-            return new CreateEventSurveyResponsesRequest(
-                id, surveyId, respondentId,
-                eventSurveyResponse);
+            return new CreateEventSurveyResponsesRequest(id, surveyId, respondentId, eventSurveyResponse);
         }
-
     }
 }

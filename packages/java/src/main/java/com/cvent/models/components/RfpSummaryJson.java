@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * RfpSummaryJson
- * 
+ *
  * <p>Schema for Rfp details associated with this proposal.
  */
 public class RfpSummaryJson {
@@ -27,11 +27,10 @@ public class RfpSummaryJson {
     private String id;
 
     @JsonCreator
-    public RfpSummaryJson(
-            @JsonProperty("id") @Nullable String id) {
+    public RfpSummaryJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public RfpSummaryJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class RfpSummaryJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the RFP this proposal is associated with.
      */
@@ -55,7 +53,6 @@ public class RfpSummaryJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class RfpSummaryJson {
             return false;
         }
         RfpSummaryJson other = (RfpSummaryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RfpSummaryJson.class,
-                "id", id);
+        return Utils.toString(RfpSummaryJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class RfpSummaryJson {
         }
 
         public RfpSummaryJson build() {
-            return new RfpSummaryJson(
-                id);
+            return new RfpSummaryJson(id);
         }
-
     }
 }

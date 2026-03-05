@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SolutionTypeJson
     {
-        [JsonProperty("Cvent Video Conferencing")]
-        CventVideoConferencing,
-        [JsonProperty("External Platform")]
-        ExternalPlatform,
-        [JsonProperty("Cvent Studio")]
-        CventStudio,
-        [JsonProperty("Embedded Cvent Video Conferencing")]
-        EmbeddedCventVideoConferencing,
-        [JsonProperty("Cvent Studio Lite")]
-        CventStudioLite,
-        [JsonProperty("Embedded Cvent Studio")]
-        EmbeddedCventStudio,
+        [JsonProperty("Cvent Video Conferencing")] CventVideoConferencing,
+        [JsonProperty("External Platform")] ExternalPlatform,
+        [JsonProperty("Cvent Studio")] CventStudio,
+        [JsonProperty("Embedded Cvent Video Conferencing")] EmbeddedCventVideoConferencing,
+        [JsonProperty("Cvent Studio Lite")] CventStudioLite,
+        [JsonProperty("Embedded Cvent Studio")] EmbeddedCventStudio,
     }
 
     public static class SolutionTypeJsonExtension
     {
         public static string Value(this SolutionTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SolutionTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SolutionTypeJson).GetFields())
+            foreach (var field in typeof(SolutionTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ContactTypeJson1
     {
-        [JsonProperty("PRIMARY")]
-        Primary,
-        [JsonProperty("SECONDARY")]
-        Secondary,
+        [JsonProperty("PRIMARY")] Primary,
+        [JsonProperty("SECONDARY")] Secondary,
     }
 
     public static class ContactTypeJson1Extension
     {
         public static string Value(this ContactTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ContactTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(ContactTypeJson1).GetFields())
+            foreach (var field in typeof(ContactTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -3,9 +3,9 @@
  */
 package com.cvent.models.errors;
 
+import com.cvent.utils.Blob;
 import jakarta.annotation.Nullable;
 import java.net.http.HttpResponse;
-import com.cvent.utils.Blob;
 
 /**
  * Thrown by an async service call when an error response occurs. Contains details about the response.
@@ -28,5 +28,4 @@ public class AsyncAPIException extends CventSDKError {
     public HttpResponse<Blob> rawResponse() {
         return (HttpResponse<Blob>) super.rawResponse();
     }
-
 }

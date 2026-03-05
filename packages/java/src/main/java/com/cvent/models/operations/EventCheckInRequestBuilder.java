@@ -28,7 +28,7 @@ public class EventCheckInRequestBuilder {
     private EventCheckInRequest _buildRequest() {
         return this.request;
     }
-    
+
     public EventCheckInRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class EventCheckInRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public EventCheckInResponse call() {
-        RequestOperation<EventCheckInRequest, EventCheckInResponse> operation
-              = new EventCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<EventCheckInRequest, EventCheckInResponse> operation =
+                new EventCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

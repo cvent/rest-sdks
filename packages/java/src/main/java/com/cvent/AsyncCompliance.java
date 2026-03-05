@@ -3,8 +3,8 @@
  */
 package com.cvent;
 
-import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
+import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 
 import com.cvent.models.components.CommunicationConfiguration;
 import com.cvent.models.operations.FilterCommunicationLogMessagesRequest;
@@ -27,7 +27,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * These API's provide compliance support for regulated industries.
- * 
+ *
  * <p>**Communication Compliance** lets you view communication activities across your account.
  * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
  * push notifications
@@ -45,22 +45,21 @@ public class AsyncCompliance {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Compliance sync() {
         return syncSDK;
     }
 
-
     /**
      * Get Communication Config
-     * 
+     *
      * <p>Gets communication compliance configuration for an account. For example, gets the communication
      * types enabled for an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetConfigurationRequestBuilder getConfiguration() {
@@ -69,30 +68,28 @@ public class AsyncCompliance {
 
     /**
      * Get Communication Config
-     * 
+     *
      * <p>Gets communication compliance configuration for an account. For example, gets the communication
      * types enabled for an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<GetConfigurationResponse>} - The async response
      */
     public CompletableFuture<GetConfigurationResponse> getConfigurationDirect() {
-        AsyncRequestlessOperation<GetConfigurationResponse> operation
-            = new GetConfiguration.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetConfigurationResponse> operation =
+                new GetConfiguration.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Communication Config
-     * 
+     *
      * <p>Update the communication compliance configuration for an account. For example, configure which
      * communication types will be recorded in the communication log.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateConfigurationRequestBuilder updateConfiguration() {
@@ -101,39 +98,38 @@ public class AsyncCompliance {
 
     /**
      * Update Communication Config
-     * 
+     *
      * <p>Update the communication compliance configuration for an account. For example, configure which
      * communication types will be recorded in the communication log.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateConfigurationResponse>} - The async response
      */
-    public CompletableFuture<UpdateConfigurationResponse> updateConfiguration(@Nonnull CommunicationConfiguration request) {
-        AsyncRequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation
-              = new UpdateConfiguration.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateConfigurationResponse> updateConfiguration(
+            @Nonnull CommunicationConfiguration request) {
+        AsyncRequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation =
+                new UpdateConfiguration.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter is not required.
      * If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetCommunicationLogMessagesRequestBuilder getCommunicationLogMessages() {
@@ -142,47 +138,46 @@ public class AsyncCompliance {
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter is not required.
      * If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetCommunicationLogMessagesResponse>} - The async response
      */
-    public CompletableFuture<GetCommunicationLogMessagesResponse> getCommunicationLogMessages(@Nonnull GetCommunicationLogMessagesRequest request) {
-        AsyncRequestOperation<GetCommunicationLogMessagesRequest, GetCommunicationLogMessagesResponse> operation
-              = new GetCommunicationLogMessages.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetCommunicationLogMessagesResponse> getCommunicationLogMessages(
+            @Nonnull GetCommunicationLogMessagesRequest request) {
+        AsyncRequestOperation<GetCommunicationLogMessagesRequest, GetCommunicationLogMessagesResponse> operation =
+                new GetCommunicationLogMessages.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter in the request
      * body is not required. If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public FilterCommunicationLogMessagesRequestBuilder filterCommunicationLogMessages() {
@@ -191,28 +186,27 @@ public class AsyncCompliance {
 
     /**
      * List Communication
-     * 
+     *
      * <p>Gets a paginated list of communication log messages from your account. The filter in the request
      * body is not required. If no filter
      * is provided then the API will return communication log messages of all types between the specified
      * dates.
-     * 
+     *
      * <p>Supported types are:
-     * 
+     *
      * <p>* email
      * * chat
      * * session_qa
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<FilterCommunicationLogMessagesResponse>} - The async response
      */
-    public CompletableFuture<FilterCommunicationLogMessagesResponse> filterCommunicationLogMessages(@Nonnull FilterCommunicationLogMessagesRequest request) {
-        AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation
-              = new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<FilterCommunicationLogMessagesResponse> filterCommunicationLogMessages(
+            @Nonnull FilterCommunicationLogMessagesRequest request) {
+        AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
+                new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

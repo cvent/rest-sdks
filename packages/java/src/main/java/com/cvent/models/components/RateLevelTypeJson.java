@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * RateLevelTypeJson
- * 
+ *
  * <p>Rate level
  */
 public enum RateLevelTypeJson {
@@ -24,13 +24,13 @@ public enum RateLevelTypeJson {
     RateLevelTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RateLevelTypeJson> fromValue(String value) {
-        for (RateLevelTypeJson o: RateLevelTypeJson.values()) {
+        for (RateLevelTypeJson o : RateLevelTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum RateLevelTypeJson {
         return Optional.empty();
     }
 }
-

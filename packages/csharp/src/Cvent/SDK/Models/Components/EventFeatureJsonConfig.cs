@@ -20,18 +20,36 @@ namespace Cvent.SDK.Models.Components
 
     public class EventFeatureJsonConfigType
     {
-        private EventFeatureJsonConfigType(string value) { Value = value; }
+        private EventFeatureJsonConfigType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static EventFeatureJsonConfigType ZeroAnyOf { get { return new EventFeatureJsonConfigType("0_AnyOf"); } }
+        public static EventFeatureJsonConfigType ZeroAnyOf
+        {
+            get {
+                return new EventFeatureJsonConfigType("0_AnyOf");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(EventFeatureJsonConfigType v) { return v.Value; }
-        public static EventFeatureJsonConfigType FromString(string v) {
-            switch(v) {
-                case "0_AnyOf": return ZeroAnyOf;
-                default: throw new ArgumentException("Invalid value for EventFeatureJsonConfigType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(EventFeatureJsonConfigType v)
+        {
+            return v.Value;
+        }
+        public static EventFeatureJsonConfigType FromString(string v)
+        {
+            switch (v)
+            {
+                case "0_AnyOf":
+                    return ZeroAnyOf;
+                default:
+                    throw new ArgumentException("Invalid value for EventFeatureJsonConfigType");
             }
         }
         public override bool Equals(object? obj)
@@ -91,8 +109,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new EventFeatureJsonConfig(EventFeatureJsonConfigType.ZeroAnyOf)
-                    {
+                    return new EventFeatureJsonConfig(EventFeatureJsonConfigType.ZeroAnyOf) {
                         ZeroAnyOf = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroAnyOf>(json)
                     };
                 }
@@ -112,7 +129,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -147,8 +164,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

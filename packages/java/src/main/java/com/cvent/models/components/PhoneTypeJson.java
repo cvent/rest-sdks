@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PhoneTypeJson
- * 
+ *
  * <p>The type of the phone number.
  */
 public enum PhoneTypeJson {
@@ -24,13 +24,13 @@ public enum PhoneTypeJson {
     PhoneTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PhoneTypeJson> fromValue(String value) {
-        for (PhoneTypeJson o: PhoneTypeJson.values()) {
+        for (PhoneTypeJson o : PhoneTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum PhoneTypeJson {
         return Optional.empty();
     }
 }
-

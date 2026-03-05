@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ScheduleJson
- * 
+ *
  * <p>A scheduled action.
  */
 public class ScheduleJson {
@@ -51,7 +51,7 @@ public class ScheduleJson {
         this.scheduledExecution = scheduledExecution;
         this.action = action;
     }
-    
+
     public ScheduleJson() {
         this(null, null, null);
     }
@@ -82,7 +82,6 @@ public class ScheduleJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the scheduled task.
      */
@@ -90,7 +89,6 @@ public class ScheduleJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when the session will be moved to the next stage: provisioning,
@@ -101,7 +99,6 @@ public class ScheduleJson {
         return this;
     }
 
-
     /**
      * This is used to denote the action to perform with the scheduled task
      */
@@ -109,7 +106,6 @@ public class ScheduleJson {
         this.action = action;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +116,23 @@ public class ScheduleJson {
             return false;
         }
         ScheduleJson other = (ScheduleJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.scheduledExecution, other.scheduledExecution) &&
-            Utils.enhancedDeepEquals(this.action, other.action);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.scheduledExecution, other.scheduledExecution)
+                && Utils.enhancedDeepEquals(this.action, other.action);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, scheduledExecution, action);
+        return Utils.enhancedHash(id, scheduledExecution, action);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ScheduleJson.class,
-                "id", id,
-                "scheduledExecution", scheduledExecution,
-                "action", action);
+        return Utils.toString(ScheduleJson.class, "id", id, "scheduledExecution", scheduledExecution, "action", action);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -150,7 +141,7 @@ public class ScheduleJson {
         private ScheduleActionJson action;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -179,9 +170,7 @@ public class ScheduleJson {
         }
 
         public ScheduleJson build() {
-            return new ScheduleJson(
-                id, scheduledExecution, action);
+            return new ScheduleJson(id, scheduledExecution, action);
         }
-
     }
 }

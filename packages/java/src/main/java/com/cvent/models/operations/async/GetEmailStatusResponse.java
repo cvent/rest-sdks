@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEmailStatusResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetEmailStatusResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable EmailSendStatus emailSendStatus) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.emailSendStatus = emailSendStatus;
     }
-    
+
     public GetEmailStatusResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetEmailStatusResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetEmailStatusResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetEmailStatusResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +112,6 @@ public class GetEmailStatusResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a list of email send statuses associated with particular email request ID.
      */
@@ -127,7 +119,6 @@ public class GetEmailStatusResponse implements AsyncResponse {
         this.emailSendStatus = emailSendStatus;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class GetEmailStatusResponse implements AsyncResponse {
             return false;
         }
         GetEmailStatusResponse other = (GetEmailStatusResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.emailSendStatus, other.emailSendStatus);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.emailSendStatus, other.emailSendStatus);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            emailSendStatus);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, emailSendStatus);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEmailStatusResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "emailSendStatus", emailSendStatus);
+        return Utils.toString(
+                GetEmailStatusResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "emailSendStatus",
+                emailSendStatus);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class GetEmailStatusResponse implements AsyncResponse {
         private EmailSendStatus emailSendStatus;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class GetEmailStatusResponse implements AsyncResponse {
         }
 
         public GetEmailStatusResponse build() {
-            return new GetEmailStatusResponse(
-                contentType, statusCode, rawResponse,
-                emailSendStatus);
+            return new GetEmailStatusResponse(contentType, statusCode, rawResponse, emailSendStatus);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * LocationJson
- * 
+ *
  * <p>Details of a location.
  */
 public class LocationJson {
@@ -53,19 +53,14 @@ public class LocationJson {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("parentLocation") @Nullable ZeroAllOf2 parentLocation,
             @JsonProperty("capacity") @Nullable Long capacity) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.parentLocation = parentLocation;
         this.capacity = capacity;
     }
-    
-    public LocationJson(
-            @Nonnull String id,
-            @Nonnull String name) {
-        this(id, name, null,
-            null);
+
+    public LocationJson(@Nonnull String id, @Nonnull String name) {
+        this(id, name, null, null);
     }
 
     /**
@@ -100,7 +95,6 @@ public class LocationJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the location.
      */
@@ -108,7 +102,6 @@ public class LocationJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The name of the location.
@@ -118,7 +111,6 @@ public class LocationJson {
         return this;
     }
 
-
     /**
      * Details of a location.
      */
@@ -127,7 +119,6 @@ public class LocationJson {
         return this;
     }
 
-
     /**
      * The number of attendees that can be accommodated in this location. -1 indicates unlimited capacity.
      */
@@ -135,7 +126,6 @@ public class LocationJson {
         this.capacity = capacity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +136,25 @@ public class LocationJson {
             return false;
         }
         LocationJson other = (LocationJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.parentLocation, other.parentLocation) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.parentLocation, other.parentLocation)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, parentLocation,
-            capacity);
+        return Utils.enhancedHash(id, name, parentLocation, capacity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LocationJson.class,
-                "id", id,
-                "name", name,
-                "parentLocation", parentLocation,
-                "capacity", capacity);
+        return Utils.toString(
+                LocationJson.class, "id", id, "name", name, "parentLocation", parentLocation, "capacity", capacity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +165,7 @@ public class LocationJson {
         private Long capacity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +201,7 @@ public class LocationJson {
         }
 
         public LocationJson build() {
-            return new LocationJson(
-                id, name, parentLocation,
-                capacity);
+            return new LocationJson(id, name, parentLocation, capacity);
         }
-
     }
 }

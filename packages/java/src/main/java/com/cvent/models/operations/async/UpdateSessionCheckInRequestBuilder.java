@@ -30,7 +30,7 @@ public class UpdateSessionCheckInRequestBuilder {
     private UpdateSessionCheckInRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateSessionCheckInRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateSessionCheckInRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateSessionCheckInResponse> call() {
-        AsyncRequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation
-              = new UpdateSessionCheckIn.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation =
+                new UpdateSessionCheckIn.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

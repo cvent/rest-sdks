@@ -2,6 +2,14 @@
 
 Age category of the requester.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AgeCategory;
+
+AgeCategory value = AgeCategory.ADULT;
+```
+
 
 ## Values
 

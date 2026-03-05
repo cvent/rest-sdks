@@ -20,7 +20,8 @@ public class UpdateQuantityItemRegistrationForAttendeeRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public UpdateQuantityItemRegistrationForAttendeeRequestBuilder request(@Nonnull UpdateQuantityItemRegistrationForAttendeeRequest request) {
+    public UpdateQuantityItemRegistrationForAttendeeRequestBuilder request(
+            @Nonnull UpdateQuantityItemRegistrationForAttendeeRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class UpdateQuantityItemRegistrationForAttendeeRequestBuilder {
     private UpdateQuantityItemRegistrationForAttendeeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateQuantityItemRegistrationForAttendeeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,15 @@ public class UpdateQuantityItemRegistrationForAttendeeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateQuantityItemRegistrationForAttendeeResponse call() {
-        RequestOperation<UpdateQuantityItemRegistrationForAttendeeRequest, UpdateQuantityItemRegistrationForAttendeeResponse> operation
-              = new UpdateQuantityItemRegistrationForAttendee.Sync(sdkConfiguration, _headers);
+        RequestOperation<
+                        UpdateQuantityItemRegistrationForAttendeeRequest,
+                        UpdateQuantityItemRegistrationForAttendeeResponse>
+                operation = new UpdateQuantityItemRegistrationForAttendee.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -2,6 +2,14 @@
 
 Denotes how the compliance request was created.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CreatedBy;
+
+CreatedBy value = CreatedBy.ATTENDEE;
+```
+
 
 ## Values
 

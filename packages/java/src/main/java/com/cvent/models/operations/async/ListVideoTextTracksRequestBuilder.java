@@ -30,7 +30,7 @@ public class ListVideoTextTracksRequestBuilder {
     private ListVideoTextTracksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListVideoTextTracksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class ListVideoTextTracksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListVideoTextTracksResponse> call() {
-        AsyncRequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation
-              = new ListVideoTextTracks.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation =
+                new ListVideoTextTracks.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

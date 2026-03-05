@@ -2,6 +2,14 @@
 
 This is used to denote the type of data collected by a custom field.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CustomFieldJson4CustomFieldType.OpenEndedTextDateTime;
+```
+
 
 ## Values
 

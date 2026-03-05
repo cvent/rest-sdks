@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHousingEventsSummariesRequest {
     /**
      * Limit to this number of search results. Maximum of 200, default of 100.
@@ -32,21 +31,21 @@ public class GetHousingEventsSummariesRequest {
     /**
      * A filter query string narrows search results. If the parameter is not specified, future housing
      * events will be returned.
-     * 
+     *
      * <p>The filter supports the combination of logical and comparison operators, adheres to the pattern
      * filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * start (eq|le|ge|lt|gt)
      * * end (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -55,16 +54,12 @@ public class GetHousingEventsSummariesRequest {
     private String filter;
 
     @JsonCreator
-    public GetHousingEventsSummariesRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetHousingEventsSummariesRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetHousingEventsSummariesRequest() {
         this(null, null, null);
     }
@@ -87,21 +82,21 @@ public class GetHousingEventsSummariesRequest {
     /**
      * A filter query string narrows search results. If the parameter is not specified, future housing
      * events will be returned.
-     * 
+     *
      * <p>The filter supports the combination of logical and comparison operators, adheres to the pattern
      * filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * start (eq|le|ge|lt|gt)
      * * end (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -114,7 +109,6 @@ public class GetHousingEventsSummariesRequest {
         return new Builder();
     }
 
-
     /**
      * Limit to this number of search results. Maximum of 200, default of 100.
      */
@@ -122,7 +116,6 @@ public class GetHousingEventsSummariesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -133,25 +126,24 @@ public class GetHousingEventsSummariesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results. If the parameter is not specified, future housing
      * events will be returned.
-     * 
+     *
      * <p>The filter supports the combination of logical and comparison operators, adheres to the pattern
      * filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * start (eq|le|ge|lt|gt)
      * * end (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -160,7 +152,6 @@ public class GetHousingEventsSummariesRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,28 +162,23 @@ public class GetHousingEventsSummariesRequest {
             return false;
         }
         GetHousingEventsSummariesRequest other = (GetHousingEventsSummariesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventsSummariesRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(GetHousingEventsSummariesRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -201,7 +187,7 @@ public class GetHousingEventsSummariesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -224,21 +210,21 @@ public class GetHousingEventsSummariesRequest {
         /**
          * A filter query string narrows search results. If the parameter is not specified, future housing
          * events will be returned.
-         * 
+         *
          * <p>The filter supports the combination of logical and comparison operators, adheres to the pattern
          * filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * greater than: gt
          * * less than: lt
          * * greater or equal: ge
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * start (eq|le|ge|lt|gt)
          * * end (eq|le|ge|lt|gt)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -249,15 +235,10 @@ public class GetHousingEventsSummariesRequest {
         }
 
         public GetHousingEventsSummariesRequest build() {
-            return new GetHousingEventsSummariesRequest(
-                limit, token, filter);
+            return new GetHousingEventsSummariesRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

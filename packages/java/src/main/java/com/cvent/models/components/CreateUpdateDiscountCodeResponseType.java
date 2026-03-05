@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * CreateUpdateDiscountCodeResponseType
- * 
+ *
  * <p>The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
  * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
- * 
+ *
  * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
  */
 public enum CreateUpdateDiscountCodeResponseType {
@@ -25,13 +25,13 @@ public enum CreateUpdateDiscountCodeResponseType {
     CreateUpdateDiscountCodeResponseType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CreateUpdateDiscountCodeResponseType> fromValue(String value) {
-        for (CreateUpdateDiscountCodeResponseType o: CreateUpdateDiscountCodeResponseType.values()) {
+        for (CreateUpdateDiscountCodeResponseType o : CreateUpdateDiscountCodeResponseType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum CreateUpdateDiscountCodeResponseType {
         return Optional.empty();
     }
 }
-

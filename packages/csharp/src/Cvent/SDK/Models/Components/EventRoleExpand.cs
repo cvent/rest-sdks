@@ -15,20 +15,19 @@ namespace Cvent.SDK.Models.Components
 
     public enum EventRoleExpand
     {
-        [JsonProperty("eventRole")]
-        EventRole,
+        [JsonProperty("eventRole")] EventRole,
     }
 
     public static class EventRoleExpandExtension
     {
         public static string Value(this EventRoleExpand value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventRoleExpand ToEnum(this string value)
         {
-            foreach(var field in typeof(EventRoleExpand).GetFields())
+            foreach (var field in typeof(EventRoleExpand).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

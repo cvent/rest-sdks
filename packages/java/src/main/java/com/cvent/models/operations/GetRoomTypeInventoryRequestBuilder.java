@@ -28,7 +28,7 @@ public class GetRoomTypeInventoryRequestBuilder {
     private GetRoomTypeInventoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetRoomTypeInventoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetRoomTypeInventoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetRoomTypeInventoryResponse call() {
-        RequestOperation<GetRoomTypeInventoryRequest, GetRoomTypeInventoryResponse> operation
-              = new GetRoomTypeInventory.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetRoomTypeInventoryRequest, GetRoomTypeInventoryResponse> operation =
+                new GetRoomTypeInventory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

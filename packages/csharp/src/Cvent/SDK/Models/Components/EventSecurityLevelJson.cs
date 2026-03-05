@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventSecurityLevelJson
     {
-        [JsonProperty("Private")]
-        Private,
-        [JsonProperty("Public")]
-        Public,
-        [JsonProperty("Public and Private")]
-        PublicAndPrivate,
+        [JsonProperty("Private")] Private,
+        [JsonProperty("Public")] Public,
+        [JsonProperty("Public and Private")] PublicAndPrivate,
     }
 
     public static class EventSecurityLevelJsonExtension
     {
         public static string Value(this EventSecurityLevelJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventSecurityLevelJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EventSecurityLevelJson).GetFields())
+            foreach (var field in typeof(EventSecurityLevelJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

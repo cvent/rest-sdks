@@ -40,7 +40,7 @@ public class ListProgramItemsRequestBuilder {
     private ListProgramItemsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListProgramItemsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListProgramItemsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListProgramItemsResponse> call() {
-        AsyncRequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation
-              = new ListProgramItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation =
+                new ListProgramItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListProgramItemsRequestBuilder {
      */
     public Publisher<ListProgramItemsResponse> callAsPublisher() {
         ListProgramItemsRequest request = this.request;
-        AsyncRequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation
-              = new ListProgramItems.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation =
+                new ListProgramItems.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListProgramItemsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListProgramItemsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListProgramItemsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

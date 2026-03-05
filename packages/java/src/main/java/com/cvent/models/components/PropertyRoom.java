@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * PropertyRoom
- * 
+ *
  * <p>Property room details.
  */
 public class PropertyRoom {
@@ -148,21 +148,16 @@ public class PropertyRoom {
         this.name = name;
         this.code = code;
         this.property = property;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
         this.bedTypeCode = bedTypeCode;
         this.numberOfBeds = numberOfBeds;
         this.capacity = capacity;
         this.description = description;
         this.externalCodes = externalCodes;
     }
-    
+
     public PropertyRoom() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -268,7 +263,6 @@ public class PropertyRoom {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -276,7 +270,6 @@ public class PropertyRoom {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -286,7 +279,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -294,7 +286,6 @@ public class PropertyRoom {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -304,7 +295,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     /**
      * The ID of the property room.
      */
@@ -312,7 +302,6 @@ public class PropertyRoom {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the property room.
@@ -322,7 +311,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     /**
      * Room code of the property room.
      */
@@ -330,7 +318,6 @@ public class PropertyRoom {
         this.code = code;
         return this;
     }
-
 
     /**
      * The property that the room belongs to.
@@ -340,7 +327,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     /**
      * True indicates the property room is deleted.
      */
@@ -348,7 +334,6 @@ public class PropertyRoom {
         this.deleted = deleted;
         return this;
     }
-
 
     /**
      * Code representing the bed type.
@@ -358,7 +343,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     /**
      * The number of beds in the room.
      */
@@ -366,7 +350,6 @@ public class PropertyRoom {
         this.numberOfBeds = numberOfBeds;
         return this;
     }
-
 
     /**
      * Maximum capacity of people that can sleep in the room.
@@ -376,7 +359,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     /**
      * A description of the room.
      */
@@ -384,7 +366,6 @@ public class PropertyRoom {
         this.description = description;
         return this;
     }
-
 
     /**
      * Collection of external codes for the room. This includes GDS and other codes used to identify a room
@@ -395,7 +376,6 @@ public class PropertyRoom {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -405,54 +385,77 @@ public class PropertyRoom {
             return false;
         }
         PropertyRoom other = (PropertyRoom) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.property, other.property) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.bedTypeCode, other.bedTypeCode) &&
-            Utils.enhancedDeepEquals(this.numberOfBeds, other.numberOfBeds) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.externalCodes, other.externalCodes);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.property, other.property)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.bedTypeCode, other.bedTypeCode)
+                && Utils.enhancedDeepEquals(this.numberOfBeds, other.numberOfBeds)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.externalCodes, other.externalCodes);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            code, property, deleted,
-            bedTypeCode, numberOfBeds, capacity,
-            description, externalCodes);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                name,
+                code,
+                property,
+                deleted,
+                bedTypeCode,
+                numberOfBeds,
+                capacity,
+                description,
+                externalCodes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyRoom.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "code", code,
-                "property", property,
-                "deleted", deleted,
-                "bedTypeCode", bedTypeCode,
-                "numberOfBeds", numberOfBeds,
-                "capacity", capacity,
-                "description", description,
-                "externalCodes", externalCodes);
+        return Utils.toString(
+                PropertyRoom.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "property",
+                property,
+                "deleted",
+                deleted,
+                "bedTypeCode",
+                bedTypeCode,
+                "numberOfBeds",
+                numberOfBeds,
+                "capacity",
+                capacity,
+                "description",
+                description,
+                "externalCodes",
+                externalCodes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -483,7 +486,7 @@ public class PropertyRoom {
         private List<PropertyRoomExternalCodeJson> externalCodes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -601,18 +604,23 @@ public class PropertyRoom {
 
         public PropertyRoom build() {
             return new PropertyRoom(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                code, property, deleted,
-                bedTypeCode, numberOfBeds, capacity,
-                description, externalCodes);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    name,
+                    code,
+                    property,
+                    deleted,
+                    bedTypeCode,
+                    numberOfBeds,
+                    capacity,
+                    description,
+                    externalCodes);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * SendEmailEventResponse
- * 
+ *
  * <p>Response object containing a request ID and a list of all email responses sent to attendees.
  */
 public class SendEmailEventResponse {
@@ -115,26 +115,21 @@ public class SendEmailEventResponse {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.requestId = Optional.ofNullable(requestId)
-            .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
         this.status = status;
         this.description = description;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.email = Optional.ofNullable(email)
-            .orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.email = Optional.ofNullable(email).orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
         this.resendToPreviousRecipients = resendToPreviousRecipients;
         this.attendeeResponses = attendeeResponses;
     }
-    
+
     public SendEmailEventResponse(
             @Nonnull String requestId,
             @Nonnull EventJson10 event,
             @Nonnull EmailJson2 email,
             boolean resendToPreviousRecipients) {
-        this(null, null, null,
-            null, requestId, null,
-            null, event, email,
-            resendToPreviousRecipients, null);
+        this(null, null, null, null, requestId, null, null, event, email, resendToPreviousRecipients, null);
     }
 
     /**
@@ -220,7 +215,6 @@ public class SendEmailEventResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -228,7 +222,6 @@ public class SendEmailEventResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -238,7 +231,6 @@ public class SendEmailEventResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -246,7 +238,6 @@ public class SendEmailEventResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -256,7 +247,6 @@ public class SendEmailEventResponse {
         return this;
     }
 
-
     /**
      * The request ID for the email send request.
      */
@@ -265,7 +255,6 @@ public class SendEmailEventResponse {
         return this;
     }
 
-
     /**
      * Denotes the status of the send email request.
      */
@@ -273,7 +262,6 @@ public class SendEmailEventResponse {
         this.status = status;
         return this;
     }
-
 
     /**
      * The description of the response. If the `status` is `ERROR`, this field contains the reason for the
@@ -284,7 +272,6 @@ public class SendEmailEventResponse {
         return this;
     }
 
-
     /**
      * Details of the event.
      */
@@ -293,7 +280,6 @@ public class SendEmailEventResponse {
         return this;
     }
 
-
     /**
      * Details of an email to be send.
      */
@@ -301,7 +287,6 @@ public class SendEmailEventResponse {
         this.email = Utils.checkNotNull(email, "email");
         return this;
     }
-
 
     /**
      * True indicates this email should be resent to attendees who had already received this email
@@ -312,7 +297,6 @@ public class SendEmailEventResponse {
         return this;
     }
 
-
     /**
      * List of responses specifying the status of email request for each attendee.
      */
@@ -320,7 +304,6 @@ public class SendEmailEventResponse {
         this.attendeeResponses = attendeeResponses;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -331,47 +314,65 @@ public class SendEmailEventResponse {
             return false;
         }
         SendEmailEventResponse other = (SendEmailEventResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.requestId, other.requestId) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.resendToPreviousRecipients, other.resendToPreviousRecipients) &&
-            Utils.enhancedDeepEquals(this.attendeeResponses, other.attendeeResponses);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.requestId, other.requestId)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.resendToPreviousRecipients, other.resendToPreviousRecipients)
+                && Utils.enhancedDeepEquals(this.attendeeResponses, other.attendeeResponses);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, requestId, status,
-            description, event, email,
-            resendToPreviousRecipients, attendeeResponses);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                requestId,
+                status,
+                description,
+                event,
+                email,
+                resendToPreviousRecipients,
+                attendeeResponses);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendEmailEventResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "requestId", requestId,
-                "status", status,
-                "description", description,
-                "event", event,
-                "email", email,
-                "resendToPreviousRecipients", resendToPreviousRecipients,
-                "attendeeResponses", attendeeResponses);
+        return Utils.toString(
+                SendEmailEventResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "requestId",
+                requestId,
+                "status",
+                status,
+                "description",
+                description,
+                "event",
+                event,
+                "email",
+                email,
+                "resendToPreviousRecipients",
+                resendToPreviousRecipients,
+                "attendeeResponses",
+                attendeeResponses);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -396,7 +397,7 @@ public class SendEmailEventResponse {
         private List<AttendeeResponseJson> attendeeResponses;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -491,11 +492,17 @@ public class SendEmailEventResponse {
 
         public SendEmailEventResponse build() {
             return new SendEmailEventResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, requestId, status,
-                description, event, email,
-                resendToPreviousRecipients, attendeeResponses);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    requestId,
+                    status,
+                    description,
+                    event,
+                    email,
+                    resendToPreviousRecipients,
+                    attendeeResponses);
         }
-
     }
 }

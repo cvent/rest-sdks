@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListRegistrationPathsRequest {
     /**
      * Unique ID of an event.
@@ -44,22 +43,15 @@ public class ListRegistrationPathsRequest {
 
     @JsonCreator
     public ListRegistrationPathsRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String locale) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable String locale) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
     }
-    
-    public ListRegistrationPathsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public ListRegistrationPathsRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -95,7 +87,6 @@ public class ListRegistrationPathsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -104,7 +95,6 @@ public class ListRegistrationPathsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -112,7 +102,6 @@ public class ListRegistrationPathsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -123,7 +112,6 @@ public class ListRegistrationPathsRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -131,7 +119,6 @@ public class ListRegistrationPathsRequest {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +129,25 @@ public class ListRegistrationPathsRequest {
             return false;
         }
         ListRegistrationPathsRequest other = (ListRegistrationPathsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            locale);
+        return Utils.enhancedHash(id, limit, token, locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListRegistrationPathsRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "locale", locale);
+        return Utils.toString(
+                ListRegistrationPathsRequest.class, "id", id, "limit", limit, "token", token, "locale", locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +158,7 @@ public class ListRegistrationPathsRequest {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,16 +195,10 @@ public class ListRegistrationPathsRequest {
         }
 
         public ListRegistrationPathsRequest build() {
-            return new ListRegistrationPathsRequest(
-                id, limit, token,
-                locale);
+            return new ListRegistrationPathsRequest(id, limit, token, locale);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

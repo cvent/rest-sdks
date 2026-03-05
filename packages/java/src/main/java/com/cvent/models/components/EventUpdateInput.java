@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * EventUpdateInput
- * 
+ *
  * <p>Represents updates to an event.
  */
 public class EventUpdateInput {
@@ -153,30 +153,28 @@ public class EventUpdateInput {
             @JsonProperty("capacity") @Nullable Long capacity,
             @JsonProperty("planners") @Nonnull List<PlannerJson2Input> planners,
             @JsonProperty("type") @Nonnull EventTypeJson1 type) {
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
-        this.format = Optional.ofNullable(format)
-            .orElseThrow(() -> new IllegalArgumentException("format cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.format =
+                Optional.ofNullable(format).orElseThrow(() -> new IllegalArgumentException("format cannot be null"));
         this.description = description;
         this.start = start;
         this.end = end;
         this.closeAfter = closeAfter;
         this.archiveAfter = archiveAfter;
         this.timezone = Optional.ofNullable(timezone)
-            .orElseThrow(() -> new IllegalArgumentException("timezone cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("timezone cannot be null"));
         this.venues = venues;
         this.showVenueLocation = showVenueLocation;
         this.showPointOfContact = showPointOfContact;
         this.note = note;
         this.languages = Optional.ofNullable(languages)
-            .orElseThrow(() -> new IllegalArgumentException("languages cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("languages cannot be null"));
         this.capacity = capacity;
         this.planners = Optional.ofNullable(planners)
-            .orElseThrow(() -> new IllegalArgumentException("planners cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("planners cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
-    
+
     public EventUpdateInput(
             @Nonnull String title,
             @Nonnull EventFormatJson format,
@@ -184,12 +182,23 @@ public class EventUpdateInput {
             @Nonnull List<String> languages,
             @Nonnull List<PlannerJson2Input> planners,
             @Nonnull EventTypeJson1 type) {
-        this(title, format, null,
-            null, null, null,
-            null, timezone, null,
-            null, null, null,
-            languages, null, planners,
-            type);
+        this(
+                title,
+                format,
+                null,
+                null,
+                null,
+                null,
+                null,
+                timezone,
+                null,
+                null,
+                null,
+                null,
+                languages,
+                null,
+                planners,
+                type);
     }
 
     /**
@@ -313,7 +322,6 @@ public class EventUpdateInput {
         return new Builder();
     }
 
-
     /**
      * Title of the event being organized.
      */
@@ -321,7 +329,6 @@ public class EventUpdateInput {
         this.title = Utils.checkNotNull(title, "title");
         return this;
     }
-
 
     /**
      * Denotes the format of an event.
@@ -331,7 +338,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * Detailed description of the event.
      */
@@ -339,7 +345,6 @@ public class EventUpdateInput {
         this.description = description;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time when the event starts.
@@ -349,7 +354,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date and time when the event ends.
      */
@@ -357,7 +361,6 @@ public class EventUpdateInput {
         this.end = end;
         return this;
     }
-
 
     /**
      * The event will be closed for registration after this ISO 8601 formatted date and time.
@@ -367,7 +370,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * The event will be archived after this ISO 8601 formatted date and time.
      */
@@ -375,7 +377,6 @@ public class EventUpdateInput {
         this.archiveAfter = archiveAfter;
         return this;
     }
-
 
     /**
      * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
@@ -385,7 +386,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * Collection of venues.
      */
@@ -393,7 +393,6 @@ public class EventUpdateInput {
         this.venues = venues;
         return this;
     }
-
 
     /**
      * True indicates the venue location is visible to guests for essential events. If used with other
@@ -404,7 +403,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * True indicates the venue location is visible to guests for essential events. If used with other
      * event types, the request returns a 400 error.
@@ -414,7 +412,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * Event note created by planners for internal use.
      */
@@ -422,7 +419,6 @@ public class EventUpdateInput {
         this.note = note;
         return this;
     }
-
 
     /**
      * List of IETF language tags enabled for the event. This field supports reading multiple language tags
@@ -433,7 +429,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * The maximum number of individuals that can attend the event. Only used for events with the
      * registration feature.
@@ -443,7 +438,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     /**
      * A collection of contacts representing the event planners.
      */
@@ -451,7 +445,6 @@ public class EventUpdateInput {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
-
 
     /**
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
@@ -462,7 +455,6 @@ public class EventUpdateInput {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -472,59 +464,85 @@ public class EventUpdateInput {
             return false;
         }
         EventUpdateInput other = (EventUpdateInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter) &&
-            Utils.enhancedDeepEquals(this.archiveAfter, other.archiveAfter) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.venues, other.venues) &&
-            Utils.enhancedDeepEquals(this.showVenueLocation, other.showVenueLocation) &&
-            Utils.enhancedDeepEquals(this.showPointOfContact, other.showPointOfContact) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.languages, other.languages) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.planners, other.planners) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.archiveAfter, other.archiveAfter)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.venues, other.venues)
+                && Utils.enhancedDeepEquals(this.showVenueLocation, other.showVenueLocation)
+                && Utils.enhancedDeepEquals(this.showPointOfContact, other.showPointOfContact)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.languages, other.languages)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.planners, other.planners)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            title, format, description,
-            start, end, closeAfter,
-            archiveAfter, timezone, venues,
-            showVenueLocation, showPointOfContact, note,
-            languages, capacity, planners,
-            type);
+                title,
+                format,
+                description,
+                start,
+                end,
+                closeAfter,
+                archiveAfter,
+                timezone,
+                venues,
+                showVenueLocation,
+                showPointOfContact,
+                note,
+                languages,
+                capacity,
+                planners,
+                type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventUpdateInput.class,
-                "title", title,
-                "format", format,
-                "description", description,
-                "start", start,
-                "end", end,
-                "closeAfter", closeAfter,
-                "archiveAfter", archiveAfter,
-                "timezone", timezone,
-                "venues", venues,
-                "showVenueLocation", showVenueLocation,
-                "showPointOfContact", showPointOfContact,
-                "note", note,
-                "languages", languages,
-                "capacity", capacity,
-                "planners", planners,
-                "type", type);
+        return Utils.toString(
+                EventUpdateInput.class,
+                "title",
+                title,
+                "format",
+                format,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "closeAfter",
+                closeAfter,
+                "archiveAfter",
+                archiveAfter,
+                "timezone",
+                timezone,
+                "venues",
+                venues,
+                "showVenueLocation",
+                showVenueLocation,
+                "showPointOfContact",
+                showPointOfContact,
+                "note",
+                note,
+                "languages",
+                languages,
+                "capacity",
+                capacity,
+                "planners",
+                planners,
+                "type",
+                type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String title;
 
@@ -559,7 +577,7 @@ public class EventUpdateInput {
         private EventTypeJson1 type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -697,13 +715,22 @@ public class EventUpdateInput {
 
         public EventUpdateInput build() {
             return new EventUpdateInput(
-                title, format, description,
-                start, end, closeAfter,
-                archiveAfter, timezone, venues,
-                showVenueLocation, showPointOfContact, note,
-                languages, capacity, planners,
-                type);
+                    title,
+                    format,
+                    description,
+                    start,
+                    end,
+                    closeAfter,
+                    archiveAfter,
+                    timezone,
+                    venues,
+                    showVenueLocation,
+                    showPointOfContact,
+                    note,
+                    languages,
+                    capacity,
+                    planners,
+                    type);
         }
-
     }
 }

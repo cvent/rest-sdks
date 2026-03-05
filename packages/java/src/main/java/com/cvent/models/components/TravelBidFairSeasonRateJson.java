@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelBidFairSeasonRateJson
- * 
+ *
  * <p>The negotiated rates for a property room during the fair season.
  */
 public class TravelBidFairSeasonRateJson {
@@ -88,11 +88,9 @@ public class TravelBidFairSeasonRateJson {
         this.allotment = allotment;
         this.status = status;
     }
-    
+
     public TravelBidFairSeasonRateJson() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -149,15 +147,14 @@ public class TravelBidFairSeasonRateJson {
         return new Builder();
     }
 
-
     /**
      * ID of the property's room.
      */
-    public TravelBidFairSeasonRateJson withPropertyRoom(@Nullable TravelBidFairSeasonRateJsonPropertyRoom propertyRoom) {
+    public TravelBidFairSeasonRateJson withPropertyRoom(
+            @Nullable TravelBidFairSeasonRateJsonPropertyRoom propertyRoom) {
         this.propertyRoom = propertyRoom;
         return this;
     }
-
 
     /**
      * The single room rate.
@@ -167,7 +164,6 @@ public class TravelBidFairSeasonRateJson {
         return this;
     }
 
-
     /**
      * The double room rate.
      */
@@ -175,7 +171,6 @@ public class TravelBidFairSeasonRateJson {
         this.doubleRate = doubleRate;
         return this;
     }
-
 
     /**
      * The triple room rate.
@@ -185,7 +180,6 @@ public class TravelBidFairSeasonRateJson {
         return this;
     }
 
-
     /**
      * The quadruple room rate.
      */
@@ -194,7 +188,6 @@ public class TravelBidFairSeasonRateJson {
         return this;
     }
 
-
     /**
      * The number of rooms allotted at the negotiated rate.
      */
@@ -202,7 +195,6 @@ public class TravelBidFairSeasonRateJson {
         this.allotment = allotment;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -213,7 +205,6 @@ public class TravelBidFairSeasonRateJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -223,38 +214,42 @@ public class TravelBidFairSeasonRateJson {
             return false;
         }
         TravelBidFairSeasonRateJson other = (TravelBidFairSeasonRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom) &&
-            Utils.enhancedDeepEquals(this.singleRate, other.singleRate) &&
-            Utils.enhancedDeepEquals(this.doubleRate, other.doubleRate) &&
-            Utils.enhancedDeepEquals(this.tripleRate, other.tripleRate) &&
-            Utils.enhancedDeepEquals(this.quadRate, other.quadRate) &&
-            Utils.enhancedDeepEquals(this.allotment, other.allotment) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom)
+                && Utils.enhancedDeepEquals(this.singleRate, other.singleRate)
+                && Utils.enhancedDeepEquals(this.doubleRate, other.doubleRate)
+                && Utils.enhancedDeepEquals(this.tripleRate, other.tripleRate)
+                && Utils.enhancedDeepEquals(this.quadRate, other.quadRate)
+                && Utils.enhancedDeepEquals(this.allotment, other.allotment)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            propertyRoom, singleRate, doubleRate,
-            tripleRate, quadRate, allotment,
-            status);
+        return Utils.enhancedHash(propertyRoom, singleRate, doubleRate, tripleRate, quadRate, allotment, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidFairSeasonRateJson.class,
-                "propertyRoom", propertyRoom,
-                "singleRate", singleRate,
-                "doubleRate", doubleRate,
-                "tripleRate", tripleRate,
-                "quadRate", quadRate,
-                "allotment", allotment,
-                "status", status);
+        return Utils.toString(
+                TravelBidFairSeasonRateJson.class,
+                "propertyRoom",
+                propertyRoom,
+                "singleRate",
+                singleRate,
+                "doubleRate",
+                doubleRate,
+                "tripleRate",
+                tripleRate,
+                "quadRate",
+                quadRate,
+                "allotment",
+                allotment,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelBidFairSeasonRateJsonPropertyRoom propertyRoom;
 
@@ -271,7 +266,7 @@ public class TravelBidFairSeasonRateJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -333,10 +328,7 @@ public class TravelBidFairSeasonRateJson {
 
         public TravelBidFairSeasonRateJson build() {
             return new TravelBidFairSeasonRateJson(
-                propertyRoom, singleRate, doubleRate,
-                tripleRate, quadRate, allotment,
-                status);
+                    propertyRoom, singleRate, doubleRate, tripleRate, quadRate, allotment, status);
         }
-
     }
 }

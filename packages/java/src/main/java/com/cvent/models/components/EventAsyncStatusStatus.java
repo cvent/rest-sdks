@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventAsyncStatusStatus
- * 
+ *
  * <p>The status of the event being created or copied.
  */
 public enum EventAsyncStatusStatus {
@@ -24,13 +24,13 @@ public enum EventAsyncStatusStatus {
     EventAsyncStatusStatus(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventAsyncStatusStatus> fromValue(String value) {
-        for (EventAsyncStatusStatus o: EventAsyncStatusStatus.values()) {
+        for (EventAsyncStatusStatus o : EventAsyncStatusStatus.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum EventAsyncStatusStatus {
         return Optional.empty();
     }
 }
-

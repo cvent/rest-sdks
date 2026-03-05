@@ -3,6 +3,22 @@
  */
 package com.cvent.hooks;
 
+import com.cvent.SDKConfiguration;
+import com.cvent.SecuritySource;
+import com.cvent.utils.Constants;
+import com.cvent.utils.HTTPClient;
+import com.cvent.utils.Helpers;
+import com.cvent.utils.Hook.AfterError;
+import com.cvent.utils.Hook.AfterErrorContext;
+import com.cvent.utils.Hook.BeforeRequest;
+import com.cvent.utils.Hook.BeforeRequestContext;
+import com.cvent.utils.Hook.HookContext;
+import com.cvent.utils.Hook.SdkInit;
+import com.cvent.utils.Security;
+import com.cvent.utils.SessionManager;
+import com.cvent.utils.SessionManager.HasSessionKey;
+import com.cvent.utils.SessionManager.Session;
+import com.cvent.utils.Utils;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
@@ -16,23 +32,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import com.cvent.SecuritySource;
-import com.cvent.utils.Constants;
-import com.cvent.utils.Helpers;
-import com.cvent.utils.HTTPClient;
-import com.cvent.utils.Hook.AfterError;
-import com.cvent.utils.Hook.AfterErrorContext;
-import com.cvent.utils.Hook.BeforeRequest;
-import com.cvent.utils.Hook.BeforeRequestContext;
-import com.cvent.utils.Hook.HookContext;
-import com.cvent.utils.Hook.SdkInit;
-import com.cvent.SDKConfiguration;
-import com.cvent.utils.SessionManager;
-import com.cvent.utils.SessionManager.HasSessionKey;
-import com.cvent.utils.SessionManager.Session;
-import com.cvent.utils.Security;
-import com.cvent.utils.Utils;
 
 public final class ClientCredentialsHook implements SdkInit, BeforeRequest, AfterError {
 
@@ -67,17 +66,18 @@ public final class ClientCredentialsHook implements SdkInit, BeforeRequest, Afte
             return request;
         }
         List<String> requiredScopes = getRequiredScopes(credentials, context);
-        Session<Credentials> session = sessions.getSession(credentials, requiredScopes,
+        Session<Credentials> session = sessions.getSession(
+                credentials,
+                requiredScopes,
                 scopes -> doTokenRequest(context.baseUrl(), client, credentials, scopes, Constants.HAS_CLIENT_CREDENTIALS_BASIC));
-        return Helpers.copy(request) //
-                // overwrites any previous value
-                .setHeader("Authorization", "Bearer " + session.token().orElse("")) //
+        return Helpers.copy(request)
+                .setHeader("Authorization", "Bearer " + session.token().orElse(""))
                 .build();
     }
 
     @Override
-    public HttpResponse<InputStream> afterError(AfterErrorContext context, Optional<HttpResponse<InputStream>> response,
-            Optional<Exception> error) throws Exception {
+    public HttpResponse<InputStream> afterError(
+            AfterErrorContext context, Optional<HttpResponse<InputStream>> response, Optional<Exception> error) throws Exception {
         if (isHookDisabled(context)) {
             return response.get();
         }
@@ -114,17 +114,23 @@ public final class ClientCredentialsHook implements SdkInit, BeforeRequest, Afte
         return !context.oauthScopes().isPresent();
     }
 
-    private static Session<Credentials> doTokenRequest(String baseUrl, HTTPClient client, Credentials credentials,
-            List<String> scopes, boolean hasClientCredentialsBasic) {
+    private static Session<Credentials> doTokenRequest(
+            String baseUrl,
+            HTTPClient client,
+            Credentials credentials,
+            List<String> scopes,
+            boolean hasClientCredentialsBasic) {
         Map<String, String> payload = new HashMap<>();
         Map<String, String> headers = new HashMap<>();
 
         payload.put("grant_type", "client_credentials");
         if (hasClientCredentialsBasic) {
-            headers.put("Authorization", "Basic "
-                + Base64.getEncoder()
-                .encodeToString(String.format("%s:%s", credentials.clientId, credentials.clientSecret)
-                                      .getBytes(StandardCharsets.UTF_8)));
+            headers.put(
+                    "Authorization",
+                    "Basic "
+                            + Base64.getEncoder()
+                                    .encodeToString(String.format("%s:%s", credentials.clientId, credentials.clientSecret)
+                                            .getBytes(StandardCharsets.UTF_8)));
         } else {
             payload.put("client_id", credentials.clientId);
             payload.put("client_secret", credentials.clientSecret);
@@ -137,7 +143,7 @@ public final class ClientCredentialsHook implements SdkInit, BeforeRequest, Afte
     }
 
     // VisibleForTesting
-    final static class Credentials implements HasSessionKey {
+    static final class Credentials implements HasSessionKey {
         final String clientId;
         final String clientSecret;
         final String tokenUrl;
@@ -175,17 +181,17 @@ public final class ClientCredentialsHook implements SdkInit, BeforeRequest, Afte
         // client credentials and use the first one found. If present then is nested security
         // and we treat the field value as the security object when we search for the client credentials specific fields.
 
-        Object sec = Security.findComplexObjectWithNonEmptyAnnotatedField(security,
-                        "\\bscheme=true\\b",
-                        "\\btype=oauth2\\b",
-                        "\\bsubtype=client_credentials\\b")
-                    .orElse(security);
+        Object sec =
+                Security.findComplexObjectWithNonEmptyAnnotatedField(
+                        security, "\\bscheme=true\\b", "\\btype=oauth2\\b", "\\bsubtype=client_credentials\\b")
+                        .orElse(security);
 
         Optional<String> clientId = oauth2FieldValue(sec, "clientID");
         Optional<String> clientSecret = oauth2FieldValue(sec, "clientSecret");
         Optional<String> tokenUrl = fieldValue(sec, "tokenURL", String.class);
-        @SuppressWarnings("unchecked") // prevent generic type erasure warning
-        List<String> scopes = (List<String>) fieldValue(sec, "scopes", List.class).orElse(null);
+        @SuppressWarnings("unchecked")
+        List<String> scopes =
+                (List<String>) fieldValue(sec, "scopes", List.class).orElse(null);
 
         if (clientId.isEmpty() || clientSecret.isEmpty() || tokenUrl.isEmpty()) {
             return Optional.empty();

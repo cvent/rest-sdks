@@ -2,6 +2,14 @@
 
 Respondent Status
 
+## Example Usage
+
+```java
+import com.cvent.models.components.RespondentStatusJson;
+
+RespondentStatusJson value = RespondentStatusJson.NO_RESPONSE;
+```
+
 
 ## Values
 

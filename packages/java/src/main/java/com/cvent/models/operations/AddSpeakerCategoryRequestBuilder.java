@@ -29,7 +29,7 @@ public class AddSpeakerCategoryRequestBuilder {
     private SpeakerCategory _buildRequest() {
         return this.request;
     }
-    
+
     public AddSpeakerCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class AddSpeakerCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public AddSpeakerCategoryResponse call() {
-        RequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation
-              = new AddSpeakerCategory.Sync(sdkConfiguration, _headers);
+        RequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
+                new AddSpeakerCategory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

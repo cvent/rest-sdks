@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetAppointmentAttendeeByIdRequest {
     /**
      * The unique identifier of an appointment attendee. The appointment attendee's ID is a combination of
@@ -21,10 +20,8 @@ public class GetAppointmentAttendeeByIdRequest {
     private String id;
 
     @JsonCreator
-    public GetAppointmentAttendeeByIdRequest(
-            @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetAppointmentAttendeeByIdRequest(@Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -39,7 +36,6 @@ public class GetAppointmentAttendeeByIdRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of an appointment attendee. The appointment attendee's ID is a combination of
      * the associated appointment event ID and the attendee's contact ID, concatenated with "::" symbols.
@@ -48,7 +44,6 @@ public class GetAppointmentAttendeeByIdRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -59,29 +54,26 @@ public class GetAppointmentAttendeeByIdRequest {
             return false;
         }
         GetAppointmentAttendeeByIdRequest other = (GetAppointmentAttendeeByIdRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAppointmentAttendeeByIdRequest.class,
-                "id", id);
+        return Utils.toString(GetAppointmentAttendeeByIdRequest.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +86,7 @@ public class GetAppointmentAttendeeByIdRequest {
         }
 
         public GetAppointmentAttendeeByIdRequest build() {
-            return new GetAppointmentAttendeeByIdRequest(
-                id);
+            return new GetAppointmentAttendeeByIdRequest(id);
         }
-
     }
 }

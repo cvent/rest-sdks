@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * TravelBidAmenityJson
- * 
+ *
  * <p>Amenity details for a travel bid.
  */
 public class TravelBidAmenityJson {
@@ -101,19 +101,16 @@ public class TravelBidAmenityJson {
         this.type = type;
         this.code = code;
         this.category = category;
-        this.included = Optional.ofNullable(included)
-            .orElse(Builder._SINGLETON_VALUE_Included.value());
+        this.included = Optional.ofNullable(included).orElse(Builder._SINGLETON_VALUE_Included.value());
         this.price = price;
         this.discountAmount = discountAmount;
         this.internalCost = internalCost;
         this.description = description;
         this.status = status;
     }
-    
+
     public TravelBidAmenityJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -184,7 +181,6 @@ public class TravelBidAmenityJson {
         return new Builder();
     }
 
-
     /**
      * Amenity type
      */
@@ -192,7 +188,6 @@ public class TravelBidAmenityJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The code representing the amenity.
@@ -202,7 +197,6 @@ public class TravelBidAmenityJson {
         return this;
     }
 
-
     /**
      * The category of the amenity.
      */
@@ -210,7 +204,6 @@ public class TravelBidAmenityJson {
         this.category = category;
         return this;
     }
-
 
     /**
      * True indicates the amenity price is included in the rate.
@@ -220,7 +213,6 @@ public class TravelBidAmenityJson {
         return this;
     }
 
-
     /**
      * The price of the amenity.
      */
@@ -228,7 +220,6 @@ public class TravelBidAmenityJson {
         this.price = price;
         return this;
     }
-
 
     /**
      * The price of the amenity after discounts.
@@ -238,7 +229,6 @@ public class TravelBidAmenityJson {
         return this;
     }
 
-
     /**
      * Internal cost of the amenity.
      */
@@ -247,7 +237,6 @@ public class TravelBidAmenityJson {
         return this;
     }
 
-
     /**
      * Additional notes on the amenity.
      */
@@ -255,7 +244,6 @@ public class TravelBidAmenityJson {
         this.description = description;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -266,7 +254,6 @@ public class TravelBidAmenityJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -276,42 +263,49 @@ public class TravelBidAmenityJson {
             return false;
         }
         TravelBidAmenityJson other = (TravelBidAmenityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.included, other.included) &&
-            Utils.enhancedDeepEquals(this.price, other.price) &&
-            Utils.enhancedDeepEquals(this.discountAmount, other.discountAmount) &&
-            Utils.enhancedDeepEquals(this.internalCost, other.internalCost) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.included, other.included)
+                && Utils.enhancedDeepEquals(this.price, other.price)
+                && Utils.enhancedDeepEquals(this.discountAmount, other.discountAmount)
+                && Utils.enhancedDeepEquals(this.internalCost, other.internalCost)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            type, code, category,
-            included, price, discountAmount,
-            internalCost, description, status);
+                type, code, category, included, price, discountAmount, internalCost, description, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidAmenityJson.class,
-                "type", type,
-                "code", code,
-                "category", category,
-                "included", included,
-                "price", price,
-                "discountAmount", discountAmount,
-                "internalCost", internalCost,
-                "description", description,
-                "status", status);
+        return Utils.toString(
+                TravelBidAmenityJson.class,
+                "type",
+                type,
+                "code",
+                code,
+                "category",
+                category,
+                "included",
+                included,
+                "price",
+                price,
+                "discountAmount",
+                discountAmount,
+                "internalCost",
+                internalCost,
+                "description",
+                description,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AmenityTypeJson type;
 
@@ -332,7 +326,7 @@ public class TravelBidAmenityJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -410,16 +404,10 @@ public class TravelBidAmenityJson {
 
         public TravelBidAmenityJson build() {
             return new TravelBidAmenityJson(
-                type, code, category,
-                included, price, discountAmount,
-                internalCost, description, status);
+                    type, code, category, included, price, discountAmount, internalCost, description, status);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Included =
-                new LazySingletonValue<>(
-                        "included",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("included", "false", new TypeReference<Boolean>() {});
     }
 }

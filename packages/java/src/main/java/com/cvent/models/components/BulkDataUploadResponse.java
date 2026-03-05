@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BulkDataUploadResponse
- * 
+ *
  * <p>The model representing the results of a bulk data upload
  */
 public class BulkDataUploadResponse {
@@ -42,7 +42,7 @@ public class BulkDataUploadResponse {
         this.data = data;
         this.count = count;
     }
-    
+
     public BulkDataUploadResponse() {
         this(null, null);
     }
@@ -65,7 +65,6 @@ public class BulkDataUploadResponse {
         return new Builder();
     }
 
-
     /**
      * Collection of objects to be processed
      */
@@ -74,7 +73,6 @@ public class BulkDataUploadResponse {
         return this;
     }
 
-
     /**
      * The number of successfully uploaded data records
      */
@@ -82,7 +80,6 @@ public class BulkDataUploadResponse {
         this.count = count;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +90,28 @@ public class BulkDataUploadResponse {
             return false;
         }
         BulkDataUploadResponse other = (BulkDataUploadResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data) &&
-            Utils.enhancedDeepEquals(this.count, other.count);
+        return Utils.enhancedDeepEquals(this.data, other.data) && Utils.enhancedDeepEquals(this.count, other.count);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data, count);
+        return Utils.enhancedHash(data, count);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BulkDataUploadResponse.class,
-                "data", data,
-                "count", count);
+        return Utils.toString(BulkDataUploadResponse.class, "data", data, "count", count);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<BulkDataPropertyJson> data;
 
         private Long count;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +131,7 @@ public class BulkDataUploadResponse {
         }
 
         public BulkDataUploadResponse build() {
-            return new BulkDataUploadResponse(
-                data, count);
+            return new BulkDataUploadResponse(data, count);
         }
-
     }
 }

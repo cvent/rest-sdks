@@ -2,6 +2,14 @@
 
 Business validation code for bad requests.
 
+## Example Usage
+
+```java
+import com.cvent.models.errors.ValidationCode;
+
+ValidationCode value = ValidationCode.ATTENDEES_PER_SEGMENT_LIMIT_REACHED;
+```
+
 
 ## Values
 

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * BudgetAllocationsList
- * 
+ *
  * <p>Request body  for creating or updating the budget allocations for the event. The soft limit for the
  * maximum number of allocations is 100.
  */
@@ -38,9 +38,9 @@ public class BudgetAllocationsList {
             @JsonProperty("allocateBy") @Nonnull BudgetAllocatebyJson allocateBy,
             @JsonProperty("allocations") @Nonnull List<BudgetAllocationJson> allocations) {
         this.allocateBy = Optional.ofNullable(allocateBy)
-            .orElseThrow(() -> new IllegalArgumentException("allocateBy cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("allocateBy cannot be null"));
         this.allocations = Optional.ofNullable(allocations)
-            .orElseThrow(() -> new IllegalArgumentException("allocations cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("allocations cannot be null"));
     }
 
     /**
@@ -63,7 +63,6 @@ public class BudgetAllocationsList {
         return new Builder();
     }
 
-
     /**
      * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
      * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
@@ -74,7 +73,6 @@ public class BudgetAllocationsList {
         return this;
     }
 
-
     /**
      * List of budget allocations.
      */
@@ -82,7 +80,6 @@ public class BudgetAllocationsList {
         this.allocations = Utils.checkNotNull(allocations, "allocations");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +90,29 @@ public class BudgetAllocationsList {
             return false;
         }
         BudgetAllocationsList other = (BudgetAllocationsList) o;
-        return 
-            Utils.enhancedDeepEquals(this.allocateBy, other.allocateBy) &&
-            Utils.enhancedDeepEquals(this.allocations, other.allocations);
+        return Utils.enhancedDeepEquals(this.allocateBy, other.allocateBy)
+                && Utils.enhancedDeepEquals(this.allocations, other.allocations);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            allocateBy, allocations);
+        return Utils.enhancedHash(allocateBy, allocations);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetAllocationsList.class,
-                "allocateBy", allocateBy,
-                "allocations", allocations);
+        return Utils.toString(BudgetAllocationsList.class, "allocateBy", allocateBy, "allocations", allocations);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BudgetAllocatebyJson allocateBy;
 
         private List<BudgetAllocationJson> allocations;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -141,9 +134,7 @@ public class BudgetAllocationsList {
         }
 
         public BudgetAllocationsList build() {
-            return new BudgetAllocationsList(
-                allocateBy, allocations);
+            return new BudgetAllocationsList(allocateBy, allocations);
         }
-
     }
 }

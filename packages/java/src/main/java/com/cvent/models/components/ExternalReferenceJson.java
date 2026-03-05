@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExternalReferenceJson
- * 
+ *
  * <p>An external reference.
  */
 public class ExternalReferenceJson {
@@ -49,7 +49,7 @@ public class ExternalReferenceJson {
         this.id = id;
         this.referenceId = referenceId;
     }
-    
+
     public ExternalReferenceJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class ExternalReferenceJson {
         return new Builder();
     }
 
-
     /**
      * Type of the external system.
      */
@@ -87,7 +86,6 @@ public class ExternalReferenceJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The identifier of the external system.
@@ -97,7 +95,6 @@ public class ExternalReferenceJson {
         return this;
     }
 
-
     /**
      * The identifier of an attendee in the external system.
      */
@@ -105,7 +102,6 @@ public class ExternalReferenceJson {
         this.referenceId = referenceId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class ExternalReferenceJson {
             return false;
         }
         ExternalReferenceJson other = (ExternalReferenceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, id, referenceId);
+        return Utils.enhancedHash(type, id, referenceId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalReferenceJson.class,
-                "type", type,
-                "id", id,
-                "referenceId", referenceId);
+        return Utils.toString(ExternalReferenceJson.class, "type", type, "id", id, "referenceId", referenceId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExternalReferenceTypeJson type;
 
@@ -146,7 +137,7 @@ public class ExternalReferenceJson {
         private String referenceId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class ExternalReferenceJson {
         }
 
         public ExternalReferenceJson build() {
-            return new ExternalReferenceJson(
-                type, id, referenceId);
+            return new ExternalReferenceJson(type, id, referenceId);
         }
-
     }
 }

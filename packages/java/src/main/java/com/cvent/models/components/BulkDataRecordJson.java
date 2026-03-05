@@ -8,16 +8,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.lang.Override;
 import java.lang.String;
 
-
 public class BulkDataRecordJson {
     @JsonCreator
-    public BulkDataRecordJson() {
-    }
+    public BulkDataRecordJson() {}
 
     public static Builder builder() {
         return new Builder();
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -29,29 +26,26 @@ public class BulkDataRecordJson {
         }
         return true;
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            );
+        return Utils.enhancedHash();
     }
-    
+
     @Override
     public String toString() {
         return Utils.toString(BulkDataRecordJson.class);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public BulkDataRecordJson build() {
-            return new BulkDataRecordJson(
-                );
+            return new BulkDataRecordJson();
         }
-
     }
 }

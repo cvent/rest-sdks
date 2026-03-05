@@ -2,6 +2,14 @@
 
 This is used to denote the type of the attendee activity.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ActivityTypeJson;
+
+ActivityTypeJson value = ActivityTypeJson.APPOINTMENT_ACCEPTED;
+```
+
 
 ## Values
 

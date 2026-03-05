@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * RecipientsResponseJson
- * 
+ *
  * <p>Response object indicating the status of send email request for a particular recipient.
  */
 public class RecipientsResponseJson {
@@ -44,16 +44,13 @@ public class RecipientsResponseJson {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("status") @Nonnull SendEmailStatusJson status,
             @JsonProperty("errorMessage") @Nullable String errorMessage) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.errorMessage = errorMessage;
     }
-    
-    public RecipientsResponseJson(
-            @Nonnull String id,
-            @Nonnull SendEmailStatusJson status) {
+
+    public RecipientsResponseJson(@Nonnull String id, @Nonnull SendEmailStatusJson status) {
         this(id, status, null);
     }
 
@@ -82,7 +79,6 @@ public class RecipientsResponseJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the recipient you're emailing.
      */
@@ -90,7 +86,6 @@ public class RecipientsResponseJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * It is used to denote the status of the sent email.
@@ -100,7 +95,6 @@ public class RecipientsResponseJson {
         return this;
     }
 
-
     /**
      * The error description describes the reason of a failed email.
      */
@@ -108,7 +102,6 @@ public class RecipientsResponseJson {
         this.errorMessage = errorMessage;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -119,28 +112,23 @@ public class RecipientsResponseJson {
             return false;
         }
         RecipientsResponseJson other = (RecipientsResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.errorMessage, other.errorMessage);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.errorMessage, other.errorMessage);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status, errorMessage);
+        return Utils.enhancedHash(id, status, errorMessage);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RecipientsResponseJson.class,
-                "id", id,
-                "status", status,
-                "errorMessage", errorMessage);
+        return Utils.toString(RecipientsResponseJson.class, "id", id, "status", status, "errorMessage", errorMessage);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -149,7 +137,7 @@ public class RecipientsResponseJson {
         private String errorMessage;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -177,9 +165,7 @@ public class RecipientsResponseJson {
         }
 
         public RecipientsResponseJson build() {
-            return new RecipientsResponseJson(
-                id, status, errorMessage);
+            return new RecipientsResponseJson(id, status, errorMessage);
         }
-
     }
 }

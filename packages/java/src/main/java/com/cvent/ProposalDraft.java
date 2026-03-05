@@ -28,7 +28,7 @@ public class ProposalDraft {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncProposalDraft async() {
@@ -37,9 +37,9 @@ public class ProposalDraft {
 
     /**
      * Beta - Create Proposal Draft
-     * 
+     *
      * <p>Creates a new proposal draft.
-     * 
+     *
      * @return The call builder
      */
     public CreateProposalDraftRequestBuilder createProposalDraft() {
@@ -48,9 +48,9 @@ public class ProposalDraft {
 
     /**
      * Beta - Create Proposal Draft
-     * 
+     *
      * <p>Creates a new proposal draft.
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -60,17 +60,16 @@ public class ProposalDraft {
 
     /**
      * Beta - Create Proposal Draft
-     * 
+     *
      * <p>Creates a new proposal draft.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateProposalDraftResponse createProposalDraft(@Nullable ProposalRequest request) {
-        RequestOperation<ProposalRequest, CreateProposalDraftResponse> operation
-              = new CreateProposalDraft.Sync(sdkConfiguration, _headers);
+        RequestOperation<ProposalRequest, CreateProposalDraftResponse> operation =
+                new CreateProposalDraft.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

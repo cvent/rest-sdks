@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EncodingProfileJson
     {
-        [JsonProperty("Planner")]
-        Planner,
-        [JsonProperty("Attendee")]
-        Attendee,
+        [JsonProperty("Planner")] Planner,
+        [JsonProperty("Attendee")] Attendee,
     }
 
     public static class EncodingProfileJsonExtension
     {
         public static string Value(this EncodingProfileJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EncodingProfileJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EncodingProfileJson).GetFields())
+            foreach (var field in typeof(EncodingProfileJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

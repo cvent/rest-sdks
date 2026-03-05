@@ -15,20 +15,19 @@ namespace Cvent.SDK.Models.Components
 
     public enum ExpandAirActualQuestionAnswer
     {
-        [JsonProperty("airActualDetails.airActualAnswers.question")]
-        AirActualDetailsAirActualAnswersQuestion,
+        [JsonProperty("airActualDetails.airActualAnswers.question")] AirActualDetailsAirActualAnswersQuestion,
     }
 
     public static class ExpandAirActualQuestionAnswerExtension
     {
         public static string Value(this ExpandAirActualQuestionAnswer value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExpandAirActualQuestionAnswer ToEnum(this string value)
         {
-            foreach(var field in typeof(ExpandAirActualQuestionAnswer).GetFields())
+            foreach (var field in typeof(ExpandAirActualQuestionAnswer).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

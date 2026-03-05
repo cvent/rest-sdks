@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * OrderItemJson
- * 
+ *
  * <p>This is used to denote an item in the order
  */
 public class OrderItemJson {
@@ -243,16 +243,33 @@ public class OrderItemJson {
         this.discounts = discounts;
         this.deleted = deleted;
     }
-    
+
     public OrderItemJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -427,7 +444,6 @@ public class OrderItemJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -435,7 +451,6 @@ public class OrderItemJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -445,7 +460,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -453,7 +467,6 @@ public class OrderItemJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -463,7 +476,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -471,7 +483,6 @@ public class OrderItemJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Represents an order by its ID and includes the order type.
@@ -481,7 +492,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * The reference to the event. Contains only the ID of the event.
      */
@@ -489,7 +499,6 @@ public class OrderItemJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
@@ -499,7 +508,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * Indicates if an attendee is a guest
      */
@@ -507,7 +515,6 @@ public class OrderItemJson {
         this.guest = guest;
         return this;
     }
-
 
     /**
      * The reference to the guest. Contains only the ID of the guest.
@@ -517,7 +524,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * This is used to denote the product details in an order item
      */
@@ -525,7 +531,6 @@ public class OrderItemJson {
         this.product = product;
         return this;
     }
-
 
     /**
      * Indicates if the order item is active
@@ -535,7 +540,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * This denotes the name of the item
      */
@@ -543,7 +547,6 @@ public class OrderItemJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Price of the item
@@ -553,7 +556,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * Fee for a product.
      */
@@ -561,7 +563,6 @@ public class OrderItemJson {
         this.fee = fee;
         return this;
     }
-
 
     /**
      * Quantity of item purchased by an attendee.
@@ -571,7 +572,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * Total amount for the item purchased by the attendee.
      */
@@ -579,7 +579,6 @@ public class OrderItemJson {
         this.amountOrdered = amountOrdered;
         return this;
     }
-
 
     /**
      * Amount paid by the attendee.
@@ -589,7 +588,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * Amount due on the order item.
      */
@@ -597,7 +595,6 @@ public class OrderItemJson {
         this.amountDue = amountDue;
         return this;
     }
-
 
     /**
      * Cost of item at current/early bird price
@@ -607,7 +604,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * Indicates if the order item is tiered
      */
@@ -615,7 +611,6 @@ public class OrderItemJson {
         this.tiered = tiered;
         return this;
     }
-
 
     /**
      * The list of general ledger details in an order item.
@@ -625,7 +620,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * The list of discount details.
      */
@@ -634,7 +628,6 @@ public class OrderItemJson {
         return this;
     }
 
-
     /**
      * True indicates the order item has been deleted.
      */
@@ -642,7 +635,6 @@ public class OrderItemJson {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -653,77 +645,117 @@ public class OrderItemJson {
             return false;
         }
         OrderItemJson other = (OrderItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.guest, other.guest) &&
-            Utils.enhancedDeepEquals(this.guestDetail, other.guestDetail) &&
-            Utils.enhancedDeepEquals(this.product, other.product) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.price, other.price) &&
-            Utils.enhancedDeepEquals(this.fee, other.fee) &&
-            Utils.enhancedDeepEquals(this.quantity, other.quantity) &&
-            Utils.enhancedDeepEquals(this.amountOrdered, other.amountOrdered) &&
-            Utils.enhancedDeepEquals(this.amountPaid, other.amountPaid) &&
-            Utils.enhancedDeepEquals(this.amountDue, other.amountDue) &&
-            Utils.enhancedDeepEquals(this.productPriceTierAmount, other.productPriceTierAmount) &&
-            Utils.enhancedDeepEquals(this.tiered, other.tiered) &&
-            Utils.enhancedDeepEquals(this.generalLedgerItems, other.generalLedgerItems) &&
-            Utils.enhancedDeepEquals(this.discounts, other.discounts) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.guest, other.guest)
+                && Utils.enhancedDeepEquals(this.guestDetail, other.guestDetail)
+                && Utils.enhancedDeepEquals(this.product, other.product)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.price, other.price)
+                && Utils.enhancedDeepEquals(this.fee, other.fee)
+                && Utils.enhancedDeepEquals(this.quantity, other.quantity)
+                && Utils.enhancedDeepEquals(this.amountOrdered, other.amountOrdered)
+                && Utils.enhancedDeepEquals(this.amountPaid, other.amountPaid)
+                && Utils.enhancedDeepEquals(this.amountDue, other.amountDue)
+                && Utils.enhancedDeepEquals(this.productPriceTierAmount, other.productPriceTierAmount)
+                && Utils.enhancedDeepEquals(this.tiered, other.tiered)
+                && Utils.enhancedDeepEquals(this.generalLedgerItems, other.generalLedgerItems)
+                && Utils.enhancedDeepEquals(this.discounts, other.discounts)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, order,
-            event, attendee, guest,
-            guestDetail, product, active,
-            name, price, fee,
-            quantity, amountOrdered, amountPaid,
-            amountDue, productPriceTierAmount, tiered,
-            generalLedgerItems, discounts, deleted);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                order,
+                event,
+                attendee,
+                guest,
+                guestDetail,
+                product,
+                active,
+                name,
+                price,
+                fee,
+                quantity,
+                amountOrdered,
+                amountPaid,
+                amountDue,
+                productPriceTierAmount,
+                tiered,
+                generalLedgerItems,
+                discounts,
+                deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderItemJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "order", order,
-                "event", event,
-                "attendee", attendee,
-                "guest", guest,
-                "guestDetail", guestDetail,
-                "product", product,
-                "active", active,
-                "name", name,
-                "price", price,
-                "fee", fee,
-                "quantity", quantity,
-                "amountOrdered", amountOrdered,
-                "amountPaid", amountPaid,
-                "amountDue", amountDue,
-                "productPriceTierAmount", productPriceTierAmount,
-                "tiered", tiered,
-                "generalLedgerItems", generalLedgerItems,
-                "discounts", discounts,
-                "deleted", deleted);
+        return Utils.toString(
+                OrderItemJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "order",
+                order,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "guest",
+                guest,
+                "guestDetail",
+                guestDetail,
+                "product",
+                product,
+                "active",
+                active,
+                "name",
+                name,
+                "price",
+                price,
+                "fee",
+                fee,
+                "quantity",
+                quantity,
+                "amountOrdered",
+                amountOrdered,
+                "amountPaid",
+                amountPaid,
+                "amountDue",
+                amountDue,
+                "productPriceTierAmount",
+                productPriceTierAmount,
+                "tiered",
+                tiered,
+                "generalLedgerItems",
+                generalLedgerItems,
+                "discounts",
+                discounts,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -774,7 +806,7 @@ public class OrderItemJson {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -971,15 +1003,30 @@ public class OrderItemJson {
 
         public OrderItemJson build() {
             return new OrderItemJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, order,
-                event, attendee, guest,
-                guestDetail, product, active,
-                name, price, fee,
-                quantity, amountOrdered, amountPaid,
-                amountDue, productPriceTierAmount, tiered,
-                generalLedgerItems, discounts, deleted);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    order,
+                    event,
+                    attendee,
+                    guest,
+                    guestDetail,
+                    product,
+                    active,
+                    name,
+                    price,
+                    fee,
+                    quantity,
+                    amountOrdered,
+                    amountPaid,
+                    amountDue,
+                    productPriceTierAmount,
+                    tiered,
+                    generalLedgerItems,
+                    discounts,
+                    deleted);
         }
-
     }
 }

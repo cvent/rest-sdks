@@ -35,8 +35,7 @@ public final class ReactiveUtils {
      * @return a new publisher that emits the mapped elements
      */
     public static <T, R> Flow.Publisher<R> mapAsync(
-            Flow.Publisher<T> source,
-            Function<T, CompletableFuture<R>> mapper) {
+            Flow.Publisher<T> source, Function<T, CompletableFuture<R>> mapper) {
 
         Objects.requireNonNull(source, "Source publisher cannot be null");
         Objects.requireNonNull(mapper, "Mapper function cannot be null");
@@ -53,9 +52,7 @@ public final class ReactiveUtils {
      * @param mapper the transformation function
      * @return a new publisher that emits the mapped elements
      */
-    public static <T, R> Flow.Publisher<R> map(
-            Flow.Publisher<T> source,
-            Function<T, R> mapper) {
+    public static <T, R> Flow.Publisher<R> map(Flow.Publisher<T> source, Function<T, R> mapper) {
 
         Objects.requireNonNull(source, "Source publisher cannot be null");
         Objects.requireNonNull(mapper, "Mapper function cannot be null");
@@ -72,9 +69,7 @@ public final class ReactiveUtils {
      * @param flattener the function to extract items from each collection
      * @return a new publisher that emits individual items from the collections
      */
-    public static <T, R> Flow.Publisher<R> flatten(
-            Flow.Publisher<T> source,
-            Function<T, Iterable<R>> flattener) {
+    public static <T, R> Flow.Publisher<R> flatten(Flow.Publisher<T> source, Function<T, Iterable<R>> flattener) {
 
         Objects.requireNonNull(source, "Source publisher cannot be null");
         Objects.requireNonNull(flattener, "Flattener function cannot be null");
@@ -184,7 +179,6 @@ public final class ReactiveUtils {
         public void subscribe(Flow.Subscriber<? super T> downstream) {
             downstream.onSubscribe(new ConcatSubscription<>((Flow.Subscriber<T>) downstream, pubs.iterator()));
         }
-
     }
 
     /**
@@ -432,12 +426,10 @@ public final class ReactiveUtils {
         private boolean cancelled = false;
         private boolean completed = false;
 
-        public ConcatSubscription(Flow.Subscriber<T> downstream,
-                                  Iterator<Flow.Publisher<T>> it) {
+        public ConcatSubscription(Flow.Subscriber<T> downstream, Iterator<Flow.Publisher<T>> it) {
             this.downstream = downstream;
             this.it = it;
         }
-
 
         @Override
         public synchronized void request(long n) {

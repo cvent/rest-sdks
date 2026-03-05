@@ -28,7 +28,7 @@ public class CancelReservationRequestRequestBuilder {
     private CancelReservationRequestRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CancelReservationRequestRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class CancelReservationRequestRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CancelReservationRequestResponse call() {
-        RequestOperation<CancelReservationRequestRequest, CancelReservationRequestResponse> operation
-              = new CancelReservationRequest.Sync(sdkConfiguration, _headers);
+        RequestOperation<CancelReservationRequestRequest, CancelReservationRequestResponse> operation =
+                new CancelReservationRequest.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

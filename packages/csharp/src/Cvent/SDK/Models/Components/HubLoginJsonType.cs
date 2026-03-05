@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum HubLoginJsonType
     {
-        [JsonProperty("MAGIC_LINK")]
-        MagicLink,
-        [JsonProperty("SSO")]
-        Sso,
-        [JsonProperty("BOTH")]
-        Both,
+        [JsonProperty("MAGIC_LINK")] MagicLink,
+        [JsonProperty("SSO")] Sso,
+        [JsonProperty("BOTH")] Both,
     }
 
     public static class HubLoginJsonTypeExtension
     {
         public static string Value(this HubLoginJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static HubLoginJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(HubLoginJsonType).GetFields())
+            foreach (var field in typeof(HubLoginJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

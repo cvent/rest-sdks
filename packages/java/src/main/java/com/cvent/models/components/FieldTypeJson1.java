@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * FieldTypeJson1
- * 
+ *
  * <p>Field Type
  */
 public enum FieldTypeJson1 {
@@ -26,13 +26,13 @@ public enum FieldTypeJson1 {
     FieldTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<FieldTypeJson1> fromValue(String value) {
-        for (FieldTypeJson1 o: FieldTypeJson1.values()) {
+        for (FieldTypeJson1 o : FieldTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum FieldTypeJson1 {
         return Optional.empty();
     }
 }
-

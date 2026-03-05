@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveyRespondentLinks
- * 
+ *
  * <p>Related links.
  */
 public class StandardSurveyRespondentLinks {
@@ -27,11 +27,10 @@ public class StandardSurveyRespondentLinks {
     private LinkJson surveyUrl;
 
     @JsonCreator
-    public StandardSurveyRespondentLinks(
-            @JsonProperty("surveyUrl") @Nullable LinkJson surveyUrl) {
+    public StandardSurveyRespondentLinks(@JsonProperty("surveyUrl") @Nullable LinkJson surveyUrl) {
         this.surveyUrl = surveyUrl;
     }
-    
+
     public StandardSurveyRespondentLinks() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class StandardSurveyRespondentLinks {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -55,7 +53,6 @@ public class StandardSurveyRespondentLinks {
         this.surveyUrl = surveyUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class StandardSurveyRespondentLinks {
             return false;
         }
         StandardSurveyRespondentLinks other = (StandardSurveyRespondentLinks) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyUrl, other.surveyUrl);
+        return Utils.enhancedDeepEquals(this.surveyUrl, other.surveyUrl);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyUrl);
+        return Utils.enhancedHash(surveyUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveyRespondentLinks.class,
-                "surveyUrl", surveyUrl);
+        return Utils.toString(StandardSurveyRespondentLinks.class, "surveyUrl", surveyUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson surveyUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class StandardSurveyRespondentLinks {
         }
 
         public StandardSurveyRespondentLinks build() {
-            return new StandardSurveyRespondentLinks(
-                surveyUrl);
+            return new StandardSurveyRespondentLinks(surveyUrl);
         }
-
     }
 }

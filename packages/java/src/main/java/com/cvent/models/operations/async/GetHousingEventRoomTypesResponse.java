@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHousingEventRoomTypesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable HousingEventRoomTypesList housingEventRoomTypesList) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.housingEventRoomTypesList = housingEventRoomTypesList;
     }
-    
+
     public GetHousingEventRoomTypesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of room types.
      */
-    public GetHousingEventRoomTypesResponse withHousingEventRoomTypesList(@Nullable HousingEventRoomTypesList housingEventRoomTypesList) {
+    public GetHousingEventRoomTypesResponse withHousingEventRoomTypesList(
+            @Nullable HousingEventRoomTypesList housingEventRoomTypesList) {
         this.housingEventRoomTypesList = housingEventRoomTypesList;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
             return false;
         }
         GetHousingEventRoomTypesResponse other = (GetHousingEventRoomTypesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.housingEventRoomTypesList, other.housingEventRoomTypesList);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.housingEventRoomTypesList, other.housingEventRoomTypesList);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            housingEventRoomTypesList);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, housingEventRoomTypesList);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventRoomTypesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "housingEventRoomTypesList", housingEventRoomTypesList);
+        return Utils.toString(
+                GetHousingEventRoomTypesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "housingEventRoomTypesList",
+                housingEventRoomTypesList);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
         private HousingEventRoomTypesList housingEventRoomTypesList;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -210,9 +204,7 @@ public class GetHousingEventRoomTypesResponse implements AsyncResponse {
 
         public GetHousingEventRoomTypesResponse build() {
             return new GetHousingEventRoomTypesResponse(
-                contentType, statusCode, rawResponse,
-                housingEventRoomTypesList);
+                    contentType, statusCode, rawResponse, housingEventRoomTypesList);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ProposalStatusJson
- * 
+ *
  * <p>The status of the proposal. See [definitions of proposal
  * statuses](https://support.cvent.com/s/communityarticle/Understanding-RFP-and-Proposal-Statuses)
  */
@@ -30,13 +30,13 @@ public enum ProposalStatusJson {
     ProposalStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ProposalStatusJson> fromValue(String value) {
-        for (ProposalStatusJson o: ProposalStatusJson.values()) {
+        for (ProposalStatusJson o : ProposalStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -44,4 +44,3 @@ public enum ProposalStatusJson {
         return Optional.empty();
     }
 }
-

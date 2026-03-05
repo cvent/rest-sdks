@@ -30,7 +30,7 @@ public class CreateContactsRequestBuilder {
     private CreateContactsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateContactsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateContactsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateContactsResponse> call() {
-        AsyncRequestOperation<CreateContactsRequest, CreateContactsResponse> operation
-              = new CreateContacts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateContactsRequest, CreateContactsResponse> operation =
+                new CreateContacts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

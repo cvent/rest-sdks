@@ -22,7 +22,8 @@ public class GetContactObfuscationStatusByIdRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public GetContactObfuscationStatusByIdRequestBuilder request(@Nonnull GetContactObfuscationStatusByIdRequest request) {
+    public GetContactObfuscationStatusByIdRequestBuilder request(
+            @Nonnull GetContactObfuscationStatusByIdRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class GetContactObfuscationStatusByIdRequestBuilder {
     private GetContactObfuscationStatusByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetContactObfuscationStatusByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class GetContactObfuscationStatusByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetContactObfuscationStatusByIdResponse> call() {
-        AsyncRequestOperation<GetContactObfuscationStatusByIdRequest, GetContactObfuscationStatusByIdResponse> operation
-              = new GetContactObfuscationStatusById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetContactObfuscationStatusByIdRequest, GetContactObfuscationStatusByIdResponse> operation =
+                new GetContactObfuscationStatusById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -28,7 +28,7 @@ public class GetSponsorshipLevelRequestBuilder {
     private GetSponsorshipLevelRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSponsorshipLevelRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetSponsorshipLevelRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetSponsorshipLevelResponse call() {
-        RequestOperation<GetSponsorshipLevelRequest, GetSponsorshipLevelResponse> operation
-              = new GetSponsorshipLevel.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSponsorshipLevelRequest, GetSponsorshipLevelResponse> operation =
+                new GetSponsorshipLevel.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

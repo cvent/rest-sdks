@@ -2,6 +2,14 @@
 
 Specifies the type of agenda item that a discount is associated with.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AgendaItemTypeJson2;
+
+AgendaItemTypeJson2 value = AgendaItemTypeJson2.ADMISSION_ITEM;
+```
+
 
 ## Values
 

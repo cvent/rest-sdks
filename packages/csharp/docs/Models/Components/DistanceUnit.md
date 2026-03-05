@@ -2,6 +2,14 @@
 
 Unit of measurement for the distance.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = DistanceUnit.Kilometers;
+```
+
 
 ## Values
 

@@ -40,7 +40,7 @@ public class ListEventEmailsRequestBuilder {
     private ListEventEmailsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListEventEmailsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListEventEmailsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListEventEmailsResponse> call() {
-        AsyncRequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation
-              = new ListEventEmails.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation =
+                new ListEventEmails.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListEventEmailsRequestBuilder {
      */
     public Publisher<ListEventEmailsResponse> callAsPublisher() {
         ListEventEmailsRequest request = this.request;
-        AsyncRequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation
-              = new ListEventEmails.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation =
+                new ListEventEmails.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListEventEmailsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListEventEmailsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListEventEmailsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventFeedbackSubmitted
- * 
+ *
  * <p>An event-feedback-submitted activity.
  */
 public class EventFeedbackSubmitted {
@@ -40,7 +40,7 @@ public class EventFeedbackSubmitted {
         this.event = event;
         this.survey = survey;
     }
-    
+
     public EventFeedbackSubmitted() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class EventFeedbackSubmitted {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -72,7 +71,6 @@ public class EventFeedbackSubmitted {
         return this;
     }
 
-
     /**
      * A survey response.
      */
@@ -80,7 +78,6 @@ public class EventFeedbackSubmitted {
         this.survey = survey;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class EventFeedbackSubmitted {
             return false;
         }
         EventFeedbackSubmitted other = (EventFeedbackSubmitted) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey);
+        return Utils.enhancedDeepEquals(this.event, other.event) && Utils.enhancedDeepEquals(this.survey, other.survey);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, survey);
+        return Utils.enhancedHash(event, survey);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventFeedbackSubmitted.class,
-                "event", event,
-                "survey", survey);
+        return Utils.toString(EventFeedbackSubmitted.class, "event", event, "survey", survey);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent4 event;
 
         private SurveyResponseJson survey;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class EventFeedbackSubmitted {
         }
 
         public EventFeedbackSubmitted build() {
-            return new EventFeedbackSubmitted(
-                event, survey);
+            return new EventFeedbackSubmitted(event, survey);
         }
-
     }
 }

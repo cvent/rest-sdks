@@ -30,7 +30,7 @@ public class AssignContactProfileImageRequestBuilder {
     private AssignContactProfileImageRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AssignContactProfileImageRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AssignContactProfileImageRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AssignContactProfileImageResponse> call() {
-        AsyncRequestOperation<AssignContactProfileImageRequest, AssignContactProfileImageResponse> operation
-              = new AssignContactProfileImage.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AssignContactProfileImageRequest, AssignContactProfileImageResponse> operation =
+                new AssignContactProfileImage.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

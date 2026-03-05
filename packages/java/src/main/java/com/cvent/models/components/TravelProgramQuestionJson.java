@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelProgramQuestionJson
- * 
+ *
  * <p>A question, defined by the account, for the supplier to answer as part of their proposal.
  */
 public class TravelProgramQuestionJson {
@@ -61,10 +61,9 @@ public class TravelProgramQuestionJson {
         this.required = required;
         this.sequence = sequence;
     }
-    
+
     public TravelProgramQuestionJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -100,7 +99,6 @@ public class TravelProgramQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the custom question.
      */
@@ -108,7 +106,6 @@ public class TravelProgramQuestionJson {
         this.questionId = questionId;
         return this;
     }
-
 
     /**
      * Code representing the section where the question belongs. Currently, program_client (client
@@ -119,7 +116,6 @@ public class TravelProgramQuestionJson {
         return this;
     }
 
-
     /**
      * Is it required for suppliers to answer this question in their proposal?
      */
@@ -128,7 +124,6 @@ public class TravelProgramQuestionJson {
         return this;
     }
 
-
     /**
      * The sequence number of the question within the proposal.
      */
@@ -136,7 +131,6 @@ public class TravelProgramQuestionJson {
         this.sequence = sequence;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -147,31 +141,33 @@ public class TravelProgramQuestionJson {
             return false;
         }
         TravelProgramQuestionJson other = (TravelProgramQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.questionId, other.questionId) &&
-            Utils.enhancedDeepEquals(this.section, other.section) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.sequence, other.sequence);
+        return Utils.enhancedDeepEquals(this.questionId, other.questionId)
+                && Utils.enhancedDeepEquals(this.section, other.section)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.sequence, other.sequence);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            questionId, section, required,
-            sequence);
+        return Utils.enhancedHash(questionId, section, required, sequence);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelProgramQuestionJson.class,
-                "questionId", questionId,
-                "section", section,
-                "required", required,
-                "sequence", sequence);
+        return Utils.toString(
+                TravelProgramQuestionJson.class,
+                "questionId",
+                questionId,
+                "section",
+                section,
+                "required",
+                required,
+                "sequence",
+                sequence);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String questionId;
 
@@ -182,7 +178,7 @@ public class TravelProgramQuestionJson {
         private Long sequence;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -219,10 +215,7 @@ public class TravelProgramQuestionJson {
         }
 
         public TravelProgramQuestionJson build() {
-            return new TravelProgramQuestionJson(
-                questionId, section, required,
-                sequence);
+            return new TravelProgramQuestionJson(questionId, section, required, sequence);
         }
-
     }
 }

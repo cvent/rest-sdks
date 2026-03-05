@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * FlightDetailJson
- * 
+ *
  * <p>Representation of a flight's details.
  */
 public class FlightDetailJson {
@@ -141,13 +141,9 @@ public class FlightDetailJson {
         this.flightGDSRecordLocator = flightGDSRecordLocator;
         this.journeySegment = journeySegment;
     }
-    
+
     public FlightDetailJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -246,7 +242,6 @@ public class FlightDetailJson {
         return new Builder();
     }
 
-
     /**
      * Name of the airline.
      */
@@ -254,7 +249,6 @@ public class FlightDetailJson {
         this.airline = airline;
         return this;
     }
-
 
     /**
      * Number assigned to a particular flight by the airline.
@@ -264,7 +258,6 @@ public class FlightDetailJson {
         return this;
     }
 
-
     /**
      * Origin airport of the flight.
      */
@@ -272,7 +265,6 @@ public class FlightDetailJson {
         this.origin = origin;
         return this;
     }
-
 
     /**
      * IATA airport code of the origin airport.
@@ -282,7 +274,6 @@ public class FlightDetailJson {
         return this;
     }
 
-
     /**
      * Destination airport of the flight.
      */
@@ -290,7 +281,6 @@ public class FlightDetailJson {
         this.destination = destination;
         return this;
     }
-
 
     /**
      * IATA airport code of the destination airport.
@@ -300,7 +290,6 @@ public class FlightDetailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time (in UTC) of flight departure.
      */
@@ -308,7 +297,6 @@ public class FlightDetailJson {
         this.departing = departing;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time (in UTC) of flight arrival.
@@ -318,7 +306,6 @@ public class FlightDetailJson {
         return this;
     }
 
-
     /**
      * Seat number assigned to the passenger.
      */
@@ -326,7 +313,6 @@ public class FlightDetailJson {
         this.seatNumber = seatNumber;
         return this;
     }
-
 
     /**
      * Category of the passenger's ticket.
@@ -336,7 +322,6 @@ public class FlightDetailJson {
         return this;
     }
 
-
     /**
      * The airline's flight confirmation number.
      */
@@ -344,7 +329,6 @@ public class FlightDetailJson {
         this.flightConfirmationNumber = flightConfirmationNumber;
         return this;
     }
-
 
     /**
      * The unique reservation number associated with the Global Distribution System (GDS) where the flight
@@ -355,7 +339,6 @@ public class FlightDetailJson {
         return this;
     }
 
-
     /**
      * Journey Segment
      */
@@ -363,7 +346,6 @@ public class FlightDetailJson {
         this.journeySegment = journeySegment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -374,52 +356,73 @@ public class FlightDetailJson {
             return false;
         }
         FlightDetailJson other = (FlightDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.airline, other.airline) &&
-            Utils.enhancedDeepEquals(this.flightNumber, other.flightNumber) &&
-            Utils.enhancedDeepEquals(this.origin, other.origin) &&
-            Utils.enhancedDeepEquals(this.originCode, other.originCode) &&
-            Utils.enhancedDeepEquals(this.destination, other.destination) &&
-            Utils.enhancedDeepEquals(this.destinationCode, other.destinationCode) &&
-            Utils.enhancedDeepEquals(this.departing, other.departing) &&
-            Utils.enhancedDeepEquals(this.arriving, other.arriving) &&
-            Utils.enhancedDeepEquals(this.seatNumber, other.seatNumber) &&
-            Utils.enhancedDeepEquals(this.ticketClass, other.ticketClass) &&
-            Utils.enhancedDeepEquals(this.flightConfirmationNumber, other.flightConfirmationNumber) &&
-            Utils.enhancedDeepEquals(this.flightGDSRecordLocator, other.flightGDSRecordLocator) &&
-            Utils.enhancedDeepEquals(this.journeySegment, other.journeySegment);
+        return Utils.enhancedDeepEquals(this.airline, other.airline)
+                && Utils.enhancedDeepEquals(this.flightNumber, other.flightNumber)
+                && Utils.enhancedDeepEquals(this.origin, other.origin)
+                && Utils.enhancedDeepEquals(this.originCode, other.originCode)
+                && Utils.enhancedDeepEquals(this.destination, other.destination)
+                && Utils.enhancedDeepEquals(this.destinationCode, other.destinationCode)
+                && Utils.enhancedDeepEquals(this.departing, other.departing)
+                && Utils.enhancedDeepEquals(this.arriving, other.arriving)
+                && Utils.enhancedDeepEquals(this.seatNumber, other.seatNumber)
+                && Utils.enhancedDeepEquals(this.ticketClass, other.ticketClass)
+                && Utils.enhancedDeepEquals(this.flightConfirmationNumber, other.flightConfirmationNumber)
+                && Utils.enhancedDeepEquals(this.flightGDSRecordLocator, other.flightGDSRecordLocator)
+                && Utils.enhancedDeepEquals(this.journeySegment, other.journeySegment);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            airline, flightNumber, origin,
-            originCode, destination, destinationCode,
-            departing, arriving, seatNumber,
-            ticketClass, flightConfirmationNumber, flightGDSRecordLocator,
-            journeySegment);
+                airline,
+                flightNumber,
+                origin,
+                originCode,
+                destination,
+                destinationCode,
+                departing,
+                arriving,
+                seatNumber,
+                ticketClass,
+                flightConfirmationNumber,
+                flightGDSRecordLocator,
+                journeySegment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FlightDetailJson.class,
-                "airline", airline,
-                "flightNumber", flightNumber,
-                "origin", origin,
-                "originCode", originCode,
-                "destination", destination,
-                "destinationCode", destinationCode,
-                "departing", departing,
-                "arriving", arriving,
-                "seatNumber", seatNumber,
-                "ticketClass", ticketClass,
-                "flightConfirmationNumber", flightConfirmationNumber,
-                "flightGDSRecordLocator", flightGDSRecordLocator,
-                "journeySegment", journeySegment);
+        return Utils.toString(
+                FlightDetailJson.class,
+                "airline",
+                airline,
+                "flightNumber",
+                flightNumber,
+                "origin",
+                origin,
+                "originCode",
+                originCode,
+                "destination",
+                destination,
+                "destinationCode",
+                destinationCode,
+                "departing",
+                departing,
+                "arriving",
+                arriving,
+                "seatNumber",
+                seatNumber,
+                "ticketClass",
+                ticketClass,
+                "flightConfirmationNumber",
+                flightConfirmationNumber,
+                "flightGDSRecordLocator",
+                flightGDSRecordLocator,
+                "journeySegment",
+                journeySegment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String airline;
 
@@ -448,7 +451,7 @@ public class FlightDetailJson {
         private JourneySegment journeySegment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -558,12 +561,19 @@ public class FlightDetailJson {
 
         public FlightDetailJson build() {
             return new FlightDetailJson(
-                airline, flightNumber, origin,
-                originCode, destination, destinationCode,
-                departing, arriving, seatNumber,
-                ticketClass, flightConfirmationNumber, flightGDSRecordLocator,
-                journeySegment);
+                    airline,
+                    flightNumber,
+                    origin,
+                    originCode,
+                    destination,
+                    destinationCode,
+                    departing,
+                    arriving,
+                    seatNumber,
+                    ticketClass,
+                    flightConfirmationNumber,
+                    flightGDSRecordLocator,
+                    journeySegment);
         }
-
     }
 }

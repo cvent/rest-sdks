@@ -28,21 +28,20 @@ public class AsyncSignatures {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Signatures sync() {
         return syncSDK;
     }
 
-
     /**
      * List Signatures
-     * 
+     *
      * <p>Retrieves a paginated list of check-in &amp; check-out signatures associated with the account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSignaturesRequestBuilder getSignatures() {
@@ -51,19 +50,17 @@ public class AsyncSignatures {
 
     /**
      * List Signatures
-     * 
+     *
      * <p>Retrieves a paginated list of check-in &amp; check-out signatures associated with the account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSignaturesResponse>} - The async response
      */
     public CompletableFuture<GetSignaturesResponse> getSignatures(@Nonnull GetSignaturesRequest request) {
-        AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation
-              = new GetSignatures.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation =
+                new GetSignatures.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

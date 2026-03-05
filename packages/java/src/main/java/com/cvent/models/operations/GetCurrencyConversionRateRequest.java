@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetCurrencyConversionRateRequest {
     /**
      * The ISO 4217 standard format currency code.
@@ -54,12 +53,12 @@ public class GetCurrencyConversionRateRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
      * * startDate (gt|ge|lt|le|eq)
      * * endDate (gt|ge|lt|le|eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -76,19 +75,16 @@ public class GetCurrencyConversionRateRequest {
             @Nullable OffsetDateTime before,
             @Nullable String filter) {
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.after = after;
         this.before = before;
         this.filter = filter;
     }
-    
-    public GetCurrencyConversionRateRequest(
-            @Nonnull String currency) {
-        this(currency, null, null,
-            null, null, null);
+
+    public GetCurrencyConversionRateRequest(@Nonnull String currency) {
+        this(currency, null, null, null, null, null);
     }
 
     /**
@@ -132,12 +128,12 @@ public class GetCurrencyConversionRateRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
      * * startDate (gt|ge|lt|le|eq)
      * * endDate (gt|ge|lt|le|eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -150,7 +146,6 @@ public class GetCurrencyConversionRateRequest {
         return new Builder();
     }
 
-
     /**
      * The ISO 4217 standard format currency code.
      */
@@ -159,7 +154,6 @@ public class GetCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -167,7 +161,6 @@ public class GetCurrencyConversionRateRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -178,7 +171,6 @@ public class GetCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -188,7 +180,6 @@ public class GetCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -197,17 +188,16 @@ public class GetCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
      * * startDate (gt|ge|lt|le|eq)
      * * endDate (gt|ge|lt|le|eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -216,7 +206,6 @@ public class GetCurrencyConversionRateRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -227,35 +216,39 @@ public class GetCurrencyConversionRateRequest {
             return false;
         }
         GetCurrencyConversionRateRequest other = (GetCurrencyConversionRateRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            currency, limit, token,
-            after, before, filter);
+        return Utils.enhancedHash(currency, limit, token, after, before, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCurrencyConversionRateRequest.class,
-                "currency", currency,
-                "limit", limit,
-                "token", token,
-                "after", after,
-                "before", before,
-                "filter", filter);
+        return Utils.toString(
+                GetCurrencyConversionRateRequest.class,
+                "currency",
+                currency,
+                "limit",
+                limit,
+                "token",
+                token,
+                "after",
+                after,
+                "before",
+                before,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String currency;
 
@@ -270,7 +263,7 @@ public class GetCurrencyConversionRateRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -319,12 +312,12 @@ public class GetCurrencyConversionRateRequest {
          * A filter string passed in the body of the request, narrows search results and supports the
          * combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq)
          * * startDate (gt|ge|lt|le|eq)
          * * endDate (gt|ge|lt|le|eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -335,16 +328,10 @@ public class GetCurrencyConversionRateRequest {
         }
 
         public GetCurrencyConversionRateRequest build() {
-            return new GetCurrencyConversionRateRequest(
-                currency, limit, token,
-                after, before, filter);
+            return new GetCurrencyConversionRateRequest(currency, limit, token, after, before, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

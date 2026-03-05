@@ -18,56 +18,37 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionTypeJson1
     {
-        [JsonProperty("AutoIncrement")]
-        AutoIncrement,
-        [JsonProperty("BudgetEstimates")]
-        BudgetEstimates,
-        [JsonProperty("ConsentQuestion")]
-        ConsentQuestion,
-        [JsonProperty("Country")]
-        Country,
-        [JsonProperty("Currency")]
-        Currency,
-        [JsonProperty("Decimal")]
-        Decimal,
-        [JsonProperty("Date")]
-        Date,
-        [JsonProperty("DateTime")]
-        DateTime,
-        [JsonProperty("Email")]
-        Email,
-        [JsonProperty("FileUpload")]
-        FileUpload,
-        [JsonProperty("FreeText")]
-        FreeText,
-        [JsonProperty("General")]
-        General,
-        [JsonProperty("Number")]
-        Number,
-        [JsonProperty("MeetingRoomRequirements")]
-        MeetingRoomRequirements,
-        [JsonProperty("MultiSelect")]
-        MultiSelect,
-        [JsonProperty("SingleSelect")]
-        SingleSelect,
-        [JsonProperty("SleepingRoomRequirements")]
-        SleepingRoomRequirements,
-        [JsonProperty("USPhoneNumber")]
-        USPhoneNumber,
-        [JsonProperty("Unknown")]
-        Unknown,
+        [JsonProperty("AutoIncrement")] AutoIncrement,
+        [JsonProperty("BudgetEstimates")] BudgetEstimates,
+        [JsonProperty("ConsentQuestion")] ConsentQuestion,
+        [JsonProperty("Country")] Country,
+        [JsonProperty("Currency")] Currency,
+        [JsonProperty("Decimal")] Decimal,
+        [JsonProperty("Date")] Date,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Email")] Email,
+        [JsonProperty("FileUpload")] FileUpload,
+        [JsonProperty("FreeText")] FreeText,
+        [JsonProperty("General")] General,
+        [JsonProperty("Number")] Number,
+        [JsonProperty("MeetingRoomRequirements")] MeetingRoomRequirements,
+        [JsonProperty("MultiSelect")] MultiSelect,
+        [JsonProperty("SingleSelect")] SingleSelect,
+        [JsonProperty("SleepingRoomRequirements")] SleepingRoomRequirements,
+        [JsonProperty("USPhoneNumber")] USPhoneNumber,
+        [JsonProperty("Unknown")] Unknown,
     }
 
     public static class QuestionTypeJson1Extension
     {
         public static string Value(this QuestionTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionTypeJson1).GetFields())
+            foreach (var field in typeof(QuestionTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

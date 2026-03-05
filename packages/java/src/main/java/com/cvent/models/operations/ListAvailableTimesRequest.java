@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListAvailableTimesRequest {
     /**
      * The unique identifier of an appointment event.
@@ -39,7 +38,7 @@ public class ListAvailableTimesRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -47,11 +46,11 @@ public class ListAvailableTimesRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * appointmentType.id (eq)
      * * location.id (eq)
-     * 
+     *
      * <p>No operators are available
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -59,22 +58,15 @@ public class ListAvailableTimesRequest {
 
     @JsonCreator
     public ListAvailableTimesRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public ListAvailableTimesRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public ListAvailableTimesRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -102,7 +94,7 @@ public class ListAvailableTimesRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -110,11 +102,11 @@ public class ListAvailableTimesRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * appointmentType.id (eq)
      * * location.id (eq)
-     * 
+     *
      * <p>No operators are available
      */
     public Optional<String> filter() {
@@ -125,7 +117,6 @@ public class ListAvailableTimesRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of an appointment event.
      */
@@ -134,7 +125,6 @@ public class ListAvailableTimesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -142,7 +132,6 @@ public class ListAvailableTimesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -153,11 +142,10 @@ public class ListAvailableTimesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -165,18 +153,17 @@ public class ListAvailableTimesRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * appointmentType.id (eq)
      * * location.id (eq)
-     * 
+     *
      * <p>No operators are available
      */
     public ListAvailableTimesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -187,31 +174,25 @@ public class ListAvailableTimesRequest {
             return false;
         }
         ListAvailableTimesRequest other = (ListAvailableTimesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            filter);
+        return Utils.enhancedHash(id, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAvailableTimesRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListAvailableTimesRequest.class, "id", id, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -222,7 +203,7 @@ public class ListAvailableTimesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -253,7 +234,7 @@ public class ListAvailableTimesRequest {
         /**
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are six comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -261,11 +242,11 @@ public class ListAvailableTimesRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * appointmentType.id (eq)
          * * location.id (eq)
-         * 
+         *
          * <p>No operators are available
          */
         public Builder filter(@Nullable String filter) {
@@ -274,16 +255,10 @@ public class ListAvailableTimesRequest {
         }
 
         public ListAvailableTimesRequest build() {
-            return new ListAvailableTimesRequest(
-                id, limit, token,
-                filter);
+            return new ListAvailableTimesRequest(id, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

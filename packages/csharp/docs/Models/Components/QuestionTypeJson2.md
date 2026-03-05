@@ -2,6 +2,14 @@
 
 Question Type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = QuestionTypeJson2.SingleChoice;
+```
+
 
 ## Values
 

@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SolutionJson
     {
-        [JsonProperty("ATTENDEE_HUB")]
-        AttendeeHub,
-        [JsonProperty("EVENTS_PLUS")]
-        EventsPlus,
+        [JsonProperty("ATTENDEE_HUB")] AttendeeHub,
+        [JsonProperty("EVENTS_PLUS")] EventsPlus,
     }
 
     public static class SolutionJsonExtension
     {
         public static string Value(this SolutionJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SolutionJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SolutionJson).GetFields())
+            foreach (var field in typeof(SolutionJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

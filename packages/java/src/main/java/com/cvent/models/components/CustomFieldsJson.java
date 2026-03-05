@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * CustomFieldsJson
- * 
+ *
  * <p>Custom fields.
  */
 public class CustomFieldsJson {
@@ -76,10 +76,9 @@ public class CustomFieldsJson {
         this.customField5 = customField5;
         this.customField6 = customField6;
     }
-    
+
     public CustomFieldsJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -128,7 +127,6 @@ public class CustomFieldsJson {
         return new Builder();
     }
 
-
     /**
      * Custom field 1.
      */
@@ -136,7 +134,6 @@ public class CustomFieldsJson {
         this.customField1 = customField1;
         return this;
     }
-
 
     /**
      * Custom field 2.
@@ -146,7 +143,6 @@ public class CustomFieldsJson {
         return this;
     }
 
-
     /**
      * Custom field 3.
      */
@@ -154,7 +150,6 @@ public class CustomFieldsJson {
         this.customField3 = customField3;
         return this;
     }
-
 
     /**
      * Custom field 4.
@@ -164,7 +159,6 @@ public class CustomFieldsJson {
         return this;
     }
 
-
     /**
      * Custom field 5.
      */
@@ -173,7 +167,6 @@ public class CustomFieldsJson {
         return this;
     }
 
-
     /**
      * Custom field 6.
      */
@@ -181,7 +174,6 @@ public class CustomFieldsJson {
         this.customField6 = customField6;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -192,35 +184,39 @@ public class CustomFieldsJson {
             return false;
         }
         CustomFieldsJson other = (CustomFieldsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.customField1, other.customField1) &&
-            Utils.enhancedDeepEquals(this.customField2, other.customField2) &&
-            Utils.enhancedDeepEquals(this.customField3, other.customField3) &&
-            Utils.enhancedDeepEquals(this.customField4, other.customField4) &&
-            Utils.enhancedDeepEquals(this.customField5, other.customField5) &&
-            Utils.enhancedDeepEquals(this.customField6, other.customField6);
+        return Utils.enhancedDeepEquals(this.customField1, other.customField1)
+                && Utils.enhancedDeepEquals(this.customField2, other.customField2)
+                && Utils.enhancedDeepEquals(this.customField3, other.customField3)
+                && Utils.enhancedDeepEquals(this.customField4, other.customField4)
+                && Utils.enhancedDeepEquals(this.customField5, other.customField5)
+                && Utils.enhancedDeepEquals(this.customField6, other.customField6);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            customField1, customField2, customField3,
-            customField4, customField5, customField6);
+        return Utils.enhancedHash(customField1, customField2, customField3, customField4, customField5, customField6);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomFieldsJson.class,
-                "customField1", customField1,
-                "customField2", customField2,
-                "customField3", customField3,
-                "customField4", customField4,
-                "customField5", customField5,
-                "customField6", customField6);
+        return Utils.toString(
+                CustomFieldsJson.class,
+                "customField1",
+                customField1,
+                "customField2",
+                customField2,
+                "customField3",
+                customField3,
+                "customField4",
+                customField4,
+                "customField5",
+                customField5,
+                "customField6",
+                customField6);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String customField1;
 
@@ -235,7 +231,7 @@ public class CustomFieldsJson {
         private String customField6;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -288,9 +284,7 @@ public class CustomFieldsJson {
 
         public CustomFieldsJson build() {
             return new CustomFieldsJson(
-                customField1, customField2, customField3,
-                customField4, customField5, customField6);
+                    customField1, customField2, customField3, customField4, customField5, customField6);
         }
-
     }
 }

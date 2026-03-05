@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventAdClicked
- * 
+ *
  * <p>Clicked an Event Ad.
  */
 public class EventAdClicked {
@@ -49,7 +49,7 @@ public class EventAdClicked {
         this.platform = platform;
         this.ad = ad;
     }
-    
+
     public EventAdClicked() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class EventAdClicked {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -87,7 +86,6 @@ public class EventAdClicked {
         this.event = event;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -97,7 +95,6 @@ public class EventAdClicked {
         return this;
     }
 
-
     /**
      * The details of the advertisement.
      */
@@ -105,7 +102,6 @@ public class EventAdClicked {
         this.ad = ad;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class EventAdClicked {
             return false;
         }
         EventAdClicked other = (EventAdClicked) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.ad, other.ad);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.ad, other.ad);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, platform, ad);
+        return Utils.enhancedHash(event, platform, ad);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventAdClicked.class,
-                "event", event,
-                "platform", platform,
-                "ad", ad);
+        return Utils.toString(EventAdClicked.class, "event", event, "platform", platform, "ad", ad);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent11 event;
 
@@ -146,7 +137,7 @@ public class EventAdClicked {
         private ActivityAdJson ad;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class EventAdClicked {
         }
 
         public EventAdClicked build() {
-            return new EventAdClicked(
-                event, platform, ad);
+            return new EventAdClicked(event, platform, ad);
         }
-
     }
 }

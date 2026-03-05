@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * StakeholderJsonContactLinks
- * 
+ *
  * <p>Collection of social media links for the contact.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -62,10 +62,9 @@ public class StakeholderJsonContactLinks {
         this.linkedInUrl = linkedInUrl;
         this.profilePicture = profilePicture;
     }
-    
+
     public StakeholderJsonContactLinks() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -100,7 +99,6 @@ public class StakeholderJsonContactLinks {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -108,7 +106,6 @@ public class StakeholderJsonContactLinks {
         this.twitterUrl = twitterUrl;
         return this;
     }
-
 
     /**
      * Represents a link to a related resource.
@@ -118,7 +115,6 @@ public class StakeholderJsonContactLinks {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -127,7 +123,6 @@ public class StakeholderJsonContactLinks {
         return this;
     }
 
-
     /**
      * Reference to a profile picture.
      */
@@ -135,7 +130,6 @@ public class StakeholderJsonContactLinks {
         this.profilePicture = profilePicture;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +140,33 @@ public class StakeholderJsonContactLinks {
             return false;
         }
         StakeholderJsonContactLinks other = (StakeholderJsonContactLinks) o;
-        return 
-            Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl) &&
-            Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl) &&
-            Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl) &&
-            Utils.enhancedDeepEquals(this.profilePicture, other.profilePicture);
+        return Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl)
+                && Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl)
+                && Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl)
+                && Utils.enhancedDeepEquals(this.profilePicture, other.profilePicture);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            twitterUrl, facebookUrl, linkedInUrl,
-            profilePicture);
+        return Utils.enhancedHash(twitterUrl, facebookUrl, linkedInUrl, profilePicture);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StakeholderJsonContactLinks.class,
-                "twitterUrl", twitterUrl,
-                "facebookUrl", facebookUrl,
-                "linkedInUrl", linkedInUrl,
-                "profilePicture", profilePicture);
+        return Utils.toString(
+                StakeholderJsonContactLinks.class,
+                "twitterUrl",
+                twitterUrl,
+                "facebookUrl",
+                facebookUrl,
+                "linkedInUrl",
+                linkedInUrl,
+                "profilePicture",
+                profilePicture);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson twitterUrl;
 
@@ -181,7 +177,7 @@ public class StakeholderJsonContactLinks {
         private StakeholderJsonLink profilePicture;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +213,7 @@ public class StakeholderJsonContactLinks {
         }
 
         public StakeholderJsonContactLinks build() {
-            return new StakeholderJsonContactLinks(
-                twitterUrl, facebookUrl, linkedInUrl,
-                profilePicture);
+            return new StakeholderJsonContactLinks(twitterUrl, facebookUrl, linkedInUrl, profilePicture);
         }
-
     }
 }

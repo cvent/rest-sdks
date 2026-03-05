@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * PaymentTypeJson
- * 
+ *
  * <p>Denotes the type of payment made by an attendee. Authorization: Online payment that has been
  * approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved
  * in Cvent.
- * 
+ *
  * <p>Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a
  * payment made to the attendee's order electronically in another system of record, or paid in physical
  * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
@@ -33,13 +33,13 @@ public enum PaymentTypeJson {
     PaymentTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PaymentTypeJson> fromValue(String value) {
-        for (PaymentTypeJson o: PaymentTypeJson.values()) {
+        for (PaymentTypeJson o : PaymentTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -47,4 +47,3 @@ public enum PaymentTypeJson {
         return Optional.empty();
     }
 }
-

@@ -30,7 +30,7 @@ public class UpdateEventDiscountRequestBuilder {
     private UpdateEventDiscountRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateEventDiscountRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateEventDiscountRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateEventDiscountResponse> call() {
-        AsyncRequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation
-              = new UpdateEventDiscount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation =
+                new UpdateEventDiscount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

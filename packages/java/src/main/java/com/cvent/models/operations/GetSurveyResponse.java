@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetSurveyResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetSurveyResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SurveysPaginatedResponse surveysPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.surveysPaginatedResponse = surveysPaginatedResponse;
     }
-    
+
     public GetSurveyResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetSurveyResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetSurveyResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetSurveyResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class GetSurveyResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of surveys.
      */
@@ -126,7 +118,6 @@ public class GetSurveyResponse implements Response {
         this.surveysPaginatedResponse = surveysPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class GetSurveyResponse implements Response {
             return false;
         }
         GetSurveyResponse other = (GetSurveyResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.surveysPaginatedResponse, other.surveysPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.surveysPaginatedResponse, other.surveysPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            surveysPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, surveysPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSurveyResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "surveysPaginatedResponse", surveysPaginatedResponse);
+        return Utils.toString(
+                GetSurveyResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "surveysPaginatedResponse",
+                surveysPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class GetSurveyResponse implements Response {
         private SurveysPaginatedResponse surveysPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class GetSurveyResponse implements Response {
         }
 
         public GetSurveyResponse build() {
-            return new GetSurveyResponse(
-                contentType, statusCode, rawResponse,
-                surveysPaginatedResponse);
+            return new GetSurveyResponse(contentType, statusCode, rawResponse, surveysPaginatedResponse);
         }
-
     }
 }

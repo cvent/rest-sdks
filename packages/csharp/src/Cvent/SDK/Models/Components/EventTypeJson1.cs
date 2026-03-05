@@ -18,58 +18,38 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventTypeJson1
     {
-        [JsonProperty("Celebration")]
-        Celebration,
-        [JsonProperty("Conference")]
-        Conference,
-        [JsonProperty("CventEssentials")]
-        CventEssentials,
-        [JsonProperty("CventWebinar")]
-        CventWebinar,
-        [JsonProperty("Dinner")]
-        Dinner,
-        [JsonProperty("Forum")]
-        Forum,
-        [JsonProperty("FundraiserBenefit")]
-        FundraiserBenefit,
-        [JsonProperty("Holiday")]
-        Holiday,
-        [JsonProperty("IncentiveTrip")]
-        IncentiveTrip,
-        [JsonProperty("Meeting")]
-        Meeting,
-        [JsonProperty("OtherGeneral")]
-        OtherGeneral,
-        [JsonProperty("PoliticalEvent")]
-        PoliticalEvent,
-        [JsonProperty("Reunion")]
-        Reunion,
-        [JsonProperty("SaveTheDate")]
-        SaveTheDate,
-        [JsonProperty("Seminar")]
-        Seminar,
-        [JsonProperty("SimpleEvent")]
-        SimpleEvent,
-        [JsonProperty("SportsEvent")]
-        SportsEvent,
-        [JsonProperty("TradeShow")]
-        TradeShow,
-        [JsonProperty("TrainingSession")]
-        TrainingSession,
-        [JsonProperty("Webinar")]
-        Webinar,
+        [JsonProperty("Celebration")] Celebration,
+        [JsonProperty("Conference")] Conference,
+        [JsonProperty("CventEssentials")] CventEssentials,
+        [JsonProperty("CventWebinar")] CventWebinar,
+        [JsonProperty("Dinner")] Dinner,
+        [JsonProperty("Forum")] Forum,
+        [JsonProperty("FundraiserBenefit")] FundraiserBenefit,
+        [JsonProperty("Holiday")] Holiday,
+        [JsonProperty("IncentiveTrip")] IncentiveTrip,
+        [JsonProperty("Meeting")] Meeting,
+        [JsonProperty("OtherGeneral")] OtherGeneral,
+        [JsonProperty("PoliticalEvent")] PoliticalEvent,
+        [JsonProperty("Reunion")] Reunion,
+        [JsonProperty("SaveTheDate")] SaveTheDate,
+        [JsonProperty("Seminar")] Seminar,
+        [JsonProperty("SimpleEvent")] SimpleEvent,
+        [JsonProperty("SportsEvent")] SportsEvent,
+        [JsonProperty("TradeShow")] TradeShow,
+        [JsonProperty("TrainingSession")] TrainingSession,
+        [JsonProperty("Webinar")] Webinar,
     }
 
     public static class EventTypeJson1Extension
     {
         public static string Value(this EventTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(EventTypeJson1).GetFields())
+            foreach (var field in typeof(EventTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

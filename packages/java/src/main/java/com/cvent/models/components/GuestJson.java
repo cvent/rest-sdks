@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * GuestJson
- * 
+ *
  * <p>Guest details.
  */
 public class GuestJson {
@@ -139,7 +139,7 @@ public class GuestJson {
         this.departure = departure;
         this.firstName = firstName;
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
         this.middleName = middleName;
         this.title = title;
         this.position = position;
@@ -151,14 +151,9 @@ public class GuestJson {
         this.homeAddress = homeAddress;
         this.paymentInfo = paymentInfo;
     }
-    
-    public GuestJson(
-            @Nonnull String lastName) {
-        this(null, null, null,
-            lastName, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+
+    public GuestJson(@Nonnull String lastName) {
+        this(null, null, null, lastName, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -264,7 +259,6 @@ public class GuestJson {
         return new Builder();
     }
 
-
     /**
      * Arrival date in ISO 8601 format.
      */
@@ -272,7 +266,6 @@ public class GuestJson {
         this.arrival = arrival;
         return this;
     }
-
 
     /**
      * Departure date in ISO 8601 format.
@@ -282,7 +275,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * First name of the guest.
      */
@@ -290,7 +282,6 @@ public class GuestJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * Last name of the guest.
@@ -300,7 +291,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * Middle name of the guest.
      */
@@ -308,7 +298,6 @@ public class GuestJson {
         this.middleName = middleName;
         return this;
     }
-
 
     /**
      * Title of the guest.
@@ -318,7 +307,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * Position of the guest.
      */
@@ -326,7 +314,6 @@ public class GuestJson {
         this.position = position;
         return this;
     }
-
 
     /**
      * Organization or company name of the guest.
@@ -336,7 +323,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * Home fax number of the guest.
      */
@@ -344,7 +330,6 @@ public class GuestJson {
         this.homeFax = homeFax;
         return this;
     }
-
 
     /**
      * Email address of the guest.
@@ -354,7 +339,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * Home phone number of the guest. Required if the hotel/event requires address in reservations.
      */
@@ -363,7 +347,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * Work phone number of the guest.
      */
@@ -371,7 +354,6 @@ public class GuestJson {
         this.workPhone = workPhone;
         return this;
     }
-
 
     /**
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
@@ -382,7 +364,6 @@ public class GuestJson {
         return this;
     }
 
-
     /**
      * Payment information.
      */
@@ -390,7 +371,6 @@ public class GuestJson {
         this.paymentInfo = paymentInfo;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -401,54 +381,77 @@ public class GuestJson {
             return false;
         }
         GuestJson other = (GuestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.arrival, other.arrival) &&
-            Utils.enhancedDeepEquals(this.departure, other.departure) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.position, other.position) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.paymentInfo, other.paymentInfo);
+        return Utils.enhancedDeepEquals(this.arrival, other.arrival)
+                && Utils.enhancedDeepEquals(this.departure, other.departure)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.position, other.position)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.paymentInfo, other.paymentInfo);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            arrival, departure, firstName,
-            lastName, middleName, title,
-            position, company, homeFax,
-            email, homePhone, workPhone,
-            homeAddress, paymentInfo);
+                arrival,
+                departure,
+                firstName,
+                lastName,
+                middleName,
+                title,
+                position,
+                company,
+                homeFax,
+                email,
+                homePhone,
+                workPhone,
+                homeAddress,
+                paymentInfo);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GuestJson.class,
-                "arrival", arrival,
-                "departure", departure,
-                "firstName", firstName,
-                "lastName", lastName,
-                "middleName", middleName,
-                "title", title,
-                "position", position,
-                "company", company,
-                "homeFax", homeFax,
-                "email", email,
-                "homePhone", homePhone,
-                "workPhone", workPhone,
-                "homeAddress", homeAddress,
-                "paymentInfo", paymentInfo);
+        return Utils.toString(
+                GuestJson.class,
+                "arrival",
+                arrival,
+                "departure",
+                departure,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "middleName",
+                middleName,
+                "title",
+                title,
+                "position",
+                position,
+                "company",
+                company,
+                "homeFax",
+                homeFax,
+                "email",
+                email,
+                "homePhone",
+                homePhone,
+                "workPhone",
+                workPhone,
+                "homeAddress",
+                homeAddress,
+                "paymentInfo",
+                paymentInfo);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LocalDate arrival;
 
@@ -479,7 +482,7 @@ public class GuestJson {
         private PaymentInfoJson paymentInfo;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -597,12 +600,20 @@ public class GuestJson {
 
         public GuestJson build() {
             return new GuestJson(
-                arrival, departure, firstName,
-                lastName, middleName, title,
-                position, company, homeFax,
-                email, homePhone, workPhone,
-                homeAddress, paymentInfo);
+                    arrival,
+                    departure,
+                    firstName,
+                    lastName,
+                    middleName,
+                    title,
+                    position,
+                    company,
+                    homeFax,
+                    email,
+                    homePhone,
+                    workPhone,
+                    homeAddress,
+                    paymentInfo);
         }
-
     }
 }

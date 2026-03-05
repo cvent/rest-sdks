@@ -30,7 +30,7 @@ public class AnswerEventCustomFieldRequestBuilder {
     private AnswerEventCustomFieldRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AnswerEventCustomFieldRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AnswerEventCustomFieldRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AnswerEventCustomFieldResponse> call() {
-        AsyncRequestOperation<AnswerEventCustomFieldRequest, AnswerEventCustomFieldResponse> operation
-              = new AnswerEventCustomField.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AnswerEventCustomFieldRequest, AnswerEventCustomFieldResponse> operation =
+                new AnswerEventCustomField.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

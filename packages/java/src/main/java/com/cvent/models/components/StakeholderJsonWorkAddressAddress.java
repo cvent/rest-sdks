@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -17,9 +17,9 @@ import java.util.Optional;
 
 /**
  * StakeholderJsonWorkAddressAddress
- * 
+ *
  * <p>The work address of the stakeholder (no longer supported).
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -126,12 +126,9 @@ public class StakeholderJsonWorkAddressAddress {
         this.latitude = latitude;
         this.longitude = longitude;
     }
-    
+
     public StakeholderJsonWorkAddressAddress() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -215,7 +212,6 @@ public class StakeholderJsonWorkAddressAddress {
         return new Builder();
     }
 
-
     /**
      * The first line of an address.
      */
@@ -223,7 +219,6 @@ public class StakeholderJsonWorkAddressAddress {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * The second line of an address.
@@ -233,7 +228,6 @@ public class StakeholderJsonWorkAddressAddress {
         return this;
     }
 
-
     /**
      * The third line of an address.
      */
@@ -241,7 +235,6 @@ public class StakeholderJsonWorkAddressAddress {
         this.address3 = address3;
         return this;
     }
-
 
     /**
      * The name of the city.
@@ -251,7 +244,6 @@ public class StakeholderJsonWorkAddressAddress {
         return this;
     }
 
-
     /**
      * ISO 3166 two-letter (alpha-2) country code.
      */
@@ -259,7 +251,6 @@ public class StakeholderJsonWorkAddressAddress {
         this.countryCode = countryCode;
         return this;
     }
-
 
     /**
      * Postal code (also known as zipcode) of the address.
@@ -269,7 +260,6 @@ public class StakeholderJsonWorkAddressAddress {
         return this;
     }
 
-
     /**
      * The name of the state/province/region of the address.
      */
@@ -277,7 +267,6 @@ public class StakeholderJsonWorkAddressAddress {
         this.region = region;
         return this;
     }
-
 
     /**
      * The abbreviation of the state/province/region of the address.
@@ -287,7 +276,6 @@ public class StakeholderJsonWorkAddressAddress {
         return this;
     }
 
-
     /**
      * Name of the country of the address.
      */
@@ -295,7 +283,6 @@ public class StakeholderJsonWorkAddressAddress {
         this.country = country;
         return this;
     }
-
 
     /**
      * The geo latitude of the address.
@@ -305,7 +292,6 @@ public class StakeholderJsonWorkAddressAddress {
         return this;
     }
 
-
     /**
      * The geo longitude of the address.
      */
@@ -313,7 +299,6 @@ public class StakeholderJsonWorkAddressAddress {
         this.longitude = longitude;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -324,47 +309,65 @@ public class StakeholderJsonWorkAddressAddress {
             return false;
         }
         StakeholderJsonWorkAddressAddress other = (StakeholderJsonWorkAddressAddress) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.address3, other.address3) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.latitude, other.latitude) &&
-            Utils.enhancedDeepEquals(this.longitude, other.longitude);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.address3, other.address3)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.latitude, other.latitude)
+                && Utils.enhancedDeepEquals(this.longitude, other.longitude);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            address1, address2, address3,
-            city, countryCode, postalCode,
-            region, regionCode, country,
-            latitude, longitude);
+                address1,
+                address2,
+                address3,
+                city,
+                countryCode,
+                postalCode,
+                region,
+                regionCode,
+                country,
+                latitude,
+                longitude);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StakeholderJsonWorkAddressAddress.class,
-                "address1", address1,
-                "address2", address2,
-                "address3", address3,
-                "city", city,
-                "countryCode", countryCode,
-                "postalCode", postalCode,
-                "region", region,
-                "regionCode", regionCode,
-                "country", country,
-                "latitude", latitude,
-                "longitude", longitude);
+        return Utils.toString(
+                StakeholderJsonWorkAddressAddress.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "address3",
+                address3,
+                "city",
+                city,
+                "countryCode",
+                countryCode,
+                "postalCode",
+                postalCode,
+                "region",
+                region,
+                "regionCode",
+                regionCode,
+                "country",
+                country,
+                "latitude",
+                latitude,
+                "longitude",
+                longitude);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -389,7 +392,7 @@ public class StakeholderJsonWorkAddressAddress {
         private Long longitude;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -482,11 +485,17 @@ public class StakeholderJsonWorkAddressAddress {
 
         public StakeholderJsonWorkAddressAddress build() {
             return new StakeholderJsonWorkAddressAddress(
-                address1, address2, address3,
-                city, countryCode, postalCode,
-                region, regionCode, country,
-                latitude, longitude);
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    countryCode,
+                    postalCode,
+                    region,
+                    regionCode,
+                    country,
+                    latitude,
+                    longitude);
         }
-
     }
 }

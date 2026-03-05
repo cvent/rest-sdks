@@ -30,7 +30,7 @@ public class AddSpeakerToSessionRequestBuilder {
     private AddSpeakerToSessionRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AddSpeakerToSessionRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AddSpeakerToSessionRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AddSpeakerToSessionResponse> call() {
-        AsyncRequestOperation<AddSpeakerToSessionRequest, AddSpeakerToSessionResponse> operation
-              = new AddSpeakerToSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AddSpeakerToSessionRequest, AddSpeakerToSessionResponse> operation =
+                new AddSpeakerToSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

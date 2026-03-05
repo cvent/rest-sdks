@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * AttendeePaginatedResponse
- * 
+ *
  * <p>The response from a request to get the list of attendees. This includes the paging object as well as
  * the collection of attendees.
  */
@@ -33,12 +33,10 @@ public class AttendeePaginatedResponse {
 
     @JsonCreator
     public AttendeePaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<Attendee> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<Attendee> data) {
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -59,7 +57,6 @@ public class AttendeePaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -68,7 +65,6 @@ public class AttendeePaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of attendees.
      */
@@ -76,7 +72,6 @@ public class AttendeePaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -87,33 +82,28 @@ public class AttendeePaginatedResponse {
             return false;
         }
         AttendeePaginatedResponse other = (AttendeePaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeePaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(AttendeePaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<Attendee> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -133,9 +123,7 @@ public class AttendeePaginatedResponse {
         }
 
         public AttendeePaginatedResponse build() {
-            return new AttendeePaginatedResponse(
-                paging, data);
+            return new AttendeePaginatedResponse(paging, data);
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEventSurveyRespondentsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetEventSurveyRespondentsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable EventSurveyRespondentsPaginatedResponse eventSurveyRespondentsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventSurveyRespondentsPaginatedResponse = eventSurveyRespondentsPaginatedResponse;
     }
-    
+
     public GetEventSurveyRespondentsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetEventSurveyRespondentsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetEventSurveyRespondentsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetEventSurveyRespondentsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetEventSurveyRespondentsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of event survey respondents.
      */
-    public GetEventSurveyRespondentsResponse withEventSurveyRespondentsPaginatedResponse(@Nullable EventSurveyRespondentsPaginatedResponse eventSurveyRespondentsPaginatedResponse) {
+    public GetEventSurveyRespondentsResponse withEventSurveyRespondentsPaginatedResponse(
+            @Nullable EventSurveyRespondentsPaginatedResponse eventSurveyRespondentsPaginatedResponse) {
         this.eventSurveyRespondentsPaginatedResponse = eventSurveyRespondentsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class GetEventSurveyRespondentsResponse implements Response {
             return false;
         }
         GetEventSurveyRespondentsResponse other = (GetEventSurveyRespondentsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventSurveyRespondentsPaginatedResponse, other.eventSurveyRespondentsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.eventSurveyRespondentsPaginatedResponse, other.eventSurveyRespondentsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventSurveyRespondentsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventSurveyRespondentsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventSurveyRespondentsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventSurveyRespondentsPaginatedResponse", eventSurveyRespondentsPaginatedResponse);
+        return Utils.toString(
+                GetEventSurveyRespondentsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventSurveyRespondentsPaginatedResponse",
+                eventSurveyRespondentsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class GetEventSurveyRespondentsResponse implements Response {
         private EventSurveyRespondentsPaginatedResponse eventSurveyRespondentsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class GetEventSurveyRespondentsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of event survey respondents.
          */
-        public Builder eventSurveyRespondentsPaginatedResponse(@Nullable EventSurveyRespondentsPaginatedResponse eventSurveyRespondentsPaginatedResponse) {
+        public Builder eventSurveyRespondentsPaginatedResponse(
+                @Nullable EventSurveyRespondentsPaginatedResponse eventSurveyRespondentsPaginatedResponse) {
             this.eventSurveyRespondentsPaginatedResponse = eventSurveyRespondentsPaginatedResponse;
             return this;
         }
 
         public GetEventSurveyRespondentsResponse build() {
             return new GetEventSurveyRespondentsResponse(
-                contentType, statusCode, rawResponse,
-                eventSurveyRespondentsPaginatedResponse);
+                    contentType, statusCode, rawResponse, eventSurveyRespondentsPaginatedResponse);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 Denotes the file format of the audio track.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AudioTrackTypeJson;
+
+AudioTrackTypeJson value = AudioTrackTypeJson.ASF;
+```
+
 
 ## Values
 

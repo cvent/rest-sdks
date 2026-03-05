@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class SendEventEmailsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class SendEventEmailsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SendEmailEventResponse sendEmailEventResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.sendEmailEventResponse = sendEmailEventResponse;
     }
-    
+
     public SendEventEmailsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class SendEventEmailsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class SendEventEmailsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class SendEventEmailsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class SendEventEmailsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully sent the request(s) for processing.
      */
@@ -126,7 +118,6 @@ public class SendEventEmailsResponse implements Response {
         this.sendEmailEventResponse = sendEmailEventResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class SendEventEmailsResponse implements Response {
             return false;
         }
         SendEventEmailsResponse other = (SendEventEmailsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.sendEmailEventResponse, other.sendEmailEventResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.sendEmailEventResponse, other.sendEmailEventResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            sendEmailEventResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, sendEmailEventResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendEventEmailsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "sendEmailEventResponse", sendEmailEventResponse);
+        return Utils.toString(
+                SendEventEmailsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "sendEmailEventResponse",
+                sendEmailEventResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class SendEventEmailsResponse implements Response {
         private SendEmailEventResponse sendEmailEventResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class SendEventEmailsResponse implements Response {
         }
 
         public SendEventEmailsResponse build() {
-            return new SendEventEmailsResponse(
-                contentType, statusCode, rawResponse,
-                sendEmailEventResponse);
+            return new SendEventEmailsResponse(contentType, statusCode, rawResponse, sendEmailEventResponse);
         }
-
     }
 }

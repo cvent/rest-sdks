@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteAudienceSegmentRequest {
     /**
      * ID of an audience segment.
@@ -20,10 +19,9 @@ public class DeleteAudienceSegmentRequest {
     private String audienceSegmentId;
 
     @JsonCreator
-    public DeleteAudienceSegmentRequest(
-            @Nonnull String audienceSegmentId) {
+    public DeleteAudienceSegmentRequest(@Nonnull String audienceSegmentId) {
         this.audienceSegmentId = Optional.ofNullable(audienceSegmentId)
-            .orElseThrow(() -> new IllegalArgumentException("audienceSegmentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("audienceSegmentId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class DeleteAudienceSegmentRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an audience segment.
      */
@@ -45,7 +42,6 @@ public class DeleteAudienceSegmentRequest {
         this.audienceSegmentId = Utils.checkNotNull(audienceSegmentId, "audienceSegmentId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class DeleteAudienceSegmentRequest {
             return false;
         }
         DeleteAudienceSegmentRequest other = (DeleteAudienceSegmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.audienceSegmentId, other.audienceSegmentId);
+        return Utils.enhancedDeepEquals(this.audienceSegmentId, other.audienceSegmentId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            audienceSegmentId);
+        return Utils.enhancedHash(audienceSegmentId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteAudienceSegmentRequest.class,
-                "audienceSegmentId", audienceSegmentId);
+        return Utils.toString(DeleteAudienceSegmentRequest.class, "audienceSegmentId", audienceSegmentId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String audienceSegmentId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class DeleteAudienceSegmentRequest {
         }
 
         public DeleteAudienceSegmentRequest build() {
-            return new DeleteAudienceSegmentRequest(
-                audienceSegmentId);
+            return new DeleteAudienceSegmentRequest(audienceSegmentId);
         }
-
     }
 }

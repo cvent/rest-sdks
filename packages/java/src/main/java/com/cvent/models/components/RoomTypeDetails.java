@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * RoomTypeDetails
- * 
+ *
  * <p>Room type details.
  */
 public class RoomTypeDetails {
@@ -86,27 +86,23 @@ public class RoomTypeDetails {
             @JsonProperty("customOrder") @Nullable Long customOrder) {
         this.id = id;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
-        this.hotel = Optional.ofNullable(hotel)
-            .orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+        this.hotel = Optional.ofNullable(hotel).orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
         this.attendeeTypes = attendeeTypes;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = Optional.ofNullable(description)
-            .orElseThrow(() -> new IllegalArgumentException("description cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("description cannot be null"));
         this.images = images;
         this.customOrder = customOrder;
     }
-    
+
     public RoomTypeDetails(
             long id,
             @Nonnull HousingEventIdJson housingEvent,
             @Nonnull HotelIdJson hotel,
             @Nonnull String name,
             @Nonnull String description) {
-        this(id, housingEvent, hotel,
-            null, name, description,
-            null, null);
+        this(id, housingEvent, hotel, null, name, description, null, null);
     }
 
     /**
@@ -170,7 +166,6 @@ public class RoomTypeDetails {
         return new Builder();
     }
 
-
     /**
      * The Room type's unique ID.
      */
@@ -178,7 +173,6 @@ public class RoomTypeDetails {
         this.id = id;
         return this;
     }
-
 
     /**
      * Contains unique ID of the housing event.
@@ -188,7 +182,6 @@ public class RoomTypeDetails {
         return this;
     }
 
-
     /**
      * Contains unique ID of the hotel.
      */
@@ -196,7 +189,6 @@ public class RoomTypeDetails {
         this.hotel = Utils.checkNotNull(hotel, "hotel");
         return this;
     }
-
 
     /**
      * List of supported attendee types for this room type, and their individual room policies.
@@ -206,7 +198,6 @@ public class RoomTypeDetails {
         return this;
     }
 
-
     /**
      * Name of the room type.
      */
@@ -214,7 +205,6 @@ public class RoomTypeDetails {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * Room description.
@@ -224,7 +214,6 @@ public class RoomTypeDetails {
         return this;
     }
 
-
     /**
      * List of room images.
      */
@@ -232,7 +221,6 @@ public class RoomTypeDetails {
         this.images = images;
         return this;
     }
-
 
     /**
      * Specifies a custom sort order defined by the user. This property is applicable only when the default
@@ -243,7 +231,6 @@ public class RoomTypeDetails {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -253,40 +240,45 @@ public class RoomTypeDetails {
             return false;
         }
         RoomTypeDetails other = (RoomTypeDetails) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.attendeeTypes, other.attendeeTypes) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.images, other.images) &&
-            Utils.enhancedDeepEquals(this.customOrder, other.customOrder);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.attendeeTypes, other.attendeeTypes)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.images, other.images)
+                && Utils.enhancedDeepEquals(this.customOrder, other.customOrder);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, housingEvent, hotel,
-            attendeeTypes, name, description,
-            images, customOrder);
+        return Utils.enhancedHash(id, housingEvent, hotel, attendeeTypes, name, description, images, customOrder);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RoomTypeDetails.class,
-                "id", id,
-                "housingEvent", housingEvent,
-                "hotel", hotel,
-                "attendeeTypes", attendeeTypes,
-                "name", name,
-                "description", description,
-                "images", images,
-                "customOrder", customOrder);
+        return Utils.toString(
+                RoomTypeDetails.class,
+                "id",
+                id,
+                "housingEvent",
+                housingEvent,
+                "hotel",
+                hotel,
+                "attendeeTypes",
+                attendeeTypes,
+                "name",
+                name,
+                "description",
+                description,
+                "images",
+                images,
+                "customOrder",
+                customOrder);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -305,7 +297,7 @@ public class RoomTypeDetails {
         private Long customOrder;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -374,11 +366,7 @@ public class RoomTypeDetails {
         }
 
         public RoomTypeDetails build() {
-            return new RoomTypeDetails(
-                id, housingEvent, hotel,
-                attendeeTypes, name, description,
-                images, customOrder);
+            return new RoomTypeDetails(id, housingEvent, hotel, attendeeTypes, name, description, images, customOrder);
         }
-
     }
 }

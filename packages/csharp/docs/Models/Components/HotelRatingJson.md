@@ -2,6 +2,14 @@
 
 The hotel's rating, used to classify the hotel's quality.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = HotelRatingJson.Na;
+```
+
 
 ## Values
 

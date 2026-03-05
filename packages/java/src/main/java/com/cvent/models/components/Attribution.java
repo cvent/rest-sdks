@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * Attribution
- * 
+ *
  * <p>The entity to which the ad is associated.
  */
 public class Attribution {
@@ -34,13 +34,11 @@ public class Attribution {
     private String type;
 
     @JsonCreator
-    public Attribution(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("type") @Nullable String type) {
+    public Attribution(@JsonProperty("id") @Nullable String id, @JsonProperty("type") @Nullable String type) {
         this.id = id;
         this.type = type;
     }
-    
+
     public Attribution() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class Attribution {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the attribution.
      */
@@ -72,7 +69,6 @@ public class Attribution {
         return this;
     }
 
-
     /**
      * The type of attribution.
      */
@@ -80,7 +76,6 @@ public class Attribution {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class Attribution {
             return false;
         }
         Attribution other = (Attribution) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type);
+        return Utils.enhancedHash(id, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Attribution.class,
-                "id", id,
-                "type", type);
+        return Utils.toString(Attribution.class, "id", id, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class Attribution {
         }
 
         public Attribution build() {
-            return new Attribution(
-                id, type);
+            return new Attribution(id, type);
         }
-
     }
 }

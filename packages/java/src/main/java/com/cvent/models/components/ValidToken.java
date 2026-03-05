@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ValidToken
- * 
+ *
  * <p>Validity status of an authentication token.
  */
 public class ValidToken {
@@ -42,7 +42,7 @@ public class ValidToken {
         this.tokenValid = tokenValid;
         this.statusCode = statusCode;
     }
-    
+
     public ValidToken() {
         this(null, null);
     }
@@ -65,7 +65,6 @@ public class ValidToken {
         return new Builder();
     }
 
-
     /**
      * True indicates the presented authentication token is valid.
      */
@@ -74,7 +73,6 @@ public class ValidToken {
         return this;
     }
 
-
     /**
      * Supplementary status code. Typically will be 200 for a success case.
      */
@@ -82,7 +80,6 @@ public class ValidToken {
         this.statusCode = statusCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +90,29 @@ public class ValidToken {
             return false;
         }
         ValidToken other = (ValidToken) o;
-        return 
-            Utils.enhancedDeepEquals(this.tokenValid, other.tokenValid) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode);
+        return Utils.enhancedDeepEquals(this.tokenValid, other.tokenValid)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            tokenValid, statusCode);
+        return Utils.enhancedHash(tokenValid, statusCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ValidToken.class,
-                "tokenValid", tokenValid,
-                "statusCode", statusCode);
+        return Utils.toString(ValidToken.class, "tokenValid", tokenValid, "statusCode", statusCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean tokenValid;
 
         private Long statusCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +132,7 @@ public class ValidToken {
         }
 
         public ValidToken build() {
-            return new ValidToken(
-                tokenValid, statusCode);
+            return new ValidToken(tokenValid, statusCode);
         }
-
     }
 }

@@ -20,7 +20,7 @@ GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
 
 GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-while(res != null)
+while (res != null)
 {
     // handle items
 

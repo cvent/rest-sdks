@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListTravelAccountsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListTravelAccountsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable TravelAccountPaginatedResponse travelAccountPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.travelAccountPaginatedResponse = travelAccountPaginatedResponse;
     }
-    
+
     public ListTravelAccountsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListTravelAccountsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListTravelAccountsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListTravelAccountsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListTravelAccountsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of travel accounts.
      */
-    public ListTravelAccountsResponse withTravelAccountPaginatedResponse(@Nullable TravelAccountPaginatedResponse travelAccountPaginatedResponse) {
+    public ListTravelAccountsResponse withTravelAccountPaginatedResponse(
+            @Nullable TravelAccountPaginatedResponse travelAccountPaginatedResponse) {
         this.travelAccountPaginatedResponse = travelAccountPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListTravelAccountsResponse implements AsyncResponse {
             return false;
         }
         ListTravelAccountsResponse other = (ListTravelAccountsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.travelAccountPaginatedResponse, other.travelAccountPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.travelAccountPaginatedResponse, other.travelAccountPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            travelAccountPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, travelAccountPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelAccountsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "travelAccountPaginatedResponse", travelAccountPaginatedResponse);
+        return Utils.toString(
+                ListTravelAccountsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "travelAccountPaginatedResponse",
+                travelAccountPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListTravelAccountsResponse implements AsyncResponse {
         private TravelAccountPaginatedResponse travelAccountPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class ListTravelAccountsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of travel accounts.
          */
-        public Builder travelAccountPaginatedResponse(@Nullable TravelAccountPaginatedResponse travelAccountPaginatedResponse) {
+        public Builder travelAccountPaginatedResponse(
+                @Nullable TravelAccountPaginatedResponse travelAccountPaginatedResponse) {
             this.travelAccountPaginatedResponse = travelAccountPaginatedResponse;
             return this;
         }
 
         public ListTravelAccountsResponse build() {
-            return new ListTravelAccountsResponse(
-                contentType, statusCode, rawResponse,
-                travelAccountPaginatedResponse);
+            return new ListTravelAccountsResponse(contentType, statusCode, rawResponse, travelAccountPaginatedResponse);
         }
-
     }
 }

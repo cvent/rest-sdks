@@ -210,7 +210,7 @@ public class Events {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncEvents async() {
@@ -219,11 +219,11 @@ public class Events {
 
     /**
      * List Admission Items
-     * 
+     *
      * <p>Gets a paginated list of admission items.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAdmissionItemsRequestBuilder listAdmissionItems() {
@@ -232,30 +232,30 @@ public class Events {
 
     /**
      * List Admission Items
-     * 
+     *
      * <p>Gets a paginated list of admission items.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAdmissionItemsResponse listAdmissionItems(@Nonnull ListAdmissionItemsRequest request) {
-        RequestOperation<ListAdmissionItemsRequest, ListAdmissionItemsResponse> operation
-              = new ListAdmissionItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAdmissionItemsRequest, ListAdmissionItemsResponse> operation =
+                new ListAdmissionItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Admission Items
-     * 
+     *
      * <p>Gets a paginated list of admission items by sending a filter in the body of the request. This method
      * will return the same data as [GET List Admission Items](#operation/listAdmissionItems) but allows
      * for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAdmissionItemsPostFiltersRequestBuilder listAdmissionItemsPostFilters() {
@@ -264,30 +264,31 @@ public class Events {
 
     /**
      * List Admission Items
-     * 
+     *
      * <p>Gets a paginated list of admission items by sending a filter in the body of the request. This method
      * will return the same data as [GET List Admission Items](#operation/listAdmissionItems) but allows
      * for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListAdmissionItemsPostFiltersResponse listAdmissionItemsPostFilters(@Nonnull ListAdmissionItemsPostFiltersRequest request) {
-        RequestOperation<ListAdmissionItemsPostFiltersRequest, ListAdmissionItemsPostFiltersResponse> operation
-              = new ListAdmissionItemsPostFilters.Sync(sdkConfiguration, _headers);
+    public ListAdmissionItemsPostFiltersResponse listAdmissionItemsPostFilters(
+            @Nonnull ListAdmissionItemsPostFiltersRequest request) {
+        RequestOperation<ListAdmissionItemsPostFiltersRequest, ListAdmissionItemsPostFiltersResponse> operation =
+                new ListAdmissionItemsPostFilters.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Questions
-     * 
+     *
      * <p>Gets a paginated list of event questions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventQuestionsRequestBuilder getEventQuestions() {
@@ -296,28 +297,28 @@ public class Events {
 
     /**
      * List Event Questions
-     * 
+     *
      * <p>Gets a paginated list of event questions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventQuestionsResponse getEventQuestions(@Nonnull GetEventQuestionsRequest request) {
-        RequestOperation<GetEventQuestionsRequest, GetEventQuestionsResponse> operation
-              = new GetEventQuestions.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventQuestionsRequest, GetEventQuestionsResponse> operation =
+                new GetEventQuestions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Question Choices
-     * 
+     *
      * <p>Gets all the choices for a given event question.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetChoicesForQuestionRequestBuilder getChoicesForQuestion() {
@@ -326,28 +327,28 @@ public class Events {
 
     /**
      * Get Question Choices
-     * 
+     *
      * <p>Gets all the choices for a given event question.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetChoicesForQuestionResponse getChoicesForQuestion(@Nonnull GetChoicesForQuestionRequest request) {
-        RequestOperation<GetChoicesForQuestionRequest, GetChoicesForQuestionResponse> operation
-              = new GetChoicesForQuestion.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetChoicesForQuestionRequest, GetChoicesForQuestionResponse> operation =
+                new GetChoicesForQuestion.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Events
-     * 
+     *
      * <p>Gets a paginated list of events.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventsRequestBuilder getEvents() {
@@ -356,30 +357,30 @@ public class Events {
 
     /**
      * List Events
-     * 
+     *
      * <p>Gets a paginated list of events.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventsResponse getEvents(@Nonnull GetEventsRequest request) {
-        RequestOperation<GetEventsRequest, GetEventsResponse> operation
-              = new GetEvents.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventsRequest, GetEventsResponse> operation =
+                new GetEvents.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Event Async
-     * 
+     *
      * <p>Creates an event using the details supplied in the request body. Check the
      * [Get Event Async Status](#operation/getEventAsyncStatus) to determine when the
      * event is ready.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateEventAsyncRequestBuilder createEventAsync() {
@@ -388,30 +389,30 @@ public class Events {
 
     /**
      * Create Event Async
-     * 
+     *
      * <p>Creates an event using the details supplied in the request body. Check the
      * [Get Event Async Status](#operation/getEventAsyncStatus) to determine when the
      * event is ready.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateEventAsyncResponse createEventAsync(@Nonnull EventInput request) {
-        RequestOperation<EventInput, CreateEventAsyncResponse> operation
-              = new CreateEventAsync.Sync(sdkConfiguration, _headers);
+        RequestOperation<EventInput, CreateEventAsyncResponse> operation =
+                new CreateEventAsync.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Event Async Status
-     * 
+     *
      * <p>Gets the event creation status of the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventAsyncStatusRequestBuilder getEventAsyncStatus() {
@@ -420,28 +421,28 @@ public class Events {
 
     /**
      * Get Event Async Status
-     * 
+     *
      * <p>Gets the event creation status of the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventAsyncStatusResponse getEventAsyncStatus(@Nonnull GetEventAsyncStatusRequest request) {
-        RequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation
-              = new GetEventAsyncStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation =
+                new GetEventAsyncStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Event Copy Status
-     * 
+     *
      * <p>Gets the event copy status of the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventCopyStatusRequestBuilder getEventCopyStatus() {
@@ -450,28 +451,28 @@ public class Events {
 
     /**
      * Get Event Copy Status
-     * 
+     *
      * <p>Gets the event copy status of the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventCopyStatusResponse getEventCopyStatus(@Nonnull GetEventCopyStatusRequest request) {
-        RequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation
-              = new GetEventCopyStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation =
+                new GetEventCopyStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Send Email To Attendees
-     * 
+     *
      * <p>Sends an email to one or more event attendees who are on the invitation list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public SendEventEmailsRequestBuilder sendEventEmails() {
@@ -480,11 +481,11 @@ public class Events {
 
     /**
      * Send Email To Attendees
-     * 
+     *
      * <p>Sends an email to one or more event attendees who are on the invitation list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -494,29 +495,29 @@ public class Events {
 
     /**
      * Send Email To Attendees
-     * 
+     *
      * <p>Sends an email to one or more event attendees who are on the invitation list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public SendEventEmailsResponse sendEventEmails(@Nullable SendEmailEventRequest request) {
-        RequestOperation<SendEmailEventRequest, SendEventEmailsResponse> operation
-              = new SendEventEmails.Sync(sdkConfiguration, _headers);
+        RequestOperation<SendEmailEventRequest, SendEventEmailsResponse> operation =
+                new SendEventEmails.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Email Status
-     * 
+     *
      * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
      * Email To Attendees](#tag/Events/operation/sendEventEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventEmailStatusRequestBuilder getEventEmailStatus() {
@@ -525,30 +526,30 @@ public class Events {
 
     /**
      * List Event Email Status
-     * 
+     *
      * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
      * Email To Attendees](#tag/Events/operation/sendEventEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventEmailStatusResponse getEventEmailStatus(@Nonnull GetEventEmailStatusRequest request) {
-        RequestOperation<GetEventEmailStatusRequest, GetEventEmailStatusResponse> operation
-              = new GetEventEmailStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventEmailStatusRequest, GetEventEmailStatusResponse> operation =
+                new GetEventEmailStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Events
-     * 
+     *
      * <p>Gets a paginated list of events by sending a filter in the body of the request. This method will
      * return the same data as [GET List Events](#operation/getEvents) but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventsPostFiltersRequestBuilder getEventsPostFilters() {
@@ -557,29 +558,29 @@ public class Events {
 
     /**
      * List Events
-     * 
+     *
      * <p>Gets a paginated list of events by sending a filter in the body of the request. This method will
      * return the same data as [GET List Events](#operation/getEvents) but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventsPostFiltersResponse getEventsPostFilters(@Nonnull GetEventsPostFiltersRequest request) {
-        RequestOperation<GetEventsPostFiltersRequest, GetEventsPostFiltersResponse> operation
-              = new GetEventsPostFilters.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventsPostFiltersRequest, GetEventsPostFiltersResponse> operation =
+                new GetEventsPostFilters.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Event
-     * 
+     *
      * <p>Gets a single event based on the provided event ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventByIdRequestBuilder getEventById() {
@@ -588,28 +589,28 @@ public class Events {
 
     /**
      * Get Event
-     * 
+     *
      * <p>Gets a single event based on the provided event ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventByIdResponse getEventById(@Nonnull GetEventByIdRequest request) {
-        RequestOperation<GetEventByIdRequest, GetEventByIdResponse> operation
-              = new GetEventById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventByIdRequest, GetEventByIdResponse> operation =
+                new GetEventById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Event
-     * 
+     *
      * <p>Updates the information for a single event based on the details provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateEventRequestBuilder updateEvent() {
@@ -618,28 +619,28 @@ public class Events {
 
     /**
      * Update Event
-     * 
+     *
      * <p>Updates the information for a single event based on the details provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateEventResponse updateEvent(@Nonnull UpdateEventRequest request) {
-        RequestOperation<UpdateEventRequest, UpdateEventResponse> operation
-              = new UpdateEvent.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateEventRequest, UpdateEventResponse> operation =
+                new UpdateEvent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Event Check-In
-     * 
+     *
      * <p>Check-in attendees to an event based on the attendee IDs provided in the body of the request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public EventCheckInRequestBuilder eventCheckIn() {
@@ -648,28 +649,28 @@ public class Events {
 
     /**
      * Event Check-In
-     * 
+     *
      * <p>Check-in attendees to an event based on the attendee IDs provided in the body of the request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public EventCheckInResponse eventCheckIn(@Nonnull EventCheckInRequest request) {
-        RequestOperation<EventCheckInRequest, EventCheckInResponse> operation
-              = new EventCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<EventCheckInRequest, EventCheckInResponse> operation =
+                new EventCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Remove Check-In
-     * 
+     *
      * <p>Deletes the event check-in of attendee.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteEventCheckInRequestBuilder deleteEventCheckIn() {
@@ -678,30 +679,30 @@ public class Events {
 
     /**
      * Remove Check-In
-     * 
+     *
      * <p>Deletes the event check-in of attendee.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteEventCheckInResponse deleteEventCheckIn(@Nonnull DeleteEventCheckInRequest request) {
-        RequestOperation<DeleteEventCheckInRequest, DeleteEventCheckInResponse> operation
-              = new DeleteEventCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteEventCheckInRequest, DeleteEventCheckInResponse> operation =
+                new DeleteEventCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Copy Event
-     * 
+     *
      * <p>Copies the event details provided in the request body. Supports either creating a new event using
      * the
      * copied data, or inserting the copied data to an existing event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CopyEventRequestBuilder copyEvent() {
@@ -710,31 +711,31 @@ public class Events {
 
     /**
      * Copy Event
-     * 
+     *
      * <p>Copies the event details provided in the request body. Supports either creating a new event using
      * the
      * copied data, or inserting the copied data to an existing event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CopyEventResponse copyEvent(@Nonnull CopyEventRequest request) {
-        RequestOperation<CopyEventRequest, CopyEventResponse> operation
-              = new CopyEvent.Sync(sdkConfiguration, _headers);
+        RequestOperation<CopyEventRequest, CopyEventResponse> operation =
+                new CopyEvent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Event Custom Field Answers
-     * 
+     *
      * <p>Answer a single custom field for an event. Event custom fields are used to store extra
      * information about an event, such as the event type or event region.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public AnswerEventCustomFieldRequestBuilder answerEventCustomField() {
@@ -743,28 +744,28 @@ public class Events {
 
     /**
      * Event Custom Field Answers
-     * 
+     *
      * <p>Answer a single custom field for an event. Event custom fields are used to store extra
      * information about an event, such as the event type or event region.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public AnswerEventCustomFieldResponse answerEventCustomField(@Nonnull AnswerEventCustomFieldRequest request) {
-        RequestOperation<AnswerEventCustomFieldRequest, AnswerEventCustomFieldResponse> operation
-              = new AnswerEventCustomField.Sync(sdkConfiguration, _headers);
+        RequestOperation<AnswerEventCustomFieldRequest, AnswerEventCustomFieldResponse> operation =
+                new AnswerEventCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Donation Items
-     * 
+     *
      * <p>Gets a paginated list of donation items. Donation items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @return The call builder
      */
     public ListDonationItemsRequestBuilder listDonationItems() {
@@ -773,27 +774,27 @@ public class Events {
 
     /**
      * List Donation Items
-     * 
+     *
      * <p>Gets a paginated list of donation items. Donation items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListDonationItemsResponse listDonationItems(@Nonnull ListDonationItemsRequest request) {
-        RequestOperation<ListDonationItemsRequest, ListDonationItemsResponse> operation
-              = new ListDonationItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListDonationItemsRequest, ListDonationItemsResponse> operation =
+                new ListDonationItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Donation Items
-     * 
+     *
      * <p>Gets a paginated list of donation items by sending a filter in the body of the request. Donation
      * items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @return The call builder
      */
     public ListDonationItemsPostFilterRequestBuilder listDonationItemsPostFilter() {
@@ -802,28 +803,29 @@ public class Events {
 
     /**
      * List Donation Items
-     * 
+     *
      * <p>Gets a paginated list of donation items by sending a filter in the body of the request. Donation
      * items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListDonationItemsPostFilterResponse listDonationItemsPostFilter(@Nonnull ListDonationItemsPostFilterRequest request) {
-        RequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation
-              = new ListDonationItemsPostFilter.Sync(sdkConfiguration, _headers);
+    public ListDonationItemsPostFilterResponse listDonationItemsPostFilter(
+            @Nonnull ListDonationItemsPostFilterRequest request) {
+        RequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation =
+                new ListDonationItemsPostFilter.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Emails
-     * 
+     *
      * <p>Gets a paginated list of emails for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListEventEmailsRequestBuilder listEventEmails() {
@@ -832,26 +834,26 @@ public class Events {
 
     /**
      * List Event Emails
-     * 
+     *
      * <p>Gets a paginated list of emails for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventEmailsResponse listEventEmails(@Nonnull ListEventEmailsRequest request) {
-        RequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation
-              = new ListEventEmails.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation =
+                new ListEventEmails.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Fee Items
-     * 
+     *
      * <p>Gets a paginated list of fee items associated with the event.
-     * 
+     *
      * @return The call builder
      */
     public ListFeeItemsRequestBuilder listFeeItems() {
@@ -860,26 +862,26 @@ public class Events {
 
     /**
      * List Fee Items
-     * 
+     *
      * <p>Gets a paginated list of fee items associated with the event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListFeeItemsResponse listFeeItems(@Nonnull ListFeeItemsRequest request) {
-        RequestOperation<ListFeeItemsRequest, ListFeeItemsResponse> operation
-              = new ListFeeItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListFeeItemsRequest, ListFeeItemsResponse> operation =
+                new ListFeeItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Invitation Lists
-     * 
+     *
      * <p>Gets a paginated list of invitation lists for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetInvitationListRequestBuilder getInvitationList() {
@@ -888,29 +890,29 @@ public class Events {
 
     /**
      * List Invitation Lists
-     * 
+     *
      * <p>Gets a paginated list of invitation lists for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetInvitationListResponse getInvitationList(@Nonnull GetInvitationListRequest request) {
-        RequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation
-              = new GetInvitationList.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation =
+                new GetInvitationList.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Membership Items
-     * 
+     *
      * <p>Gets a paginated list of membership items. [Membership
      * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
      * during registration.
-     * 
+     *
      * @return The call builder
      */
     public ListMembershipItemsRequestBuilder listMembershipItems() {
@@ -919,29 +921,29 @@ public class Events {
 
     /**
      * List Membership Items
-     * 
+     *
      * <p>Gets a paginated list of membership items. [Membership
      * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
      * during registration.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListMembershipItemsResponse listMembershipItems(@Nonnull ListMembershipItemsRequest request) {
-        RequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation
-              = new ListMembershipItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation =
+                new ListMembershipItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Orders
-     * 
+     *
      * <p>Gets a paginated list of Orders in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetOrdersRequestBuilder getOrders() {
@@ -950,28 +952,28 @@ public class Events {
 
     /**
      * List Orders
-     * 
+     *
      * <p>Gets a paginated list of Orders in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetOrdersResponse getOrders(@Nonnull GetOrdersRequest request) {
-        RequestOperation<GetOrdersRequest, GetOrdersResponse> operation
-              = new GetOrders.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetOrdersRequest, GetOrdersResponse> operation =
+                new GetOrders.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Order Items
-     * 
+     *
      * <p>Gets a paginated list of Order items in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetOrderItemsRequestBuilder getOrderItems() {
@@ -980,26 +982,26 @@ public class Events {
 
     /**
      * List Order Items
-     * 
+     *
      * <p>Gets a paginated list of Order items in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetOrderItemsResponse getOrderItems(@Nonnull GetOrderItemsRequest request) {
-        RequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation
-              = new GetOrderItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation =
+                new GetOrderItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Assign Discount to Order Item
-     * 
+     *
      * <p>Assigns a discount code to an order item based on the given IDs.
-     * 
+     *
      * @return The call builder
      */
     public AssociateDiscountCodeToOrderItemRequestBuilder associateDiscountCodeToOrderItem() {
@@ -1008,25 +1010,26 @@ public class Events {
 
     /**
      * Assign Discount to Order Item
-     * 
+     *
      * <p>Assigns a discount code to an order item based on the given IDs.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public AssociateDiscountCodeToOrderItemResponse associateDiscountCodeToOrderItem(@Nonnull AssociateDiscountCodeToOrderItemRequest request) {
-        RequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation
-              = new AssociateDiscountCodeToOrderItem.Sync(sdkConfiguration, _headers);
+    public AssociateDiscountCodeToOrderItemResponse associateDiscountCodeToOrderItem(
+            @Nonnull AssociateDiscountCodeToOrderItemRequest request) {
+        RequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
+                new AssociateDiscountCodeToOrderItem.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Quantity Items
-     * 
+     *
      * <p>Gets a paginated list of quantity items. Quantity items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @return The call builder
      */
     public ListQuantityItemsRequestBuilder listQuantityItems() {
@@ -1035,27 +1038,27 @@ public class Events {
 
     /**
      * List Quantity Items
-     * 
+     *
      * <p>Gets a paginated list of quantity items. Quantity items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListQuantityItemsResponse listQuantityItems(@Nonnull ListQuantityItemsRequest request) {
-        RequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation
-              = new ListQuantityItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation =
+                new ListQuantityItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Quantity Items
-     * 
+     *
      * <p>Gets a paginated list of quantity items by sending a filter in the body of the request. Quantity
      * items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @return The call builder
      */
     public ListQuantityItemsPostFilterRequestBuilder listQuantityItemsPostFilter() {
@@ -1064,28 +1067,29 @@ public class Events {
 
     /**
      * List Quantity Items
-     * 
+     *
      * <p>Gets a paginated list of quantity items by sending a filter in the body of the request. Quantity
      * items are a type of [optional
      * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListQuantityItemsPostFilterResponse listQuantityItemsPostFilter(@Nonnull ListQuantityItemsPostFilterRequest request) {
-        RequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation
-              = new ListQuantityItemsPostFilter.Sync(sdkConfiguration, _headers);
+    public ListQuantityItemsPostFilterResponse listQuantityItemsPostFilter(
+            @Nonnull ListQuantityItemsPostFilterRequest request) {
+        RequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation =
+                new ListQuantityItemsPostFilter.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Registration Paths
-     * 
+     *
      * <p>Gets a paginated list of registration paths.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListRegistrationPathsRequestBuilder listRegistrationPaths() {
@@ -1094,28 +1098,28 @@ public class Events {
 
     /**
      * List Registration Paths
-     * 
+     *
      * <p>Gets a paginated list of registration paths.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListRegistrationPathsResponse listRegistrationPaths(@Nonnull ListRegistrationPathsRequest request) {
-        RequestOperation<ListRegistrationPathsRequest, ListRegistrationPathsResponse> operation
-              = new ListRegistrationPaths.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListRegistrationPathsRequest, ListRegistrationPathsResponse> operation =
+                new ListRegistrationPaths.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Registration Types
-     * 
+     *
      * <p>Gets a paginated list of registration types.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListRegistrationTypesRequestBuilder listRegistrationTypes() {
@@ -1124,28 +1128,28 @@ public class Events {
 
     /**
      * List Registration Types
-     * 
+     *
      * <p>Gets a paginated list of registration types.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListRegistrationTypesResponse listRegistrationTypes(@Nonnull ListRegistrationTypesRequest request) {
-        RequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation
-              = new ListRegistrationTypes.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation =
+                new ListRegistrationTypes.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Event Registration Type
-     * 
+     *
      * <p>Updates an attendee's registration type in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateRegistrationTypeRequestBuilder updateRegistrationType() {
@@ -1154,28 +1158,28 @@ public class Events {
 
     /**
      * Update Event Registration Type
-     * 
+     *
      * <p>Updates an attendee's registration type in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateRegistrationTypeResponse updateRegistrationType(@Nonnull UpdateRegistrationTypeRequest request) {
-        RequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation
-              = new UpdateRegistrationType.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation =
+                new UpdateRegistrationType.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Transactions
-     * 
+     *
      * <p>Gets a paginated list of Transactions in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetTransactionsRequestBuilder getTransactions() {
@@ -1184,30 +1188,30 @@ public class Events {
 
     /**
      * List Transactions
-     * 
+     *
      * <p>Gets a paginated list of Transactions in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTransactionsResponse getTransactions(@Nonnull GetTransactionsRequest request) {
-        RequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation
-              = new GetTransactions.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation =
+                new GetTransactions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Transactions
-     * 
+     *
      * <p>Create offline transactions for an order in your event. Offline transactions can be any digital or
      * physical transactions performed outside Cvent. Valid transaction types for this method include
      * Offline Charge and Offline Refund.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public PostTransactionsRequestBuilder postTransactions() {
@@ -1216,30 +1220,30 @@ public class Events {
 
     /**
      * Create Transactions
-     * 
+     *
      * <p>Create offline transactions for an order in your event. Offline transactions can be any digital or
      * physical transactions performed outside Cvent. Valid transaction types for this method include
      * Offline Charge and Offline Refund.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PostTransactionsResponse postTransactions(@Nonnull PostTransactionsRequest request) {
-        RequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation
-              = new PostTransactions.Sync(sdkConfiguration, _headers);
+        RequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation =
+                new PostTransactions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Transaction Items
-     * 
+     *
      * <p>Gets a paginated list of Transaction items in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetTransactionItemsRequestBuilder getTransactionItems() {
@@ -1248,28 +1252,28 @@ public class Events {
 
     /**
      * List Transaction Items
-     * 
+     *
      * <p>Gets a paginated list of Transaction items in event
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTransactionItemsResponse getTransactionItems(@Nonnull GetTransactionItemsRequest request) {
-        RequestOperation<GetTransactionItemsRequest, GetTransactionItemsResponse> operation
-              = new GetTransactionItems.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTransactionItemsRequest, GetTransactionItemsResponse> operation =
+                new GetTransactionItems.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event User Groups
-     * 
+     *
      * <p>Gets a paginated list of user groups associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListEventUserGroupsRequestBuilder listEventUserGroups() {
@@ -1278,28 +1282,28 @@ public class Events {
 
     /**
      * List Event User Groups
-     * 
+     *
      * <p>Gets a paginated list of user groups associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventUserGroupsResponse listEventUserGroups(@Nonnull ListEventUserGroupsRequest request) {
-        RequestOperation<ListEventUserGroupsRequest, ListEventUserGroupsResponse> operation
-              = new ListEventUserGroups.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListEventUserGroupsRequest, ListEventUserGroupsResponse> operation =
+                new ListEventUserGroups.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Associate User Group to Event
-     * 
+     *
      * <p>Associates (adds) a user group to an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public AssociateEventUserGroupRequestBuilder associateEventUserGroup() {
@@ -1308,28 +1312,28 @@ public class Events {
 
     /**
      * Associate User Group to Event
-     * 
+     *
      * <p>Associates (adds) a user group to an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public AssociateEventUserGroupResponse associateEventUserGroup(@Nonnull AssociateEventUserGroupRequest request) {
-        RequestOperation<AssociateEventUserGroupRequest, AssociateEventUserGroupResponse> operation
-              = new AssociateEventUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<AssociateEventUserGroupRequest, AssociateEventUserGroupResponse> operation =
+                new AssociateEventUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Disassociate Group from Event
-     * 
+     *
      * <p>Disassociates (removes) a single user group from an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DisassociateEventUserGroupRequestBuilder disassociateEventUserGroup() {
@@ -1338,28 +1342,29 @@ public class Events {
 
     /**
      * Disassociate Group from Event
-     * 
+     *
      * <p>Disassociates (removes) a single user group from an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public DisassociateEventUserGroupResponse disassociateEventUserGroup(@Nonnull DisassociateEventUserGroupRequest request) {
-        RequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation
-              = new DisassociateEventUserGroup.Sync(sdkConfiguration, _headers);
+    public DisassociateEventUserGroupResponse disassociateEventUserGroup(
+            @Nonnull DisassociateEventUserGroupRequest request) {
+        RequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation =
+                new DisassociateEventUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Quantity Item
-     * 
+     *
      * <p>Update a specific [quantity
      * item](https://support.cvent.com/s/communityarticle/Creating-Quantity-Items) for an attendee's
      * registration based on the details supplied in the body of the request.
-     * 
+     *
      * @return The call builder
      */
     public UpdateQuantityItemRegistrationForAttendeeRequestBuilder updateQuantityItemRegistrationForAttendee() {
@@ -1368,28 +1373,31 @@ public class Events {
 
     /**
      * Update Quantity Item
-     * 
+     *
      * <p>Update a specific [quantity
      * item](https://support.cvent.com/s/communityarticle/Creating-Quantity-Items) for an attendee's
      * registration based on the details supplied in the body of the request.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateQuantityItemRegistrationForAttendeeResponse updateQuantityItemRegistrationForAttendee(@Nonnull UpdateQuantityItemRegistrationForAttendeeRequest request) {
-        RequestOperation<UpdateQuantityItemRegistrationForAttendeeRequest, UpdateQuantityItemRegistrationForAttendeeResponse> operation
-              = new UpdateQuantityItemRegistrationForAttendee.Sync(sdkConfiguration, _headers);
+    public UpdateQuantityItemRegistrationForAttendeeResponse updateQuantityItemRegistrationForAttendee(
+            @Nonnull UpdateQuantityItemRegistrationForAttendeeRequest request) {
+        RequestOperation<
+                        UpdateQuantityItemRegistrationForAttendeeRequest,
+                        UpdateQuantityItemRegistrationForAttendeeResponse>
+                operation = new UpdateQuantityItemRegistrationForAttendee.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Session Attendance
-     * 
+     *
      * <p>Get a paginated list of session attendance.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListSessionsAttendanceRequestBuilder listSessionsAttendance() {
@@ -1398,31 +1406,31 @@ public class Events {
 
     /**
      * Session Attendance
-     * 
+     *
      * <p>Get a paginated list of session attendance.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionsAttendanceResponse listSessionsAttendance(@Nonnull ListSessionsAttendanceRequest request) {
-        RequestOperation<ListSessionsAttendanceRequest, ListSessionsAttendanceResponse> operation
-              = new ListSessionsAttendance.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSessionsAttendanceRequest, ListSessionsAttendanceResponse> operation =
+                new ListSessionsAttendance.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Session Registrants
-     * 
+     *
      * <p>Gets registrant data for sessions. The returned data depends on the individual session type.
      * - **Optional Sessions:** Provides a paginated list of attendees registered for the session.
      * - **Included Session:** Provides a paginated list of attendees who have participated or marked as
      * no-shows. It does not list all registered attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListSessionsEnrollmentRequestBuilder listSessionsEnrollment() {
@@ -1431,38 +1439,38 @@ public class Events {
 
     /**
      * List Session Registrants
-     * 
+     *
      * <p>Gets registrant data for sessions. The returned data depends on the individual session type.
      * - **Optional Sessions:** Provides a paginated list of attendees registered for the session.
      * - **Included Session:** Provides a paginated list of attendees who have participated or marked as
      * no-shows. It does not list all registered attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionsEnrollmentResponse listSessionsEnrollment(@Nonnull ListSessionsEnrollmentRequest request) {
-        RequestOperation<ListSessionsEnrollmentRequest, ListSessionsEnrollmentResponse> operation
-              = new ListSessionsEnrollment.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSessionsEnrollmentRequest, ListSessionsEnrollmentResponse> operation =
+                new ListSessionsEnrollment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Session Registrants
-     * 
+     *
      * <p>Gets registrant data for sessions. The returned data depends on the individual session type. -
      * **Optional Sessions:** Provides a paginated list of attendees registered for the session.
-     * 
+     *
      * <p>- **Included Session:** Provides a paginated list of attendees who have participated or been
      * marked as no-shows. It does not list all registered attendees.
-     * 
+     *
      * <p>This method will return the same data as [GET List Session
      * Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListSessionsEnrollmentPostFilterRequestBuilder listSessionsEnrollmentPostFilter() {
@@ -1471,35 +1479,36 @@ public class Events {
 
     /**
      * List Session Registrants
-     * 
+     *
      * <p>Gets registrant data for sessions. The returned data depends on the individual session type. -
      * **Optional Sessions:** Provides a paginated list of attendees registered for the session.
-     * 
+     *
      * <p>- **Included Session:** Provides a paginated list of attendees who have participated or been
      * marked as no-shows. It does not list all registered attendees.
-     * 
+     *
      * <p>This method will return the same data as [GET List Session
      * Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListSessionsEnrollmentPostFilterResponse listSessionsEnrollmentPostFilter(@Nonnull ListSessionsEnrollmentPostFilterRequest request) {
-        RequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation
-              = new ListSessionsEnrollmentPostFilter.Sync(sdkConfiguration, _headers);
+    public ListSessionsEnrollmentPostFilterResponse listSessionsEnrollmentPostFilter(
+            @Nonnull ListSessionsEnrollmentPostFilterRequest request) {
+        RequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation =
+                new ListSessionsEnrollmentPostFilter.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Del Session Check-in
-     * 
+     *
      * <p>Deletes the attendance of an attendee in a session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteSessionAttendanceRequestBuilder deleteSessionAttendance() {
@@ -1508,28 +1517,28 @@ public class Events {
 
     /**
      * Del Session Check-in
-     * 
+     *
      * <p>Deletes the attendance of an attendee in a session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteSessionAttendanceResponse deleteSessionAttendance(@Nonnull DeleteSessionAttendanceRequest request) {
-        RequestOperation<DeleteSessionAttendanceRequest, DeleteSessionAttendanceResponse> operation
-              = new DeleteSessionAttendance.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteSessionAttendanceRequest, DeleteSessionAttendanceResponse> operation =
+                new DeleteSessionAttendance.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Session Check-In
-     * 
+     *
      * <p>Check-in attendees to a session based on the attendee IDs provided in the body of the request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public SessionCheckInRequestBuilder sessionCheckIn() {
@@ -1538,29 +1547,29 @@ public class Events {
 
     /**
      * Session Check-In
-     * 
+     *
      * <p>Check-in attendees to a session based on the attendee IDs provided in the body of the request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public SessionCheckInResponse sessionCheckIn(@Nonnull SessionCheckInRequest request) {
-        RequestOperation<SessionCheckInRequest, SessionCheckInResponse> operation
-              = new SessionCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<SessionCheckInRequest, SessionCheckInResponse> operation =
+                new SessionCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Session Check-In
-     * 
+     *
      * <p>Update check-in details of attendees in a session based on the attendee IDs provided in the body of
      * the request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateSessionCheckInRequestBuilder updateSessionCheckIn() {
@@ -1569,32 +1578,32 @@ public class Events {
 
     /**
      * Update Session Check-In
-     * 
+     *
      * <p>Update check-in details of attendees in a session based on the attendee IDs provided in the body of
      * the request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateSessionCheckInResponse updateSessionCheckIn(@Nonnull UpdateSessionCheckInRequest request) {
-        RequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation
-              = new UpdateSessionCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation =
+                new UpdateSessionCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Session Registration
-     * 
+     *
      * <p>Register an attendee in the given session. Requires the modify registration widget to be
      * present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
      * more information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateSessionEnrollmentRequestBuilder createSessionEnrollment() {
@@ -1603,34 +1612,34 @@ public class Events {
 
     /**
      * Create Session Registration
-     * 
+     *
      * <p>Register an attendee in the given session. Requires the modify registration widget to be
      * present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
      * more information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateSessionEnrollmentResponse createSessionEnrollment(@Nonnull CreateSessionEnrollmentRequest request) {
-        RequestOperation<CreateSessionEnrollmentRequest, CreateSessionEnrollmentResponse> operation
-              = new CreateSessionEnrollment.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateSessionEnrollmentRequest, CreateSessionEnrollmentResponse> operation =
+                new CreateSessionEnrollment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Session Registration
-     * 
+     *
      * <p>Unregister an attendee from a session. Requires the modify registration widget
      * to be present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown)
      * for more information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteSessionEnrollmentRequestBuilder deleteSessionEnrollment() {
@@ -1639,22 +1648,21 @@ public class Events {
 
     /**
      * Delete Session Registration
-     * 
+     *
      * <p>Unregister an attendee from a session. Requires the modify registration widget
      * to be present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown)
      * for more information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteSessionEnrollmentResponse deleteSessionEnrollment(@Nonnull DeleteSessionEnrollmentRequest request) {
-        RequestOperation<DeleteSessionEnrollmentRequest, DeleteSessionEnrollmentResponse> operation
-              = new DeleteSessionEnrollment.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteSessionEnrollmentRequest, DeleteSessionEnrollmentResponse> operation =
+                new DeleteSessionEnrollment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

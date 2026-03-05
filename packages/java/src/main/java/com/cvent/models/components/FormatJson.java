@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * FormatJson
- * 
+ *
  * <p>This is used to denote the format of a webcast
  */
 public enum FormatJson {
@@ -23,13 +23,13 @@ public enum FormatJson {
     FormatJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<FormatJson> fromValue(String value) {
-        for (FormatJson o: FormatJson.values()) {
+        for (FormatJson o : FormatJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum FormatJson {
         return Optional.empty();
     }
 }
-

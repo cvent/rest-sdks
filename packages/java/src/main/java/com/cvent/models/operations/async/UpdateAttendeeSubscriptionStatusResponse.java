@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable AttendeeSubscriptionResponse attendeeSubscriptionResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeSubscriptionResponse = attendeeSubscriptionResponse;
     }
-    
+
     public UpdateAttendeeSubscriptionStatusResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully updated the attendee's subscription status.
      */
-    public UpdateAttendeeSubscriptionStatusResponse withAttendeeSubscriptionResponse(@Nullable AttendeeSubscriptionResponse attendeeSubscriptionResponse) {
+    public UpdateAttendeeSubscriptionStatusResponse withAttendeeSubscriptionResponse(
+            @Nullable AttendeeSubscriptionResponse attendeeSubscriptionResponse) {
         this.attendeeSubscriptionResponse = attendeeSubscriptionResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
             return false;
         }
         UpdateAttendeeSubscriptionStatusResponse other = (UpdateAttendeeSubscriptionStatusResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeSubscriptionResponse, other.attendeeSubscriptionResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeSubscriptionResponse, other.attendeeSubscriptionResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeSubscriptionResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeSubscriptionResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAttendeeSubscriptionStatusResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeSubscriptionResponse", attendeeSubscriptionResponse);
+        return Utils.toString(
+                UpdateAttendeeSubscriptionStatusResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeSubscriptionResponse",
+                attendeeSubscriptionResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
         private AttendeeSubscriptionResponse attendeeSubscriptionResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class UpdateAttendeeSubscriptionStatusResponse implements AsyncResponse {
         /**
          * Successfully updated the attendee's subscription status.
          */
-        public Builder attendeeSubscriptionResponse(@Nullable AttendeeSubscriptionResponse attendeeSubscriptionResponse) {
+        public Builder attendeeSubscriptionResponse(
+                @Nullable AttendeeSubscriptionResponse attendeeSubscriptionResponse) {
             this.attendeeSubscriptionResponse = attendeeSubscriptionResponse;
             return this;
         }
 
         public UpdateAttendeeSubscriptionStatusResponse build() {
             return new UpdateAttendeeSubscriptionStatusResponse(
-                contentType, statusCode, rawResponse,
-                attendeeSubscriptionResponse);
+                    contentType, statusCode, rawResponse, attendeeSubscriptionResponse);
         }
-
     }
 }

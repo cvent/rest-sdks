@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -22,7 +22,7 @@ import java.util.Optional;
 
 /**
  * Contact
- * 
+ *
  * <p>Represents a contact that has been created and has an id.
  */
 public class Contact {
@@ -270,7 +270,7 @@ public class Contact {
 
     /**
      * The date of birth of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -280,11 +280,11 @@ public class Contact {
 
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use
      * the passport.number field.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -301,7 +301,7 @@ public class Contact {
 
     /**
      * The social security number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -311,7 +311,7 @@ public class Contact {
 
     /**
      * The national identification number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -445,10 +445,8 @@ public class Contact {
         this.compliance = compliance;
         this.prefix = prefix;
         this.pager = pager;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
-        this.purged = Optional.ofNullable(purged)
-            .orElse(Builder._SINGLETON_VALUE_Purged.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.purged = Optional.ofNullable(purged).orElse(Builder._SINGLETON_VALUE_Purged.value());
         this.optOut = optOut;
         this.npi = npi;
         this.links = links;
@@ -465,24 +463,55 @@ public class Contact {
         this.parentId = parentId;
         this.event = event;
     }
-    
+
     public Contact() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -729,7 +758,7 @@ public class Contact {
 
     /**
      * The date of birth of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -739,11 +768,11 @@ public class Contact {
 
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use
      * the passport.number field.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -760,7 +789,7 @@ public class Contact {
 
     /**
      * The social security number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -770,7 +799,7 @@ public class Contact {
 
     /**
      * The national identification number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -831,7 +860,6 @@ public class Contact {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -839,7 +867,6 @@ public class Contact {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -849,7 +876,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -857,7 +883,6 @@ public class Contact {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -867,7 +892,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The first name of the contact.
      */
@@ -875,7 +899,6 @@ public class Contact {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * The last name of the contact.
@@ -885,7 +908,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The middle name of the contact.
      */
@@ -893,7 +915,6 @@ public class Contact {
         this.middleName = middleName;
         return this;
     }
-
 
     /**
      * The nickname of the contact.
@@ -903,7 +924,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The email address of the contact.
      */
@@ -911,7 +931,6 @@ public class Contact {
         this.email = email;
         return this;
     }
-
 
     /**
      * An alternate email address of the contact that can be cc'd on email communications.
@@ -921,7 +940,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The gender of the contact.
      */
@@ -929,7 +947,6 @@ public class Contact {
         this.gender = gender;
         return this;
     }
-
 
     /**
      * The company/organization the contact belongs to.
@@ -939,7 +956,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The designation of the contact, typically an award or credential.
      */
@@ -947,7 +963,6 @@ public class Contact {
         this.designation = designation;
         return this;
     }
-
 
     /**
      * The job title of the contact.
@@ -957,7 +972,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Contains details related to the attendee's contact type.
      */
@@ -965,7 +979,6 @@ public class Contact {
         this.type = type;
         return this;
     }
-
 
     /**
      * Contact Membership information
@@ -975,7 +988,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The type of address.
      */
@@ -983,7 +995,6 @@ public class Contact {
         this.primaryAddressType = primaryAddressType;
         return this;
     }
-
 
     /**
      * Contact address details.
@@ -993,7 +1004,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The phone number of the contact at their place of residence.
      */
@@ -1001,7 +1011,6 @@ public class Contact {
         this.homePhone = homePhone;
         return this;
     }
-
 
     /**
      * The fax number of the contact at their place of residence.
@@ -1011,7 +1020,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Contact address details.
      */
@@ -1019,7 +1027,6 @@ public class Contact {
         this.workAddress = workAddress;
         return this;
     }
-
 
     /**
      * The phone number of the contact at their place of work.
@@ -1029,7 +1036,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The fax number of the contact at their place of work.
      */
@@ -1038,7 +1044,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Collection of custom fields.
      */
@@ -1046,7 +1051,6 @@ public class Contact {
         this.customFields = customFields;
         return this;
     }
-
 
     /**
      * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
@@ -1057,7 +1061,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The contact's mobile phone number.
      */
@@ -1065,7 +1068,6 @@ public class Contact {
         this.mobilePhone = mobilePhone;
         return this;
     }
-
 
     /**
      * Detail related to compliance with the contact's privacy rights under various legislation.
@@ -1075,7 +1077,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Denotes what is traditionally a title of an individual.
      */
@@ -1084,7 +1085,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The pager number of the contact.
      */
@@ -1092,7 +1092,6 @@ public class Contact {
         this.pager = pager;
         return this;
     }
-
 
     /**
      * True indicates a contact is deleted. Deleted contacts still have their data retained, but the
@@ -1103,7 +1102,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * True indicates a contact is purged. Purged contacts have only partial data retained, and will be
      * permanently deleted in 30 days.
@@ -1113,7 +1111,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Details of an opt-out for a Contact.
      */
@@ -1121,7 +1118,6 @@ public class Contact {
         this.optOut = optOut;
         return this;
     }
-
 
     /**
      * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for
@@ -1132,7 +1128,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Collection of social media links for the contact.
      */
@@ -1141,10 +1136,9 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The date of birth of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -1153,14 +1147,13 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use
      * the passport.number field.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1168,7 +1161,6 @@ public class Contact {
         this.passportNumber = passportNumber;
         return this;
     }
-
 
     /**
      * This entity represents a contact's passport information.
@@ -1178,10 +1170,9 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The social security number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -1190,10 +1181,9 @@ public class Contact {
         return this;
     }
 
-
     /**
      * The national identification number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -1201,7 +1191,6 @@ public class Contact {
         this.nationalIdentificationNumber = nationalIdentificationNumber;
         return this;
     }
-
 
     /**
      * The headline of the contact's profile, which summarizes their professional experience and qualities.
@@ -1211,7 +1200,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * A contact's personal website URL.
      */
@@ -1219,7 +1207,6 @@ public class Contact {
         this.personalWebsite = personalWebsite;
         return this;
     }
-
 
     /**
      * A contact's biographical writeup.
@@ -1229,7 +1216,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Represents the preferred pronouns of a contact.
      */
@@ -1237,7 +1223,6 @@ public class Contact {
         this.pronouns = pronouns;
         return this;
     }
-
 
     /**
      * The ID of the contact.
@@ -1247,7 +1232,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * ID of the parent contact, applicable with contact snapshot.
      */
@@ -1256,7 +1240,6 @@ public class Contact {
         return this;
     }
 
-
     /**
      * Event ID
      */
@@ -1264,7 +1247,6 @@ public class Contact {
         this.event = event;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1275,129 +1257,205 @@ public class Contact {
             return false;
         }
         Contact other = (Contact) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.nickname, other.nickname) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail) &&
-            Utils.enhancedDeepEquals(this.gender, other.gender) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.membership, other.membership) &&
-            Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.workFax, other.workFax) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone) &&
-            Utils.enhancedDeepEquals(this.compliance, other.compliance) &&
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.pager, other.pager) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.purged, other.purged) &&
-            Utils.enhancedDeepEquals(this.optOut, other.optOut) &&
-            Utils.enhancedDeepEquals(this.npi, other.npi) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.dateOfBirth, other.dateOfBirth) &&
-            Utils.enhancedDeepEquals(this.passportNumber, other.passportNumber) &&
-            Utils.enhancedDeepEquals(this.passport, other.passport) &&
-            Utils.enhancedDeepEquals(this.socialSecurityNumber, other.socialSecurityNumber) &&
-            Utils.enhancedDeepEquals(this.nationalIdentificationNumber, other.nationalIdentificationNumber) &&
-            Utils.enhancedDeepEquals(this.headline, other.headline) &&
-            Utils.enhancedDeepEquals(this.personalWebsite, other.personalWebsite) &&
-            Utils.enhancedDeepEquals(this.biography, other.biography) &&
-            Utils.enhancedDeepEquals(this.pronouns, other.pronouns) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.parentId, other.parentId) &&
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.nickname, other.nickname)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail)
+                && Utils.enhancedDeepEquals(this.gender, other.gender)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.membership, other.membership)
+                && Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.workFax, other.workFax)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone)
+                && Utils.enhancedDeepEquals(this.compliance, other.compliance)
+                && Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.pager, other.pager)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.purged, other.purged)
+                && Utils.enhancedDeepEquals(this.optOut, other.optOut)
+                && Utils.enhancedDeepEquals(this.npi, other.npi)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.dateOfBirth, other.dateOfBirth)
+                && Utils.enhancedDeepEquals(this.passportNumber, other.passportNumber)
+                && Utils.enhancedDeepEquals(this.passport, other.passport)
+                && Utils.enhancedDeepEquals(this.socialSecurityNumber, other.socialSecurityNumber)
+                && Utils.enhancedDeepEquals(this.nationalIdentificationNumber, other.nationalIdentificationNumber)
+                && Utils.enhancedDeepEquals(this.headline, other.headline)
+                && Utils.enhancedDeepEquals(this.personalWebsite, other.personalWebsite)
+                && Utils.enhancedDeepEquals(this.biography, other.biography)
+                && Utils.enhancedDeepEquals(this.pronouns, other.pronouns)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.parentId, other.parentId)
+                && Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, firstName, lastName,
-            middleName, nickname, email,
-            ccEmail, gender, company,
-            designation, title, type,
-            membership, primaryAddressType, homeAddress,
-            homePhone, homeFax, workAddress,
-            workPhone, workFax, customFields,
-            sourceId, mobilePhone, compliance,
-            prefix, pager, deleted,
-            purged, optOut, npi,
-            links, dateOfBirth, passportNumber,
-            passport, socialSecurityNumber, nationalIdentificationNumber,
-            headline, personalWebsite, biography,
-            pronouns, id, parentId,
-            event);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                firstName,
+                lastName,
+                middleName,
+                nickname,
+                email,
+                ccEmail,
+                gender,
+                company,
+                designation,
+                title,
+                type,
+                membership,
+                primaryAddressType,
+                homeAddress,
+                homePhone,
+                homeFax,
+                workAddress,
+                workPhone,
+                workFax,
+                customFields,
+                sourceId,
+                mobilePhone,
+                compliance,
+                prefix,
+                pager,
+                deleted,
+                purged,
+                optOut,
+                npi,
+                links,
+                dateOfBirth,
+                passportNumber,
+                passport,
+                socialSecurityNumber,
+                nationalIdentificationNumber,
+                headline,
+                personalWebsite,
+                biography,
+                pronouns,
+                id,
+                parentId,
+                event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Contact.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "firstName", firstName,
-                "lastName", lastName,
-                "middleName", middleName,
-                "nickname", nickname,
-                "email", email,
-                "ccEmail", ccEmail,
-                "gender", gender,
-                "company", company,
-                "designation", designation,
-                "title", title,
-                "type", type,
-                "membership", membership,
-                "primaryAddressType", primaryAddressType,
-                "homeAddress", homeAddress,
-                "homePhone", homePhone,
-                "homeFax", homeFax,
-                "workAddress", workAddress,
-                "workPhone", workPhone,
-                "workFax", workFax,
-                "customFields", customFields,
-                "sourceId", sourceId,
-                "mobilePhone", mobilePhone,
-                "compliance", compliance,
-                "prefix", prefix,
-                "pager", pager,
-                "deleted", deleted,
-                "purged", purged,
-                "optOut", optOut,
-                "npi", npi,
-                "links", links,
-                "dateOfBirth", dateOfBirth,
-                "passportNumber", passportNumber,
-                "passport", passport,
-                "socialSecurityNumber", socialSecurityNumber,
-                "nationalIdentificationNumber", nationalIdentificationNumber,
-                "headline", headline,
-                "personalWebsite", personalWebsite,
-                "biography", biography,
-                "pronouns", pronouns,
-                "id", id,
-                "parentId", parentId,
-                "event", event);
+        return Utils.toString(
+                Contact.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "middleName",
+                middleName,
+                "nickname",
+                nickname,
+                "email",
+                email,
+                "ccEmail",
+                ccEmail,
+                "gender",
+                gender,
+                "company",
+                company,
+                "designation",
+                designation,
+                "title",
+                title,
+                "type",
+                type,
+                "membership",
+                membership,
+                "primaryAddressType",
+                primaryAddressType,
+                "homeAddress",
+                homeAddress,
+                "homePhone",
+                homePhone,
+                "homeFax",
+                homeFax,
+                "workAddress",
+                workAddress,
+                "workPhone",
+                workPhone,
+                "workFax",
+                workFax,
+                "customFields",
+                customFields,
+                "sourceId",
+                sourceId,
+                "mobilePhone",
+                mobilePhone,
+                "compliance",
+                compliance,
+                "prefix",
+                prefix,
+                "pager",
+                pager,
+                "deleted",
+                deleted,
+                "purged",
+                purged,
+                "optOut",
+                optOut,
+                "npi",
+                npi,
+                "links",
+                links,
+                "dateOfBirth",
+                dateOfBirth,
+                "passportNumber",
+                passportNumber,
+                "passport",
+                passport,
+                "socialSecurityNumber",
+                socialSecurityNumber,
+                "nationalIdentificationNumber",
+                nationalIdentificationNumber,
+                "headline",
+                headline,
+                "personalWebsite",
+                personalWebsite,
+                "biography",
+                biography,
+                "pronouns",
+                pronouns,
+                "id",
+                id,
+                "parentId",
+                parentId,
+                "event",
+                event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -1493,7 +1551,7 @@ public class Contact {
         private ContactEvent event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1774,7 +1832,7 @@ public class Contact {
 
         /**
          * The date of birth of the contact.
-         * 
+         *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
          * `event/contacts:write-sensitive` scopes respectively.
          */
@@ -1785,11 +1843,11 @@ public class Contact {
 
         /**
          * The passport number of the contact.
-         * 
+         *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
          * `event/contacts:write-sensitive` scopes respectively. This field has been deprecated. Instead, use
          * the passport.number field.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1808,7 +1866,7 @@ public class Contact {
 
         /**
          * The social security number of the contact.
-         * 
+         *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
          * `event/contacts:write-sensitive` scopes respectively.
          */
@@ -1819,7 +1877,7 @@ public class Contact {
 
         /**
          * The national identification number of the contact.
-         * 
+         *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
          * `event/contacts:write-sensitive` scopes respectively.
          */
@@ -1886,35 +1944,58 @@ public class Contact {
 
         public Contact build() {
             return new Contact(
-                created, createdBy, lastModified,
-                lastModifiedBy, firstName, lastName,
-                middleName, nickname, email,
-                ccEmail, gender, company,
-                designation, title, type,
-                membership, primaryAddressType, homeAddress,
-                homePhone, homeFax, workAddress,
-                workPhone, workFax, customFields,
-                sourceId, mobilePhone, compliance,
-                prefix, pager, deleted,
-                purged, optOut, npi,
-                links, dateOfBirth, passportNumber,
-                passport, socialSecurityNumber, nationalIdentificationNumber,
-                headline, personalWebsite, biography,
-                pronouns, id, parentId,
-                event);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    firstName,
+                    lastName,
+                    middleName,
+                    nickname,
+                    email,
+                    ccEmail,
+                    gender,
+                    company,
+                    designation,
+                    title,
+                    type,
+                    membership,
+                    primaryAddressType,
+                    homeAddress,
+                    homePhone,
+                    homeFax,
+                    workAddress,
+                    workPhone,
+                    workFax,
+                    customFields,
+                    sourceId,
+                    mobilePhone,
+                    compliance,
+                    prefix,
+                    pager,
+                    deleted,
+                    purged,
+                    optOut,
+                    npi,
+                    links,
+                    dateOfBirth,
+                    passportNumber,
+                    passport,
+                    socialSecurityNumber,
+                    nationalIdentificationNumber,
+                    headline,
+                    personalWebsite,
+                    biography,
+                    pronouns,
+                    id,
+                    parentId,
+                    event);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Purged =
-                new LazySingletonValue<>(
-                        "purged",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("purged", "false", new TypeReference<Boolean>() {});
     }
 }

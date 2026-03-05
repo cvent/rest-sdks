@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListBoothStaffRequest {
     /**
      * ID of an event.
@@ -44,24 +43,16 @@ public class ListBoothStaffRequest {
 
     @JsonCreator
     public ListBoothStaffRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nullable Long limit,
-            @Nullable String token) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nullable Long limit, @Nullable String token) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public ListBoothStaffRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId) {
-        this(id, exhibitorId, null,
-            null);
+
+    public ListBoothStaffRequest(@Nonnull String id, @Nonnull String exhibitorId) {
+        this(id, exhibitorId, null, null);
     }
 
     /**
@@ -97,7 +88,6 @@ public class ListBoothStaffRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -105,7 +95,6 @@ public class ListBoothStaffRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -115,7 +104,6 @@ public class ListBoothStaffRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -123,7 +111,6 @@ public class ListBoothStaffRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -134,7 +121,6 @@ public class ListBoothStaffRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -144,31 +130,25 @@ public class ListBoothStaffRequest {
             return false;
         }
         ListBoothStaffRequest other = (ListBoothStaffRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, limit,
-            token);
+        return Utils.enhancedHash(id, exhibitorId, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListBoothStaffRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(
+                ListBoothStaffRequest.class, "id", id, "exhibitorId", exhibitorId, "limit", limit, "token", token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -179,7 +159,7 @@ public class ListBoothStaffRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,16 +196,10 @@ public class ListBoothStaffRequest {
         }
 
         public ListBoothStaffRequest build() {
-            return new ListBoothStaffRequest(
-                id, exhibitorId, limit,
-                token);
+            return new ListBoothStaffRequest(id, exhibitorId, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

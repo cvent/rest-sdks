@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AppointmentAttendee
- * 
+ *
  * <p>Attendee for an event appointment.
  */
 public class AppointmentAttendee {
@@ -85,26 +85,20 @@ public class AppointmentAttendee {
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("modified") @Nullable OffsetDateTime modified,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = code;
         this.appointmentEvent = Optional.ofNullable(appointmentEvent)
-            .orElseThrow(() -> new IllegalArgumentException("appointmentEvent cannot be null"));
-        this.contact = Optional.ofNullable(contact)
-            .orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("appointmentEvent cannot be null"));
+        this.contact =
+                Optional.ofNullable(contact).orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
         this.registration = registration;
         this.created = created;
         this.modified = modified;
         this.deleted = deleted;
     }
-    
-    public AppointmentAttendee(
-            @Nonnull String id,
-            @Nonnull UuidJson appointmentEvent,
-            @Nonnull UuidJson contact) {
-        this(id, null, appointmentEvent,
-            contact, null, null,
-            null, null);
+
+    public AppointmentAttendee(@Nonnull String id, @Nonnull UuidJson appointmentEvent, @Nonnull UuidJson contact) {
+        this(id, null, appointmentEvent, contact, null, null, null, null);
     }
 
     /**
@@ -167,7 +161,6 @@ public class AppointmentAttendee {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the attendee.
      */
@@ -175,7 +168,6 @@ public class AppointmentAttendee {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * System generated code for this attendee appointment.
@@ -185,7 +177,6 @@ public class AppointmentAttendee {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -193,7 +184,6 @@ public class AppointmentAttendee {
         this.appointmentEvent = Utils.checkNotNull(appointmentEvent, "appointmentEvent");
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -203,7 +193,6 @@ public class AppointmentAttendee {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -211,7 +200,6 @@ public class AppointmentAttendee {
         this.registration = registration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date/time when the appointment attendee was created.
@@ -221,7 +209,6 @@ public class AppointmentAttendee {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date/time when the appointment attendee was last modified.
      */
@@ -230,7 +217,6 @@ public class AppointmentAttendee {
         return this;
     }
 
-
     /**
      * True indicates the appointment attendee has been logically deleted.
      */
@@ -238,7 +224,6 @@ public class AppointmentAttendee {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -249,40 +234,45 @@ public class AppointmentAttendee {
             return false;
         }
         AppointmentAttendee other = (AppointmentAttendee) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.registration, other.registration) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.modified, other.modified) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.registration, other.registration)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.modified, other.modified)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, appointmentEvent,
-            contact, registration, created,
-            modified, deleted);
+        return Utils.enhancedHash(id, code, appointmentEvent, contact, registration, created, modified, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentAttendee.class,
-                "id", id,
-                "code", code,
-                "appointmentEvent", appointmentEvent,
-                "contact", contact,
-                "registration", registration,
-                "created", created,
-                "modified", modified,
-                "deleted", deleted);
+        return Utils.toString(
+                AppointmentAttendee.class,
+                "id",
+                id,
+                "code",
+                code,
+                "appointmentEvent",
+                appointmentEvent,
+                "contact",
+                contact,
+                "registration",
+                registration,
+                "created",
+                created,
+                "modified",
+                modified,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -301,7 +291,7 @@ public class AppointmentAttendee {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -370,10 +360,7 @@ public class AppointmentAttendee {
 
         public AppointmentAttendee build() {
             return new AppointmentAttendee(
-                id, code, appointmentEvent,
-                contact, registration, created,
-                modified, deleted);
+                    id, code, appointmentEvent, contact, registration, created, modified, deleted);
         }
-
     }
 }

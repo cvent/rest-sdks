@@ -40,7 +40,7 @@ public class GetTransactionsRequestBuilder {
     private GetTransactionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetTransactionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetTransactionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetTransactionsResponse> call() {
-        AsyncRequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation
-              = new GetTransactions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation =
+                new GetTransactions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetTransactionsRequestBuilder {
      */
     public Publisher<GetTransactionsResponse> callAsPublisher() {
         GetTransactionsRequest request = this.request;
-        AsyncRequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation
-              = new GetTransactions.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation =
+                new GetTransactions.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetTransactionsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetTransactionsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetTransactionsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelProgramStayTypeJson
- * 
+ *
  * <p>Code representing the stay types requested by the program. Programs can accept daily only, or daily
  * and extended stay proposals.
  */
@@ -24,13 +24,13 @@ public enum TravelProgramStayTypeJson {
     TravelProgramStayTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelProgramStayTypeJson> fromValue(String value) {
-        for (TravelProgramStayTypeJson o: TravelProgramStayTypeJson.values()) {
+        for (TravelProgramStayTypeJson o : TravelProgramStayTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum TravelProgramStayTypeJson {
         return Optional.empty();
     }
 }
-

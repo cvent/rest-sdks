@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class CreateUpdateDiscountType
     {
-        private CreateUpdateDiscountType(string value) { Value = value; }
+        private CreateUpdateDiscountType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static CreateUpdateDiscountType DiscountCode { get { return new CreateUpdateDiscountType("DISCOUNT_CODE"); } }
+        public static CreateUpdateDiscountType DiscountCode
+        {
+            get {
+                return new CreateUpdateDiscountType("DISCOUNT_CODE");
+            }
+        }
 
-        public static CreateUpdateDiscountType VolumeDiscount { get { return new CreateUpdateDiscountType("VOLUME_DISCOUNT"); } }
+        public static CreateUpdateDiscountType VolumeDiscount
+        {
+            get {
+                return new CreateUpdateDiscountType("VOLUME_DISCOUNT");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(CreateUpdateDiscountType v) { return v.Value; }
-        public static CreateUpdateDiscountType FromString(string v) {
-            switch(v) {
-                case "DISCOUNT_CODE": return DiscountCode;
-                case "VOLUME_DISCOUNT": return VolumeDiscount;
-                default: throw new ArgumentException("Invalid value for CreateUpdateDiscountType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(CreateUpdateDiscountType v)
+        {
+            return v.Value;
+        }
+        public static CreateUpdateDiscountType FromString(string v)
+        {
+            switch (v)
+            {
+                case "DISCOUNT_CODE":
+                    return DiscountCode;
+                case "VOLUME_DISCOUNT":
+                    return VolumeDiscount;
+                default:
+                    throw new ArgumentException("Invalid value for CreateUpdateDiscountType");
             }
         }
         public override bool Equals(object? obj)
@@ -141,8 +165,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

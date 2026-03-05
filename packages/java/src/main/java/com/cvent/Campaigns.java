@@ -42,7 +42,7 @@ public class Campaigns {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncCampaigns async() {
@@ -51,11 +51,11 @@ public class Campaigns {
 
     /**
      * List eMarketing Campaigns
-     * 
+     *
      * <p>Gets a list of eMarketing campaigns.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetCampaignsRequestBuilder getCampaigns() {
@@ -64,28 +64,28 @@ public class Campaigns {
 
     /**
      * List eMarketing Campaigns
-     * 
+     *
      * <p>Gets a list of eMarketing campaigns.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetCampaignsResponse getCampaigns(@Nonnull GetCampaignsRequest request) {
-        RequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation
-              = new GetCampaigns.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation =
+                new GetCampaigns.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Email Templates
-     * 
+     *
      * <p>Gets a list of eMarketing email templates.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEmailTemplatesRequestBuilder getEmailTemplates() {
@@ -94,28 +94,28 @@ public class Campaigns {
 
     /**
      * List Email Templates
-     * 
+     *
      * <p>Gets a list of eMarketing email templates.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEmailTemplatesResponse getEmailTemplates(@Nonnull GetEmailTemplatesRequest request) {
-        RequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation
-              = new GetEmailTemplates.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation =
+                new GetEmailTemplates.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Send Email To Recipients
-     * 
+     *
      * <p>Sends an email to one or more eMarketing campaign recipients who are on the recipient list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public SendEMarketingEmailsRequestBuilder sendEMarketingEmails() {
@@ -124,11 +124,11 @@ public class Campaigns {
 
     /**
      * Send Email To Recipients
-     * 
+     *
      * <p>Sends an email to one or more eMarketing campaign recipients who are on the recipient list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -138,29 +138,29 @@ public class Campaigns {
 
     /**
      * Send Email To Recipients
-     * 
+     *
      * <p>Sends an email to one or more eMarketing campaign recipients who are on the recipient list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public SendEMarketingEmailsResponse sendEMarketingEmails(@Nullable SendEmailRequest request) {
-        RequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation
-              = new SendEMarketingEmails.Sync(sdkConfiguration, _headers);
+        RequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation =
+                new SendEMarketingEmails.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Emarketing Email Status
-     * 
+     *
      * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
      * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEmarketingEmailStatusRequestBuilder getEmarketingEmailStatus() {
@@ -169,20 +169,19 @@ public class Campaigns {
 
     /**
      * List Emarketing Email Status
-     * 
+     *
      * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
      * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEmarketingEmailStatusResponse getEmarketingEmailStatus(@Nonnull GetEmarketingEmailStatusRequest request) {
-        RequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation
-              = new GetEmarketingEmailStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation =
+                new GetEmarketingEmailStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

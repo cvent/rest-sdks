@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSessionSpeakersResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable SessionSpeakerPaginatedResponse sessionSpeakerPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.sessionSpeakerPaginatedResponse = sessionSpeakerPaginatedResponse;
     }
-    
+
     public ListSessionSpeakersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of speakers assigned to the session.
      */
-    public ListSessionSpeakersResponse withSessionSpeakerPaginatedResponse(@Nullable SessionSpeakerPaginatedResponse sessionSpeakerPaginatedResponse) {
+    public ListSessionSpeakersResponse withSessionSpeakerPaginatedResponse(
+            @Nullable SessionSpeakerPaginatedResponse sessionSpeakerPaginatedResponse) {
         this.sessionSpeakerPaginatedResponse = sessionSpeakerPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
             return false;
         }
         ListSessionSpeakersResponse other = (ListSessionSpeakersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.sessionSpeakerPaginatedResponse, other.sessionSpeakerPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.sessionSpeakerPaginatedResponse, other.sessionSpeakerPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            sessionSpeakerPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, sessionSpeakerPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionSpeakersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "sessionSpeakerPaginatedResponse", sessionSpeakerPaginatedResponse);
+        return Utils.toString(
+                ListSessionSpeakersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "sessionSpeakerPaginatedResponse",
+                sessionSpeakerPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
         private SessionSpeakerPaginatedResponse sessionSpeakerPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class ListSessionSpeakersResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of speakers assigned to the session.
          */
-        public Builder sessionSpeakerPaginatedResponse(@Nullable SessionSpeakerPaginatedResponse sessionSpeakerPaginatedResponse) {
+        public Builder sessionSpeakerPaginatedResponse(
+                @Nullable SessionSpeakerPaginatedResponse sessionSpeakerPaginatedResponse) {
             this.sessionSpeakerPaginatedResponse = sessionSpeakerPaginatedResponse;
             return this;
         }
 
         public ListSessionSpeakersResponse build() {
             return new ListSessionSpeakersResponse(
-                contentType, statusCode, rawResponse,
-                sessionSpeakerPaginatedResponse);
+                    contentType, statusCode, rawResponse, sessionSpeakerPaginatedResponse);
         }
-
     }
 }

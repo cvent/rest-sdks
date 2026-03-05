@@ -28,7 +28,7 @@ public class CancelAppointmentRequestBuilder {
     private CancelAppointmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CancelAppointmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class CancelAppointmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CancelAppointmentResponse call() {
-        RequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation
-              = new CancelAppointment.Sync(sdkConfiguration, _headers);
+        RequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation =
+                new CancelAppointment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

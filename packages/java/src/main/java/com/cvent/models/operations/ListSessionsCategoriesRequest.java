@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSessionsCategoriesRequest {
     /**
      * The maximum number of records to return per page.
@@ -30,14 +29,11 @@ public class ListSessionsCategoriesRequest {
     private String token;
 
     @JsonCreator
-    public ListSessionsCategoriesRequest(
-            @Nullable Long limit,
-            @Nullable String token) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public ListSessionsCategoriesRequest(@Nullable Long limit, @Nullable String token) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
+
     public ListSessionsCategoriesRequest() {
         this(null, null);
     }
@@ -61,7 +57,6 @@ public class ListSessionsCategoriesRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -69,7 +64,6 @@ public class ListSessionsCategoriesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -80,7 +74,6 @@ public class ListSessionsCategoriesRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -90,33 +83,28 @@ public class ListSessionsCategoriesRequest {
             return false;
         }
         ListSessionsCategoriesRequest other = (ListSessionsCategoriesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.limit, other.limit) && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token);
+        return Utils.enhancedHash(limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsCategoriesRequest.class,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(ListSessionsCategoriesRequest.class, "limit", limit, "token", token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,15 +125,10 @@ public class ListSessionsCategoriesRequest {
         }
 
         public ListSessionsCategoriesRequest build() {
-            return new ListSessionsCategoriesRequest(
-                limit, token);
+            return new ListSessionsCategoriesRequest(limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

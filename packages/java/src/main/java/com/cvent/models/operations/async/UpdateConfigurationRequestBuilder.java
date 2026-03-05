@@ -30,7 +30,7 @@ public class UpdateConfigurationRequestBuilder {
     private CommunicationConfiguration _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateConfigurationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateConfigurationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateConfigurationResponse> call() {
-        AsyncRequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation
-              = new UpdateConfiguration.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation =
+                new UpdateConfiguration.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

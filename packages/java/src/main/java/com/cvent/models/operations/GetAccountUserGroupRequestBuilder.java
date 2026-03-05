@@ -28,7 +28,7 @@ public class GetAccountUserGroupRequestBuilder {
     private GetAccountUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAccountUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetAccountUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetAccountUserGroupResponse call() {
-        RequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation
-              = new GetAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation =
+                new GetAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

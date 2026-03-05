@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestForm
- * 
+ *
  * <p>A meeting request form.
  */
 public class MeetingRequestForm {
@@ -65,20 +65,15 @@ public class MeetingRequestForm {
             @JsonProperty("statuses") @Nullable List<String> statuses,
             @JsonProperty("active") @Nullable Boolean active,
             @JsonProperty("questions") @Nullable List<MeetingRequestCustomFieldJson> questions) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.statuses = statuses;
         this.active = active;
         this.questions = questions;
     }
-    
-    public MeetingRequestForm(
-            @Nonnull String id,
-            @Nonnull String name) {
-        this(id, name, null,
-            null, null);
+
+    public MeetingRequestForm(@Nonnull String id, @Nonnull String name) {
+        this(id, name, null, null, null);
     }
 
     /**
@@ -123,7 +118,6 @@ public class MeetingRequestForm {
         return new Builder();
     }
 
-
     /**
      * The ID of the meeting request form.
      */
@@ -131,7 +125,6 @@ public class MeetingRequestForm {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * User-defined name of the meeting request form.
@@ -141,7 +134,6 @@ public class MeetingRequestForm {
         return this;
     }
 
-
     /**
      * User-defined list of statuses for the meeting request form.
      */
@@ -149,7 +141,6 @@ public class MeetingRequestForm {
         this.statuses = statuses;
         return this;
     }
-
 
     /**
      * A boolean indicating a meeting request form's active status. When true, the meeting request form is
@@ -161,7 +152,6 @@ public class MeetingRequestForm {
         return this;
     }
 
-
     /**
      * The list of questions that will need to be answered by someone creating a meeting request from this
      * form.
@@ -170,7 +160,6 @@ public class MeetingRequestForm {
         this.questions = questions;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -181,33 +170,36 @@ public class MeetingRequestForm {
             return false;
         }
         MeetingRequestForm other = (MeetingRequestForm) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.statuses, other.statuses) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.statuses, other.statuses)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.questions, other.questions);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, statuses,
-            active, questions);
+        return Utils.enhancedHash(id, name, statuses, active, questions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestForm.class,
-                "id", id,
-                "name", name,
-                "statuses", statuses,
-                "active", active,
-                "questions", questions);
+        return Utils.toString(
+                MeetingRequestForm.class,
+                "id",
+                id,
+                "name",
+                name,
+                "statuses",
+                statuses,
+                "active",
+                active,
+                "questions",
+                questions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -220,7 +212,7 @@ public class MeetingRequestForm {
         private List<MeetingRequestCustomFieldJson> questions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -267,10 +259,7 @@ public class MeetingRequestForm {
         }
 
         public MeetingRequestForm build() {
-            return new MeetingRequestForm(
-                id, name, statuses,
-                active, questions);
+            return new MeetingRequestForm(id, name, statuses, active, questions);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 The type of address.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AddressTypeJson;
+
+AddressTypeJson value = AddressTypeJson.HOME;
+```
+
 
 ## Values
 

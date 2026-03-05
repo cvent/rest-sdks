@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * UpdatedThroughNamePropertyJson
- * 
+ *
  * <p>Name of the place where this change was updated through.
  */
 public enum UpdatedThroughNamePropertyJson {
@@ -27,7 +27,8 @@ public enum UpdatedThroughNamePropertyJson {
     ATTENDEE_HUB("Attendee Hub"),
     BUDGET_ALLOCATION_UPDATE("Budget Allocation Update"),
     BUDGET_ATTENDEE_UPDATE("Budget Attendee Update"),
-    BUDGET_ITEM_CUSTOM_FIELD_ANSWERS_REPLACED_FROM_ADMINISTRATION("Budget Item Custom Field Answers Replaced from Administration"),
+    BUDGET_ITEM_CUSTOM_FIELD_ANSWERS_REPLACED_FROM_ADMINISTRATION(
+            "Budget Item Custom Field Answers Replaced from Administration"),
     BUDGET_ITEM_DELETE("Budget Item Delete"),
     BUDGET_ITEM_DUPLICATE("Budget Item Duplicate"),
     BUDGET_ITEM_IMPORT("Budget Item Import"),
@@ -43,7 +44,8 @@ public enum UpdatedThroughNamePropertyJson {
     BUDGET_ITEMS_BULK_UPDATE("Budget Items Bulk Update"),
     BUDGET_VERSION_UPDATE("Budget Version Update"),
     BULK_UPDATE_CONTACT_FIELD_ANSWER("Bulk Update Contact Field Answer"),
-    CONCUR_RECONCILIATION_CREATE_NEW_BUDGET_ITEM_FOR_EACH_EXPENSE("Concur Reconciliation - Create New Budget Item For Each Expense"),
+    CONCUR_RECONCILIATION_CREATE_NEW_BUDGET_ITEM_FOR_EACH_EXPENSE(
+            "Concur Reconciliation - Create New Budget Item For Each Expense"),
     CONCUR_RECONCILIATION_MAP_TO_EXISTING_BUDGET_ITEM("Concur Reconciliation - Map to Existing Budget Item"),
     CONFIRM_OPT_IN_EMAIL("Confirm Opt In Email"),
     CONTACT_IMPORT("Contact Import"),
@@ -94,7 +96,8 @@ public enum UpdatedThroughNamePropertyJson {
     SURVEY_POST("Survey POST"),
     TRAVEL_COST_IMPORT_MAP_TO_EXISTING_BUDGET_ITEM("Travel Cost Import - Map to Existing Budget item"),
     TRAVEL_COST_IMPORT_MAP_TO_NEW_BUDGET_ITEM("Travel Cost Import - Map to New Budget Item"),
-    VCN_TRANSACTION_CREATE_NEW_BUDGET_ITEM_FOR_EACH_TRANSACTION("VCN Transaction - Create New Budget Item For Each Transaction"),
+    VCN_TRANSACTION_CREATE_NEW_BUDGET_ITEM_FOR_EACH_TRANSACTION(
+            "VCN Transaction - Create New Budget Item For Each Transaction"),
     VCN_TRANSACTION_MAP_TO_MULTIPLE_BUDGET_ITEM("VCN Transaction - Map to Multiple Budget Item"),
     VCN_TRANSACTION_MAP_TO_SINGLE_BUDGET_ITEM("VCN Transaction - Map to Single Budget Item"),
     VCN_TRANSACTION_REMOVED_FROM_BUDGET_ITEM("VCN Transaction - Removed from Budget Item"),
@@ -107,13 +110,13 @@ public enum UpdatedThroughNamePropertyJson {
     UpdatedThroughNamePropertyJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<UpdatedThroughNamePropertyJson> fromValue(String value) {
-        for (UpdatedThroughNamePropertyJson o: UpdatedThroughNamePropertyJson.values()) {
+        for (UpdatedThroughNamePropertyJson o : UpdatedThroughNamePropertyJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -121,4 +124,3 @@ public enum UpdatedThroughNamePropertyJson {
         return Optional.empty();
     }
 }
-

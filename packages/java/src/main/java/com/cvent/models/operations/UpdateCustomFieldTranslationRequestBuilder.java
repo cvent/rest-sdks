@@ -28,7 +28,7 @@ public class UpdateCustomFieldTranslationRequestBuilder {
     private UpdateCustomFieldTranslationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateCustomFieldTranslationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateCustomFieldTranslationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateCustomFieldTranslationResponse call() {
-        RequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation
-              = new UpdateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation =
+                new UpdateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

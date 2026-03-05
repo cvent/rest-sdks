@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetStandardSurveyEmailTemplatesRequest {
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -38,18 +37,14 @@ public class GetStandardSurveyEmailTemplatesRequest {
 
     @JsonCreator
     public GetStandardSurveyEmailTemplatesRequest(
-            @Nonnull String surveyId,
-            @Nullable Long limit,
-            @Nullable String token) {
+            @Nonnull String surveyId, @Nullable Long limit, @Nullable String token) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public GetStandardSurveyEmailTemplatesRequest(
-            @Nonnull String surveyId) {
+
+    public GetStandardSurveyEmailTemplatesRequest(@Nonnull String surveyId) {
         this(surveyId, null, null);
     }
 
@@ -79,7 +74,6 @@ public class GetStandardSurveyEmailTemplatesRequest {
         return new Builder();
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -88,7 +82,6 @@ public class GetStandardSurveyEmailTemplatesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -96,7 +89,6 @@ public class GetStandardSurveyEmailTemplatesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -107,7 +99,6 @@ public class GetStandardSurveyEmailTemplatesRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -117,28 +108,24 @@ public class GetStandardSurveyEmailTemplatesRequest {
             return false;
         }
         GetStandardSurveyEmailTemplatesRequest other = (GetStandardSurveyEmailTemplatesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, limit, token);
+        return Utils.enhancedHash(surveyId, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetStandardSurveyEmailTemplatesRequest.class,
-                "surveyId", surveyId,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(
+                GetStandardSurveyEmailTemplatesRequest.class, "surveyId", surveyId, "limit", limit, "token", token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
@@ -147,7 +134,7 @@ public class GetStandardSurveyEmailTemplatesRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,15 +163,10 @@ public class GetStandardSurveyEmailTemplatesRequest {
         }
 
         public GetStandardSurveyEmailTemplatesRequest build() {
-            return new GetStandardSurveyEmailTemplatesRequest(
-                surveyId, limit, token);
+            return new GetStandardSurveyEmailTemplatesRequest(surveyId, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * ActivityBoothStaff
- * 
+ *
  * <p>Booth staff for the lead.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -62,10 +62,9 @@ public class ActivityBoothStaff {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public ActivityBoothStaff() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -100,7 +99,6 @@ public class ActivityBoothStaff {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the exhibitor booth staff.
      */
@@ -108,7 +106,6 @@ public class ActivityBoothStaff {
         this.id = id;
         return this;
     }
-
 
     /**
      * The first name of the booth staff that captured the lead.
@@ -118,7 +115,6 @@ public class ActivityBoothStaff {
         return this;
     }
 
-
     /**
      * The last name of the booth staff that captured the lead.
      */
@@ -127,7 +123,6 @@ public class ActivityBoothStaff {
         return this;
     }
 
-
     /**
      * The email address of the booth staff that captured the lead.
      */
@@ -135,7 +130,6 @@ public class ActivityBoothStaff {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +140,25 @@ public class ActivityBoothStaff {
             return false;
         }
         ActivityBoothStaff other = (ActivityBoothStaff) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, firstName, lastName,
-            email);
+        return Utils.enhancedHash(id, firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityBoothStaff.class,
-                "id", id,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(
+                ActivityBoothStaff.class, "id", id, "firstName", firstName, "lastName", lastName, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +169,7 @@ public class ActivityBoothStaff {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +205,7 @@ public class ActivityBoothStaff {
         }
 
         public ActivityBoothStaff build() {
-            return new ActivityBoothStaff(
-                id, firstName, lastName,
-                email);
+            return new ActivityBoothStaff(id, firstName, lastName, email);
         }
-
     }
 }

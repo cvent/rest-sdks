@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SleepingRoomTypeJson
     {
-        [JsonProperty("ANY")]
-        Any,
-        [JsonProperty("SINGLE")]
-        Single,
-        [JsonProperty("DOUBLE")]
-        Double,
-        [JsonProperty("SUITE")]
-        Suite,
-        [JsonProperty("STAFF")]
-        Staff,
+        [JsonProperty("ANY")] Any,
+        [JsonProperty("SINGLE")] Single,
+        [JsonProperty("DOUBLE")] Double,
+        [JsonProperty("SUITE")] Suite,
+        [JsonProperty("STAFF")] Staff,
     }
 
     public static class SleepingRoomTypeJsonExtension
     {
         public static string Value(this SleepingRoomTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SleepingRoomTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SleepingRoomTypeJson).GetFields())
+            foreach (var field in typeof(SleepingRoomTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

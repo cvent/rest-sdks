@@ -28,7 +28,7 @@ public class GetResourceTypeRequestBuilder {
     private GetResourceTypeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetResourceTypeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetResourceTypeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetResourceTypeResponse call() {
-        RequestOperation<GetResourceTypeRequest, GetResourceTypeResponse> operation
-              = new GetResourceType.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetResourceTypeRequest, GetResourceTypeResponse> operation =
+                new GetResourceType.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

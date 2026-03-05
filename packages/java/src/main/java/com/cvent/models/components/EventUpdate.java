@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * EventUpdate
- * 
+ *
  * <p>Represents updates to an event.
  */
 public class EventUpdate {
@@ -48,7 +48,7 @@ public class EventUpdate {
     /**
      * True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual'
      * indicator.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -235,7 +235,7 @@ public class EventUpdate {
 
     /**
      * The category to which this event belongs (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -332,12 +332,11 @@ public class EventUpdate {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy) {
         this.id = id;
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.code = code;
         this.virtual = virtual;
-        this.format = Optional.ofNullable(format)
-            .orElseThrow(() -> new IllegalArgumentException("format cannot be null"));
+        this.format =
+                Optional.ofNullable(format).orElseThrow(() -> new IllegalArgumentException("format cannot be null"));
         this.description = description;
         this.start = start;
         this.end = end;
@@ -345,7 +344,7 @@ public class EventUpdate {
         this.archiveAfter = archiveAfter;
         this.launchAfter = launchAfter;
         this.timezone = Optional.ofNullable(timezone)
-            .orElseThrow(() -> new IllegalArgumentException("timezone cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("timezone cannot be null"));
         this.venues = venues;
         this.showVenueLocation = showVenueLocation;
         this.showPointOfContact = showPointOfContact;
@@ -353,7 +352,7 @@ public class EventUpdate {
         this.note = note;
         this.defaultLocale = defaultLocale;
         this.languages = Optional.ofNullable(languages)
-            .orElseThrow(() -> new IllegalArgumentException("languages cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("languages cannot be null"));
         this.currency = currency;
         this.registrationSecurityLevel = registrationSecurityLevel;
         this.status = status;
@@ -362,12 +361,11 @@ public class EventUpdate {
         this.testMode = testMode;
         this.capacity = capacity;
         this.planners = Optional.ofNullable(planners)
-            .orElseThrow(() -> new IllegalArgumentException("planners cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("planners cannot be null"));
         this.stakeholders = stakeholders;
         this.customFields = customFields;
         this.category = category;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.links = links;
         this.created = created;
         this.lastModified = lastModified;
@@ -375,7 +373,7 @@ public class EventUpdate {
         this.createdBy = createdBy;
         this.lastModifiedBy = lastModifiedBy;
     }
-    
+
     public EventUpdate(
             @Nonnull String title,
             @Nonnull EventFormatJson format,
@@ -383,19 +381,44 @@ public class EventUpdate {
             @Nonnull List<String> languages,
             @Nonnull List<PlannerJson2> planners,
             @Nonnull EventTypeJson1 type) {
-        this(null, title, null,
-            null, format, null,
-            null, null, null,
-            null, null, timezone,
-            null, null, null,
-            null, null, null,
-            languages, null, null,
-            null, null, null,
-            null, null, planners,
-            null, null, null,
-            type, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                title,
+                null,
+                null,
+                format,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                timezone,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                languages,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                planners,
+                null,
+                null,
+                null,
+                type,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -422,7 +445,7 @@ public class EventUpdate {
     /**
      * True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual'
      * indicator.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -613,7 +636,7 @@ public class EventUpdate {
 
     /**
      * The category to which this event belongs (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -675,7 +698,6 @@ public class EventUpdate {
         return new Builder();
     }
 
-
     /**
      * The identifier of the event.
      */
@@ -683,7 +705,6 @@ public class EventUpdate {
         this.id = id;
         return this;
     }
-
 
     /**
      * Title of the event being organized.
@@ -693,7 +714,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * A system-generated code for this event.
      */
@@ -702,11 +722,10 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual'
      * indicator.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -714,7 +733,6 @@ public class EventUpdate {
         this.virtual = virtual;
         return this;
     }
-
 
     /**
      * Denotes the format of an event.
@@ -724,7 +742,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * Detailed description of the event.
      */
@@ -732,7 +749,6 @@ public class EventUpdate {
         this.description = description;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time when the event starts.
@@ -742,7 +758,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date and time when the event ends.
      */
@@ -750,7 +765,6 @@ public class EventUpdate {
         this.end = end;
         return this;
     }
-
 
     /**
      * The event will be closed for registration after this ISO 8601 formatted date and time.
@@ -760,7 +774,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The event will be archived after this ISO 8601 formatted date and time.
      */
@@ -768,7 +781,6 @@ public class EventUpdate {
         this.archiveAfter = archiveAfter;
         return this;
     }
-
 
     /**
      * The event will launch after this ISO 8601 formatted date and time. If the event has not yet
@@ -779,7 +791,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
      */
@@ -788,7 +799,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * Collection of venues.
      */
@@ -796,7 +806,6 @@ public class EventUpdate {
         this.venues = venues;
         return this;
     }
-
 
     /**
      * True indicates the venue location is visible to guests for essential events. If used with other
@@ -807,7 +816,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * True indicates the venue location is visible to guests for essential events. If used with other
      * event types, the request returns a 400 error.
@@ -817,7 +825,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The phone number for the event.
      */
@@ -825,7 +832,6 @@ public class EventUpdate {
         this.phone = phone;
         return this;
     }
-
 
     /**
      * Event note created by planners for internal use.
@@ -835,7 +841,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The event default locale using the IETF language tag format.
      */
@@ -843,7 +848,6 @@ public class EventUpdate {
         this.defaultLocale = defaultLocale;
         return this;
     }
-
 
     /**
      * List of IETF language tags enabled for the event. This field supports reading multiple language tags
@@ -854,7 +858,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code used of this event.
      */
@@ -862,7 +865,6 @@ public class EventUpdate {
         this.currency = currency;
         return this;
     }
-
 
     /**
      * Represents the security level used for event registrations.
@@ -872,7 +874,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * This is used to denote the registration status for an event.
      */
@@ -880,7 +881,6 @@ public class EventUpdate {
         this.status = status;
         return this;
     }
-
 
     /**
      * Event status denotes if the event is in the past, present or future. Also can denote if the event
@@ -891,7 +891,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The planner-created planning status for this event. Used for internal tracking purposes.
      */
@@ -900,7 +899,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * True indicates the event is in test mode.
      */
@@ -908,7 +906,6 @@ public class EventUpdate {
         this.testMode = testMode;
         return this;
     }
-
 
     /**
      * The maximum number of individuals that can attend the event. Only used for events with the
@@ -919,7 +916,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * A collection of contacts representing the event planners.
      */
@@ -927,7 +923,6 @@ public class EventUpdate {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
-
 
     /**
      * A collection of contacts representing event stakeholders.
@@ -937,7 +932,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * Collection of custom fields.
      */
@@ -946,10 +940,9 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The category to which this event belongs (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -957,7 +950,6 @@ public class EventUpdate {
         this.category = category;
         return this;
     }
-
 
     /**
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
@@ -968,7 +960,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * Represents the links associated with an event.
      */
@@ -976,7 +967,6 @@ public class EventUpdate {
         this.links = links;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this record was created.
@@ -986,7 +976,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -994,7 +983,6 @@ public class EventUpdate {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the meeting request related to the event, if any.
@@ -1004,7 +992,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The name of the user who created the event.
      */
@@ -1013,7 +1000,6 @@ public class EventUpdate {
         return this;
     }
 
-
     /**
      * The name of the user who last modified the event.
      */
@@ -1021,7 +1007,6 @@ public class EventUpdate {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1032,108 +1017,169 @@ public class EventUpdate {
             return false;
         }
         EventUpdate other = (EventUpdate) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.virtual, other.virtual) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter) &&
-            Utils.enhancedDeepEquals(this.archiveAfter, other.archiveAfter) &&
-            Utils.enhancedDeepEquals(this.launchAfter, other.launchAfter) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.venues, other.venues) &&
-            Utils.enhancedDeepEquals(this.showVenueLocation, other.showVenueLocation) &&
-            Utils.enhancedDeepEquals(this.showPointOfContact, other.showPointOfContact) &&
-            Utils.enhancedDeepEquals(this.phone, other.phone) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.defaultLocale, other.defaultLocale) &&
-            Utils.enhancedDeepEquals(this.languages, other.languages) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.registrationSecurityLevel, other.registrationSecurityLevel) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.eventStatus, other.eventStatus) &&
-            Utils.enhancedDeepEquals(this.planningStatus, other.planningStatus) &&
-            Utils.enhancedDeepEquals(this.testMode, other.testMode) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.planners, other.planners) &&
-            Utils.enhancedDeepEquals(this.stakeholders, other.stakeholders) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.meetingRequestId, other.meetingRequestId) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.virtual, other.virtual)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.archiveAfter, other.archiveAfter)
+                && Utils.enhancedDeepEquals(this.launchAfter, other.launchAfter)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.venues, other.venues)
+                && Utils.enhancedDeepEquals(this.showVenueLocation, other.showVenueLocation)
+                && Utils.enhancedDeepEquals(this.showPointOfContact, other.showPointOfContact)
+                && Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.defaultLocale, other.defaultLocale)
+                && Utils.enhancedDeepEquals(this.languages, other.languages)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.registrationSecurityLevel, other.registrationSecurityLevel)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.eventStatus, other.eventStatus)
+                && Utils.enhancedDeepEquals(this.planningStatus, other.planningStatus)
+                && Utils.enhancedDeepEquals(this.testMode, other.testMode)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.planners, other.planners)
+                && Utils.enhancedDeepEquals(this.stakeholders, other.stakeholders)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.meetingRequestId, other.meetingRequestId)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, title, code,
-            virtual, format, description,
-            start, end, closeAfter,
-            archiveAfter, launchAfter, timezone,
-            venues, showVenueLocation, showPointOfContact,
-            phone, note, defaultLocale,
-            languages, currency, registrationSecurityLevel,
-            status, eventStatus, planningStatus,
-            testMode, capacity, planners,
-            stakeholders, customFields, category,
-            type, links, created,
-            lastModified, meetingRequestId, createdBy,
-            lastModifiedBy);
+                id,
+                title,
+                code,
+                virtual,
+                format,
+                description,
+                start,
+                end,
+                closeAfter,
+                archiveAfter,
+                launchAfter,
+                timezone,
+                venues,
+                showVenueLocation,
+                showPointOfContact,
+                phone,
+                note,
+                defaultLocale,
+                languages,
+                currency,
+                registrationSecurityLevel,
+                status,
+                eventStatus,
+                planningStatus,
+                testMode,
+                capacity,
+                planners,
+                stakeholders,
+                customFields,
+                category,
+                type,
+                links,
+                created,
+                lastModified,
+                meetingRequestId,
+                createdBy,
+                lastModifiedBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventUpdate.class,
-                "id", id,
-                "title", title,
-                "code", code,
-                "virtual", virtual,
-                "format", format,
-                "description", description,
-                "start", start,
-                "end", end,
-                "closeAfter", closeAfter,
-                "archiveAfter", archiveAfter,
-                "launchAfter", launchAfter,
-                "timezone", timezone,
-                "venues", venues,
-                "showVenueLocation", showVenueLocation,
-                "showPointOfContact", showPointOfContact,
-                "phone", phone,
-                "note", note,
-                "defaultLocale", defaultLocale,
-                "languages", languages,
-                "currency", currency,
-                "registrationSecurityLevel", registrationSecurityLevel,
-                "status", status,
-                "eventStatus", eventStatus,
-                "planningStatus", planningStatus,
-                "testMode", testMode,
-                "capacity", capacity,
-                "planners", planners,
-                "stakeholders", stakeholders,
-                "customFields", customFields,
-                "category", category,
-                "type", type,
-                "links", links,
-                "created", created,
-                "lastModified", lastModified,
-                "meetingRequestId", meetingRequestId,
-                "createdBy", createdBy,
-                "lastModifiedBy", lastModifiedBy);
+        return Utils.toString(
+                EventUpdate.class,
+                "id",
+                id,
+                "title",
+                title,
+                "code",
+                code,
+                "virtual",
+                virtual,
+                "format",
+                format,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "closeAfter",
+                closeAfter,
+                "archiveAfter",
+                archiveAfter,
+                "launchAfter",
+                launchAfter,
+                "timezone",
+                timezone,
+                "venues",
+                venues,
+                "showVenueLocation",
+                showVenueLocation,
+                "showPointOfContact",
+                showPointOfContact,
+                "phone",
+                phone,
+                "note",
+                note,
+                "defaultLocale",
+                defaultLocale,
+                "languages",
+                languages,
+                "currency",
+                currency,
+                "registrationSecurityLevel",
+                registrationSecurityLevel,
+                "status",
+                status,
+                "eventStatus",
+                eventStatus,
+                "planningStatus",
+                planningStatus,
+                "testMode",
+                testMode,
+                "capacity",
+                capacity,
+                "planners",
+                planners,
+                "stakeholders",
+                stakeholders,
+                "customFields",
+                customFields,
+                "category",
+                category,
+                "type",
+                type,
+                "links",
+                links,
+                "created",
+                created,
+                "lastModified",
+                lastModified,
+                "meetingRequestId",
+                meetingRequestId,
+                "createdBy",
+                createdBy,
+                "lastModifiedBy",
+                lastModifiedBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -1212,7 +1258,7 @@ public class EventUpdate {
         private String lastModifiedBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1242,7 +1288,7 @@ public class EventUpdate {
         /**
          * True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual'
          * indicator.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1459,7 +1505,7 @@ public class EventUpdate {
 
         /**
          * The category to which this event belongs (no longer supported).
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1527,20 +1573,43 @@ public class EventUpdate {
 
         public EventUpdate build() {
             return new EventUpdate(
-                id, title, code,
-                virtual, format, description,
-                start, end, closeAfter,
-                archiveAfter, launchAfter, timezone,
-                venues, showVenueLocation, showPointOfContact,
-                phone, note, defaultLocale,
-                languages, currency, registrationSecurityLevel,
-                status, eventStatus, planningStatus,
-                testMode, capacity, planners,
-                stakeholders, customFields, category,
-                type, links, created,
-                lastModified, meetingRequestId, createdBy,
-                lastModifiedBy);
+                    id,
+                    title,
+                    code,
+                    virtual,
+                    format,
+                    description,
+                    start,
+                    end,
+                    closeAfter,
+                    archiveAfter,
+                    launchAfter,
+                    timezone,
+                    venues,
+                    showVenueLocation,
+                    showPointOfContact,
+                    phone,
+                    note,
+                    defaultLocale,
+                    languages,
+                    currency,
+                    registrationSecurityLevel,
+                    status,
+                    eventStatus,
+                    planningStatus,
+                    testMode,
+                    capacity,
+                    planners,
+                    stakeholders,
+                    customFields,
+                    category,
+                    type,
+                    links,
+                    created,
+                    lastModified,
+                    meetingRequestId,
+                    createdBy,
+                    lastModifiedBy);
         }
-
     }
 }

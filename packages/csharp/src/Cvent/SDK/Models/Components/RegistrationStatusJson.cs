@@ -18,34 +18,26 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RegistrationStatusJson
     {
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Cancelled")]
-        Cancelled,
-        [JsonProperty("Closed")]
-        Closed,
-        [JsonProperty("Completed")]
-        Completed,
-        [JsonProperty("Deleted")]
-        Deleted,
-        [JsonProperty("NoRegistrationRequired")]
-        NoRegistrationRequired,
-        [JsonProperty("Pending")]
-        Pending,
-        [JsonProperty("Processing")]
-        Processing,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Cancelled")] Cancelled,
+        [JsonProperty("Closed")] Closed,
+        [JsonProperty("Completed")] Completed,
+        [JsonProperty("Deleted")] Deleted,
+        [JsonProperty("NoRegistrationRequired")] NoRegistrationRequired,
+        [JsonProperty("Pending")] Pending,
+        [JsonProperty("Processing")] Processing,
     }
 
     public static class RegistrationStatusJsonExtension
     {
         public static string Value(this RegistrationStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RegistrationStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RegistrationStatusJson).GetFields())
+            foreach (var field in typeof(RegistrationStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestCreateJson
- * 
+ *
  * <p>A meeting request to create.
  */
 public class MeetingRequestCreateJson {
@@ -46,16 +46,14 @@ public class MeetingRequestCreateJson {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("questions") @Nonnull List<RequestedMeetingRequestQuestionJson> questions) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.sourceId = sourceId;
         this.questions = Optional.ofNullable(questions)
-            .orElseThrow(() -> new IllegalArgumentException("questions cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("questions cannot be null"));
     }
-    
+
     public MeetingRequestCreateJson(
-            @Nonnull String name,
-            @Nonnull List<RequestedMeetingRequestQuestionJson> questions) {
+            @Nonnull String name, @Nonnull List<RequestedMeetingRequestQuestionJson> questions) {
         this(name, null, questions);
     }
 
@@ -85,7 +83,6 @@ public class MeetingRequestCreateJson {
         return new Builder();
     }
 
-
     /**
      * The name of the specific meeting request.
      */
@@ -93,7 +90,6 @@ public class MeetingRequestCreateJson {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The ID for the meeting request in an external system. NOTE: This value is expected to be unique for
@@ -104,7 +100,6 @@ public class MeetingRequestCreateJson {
         return this;
     }
 
-
     /**
      * Questions for the meeting request.
      */
@@ -112,7 +107,6 @@ public class MeetingRequestCreateJson {
         this.questions = Utils.checkNotNull(questions, "questions");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,28 +117,24 @@ public class MeetingRequestCreateJson {
             return false;
         }
         MeetingRequestCreateJson other = (MeetingRequestCreateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.questions, other.questions);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, sourceId, questions);
+        return Utils.enhancedHash(name, sourceId, questions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestCreateJson.class,
-                "name", name,
-                "sourceId", sourceId,
-                "questions", questions);
+        return Utils.toString(
+                MeetingRequestCreateJson.class, "name", name, "sourceId", sourceId, "questions", questions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -153,7 +143,7 @@ public class MeetingRequestCreateJson {
         private List<RequestedMeetingRequestQuestionJson> questions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -182,9 +172,7 @@ public class MeetingRequestCreateJson {
         }
 
         public MeetingRequestCreateJson build() {
-            return new MeetingRequestCreateJson(
-                name, sourceId, questions);
+            return new MeetingRequestCreateJson(name, sourceId, questions);
         }
-
     }
 }

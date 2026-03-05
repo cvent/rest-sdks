@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RequesterSuffix
     {
-        [JsonProperty("II")]
-        Ii,
-        [JsonProperty("III")]
-        Iii,
-        [JsonProperty("IV")]
-        Iv,
-        [JsonProperty("V")]
-        V,
-        [JsonProperty("Sr.")]
-        Sr,
-        [JsonProperty("Jr.")]
-        Jr,
+        [JsonProperty("II")] Ii,
+        [JsonProperty("III")] Iii,
+        [JsonProperty("IV")] Iv,
+        [JsonProperty("V")] V,
+        [JsonProperty("Sr.")] Sr,
+        [JsonProperty("Jr.")] Jr,
     }
 
     public static class RequesterSuffixExtension
     {
         public static string Value(this RequesterSuffix value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RequesterSuffix ToEnum(this string value)
         {
-            foreach(var field in typeof(RequesterSuffix).GetFields())
+            foreach (var field in typeof(RequesterSuffix).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

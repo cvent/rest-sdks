@@ -2,6 +2,14 @@
 
 This is used to denote the card status for a card.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CardStatusJson.Pending;
+```
+
 
 ## Values
 

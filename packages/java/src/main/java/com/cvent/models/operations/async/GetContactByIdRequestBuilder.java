@@ -30,7 +30,7 @@ public class GetContactByIdRequestBuilder {
     private GetContactByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetContactByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetContactByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetContactByIdResponse> call() {
-        AsyncRequestOperation<GetContactByIdRequest, GetContactByIdResponse> operation
-              = new GetContactById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetContactByIdRequest, GetContactByIdResponse> operation =
+                new GetContactById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

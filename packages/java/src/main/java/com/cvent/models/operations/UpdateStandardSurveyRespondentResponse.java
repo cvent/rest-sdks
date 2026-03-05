@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateStandardSurveyRespondentResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable StandardSurveyRespondent standardSurveyRespondent) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.standardSurveyRespondent = standardSurveyRespondent;
     }
-    
+
     public UpdateStandardSurveyRespondentResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated respondent for a standalone survey.
      */
-    public UpdateStandardSurveyRespondentResponse withStandardSurveyRespondent(@Nullable StandardSurveyRespondent standardSurveyRespondent) {
+    public UpdateStandardSurveyRespondentResponse withStandardSurveyRespondent(
+            @Nullable StandardSurveyRespondent standardSurveyRespondent) {
         this.standardSurveyRespondent = standardSurveyRespondent;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
             return false;
         }
         UpdateStandardSurveyRespondentResponse other = (UpdateStandardSurveyRespondentResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.standardSurveyRespondent, other.standardSurveyRespondent);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.standardSurveyRespondent, other.standardSurveyRespondent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            standardSurveyRespondent);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, standardSurveyRespondent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateStandardSurveyRespondentResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "standardSurveyRespondent", standardSurveyRespondent);
+        return Utils.toString(
+                UpdateStandardSurveyRespondentResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "standardSurveyRespondent",
+                standardSurveyRespondent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
         private StandardSurveyRespondent standardSurveyRespondent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,9 +203,7 @@ public class UpdateStandardSurveyRespondentResponse implements Response {
 
         public UpdateStandardSurveyRespondentResponse build() {
             return new UpdateStandardSurveyRespondentResponse(
-                contentType, statusCode, rawResponse,
-                standardSurveyRespondent);
+                    contentType, statusCode, rawResponse, standardSurveyRespondent);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExistingDuration
- * 
+ *
  * <p>An existing duration.
  */
 public class ExistingDuration {
@@ -136,24 +136,22 @@ public class ExistingDuration {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.firstSeen = Optional.ofNullable(firstSeen)
-            .orElseThrow(() -> new IllegalArgumentException("firstSeen cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstSeen cannot be null"));
         this.lastSeen = Optional.ofNullable(lastSeen)
-            .orElseThrow(() -> new IllegalArgumentException("lastSeen cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastSeen cannot be null"));
         this.deleted = deleted;
         this.type = type;
         this.durationType = durationType;
         this.duration = duration;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
+
     public ExistingDuration(
             @Nonnull UuidJson event,
             @Nonnull UuidJson session,
@@ -162,11 +160,7 @@ public class ExistingDuration {
             @Nonnull OffsetDateTime lastSeen,
             long duration,
             @Nonnull String id) {
-        this(null, null, null,
-            null, event, session,
-            attendee, firstSeen, lastSeen,
-            null, null, null,
-            duration, id);
+        this(null, null, null, null, event, session, attendee, firstSeen, lastSeen, null, null, null, duration, id);
     }
 
     /**
@@ -274,7 +268,6 @@ public class ExistingDuration {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -282,7 +275,6 @@ public class ExistingDuration {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -292,7 +284,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -300,7 +291,6 @@ public class ExistingDuration {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -310,7 +300,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -318,7 +307,6 @@ public class ExistingDuration {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -328,7 +316,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -336,7 +323,6 @@ public class ExistingDuration {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * The earliest date and time when the attendee was seen, in ISO 8601 format.
@@ -346,7 +332,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * The latest date and time when the attendee was seen, in ISO 8601 format.
      */
@@ -354,7 +339,6 @@ public class ExistingDuration {
         this.lastSeen = Utils.checkNotNull(lastSeen, "lastSeen");
         return this;
     }
-
 
     /**
      * A duration record is deleted if marked as recanted by the algorithm after determining the initial
@@ -365,7 +349,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * Describes how the duration was obtained.
      */
@@ -374,7 +357,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * The target entity for which the duration was collected.
      */
@@ -382,7 +364,6 @@ public class ExistingDuration {
         this.durationType = durationType;
         return this;
     }
-
 
     /**
      * The amount of time (in milliseconds) than the attendee was engaged (in person or virtually) in a
@@ -394,7 +375,6 @@ public class ExistingDuration {
         return this;
     }
 
-
     /**
      * internal id
      */
@@ -402,7 +382,6 @@ public class ExistingDuration {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -413,54 +392,77 @@ public class ExistingDuration {
             return false;
         }
         ExistingDuration other = (ExistingDuration) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.firstSeen, other.firstSeen) &&
-            Utils.enhancedDeepEquals(this.lastSeen, other.lastSeen) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.durationType, other.durationType) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.firstSeen, other.firstSeen)
+                && Utils.enhancedDeepEquals(this.lastSeen, other.lastSeen)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.durationType, other.durationType)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, session,
-            attendee, firstSeen, lastSeen,
-            deleted, type, durationType,
-            duration, id);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                session,
+                attendee,
+                firstSeen,
+                lastSeen,
+                deleted,
+                type,
+                durationType,
+                duration,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingDuration.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "session", session,
-                "attendee", attendee,
-                "firstSeen", firstSeen,
-                "lastSeen", lastSeen,
-                "deleted", deleted,
-                "type", type,
-                "durationType", durationType,
-                "duration", duration,
-                "id", id);
+        return Utils.toString(
+                ExistingDuration.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "session",
+                session,
+                "attendee",
+                attendee,
+                "firstSeen",
+                firstSeen,
+                "lastSeen",
+                lastSeen,
+                "deleted",
+                deleted,
+                "type",
+                type,
+                "durationType",
+                durationType,
+                "duration",
+                duration,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -491,7 +493,7 @@ public class ExistingDuration {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -611,12 +613,20 @@ public class ExistingDuration {
 
         public ExistingDuration build() {
             return new ExistingDuration(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, session,
-                attendee, firstSeen, lastSeen,
-                deleted, type, durationType,
-                duration, id);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    session,
+                    attendee,
+                    firstSeen,
+                    lastSeen,
+                    deleted,
+                    type,
+                    durationType,
+                    duration,
+                    id);
         }
-
     }
 }

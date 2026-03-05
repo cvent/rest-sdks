@@ -30,7 +30,7 @@ public class AddSessionDocRequestBuilder {
     private AddSessionDocRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AddSessionDocRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AddSessionDocRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AddSessionDocResponse> call() {
-        AsyncRequestOperation<AddSessionDocRequest, AddSessionDocResponse> operation
-              = new AddSessionDoc.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AddSessionDocRequest, AddSessionDocResponse> operation =
+                new AddSessionDoc.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

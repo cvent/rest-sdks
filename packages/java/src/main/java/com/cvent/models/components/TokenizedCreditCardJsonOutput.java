@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -17,13 +17,13 @@ import java.util.Optional;
 
 /**
  * TokenizedCreditCardJsonOutput
- * 
+ *
  * <p>Credit card info.
  */
 public class TokenizedCreditCardJsonOutput {
     /**
      * Credit card number. DEPRECATED - use 'lastFour' instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -63,15 +63,14 @@ public class TokenizedCreditCardJsonOutput {
         this.type = type;
         this.lastFour = lastFour;
     }
-    
+
     public TokenizedCreditCardJsonOutput() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
      * Credit card number. DEPRECATED - use 'lastFour' instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -104,10 +103,9 @@ public class TokenizedCreditCardJsonOutput {
         return new Builder();
     }
 
-
     /**
      * Credit card number. DEPRECATED - use 'lastFour' instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -115,7 +113,6 @@ public class TokenizedCreditCardJsonOutput {
         this.number = number;
         return this;
     }
-
 
     /**
      * Card expiration date.
@@ -125,7 +122,6 @@ public class TokenizedCreditCardJsonOutput {
         return this;
     }
 
-
     /**
      * Credit card type.
      */
@@ -134,7 +130,6 @@ public class TokenizedCreditCardJsonOutput {
         return this;
     }
 
-
     /**
      * Last four digits of the credit card number.
      */
@@ -142,7 +137,6 @@ public class TokenizedCreditCardJsonOutput {
         this.lastFour = lastFour;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -153,31 +147,33 @@ public class TokenizedCreditCardJsonOutput {
             return false;
         }
         TokenizedCreditCardJsonOutput other = (TokenizedCreditCardJsonOutput) o;
-        return 
-            Utils.enhancedDeepEquals(this.number, other.number) &&
-            Utils.enhancedDeepEquals(this.expiration, other.expiration) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.lastFour, other.lastFour);
+        return Utils.enhancedDeepEquals(this.number, other.number)
+                && Utils.enhancedDeepEquals(this.expiration, other.expiration)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.lastFour, other.lastFour);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            number, expiration, type,
-            lastFour);
+        return Utils.enhancedHash(number, expiration, type, lastFour);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TokenizedCreditCardJsonOutput.class,
-                "number", number,
-                "expiration", expiration,
-                "type", type,
-                "lastFour", lastFour);
+        return Utils.toString(
+                TokenizedCreditCardJsonOutput.class,
+                "number",
+                number,
+                "expiration",
+                expiration,
+                "type",
+                type,
+                "lastFour",
+                lastFour);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         @Deprecated
         private String number;
@@ -189,12 +185,12 @@ public class TokenizedCreditCardJsonOutput {
         private String lastFour;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Credit card number. DEPRECATED - use 'lastFour' instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -228,10 +224,7 @@ public class TokenizedCreditCardJsonOutput {
         }
 
         public TokenizedCreditCardJsonOutput build() {
-            return new TokenizedCreditCardJsonOutput(
-                number, expiration, type,
-                lastFour);
+            return new TokenizedCreditCardJsonOutput(number, expiration, type, lastFour);
         }
-
     }
 }

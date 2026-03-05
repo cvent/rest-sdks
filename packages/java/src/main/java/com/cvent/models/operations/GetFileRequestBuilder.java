@@ -28,7 +28,7 @@ public class GetFileRequestBuilder {
     private GetFileRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetFileRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,12 @@ public class GetFileRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetFileResponse call() {
-        RequestOperation<GetFileRequest, GetFileResponse> operation
-              = new GetFile.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetFileRequest, GetFileResponse> operation = new GetFile.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -43,21 +43,20 @@ public class AsyncCampaigns {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Campaigns sync() {
         return syncSDK;
     }
 
-
     /**
      * List eMarketing Campaigns
-     * 
+     *
      * <p>Gets a list of eMarketing campaigns.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetCampaignsRequestBuilder getCampaigns() {
@@ -66,29 +65,27 @@ public class AsyncCampaigns {
 
     /**
      * List eMarketing Campaigns
-     * 
+     *
      * <p>Gets a list of eMarketing campaigns.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetCampaignsResponse>} - The async response
      */
     public CompletableFuture<GetCampaignsResponse> getCampaigns(@Nonnull GetCampaignsRequest request) {
-        AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation
-              = new GetCampaigns.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation =
+                new GetCampaigns.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Email Templates
-     * 
+     *
      * <p>Gets a list of eMarketing email templates.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetEmailTemplatesRequestBuilder getEmailTemplates() {
@@ -97,29 +94,27 @@ public class AsyncCampaigns {
 
     /**
      * List Email Templates
-     * 
+     *
      * <p>Gets a list of eMarketing email templates.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEmailTemplatesResponse>} - The async response
      */
     public CompletableFuture<GetEmailTemplatesResponse> getEmailTemplates(@Nonnull GetEmailTemplatesRequest request) {
-        AsyncRequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation
-              = new GetEmailTemplates.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation =
+                new GetEmailTemplates.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Send Email To Recipients
-     * 
+     *
      * <p>Sends an email to one or more eMarketing campaign recipients who are on the recipient list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public SendEMarketingEmailsRequestBuilder sendEMarketingEmails() {
@@ -128,11 +123,11 @@ public class AsyncCampaigns {
 
     /**
      * Send Email To Recipients
-     * 
+     *
      * <p>Sends an email to one or more eMarketing campaign recipients who are on the recipient list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<SendEMarketingEmailsResponse>} - The async response
      */
     public CompletableFuture<SendEMarketingEmailsResponse> sendEMarketingEmailsDirect() {
@@ -141,30 +136,28 @@ public class AsyncCampaigns {
 
     /**
      * Send Email To Recipients
-     * 
+     *
      * <p>Sends an email to one or more eMarketing campaign recipients who are on the recipient list.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<SendEMarketingEmailsResponse>} - The async response
      */
     public CompletableFuture<SendEMarketingEmailsResponse> sendEMarketingEmails(@Nullable SendEmailRequest request) {
-        AsyncRequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation
-              = new SendEMarketingEmails.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation =
+                new SendEMarketingEmails.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Emarketing Email Status
-     * 
+     *
      * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
      * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetEmarketingEmailStatusRequestBuilder getEmarketingEmailStatus() {
@@ -173,20 +166,19 @@ public class AsyncCampaigns {
 
     /**
      * List Emarketing Email Status
-     * 
+     *
      * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
      * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEmarketingEmailStatusResponse>} - The async response
      */
-    public CompletableFuture<GetEmarketingEmailStatusResponse> getEmarketingEmailStatus(@Nonnull GetEmarketingEmailStatusRequest request) {
-        AsyncRequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation
-              = new GetEmarketingEmailStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetEmarketingEmailStatusResponse> getEmarketingEmailStatus(
+            @Nonnull GetEmarketingEmailStatusRequest request) {
+        AsyncRequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation =
+                new GetEmarketingEmailStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ReportingFieldJson
- * 
+ *
  * <p>Reporting fields and values for a virtual card.
  */
 public class ReportingFieldJson {
@@ -35,12 +35,11 @@ public class ReportingFieldJson {
 
     @JsonCreator
     public ReportingFieldJson(
-            @JsonProperty("name") @Nullable String name,
-            @JsonProperty("value") @Nullable String value) {
+            @JsonProperty("name") @Nullable String name, @JsonProperty("value") @Nullable String value) {
         this.name = name;
         this.value = value;
     }
-    
+
     public ReportingFieldJson() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class ReportingFieldJson {
         return new Builder();
     }
 
-
     /**
      * The reporting field's name.
      */
@@ -72,7 +70,6 @@ public class ReportingFieldJson {
         return this;
     }
 
-
     /**
      * The reporting field value.
      */
@@ -80,7 +77,6 @@ public class ReportingFieldJson {
         this.value = value;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class ReportingFieldJson {
             return false;
         }
         ReportingFieldJson other = (ReportingFieldJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.name, other.name) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, value);
+        return Utils.enhancedHash(name, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReportingFieldJson.class,
-                "name", name,
-                "value", value);
+        return Utils.toString(ReportingFieldJson.class, "name", name, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private String value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class ReportingFieldJson {
         }
 
         public ReportingFieldJson build() {
-            return new ReportingFieldJson(
-                name, value);
+            return new ReportingFieldJson(name, value);
         }
-
     }
 }

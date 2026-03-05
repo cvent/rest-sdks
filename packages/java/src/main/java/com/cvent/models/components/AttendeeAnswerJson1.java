@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * AttendeeAnswerJson1
- * 
+ *
  * <p>Answer for the question answered by attendee.
  */
 public class AttendeeAnswerJson1 {
@@ -35,9 +35,8 @@ public class AttendeeAnswerJson1 {
             @JsonProperty("question") @Nonnull AttendeeAnswerJson1Question question,
             @JsonProperty("value") @Nonnull List<String> value) {
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
     }
 
     /**
@@ -58,7 +57,6 @@ public class AttendeeAnswerJson1 {
         return new Builder();
     }
 
-
     /**
      * The reference to the question entity. Contains only the ID of the question entity.
      */
@@ -67,7 +65,6 @@ public class AttendeeAnswerJson1 {
         return this;
     }
 
-
     /**
      * The set of answers to a question.
      */
@@ -75,7 +72,6 @@ public class AttendeeAnswerJson1 {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +82,28 @@ public class AttendeeAnswerJson1 {
             return false;
         }
         AttendeeAnswerJson1 other = (AttendeeAnswerJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.question, other.question) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, value);
+        return Utils.enhancedHash(question, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAnswerJson1.class,
-                "question", question,
-                "value", value);
+        return Utils.toString(AttendeeAnswerJson1.class, "question", question, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeAnswerJson1Question question;
 
         private List<String> value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +123,7 @@ public class AttendeeAnswerJson1 {
         }
 
         public AttendeeAnswerJson1 build() {
-            return new AttendeeAnswerJson1(
-                question, value);
+            return new AttendeeAnswerJson1(question, value);
         }
-
     }
 }

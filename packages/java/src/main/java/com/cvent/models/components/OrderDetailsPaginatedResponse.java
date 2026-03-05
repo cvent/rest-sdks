@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * OrderDetailsPaginatedResponse
- * 
+ *
  * <p>The response from a request to list of orders. This includes the paging object as well.
  */
 public class OrderDetailsPaginatedResponse {
@@ -34,10 +34,9 @@ public class OrderDetailsPaginatedResponse {
     public OrderDetailsPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
             @JsonProperty("data") @Nonnull List<OrderDetailJson> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -58,7 +57,6 @@ public class OrderDetailsPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -67,7 +65,6 @@ public class OrderDetailsPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of order details.
      */
@@ -75,7 +72,6 @@ public class OrderDetailsPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +82,28 @@ public class OrderDetailsPaginatedResponse {
             return false;
         }
         OrderDetailsPaginatedResponse other = (OrderDetailsPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderDetailsPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(OrderDetailsPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<OrderDetailJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +123,7 @@ public class OrderDetailsPaginatedResponse {
         }
 
         public OrderDetailsPaginatedResponse build() {
-            return new OrderDetailsPaginatedResponse(
-                paging, data);
+            return new OrderDetailsPaginatedResponse(paging, data);
         }
-
     }
 }

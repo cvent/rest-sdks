@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAppointmentsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListAppointmentsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable AppointmentPaginatedResponse appointmentPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.appointmentPaginatedResponse = appointmentPaginatedResponse;
     }
-    
+
     public ListAppointmentsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListAppointmentsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListAppointmentsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListAppointmentsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListAppointmentsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of appointments.
      */
-    public ListAppointmentsResponse withAppointmentPaginatedResponse(@Nullable AppointmentPaginatedResponse appointmentPaginatedResponse) {
+    public ListAppointmentsResponse withAppointmentPaginatedResponse(
+            @Nullable AppointmentPaginatedResponse appointmentPaginatedResponse) {
         this.appointmentPaginatedResponse = appointmentPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListAppointmentsResponse implements AsyncResponse {
             return false;
         }
         ListAppointmentsResponse other = (ListAppointmentsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.appointmentPaginatedResponse, other.appointmentPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.appointmentPaginatedResponse, other.appointmentPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            appointmentPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, appointmentPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAppointmentsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "appointmentPaginatedResponse", appointmentPaginatedResponse);
+        return Utils.toString(
+                ListAppointmentsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "appointmentPaginatedResponse",
+                appointmentPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListAppointmentsResponse implements AsyncResponse {
         private AppointmentPaginatedResponse appointmentPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class ListAppointmentsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of appointments.
          */
-        public Builder appointmentPaginatedResponse(@Nullable AppointmentPaginatedResponse appointmentPaginatedResponse) {
+        public Builder appointmentPaginatedResponse(
+                @Nullable AppointmentPaginatedResponse appointmentPaginatedResponse) {
             this.appointmentPaginatedResponse = appointmentPaginatedResponse;
             return this;
         }
 
         public ListAppointmentsResponse build() {
-            return new ListAppointmentsResponse(
-                contentType, statusCode, rawResponse,
-                appointmentPaginatedResponse);
+            return new ListAppointmentsResponse(contentType, statusCode, rawResponse, appointmentPaginatedResponse);
         }
-
     }
 }

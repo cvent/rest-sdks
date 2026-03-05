@@ -2,6 +2,14 @@
 
 Value type of the policy
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = PolicyValueTypeJson.SelectionList;
+```
+
 
 ## Values
 

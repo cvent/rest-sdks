@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class FilterProgramItemDocumentsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ProgramItemDocumentPaginatedResponse programItemDocumentPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.programItemDocumentPaginatedResponse = programItemDocumentPaginatedResponse;
     }
-    
+
     public FilterProgramItemDocumentsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of session program item documents.
      */
-    public FilterProgramItemDocumentsResponse withProgramItemDocumentPaginatedResponse(@Nullable ProgramItemDocumentPaginatedResponse programItemDocumentPaginatedResponse) {
+    public FilterProgramItemDocumentsResponse withProgramItemDocumentPaginatedResponse(
+            @Nullable ProgramItemDocumentPaginatedResponse programItemDocumentPaginatedResponse) {
         this.programItemDocumentPaginatedResponse = programItemDocumentPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
             return false;
         }
         FilterProgramItemDocumentsResponse other = (FilterProgramItemDocumentsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.programItemDocumentPaginatedResponse, other.programItemDocumentPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.programItemDocumentPaginatedResponse, other.programItemDocumentPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            programItemDocumentPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, programItemDocumentPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FilterProgramItemDocumentsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "programItemDocumentPaginatedResponse", programItemDocumentPaginatedResponse);
+        return Utils.toString(
+                FilterProgramItemDocumentsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "programItemDocumentPaginatedResponse",
+                programItemDocumentPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
         private ProgramItemDocumentPaginatedResponse programItemDocumentPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class FilterProgramItemDocumentsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of session program item documents.
          */
-        public Builder programItemDocumentPaginatedResponse(@Nullable ProgramItemDocumentPaginatedResponse programItemDocumentPaginatedResponse) {
+        public Builder programItemDocumentPaginatedResponse(
+                @Nullable ProgramItemDocumentPaginatedResponse programItemDocumentPaginatedResponse) {
             this.programItemDocumentPaginatedResponse = programItemDocumentPaginatedResponse;
             return this;
         }
 
         public FilterProgramItemDocumentsResponse build() {
             return new FilterProgramItemDocumentsResponse(
-                contentType, statusCode, rawResponse,
-                programItemDocumentPaginatedResponse);
+                    contentType, statusCode, rawResponse, programItemDocumentPaginatedResponse);
         }
-
     }
 }

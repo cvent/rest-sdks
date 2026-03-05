@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelDepartureArrivalJson
- * 
+ *
  * <p>Common object that holds travel departure/arrival information.
  */
 public class TravelDepartureArrivalJson {
@@ -50,7 +50,7 @@ public class TravelDepartureArrivalJson {
         this.carrier = carrier;
         this.carrierNumber = carrierNumber;
     }
-    
+
     public TravelDepartureArrivalJson() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class TravelDepartureArrivalJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 formatted date.
      */
@@ -88,7 +87,6 @@ public class TravelDepartureArrivalJson {
         this.time = time;
         return this;
     }
-
 
     /**
      * ICAO code.
@@ -98,7 +96,6 @@ public class TravelDepartureArrivalJson {
         return this;
     }
 
-
     /**
      * Carrier number.
      */
@@ -106,7 +103,6 @@ public class TravelDepartureArrivalJson {
         this.carrierNumber = carrierNumber;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,24 @@ public class TravelDepartureArrivalJson {
             return false;
         }
         TravelDepartureArrivalJson other = (TravelDepartureArrivalJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.time, other.time) &&
-            Utils.enhancedDeepEquals(this.carrier, other.carrier) &&
-            Utils.enhancedDeepEquals(this.carrierNumber, other.carrierNumber);
+        return Utils.enhancedDeepEquals(this.time, other.time)
+                && Utils.enhancedDeepEquals(this.carrier, other.carrier)
+                && Utils.enhancedDeepEquals(this.carrierNumber, other.carrierNumber);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            time, carrier, carrierNumber);
+        return Utils.enhancedHash(time, carrier, carrierNumber);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelDepartureArrivalJson.class,
-                "time", time,
-                "carrier", carrier,
-                "carrierNumber", carrierNumber);
+        return Utils.toString(
+                TravelDepartureArrivalJson.class, "time", time, "carrier", carrier, "carrierNumber", carrierNumber);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime time;
 
@@ -147,7 +139,7 @@ public class TravelDepartureArrivalJson {
         private String carrierNumber;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +167,7 @@ public class TravelDepartureArrivalJson {
         }
 
         public TravelDepartureArrivalJson build() {
-            return new TravelDepartureArrivalJson(
-                time, carrier, carrierNumber);
+            return new TravelDepartureArrivalJson(time, carrier, carrierNumber);
         }
-
     }
 }

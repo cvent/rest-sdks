@@ -28,7 +28,7 @@ public class GetEventAsyncStatusRequestBuilder {
     private GetEventAsyncStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventAsyncStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetEventAsyncStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetEventAsyncStatusResponse call() {
-        RequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation
-              = new GetEventAsyncStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation =
+                new GetEventAsyncStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

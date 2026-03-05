@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateEventDiscountRequest {
     /**
      * Unique ID of an event.
@@ -20,18 +19,14 @@ public class CreateEventDiscountRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private CreateUpdateDiscount createUpdateDiscount;
 
     @JsonCreator
-    public CreateEventDiscountRequest(
-            @Nonnull String id,
-            @Nonnull CreateUpdateDiscount createUpdateDiscount) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CreateEventDiscountRequest(@Nonnull String id, @Nonnull CreateUpdateDiscount createUpdateDiscount) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.createUpdateDiscount = Optional.ofNullable(createUpdateDiscount)
-            .orElseThrow(() -> new IllegalArgumentException("createUpdateDiscount cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("createUpdateDiscount cannot be null"));
     }
 
     /**
@@ -49,7 +44,6 @@ public class CreateEventDiscountRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -58,12 +52,10 @@ public class CreateEventDiscountRequest {
         return this;
     }
 
-
     public CreateEventDiscountRequest withCreateUpdateDiscount(@Nonnull CreateUpdateDiscount createUpdateDiscount) {
         this.createUpdateDiscount = Utils.checkNotNull(createUpdateDiscount, "createUpdateDiscount");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +66,29 @@ public class CreateEventDiscountRequest {
             return false;
         }
         CreateEventDiscountRequest other = (CreateEventDiscountRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.createUpdateDiscount, other.createUpdateDiscount);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.createUpdateDiscount, other.createUpdateDiscount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, createUpdateDiscount);
+        return Utils.enhancedHash(id, createUpdateDiscount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateEventDiscountRequest.class,
-                "id", id,
-                "createUpdateDiscount", createUpdateDiscount);
+        return Utils.toString(CreateEventDiscountRequest.class, "id", id, "createUpdateDiscount", createUpdateDiscount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private CreateUpdateDiscount createUpdateDiscount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +105,7 @@ public class CreateEventDiscountRequest {
         }
 
         public CreateEventDiscountRequest build() {
-            return new CreateEventDiscountRequest(
-                id, createUpdateDiscount);
+            return new CreateEventDiscountRequest(id, createUpdateDiscount);
         }
-
     }
 }

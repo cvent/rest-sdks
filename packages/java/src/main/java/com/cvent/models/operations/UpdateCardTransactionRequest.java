@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateCardTransactionRequest {
     /**
      * Unique ID of a transaction.
@@ -28,12 +27,11 @@ public class UpdateCardTransactionRequest {
 
     @JsonCreator
     public UpdateCardTransactionRequest(
-            @Nonnull String transactionId,
-            @Nonnull CardTransactionUpdate cardTransactionUpdate) {
+            @Nonnull String transactionId, @Nonnull CardTransactionUpdate cardTransactionUpdate) {
         this.transactionId = Optional.ofNullable(transactionId)
-            .orElseThrow(() -> new IllegalArgumentException("transactionId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("transactionId cannot be null"));
         this.cardTransactionUpdate = Optional.ofNullable(cardTransactionUpdate)
-            .orElseThrow(() -> new IllegalArgumentException("cardTransactionUpdate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("cardTransactionUpdate cannot be null"));
     }
 
     /**
@@ -54,7 +52,6 @@ public class UpdateCardTransactionRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a transaction.
      */
@@ -63,15 +60,14 @@ public class UpdateCardTransactionRequest {
         return this;
     }
 
-
     /**
      * Single card transaction record to be updated.
      */
-    public UpdateCardTransactionRequest withCardTransactionUpdate(@Nonnull CardTransactionUpdate cardTransactionUpdate) {
+    public UpdateCardTransactionRequest withCardTransactionUpdate(
+            @Nonnull CardTransactionUpdate cardTransactionUpdate) {
         this.cardTransactionUpdate = Utils.checkNotNull(cardTransactionUpdate, "cardTransactionUpdate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +78,34 @@ public class UpdateCardTransactionRequest {
             return false;
         }
         UpdateCardTransactionRequest other = (UpdateCardTransactionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.transactionId, other.transactionId) &&
-            Utils.enhancedDeepEquals(this.cardTransactionUpdate, other.cardTransactionUpdate);
+        return Utils.enhancedDeepEquals(this.transactionId, other.transactionId)
+                && Utils.enhancedDeepEquals(this.cardTransactionUpdate, other.cardTransactionUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            transactionId, cardTransactionUpdate);
+        return Utils.enhancedHash(transactionId, cardTransactionUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateCardTransactionRequest.class,
-                "transactionId", transactionId,
-                "cardTransactionUpdate", cardTransactionUpdate);
+        return Utils.toString(
+                UpdateCardTransactionRequest.class,
+                "transactionId",
+                transactionId,
+                "cardTransactionUpdate",
+                cardTransactionUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String transactionId;
 
         private CardTransactionUpdate cardTransactionUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +125,7 @@ public class UpdateCardTransactionRequest {
         }
 
         public UpdateCardTransactionRequest build() {
-            return new UpdateCardTransactionRequest(
-                transactionId, cardTransactionUpdate);
+            return new UpdateCardTransactionRequest(transactionId, cardTransactionUpdate);
         }
-
     }
 }

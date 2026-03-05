@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BadgeTypeJson
     {
-        [JsonProperty("Epc")]
-        Epc,
-        [JsonProperty("Qr")]
-        Qr,
+        [JsonProperty("Epc")] Epc,
+        [JsonProperty("Qr")] Qr,
     }
 
     public static class BadgeTypeJsonExtension
     {
         public static string Value(this BadgeTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BadgeTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BadgeTypeJson).GetFields())
+            foreach (var field in typeof(BadgeTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

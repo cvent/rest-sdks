@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * HotelRoomRatesResponse
- * 
+ *
  * <p>Represents hotel room rates response.
  */
 public class HotelRoomRatesResponse {
@@ -78,27 +78,24 @@ public class HotelRoomRatesResponse {
             @JsonProperty("roomCode") @Nonnull String roomCode) {
         this.rateCode = rateCode;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
-        this.endDate = Optional.ofNullable(endDate)
-            .orElseThrow(() -> new IllegalArgumentException("endDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+        this.endDate =
+                Optional.ofNullable(endDate).orElseThrow(() -> new IllegalArgumentException("endDate cannot be null"));
         this.roomRate = roomRate;
-        this.currencyCode = Optional.ofNullable(currencyCode)
-            .orElse(Builder._SINGLETON_VALUE_CurrencyCode.value());
+        this.currencyCode = Optional.ofNullable(currencyCode).orElse(Builder._SINGLETON_VALUE_CurrencyCode.value());
         this.hotelCode = Optional.ofNullable(hotelCode)
-            .orElseThrow(() -> new IllegalArgumentException("hotelCode cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("hotelCode cannot be null"));
         this.roomCode = Optional.ofNullable(roomCode)
-            .orElseThrow(() -> new IllegalArgumentException("roomCode cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("roomCode cannot be null"));
     }
-    
+
     public HotelRoomRatesResponse(
             @Nonnull LocalDate startDate,
             @Nonnull LocalDate endDate,
             double roomRate,
             @Nonnull String hotelCode,
             @Nonnull String roomCode) {
-        this(null, startDate, endDate,
-            roomRate, null, hotelCode,
-            roomCode);
+        this(null, startDate, endDate, roomRate, null, hotelCode, roomCode);
     }
 
     /**
@@ -154,7 +151,6 @@ public class HotelRoomRatesResponse {
         return new Builder();
     }
 
-
     /**
      * The rate code.
      */
@@ -162,7 +158,6 @@ public class HotelRoomRatesResponse {
         this.rateCode = rateCode;
         return this;
     }
-
 
     /**
      * The start of the date range the rate applies. Date is in ISO 8601 format.
@@ -172,7 +167,6 @@ public class HotelRoomRatesResponse {
         return this;
     }
 
-
     /**
      * The end of the date range the rate applies. Date is in ISO 8601 format.
      */
@@ -180,7 +174,6 @@ public class HotelRoomRatesResponse {
         this.endDate = Utils.checkNotNull(endDate, "endDate");
         return this;
     }
-
 
     /**
      * Cost of room per night.
@@ -190,7 +183,6 @@ public class HotelRoomRatesResponse {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code.
      */
@@ -198,7 +190,6 @@ public class HotelRoomRatesResponse {
         this.currencyCode = currencyCode;
         return this;
     }
-
 
     /**
      * The hotel code.
@@ -208,7 +199,6 @@ public class HotelRoomRatesResponse {
         return this;
     }
 
-
     /**
      * The room code.
      */
@@ -216,7 +206,6 @@ public class HotelRoomRatesResponse {
         this.roomCode = Utils.checkNotNull(roomCode, "roomCode");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -227,38 +216,42 @@ public class HotelRoomRatesResponse {
             return false;
         }
         HotelRoomRatesResponse other = (HotelRoomRatesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.rateCode, other.rateCode) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.roomRate, other.roomRate) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.hotelCode, other.hotelCode) &&
-            Utils.enhancedDeepEquals(this.roomCode, other.roomCode);
+        return Utils.enhancedDeepEquals(this.rateCode, other.rateCode)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.roomRate, other.roomRate)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.hotelCode, other.hotelCode)
+                && Utils.enhancedDeepEquals(this.roomCode, other.roomCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            rateCode, startDate, endDate,
-            roomRate, currencyCode, hotelCode,
-            roomCode);
+        return Utils.enhancedHash(rateCode, startDate, endDate, roomRate, currencyCode, hotelCode, roomCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HotelRoomRatesResponse.class,
-                "rateCode", rateCode,
-                "startDate", startDate,
-                "endDate", endDate,
-                "roomRate", roomRate,
-                "currencyCode", currencyCode,
-                "hotelCode", hotelCode,
-                "roomCode", roomCode);
+        return Utils.toString(
+                HotelRoomRatesResponse.class,
+                "rateCode",
+                rateCode,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "roomRate",
+                roomRate,
+                "currencyCode",
+                currencyCode,
+                "hotelCode",
+                hotelCode,
+                "roomCode",
+                roomCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String rateCode;
 
@@ -275,7 +268,7 @@ public class HotelRoomRatesResponse {
         private String roomCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -336,16 +329,10 @@ public class HotelRoomRatesResponse {
 
         public HotelRoomRatesResponse build() {
             return new HotelRoomRatesResponse(
-                rateCode, startDate, endDate,
-                roomRate, currencyCode, hotelCode,
-                roomCode);
+                    rateCode, startDate, endDate, roomRate, currencyCode, hotelCode, roomCode);
         }
 
-
         private static final LazySingletonValue<String> _SINGLETON_VALUE_CurrencyCode =
-                new LazySingletonValue<>(
-                        "currencyCode",
-                        "\"USD\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("currencyCode", "\"USD\"", new TypeReference<String>() {});
     }
 }

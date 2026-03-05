@@ -12,24 +12,20 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class Oauth2TokenSecurity implements HasSecurity {
 
     @SpeakeasyMetadata("security:scheme=true,type=http,subtype=basic,name=username")
     private String username;
 
-
     @SpeakeasyMetadata("security:scheme=true,type=http,subtype=basic,name=password")
     private String password;
 
     @JsonCreator
-    public Oauth2TokenSecurity(
-            @Nonnull String username,
-            @Nonnull String password) {
+    public Oauth2TokenSecurity(@Nonnull String username, @Nonnull String password) {
         this.username = Optional.ofNullable(username)
-            .orElseThrow(() -> new IllegalArgumentException("username cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("username cannot be null"));
         this.password = Optional.ofNullable(password)
-            .orElseThrow(() -> new IllegalArgumentException("password cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("password cannot be null"));
     }
 
     public String username() {
@@ -44,18 +40,15 @@ public class Oauth2TokenSecurity implements HasSecurity {
         return new Builder();
     }
 
-
     public Oauth2TokenSecurity withUsername(@Nonnull String username) {
         this.username = Utils.checkNotNull(username, "username");
         return this;
     }
 
-
     public Oauth2TokenSecurity withPassword(@Nonnull String password) {
         this.password = Utils.checkNotNull(password, "password");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,33 +59,29 @@ public class Oauth2TokenSecurity implements HasSecurity {
             return false;
         }
         Oauth2TokenSecurity other = (Oauth2TokenSecurity) o;
-        return 
-            Utils.enhancedDeepEquals(this.username, other.username) &&
-            Utils.enhancedDeepEquals(this.password, other.password);
+        return Utils.enhancedDeepEquals(this.username, other.username)
+                && Utils.enhancedDeepEquals(this.password, other.password);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            username, password);
+        return Utils.enhancedHash(username, password);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Oauth2TokenSecurity.class,
-                "username", username,
-                "password", password);
+        return Utils.toString(Oauth2TokenSecurity.class, "username", username, "password", password);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String username;
 
         private String password;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder username(@Nonnull String username) {
@@ -106,9 +95,7 @@ public class Oauth2TokenSecurity implements HasSecurity {
         }
 
         public Oauth2TokenSecurity build() {
-            return new Oauth2TokenSecurity(
-                username, password);
+            return new Oauth2TokenSecurity(username, password);
         }
-
     }
 }

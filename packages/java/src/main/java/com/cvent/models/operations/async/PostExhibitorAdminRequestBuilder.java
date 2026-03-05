@@ -30,7 +30,7 @@ public class PostExhibitorAdminRequestBuilder {
     private PostExhibitorAdminRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PostExhibitorAdminRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class PostExhibitorAdminRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<PostExhibitorAdminResponse> call() {
-        AsyncRequestOperation<PostExhibitorAdminRequest, PostExhibitorAdminResponse> operation
-              = new PostExhibitorAdmin.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<PostExhibitorAdminRequest, PostExhibitorAdminResponse> operation =
+                new PostExhibitorAdmin.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

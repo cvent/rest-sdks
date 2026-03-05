@@ -20,7 +20,8 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public AssociateDiscountCodeToOrderItemRequestBuilder request(@Nonnull AssociateDiscountCodeToOrderItemRequest request) {
+    public AssociateDiscountCodeToOrderItemRequestBuilder request(
+            @Nonnull AssociateDiscountCodeToOrderItemRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
     private AssociateDiscountCodeToOrderItemRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AssociateDiscountCodeToOrderItemRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,13 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public AssociateDiscountCodeToOrderItemResponse call() {
-        RequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation
-              = new AssociateDiscountCodeToOrderItem.Sync(sdkConfiguration, _headers);
+        RequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
+                new AssociateDiscountCodeToOrderItem.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -30,7 +30,7 @@ public class GetExhibitorRegistrationPacksRequestBuilder {
     private GetExhibitorRegistrationPacksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorRegistrationPacksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetExhibitorRegistrationPacksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetExhibitorRegistrationPacksResponse> call() {
-        AsyncRequestOperation<GetExhibitorRegistrationPacksRequest, GetExhibitorRegistrationPacksResponse> operation
-              = new GetExhibitorRegistrationPacks.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetExhibitorRegistrationPacksRequest, GetExhibitorRegistrationPacksResponse> operation =
+                new GetExhibitorRegistrationPacks.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

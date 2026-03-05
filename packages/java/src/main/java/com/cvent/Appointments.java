@@ -76,19 +76,19 @@ import jakarta.annotation.Nonnull;
  * An appointment is a meeting scheduled between two or more parties. These APIs allow you to get
  * information about your Cvent Appointments: appointment attendees, their interests, and
  * availabilities.
- * 
+ *
  * <p>* **Appointment Events** - Appointment events help planners facilitate meetings between attendees.
  * Attendees express their interest and availability to schedule appointments. Use this API to get
  * information about appointments and appointment attendees.
- * 
+ *
  * <p>* **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees
  * of either events or appointment events. Get information about these participants or use their
  * appointment attendee ID to get their availabilities and interests.
- * 
+ *
  * <p>* **Availability** - Appointment availabilities describe an appointment attendees' preference in
  * meeting dates and times. Availability information is only available for *Planner Coordinated
  * Appointments*.
- * 
+ *
  * <p>* **Interests** - Appointment interests describe appointment attendees' preferences in meeting with
  * another organization or individual. Interest information is only available for *Planner Coordinated
  * Appointments*.
@@ -108,7 +108,7 @@ public class Appointments {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncAppointments async() {
@@ -117,11 +117,11 @@ public class Appointments {
 
     /**
      * List Appt Attendees
-     * 
+     *
      * <p>Gets a paginated list of appointment attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAppointmentAttendeesRequestBuilder listAppointmentAttendees() {
@@ -130,28 +130,28 @@ public class Appointments {
 
     /**
      * List Appt Attendees
-     * 
+     *
      * <p>Gets a paginated list of appointment attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAppointmentAttendeesResponse listAppointmentAttendees(@Nonnull ListAppointmentAttendeesRequest request) {
-        RequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation
-              = new ListAppointmentAttendees.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation =
+                new ListAppointmentAttendees.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Appt Attendee
-     * 
+     *
      * <p>Gets a single appointment attendee by their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAppointmentAttendeeByIdRequestBuilder getAppointmentAttendeeById() {
@@ -160,28 +160,29 @@ public class Appointments {
 
     /**
      * Get Appt Attendee
-     * 
+     *
      * <p>Gets a single appointment attendee by their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetAppointmentAttendeeByIdResponse getAppointmentAttendeeById(@Nonnull GetAppointmentAttendeeByIdRequest request) {
-        RequestOperation<GetAppointmentAttendeeByIdRequest, GetAppointmentAttendeeByIdResponse> operation
-              = new GetAppointmentAttendeeById.Sync(sdkConfiguration, _headers);
+    public GetAppointmentAttendeeByIdResponse getAppointmentAttendeeById(
+            @Nonnull GetAppointmentAttendeeByIdRequest request) {
+        RequestOperation<GetAppointmentAttendeeByIdRequest, GetAppointmentAttendeeByIdResponse> operation =
+                new GetAppointmentAttendeeById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Availability
-     * 
+     *
      * <p>Gets a paginated list of appointment availability times.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAvailabilityRequestBuilder listAvailability() {
@@ -190,28 +191,28 @@ public class Appointments {
 
     /**
      * List Availability
-     * 
+     *
      * <p>Gets a paginated list of appointment availability times.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAvailabilityResponse listAvailability(@Nonnull ListAvailabilityRequest request) {
-        RequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation
-              = new ListAvailability.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation =
+                new ListAvailability.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Availability
-     * 
+     *
      * <p>Get a single appointment availability time by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAvailabilityByIdRequestBuilder getAvailabilityById() {
@@ -220,28 +221,28 @@ public class Appointments {
 
     /**
      * Get Availability
-     * 
+     *
      * <p>Get a single appointment availability time by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAvailabilityByIdResponse getAvailabilityById(@Nonnull GetAvailabilityByIdRequest request) {
-        RequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation
-              = new GetAvailabilityById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation =
+                new GetAvailabilityById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Appt Events
-     * 
+     *
      * <p>Gets a paginated list of appointment events.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAppointmentEventsRequestBuilder listAppointmentEvents() {
@@ -250,28 +251,28 @@ public class Appointments {
 
     /**
      * List Appt Events
-     * 
+     *
      * <p>Gets a paginated list of appointment events.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAppointmentEventsResponse listAppointmentEvents(@Nonnull ListAppointmentEventsRequest request) {
-        RequestOperation<ListAppointmentEventsRequest, ListAppointmentEventsResponse> operation
-              = new ListAppointmentEvents.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAppointmentEventsRequest, ListAppointmentEventsResponse> operation =
+                new ListAppointmentEvents.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Appt Event
-     * 
+     *
      * <p>Gets a single appointment event by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAppointmentEventByIdRequestBuilder getAppointmentEventById() {
@@ -280,29 +281,29 @@ public class Appointments {
 
     /**
      * Get Appt Event
-     * 
+     *
      * <p>Gets a single appointment event by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAppointmentEventByIdResponse getAppointmentEventById(@Nonnull GetAppointmentEventByIdRequest request) {
-        RequestOperation<GetAppointmentEventByIdRequest, GetAppointmentEventByIdResponse> operation
-              = new GetAppointmentEventById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAppointmentEventByIdRequest, GetAppointmentEventByIdResponse> operation =
+                new GetAppointmentEventById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Available Times
-     * 
+     *
      * <p>Gets a paginated list of times and locations available for scheduling appointments in a particular
      * appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAvailableTimesRequestBuilder listAvailableTimes() {
@@ -311,29 +312,29 @@ public class Appointments {
 
     /**
      * List Available Times
-     * 
+     *
      * <p>Gets a paginated list of times and locations available for scheduling appointments in a particular
      * appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAvailableTimesResponse listAvailableTimes(@Nonnull ListAvailableTimesRequest request) {
-        RequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation
-              = new ListAvailableTimes.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation =
+                new ListAvailableTimes.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Appointment Types
-     * 
+     *
      * <p>Gets a paginated list of appointment types for an appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAppointmentTypesRequestBuilder listAppointmentTypes() {
@@ -342,28 +343,28 @@ public class Appointments {
 
     /**
      * List Appointment Types
-     * 
+     *
      * <p>Gets a paginated list of appointment types for an appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAppointmentTypesResponse listAppointmentTypes(@Nonnull ListAppointmentTypesRequest request) {
-        RequestOperation<ListAppointmentTypesRequest, ListAppointmentTypesResponse> operation
-              = new ListAppointmentTypes.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAppointmentTypesRequest, ListAppointmentTypesResponse> operation =
+                new ListAppointmentTypes.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Appointment
-     * 
+     *
      * <p>Creates an appointment in a given appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateAppointmentRequestBuilder createAppointment() {
@@ -372,28 +373,28 @@ public class Appointments {
 
     /**
      * Create Appointment
-     * 
+     *
      * <p>Creates an appointment in a given appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAppointmentResponse createAppointment(@Nonnull CreateAppointmentRequest request) {
-        RequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation
-              = new CreateAppointment.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation =
+                new CreateAppointment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Appointments
-     * 
+     *
      * <p>Updates an appointment based on the given ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateAppointmentRequestBuilder updateAppointment() {
@@ -402,28 +403,28 @@ public class Appointments {
 
     /**
      * Update Appointments
-     * 
+     *
      * <p>Updates an appointment based on the given ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateAppointmentResponse updateAppointment(@Nonnull UpdateAppointmentRequest request) {
-        RequestOperation<UpdateAppointmentRequest, UpdateAppointmentResponse> operation
-              = new UpdateAppointment.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateAppointmentRequest, UpdateAppointmentResponse> operation =
+                new UpdateAppointment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Cancel Appointment
-     * 
+     *
      * <p>Cancels an appointment with the given appointment ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CancelAppointmentRequestBuilder cancelAppointment() {
@@ -432,28 +433,28 @@ public class Appointments {
 
     /**
      * Cancel Appointment
-     * 
+     *
      * <p>Cancels an appointment with the given appointment ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CancelAppointmentResponse cancelAppointment(@Nonnull CancelAppointmentRequest request) {
-        RequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation
-              = new CancelAppointment.Sync(sdkConfiguration, _headers);
+        RequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation =
+                new CancelAppointment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Locations
-     * 
+     *
      * <p>Gets a paginated list of appointment locations in a particular appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListLocationsRequestBuilder listLocations() {
@@ -462,28 +463,28 @@ public class Appointments {
 
     /**
      * List Locations
-     * 
+     *
      * <p>Gets a paginated list of appointment locations in a particular appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListLocationsResponse listLocations(@Nonnull ListLocationsRequest request) {
-        RequestOperation<ListLocationsRequest, ListLocationsResponse> operation
-              = new ListLocations.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListLocationsRequest, ListLocationsResponse> operation =
+                new ListLocations.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Interests
-     * 
+     *
      * <p>Gets a paginated list of appointment meeting interests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListMeetingInterestsRequestBuilder listMeetingInterests() {
@@ -492,28 +493,28 @@ public class Appointments {
 
     /**
      * List Interests
-     * 
+     *
      * <p>Gets a paginated list of appointment meeting interests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListMeetingInterestsResponse listMeetingInterests(@Nonnull ListMeetingInterestsRequest request) {
-        RequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation
-              = new ListMeetingInterests.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation =
+                new ListMeetingInterests.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Interest
-     * 
+     *
      * <p>Gets a single attendee's meeting interests in a particular appointment event by their interest ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetMeetingInterestByIdRequestBuilder getMeetingInterestById() {
@@ -522,28 +523,28 @@ public class Appointments {
 
     /**
      * Get Interest
-     * 
+     *
      * <p>Gets a single attendee's meeting interests in a particular appointment event by their interest ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetMeetingInterestByIdResponse getMeetingInterestById(@Nonnull GetMeetingInterestByIdRequest request) {
-        RequestOperation<GetMeetingInterestByIdRequest, GetMeetingInterestByIdResponse> operation
-              = new GetMeetingInterestById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetMeetingInterestByIdRequest, GetMeetingInterestByIdResponse> operation =
+                new GetMeetingInterestById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Appointments
-     * 
+     *
      * <p>Gets a paginated list of appointments.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAppointmentsRequestBuilder listAppointments() {
@@ -552,28 +553,28 @@ public class Appointments {
 
     /**
      * List Appointments
-     * 
+     *
      * <p>Gets a paginated list of appointments.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAppointmentsResponse listAppointments(@Nonnull ListAppointmentsRequest request) {
-        RequestOperation<ListAppointmentsRequest, ListAppointmentsResponse> operation
-              = new ListAppointments.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAppointmentsRequest, ListAppointmentsResponse> operation =
+                new ListAppointments.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Appointment
-     * 
+     *
      * <p>Gets a single appointment by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAppointmentByIdRequestBuilder getAppointmentById() {
@@ -582,19 +583,18 @@ public class Appointments {
 
     /**
      * Get Appointment
-     * 
+     *
      * <p>Gets a single appointment by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAppointmentByIdResponse getAppointmentById(@Nonnull GetAppointmentByIdRequest request) {
-        RequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation
-              = new GetAppointmentById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation =
+                new GetAppointmentById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

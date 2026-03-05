@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CustomFieldJson2CustomFieldType
- * 
+ *
  * <p>The type of data collected by a custom field.
  */
 public enum CustomFieldJson2CustomFieldType {
@@ -40,13 +40,13 @@ public enum CustomFieldJson2CustomFieldType {
     CustomFieldJson2CustomFieldType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CustomFieldJson2CustomFieldType> fromValue(String value) {
-        for (CustomFieldJson2CustomFieldType o: CustomFieldJson2CustomFieldType.values()) {
+        for (CustomFieldJson2CustomFieldType o : CustomFieldJson2CustomFieldType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -54,4 +54,3 @@ public enum CustomFieldJson2CustomFieldType {
         return Optional.empty();
     }
 }
-

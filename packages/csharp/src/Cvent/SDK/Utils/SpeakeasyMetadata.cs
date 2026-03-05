@@ -224,8 +224,7 @@ namespace Cvent.SDK.Utils
                     values.TryGetValue(
                         char.ToLower(prop.Name[0]) + prop.Name.Substring(1),
                         out var value
-                    )
-                )
+                    ))
                 {
                     if (prop.PropertyType == typeof(bool) || prop.PropertyType == typeof(Boolean))
                     {

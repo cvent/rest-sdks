@@ -36,7 +36,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
  * processes the uploaded data asynchronously making API calls on behalf of the caller.
- * 
+ *
  * <p>Consumers of the bulk API will do the following:
  * * [Create a bulk job](#operation/createBulkJob) with or without data
  * * *(Optional)* If a bulk job was created without data, then [upload bulk job
@@ -44,9 +44,9 @@ import java.util.concurrent.CompletableFuture;
  * * *(Optional)* [Run bulk job](#operation/runBulkJob)
  * * Use [get bulk job](#operation/getBulkJobById) to track status
  * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
- * 
+ *
  * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
- * 
+ *
  * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
  * will expire
  * 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The
@@ -66,19 +66,18 @@ public class AsyncBulk {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Bulk sync() {
         return syncSDK;
     }
 
-
     /**
      * Create Bulk Job
-     * 
+     *
      * <p>Creates a bulk job.
-     * 
+     *
      * <p>**Note:** When creating a bulk job you can optionally include the data in the create request.
      * If data is supplied the job will be started and there is no need to call the [run bulk
      * job](#operation/runBulkJob) endpoint.
@@ -88,7 +87,7 @@ public class AsyncBulk {
      * In addition, if data is supplied and your account has reached its limit for concurrently running
      * bulk jobs,
      * the job will not be created.
-     * 
+     *
      * @return The async call builder
      */
     public CreateBulkJobRequestBuilder createBulkJob() {
@@ -97,9 +96,9 @@ public class AsyncBulk {
 
     /**
      * Create Bulk Job
-     * 
+     *
      * <p>Creates a bulk job.
-     * 
+     *
      * <p>**Note:** When creating a bulk job you can optionally include the data in the create request.
      * If data is supplied the job will be started and there is no need to call the [run bulk
      * job](#operation/runBulkJob) endpoint.
@@ -109,23 +108,21 @@ public class AsyncBulk {
      * In addition, if data is supplied and your account has reached its limit for concurrently running
      * bulk jobs,
      * the job will not be created.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateBulkJobResponse>} - The async response
      */
     public CompletableFuture<CreateBulkJobResponse> createBulkJob(@Nonnull BulkJobWithDataInput request) {
-        AsyncRequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation
-              = new CreateBulkJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation =
+                new CreateBulkJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Bulk Job
-     * 
+     *
      * <p>Gets a bulk job by its identifier.
-     * 
+     *
      * @return The async call builder
      */
     public GetBulkJobByIdRequestBuilder getBulkJobById() {
@@ -134,26 +131,24 @@ public class AsyncBulk {
 
     /**
      * Get Bulk Job
-     * 
+     *
      * <p>Gets a bulk job by its identifier.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBulkJobByIdResponse>} - The async response
      */
     public CompletableFuture<GetBulkJobByIdResponse> getBulkJobById(@Nonnull GetBulkJobByIdRequest request) {
-        AsyncRequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation
-              = new GetBulkJobById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation =
+                new GetBulkJobById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Cancel Bulk Job
-     * 
+     *
      * <p>Cancels the bulk job. The job will stop processing after it finishes processing its current batch,
      * if any.
-     * 
+     *
      * @return The async call builder
      */
     public CancelBulkJobRequestBuilder cancelBulkJob() {
@@ -162,32 +157,30 @@ public class AsyncBulk {
 
     /**
      * Cancel Bulk Job
-     * 
+     *
      * <p>Cancels the bulk job. The job will stop processing after it finishes processing its current batch,
      * if any.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CancelBulkJobResponse>} - The async response
      */
     public CompletableFuture<CancelBulkJobResponse> cancelBulkJob(@Nonnull CancelBulkJobRequest request) {
-        AsyncRequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation
-              = new CancelBulkJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation =
+                new CancelBulkJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Upload Bulk Job Data
-     * 
+     *
      * <p>This will upload data to be processed by a bulk job. There is a limit on the number of records that
      * can be uploaded per call and this endpoint can be called multiple times before starting a job run.
-     * 
+     *
      * <p>Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.
      * If you have a need for a greater limit, this can be increased for your account (up to a hard limit
      * of 150,000)
      * by contacting Cvent support.
-     * 
+     *
      * @return The async call builder
      */
     public UploadBulkJobDataRequestBuilder uploadBulkJobData() {
@@ -196,31 +189,29 @@ public class AsyncBulk {
 
     /**
      * Upload Bulk Job Data
-     * 
+     *
      * <p>This will upload data to be processed by a bulk job. There is a limit on the number of records that
      * can be uploaded per call and this endpoint can be called multiple times before starting a job run.
-     * 
+     *
      * <p>Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.
      * If you have a need for a greater limit, this can be increased for your account (up to a hard limit
      * of 150,000)
      * by contacting Cvent support.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UploadBulkJobDataResponse>} - The async response
      */
     public CompletableFuture<UploadBulkJobDataResponse> uploadBulkJobData(@Nonnull UploadBulkJobDataRequest request) {
-        AsyncRequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation
-              = new UploadBulkJobData.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
+                new UploadBulkJobData.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Bulk Job Result
-     * 
+     *
      * <p>Used to list the results of a bulk Job.
-     * 
+     *
      * @return The async call builder
      */
     public ListBulkJobResultRequestBuilder listBulkJobResult() {
@@ -229,27 +220,25 @@ public class AsyncBulk {
 
     /**
      * List Bulk Job Result
-     * 
+     *
      * <p>Used to list the results of a bulk Job.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListBulkJobResultResponse>} - The async response
      */
     public CompletableFuture<ListBulkJobResultResponse> listBulkJobResult(@Nonnull ListBulkJobResultRequest request) {
-        AsyncRequestOperation<ListBulkJobResultRequest, ListBulkJobResultResponse> operation
-              = new ListBulkJobResult.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListBulkJobResultRequest, ListBulkJobResultResponse> operation =
+                new ListBulkJobResult.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Run Bulk Job
-     * 
+     *
      * <p>Begins the processing of data uploaded in a bulk job.
-     * 
+     *
      * <p>**Note**: You can have a maximum of two bulk jobs running concurrently.
-     * 
+     *
      * @return The async call builder
      */
     public RunBulkJobRequestBuilder runBulkJob() {
@@ -258,19 +247,17 @@ public class AsyncBulk {
 
     /**
      * Run Bulk Job
-     * 
+     *
      * <p>Begins the processing of data uploaded in a bulk job.
-     * 
+     *
      * <p>**Note**: You can have a maximum of two bulk jobs running concurrently.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<RunBulkJobResponse>} - The async response
      */
     public CompletableFuture<RunBulkJobResponse> runBulkJob(@Nonnull RunBulkJobRequest request) {
-        AsyncRequestOperation<RunBulkJobRequest, RunBulkJobResponse> operation
-              = new RunBulkJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<RunBulkJobRequest, RunBulkJobResponse> operation =
+                new RunBulkJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

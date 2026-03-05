@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AirlinePreferenceJson
- * 
+ *
  * <p>Representation of airlines based on preference
  */
 public class AirlinePreferenceJson {
@@ -40,7 +40,7 @@ public class AirlinePreferenceJson {
         this.airlineName = airlineName;
         this.rewardsCode = rewardsCode;
     }
-    
+
     public AirlinePreferenceJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class AirlinePreferenceJson {
         return new Builder();
     }
 
-
     /**
      * Name of preferred airline.
      */
@@ -72,7 +71,6 @@ public class AirlinePreferenceJson {
         return this;
     }
 
-
     /**
      * Any rewards code applied.
      */
@@ -80,7 +78,6 @@ public class AirlinePreferenceJson {
         this.rewardsCode = rewardsCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,29 @@ public class AirlinePreferenceJson {
             return false;
         }
         AirlinePreferenceJson other = (AirlinePreferenceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.airlineName, other.airlineName) &&
-            Utils.enhancedDeepEquals(this.rewardsCode, other.rewardsCode);
+        return Utils.enhancedDeepEquals(this.airlineName, other.airlineName)
+                && Utils.enhancedDeepEquals(this.rewardsCode, other.rewardsCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            airlineName, rewardsCode);
+        return Utils.enhancedHash(airlineName, rewardsCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AirlinePreferenceJson.class,
-                "airlineName", airlineName,
-                "rewardsCode", rewardsCode);
+        return Utils.toString(AirlinePreferenceJson.class, "airlineName", airlineName, "rewardsCode", rewardsCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String airlineName;
 
         private String rewardsCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +130,7 @@ public class AirlinePreferenceJson {
         }
 
         public AirlinePreferenceJson build() {
-            return new AirlinePreferenceJson(
-                airlineName, rewardsCode);
+            return new AirlinePreferenceJson(airlineName, rewardsCode);
         }
-
     }
 }

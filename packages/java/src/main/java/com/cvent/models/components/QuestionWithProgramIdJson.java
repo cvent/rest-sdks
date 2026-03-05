@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * QuestionWithProgramIdJson
- * 
+ *
  * <p>A question, defined by the program, for the supplier to answer as part of their proposal.
  */
 public class QuestionWithProgramIdJson {
@@ -134,12 +134,9 @@ public class QuestionWithProgramIdJson {
         this.responseFormat = responseFormat;
         this.responseChoices = responseChoices;
     }
-    
+
     public QuestionWithProgramIdJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -231,7 +228,6 @@ public class QuestionWithProgramIdJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -239,7 +235,6 @@ public class QuestionWithProgramIdJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -249,7 +244,6 @@ public class QuestionWithProgramIdJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -257,7 +251,6 @@ public class QuestionWithProgramIdJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -267,7 +260,6 @@ public class QuestionWithProgramIdJson {
         return this;
     }
 
-
     /**
      * Travel program that the question belongs to.
      */
@@ -275,7 +267,6 @@ public class QuestionWithProgramIdJson {
         this.travelProgram = travelProgram;
         return this;
     }
-
 
     /**
      * The unique ID of the question.
@@ -285,7 +276,6 @@ public class QuestionWithProgramIdJson {
         return this;
     }
 
-
     /**
      * The text of the question.
      */
@@ -294,7 +284,6 @@ public class QuestionWithProgramIdJson {
         return this;
     }
 
-
     /**
      * Is this question required by default?
      */
@@ -302,7 +291,6 @@ public class QuestionWithProgramIdJson {
         this.required = required;
         return this;
     }
-
 
     /**
      * Code representing the type of response supported. Single represents a simple single value response,
@@ -313,7 +301,6 @@ public class QuestionWithProgramIdJson {
         return this;
     }
 
-
     /**
      * Code representing the expected data type of the question response.
      */
@@ -321,7 +308,6 @@ public class QuestionWithProgramIdJson {
         this.responseDataType = responseDataType;
         return this;
     }
-
 
     /**
      * Code representing the format the text of the response will be in.
@@ -331,7 +317,6 @@ public class QuestionWithProgramIdJson {
         return this;
     }
 
-
     /**
      * A list of options for the question. This only applies when responseType is 'choice'
      */
@@ -339,7 +324,6 @@ public class QuestionWithProgramIdJson {
         this.responseChoices = responseChoices;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -350,49 +334,69 @@ public class QuestionWithProgramIdJson {
             return false;
         }
         QuestionWithProgramIdJson other = (QuestionWithProgramIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.travelProgram, other.travelProgram) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.responseType, other.responseType) &&
-            Utils.enhancedDeepEquals(this.responseDataType, other.responseDataType) &&
-            Utils.enhancedDeepEquals(this.responseFormat, other.responseFormat) &&
-            Utils.enhancedDeepEquals(this.responseChoices, other.responseChoices);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.travelProgram, other.travelProgram)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.responseType, other.responseType)
+                && Utils.enhancedDeepEquals(this.responseDataType, other.responseDataType)
+                && Utils.enhancedDeepEquals(this.responseFormat, other.responseFormat)
+                && Utils.enhancedDeepEquals(this.responseChoices, other.responseChoices);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, travelProgram, id,
-            text, required, responseType,
-            responseDataType, responseFormat, responseChoices);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                travelProgram,
+                id,
+                text,
+                required,
+                responseType,
+                responseDataType,
+                responseFormat,
+                responseChoices);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionWithProgramIdJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "travelProgram", travelProgram,
-                "id", id,
-                "text", text,
-                "required", required,
-                "responseType", responseType,
-                "responseDataType", responseDataType,
-                "responseFormat", responseFormat,
-                "responseChoices", responseChoices);
+        return Utils.toString(
+                QuestionWithProgramIdJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "travelProgram",
+                travelProgram,
+                "id",
+                id,
+                "text",
+                text,
+                "required",
+                required,
+                "responseType",
+                responseType,
+                "responseDataType",
+                responseDataType,
+                "responseFormat",
+                responseFormat,
+                "responseChoices",
+                responseChoices);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -419,7 +423,7 @@ public class QuestionWithProgramIdJson {
         private List<String> responseChoices;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -521,11 +525,18 @@ public class QuestionWithProgramIdJson {
 
         public QuestionWithProgramIdJson build() {
             return new QuestionWithProgramIdJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, travelProgram, id,
-                text, required, responseType,
-                responseDataType, responseFormat, responseChoices);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    travelProgram,
+                    id,
+                    text,
+                    required,
+                    responseType,
+                    responseDataType,
+                    responseFormat,
+                    responseChoices);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 Creation type of the audience segment.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ExistingAudienceSegmentCreationTypeJson.Manual;
+```
+
 
 ## Values
 

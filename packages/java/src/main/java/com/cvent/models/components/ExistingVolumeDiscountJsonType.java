@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * ExistingVolumeDiscountJsonType
- * 
+ *
  * <p>The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
  * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
- * 
+ *
  * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
  */
 public enum ExistingVolumeDiscountJsonType {
@@ -25,13 +25,13 @@ public enum ExistingVolumeDiscountJsonType {
     ExistingVolumeDiscountJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExistingVolumeDiscountJsonType> fromValue(String value) {
-        for (ExistingVolumeDiscountJsonType o: ExistingVolumeDiscountJsonType.values()) {
+        for (ExistingVolumeDiscountJsonType o : ExistingVolumeDiscountJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum ExistingVolumeDiscountJsonType {
         return Optional.empty();
     }
 }
-

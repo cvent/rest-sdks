@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SessionStatusJson
     {
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Cancelled")]
-        Cancelled,
-        [JsonProperty("Closed")]
-        Closed,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Cancelled")] Cancelled,
+        [JsonProperty("Closed")] Closed,
     }
 
     public static class SessionStatusJsonExtension
     {
         public static string Value(this SessionStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SessionStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SessionStatusJson).GetFields())
+            foreach (var field in typeof(SessionStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

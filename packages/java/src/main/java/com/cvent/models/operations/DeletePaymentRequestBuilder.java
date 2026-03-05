@@ -28,7 +28,7 @@ public class DeletePaymentRequestBuilder {
     private DeletePaymentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeletePaymentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeletePaymentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeletePaymentResponse call() {
-        RequestOperation<DeletePaymentRequest, DeletePaymentResponse> operation
-              = new DeletePayment.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeletePaymentRequest, DeletePaymentResponse> operation =
+                new DeletePayment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

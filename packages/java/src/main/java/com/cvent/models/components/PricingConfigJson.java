@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * PricingConfigJson
- * 
+ *
  * <p>Represents the configuration of the event's pricing feature.
  */
 public class PricingConfigJson {
@@ -77,16 +77,14 @@ public class PricingConfigJson {
         this.enabled = enabled;
         this.invoicePrefix = invoicePrefix;
         this.revenueGoal = revenueGoal;
-        this.merchantAccount = Optional.ofNullable(merchantAccount)
-            .orElse(Builder._SINGLETON_VALUE_MerchantAccount.value());
+        this.merchantAccount =
+                Optional.ofNullable(merchantAccount).orElse(Builder._SINGLETON_VALUE_MerchantAccount.value());
         this.currency = currency;
         this.allowedPaymentMethods = allowedPaymentMethods;
     }
-    
-    public PricingConfigJson(
-            boolean enabled) {
-        this(enabled, null, null,
-            null, null, null);
+
+    public PricingConfigJson(boolean enabled) {
+        this(enabled, null, null, null, null, null);
     }
 
     /**
@@ -137,7 +135,6 @@ public class PricingConfigJson {
         return new Builder();
     }
 
-
     /**
      * True enables pricing for the event.
      */
@@ -145,7 +142,6 @@ public class PricingConfigJson {
         this.enabled = enabled;
         return this;
     }
-
 
     /**
      * A prefix helps distinguish invoices for this event from those of other events.
@@ -155,7 +151,6 @@ public class PricingConfigJson {
         return this;
     }
 
-
     /**
      * Revenue goal for the event.
      */
@@ -163,7 +158,6 @@ public class PricingConfigJson {
         this.revenueGoal = revenueGoal;
         return this;
     }
-
 
     /**
      * Name of the merchant account associated with the event. This merchant account is where all event
@@ -174,7 +168,6 @@ public class PricingConfigJson {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code representing the currency used for event pricing.
      */
@@ -182,7 +175,6 @@ public class PricingConfigJson {
         this.currency = currency;
         return this;
     }
-
 
     /**
      * Names of allowed payment methods for the merchant account. Not all options are valid for all
@@ -193,7 +185,6 @@ public class PricingConfigJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -203,35 +194,40 @@ public class PricingConfigJson {
             return false;
         }
         PricingConfigJson other = (PricingConfigJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.enabled, other.enabled) &&
-            Utils.enhancedDeepEquals(this.invoicePrefix, other.invoicePrefix) &&
-            Utils.enhancedDeepEquals(this.revenueGoal, other.revenueGoal) &&
-            Utils.enhancedDeepEquals(this.merchantAccount, other.merchantAccount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.allowedPaymentMethods, other.allowedPaymentMethods);
+        return Utils.enhancedDeepEquals(this.enabled, other.enabled)
+                && Utils.enhancedDeepEquals(this.invoicePrefix, other.invoicePrefix)
+                && Utils.enhancedDeepEquals(this.revenueGoal, other.revenueGoal)
+                && Utils.enhancedDeepEquals(this.merchantAccount, other.merchantAccount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.allowedPaymentMethods, other.allowedPaymentMethods);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            enabled, invoicePrefix, revenueGoal,
-            merchantAccount, currency, allowedPaymentMethods);
+                enabled, invoicePrefix, revenueGoal, merchantAccount, currency, allowedPaymentMethods);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PricingConfigJson.class,
-                "enabled", enabled,
-                "invoicePrefix", invoicePrefix,
-                "revenueGoal", revenueGoal,
-                "merchantAccount", merchantAccount,
-                "currency", currency,
-                "allowedPaymentMethods", allowedPaymentMethods);
+        return Utils.toString(
+                PricingConfigJson.class,
+                "enabled",
+                enabled,
+                "invoicePrefix",
+                invoicePrefix,
+                "revenueGoal",
+                revenueGoal,
+                "merchantAccount",
+                merchantAccount,
+                "currency",
+                currency,
+                "allowedPaymentMethods",
+                allowedPaymentMethods);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private boolean enabled;
 
@@ -246,7 +242,7 @@ public class PricingConfigJson {
         private List<PaymentMethodTypeJson> allowedPaymentMethods;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -301,15 +297,10 @@ public class PricingConfigJson {
 
         public PricingConfigJson build() {
             return new PricingConfigJson(
-                enabled, invoicePrefix, revenueGoal,
-                merchantAccount, currency, allowedPaymentMethods);
+                    enabled, invoicePrefix, revenueGoal, merchantAccount, currency, allowedPaymentMethods);
         }
 
-
         private static final LazySingletonValue<String> _SINGLETON_VALUE_MerchantAccount =
-                new LazySingletonValue<>(
-                        "merchantAccount",
-                        "\"\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("merchantAccount", "\"\"", new TypeReference<String>() {});
     }
 }

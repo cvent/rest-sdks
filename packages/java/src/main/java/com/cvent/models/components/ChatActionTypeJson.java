@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ChatActionTypeJson
- * 
+ *
  * <p>The user action that just occurred
  */
 public enum ChatActionTypeJson {
@@ -26,13 +26,13 @@ public enum ChatActionTypeJson {
     ChatActionTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ChatActionTypeJson> fromValue(String value) {
-        for (ChatActionTypeJson o: ChatActionTypeJson.values()) {
+        for (ChatActionTypeJson o : ChatActionTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum ChatActionTypeJson {
         return Optional.empty();
     }
 }
-

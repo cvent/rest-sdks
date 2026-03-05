@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyTypeJson
- * 
+ *
  * <p>This is used to denote the different survey types.
  */
 public enum EventSurveyTypeJson {
@@ -24,13 +24,13 @@ public enum EventSurveyTypeJson {
     EventSurveyTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventSurveyTypeJson> fromValue(String value) {
-        for (EventSurveyTypeJson o: EventSurveyTypeJson.values()) {
+        for (EventSurveyTypeJson o : EventSurveyTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum EventSurveyTypeJson {
         return Optional.empty();
     }
 }
-

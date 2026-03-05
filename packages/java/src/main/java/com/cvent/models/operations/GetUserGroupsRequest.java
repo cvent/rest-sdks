@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetUserGroupsRequest {
     /**
      * Starting index of the response.
@@ -29,15 +28,11 @@ public class GetUserGroupsRequest {
     private Long count;
 
     @JsonCreator
-    public GetUserGroupsRequest(
-            @Nullable Long startIndex,
-            @Nullable Long count) {
-        this.startIndex = Optional.ofNullable(startIndex)
-            .orElse(Builder._SINGLETON_VALUE_StartIndex.value());
-        this.count = Optional.ofNullable(count)
-            .orElse(Builder._SINGLETON_VALUE_Count.value());
+    public GetUserGroupsRequest(@Nullable Long startIndex, @Nullable Long count) {
+        this.startIndex = Optional.ofNullable(startIndex).orElse(Builder._SINGLETON_VALUE_StartIndex.value());
+        this.count = Optional.ofNullable(count).orElse(Builder._SINGLETON_VALUE_Count.value());
     }
-    
+
     public GetUserGroupsRequest() {
         this(null, null);
     }
@@ -60,7 +55,6 @@ public class GetUserGroupsRequest {
         return new Builder();
     }
 
-
     /**
      * Starting index of the response.
      */
@@ -69,7 +63,6 @@ public class GetUserGroupsRequest {
         return this;
     }
 
-
     /**
      * The count of records to be retrieved in a response.
      */
@@ -77,7 +70,6 @@ public class GetUserGroupsRequest {
         this.count = count;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -88,33 +80,29 @@ public class GetUserGroupsRequest {
             return false;
         }
         GetUserGroupsRequest other = (GetUserGroupsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.startIndex, other.startIndex) &&
-            Utils.enhancedDeepEquals(this.count, other.count);
+        return Utils.enhancedDeepEquals(this.startIndex, other.startIndex)
+                && Utils.enhancedDeepEquals(this.count, other.count);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            startIndex, count);
+        return Utils.enhancedHash(startIndex, count);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetUserGroupsRequest.class,
-                "startIndex", startIndex,
-                "count", count);
+        return Utils.toString(GetUserGroupsRequest.class, "startIndex", startIndex, "count", count);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long startIndex;
 
         private Long count;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -134,21 +122,13 @@ public class GetUserGroupsRequest {
         }
 
         public GetUserGroupsRequest build() {
-            return new GetUserGroupsRequest(
-                startIndex, count);
+            return new GetUserGroupsRequest(startIndex, count);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_StartIndex =
-                new LazySingletonValue<>(
-                        "startIndex",
-                        "1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("startIndex", "1", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Count =
-                new LazySingletonValue<>(
-                        "count",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("count", "100", new TypeReference<Long>() {});
     }
 }

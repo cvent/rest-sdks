@@ -28,7 +28,7 @@ public class UpdateEventDiscountRequestBuilder {
     private UpdateEventDiscountRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateEventDiscountRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateEventDiscountRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateEventDiscountResponse call() {
-        RequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation
-              = new UpdateEventDiscount.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation =
+                new UpdateEventDiscount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

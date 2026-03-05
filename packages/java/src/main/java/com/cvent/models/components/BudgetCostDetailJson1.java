@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BudgetCostDetailJson1
- * 
+ *
  * <p>The budget entry in detail, which consists of the budget category or sub-category, the number of
  * units, the cost per unit, and the total amount.
  */
@@ -73,10 +73,9 @@ public class BudgetCostDetailJson1 {
         this.cost = cost;
         this.totalCost = totalCost;
     }
-    
+
     public BudgetCostDetailJson1() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -122,7 +121,6 @@ public class BudgetCostDetailJson1 {
         return new Builder();
     }
 
-
     /**
      * Denotes the category assigned to the budget item.
      */
@@ -131,7 +129,6 @@ public class BudgetCostDetailJson1 {
         return this;
     }
 
-
     /**
      * This is used to denote the sub category for a budget.
      */
@@ -139,7 +136,6 @@ public class BudgetCostDetailJson1 {
         this.subCategory = subCategory;
         return this;
     }
-
 
     /**
      * The number of units associated with a budget item. This field can be any number if the budget item
@@ -150,7 +146,6 @@ public class BudgetCostDetailJson1 {
         return this;
     }
 
-
     /**
      * The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this
      * field won't be applied to the creation or update of a Meeting Request.
@@ -159,7 +154,6 @@ public class BudgetCostDetailJson1 {
         this.cost = cost;
         return this;
     }
-
 
     /**
      * The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will
@@ -171,7 +165,6 @@ public class BudgetCostDetailJson1 {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -181,33 +174,36 @@ public class BudgetCostDetailJson1 {
             return false;
         }
         BudgetCostDetailJson1 other = (BudgetCostDetailJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subCategory, other.subCategory) &&
-            Utils.enhancedDeepEquals(this.units, other.units) &&
-            Utils.enhancedDeepEquals(this.cost, other.cost) &&
-            Utils.enhancedDeepEquals(this.totalCost, other.totalCost);
+        return Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
+                && Utils.enhancedDeepEquals(this.units, other.units)
+                && Utils.enhancedDeepEquals(this.cost, other.cost)
+                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            category, subCategory, units,
-            cost, totalCost);
+        return Utils.enhancedHash(category, subCategory, units, cost, totalCost);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetCostDetailJson1.class,
-                "category", category,
-                "subCategory", subCategory,
-                "units", units,
-                "cost", cost,
-                "totalCost", totalCost);
+        return Utils.toString(
+                BudgetCostDetailJson1.class,
+                "category",
+                category,
+                "subCategory",
+                subCategory,
+                "units",
+                units,
+                "cost",
+                cost,
+                "totalCost",
+                totalCost);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BudgetCategoryJson category;
 
@@ -220,7 +216,7 @@ public class BudgetCostDetailJson1 {
         private Double totalCost;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -268,10 +264,7 @@ public class BudgetCostDetailJson1 {
         }
 
         public BudgetCostDetailJson1 build() {
-            return new BudgetCostDetailJson1(
-                category, subCategory, units,
-                cost, totalCost);
+            return new BudgetCostDetailJson1(category, subCategory, units, cost, totalCost);
         }
-
     }
 }

@@ -12,12 +12,11 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class Oauth2AuthorizeRequest {
     /**
      * The response type must be code. Indicates the client wants an authorization code (authorization code
      * grant flow).
-     * 
+     *
      * <p>**Note:** *implicit flow* or the *token* value is not supported at this time.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=response_type")
@@ -25,7 +24,7 @@ public class Oauth2AuthorizeRequest {
 
     /**
      * The OAuth2 Client application ID.
-     * 
+     *
      * <p>Must be a pre-registered client created in the developer portal.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=client_id")
@@ -34,16 +33,16 @@ public class Oauth2AuthorizeRequest {
     /**
      * The URL to which the authentication server redirects the browser after authorization has been
      * granted by the user.
-     * 
+     *
      * <p>A redirect URI must:
-     * 
+     *
      * <p>* Be an absolute URI.
      * * Be pre-registered with a client.
      * * **NOT** include a fragment component.
      * * Wildcards are **NOT** supported
-     * 
+     *
      * <p>Requires HTTPS over HTTP except for http://localhost for testing purposes only.
-     * 
+     *
      * <p>**Note:** App callback URLs such as *com.myclientapp://myclient/redirect* are also supported.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=redirect_uri")
@@ -52,9 +51,9 @@ public class Oauth2AuthorizeRequest {
     /**
      * An opaque value the client application adds to the initial request. The authorization server
      * includes this value when redirecting back to the client.
-     * 
+     *
      * <p>This value must be used by the client to prevent CSRF attacks.
-     * 
+     *
      * <p>**Optional** but strongly recommended.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=state")
@@ -63,7 +62,7 @@ public class Oauth2AuthorizeRequest {
     /**
      * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
      * Any scope used must be pre-associated with the client or it will be ignored at runtime.
-     * 
+     *
      * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
      * scopes associated with the client.
      */
@@ -78,27 +77,24 @@ public class Oauth2AuthorizeRequest {
             @Nullable String state,
             @Nullable String scope) {
         this.responseType = Optional.ofNullable(responseType)
-            .orElseThrow(() -> new IllegalArgumentException("responseType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("responseType cannot be null"));
         this.clientId = Optional.ofNullable(clientId)
-            .orElseThrow(() -> new IllegalArgumentException("clientId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("clientId cannot be null"));
         this.redirectUri = Optional.ofNullable(redirectUri)
-            .orElseThrow(() -> new IllegalArgumentException("redirectUri cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("redirectUri cannot be null"));
         this.state = state;
         this.scope = scope;
     }
-    
+
     public Oauth2AuthorizeRequest(
-            @Nonnull ResponseType responseType,
-            @Nonnull String clientId,
-            @Nonnull String redirectUri) {
-        this(responseType, clientId, redirectUri,
-            null, null);
+            @Nonnull ResponseType responseType, @Nonnull String clientId, @Nonnull String redirectUri) {
+        this(responseType, clientId, redirectUri, null, null);
     }
 
     /**
      * The response type must be code. Indicates the client wants an authorization code (authorization code
      * grant flow).
-     * 
+     *
      * <p>**Note:** *implicit flow* or the *token* value is not supported at this time.
      */
     public ResponseType responseType() {
@@ -107,7 +103,7 @@ public class Oauth2AuthorizeRequest {
 
     /**
      * The OAuth2 Client application ID.
-     * 
+     *
      * <p>Must be a pre-registered client created in the developer portal.
      */
     public String clientId() {
@@ -117,16 +113,16 @@ public class Oauth2AuthorizeRequest {
     /**
      * The URL to which the authentication server redirects the browser after authorization has been
      * granted by the user.
-     * 
+     *
      * <p>A redirect URI must:
-     * 
+     *
      * <p>* Be an absolute URI.
      * * Be pre-registered with a client.
      * * **NOT** include a fragment component.
      * * Wildcards are **NOT** supported
-     * 
+     *
      * <p>Requires HTTPS over HTTP except for http://localhost for testing purposes only.
-     * 
+     *
      * <p>**Note:** App callback URLs such as *com.myclientapp://myclient/redirect* are also supported.
      */
     public String redirectUri() {
@@ -136,9 +132,9 @@ public class Oauth2AuthorizeRequest {
     /**
      * An opaque value the client application adds to the initial request. The authorization server
      * includes this value when redirecting back to the client.
-     * 
+     *
      * <p>This value must be used by the client to prevent CSRF attacks.
-     * 
+     *
      * <p>**Optional** but strongly recommended.
      */
     public Optional<String> state() {
@@ -148,7 +144,7 @@ public class Oauth2AuthorizeRequest {
     /**
      * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
      * Any scope used must be pre-associated with the client or it will be ignored at runtime.
-     * 
+     *
      * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
      * scopes associated with the client.
      */
@@ -160,11 +156,10 @@ public class Oauth2AuthorizeRequest {
         return new Builder();
     }
 
-
     /**
      * The response type must be code. Indicates the client wants an authorization code (authorization code
      * grant flow).
-     * 
+     *
      * <p>**Note:** *implicit flow* or the *token* value is not supported at this time.
      */
     public Oauth2AuthorizeRequest withResponseType(@Nonnull ResponseType responseType) {
@@ -172,10 +167,9 @@ public class Oauth2AuthorizeRequest {
         return this;
     }
 
-
     /**
      * The OAuth2 Client application ID.
-     * 
+     *
      * <p>Must be a pre-registered client created in the developer portal.
      */
     public Oauth2AuthorizeRequest withClientId(@Nonnull String clientId) {
@@ -183,20 +177,19 @@ public class Oauth2AuthorizeRequest {
         return this;
     }
 
-
     /**
      * The URL to which the authentication server redirects the browser after authorization has been
      * granted by the user.
-     * 
+     *
      * <p>A redirect URI must:
-     * 
+     *
      * <p>* Be an absolute URI.
      * * Be pre-registered with a client.
      * * **NOT** include a fragment component.
      * * Wildcards are **NOT** supported
-     * 
+     *
      * <p>Requires HTTPS over HTTP except for http://localhost for testing purposes only.
-     * 
+     *
      * <p>**Note:** App callback URLs such as *com.myclientapp://myclient/redirect* are also supported.
      */
     public Oauth2AuthorizeRequest withRedirectUri(@Nonnull String redirectUri) {
@@ -204,13 +197,12 @@ public class Oauth2AuthorizeRequest {
         return this;
     }
 
-
     /**
      * An opaque value the client application adds to the initial request. The authorization server
      * includes this value when redirecting back to the client.
-     * 
+     *
      * <p>This value must be used by the client to prevent CSRF attacks.
-     * 
+     *
      * <p>**Optional** but strongly recommended.
      */
     public Oauth2AuthorizeRequest withState(@Nullable String state) {
@@ -218,11 +210,10 @@ public class Oauth2AuthorizeRequest {
         return this;
     }
 
-
     /**
      * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
      * Any scope used must be pre-associated with the client or it will be ignored at runtime.
-     * 
+     *
      * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
      * scopes associated with the client.
      */
@@ -230,7 +221,6 @@ public class Oauth2AuthorizeRequest {
         this.scope = scope;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -241,33 +231,36 @@ public class Oauth2AuthorizeRequest {
             return false;
         }
         Oauth2AuthorizeRequest other = (Oauth2AuthorizeRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.responseType, other.responseType) &&
-            Utils.enhancedDeepEquals(this.clientId, other.clientId) &&
-            Utils.enhancedDeepEquals(this.redirectUri, other.redirectUri) &&
-            Utils.enhancedDeepEquals(this.state, other.state) &&
-            Utils.enhancedDeepEquals(this.scope, other.scope);
+        return Utils.enhancedDeepEquals(this.responseType, other.responseType)
+                && Utils.enhancedDeepEquals(this.clientId, other.clientId)
+                && Utils.enhancedDeepEquals(this.redirectUri, other.redirectUri)
+                && Utils.enhancedDeepEquals(this.state, other.state)
+                && Utils.enhancedDeepEquals(this.scope, other.scope);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            responseType, clientId, redirectUri,
-            state, scope);
+        return Utils.enhancedHash(responseType, clientId, redirectUri, state, scope);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Oauth2AuthorizeRequest.class,
-                "responseType", responseType,
-                "clientId", clientId,
-                "redirectUri", redirectUri,
-                "state", state,
-                "scope", scope);
+        return Utils.toString(
+                Oauth2AuthorizeRequest.class,
+                "responseType",
+                responseType,
+                "clientId",
+                clientId,
+                "redirectUri",
+                redirectUri,
+                "state",
+                state,
+                "scope",
+                scope);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ResponseType responseType;
 
@@ -280,13 +273,13 @@ public class Oauth2AuthorizeRequest {
         private String scope;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * The response type must be code. Indicates the client wants an authorization code (authorization code
          * grant flow).
-         * 
+         *
          * <p>**Note:** *implicit flow* or the *token* value is not supported at this time.
          */
         public Builder responseType(@Nonnull ResponseType responseType) {
@@ -296,7 +289,7 @@ public class Oauth2AuthorizeRequest {
 
         /**
          * The OAuth2 Client application ID.
-         * 
+         *
          * <p>Must be a pre-registered client created in the developer portal.
          */
         public Builder clientId(@Nonnull String clientId) {
@@ -307,16 +300,16 @@ public class Oauth2AuthorizeRequest {
         /**
          * The URL to which the authentication server redirects the browser after authorization has been
          * granted by the user.
-         * 
+         *
          * <p>A redirect URI must:
-         * 
+         *
          * <p>* Be an absolute URI.
          * * Be pre-registered with a client.
          * * **NOT** include a fragment component.
          * * Wildcards are **NOT** supported
-         * 
+         *
          * <p>Requires HTTPS over HTTP except for http://localhost for testing purposes only.
-         * 
+         *
          * <p>**Note:** App callback URLs such as *com.myclientapp://myclient/redirect* are also supported.
          */
         public Builder redirectUri(@Nonnull String redirectUri) {
@@ -327,9 +320,9 @@ public class Oauth2AuthorizeRequest {
         /**
          * An opaque value the client application adds to the initial request. The authorization server
          * includes this value when redirecting back to the client.
-         * 
+         *
          * <p>This value must be used by the client to prevent CSRF attacks.
-         * 
+         *
          * <p>**Optional** but strongly recommended.
          */
         public Builder state(@Nullable String state) {
@@ -340,7 +333,7 @@ public class Oauth2AuthorizeRequest {
         /**
          * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
          * Any scope used must be pre-associated with the client or it will be ignored at runtime.
-         * 
+         *
          * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
          * scopes associated with the client.
          */
@@ -350,10 +343,7 @@ public class Oauth2AuthorizeRequest {
         }
 
         public Oauth2AuthorizeRequest build() {
-            return new Oauth2AuthorizeRequest(
-                responseType, clientId, redirectUri,
-                state, scope);
+            return new Oauth2AuthorizeRequest(responseType, clientId, redirectUri, state, scope);
         }
-
     }
 }

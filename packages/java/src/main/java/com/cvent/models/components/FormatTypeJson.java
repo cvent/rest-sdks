@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * FormatTypeJson
- * 
+ *
  * <p>Proposal format.
  */
 public enum FormatTypeJson {
@@ -23,13 +23,13 @@ public enum FormatTypeJson {
     FormatTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<FormatTypeJson> fromValue(String value) {
-        for (FormatTypeJson o: FormatTypeJson.values()) {
+        for (FormatTypeJson o : FormatTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum FormatTypeJson {
         return Optional.empty();
     }
 }
-

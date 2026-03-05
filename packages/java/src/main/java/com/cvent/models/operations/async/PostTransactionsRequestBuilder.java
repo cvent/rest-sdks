@@ -30,7 +30,7 @@ public class PostTransactionsRequestBuilder {
     private PostTransactionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PostTransactionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class PostTransactionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<PostTransactionsResponse> call() {
-        AsyncRequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation
-              = new PostTransactions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation =
+                new PostTransactions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

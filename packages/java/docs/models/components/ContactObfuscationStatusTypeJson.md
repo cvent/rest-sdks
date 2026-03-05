@@ -12,6 +12,14 @@ COMPLETED -  The obfuscation request is complete.
 
 FAILED - The obfuscation request failed due to an error.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ContactObfuscationStatusTypeJson;
+
+ContactObfuscationStatusTypeJson value = ContactObfuscationStatusTypeJson.INITIATED;
+```
+
 
 ## Values
 

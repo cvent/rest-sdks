@@ -17,7 +17,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
-
 public class UpdateMeetingRequestResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -46,19 +45,16 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.meetingRequestBulkResponse = meetingRequestBulkResponse;
     }
-    
+
     public UpdateMeetingRequestResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -93,7 +89,6 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -101,7 +96,6 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -111,7 +105,6 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -120,15 +113,14 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Meeting request was successfully updated.
      */
-    public UpdateMeetingRequestResponse withMeetingRequestBulkResponse(@Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+    public UpdateMeetingRequestResponse withMeetingRequestBulkResponse(
+            @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
         this.meetingRequestBulkResponse = meetingRequestBulkResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -139,31 +131,33 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
             return false;
         }
         UpdateMeetingRequestResponse other = (UpdateMeetingRequestResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.meetingRequestBulkResponse, other.meetingRequestBulkResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.meetingRequestBulkResponse, other.meetingRequestBulkResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            meetingRequestBulkResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, meetingRequestBulkResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateMeetingRequestResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "meetingRequestBulkResponse", meetingRequestBulkResponse);
+        return Utils.toString(
+                UpdateMeetingRequestResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "meetingRequestBulkResponse",
+                meetingRequestBulkResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -174,7 +168,7 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
         private List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -204,16 +198,14 @@ public class UpdateMeetingRequestResponse implements AsyncResponse {
         /**
          * Meeting request was successfully updated.
          */
-        public Builder meetingRequestBulkResponse(@Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+        public Builder meetingRequestBulkResponse(
+                @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
             this.meetingRequestBulkResponse = meetingRequestBulkResponse;
             return this;
         }
 
         public UpdateMeetingRequestResponse build() {
-            return new UpdateMeetingRequestResponse(
-                contentType, statusCode, rawResponse,
-                meetingRequestBulkResponse);
+            return new UpdateMeetingRequestResponse(contentType, statusCode, rawResponse, meetingRequestBulkResponse);
         }
-
     }
 }

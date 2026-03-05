@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EventRegistrationAbandoned
- * 
+ *
  * <p>An event registration-abandoned activity.
  */
 public class EventRegistrationAbandoned {
@@ -37,7 +37,7 @@ public class EventRegistrationAbandoned {
 
     /**
      * Related contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -54,7 +54,7 @@ public class EventRegistrationAbandoned {
         this.lastActivity = lastActivity;
         this.contact = contact;
     }
-    
+
     public EventRegistrationAbandoned() {
         this(null, null, null);
     }
@@ -75,7 +75,7 @@ public class EventRegistrationAbandoned {
 
     /**
      * Related contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -87,15 +87,14 @@ public class EventRegistrationAbandoned {
         return new Builder();
     }
 
-
     /**
      * The last page where an invitee left during the registration.
      */
-    public EventRegistrationAbandoned withLastSavedRegistrationPageName(@Nullable String lastSavedRegistrationPageName) {
+    public EventRegistrationAbandoned withLastSavedRegistrationPageName(
+            @Nullable String lastSavedRegistrationPageName) {
         this.lastSavedRegistrationPageName = lastSavedRegistrationPageName;
         return this;
     }
-
 
     /**
      * ISO 8601 date and time when an invitee left the registration process.
@@ -105,10 +104,9 @@ public class EventRegistrationAbandoned {
         return this;
     }
 
-
     /**
      * Related contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -116,7 +114,6 @@ public class EventRegistrationAbandoned {
         this.contact = contact;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -127,28 +124,30 @@ public class EventRegistrationAbandoned {
             return false;
         }
         EventRegistrationAbandoned other = (EventRegistrationAbandoned) o;
-        return 
-            Utils.enhancedDeepEquals(this.lastSavedRegistrationPageName, other.lastSavedRegistrationPageName) &&
-            Utils.enhancedDeepEquals(this.lastActivity, other.lastActivity) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact);
+        return Utils.enhancedDeepEquals(this.lastSavedRegistrationPageName, other.lastSavedRegistrationPageName)
+                && Utils.enhancedDeepEquals(this.lastActivity, other.lastActivity)
+                && Utils.enhancedDeepEquals(this.contact, other.contact);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            lastSavedRegistrationPageName, lastActivity, contact);
+        return Utils.enhancedHash(lastSavedRegistrationPageName, lastActivity, contact);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventRegistrationAbandoned.class,
-                "lastSavedRegistrationPageName", lastSavedRegistrationPageName,
-                "lastActivity", lastActivity,
-                "contact", contact);
+        return Utils.toString(
+                EventRegistrationAbandoned.class,
+                "lastSavedRegistrationPageName",
+                lastSavedRegistrationPageName,
+                "lastActivity",
+                lastActivity,
+                "contact",
+                contact);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String lastSavedRegistrationPageName;
 
@@ -158,7 +157,7 @@ public class EventRegistrationAbandoned {
         private ActivityContact contact;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -179,7 +178,7 @@ public class EventRegistrationAbandoned {
 
         /**
          * Related contact.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -189,9 +188,7 @@ public class EventRegistrationAbandoned {
         }
 
         public EventRegistrationAbandoned build() {
-            return new EventRegistrationAbandoned(
-                lastSavedRegistrationPageName, lastActivity, contact);
+            return new EventRegistrationAbandoned(lastSavedRegistrationPageName, lastActivity, contact);
         }
-
     }
 }

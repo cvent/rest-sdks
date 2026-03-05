@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ChatMessage
- * 
+ *
  * <p>A chat message
  */
 public class ChatMessage {
@@ -75,26 +75,24 @@ public class ChatMessage {
             @JsonProperty("reaction") @Nullable ChatReactionJson reaction,
             @JsonProperty("channel") @Nullable ChannelJson channel) {
         this.actionType = Optional.ofNullable(actionType)
-            .orElseThrow(() -> new IllegalArgumentException("actionType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("actionType cannot be null"));
         this.chatType = Optional.ofNullable(chatType)
-            .orElseThrow(() -> new IllegalArgumentException("chatType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("chatType cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
         this.parentMessage = parentMessage;
         this.reaction = reaction;
         this.channel = channel;
     }
-    
+
     public ChatMessage(
             @Nonnull ChatActionTypeJson actionType,
             @Nonnull ChatTypeJson chatType,
             @Nonnull AttendeeJson2 attendee,
             @Nonnull ChatMessageDetailsJson message) {
-        this(actionType, chatType, attendee,
-            message, null, null,
-            null);
+        this(actionType, chatType, attendee, message, null, null, null);
     }
 
     /**
@@ -150,7 +148,6 @@ public class ChatMessage {
         return new Builder();
     }
 
-
     /**
      * The user action that just occurred
      */
@@ -158,7 +155,6 @@ public class ChatMessage {
         this.actionType = Utils.checkNotNull(actionType, "actionType");
         return this;
     }
-
 
     /**
      * The chat type
@@ -168,7 +164,6 @@ public class ChatMessage {
         return this;
     }
 
-
     /**
      * Attendee details
      */
@@ -176,7 +171,6 @@ public class ChatMessage {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * Chat message details such as the ID of this message
@@ -186,7 +180,6 @@ public class ChatMessage {
         return this;
     }
 
-
     /**
      * Chat message details such as the ID of this message
      */
@@ -194,7 +187,6 @@ public class ChatMessage {
         this.parentMessage = parentMessage;
         return this;
     }
-
 
     /**
      * A reaction to a message
@@ -204,7 +196,6 @@ public class ChatMessage {
         return this;
     }
 
-
     /**
      * The channel details associated with the chat.
      */
@@ -212,7 +203,6 @@ public class ChatMessage {
         this.channel = channel;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -223,38 +213,42 @@ public class ChatMessage {
             return false;
         }
         ChatMessage other = (ChatMessage) o;
-        return 
-            Utils.enhancedDeepEquals(this.actionType, other.actionType) &&
-            Utils.enhancedDeepEquals(this.chatType, other.chatType) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.parentMessage, other.parentMessage) &&
-            Utils.enhancedDeepEquals(this.reaction, other.reaction) &&
-            Utils.enhancedDeepEquals(this.channel, other.channel);
+        return Utils.enhancedDeepEquals(this.actionType, other.actionType)
+                && Utils.enhancedDeepEquals(this.chatType, other.chatType)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.parentMessage, other.parentMessage)
+                && Utils.enhancedDeepEquals(this.reaction, other.reaction)
+                && Utils.enhancedDeepEquals(this.channel, other.channel);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            actionType, chatType, attendee,
-            message, parentMessage, reaction,
-            channel);
+        return Utils.enhancedHash(actionType, chatType, attendee, message, parentMessage, reaction, channel);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChatMessage.class,
-                "actionType", actionType,
-                "chatType", chatType,
-                "attendee", attendee,
-                "message", message,
-                "parentMessage", parentMessage,
-                "reaction", reaction,
-                "channel", channel);
+        return Utils.toString(
+                ChatMessage.class,
+                "actionType",
+                actionType,
+                "chatType",
+                chatType,
+                "attendee",
+                attendee,
+                "message",
+                message,
+                "parentMessage",
+                parentMessage,
+                "reaction",
+                reaction,
+                "channel",
+                channel);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ChatActionTypeJson actionType;
 
@@ -271,7 +265,7 @@ public class ChatMessage {
         private ChannelJson channel;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -331,11 +325,7 @@ public class ChatMessage {
         }
 
         public ChatMessage build() {
-            return new ChatMessage(
-                actionType, chatType, attendee,
-                message, parentMessage, reaction,
-                channel);
+            return new ChatMessage(actionType, chatType, attendee, message, parentMessage, reaction, channel);
         }
-
     }
 }

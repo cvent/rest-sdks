@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteSessionProgramSpeakerRequest {
     /**
      * The unique identifier of a program item.
@@ -26,13 +25,10 @@ public class DeleteSessionProgramSpeakerRequest {
     private String id;
 
     @JsonCreator
-    public DeleteSessionProgramSpeakerRequest(
-            @Nonnull String programItemId,
-            @Nonnull String id) {
+    public DeleteSessionProgramSpeakerRequest(@Nonnull String programItemId, @Nonnull String id) {
         this.programItemId = Optional.ofNullable(programItemId)
-            .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DeleteSessionProgramSpeakerRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a program item.
      */
@@ -62,7 +57,6 @@ public class DeleteSessionProgramSpeakerRequest {
         return this;
     }
 
-
     /**
      * The unique identifier of a speaker.
      */
@@ -70,7 +64,6 @@ public class DeleteSessionProgramSpeakerRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,29 @@ public class DeleteSessionProgramSpeakerRequest {
             return false;
         }
         DeleteSessionProgramSpeakerRequest other = (DeleteSessionProgramSpeakerRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programItemId, other.programItemId) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.programItemId, other.programItemId)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programItemId, id);
+        return Utils.enhancedHash(programItemId, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteSessionProgramSpeakerRequest.class,
-                "programItemId", programItemId,
-                "id", id);
+        return Utils.toString(DeleteSessionProgramSpeakerRequest.class, "programItemId", programItemId, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programItemId;
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class DeleteSessionProgramSpeakerRequest {
         }
 
         public DeleteSessionProgramSpeakerRequest build() {
-            return new DeleteSessionProgramSpeakerRequest(
-                programItemId, id);
+            return new DeleteSessionProgramSpeakerRequest(programItemId, id);
         }
-
     }
 }

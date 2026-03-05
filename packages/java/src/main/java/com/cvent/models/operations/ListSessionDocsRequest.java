@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSessionDocsRequest {
     /**
      * Unique Id of a session
@@ -40,13 +39,13 @@ public class ListSessionDocsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          |
      * |------------------|-------------------------------------|
      * | file.id          | `eq`, `ne`                          |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -56,22 +55,15 @@ public class ListSessionDocsRequest {
 
     @JsonCreator
     public ListSessionDocsRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public ListSessionDocsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public ListSessionDocsRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -100,13 +92,13 @@ public class ListSessionDocsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          |
      * |------------------|-------------------------------------|
      * | file.id          | `eq`, `ne`                          |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -119,7 +111,6 @@ public class ListSessionDocsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of a session
      */
@@ -128,7 +119,6 @@ public class ListSessionDocsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -136,7 +126,6 @@ public class ListSessionDocsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -147,18 +136,17 @@ public class ListSessionDocsRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          |
      * |------------------|-------------------------------------|
      * | file.id          | `eq`, `ne`                          |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -167,7 +155,6 @@ public class ListSessionDocsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -178,31 +165,24 @@ public class ListSessionDocsRequest {
             return false;
         }
         ListSessionDocsRequest other = (ListSessionDocsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            filter);
+        return Utils.enhancedHash(id, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionDocsRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(ListSessionDocsRequest.class, "id", id, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -213,7 +193,7 @@ public class ListSessionDocsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -245,13 +225,13 @@ public class ListSessionDocsRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field            | Operators                          |
          * |------------------|-------------------------------------|
          * | file.id          | `eq`, `ne`                          |
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
@@ -262,16 +242,10 @@ public class ListSessionDocsRequest {
         }
 
         public ListSessionDocsRequest build() {
-            return new ListSessionDocsRequest(
-                id, limit, token,
-                filter);
+            return new ListSessionDocsRequest(id, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

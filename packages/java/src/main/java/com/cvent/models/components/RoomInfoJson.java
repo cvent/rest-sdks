@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * RoomInfoJson
- * 
+ *
  * <p>Room information.
  */
 public class RoomInfoJson {
@@ -33,15 +33,12 @@ public class RoomInfoJson {
     private String name;
 
     @JsonCreator
-    public RoomInfoJson(
-            @JsonProperty("id") long id,
-            @JsonProperty("name") @Nullable String name) {
+    public RoomInfoJson(@JsonProperty("id") long id, @JsonProperty("name") @Nullable String name) {
         this.id = id;
         this.name = name;
     }
-    
-    public RoomInfoJson(
-            long id) {
+
+    public RoomInfoJson(long id) {
         this(id, null);
     }
 
@@ -63,7 +60,6 @@ public class RoomInfoJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the room.
      */
@@ -72,7 +68,6 @@ public class RoomInfoJson {
         return this;
     }
 
-
     /**
      * Room name.
      */
@@ -80,7 +75,6 @@ public class RoomInfoJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +85,28 @@ public class RoomInfoJson {
             return false;
         }
         RoomInfoJson other = (RoomInfoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RoomInfoJson.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(RoomInfoJson.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +126,7 @@ public class RoomInfoJson {
         }
 
         public RoomInfoJson build() {
-            return new RoomInfoJson(
-                id, name);
+            return new RoomInfoJson(id, name);
         }
-
     }
 }

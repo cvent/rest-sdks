@@ -2,6 +2,14 @@
 
 Defines the setup types of a meeting room requirement.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.MeetingRoomSetupTypeJson;
+
+MeetingRoomSetupTypeJson value = MeetingRoomSetupTypeJson.TENX10;
+```
+
 
 ## Values
 

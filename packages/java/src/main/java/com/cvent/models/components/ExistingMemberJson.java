@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingMemberJson
- * 
+ *
  * <p>An existing member.
  */
 public class ExistingMemberJson {
@@ -123,7 +123,7 @@ public class ExistingMemberJson {
     /**
      * Member's preferred language. Used for localization of the UI and emails. The value should be in the
      * form of an ISO-639 language code and ISO 3166-1 Alpha-2 country code separated by a hyphen.
-     * 
+     *
      * <p>e.g. en-US, fr-FR, es-ES etc.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -180,9 +180,9 @@ public class ExistingMemberJson {
             @JsonProperty("visible") @Nullable Boolean visible,
             @JsonProperty("id") @Nullable String id) {
         this.firstName = Optional.ofNullable(firstName)
-            .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
         this.prefix = prefix;
         this.designation = designation;
         this.jobTitle = jobTitle;
@@ -198,21 +198,31 @@ public class ExistingMemberJson {
         this.locale = locale;
         this.registrationDate = registrationDate;
         this.lastLoginDate = lastLoginDate;
-        this.visible = Optional.ofNullable(visible)
-            .orElse(Builder._SINGLETON_VALUE_Visible.value());
+        this.visible = Optional.ofNullable(visible).orElse(Builder._SINGLETON_VALUE_Visible.value());
         this.id = id;
     }
-    
-    public ExistingMemberJson(
-            @Nonnull String firstName,
-            @Nonnull String lastName) {
-        this(firstName, lastName, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public ExistingMemberJson(@Nonnull String firstName, @Nonnull String lastName) {
+        this(
+                firstName,
+                lastName,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -316,7 +326,7 @@ public class ExistingMemberJson {
     /**
      * Member's preferred language. Used for localization of the UI and emails. The value should be in the
      * form of an ISO-639 language code and ISO 3166-1 Alpha-2 country code separated by a hyphen.
-     * 
+     *
      * <p>e.g. en-US, fr-FR, es-ES etc.
      */
     public Optional<String> locale() {
@@ -355,7 +365,6 @@ public class ExistingMemberJson {
         return new Builder();
     }
 
-
     /**
      * Member's first name.
      */
@@ -363,7 +372,6 @@ public class ExistingMemberJson {
         this.firstName = Utils.checkNotNull(firstName, "firstName");
         return this;
     }
-
 
     /**
      * Member's last name
@@ -373,7 +381,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Used to denote title of member e.g. Mr., Mrs., Dr. etc.
      */
@@ -381,7 +388,6 @@ public class ExistingMemberJson {
         this.prefix = prefix;
         return this;
     }
-
 
     /**
      * Member's designation in the company.
@@ -391,7 +397,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Member's job title.
      */
@@ -399,7 +404,6 @@ public class ExistingMemberJson {
         this.jobTitle = jobTitle;
         return this;
     }
-
 
     /**
      * Member's company name.
@@ -409,7 +413,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Member's biographical writeup.
      */
@@ -417,7 +420,6 @@ public class ExistingMemberJson {
         this.headline = headline;
         return this;
     }
-
 
     /**
      * Member's pronouns.
@@ -427,7 +429,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Member's social media links.
      */
@@ -435,7 +436,6 @@ public class ExistingMemberJson {
         this.socialMediaLinks = socialMediaLinks;
         return this;
     }
-
 
     /**
      * The optimized URL of the Events+ member's profile image.
@@ -445,7 +445,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Member's email address.
      */
@@ -453,7 +452,6 @@ public class ExistingMemberJson {
         this.emailAddress = emailAddress;
         return this;
     }
-
 
     /**
      * Member's mobile number.
@@ -463,7 +461,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Member's work address details.
      */
@@ -471,7 +468,6 @@ public class ExistingMemberJson {
         this.workAddress = workAddress;
         return this;
     }
-
 
     /**
      * Privacy compliance fields for a contact.
@@ -481,18 +477,16 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * Member's preferred language. Used for localization of the UI and emails. The value should be in the
      * form of an ISO-639 language code and ISO 3166-1 Alpha-2 country code separated by a hyphen.
-     * 
+     *
      * <p>e.g. en-US, fr-FR, es-ES etc.
      */
     public ExistingMemberJson withLocale(@Nullable String locale) {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when the member registered.
@@ -502,7 +496,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when the member last logged in.
      */
@@ -510,7 +503,6 @@ public class ExistingMemberJson {
         this.lastLoginDate = lastLoginDate;
         return this;
     }
-
 
     /**
      * True indicates member profile is visible to other members.
@@ -520,7 +512,6 @@ public class ExistingMemberJson {
         return this;
     }
 
-
     /**
      * The unique ID of the member.
      */
@@ -528,7 +519,6 @@ public class ExistingMemberJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -539,66 +529,97 @@ public class ExistingMemberJson {
             return false;
         }
         ExistingMemberJson other = (ExistingMemberJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.jobTitle, other.jobTitle) &&
-            Utils.enhancedDeepEquals(this.companyName, other.companyName) &&
-            Utils.enhancedDeepEquals(this.headline, other.headline) &&
-            Utils.enhancedDeepEquals(this.pronouns, other.pronouns) &&
-            Utils.enhancedDeepEquals(this.socialMediaLinks, other.socialMediaLinks) &&
-            Utils.enhancedDeepEquals(this.profileImageUrl, other.profileImageUrl) &&
-            Utils.enhancedDeepEquals(this.emailAddress, other.emailAddress) &&
-            Utils.enhancedDeepEquals(this.mobileNumber, other.mobileNumber) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress) &&
-            Utils.enhancedDeepEquals(this.compliance, other.compliance) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.registrationDate, other.registrationDate) &&
-            Utils.enhancedDeepEquals(this.lastLoginDate, other.lastLoginDate) &&
-            Utils.enhancedDeepEquals(this.visible, other.visible) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.jobTitle, other.jobTitle)
+                && Utils.enhancedDeepEquals(this.companyName, other.companyName)
+                && Utils.enhancedDeepEquals(this.headline, other.headline)
+                && Utils.enhancedDeepEquals(this.pronouns, other.pronouns)
+                && Utils.enhancedDeepEquals(this.socialMediaLinks, other.socialMediaLinks)
+                && Utils.enhancedDeepEquals(this.profileImageUrl, other.profileImageUrl)
+                && Utils.enhancedDeepEquals(this.emailAddress, other.emailAddress)
+                && Utils.enhancedDeepEquals(this.mobileNumber, other.mobileNumber)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress)
+                && Utils.enhancedDeepEquals(this.compliance, other.compliance)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.registrationDate, other.registrationDate)
+                && Utils.enhancedDeepEquals(this.lastLoginDate, other.lastLoginDate)
+                && Utils.enhancedDeepEquals(this.visible, other.visible)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            firstName, lastName, prefix,
-            designation, jobTitle, companyName,
-            headline, pronouns, socialMediaLinks,
-            profileImageUrl, emailAddress, mobileNumber,
-            workAddress, compliance, locale,
-            registrationDate, lastLoginDate, visible,
-            id);
+                firstName,
+                lastName,
+                prefix,
+                designation,
+                jobTitle,
+                companyName,
+                headline,
+                pronouns,
+                socialMediaLinks,
+                profileImageUrl,
+                emailAddress,
+                mobileNumber,
+                workAddress,
+                compliance,
+                locale,
+                registrationDate,
+                lastLoginDate,
+                visible,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingMemberJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "prefix", prefix,
-                "designation", designation,
-                "jobTitle", jobTitle,
-                "companyName", companyName,
-                "headline", headline,
-                "pronouns", pronouns,
-                "socialMediaLinks", socialMediaLinks,
-                "profileImageUrl", profileImageUrl,
-                "emailAddress", emailAddress,
-                "mobileNumber", mobileNumber,
-                "workAddress", workAddress,
-                "compliance", compliance,
-                "locale", locale,
-                "registrationDate", registrationDate,
-                "lastLoginDate", lastLoginDate,
-                "visible", visible,
-                "id", id);
+        return Utils.toString(
+                ExistingMemberJson.class,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "prefix",
+                prefix,
+                "designation",
+                designation,
+                "jobTitle",
+                jobTitle,
+                "companyName",
+                companyName,
+                "headline",
+                headline,
+                "pronouns",
+                pronouns,
+                "socialMediaLinks",
+                socialMediaLinks,
+                "profileImageUrl",
+                profileImageUrl,
+                "emailAddress",
+                emailAddress,
+                "mobileNumber",
+                mobileNumber,
+                "workAddress",
+                workAddress,
+                "compliance",
+                compliance,
+                "locale",
+                locale,
+                "registrationDate",
+                registrationDate,
+                "lastLoginDate",
+                lastLoginDate,
+                "visible",
+                visible,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -639,7 +660,7 @@ public class ExistingMemberJson {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -757,7 +778,7 @@ public class ExistingMemberJson {
         /**
          * Member's preferred language. Used for localization of the UI and emails. The value should be in the
          * form of an ISO-639 language code and ISO 3166-1 Alpha-2 country code separated by a hyphen.
-         * 
+         *
          * <p>e.g. en-US, fr-FR, es-ES etc.
          */
         public Builder locale(@Nullable String locale) {
@@ -799,20 +820,28 @@ public class ExistingMemberJson {
 
         public ExistingMemberJson build() {
             return new ExistingMemberJson(
-                firstName, lastName, prefix,
-                designation, jobTitle, companyName,
-                headline, pronouns, socialMediaLinks,
-                profileImageUrl, emailAddress, mobileNumber,
-                workAddress, compliance, locale,
-                registrationDate, lastLoginDate, visible,
-                id);
+                    firstName,
+                    lastName,
+                    prefix,
+                    designation,
+                    jobTitle,
+                    companyName,
+                    headline,
+                    pronouns,
+                    socialMediaLinks,
+                    profileImageUrl,
+                    emailAddress,
+                    mobileNumber,
+                    workAddress,
+                    compliance,
+                    locale,
+                    registrationDate,
+                    lastLoginDate,
+                    visible,
+                    id);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Visible =
-                new LazySingletonValue<>(
-                        "visible",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("visible", "false", new TypeReference<Boolean>() {});
     }
 }

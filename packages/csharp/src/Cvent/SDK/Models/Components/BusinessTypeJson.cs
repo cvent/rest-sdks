@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BusinessTypeJson
     {
-        [JsonProperty("corporate")]
-        Corporate,
-        [JsonProperty("leisure")]
-        Leisure,
+        [JsonProperty("corporate")] Corporate,
+        [JsonProperty("leisure")] Leisure,
     }
 
     public static class BusinessTypeJsonExtension
     {
         public static string Value(this BusinessTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BusinessTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BusinessTypeJson).GetFields())
+            foreach (var field in typeof(BusinessTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

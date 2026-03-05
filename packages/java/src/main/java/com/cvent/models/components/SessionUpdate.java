@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -23,7 +23,7 @@ import java.util.Optional;
 
 /**
  * SessionUpdate
- * 
+ *
  * <p>Used to update a session.
  */
 public class SessionUpdate {
@@ -53,7 +53,6 @@ public class SessionUpdate {
     @JsonProperty("category")
     private IdNameJson category;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private SessionUpdateLookup type;
@@ -68,11 +67,11 @@ public class SessionUpdate {
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
      * attributes are allowed. Use of HTML will count towards the character limit.
-     * 
+     *
      * <p>Planners are responsible for confirming the visual output of HTML content.
-     * 
+     *
      * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-     * 
+     *
      * <p>Allowed attributes:
      * - color on font
      * - style on p, font, li, ul, ol, span
@@ -272,21 +271,17 @@ public class SessionUpdate {
             @JsonProperty("presentationType") @Nullable String presentationType,
             @JsonProperty("dataTagCode") @Nullable String dataTagCode,
             @JsonProperty("order") @Nullable Long order) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.code = code;
         this.category = category;
         this.type = type;
         this.location = location;
         this.description = description;
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.automaticallyOpensOn = automaticallyOpensOn;
         this.automaticallyClosesOn = automaticallyClosesOn;
         this.enableWaitlist = enableWaitlist;
@@ -297,8 +292,8 @@ public class SessionUpdate {
         this.capacityVirtual = capacityVirtual;
         this.virtualCapacityUnlimited = virtualCapacityUnlimited;
         this.waitlistCapacityVirtual = waitlistCapacityVirtual;
-        this.displayOnAgenda = Optional.ofNullable(displayOnAgenda)
-            .orElse(Builder._SINGLETON_VALUE_DisplayOnAgenda.value());
+        this.displayOnAgenda =
+                Optional.ofNullable(displayOnAgenda).orElse(Builder._SINGLETON_VALUE_DisplayOnAgenda.value());
         this.featured = featured;
         this.group = group;
         this.admissionItems = admissionItems;
@@ -309,23 +304,44 @@ public class SessionUpdate {
         this.dataTagCode = dataTagCode;
         this.order = order;
     }
-    
+
     public SessionUpdate(
             @Nonnull UuidJson event,
             @Nonnull String title,
             @Nonnull OffsetDateTime start,
             @Nonnull OffsetDateTime end,
             @Nonnull SessionStatusJson status) {
-        this(event, title, null,
-            null, null, null,
-            null, start, end,
-            status, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                event,
+                title,
+                null,
+                null,
+                null,
+                null,
+                null,
+                start,
+                end,
+                status,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -370,11 +386,11 @@ public class SessionUpdate {
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
      * attributes are allowed. Use of HTML will count towards the character limit.
-     * 
+     *
      * <p>Planners are responsible for confirming the visual output of HTML content.
-     * 
+     *
      * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-     * 
+     *
      * <p>Allowed attributes:
      * - color on font
      * - style on p, font, li, ul, ol, span
@@ -549,7 +565,6 @@ public class SessionUpdate {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -557,7 +572,6 @@ public class SessionUpdate {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Title of the session. For example, Keynote Session.
@@ -567,7 +581,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * A unique code for this session.
      */
@@ -575,7 +588,6 @@ public class SessionUpdate {
         this.code = code;
         return this;
     }
-
 
     /**
      * A Named object
@@ -585,12 +597,10 @@ public class SessionUpdate {
         return this;
     }
 
-
     public SessionUpdate withType(@Nullable SessionUpdateLookup type) {
         this.type = type;
         return this;
     }
-
 
     /**
      * Used to denote a locations name and abbreviation.
@@ -600,15 +610,14 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
      * attributes are allowed. Use of HTML will count towards the character limit.
-     * 
+     *
      * <p>Planners are responsible for confirming the visual output of HTML content.
-     * 
+     *
      * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-     * 
+     *
      * <p>Allowed attributes:
      * - color on font
      * - style on p, font, li, ul, ol, span
@@ -619,7 +628,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date and time when the session starts.
      */
@@ -627,7 +635,6 @@ public class SessionUpdate {
         this.start = Utils.checkNotNull(start, "start");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time when the session ends.
@@ -637,7 +644,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * This is used to denote the status of a session.
      */
@@ -645,7 +651,6 @@ public class SessionUpdate {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date when the session registration automatically opens.
@@ -655,7 +660,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date when the session registration automatically closes.
      */
@@ -663,7 +667,6 @@ public class SessionUpdate {
         this.automaticallyClosesOn = automaticallyClosesOn;
         return this;
     }
-
 
     /**
      * Indicates if the waitlist is supported for the session.
@@ -673,7 +676,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can waitlist for the in-person portion of the session.
      */
@@ -681,7 +683,6 @@ public class SessionUpdate {
         this.waitlistCapacity = waitlistCapacity;
         return this;
     }
-
 
     /**
      * Indicates if the virtual waitlist for the session is open.
@@ -691,7 +692,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can enroll in the in-person portion of the session.
      */
@@ -699,7 +699,6 @@ public class SessionUpdate {
         this.capacity = capacity;
         return this;
     }
-
 
     /**
      * Indicates whether a given session has unlimited in-person capacity.
@@ -709,7 +708,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can enroll in the virtual portion of the session.
      */
@@ -717,7 +715,6 @@ public class SessionUpdate {
         this.capacityVirtual = capacityVirtual;
         return this;
     }
-
 
     /**
      * Indicates whether a given session has unlimited virtual capacity.
@@ -727,7 +724,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can waitlist the virtual portion of the session.
      */
@@ -735,7 +731,6 @@ public class SessionUpdate {
         this.waitlistCapacityVirtual = waitlistCapacityVirtual;
         return this;
     }
-
 
     /**
      * Indicates whether to display the session on Agenda.
@@ -745,7 +740,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * Indicates if the session is featured
      */
@@ -753,7 +747,6 @@ public class SessionUpdate {
         this.featured = featured;
         return this;
     }
-
 
     /**
      * The id of the session group, if the session belongs to one
@@ -763,7 +756,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The ids of the admission items, if the session is included with any.
      */
@@ -771,7 +763,6 @@ public class SessionUpdate {
         this.admissionItems = admissionItems;
         return this;
     }
-
 
     /**
      * Indicates if the session is open for registration.
@@ -781,7 +772,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * Indicates if the session is open for AttendeeHub.
      */
@@ -789,7 +779,6 @@ public class SessionUpdate {
         this.openForAttendeeHub = openForAttendeeHub;
         return this;
     }
-
 
     /**
      * Contains unique identifiers for registration types associated with this session
@@ -799,7 +788,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The presentation type of the session.
      */
@@ -807,7 +795,6 @@ public class SessionUpdate {
         this.presentationType = presentationType;
         return this;
     }
-
 
     /**
      * A tag associated with the session.
@@ -817,7 +804,6 @@ public class SessionUpdate {
         return this;
     }
 
-
     /**
      * The display order of session, set by planner for concurrent sessions
      */
@@ -825,7 +811,6 @@ public class SessionUpdate {
         this.order = order;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -836,91 +821,141 @@ public class SessionUpdate {
             return false;
         }
         SessionUpdate other = (SessionUpdate) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.automaticallyOpensOn, other.automaticallyOpensOn) &&
-            Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn) &&
-            Utils.enhancedDeepEquals(this.enableWaitlist, other.enableWaitlist) &&
-            Utils.enhancedDeepEquals(this.waitlistCapacity, other.waitlistCapacity) &&
-            Utils.enhancedDeepEquals(this.enableWaitlistVirtual, other.enableWaitlistVirtual) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.capacityUnlimited, other.capacityUnlimited) &&
-            Utils.enhancedDeepEquals(this.capacityVirtual, other.capacityVirtual) &&
-            Utils.enhancedDeepEquals(this.virtualCapacityUnlimited, other.virtualCapacityUnlimited) &&
-            Utils.enhancedDeepEquals(this.waitlistCapacityVirtual, other.waitlistCapacityVirtual) &&
-            Utils.enhancedDeepEquals(this.displayOnAgenda, other.displayOnAgenda) &&
-            Utils.enhancedDeepEquals(this.featured, other.featured) &&
-            Utils.enhancedDeepEquals(this.group, other.group) &&
-            Utils.enhancedDeepEquals(this.admissionItems, other.admissionItems) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.openForAttendeeHub, other.openForAttendeeHub) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes) &&
-            Utils.enhancedDeepEquals(this.presentationType, other.presentationType) &&
-            Utils.enhancedDeepEquals(this.dataTagCode, other.dataTagCode) &&
-            Utils.enhancedDeepEquals(this.order, other.order);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.automaticallyOpensOn, other.automaticallyOpensOn)
+                && Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn)
+                && Utils.enhancedDeepEquals(this.enableWaitlist, other.enableWaitlist)
+                && Utils.enhancedDeepEquals(this.waitlistCapacity, other.waitlistCapacity)
+                && Utils.enhancedDeepEquals(this.enableWaitlistVirtual, other.enableWaitlistVirtual)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.capacityUnlimited, other.capacityUnlimited)
+                && Utils.enhancedDeepEquals(this.capacityVirtual, other.capacityVirtual)
+                && Utils.enhancedDeepEquals(this.virtualCapacityUnlimited, other.virtualCapacityUnlimited)
+                && Utils.enhancedDeepEquals(this.waitlistCapacityVirtual, other.waitlistCapacityVirtual)
+                && Utils.enhancedDeepEquals(this.displayOnAgenda, other.displayOnAgenda)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.group, other.group)
+                && Utils.enhancedDeepEquals(this.admissionItems, other.admissionItems)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.openForAttendeeHub, other.openForAttendeeHub)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes)
+                && Utils.enhancedDeepEquals(this.presentationType, other.presentationType)
+                && Utils.enhancedDeepEquals(this.dataTagCode, other.dataTagCode)
+                && Utils.enhancedDeepEquals(this.order, other.order);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, title, code,
-            category, type, location,
-            description, start, end,
-            status, automaticallyOpensOn, automaticallyClosesOn,
-            enableWaitlist, waitlistCapacity, enableWaitlistVirtual,
-            capacity, capacityUnlimited, capacityVirtual,
-            virtualCapacityUnlimited, waitlistCapacityVirtual, displayOnAgenda,
-            featured, group, admissionItems,
-            openForRegistration, openForAttendeeHub, registrationTypes,
-            presentationType, dataTagCode, order);
+                event,
+                title,
+                code,
+                category,
+                type,
+                location,
+                description,
+                start,
+                end,
+                status,
+                automaticallyOpensOn,
+                automaticallyClosesOn,
+                enableWaitlist,
+                waitlistCapacity,
+                enableWaitlistVirtual,
+                capacity,
+                capacityUnlimited,
+                capacityVirtual,
+                virtualCapacityUnlimited,
+                waitlistCapacityVirtual,
+                displayOnAgenda,
+                featured,
+                group,
+                admissionItems,
+                openForRegistration,
+                openForAttendeeHub,
+                registrationTypes,
+                presentationType,
+                dataTagCode,
+                order);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionUpdate.class,
-                "event", event,
-                "title", title,
-                "code", code,
-                "category", category,
-                "type", type,
-                "location", location,
-                "description", description,
-                "start", start,
-                "end", end,
-                "status", status,
-                "automaticallyOpensOn", automaticallyOpensOn,
-                "automaticallyClosesOn", automaticallyClosesOn,
-                "enableWaitlist", enableWaitlist,
-                "waitlistCapacity", waitlistCapacity,
-                "enableWaitlistVirtual", enableWaitlistVirtual,
-                "capacity", capacity,
-                "capacityUnlimited", capacityUnlimited,
-                "capacityVirtual", capacityVirtual,
-                "virtualCapacityUnlimited", virtualCapacityUnlimited,
-                "waitlistCapacityVirtual", waitlistCapacityVirtual,
-                "displayOnAgenda", displayOnAgenda,
-                "featured", featured,
-                "group", group,
-                "admissionItems", admissionItems,
-                "openForRegistration", openForRegistration,
-                "openForAttendeeHub", openForAttendeeHub,
-                "registrationTypes", registrationTypes,
-                "presentationType", presentationType,
-                "dataTagCode", dataTagCode,
-                "order", order);
+        return Utils.toString(
+                SessionUpdate.class,
+                "event",
+                event,
+                "title",
+                title,
+                "code",
+                code,
+                "category",
+                category,
+                "type",
+                type,
+                "location",
+                location,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "status",
+                status,
+                "automaticallyOpensOn",
+                automaticallyOpensOn,
+                "automaticallyClosesOn",
+                automaticallyClosesOn,
+                "enableWaitlist",
+                enableWaitlist,
+                "waitlistCapacity",
+                waitlistCapacity,
+                "enableWaitlistVirtual",
+                enableWaitlistVirtual,
+                "capacity",
+                capacity,
+                "capacityUnlimited",
+                capacityUnlimited,
+                "capacityVirtual",
+                capacityVirtual,
+                "virtualCapacityUnlimited",
+                virtualCapacityUnlimited,
+                "waitlistCapacityVirtual",
+                waitlistCapacityVirtual,
+                "displayOnAgenda",
+                displayOnAgenda,
+                "featured",
+                featured,
+                "group",
+                group,
+                "admissionItems",
+                admissionItems,
+                "openForRegistration",
+                openForRegistration,
+                "openForAttendeeHub",
+                openForAttendeeHub,
+                "registrationTypes",
+                registrationTypes,
+                "presentationType",
+                presentationType,
+                "dataTagCode",
+                dataTagCode,
+                "order",
+                order);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson event;
 
@@ -983,7 +1018,7 @@ public class SessionUpdate {
         private Long order;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1034,11 +1069,11 @@ public class SessionUpdate {
         /**
          * Detailed description of the session. HTML is supported, but only a limited set of elements and
          * attributes are allowed. Use of HTML will count towards the character limit.
-         * 
+         *
          * <p>Planners are responsible for confirming the visual output of HTML content.
-         * 
+         *
          * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-         * 
+         *
          * <p>Allowed attributes:
          * - color on font
          * - style on p, font, li, ul, ol, span
@@ -1235,23 +1270,39 @@ public class SessionUpdate {
 
         public SessionUpdate build() {
             return new SessionUpdate(
-                event, title, code,
-                category, type, location,
-                description, start, end,
-                status, automaticallyOpensOn, automaticallyClosesOn,
-                enableWaitlist, waitlistCapacity, enableWaitlistVirtual,
-                capacity, capacityUnlimited, capacityVirtual,
-                virtualCapacityUnlimited, waitlistCapacityVirtual, displayOnAgenda,
-                featured, group, admissionItems,
-                openForRegistration, openForAttendeeHub, registrationTypes,
-                presentationType, dataTagCode, order);
+                    event,
+                    title,
+                    code,
+                    category,
+                    type,
+                    location,
+                    description,
+                    start,
+                    end,
+                    status,
+                    automaticallyOpensOn,
+                    automaticallyClosesOn,
+                    enableWaitlist,
+                    waitlistCapacity,
+                    enableWaitlistVirtual,
+                    capacity,
+                    capacityUnlimited,
+                    capacityVirtual,
+                    virtualCapacityUnlimited,
+                    waitlistCapacityVirtual,
+                    displayOnAgenda,
+                    featured,
+                    group,
+                    admissionItems,
+                    openForRegistration,
+                    openForAttendeeHub,
+                    registrationTypes,
+                    presentationType,
+                    dataTagCode,
+                    order);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DisplayOnAgenda =
-                new LazySingletonValue<>(
-                        "displayOnAgenda",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("displayOnAgenda", "true", new TypeReference<Boolean>() {});
     }
 }

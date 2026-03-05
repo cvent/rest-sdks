@@ -30,7 +30,7 @@ public class GetTravelProposalRequestBuilder {
     private GetTravelProposalRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetTravelProposalRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetTravelProposalRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetTravelProposalResponse> call() {
-        AsyncRequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation
-              = new GetTravelProposal.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
+                new GetTravelProposal.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

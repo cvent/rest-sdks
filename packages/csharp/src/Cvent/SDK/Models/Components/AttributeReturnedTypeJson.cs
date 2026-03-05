@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttributeReturnedTypeJson
     {
-        [JsonProperty("always")]
-        Always,
-        [JsonProperty("never")]
-        Never,
-        [JsonProperty("default")]
-        Default,
-        [JsonProperty("request")]
-        Request,
+        [JsonProperty("always")] Always,
+        [JsonProperty("never")] Never,
+        [JsonProperty("default")] Default,
+        [JsonProperty("request")] Request,
     }
 
     public static class AttributeReturnedTypeJsonExtension
     {
         public static string Value(this AttributeReturnedTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttributeReturnedTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttributeReturnedTypeJson).GetFields())
+            foreach (var field in typeof(AttributeReturnedTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

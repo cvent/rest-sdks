@@ -45,7 +45,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<CreateCardTokensResponse> CreateCardTokensAsync(
+        public Task<CreateCardTokensResponse> CreateCardTokensAsync(
             CardTokenRequest? request = null,
             string? serverUrl = null
         );
@@ -59,7 +59,7 @@ namespace Cvent.SDK
     /// It is used as a secure alternative to directly handling credit card details during transactions.<br/>
     /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.
     /// </summary>
-    public class CardTokens: ICardTokens
+    public class CardTokens : ICardTokens
     {
         /// <summary>
         /// List of server URLs available for the createCardTokens operation.
@@ -93,13 +93,12 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<CreateCardTokensResponse> CreateCardTokensAsync(
+        public async Task<CreateCardTokensResponse> CreateCardTokensAsync(
             CardTokenRequest? request = null,
             string? serverUrl = null
         )
         {
-            string baseUrl = Utilities.TemplateUrl(CreateCardTokensServerList[0], new Dictionary<string, string>(){
-            });
+            string baseUrl = Utilities.TemplateUrl(CreateCardTokensServerList[0], new Dictionary<string, string>() {});
             if (serverUrl != null)
             {
                 baseUrl = serverUrl;
@@ -161,9 +160,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 201)
+            if (responseStatusCode == 201)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     CardTokenResponse obj;
@@ -176,10 +175,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into CardTokenResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new CreateCardTokensResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new CreateCardTokensResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -190,9 +187,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -210,17 +207,16 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
     }
 }

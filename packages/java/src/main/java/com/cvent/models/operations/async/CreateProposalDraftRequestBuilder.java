@@ -30,7 +30,7 @@ public class CreateProposalDraftRequestBuilder {
     private ProposalRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateProposalDraftRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateProposalDraftRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateProposalDraftResponse> call() {
-        AsyncRequestOperation<ProposalRequest, CreateProposalDraftResponse> operation
-              = new CreateProposalDraft.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ProposalRequest, CreateProposalDraftResponse> operation =
+                new CreateProposalDraft.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

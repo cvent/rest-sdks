@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AlternateTravelDetailJsonRequesterType
- * 
+ *
  * <p>Attendee type of the entity this alternate travel belongs to. Contact means the requester is an
  * independent attendee. Guest means the attendee is accompanying another attendee.
  */
@@ -24,13 +24,13 @@ public enum AlternateTravelDetailJsonRequesterType {
     AlternateTravelDetailJsonRequesterType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AlternateTravelDetailJsonRequesterType> fromValue(String value) {
-        for (AlternateTravelDetailJsonRequesterType o: AlternateTravelDetailJsonRequesterType.values()) {
+        for (AlternateTravelDetailJsonRequesterType o : AlternateTravelDetailJsonRequesterType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AlternateTravelDetailJsonRequesterType {
         return Optional.empty();
     }
 }
-

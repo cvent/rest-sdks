@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetEventFeaturesRequest {
     /**
      * Unique Id of an event
@@ -46,13 +45,13 @@ public class GetEventFeaturesRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>It has only one comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* enabled (eq)
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -65,19 +64,15 @@ public class GetEventFeaturesRequest {
             @Nullable String token,
             @Nullable String locale,
             @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
         this.filter = filter;
     }
-    
-    public GetEventFeaturesRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null);
+
+    public GetEventFeaturesRequest(@Nonnull String id) {
+        this(id, null, null, null, null);
     }
 
     /**
@@ -113,13 +108,13 @@ public class GetEventFeaturesRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>It has only one comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* enabled (eq)
      */
     public Optional<String> filter() {
@@ -130,7 +125,6 @@ public class GetEventFeaturesRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of an event
      */
@@ -139,7 +133,6 @@ public class GetEventFeaturesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -147,7 +140,6 @@ public class GetEventFeaturesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -158,7 +150,6 @@ public class GetEventFeaturesRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -167,25 +158,23 @@ public class GetEventFeaturesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>It has only one comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* enabled (eq)
      */
     public GetEventFeaturesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -196,33 +185,36 @@ public class GetEventFeaturesRequest {
             return false;
         }
         GetEventFeaturesRequest other = (GetEventFeaturesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            locale, filter);
+        return Utils.enhancedHash(id, limit, token, locale, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventFeaturesRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "locale", locale,
-                "filter", filter);
+        return Utils.toString(
+                GetEventFeaturesRequest.class,
+                "id",
+                id,
+                "limit",
+                limit,
+                "token",
+                token,
+                "locale",
+                locale,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -235,7 +227,7 @@ public class GetEventFeaturesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -275,13 +267,13 @@ public class GetEventFeaturesRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>It has only one comparison types that can be used in filter expressions:
-         * 
+         *
          * <p>* equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
-         * 
+         *
          * <p>* enabled (eq)
          */
         public Builder filter(@Nullable String filter) {
@@ -290,16 +282,10 @@ public class GetEventFeaturesRequest {
         }
 
         public GetEventFeaturesRequest build() {
-            return new GetEventFeaturesRequest(
-                id, limit, token,
-                locale, filter);
+            return new GetEventFeaturesRequest(id, limit, token, locale, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

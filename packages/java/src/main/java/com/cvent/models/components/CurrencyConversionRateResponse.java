@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * CurrencyConversionRateResponse
- * 
+ *
  * <p>Currency conversion rate response for a currency in an account.
  */
 public class CurrencyConversionRateResponse {
@@ -82,22 +82,16 @@ public class CurrencyConversionRateResponse {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified) {
         this.conversionRate = conversionRate;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
         this.endDate = endDate;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.baseCurrency = baseCurrency;
         this.currency = currency;
         this.lastModified = lastModified;
     }
-    
-    public CurrencyConversionRateResponse(
-            double conversionRate,
-            @Nonnull LocalDate startDate,
-            @Nonnull String id) {
-        this(conversionRate, startDate, null,
-            id, null, null,
-            null);
+
+    public CurrencyConversionRateResponse(double conversionRate, @Nonnull LocalDate startDate, @Nonnull String id) {
+        this(conversionRate, startDate, null, id, null, null, null);
     }
 
     /**
@@ -156,7 +150,6 @@ public class CurrencyConversionRateResponse {
         return new Builder();
     }
 
-
     /**
      * Currency conversion rate from accounts base currency to the other defined currency in this
      * conversion rate.
@@ -165,7 +158,6 @@ public class CurrencyConversionRateResponse {
         this.conversionRate = conversionRate;
         return this;
     }
-
 
     /**
      * The ISO 8601 date format assigned for the currency conversion, typically denotes start date from
@@ -176,7 +168,6 @@ public class CurrencyConversionRateResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 date format for the currency conversion, typically denotes end date till when defined
      * conversion rate is applicable.
@@ -186,7 +177,6 @@ public class CurrencyConversionRateResponse {
         return this;
     }
 
-
     /**
      * The unique ID for this defined conversion rate.
      */
@@ -194,7 +184,6 @@ public class CurrencyConversionRateResponse {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The ISO 4217 standard format currency code for account base currency.
@@ -204,7 +193,6 @@ public class CurrencyConversionRateResponse {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code of currency for which conversion rate is defined.
      */
@@ -213,7 +201,6 @@ public class CurrencyConversionRateResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time when the conversion rate was last modified.
      */
@@ -221,7 +208,6 @@ public class CurrencyConversionRateResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -232,38 +218,42 @@ public class CurrencyConversionRateResponse {
             return false;
         }
         CurrencyConversionRateResponse other = (CurrencyConversionRateResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.baseCurrency, other.baseCurrency) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
+        return Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.baseCurrency, other.baseCurrency)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            conversionRate, startDate, endDate,
-            id, baseCurrency, currency,
-            lastModified);
+        return Utils.enhancedHash(conversionRate, startDate, endDate, id, baseCurrency, currency, lastModified);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CurrencyConversionRateResponse.class,
-                "conversionRate", conversionRate,
-                "startDate", startDate,
-                "endDate", endDate,
-                "id", id,
-                "baseCurrency", baseCurrency,
-                "currency", currency,
-                "lastModified", lastModified);
+        return Utils.toString(
+                CurrencyConversionRateResponse.class,
+                "conversionRate",
+                conversionRate,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "id",
+                id,
+                "baseCurrency",
+                baseCurrency,
+                "currency",
+                currency,
+                "lastModified",
+                lastModified);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double conversionRate;
 
@@ -280,7 +270,7 @@ public class CurrencyConversionRateResponse {
         private OffsetDateTime lastModified;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -344,10 +334,7 @@ public class CurrencyConversionRateResponse {
 
         public CurrencyConversionRateResponse build() {
             return new CurrencyConversionRateResponse(
-                conversionRate, startDate, endDate,
-                id, baseCurrency, currency,
-                lastModified);
+                    conversionRate, startDate, endDate, id, baseCurrency, currency, lastModified);
         }
-
     }
 }

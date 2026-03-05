@@ -2,6 +2,14 @@
 
 The chat type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ChatTypeJson;
+
+ChatTypeJson value = ChatTypeJson.SESSION;
+```
+
 
 ## Values
 

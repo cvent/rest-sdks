@@ -28,7 +28,7 @@ public class GetSchemaRequestBuilder {
     private GetSchemaRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSchemaRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetSchemaRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetSchemaResponse call() {
-        RequestOperation<GetSchemaRequest, GetSchemaResponse> operation
-              = new GetSchema.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSchemaRequest, GetSchemaResponse> operation =
+                new GetSchema.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

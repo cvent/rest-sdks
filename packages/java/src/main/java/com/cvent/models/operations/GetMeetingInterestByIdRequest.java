@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetMeetingInterestByIdRequest {
     /**
      * The unique identifier of an attendee's meeting interests in a particular event. The attendee's
@@ -22,10 +21,8 @@ public class GetMeetingInterestByIdRequest {
     private String id;
 
     @JsonCreator
-    public GetMeetingInterestByIdRequest(
-            @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetMeetingInterestByIdRequest(@Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +38,6 @@ public class GetMeetingInterestByIdRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of an attendee's meeting interests in a particular event. The attendee's
      * meeting interests ID is a combination of the associated appointment event ID and the attendee's
@@ -52,7 +48,6 @@ public class GetMeetingInterestByIdRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -62,29 +57,26 @@ public class GetMeetingInterestByIdRequest {
             return false;
         }
         GetMeetingInterestByIdRequest other = (GetMeetingInterestByIdRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetMeetingInterestByIdRequest.class,
-                "id", id);
+        return Utils.toString(GetMeetingInterestByIdRequest.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -98,9 +90,7 @@ public class GetMeetingInterestByIdRequest {
         }
 
         public GetMeetingInterestByIdRequest build() {
-            return new GetMeetingInterestByIdRequest(
-                id);
+            return new GetMeetingInterestByIdRequest(id);
         }
-
     }
 }

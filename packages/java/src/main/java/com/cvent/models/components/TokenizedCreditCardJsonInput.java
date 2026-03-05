@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TokenizedCreditCardJsonInput
- * 
+ *
  * <p>Credit card info.
  */
 public class TokenizedCreditCardJsonInput {
@@ -39,11 +39,10 @@ public class TokenizedCreditCardJsonInput {
             @JsonProperty("paymentToken") @Nonnull String paymentToken) {
         this.type = type;
         this.paymentToken = Optional.ofNullable(paymentToken)
-            .orElseThrow(() -> new IllegalArgumentException("paymentToken cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentToken cannot be null"));
     }
-    
-    public TokenizedCreditCardJsonInput(
-            @Nonnull String paymentToken) {
+
+    public TokenizedCreditCardJsonInput(@Nonnull String paymentToken) {
         this(null, paymentToken);
     }
 
@@ -65,7 +64,6 @@ public class TokenizedCreditCardJsonInput {
         return new Builder();
     }
 
-
     /**
      * Credit card type.
      */
@@ -74,7 +72,6 @@ public class TokenizedCreditCardJsonInput {
         return this;
     }
 
-
     /**
      * Credit card token. Use Tokenization API to generate.
      */
@@ -82,7 +79,6 @@ public class TokenizedCreditCardJsonInput {
         this.paymentToken = Utils.checkNotNull(paymentToken, "paymentToken");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +89,29 @@ public class TokenizedCreditCardJsonInput {
             return false;
         }
         TokenizedCreditCardJsonInput other = (TokenizedCreditCardJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.paymentToken, other.paymentToken);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.paymentToken, other.paymentToken);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, paymentToken);
+        return Utils.enhancedHash(type, paymentToken);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TokenizedCreditCardJsonInput.class,
-                "type", type,
-                "paymentToken", paymentToken);
+        return Utils.toString(TokenizedCreditCardJsonInput.class, "type", type, "paymentToken", paymentToken);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CreditCardTypesJson type;
 
         private String paymentToken;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +131,7 @@ public class TokenizedCreditCardJsonInput {
         }
 
         public TokenizedCreditCardJsonInput build() {
-            return new TokenizedCreditCardJsonInput(
-                type, paymentToken);
+            return new TokenizedCreditCardJsonInput(type, paymentToken);
         }
-
     }
 }

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * HotelRoomRatesRequest
- * 
+ *
  * <p>Represents hotel room rates request.
  */
 public class HotelRoomRatesRequest {
@@ -64,20 +64,15 @@ public class HotelRoomRatesRequest {
             @JsonProperty("currencyCode") @Nullable String currencyCode) {
         this.rateCode = rateCode;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
-        this.endDate = Optional.ofNullable(endDate)
-            .orElseThrow(() -> new IllegalArgumentException("endDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+        this.endDate =
+                Optional.ofNullable(endDate).orElseThrow(() -> new IllegalArgumentException("endDate cannot be null"));
         this.roomRate = roomRate;
-        this.currencyCode = Optional.ofNullable(currencyCode)
-            .orElse(Builder._SINGLETON_VALUE_CurrencyCode.value());
+        this.currencyCode = Optional.ofNullable(currencyCode).orElse(Builder._SINGLETON_VALUE_CurrencyCode.value());
     }
-    
-    public HotelRoomRatesRequest(
-            @Nonnull LocalDate startDate,
-            @Nonnull LocalDate endDate,
-            double roomRate) {
-        this(null, startDate, endDate,
-            roomRate, null);
+
+    public HotelRoomRatesRequest(@Nonnull LocalDate startDate, @Nonnull LocalDate endDate, double roomRate) {
+        this(null, startDate, endDate, roomRate, null);
     }
 
     /**
@@ -119,7 +114,6 @@ public class HotelRoomRatesRequest {
         return new Builder();
     }
 
-
     /**
      * The rate code.
      */
@@ -127,7 +121,6 @@ public class HotelRoomRatesRequest {
         this.rateCode = rateCode;
         return this;
     }
-
 
     /**
      * The start of the date range the rate applies. Date is in ISO 8601 format.
@@ -137,7 +130,6 @@ public class HotelRoomRatesRequest {
         return this;
     }
 
-
     /**
      * The end of the date range the rate applies. Date is in ISO 8601 format.
      */
@@ -145,7 +137,6 @@ public class HotelRoomRatesRequest {
         this.endDate = Utils.checkNotNull(endDate, "endDate");
         return this;
     }
-
 
     /**
      * Cost of room per night.
@@ -155,7 +146,6 @@ public class HotelRoomRatesRequest {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code.
      */
@@ -163,7 +153,6 @@ public class HotelRoomRatesRequest {
         this.currencyCode = currencyCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -174,33 +163,36 @@ public class HotelRoomRatesRequest {
             return false;
         }
         HotelRoomRatesRequest other = (HotelRoomRatesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.rateCode, other.rateCode) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.roomRate, other.roomRate) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode);
+        return Utils.enhancedDeepEquals(this.rateCode, other.rateCode)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.roomRate, other.roomRate)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            rateCode, startDate, endDate,
-            roomRate, currencyCode);
+        return Utils.enhancedHash(rateCode, startDate, endDate, roomRate, currencyCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HotelRoomRatesRequest.class,
-                "rateCode", rateCode,
-                "startDate", startDate,
-                "endDate", endDate,
-                "roomRate", roomRate,
-                "currencyCode", currencyCode);
+        return Utils.toString(
+                HotelRoomRatesRequest.class,
+                "rateCode",
+                rateCode,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "roomRate",
+                roomRate,
+                "currencyCode",
+                currencyCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String rateCode;
 
@@ -213,7 +205,7 @@ public class HotelRoomRatesRequest {
         private String currencyCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -257,16 +249,10 @@ public class HotelRoomRatesRequest {
         }
 
         public HotelRoomRatesRequest build() {
-            return new HotelRoomRatesRequest(
-                rateCode, startDate, endDate,
-                roomRate, currencyCode);
+            return new HotelRoomRatesRequest(rateCode, startDate, endDate, roomRate, currencyCode);
         }
 
-
         private static final LazySingletonValue<String> _SINGLETON_VALUE_CurrencyCode =
-                new LazySingletonValue<>(
-                        "currencyCode",
-                        "\"USD\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("currencyCode", "\"USD\"", new TypeReference<String>() {});
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BasicAuthentication
- * 
+ *
  * <p>HTTP Basic Authentication via Authorization header.
  */
 public class BasicAuthentication {
@@ -34,10 +34,9 @@ public class BasicAuthentication {
     public BasicAuthentication(
             @JsonProperty("type") @Nonnull AuthorizationHeaderType2 type,
             @JsonProperty("secret") @Nonnull String secret) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.secret = Optional.ofNullable(secret)
-            .orElseThrow(() -> new IllegalArgumentException("secret cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.secret =
+                Optional.ofNullable(secret).orElseThrow(() -> new IllegalArgumentException("secret cannot be null"));
     }
 
     /**
@@ -59,7 +58,6 @@ public class BasicAuthentication {
         return new Builder();
     }
 
-
     /**
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
@@ -69,7 +67,6 @@ public class BasicAuthentication {
         return this;
     }
 
-
     /**
      * Base64 encoded Basic Authentication credentials.
      */
@@ -77,7 +74,6 @@ public class BasicAuthentication {
         this.secret = Utils.checkNotNull(secret, "secret");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -88,33 +84,28 @@ public class BasicAuthentication {
             return false;
         }
         BasicAuthentication other = (BasicAuthentication) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.secret, other.secret);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.secret, other.secret);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, secret);
+        return Utils.enhancedHash(type, secret);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BasicAuthentication.class,
-                "type", type,
-                "secret", secret);
+        return Utils.toString(BasicAuthentication.class, "type", type, "secret", secret);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AuthorizationHeaderType2 type;
 
         private String secret;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -135,9 +126,7 @@ public class BasicAuthentication {
         }
 
         public BasicAuthentication build() {
-            return new BasicAuthentication(
-                type, secret);
+            return new BasicAuthentication(type, secret);
         }
-
     }
 }

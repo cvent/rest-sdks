@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * UtmOverrideJson
- * 
+ *
  * <p>Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose
  * of identifying and tracking traffic) settings will override passed in items.
  */
@@ -24,13 +24,13 @@ public enum UtmOverrideJson {
     UtmOverrideJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<UtmOverrideJson> fromValue(String value) {
-        for (UtmOverrideJson o: UtmOverrideJson.values()) {
+        for (UtmOverrideJson o : UtmOverrideJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum UtmOverrideJson {
         return Optional.empty();
     }
 }
-

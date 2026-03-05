@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AssociateBoothStaffRequest {
     /**
      * ID of an event.
@@ -34,15 +33,12 @@ public class AssociateBoothStaffRequest {
 
     @JsonCreator
     public AssociateBoothStaffRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull BoothStaffRequest boothStaffRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull BoothStaffRequest boothStaffRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.boothStaffRequest = Optional.ofNullable(boothStaffRequest)
-            .orElseThrow(() -> new IllegalArgumentException("boothStaffRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("boothStaffRequest cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class AssociateBoothStaffRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +73,6 @@ public class AssociateBoothStaffRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -88,7 +82,6 @@ public class AssociateBoothStaffRequest {
         return this;
     }
 
-
     /**
      * Booth Staff details
      */
@@ -96,7 +89,6 @@ public class AssociateBoothStaffRequest {
         this.boothStaffRequest = Utils.checkNotNull(boothStaffRequest, "boothStaffRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +99,30 @@ public class AssociateBoothStaffRequest {
             return false;
         }
         AssociateBoothStaffRequest other = (AssociateBoothStaffRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.boothStaffRequest, other.boothStaffRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.boothStaffRequest, other.boothStaffRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, boothStaffRequest);
+        return Utils.enhancedHash(id, exhibitorId, boothStaffRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssociateBoothStaffRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "boothStaffRequest", boothStaffRequest);
+        return Utils.toString(
+                AssociateBoothStaffRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "boothStaffRequest",
+                boothStaffRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +131,7 @@ public class AssociateBoothStaffRequest {
         private BoothStaffRequest boothStaffRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +159,7 @@ public class AssociateBoothStaffRequest {
         }
 
         public AssociateBoothStaffRequest build() {
-            return new AssociateBoothStaffRequest(
-                id, exhibitorId, boothStaffRequest);
+            return new AssociateBoothStaffRequest(id, exhibitorId, boothStaffRequest);
         }
-
     }
 }

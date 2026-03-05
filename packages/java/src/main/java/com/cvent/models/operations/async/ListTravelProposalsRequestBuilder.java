@@ -40,7 +40,7 @@ public class ListTravelProposalsRequestBuilder {
     private ListTravelProposalsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListTravelProposalsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListTravelProposalsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListTravelProposalsResponse> call() {
-        AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation
-              = new ListTravelProposals.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation =
+                new ListTravelProposals.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListTravelProposalsRequestBuilder {
      */
     public Publisher<ListTravelProposalsResponse> callAsPublisher() {
         ListTravelProposalsRequest request = this.request;
-        AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation
-              = new ListTravelProposals.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation =
+                new ListTravelProposals.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListTravelProposalsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListTravelProposalsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListTravelProposalsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

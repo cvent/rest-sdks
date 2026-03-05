@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TicketType
- * 
+ *
  * <p>Category of the passenger's ticket.
  */
 public enum TicketType {
@@ -24,13 +24,13 @@ public enum TicketType {
     TicketType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TicketType> fromValue(String value) {
-        for (TicketType o: TicketType.values()) {
+        for (TicketType o : TicketType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum TicketType {
         return Optional.empty();
     }
 }
-

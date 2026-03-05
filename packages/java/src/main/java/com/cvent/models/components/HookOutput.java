@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * HookOutput
- * 
+ *
  * <p>A hook with a callback URI.
  */
 public class HookOutput {
@@ -91,21 +91,15 @@ public class HookOutput {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.callback = Optional.ofNullable(callback)
-            .orElseThrow(() -> new IllegalArgumentException("callback cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("callback cannot be null"));
         this.security = Optional.ofNullable(security)
-            .orElseThrow(() -> new IllegalArgumentException("security cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("security cannot be null"));
     }
-    
-    public HookOutput(
-            @Nonnull String name,
-            @Nonnull String callback,
-            @Nonnull HookSecurityJsonOutput security) {
-        this(null, null, null,
-            null, null, name,
-            callback, security);
+
+    public HookOutput(@Nonnull String name, @Nonnull String callback, @Nonnull HookSecurityJsonOutput security) {
+        this(null, null, null, null, null, name, callback, security);
     }
 
     /**
@@ -170,7 +164,6 @@ public class HookOutput {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -178,7 +171,6 @@ public class HookOutput {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -188,7 +180,6 @@ public class HookOutput {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -196,7 +187,6 @@ public class HookOutput {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -206,7 +196,6 @@ public class HookOutput {
         return this;
     }
 
-
     /**
      * The unique ID representing the hook
      */
@@ -215,7 +204,6 @@ public class HookOutput {
         return this;
     }
 
-
     /**
      * Name of the contact hook.
      */
@@ -223,7 +211,6 @@ public class HookOutput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * A client hosted callback URI to which callback would be invoked. TLS is mandatory. Callback URL
@@ -234,7 +221,6 @@ public class HookOutput {
         return this;
     }
 
-
     /**
      * Describe security for a web hook callback. Each option corresponds to an Authorization header
      * variant.
@@ -243,7 +229,6 @@ public class HookOutput {
         this.security = Utils.checkNotNull(security, "security");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -254,40 +239,45 @@ public class HookOutput {
             return false;
         }
         HookOutput other = (HookOutput) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.callback, other.callback) &&
-            Utils.enhancedDeepEquals(this.security, other.security);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.callback, other.callback)
+                && Utils.enhancedDeepEquals(this.security, other.security);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            callback, security);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, id, name, callback, security);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HookOutput.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "callback", callback,
-                "security", security);
+        return Utils.toString(
+                HookOutput.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "callback",
+                callback,
+                "security",
+                security);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -306,7 +296,7 @@ public class HookOutput {
         private HookSecurityJsonOutput security;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -376,11 +366,7 @@ public class HookOutput {
         }
 
         public HookOutput build() {
-            return new HookOutput(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                callback, security);
+            return new HookOutput(created, createdBy, lastModified, lastModifiedBy, id, name, callback, security);
         }
-
     }
 }

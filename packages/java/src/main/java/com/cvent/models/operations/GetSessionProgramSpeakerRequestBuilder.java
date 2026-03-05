@@ -28,7 +28,7 @@ public class GetSessionProgramSpeakerRequestBuilder {
     private GetSessionProgramSpeakerRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSessionProgramSpeakerRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetSessionProgramSpeakerRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetSessionProgramSpeakerResponse call() {
-        RequestOperation<GetSessionProgramSpeakerRequest, GetSessionProgramSpeakerResponse> operation
-              = new GetSessionProgramSpeaker.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSessionProgramSpeakerRequest, GetSessionProgramSpeakerResponse> operation =
+                new GetSessionProgramSpeaker.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

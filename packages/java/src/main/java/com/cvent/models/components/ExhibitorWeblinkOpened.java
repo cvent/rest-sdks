@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorWeblinkOpened
- * 
+ *
  * <p>An exhibitor weblink-opened activity.
  */
 public class ExhibitorWeblinkOpened {
@@ -49,7 +49,7 @@ public class ExhibitorWeblinkOpened {
         this.platform = platform;
         this.weblink = weblink;
     }
-    
+
     public ExhibitorWeblinkOpened() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class ExhibitorWeblinkOpened {
         return new Builder();
     }
 
-
     /**
      * An exhibitor.
      */
@@ -87,7 +86,6 @@ public class ExhibitorWeblinkOpened {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -97,7 +95,6 @@ public class ExhibitorWeblinkOpened {
         return this;
     }
 
-
     /**
      * A web-link for an activity exhibitor.
      */
@@ -105,7 +102,6 @@ public class ExhibitorWeblinkOpened {
         this.weblink = weblink;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,24 @@ public class ExhibitorWeblinkOpened {
             return false;
         }
         ExhibitorWeblinkOpened other = (ExhibitorWeblinkOpened) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.weblink, other.weblink);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.weblink, other.weblink);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, platform, weblink);
+        return Utils.enhancedHash(exhibitor, platform, weblink);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorWeblinkOpened.class,
-                "exhibitor", exhibitor,
-                "platform", platform,
-                "weblink", weblink);
+        return Utils.toString(
+                ExhibitorWeblinkOpened.class, "exhibitor", exhibitor, "platform", platform, "weblink", weblink);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson1 exhibitor;
 
@@ -146,7 +138,7 @@ public class ExhibitorWeblinkOpened {
         private ActivityExhibitorWebLinkJson weblink;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +166,7 @@ public class ExhibitorWeblinkOpened {
         }
 
         public ExhibitorWeblinkOpened build() {
-            return new ExhibitorWeblinkOpened(
-                exhibitor, platform, weblink);
+            return new ExhibitorWeblinkOpened(exhibitor, platform, weblink);
         }
-
     }
 }

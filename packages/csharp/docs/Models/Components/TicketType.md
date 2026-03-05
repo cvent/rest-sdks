@@ -2,6 +2,14 @@
 
 Category of the passenger's ticket.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TicketType.EconomyCoach;
+```
+
 
 ## Values
 

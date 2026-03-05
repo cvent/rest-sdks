@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveyRespondentInput
- * 
+ *
  * <p>Standard survey respondent.
  */
 public class StandardSurveyRespondentInput {
@@ -28,11 +28,11 @@ public class StandardSurveyRespondentInput {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -109,11 +109,9 @@ public class StandardSurveyRespondentInput {
         this.invitationList = invitationList;
         this.transactionId = transactionId;
     }
-    
+
     public StandardSurveyRespondentInput() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -125,11 +123,11 @@ public class StandardSurveyRespondentInput {
 
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -191,7 +189,6 @@ public class StandardSurveyRespondentInput {
         return new Builder();
     }
 
-
     /**
      * Locale Id of the respondent using the IETF Language Tag format
      */
@@ -200,14 +197,13 @@ public class StandardSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Indicates the mode by which a respondent submitted their response.
-     * 
+     *
      * <p>This field contains one of the enumerated, string constants listed below.
-     * 
+     *
      * <p>Enum values:
-     * 
+     *
      * <p>- "Not Responded": Respondent did not provide a response.
      * - "API": Response was submitted via an API.
      * - "Import": Response was created by a bulk import process.
@@ -221,7 +217,6 @@ public class StandardSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
      * weblinks with different values of referenceId query param in them.
@@ -231,7 +226,6 @@ public class StandardSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Source IDs track respondents in an external system integrated with the Cvent survey.
      */
@@ -239,7 +233,6 @@ public class StandardSurveyRespondentInput {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Respondent contact.
@@ -249,7 +242,6 @@ public class StandardSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Respondent Status
      */
@@ -258,7 +250,6 @@ public class StandardSurveyRespondentInput {
         return this;
     }
 
-
     /**
      * Invitation list of respondents
      */
@@ -266,7 +257,6 @@ public class StandardSurveyRespondentInput {
         this.invitationList = invitationList;
         return this;
     }
-
 
     /**
      * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
@@ -278,7 +268,6 @@ public class StandardSurveyRespondentInput {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -288,40 +277,46 @@ public class StandardSurveyRespondentInput {
             return false;
         }
         StandardSurveyRespondentInput other = (StandardSurveyRespondentInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.localeId, other.localeId) &&
-            Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.invitationList, other.invitationList) &&
-            Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
+        return Utils.enhancedDeepEquals(this.localeId, other.localeId)
+                && Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList)
+                && Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            localeId, respondedThrough, referenceId,
-            sourceId, contact, status,
-            invitationList, transactionId);
+                localeId, respondedThrough, referenceId, sourceId, contact, status, invitationList, transactionId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveyRespondentInput.class,
-                "localeId", localeId,
-                "respondedThrough", respondedThrough,
-                "referenceId", referenceId,
-                "sourceId", sourceId,
-                "contact", contact,
-                "status", status,
-                "invitationList", invitationList,
-                "transactionId", transactionId);
+        return Utils.toString(
+                StandardSurveyRespondentInput.class,
+                "localeId",
+                localeId,
+                "respondedThrough",
+                respondedThrough,
+                "referenceId",
+                referenceId,
+                "sourceId",
+                sourceId,
+                "contact",
+                contact,
+                "status",
+                status,
+                "invitationList",
+                invitationList,
+                "transactionId",
+                transactionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String localeId;
 
@@ -340,7 +335,7 @@ public class StandardSurveyRespondentInput {
         private String transactionId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -353,11 +348,11 @@ public class StandardSurveyRespondentInput {
 
         /**
          * Indicates the mode by which a respondent submitted their response.
-         * 
+         *
          * <p>This field contains one of the enumerated, string constants listed below.
-         * 
+         *
          * <p>Enum values:
-         * 
+         *
          * <p>- "Not Responded": Respondent did not provide a response.
          * - "API": Response was submitted via an API.
          * - "Import": Response was created by a bulk import process.
@@ -424,10 +419,7 @@ public class StandardSurveyRespondentInput {
 
         public StandardSurveyRespondentInput build() {
             return new StandardSurveyRespondentInput(
-                localeId, respondedThrough, referenceId,
-                sourceId, contact, status,
-                invitationList, transactionId);
+                    localeId, respondedThrough, referenceId, sourceId, contact, status, invitationList, transactionId);
         }
-
     }
 }

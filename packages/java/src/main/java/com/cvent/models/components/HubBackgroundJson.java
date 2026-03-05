@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * HubBackgroundJson
- * 
+ *
  * <p>The background image of the Events+ hub.
  */
 public class HubBackgroundJson {
@@ -51,7 +51,7 @@ public class HubBackgroundJson {
         this.originalUrl = originalUrl;
         this.altText = altText;
     }
-    
+
     public HubBackgroundJson() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class HubBackgroundJson {
         return new Builder();
     }
 
-
     /**
      * The optimized URL of the Events+ hub's background image. The background image appears on the Events+
      * hub registration page.
@@ -92,7 +91,6 @@ public class HubBackgroundJson {
         this.url = url;
         return this;
     }
-
 
     /**
      * The original URL of the Events+ hub background image. The background appears on the Events+ hub
@@ -103,7 +101,6 @@ public class HubBackgroundJson {
         return this;
     }
 
-
     /**
      * Alternate text for the background image.
      */
@@ -111,7 +108,6 @@ public class HubBackgroundJson {
         this.altText = altText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -122,28 +118,23 @@ public class HubBackgroundJson {
             return false;
         }
         HubBackgroundJson other = (HubBackgroundJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.originalUrl, other.originalUrl) &&
-            Utils.enhancedDeepEquals(this.altText, other.altText);
+        return Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.originalUrl, other.originalUrl)
+                && Utils.enhancedDeepEquals(this.altText, other.altText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            url, originalUrl, altText);
+        return Utils.enhancedHash(url, originalUrl, altText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubBackgroundJson.class,
-                "url", url,
-                "originalUrl", originalUrl,
-                "altText", altText);
+        return Utils.toString(HubBackgroundJson.class, "url", url, "originalUrl", originalUrl, "altText", altText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String url;
 
@@ -152,7 +143,7 @@ public class HubBackgroundJson {
         private String altText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -182,9 +173,7 @@ public class HubBackgroundJson {
         }
 
         public HubBackgroundJson build() {
-            return new HubBackgroundJson(
-                url, originalUrl, altText);
+            return new HubBackgroundJson(url, originalUrl, altText);
         }
-
     }
 }

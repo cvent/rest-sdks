@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AppointmentTypeCategoryJson
- * 
+ *
  * <p>The category of the appointment type.
  */
 public enum AppointmentTypeCategoryJson {
@@ -24,13 +24,13 @@ public enum AppointmentTypeCategoryJson {
     AppointmentTypeCategoryJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AppointmentTypeCategoryJson> fromValue(String value) {
-        for (AppointmentTypeCategoryJson o: AppointmentTypeCategoryJson.values()) {
+        for (AppointmentTypeCategoryJson o : AppointmentTypeCategoryJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AppointmentTypeCategoryJson {
         return Optional.empty();
     }
 }
-

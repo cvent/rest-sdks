@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PlayerTypeProviderJson
- * 
+ *
  * <p>This is used to denote the type of a video player used for the Cvent Video Player
  */
 public enum PlayerTypeProviderJson {
@@ -24,13 +24,13 @@ public enum PlayerTypeProviderJson {
     PlayerTypeProviderJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PlayerTypeProviderJson> fromValue(String value) {
-        for (PlayerTypeProviderJson o: PlayerTypeProviderJson.values()) {
+        for (PlayerTypeProviderJson o : PlayerTypeProviderJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum PlayerTypeProviderJson {
         return Optional.empty();
     }
 }
-

@@ -10,15 +10,15 @@ import java.util.Optional;
 
 /**
  * AudioTrackStatusJson
- * 
+ *
  * <p>Denotes the status of an audio track. Started indicates the request to upload in the API was
  * submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the
  * upload was completed.
- * 
+ *
  * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
  * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
  * Rejected indicates a failed virus scan.
- * 
+ *
  * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
  * is available for use.
  */
@@ -38,13 +38,13 @@ public enum AudioTrackStatusJson {
     AudioTrackStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AudioTrackStatusJson> fromValue(String value) {
-        for (AudioTrackStatusJson o: AudioTrackStatusJson.values()) {
+        for (AudioTrackStatusJson o : AudioTrackStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -52,4 +52,3 @@ public enum AudioTrackStatusJson {
         return Optional.empty();
     }
 }
-

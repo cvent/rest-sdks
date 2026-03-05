@@ -30,7 +30,7 @@ public class CreateAttendeeRequestBuilder {
     private List<AttendeeAddJson> _buildRequest() {
         return this.request;
     }
-    
+
     public CreateAttendeeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,13 +39,13 @@ public class CreateAttendeeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateAttendeeResponse call() {
-        RequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation
-              = new CreateAttendee.Sync(sdkConfiguration, _headers);
+        RequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+                new CreateAttendee.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

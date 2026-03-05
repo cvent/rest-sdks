@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class AttendeeLinkBulkResponseItemJsonDataType
     {
-        private AttendeeLinkBulkResponseItemJsonDataType(string value) { Value = value; }
+        private AttendeeLinkBulkResponseItemJsonDataType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static AttendeeLinkBulkResponseItemJsonDataType ExistingAttendeeLink { get { return new AttendeeLinkBulkResponseItemJsonDataType("existing-attendee-link"); } }
+        public static AttendeeLinkBulkResponseItemJsonDataType ExistingAttendeeLink
+        {
+            get {
+                return new AttendeeLinkBulkResponseItemJsonDataType("existing-attendee-link");
+            }
+        }
 
-        public static AttendeeLinkBulkResponseItemJsonDataType ErrorResponse { get { return new AttendeeLinkBulkResponseItemJsonDataType("error-response"); } }
+        public static AttendeeLinkBulkResponseItemJsonDataType ErrorResponse
+        {
+            get {
+                return new AttendeeLinkBulkResponseItemJsonDataType("error-response");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(AttendeeLinkBulkResponseItemJsonDataType v) { return v.Value; }
-        public static AttendeeLinkBulkResponseItemJsonDataType FromString(string v) {
-            switch(v) {
-                case "existing-attendee-link": return ExistingAttendeeLink;
-                case "error-response": return ErrorResponse;
-                default: throw new ArgumentException("Invalid value for AttendeeLinkBulkResponseItemJsonDataType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(AttendeeLinkBulkResponseItemJsonDataType v)
+        {
+            return v.Value;
+        }
+        public static AttendeeLinkBulkResponseItemJsonDataType FromString(string v)
+        {
+            switch (v)
+            {
+                case "existing-attendee-link":
+                    return ExistingAttendeeLink;
+                case "error-response":
+                    return ErrorResponse;
+                default:
+                    throw new ArgumentException("Invalid value for AttendeeLinkBulkResponseItemJsonDataType");
             }
         }
         public override bool Equals(object? obj)
@@ -102,8 +126,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse)
-                    {
+                    return new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse) {
                         ErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse>(json)
                     };
                 }
@@ -122,8 +145,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ExistingAttendeeLink)
-                    {
+                    return new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ExistingAttendeeLink) {
                         ExistingAttendeeLink = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExistingAttendeeLink>(json)
                     };
                 }
@@ -143,7 +165,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -184,8 +206,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

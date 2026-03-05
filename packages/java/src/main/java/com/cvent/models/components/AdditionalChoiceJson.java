@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AdditionalChoiceJson
- * 
+ *
  * <p>Contains text of additional choice i.e N/A choice or otherAnswer choice
  */
 public class AdditionalChoiceJson {
@@ -35,12 +35,11 @@ public class AdditionalChoiceJson {
 
     @JsonCreator
     public AdditionalChoiceJson(
-            @JsonProperty("text") @Nullable String text,
-            @JsonProperty("shortText") @Nullable String shortText) {
+            @JsonProperty("text") @Nullable String text, @JsonProperty("shortText") @Nullable String shortText) {
         this.text = text;
         this.shortText = shortText;
     }
-    
+
     public AdditionalChoiceJson() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class AdditionalChoiceJson {
         return new Builder();
     }
 
-
     /**
      * Text Value of additional choice
      */
@@ -72,7 +70,6 @@ public class AdditionalChoiceJson {
         return this;
     }
 
-
     /**
      * Reporting value of additional choice text
      */
@@ -80,7 +77,6 @@ public class AdditionalChoiceJson {
         this.shortText = shortText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class AdditionalChoiceJson {
             return false;
         }
         AdditionalChoiceJson other = (AdditionalChoiceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.shortText, other.shortText);
+        return Utils.enhancedDeepEquals(this.text, other.text) && Utils.enhancedDeepEquals(this.shortText, other.shortText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            text, shortText);
+        return Utils.enhancedHash(text, shortText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AdditionalChoiceJson.class,
-                "text", text,
-                "shortText", shortText);
+        return Utils.toString(AdditionalChoiceJson.class, "text", text, "shortText", shortText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String text;
 
         private String shortText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class AdditionalChoiceJson {
         }
 
         public AdditionalChoiceJson build() {
-            return new AdditionalChoiceJson(
-                text, shortText);
+            return new AdditionalChoiceJson(text, shortText);
         }
-
     }
 }

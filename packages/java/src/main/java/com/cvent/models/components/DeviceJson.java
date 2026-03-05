@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * DeviceJson
- * 
+ *
  * <p>The device details used to watched a video. This field has been deprecated.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -53,7 +53,7 @@ public class DeviceJson {
         this.type = type;
         this.operatingSystem = operatingSystem;
     }
-    
+
     public DeviceJson() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class DeviceJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the device the viewer used to watch the video.
      */
@@ -91,7 +90,6 @@ public class DeviceJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The device used to watch the video. Videos can be viewed on desktop, mobile or tablet.
@@ -101,7 +99,6 @@ public class DeviceJson {
         return this;
     }
 
-
     /**
      * The device's operating system.
      */
@@ -109,7 +106,6 @@ public class DeviceJson {
         this.operatingSystem = operatingSystem;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +116,23 @@ public class DeviceJson {
             return false;
         }
         DeviceJson other = (DeviceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, operatingSystem);
+        return Utils.enhancedHash(id, type, operatingSystem);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeviceJson.class,
-                "id", id,
-                "type", type,
-                "operatingSystem", operatingSystem);
+        return Utils.toString(DeviceJson.class, "id", id, "type", type, "operatingSystem", operatingSystem);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -150,7 +141,7 @@ public class DeviceJson {
         private String operatingSystem;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,9 +169,7 @@ public class DeviceJson {
         }
 
         public DeviceJson build() {
-            return new DeviceJson(
-                id, type, operatingSystem);
+            return new DeviceJson(id, type, operatingSystem);
         }
-
     }
 }

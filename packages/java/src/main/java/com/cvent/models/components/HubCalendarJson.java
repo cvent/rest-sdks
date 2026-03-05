@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * HubCalendarJson
- * 
+ *
  * <p>The event calendar associated with this Events+ hub. The event calendar allows you to share multiple
  * events and sessions in a list or calendar format.
  */
@@ -35,13 +35,11 @@ public class HubCalendarJson {
     private Layout layout;
 
     @JsonCreator
-    public HubCalendarJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("layout") @Nullable Layout layout) {
+    public HubCalendarJson(@JsonProperty("id") @Nullable String id, @JsonProperty("layout") @Nullable Layout layout) {
         this.id = id;
         this.layout = layout;
     }
-    
+
     public HubCalendarJson() {
         this(null, null);
     }
@@ -64,7 +62,6 @@ public class HubCalendarJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the calendar associated to an Events+ hub.
      */
@@ -73,7 +70,6 @@ public class HubCalendarJson {
         return this;
     }
 
-
     /**
      * The initial layout style used by front-ends to render the associated calendar.
      */
@@ -81,7 +77,6 @@ public class HubCalendarJson {
         this.layout = layout;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +87,28 @@ public class HubCalendarJson {
             return false;
         }
         HubCalendarJson other = (HubCalendarJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.layout, other.layout);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.layout, other.layout);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, layout);
+        return Utils.enhancedHash(id, layout);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubCalendarJson.class,
-                "id", id,
-                "layout", layout);
+        return Utils.toString(HubCalendarJson.class, "id", id, "layout", layout);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Layout layout;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +128,7 @@ public class HubCalendarJson {
         }
 
         public HubCalendarJson build() {
-            return new HubCalendarJson(
-                id, layout);
+            return new HubCalendarJson(id, layout);
         }
-
     }
 }

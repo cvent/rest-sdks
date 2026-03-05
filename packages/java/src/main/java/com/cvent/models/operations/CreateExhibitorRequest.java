@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateExhibitorRequest {
     /**
      * ID of an event.
@@ -27,13 +26,10 @@ public class CreateExhibitorRequest {
     private ExhibitorRequest exhibitorRequest;
 
     @JsonCreator
-    public CreateExhibitorRequest(
-            @Nonnull String id,
-            @Nonnull ExhibitorRequest exhibitorRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CreateExhibitorRequest(@Nonnull String id, @Nonnull ExhibitorRequest exhibitorRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorRequest = Optional.ofNullable(exhibitorRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorRequest cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class CreateExhibitorRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -63,7 +58,6 @@ public class CreateExhibitorRequest {
         return this;
     }
 
-
     /**
      * Exhibitor details
      */
@@ -71,7 +65,6 @@ public class CreateExhibitorRequest {
         this.exhibitorRequest = Utils.checkNotNull(exhibitorRequest, "exhibitorRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,29 @@ public class CreateExhibitorRequest {
             return false;
         }
         CreateExhibitorRequest other = (CreateExhibitorRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorRequest, other.exhibitorRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorRequest, other.exhibitorRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorRequest);
+        return Utils.enhancedHash(id, exhibitorRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateExhibitorRequest.class,
-                "id", id,
-                "exhibitorRequest", exhibitorRequest);
+        return Utils.toString(CreateExhibitorRequest.class, "id", id, "exhibitorRequest", exhibitorRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ExhibitorRequest exhibitorRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +117,7 @@ public class CreateExhibitorRequest {
         }
 
         public CreateExhibitorRequest build() {
-            return new CreateExhibitorRequest(
-                id, exhibitorRequest);
+            return new CreateExhibitorRequest(id, exhibitorRequest);
         }
-
     }
 }

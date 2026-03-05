@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum Source
     {
-        [JsonProperty("scanned")]
-        Scanned,
-        [JsonProperty("manual")]
-        Manual,
-        [JsonProperty("business_card_scanned")]
-        BusinessCardScanned,
-        [JsonProperty("ulc_scanned")]
-        UlcScanned,
-        [JsonProperty("inbound")]
-        Inbound,
-        [JsonProperty("appointment")]
-        Appointment,
+        [JsonProperty("scanned")] Scanned,
+        [JsonProperty("manual")] Manual,
+        [JsonProperty("business_card_scanned")] BusinessCardScanned,
+        [JsonProperty("ulc_scanned")] UlcScanned,
+        [JsonProperty("inbound")] Inbound,
+        [JsonProperty("appointment")] Appointment,
     }
 
     public static class SourceExtension
     {
         public static string Value(this Source value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Source ToEnum(this string value)
         {
-            foreach(var field in typeof(Source).GetFields())
+            foreach (var field in typeof(Source).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

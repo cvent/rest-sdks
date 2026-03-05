@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * ExistingLeadJson
- * 
+ *
  * <p>A JSON Schema file for Lead.
  */
 public class ExistingLeadJson {
@@ -293,13 +293,10 @@ public class ExistingLeadJson {
         this.homePhone = homePhone;
         this.workAddress = workAddress;
         this.workPhone = workPhone;
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
-        this.application = Optional.ofNullable(application)
-            .orElse(Builder._SINGLETON_VALUE_Application.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.application = Optional.ofNullable(application).orElse(Builder._SINGLETON_VALUE_Application.value());
         this.source = source;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
         this.comments = comments;
         this.licenseCode = licenseCode;
         this.matched = matched;
@@ -308,19 +305,40 @@ public class ExistingLeadJson {
         this.additionalBadgekitFields = additionalBadgekitFields;
         this.id = id;
     }
-    
+
     public ExistingLeadJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -544,7 +562,6 @@ public class ExistingLeadJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -552,7 +569,6 @@ public class ExistingLeadJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -562,7 +578,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -570,7 +585,6 @@ public class ExistingLeadJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -580,7 +594,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -588,7 +601,6 @@ public class ExistingLeadJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -598,7 +610,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * A JSON schema representing the Attendee object
      */
@@ -606,7 +617,6 @@ public class ExistingLeadJson {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * A JSON schema representing Booth Staff entity
@@ -616,7 +626,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * A JSON object representing an electronic device used to capture leads.
      */
@@ -624,7 +633,6 @@ public class ExistingLeadJson {
         this.device = device;
         return this;
     }
-
 
     /**
      * A JSON schema representing the structure of an appointment object.
@@ -634,7 +642,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The title of the lead
      */
@@ -642,7 +649,6 @@ public class ExistingLeadJson {
         this.title = title;
         return this;
     }
-
 
     /**
      * The first name of the lead
@@ -652,7 +658,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The last name of the lead
      */
@@ -660,7 +665,6 @@ public class ExistingLeadJson {
         this.lastName = lastName;
         return this;
     }
-
 
     /**
      * The email address of the lead
@@ -670,7 +674,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The company/organization the lead belongs to.
      */
@@ -678,7 +681,6 @@ public class ExistingLeadJson {
         this.company = company;
         return this;
     }
-
 
     /**
      * Mobile phone number of the lead
@@ -688,7 +690,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * Schema for address information
      */
@@ -696,7 +697,6 @@ public class ExistingLeadJson {
         this.homeAddress = homeAddress;
         return this;
     }
-
 
     /**
      * Home phone number of the lead
@@ -706,7 +706,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * Schema for address information
      */
@@ -714,7 +713,6 @@ public class ExistingLeadJson {
         this.workAddress = workAddress;
         return this;
     }
-
 
     /**
      * Work Phone number of the lead
@@ -724,7 +722,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The type of lead.
      */
@@ -732,7 +729,6 @@ public class ExistingLeadJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The application used to capture lead.
@@ -742,7 +738,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * The source of entry for the lead
      */
@@ -750,7 +745,6 @@ public class ExistingLeadJson {
         this.source = source;
         return this;
     }
-
 
     /**
      * A boolean indicating whether a lead is deleted or not
@@ -760,7 +754,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * Comments about the lead
      */
@@ -768,7 +761,6 @@ public class ExistingLeadJson {
         this.comments = comments;
         return this;
     }
-
 
     /**
      * License (access code) that was used to capture the lead
@@ -778,7 +770,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * A boolean indicating whether the lead is matched or not
      */
@@ -786,7 +777,6 @@ public class ExistingLeadJson {
         this.matched = matched;
         return this;
     }
-
 
     /**
      * Current status of business card transcription
@@ -796,7 +786,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * A boolean indicating whether a lead is qualified or not
      */
@@ -804,7 +793,6 @@ public class ExistingLeadJson {
         this.qualified = qualified;
         return this;
     }
-
 
     /**
      * Map containing extra properties from badgekit provider
@@ -814,7 +802,6 @@ public class ExistingLeadJson {
         return this;
     }
 
-
     /**
      * ID of Lead.
      */
@@ -822,7 +809,6 @@ public class ExistingLeadJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -833,94 +819,145 @@ public class ExistingLeadJson {
             return false;
         }
         ExistingLeadJson other = (ExistingLeadJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.boothStaff, other.boothStaff) &&
-            Utils.enhancedDeepEquals(this.device, other.device) &&
-            Utils.enhancedDeepEquals(this.appointment, other.appointment) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.application, other.application) &&
-            Utils.enhancedDeepEquals(this.source, other.source) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.comments, other.comments) &&
-            Utils.enhancedDeepEquals(this.licenseCode, other.licenseCode) &&
-            Utils.enhancedDeepEquals(this.matched, other.matched) &&
-            Utils.enhancedDeepEquals(this.transcriptionStatus, other.transcriptionStatus) &&
-            Utils.enhancedDeepEquals(this.qualified, other.qualified) &&
-            Utils.enhancedDeepEquals(this.additionalBadgekitFields, other.additionalBadgekitFields) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.boothStaff, other.boothStaff)
+                && Utils.enhancedDeepEquals(this.device, other.device)
+                && Utils.enhancedDeepEquals(this.appointment, other.appointment)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.application, other.application)
+                && Utils.enhancedDeepEquals(this.source, other.source)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.comments, other.comments)
+                && Utils.enhancedDeepEquals(this.licenseCode, other.licenseCode)
+                && Utils.enhancedDeepEquals(this.matched, other.matched)
+                && Utils.enhancedDeepEquals(this.transcriptionStatus, other.transcriptionStatus)
+                && Utils.enhancedDeepEquals(this.qualified, other.qualified)
+                && Utils.enhancedDeepEquals(this.additionalBadgekitFields, other.additionalBadgekitFields)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, exhibitor,
-            attendee, boothStaff, device,
-            appointment, title, firstName,
-            lastName, email, company,
-            mobilePhone, homeAddress, homePhone,
-            workAddress, workPhone, type,
-            application, source, deleted,
-            comments, licenseCode, matched,
-            transcriptionStatus, qualified, additionalBadgekitFields,
-            id);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                exhibitor,
+                attendee,
+                boothStaff,
+                device,
+                appointment,
+                title,
+                firstName,
+                lastName,
+                email,
+                company,
+                mobilePhone,
+                homeAddress,
+                homePhone,
+                workAddress,
+                workPhone,
+                type,
+                application,
+                source,
+                deleted,
+                comments,
+                licenseCode,
+                matched,
+                transcriptionStatus,
+                qualified,
+                additionalBadgekitFields,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingLeadJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "exhibitor", exhibitor,
-                "attendee", attendee,
-                "boothStaff", boothStaff,
-                "device", device,
-                "appointment", appointment,
-                "title", title,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email,
-                "company", company,
-                "mobilePhone", mobilePhone,
-                "homeAddress", homeAddress,
-                "homePhone", homePhone,
-                "workAddress", workAddress,
-                "workPhone", workPhone,
-                "type", type,
-                "application", application,
-                "source", source,
-                "deleted", deleted,
-                "comments", comments,
-                "licenseCode", licenseCode,
-                "matched", matched,
-                "transcriptionStatus", transcriptionStatus,
-                "qualified", qualified,
-                "additionalBadgekitFields", additionalBadgekitFields,
-                "id", id);
+        return Utils.toString(
+                ExistingLeadJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "attendee",
+                attendee,
+                "boothStaff",
+                boothStaff,
+                "device",
+                device,
+                "appointment",
+                appointment,
+                "title",
+                title,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "email",
+                email,
+                "company",
+                company,
+                "mobilePhone",
+                mobilePhone,
+                "homeAddress",
+                homeAddress,
+                "homePhone",
+                homePhone,
+                "workAddress",
+                workAddress,
+                "workPhone",
+                workPhone,
+                "type",
+                type,
+                "application",
+                application,
+                "source",
+                source,
+                "deleted",
+                deleted,
+                "comments",
+                comments,
+                "licenseCode",
+                licenseCode,
+                "matched",
+                matched,
+                "transcriptionStatus",
+                transcriptionStatus,
+                "qualified",
+                qualified,
+                "additionalBadgekitFields",
+                additionalBadgekitFields,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -985,7 +1022,7 @@ public class ExistingLeadJson {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1238,36 +1275,46 @@ public class ExistingLeadJson {
 
         public ExistingLeadJson build() {
             return new ExistingLeadJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, exhibitor,
-                attendee, boothStaff, device,
-                appointment, title, firstName,
-                lastName, email, company,
-                mobilePhone, homeAddress, homePhone,
-                workAddress, workPhone, type,
-                application, source, deleted,
-                comments, licenseCode, matched,
-                transcriptionStatus, qualified, additionalBadgekitFields,
-                id);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    exhibitor,
+                    attendee,
+                    boothStaff,
+                    device,
+                    appointment,
+                    title,
+                    firstName,
+                    lastName,
+                    email,
+                    company,
+                    mobilePhone,
+                    homeAddress,
+                    homePhone,
+                    workAddress,
+                    workPhone,
+                    type,
+                    application,
+                    source,
+                    deleted,
+                    comments,
+                    licenseCode,
+                    matched,
+                    transcriptionStatus,
+                    qualified,
+                    additionalBadgekitFields,
+                    id);
         }
 
-
         private static final LazySingletonValue<ExistingLeadJsonType> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"leadcapture\"",
-                        new TypeReference<ExistingLeadJsonType>() {});
+                new LazySingletonValue<>("type", "\"leadcapture\"", new TypeReference<ExistingLeadJsonType>() {});
 
         private static final LazySingletonValue<Application> _SINGLETON_VALUE_Application =
-                new LazySingletonValue<>(
-                        "application",
-                        "\"leadcapture\"",
-                        new TypeReference<Application>() {});
+                new LazySingletonValue<>("application", "\"leadcapture\"", new TypeReference<Application>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.operations;
 
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.utils.Utils.transform;
 import static com.cvent.utils.Utils.toStream;
+import static com.cvent.utils.Utils.transform;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetAttendeeMessagesMembers;
@@ -39,7 +39,7 @@ public class GetAttendeeMessagesMembersRequestBuilder {
     private GetAttendeeMessagesMembersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAttendeeMessagesMembersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -48,48 +48,48 @@ public class GetAttendeeMessagesMembersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetAttendeeMessagesMembersResponse call() {
-        RequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation
-              = new GetAttendeeMessagesMembers.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
+                new GetAttendeeMessagesMembers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
-    
+
     /**
-    * Returns an iterable that performs next page calls till no more pages
-    * are returned.
-    *
-    * <p>The returned iterable can be used in a for-each loop:
-    * <pre><code>
-    * for (GetAttendeeMessagesMembersResponse page : builder.callAsIterable()) {
-    *     // Process each page
-    * }
-    * </code></pre>
-    * 
-    * @return An iterable that can be used to iterate through all pages
-    */
+     * Returns an iterable that performs next page calls till no more pages
+     * are returned.
+     *
+     * <p>The returned iterable can be used in a for-each loop:
+     * <pre><code>
+     * for (GetAttendeeMessagesMembersResponse page : builder.callAsIterable()) {
+     *     // Process each page
+     * }
+     * </code></pre>
+     *
+     * @return An iterable that can be used to iterate through all pages
+     */
     public Iterable<GetAttendeeMessagesMembersResponse> callAsIterable() {
         GetAttendeeMessagesMembersRequest request = this.request;
-        RequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation
-              = new GetAttendeeMessagesMembers.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
+                new GetAttendeeMessagesMembers.Sync(sdkConfiguration, _headers);
         // foobar
-        
+
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetAttendeeMessagesMembersRequest::withToken,
-            nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetAttendeeMessagesMembersRequest::withToken,
+                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
 
         return () -> transform(iterator, operation::handleResponse);
     }
 
     /**
-    * Returns a stream that performs next page calls till no more pages
-    * are returned.
-    **/  
+     * Returns a stream that performs next page calls till no more pages
+     * are returned.
+     **/
     public Stream<GetAttendeeMessagesMembersResponse> callAsStream() {
         return toStream(callAsIterable());
     }

@@ -40,7 +40,7 @@ public class GetAirRequestsRequestBuilder {
     private GetAirRequestsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAirRequestsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetAirRequestsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAirRequestsResponse> call() {
-        AsyncRequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation
-              = new GetAirRequests.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation =
+                new GetAirRequests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetAirRequestsRequestBuilder {
      */
     public Publisher<GetAirRequestsResponse> callAsPublisher() {
         GetAirRequestsRequest request = this.request;
-        AsyncRequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation
-              = new GetAirRequests.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation =
+                new GetAirRequests.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetAirRequestsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetAirRequestsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetAirRequestsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

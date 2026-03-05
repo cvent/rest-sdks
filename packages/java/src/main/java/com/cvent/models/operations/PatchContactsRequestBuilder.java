@@ -30,7 +30,7 @@ public class PatchContactsRequestBuilder {
     private List<ContactPatch> _buildRequest() {
         return this.request;
     }
-    
+
     public PatchContactsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,13 +39,13 @@ public class PatchContactsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public PatchContactsResponse call() {
-        RequestOperation<List<ContactPatch>, PatchContactsResponse> operation
-              = new PatchContacts.Sync(sdkConfiguration, _headers);
+        RequestOperation<List<ContactPatch>, PatchContactsResponse> operation =
+                new PatchContacts.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

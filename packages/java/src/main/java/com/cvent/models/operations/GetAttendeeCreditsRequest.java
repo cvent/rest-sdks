@@ -17,7 +17,6 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
 public class GetAttendeeCreditsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -51,7 +50,7 @@ public class GetAttendeeCreditsRequest {
      * There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * lastModified
      */
@@ -61,9 +60,9 @@ public class GetAttendeeCreditsRequest {
     /**
      * Use the `expand` query parameter to include additional related information in the response. For each
      * specified value, the related entity is retrieved and displayed inline.
-     * 
+     *
      * <p>An expandable object typically contains the ID of a related object in its response properties.
-     * 
+     *
      * <p>The following fields are expandable:
      * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
      * `creditType` is not currently provided).
@@ -75,20 +74,20 @@ public class GetAttendeeCreditsRequest {
      * A filter query string narrows search
      * results and supports the combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendee.id (eq|ne)
      * * event.id (eq|ne)
      * * session.id (eq|ne)
      * * creditType.id (eq|ne)
      * * type (eq)
-     * 
+     *
      * <p>Note:
      * * lastModified: Used by the 'before' and 'after' filters.
      */
@@ -106,18 +105,15 @@ public class GetAttendeeCreditsRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
         this.expand = expand;
         this.filter = filter;
     }
-    
+
     public GetAttendeeCreditsRequest() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -156,7 +152,7 @@ public class GetAttendeeCreditsRequest {
      * There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * lastModified
      */
@@ -167,9 +163,9 @@ public class GetAttendeeCreditsRequest {
     /**
      * Use the `expand` query parameter to include additional related information in the response. For each
      * specified value, the related entity is retrieved and displayed inline.
-     * 
+     *
      * <p>An expandable object typically contains the ID of a related object in its response properties.
-     * 
+     *
      * <p>The following fields are expandable:
      * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
      * `creditType` is not currently provided).
@@ -182,20 +178,20 @@ public class GetAttendeeCreditsRequest {
      * A filter query string narrows search
      * results and supports the combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendee.id (eq|ne)
      * * event.id (eq|ne)
      * * session.id (eq|ne)
      * * creditType.id (eq|ne)
      * * type (eq)
-     * 
+     *
      * <p>Note:
      * * lastModified: Used by the 'before' and 'after' filters.
      */
@@ -207,7 +203,6 @@ public class GetAttendeeCreditsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -217,7 +212,6 @@ public class GetAttendeeCreditsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -226,7 +220,6 @@ public class GetAttendeeCreditsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -234,7 +227,6 @@ public class GetAttendeeCreditsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -245,14 +237,13 @@ public class GetAttendeeCreditsRequest {
         return this;
     }
 
-
     /**
      * The `sort` query parameter sorts items in the list of results and organizes them according to your
      * preference.
      * There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * lastModified
      */
@@ -261,13 +252,12 @@ public class GetAttendeeCreditsRequest {
         return this;
     }
 
-
     /**
      * Use the `expand` query parameter to include additional related information in the response. For each
      * specified value, the related entity is retrieved and displayed inline.
-     * 
+     *
      * <p>An expandable object typically contains the ID of a related object in its response properties.
-     * 
+     *
      * <p>The following fields are expandable:
      * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
      * `creditType` is not currently provided).
@@ -277,25 +267,24 @@ public class GetAttendeeCreditsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search
      * results and supports the combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendee.id (eq|ne)
      * * event.id (eq|ne)
      * * session.id (eq|ne)
      * * creditType.id (eq|ne)
      * * type (eq)
-     * 
+     *
      * <p>Note:
      * * lastModified: Used by the 'before' and 'after' filters.
      */
@@ -303,7 +292,6 @@ public class GetAttendeeCreditsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -314,38 +302,42 @@ public class GetAttendeeCreditsRequest {
             return false;
         }
         GetAttendeeCreditsRequest other = (GetAttendeeCreditsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.expand, other.expand)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, sort, expand,
-            filter);
+        return Utils.enhancedHash(after, before, limit, token, sort, expand, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAttendeeCreditsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "expand", expand,
-                "filter", filter);
+        return Utils.toString(
+                GetAttendeeCreditsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "expand",
+                expand,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -362,7 +354,7 @@ public class GetAttendeeCreditsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -405,7 +397,7 @@ public class GetAttendeeCreditsRequest {
          * There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * lastModified
          */
@@ -417,9 +409,9 @@ public class GetAttendeeCreditsRequest {
         /**
          * Use the `expand` query parameter to include additional related information in the response. For each
          * specified value, the related entity is retrieved and displayed inline.
-         * 
+         *
          * <p>An expandable object typically contains the ID of a related object in its response properties.
-         * 
+         *
          * <p>The following fields are expandable:
          * * creditType(Includes only the `creditType.name` in the response. A full list of properties for
          * `creditType` is not currently provided).
@@ -433,20 +425,20 @@ public class GetAttendeeCreditsRequest {
          * A filter query string narrows search
          * results and supports the combination of logical and comparison
          * operators.
-         * 
+         *
          * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
          * * attendee.id (eq|ne)
          * * event.id (eq|ne)
          * * session.id (eq|ne)
          * * creditType.id (eq|ne)
          * * type (eq)
-         * 
+         *
          * <p>Note:
          * * lastModified: Used by the 'before' and 'after' filters.
          */
@@ -456,17 +448,10 @@ public class GetAttendeeCreditsRequest {
         }
 
         public GetAttendeeCreditsRequest build() {
-            return new GetAttendeeCreditsRequest(
-                after, before, limit,
-                token, sort, expand,
-                filter);
+            return new GetAttendeeCreditsRequest(after, before, limit, token, sort, expand, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

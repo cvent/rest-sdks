@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CardTypeJson1
     {
-        [JsonProperty("Virtual")]
-        Virtual,
-        [JsonProperty("Plastic")]
-        Plastic,
+        [JsonProperty("Virtual")] Virtual,
+        [JsonProperty("Plastic")] Plastic,
     }
 
     public static class CardTypeJson1Extension
     {
         public static string Value(this CardTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CardTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(CardTypeJson1).GetFields())
+            foreach (var field in typeof(CardTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

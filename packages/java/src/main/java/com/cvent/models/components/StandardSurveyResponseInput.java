@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveyResponseInput
- * 
+ *
  * <p>A standard survey response.
  */
 public class StandardSurveyResponseInput {
@@ -55,18 +55,15 @@ public class StandardSurveyResponseInput {
             @JsonProperty("survey") @Nullable UuidJson survey,
             @JsonProperty("loopingChoice") @Nullable LoopingChoiceJson loopingChoice) {
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.answers = Optional.ofNullable(answers)
-            .orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.answers =
+                Optional.ofNullable(answers).orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
         this.survey = survey;
         this.loopingChoice = loopingChoice;
     }
-    
-    public StandardSurveyResponseInput(
-            @Nonnull UuidJson question,
-            @Nonnull List<AnswerJson1> answers) {
-        this(question, answers, null,
-            null);
+
+    public StandardSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+        this(question, answers, null, null);
     }
 
     /**
@@ -102,7 +99,6 @@ public class StandardSurveyResponseInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -110,7 +106,6 @@ public class StandardSurveyResponseInput {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
-
 
     /**
      * List of responded survey answers.
@@ -120,7 +115,6 @@ public class StandardSurveyResponseInput {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -128,7 +122,6 @@ public class StandardSurveyResponseInput {
         this.survey = survey;
         return this;
     }
-
 
     /**
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
@@ -139,7 +132,6 @@ public class StandardSurveyResponseInput {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -149,31 +141,33 @@ public class StandardSurveyResponseInput {
             return false;
         }
         StandardSurveyResponseInput other = (StandardSurveyResponseInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice);
+        return Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, answers, survey,
-            loopingChoice);
+        return Utils.enhancedHash(question, answers, survey, loopingChoice);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveyResponseInput.class,
-                "question", question,
-                "answers", answers,
-                "survey", survey,
-                "loopingChoice", loopingChoice);
+        return Utils.toString(
+                StandardSurveyResponseInput.class,
+                "question",
+                question,
+                "answers",
+                answers,
+                "survey",
+                survey,
+                "loopingChoice",
+                loopingChoice);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson question;
 
@@ -184,7 +178,7 @@ public class StandardSurveyResponseInput {
         private LoopingChoiceJson loopingChoice;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -221,10 +215,7 @@ public class StandardSurveyResponseInput {
         }
 
         public StandardSurveyResponseInput build() {
-            return new StandardSurveyResponseInput(
-                question, answers, survey,
-                loopingChoice);
+            return new StandardSurveyResponseInput(question, answers, survey, loopingChoice);
         }
-
     }
 }

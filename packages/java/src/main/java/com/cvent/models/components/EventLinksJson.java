@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventLinksJson
- * 
+ *
  * <p>Represents the links associated with an event.
  */
 public class EventLinksJson {
@@ -58,10 +58,9 @@ public class EventLinksJson {
         this.summary = summary;
         this.registration = registration;
     }
-    
+
     public EventLinksJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class EventLinksJson {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -104,7 +102,6 @@ public class EventLinksJson {
         this.invitation = invitation;
         return this;
     }
-
 
     /**
      * Represents a link to a related resource.
@@ -114,7 +111,6 @@ public class EventLinksJson {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -123,7 +119,6 @@ public class EventLinksJson {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -131,7 +126,6 @@ public class EventLinksJson {
         this.registration = registration;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class EventLinksJson {
             return false;
         }
         EventLinksJson other = (EventLinksJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.invitation, other.invitation) &&
-            Utils.enhancedDeepEquals(this.agenda, other.agenda) &&
-            Utils.enhancedDeepEquals(this.summary, other.summary) &&
-            Utils.enhancedDeepEquals(this.registration, other.registration);
+        return Utils.enhancedDeepEquals(this.invitation, other.invitation)
+                && Utils.enhancedDeepEquals(this.agenda, other.agenda)
+                && Utils.enhancedDeepEquals(this.summary, other.summary)
+                && Utils.enhancedDeepEquals(this.registration, other.registration);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            invitation, agenda, summary,
-            registration);
+        return Utils.enhancedHash(invitation, agenda, summary, registration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventLinksJson.class,
-                "invitation", invitation,
-                "agenda", agenda,
-                "summary", summary,
-                "registration", registration);
+        return Utils.toString(
+                EventLinksJson.class,
+                "invitation",
+                invitation,
+                "agenda",
+                agenda,
+                "summary",
+                summary,
+                "registration",
+                registration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson invitation;
 
@@ -177,7 +173,7 @@ public class EventLinksJson {
         private LinkJson registration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class EventLinksJson {
         }
 
         public EventLinksJson build() {
-            return new EventLinksJson(
-                invitation, agenda, summary,
-                registration);
+            return new EventLinksJson(invitation, agenda, summary, registration);
         }
-
     }
 }

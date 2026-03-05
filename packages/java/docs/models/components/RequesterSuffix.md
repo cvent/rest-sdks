@@ -2,6 +2,14 @@
 
 Suffix of the flight requester.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.RequesterSuffix;
+
+RequesterSuffix value = RequesterSuffix.II;
+```
+
 
 ## Values
 

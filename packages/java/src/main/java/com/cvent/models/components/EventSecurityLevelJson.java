@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventSecurityLevelJson
- * 
+ *
  * <p>Represents the security level used for event registrations.
  */
 public enum EventSecurityLevelJson {
@@ -24,13 +24,13 @@ public enum EventSecurityLevelJson {
     EventSecurityLevelJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventSecurityLevelJson> fromValue(String value) {
-        for (EventSecurityLevelJson o: EventSecurityLevelJson.values()) {
+        for (EventSecurityLevelJson o : EventSecurityLevelJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum EventSecurityLevelJson {
         return Optional.empty();
     }
 }
-

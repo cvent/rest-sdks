@@ -28,7 +28,7 @@ public class UploadBulkJobDataRequestBuilder {
     private UploadBulkJobDataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UploadBulkJobDataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UploadBulkJobDataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UploadBulkJobDataResponse call() {
-        RequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation
-              = new UploadBulkJobData.Sync(sdkConfiguration, _headers);
+        RequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
+                new UploadBulkJobData.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

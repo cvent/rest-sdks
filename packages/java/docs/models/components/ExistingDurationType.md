@@ -2,6 +2,14 @@
 
 Describes how the duration was obtained.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ExistingDurationType;
+
+ExistingDurationType value = ExistingDurationType.RFID;
+```
+
 
 ## Values
 

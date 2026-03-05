@@ -30,7 +30,7 @@ public class GetEmarketingEmailStatusRequestBuilder {
     private GetEmarketingEmailStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEmarketingEmailStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEmarketingEmailStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEmarketingEmailStatusResponse> call() {
-        AsyncRequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation
-              = new GetEmarketingEmailStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation =
+                new GetEmarketingEmailStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

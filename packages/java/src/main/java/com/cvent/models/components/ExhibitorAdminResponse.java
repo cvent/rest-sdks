@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorAdminResponse
- * 
+ *
  * <p>Existing Exhibitor Admin with an id property
  */
 public class ExhibitorAdminResponse {
@@ -45,7 +45,7 @@ public class ExhibitorAdminResponse {
 
     /**
      * The identifier of the user that last updated this record.This filed is deprecated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -100,24 +100,21 @@ public class ExhibitorAdminResponse {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
         this.firstName = Optional.ofNullable(firstName)
-            .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
-        this.email = Optional.ofNullable(email)
-            .orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+        this.email = Optional.ofNullable(email).orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
         this.id = id;
     }
-    
+
     public ExhibitorAdminResponse(
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull String firstName,
             @Nonnull String lastName,
             @Nonnull String email) {
-        this(null, null, null,
-            null, exhibitor, firstName,
-            lastName, email, null);
+        this(null, null, null, null, exhibitor, firstName, lastName, email, null);
     }
 
     /**
@@ -143,7 +140,7 @@ public class ExhibitorAdminResponse {
 
     /**
      * The identifier of the user that last updated this record.This filed is deprecated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -190,7 +187,6 @@ public class ExhibitorAdminResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -198,7 +194,6 @@ public class ExhibitorAdminResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -208,7 +203,6 @@ public class ExhibitorAdminResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -217,10 +211,9 @@ public class ExhibitorAdminResponse {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.This filed is deprecated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -228,7 +221,6 @@ public class ExhibitorAdminResponse {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -238,7 +230,6 @@ public class ExhibitorAdminResponse {
         return this;
     }
 
-
     /**
      * The first name of the exhibitor admin
      */
@@ -246,7 +237,6 @@ public class ExhibitorAdminResponse {
         this.firstName = Utils.checkNotNull(firstName, "firstName");
         return this;
     }
-
 
     /**
      * The last name of the exhibitor admin
@@ -256,7 +246,6 @@ public class ExhibitorAdminResponse {
         return this;
     }
 
-
     /**
      * The email address of the exhibitor admin
      */
@@ -265,7 +254,6 @@ public class ExhibitorAdminResponse {
         return this;
     }
 
-
     /**
      * Exhibitor Admin id
      */
@@ -273,7 +261,6 @@ public class ExhibitorAdminResponse {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -284,42 +271,49 @@ public class ExhibitorAdminResponse {
             return false;
         }
         ExhibitorAdminResponse other = (ExhibitorAdminResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, exhibitor, firstName,
-            lastName, email, id);
+                created, createdBy, lastModified, lastModifiedBy, exhibitor, firstName, lastName, email, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorAdminResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "exhibitor", exhibitor,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email,
-                "id", id);
+        return Utils.toString(
+                ExhibitorAdminResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "exhibitor",
+                exhibitor,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "email",
+                email,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -341,7 +335,7 @@ public class ExhibitorAdminResponse {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -370,7 +364,7 @@ public class ExhibitorAdminResponse {
 
         /**
          * The identifier of the user that last updated this record.This filed is deprecated.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -421,10 +415,7 @@ public class ExhibitorAdminResponse {
 
         public ExhibitorAdminResponse build() {
             return new ExhibitorAdminResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, exhibitor, firstName,
-                lastName, email, id);
+                    created, createdBy, lastModified, lastModifiedBy, exhibitor, firstName, lastName, email, id);
         }
-
     }
 }

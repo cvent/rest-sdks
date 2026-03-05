@@ -7,8 +7,8 @@ import com.cvent.models.components.ZeroAllOf1;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -35,20 +35,20 @@ public class ErrorResponse extends CventSDKError {
     private final Throwable deserializationException;
 
     public ErrorResponse(
-                int code,
-                byte[] body,
-                HttpResponse<?> rawResponse,
-                @Nullable Data data,
-                @Nullable Throwable deserializationException) {
+            int code,
+            byte[] body,
+            HttpResponse<?> rawResponse,
+            @Nullable Data data,
+            @Nullable Throwable deserializationException) {
         super("API error occurred", code, body, rawResponse, null);
         this.data = data;
         this.deserializationException = deserializationException;
     }
 
     /**
-    * Parse a response into an instance of ErrorResponse. If deserialization of the response body fails,
-    * the resulting ErrorResponse instance will have a null data() value and a non-null deserializationException().
-    */
+     * Parse a response into an instance of ErrorResponse. If deserialization of the response body fails,
+     * the resulting ErrorResponse instance will have a null data() value and a non-null deserializationException().
+     */
     public static ErrorResponse from(HttpResponse<InputStream> response) {
         try {
             byte[] bytes = Utils.extractByteArrayFromBody(response);
@@ -60,42 +60,28 @@ public class ErrorResponse extends CventSDKError {
     }
 
     /**
-    * Parse a response into an instance of ErrorResponse asynchronously. If deserialization of the response body fails,
-    * the resulting ErrorResponse instance will have a null data() value and a non-null deserializationException().
-    */
+     * Parse a response into an instance of ErrorResponse asynchronously. If deserialization of the response body fails,
+     * the resulting ErrorResponse instance will have a null data() value and a non-null deserializationException().
+     */
     public static CompletableFuture<ErrorResponse> fromAsync(HttpResponse<Blob> response) {
-        return response.body()
-                .toByteArray()
-                .handle((bytes, err) -> {
-                    // if a body read error occurs, we want to transform the exception
-                    if (err != null) {
-                        throw new AsyncAPIException(
-                                "Error reading response body: " + err.getMessage(),
-                                response.statusCode(),
-                                null,
-                                response,
-                                err);
-                    }
+        return response.body().toByteArray().handle((bytes, err) -> {
+            // if a body read error occurs, we want to transform the exception
+            if (err != null) {
+                throw new AsyncAPIException(
+                        "Error reading response body: " + err.getMessage(), response.statusCode(), null, response, err);
+            }
 
-                    try {
-                        return new ErrorResponse(
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                Utils.mapper().readValue(
-                                        bytes,
-                                        new TypeReference<Data>() {
-                                        }),
-                                null);
-                    } catch (Exception e) {
-                        return new ErrorResponse(
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                null,
-                                e);
-                    }
-                });
+            try {
+                return new ErrorResponse(
+                        response.statusCode(),
+                        bytes,
+                        response,
+                        Utils.mapper().readValue(bytes, new TypeReference<Data>() {}),
+                        null);
+            } catch (Exception e) {
+                return new ErrorResponse(response.statusCode(), bytes, response, null, e);
+            }
+        });
     }
 
     /**
@@ -126,7 +112,7 @@ public class ErrorResponse extends CventSDKError {
     }
     /**
      * Data
-     * 
+     *
      * <p>Represents an error response with additional details of cascading error messages.
      */
     public static class Data {
@@ -164,16 +150,13 @@ public class ErrorResponse extends CventSDKError {
                 @JsonProperty("details") @Nullable List<ZeroAllOf1> details) {
             this.code = code;
             this.message = Optional.ofNullable(message)
-                .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+                    .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
             this.target = target;
             this.details = details;
         }
-        
-        public Data(
-                long code,
-                @Nonnull String message) {
-            this(code, message, null,
-                null);
+
+        public Data(long code, @Nonnull String message) {
+            this(code, message, null, null);
         }
 
         /**
@@ -208,7 +191,6 @@ public class ErrorResponse extends CventSDKError {
             return new Builder();
         }
 
-
         /**
          * The HTTP status code representing the error.
          */
@@ -216,7 +198,6 @@ public class ErrorResponse extends CventSDKError {
             this.code = code;
             return this;
         }
-
 
         /**
          * A brief description of the error.
@@ -226,7 +207,6 @@ public class ErrorResponse extends CventSDKError {
             return this;
         }
 
-
         /**
          * The target resource of the error.
          */
@@ -235,7 +215,6 @@ public class ErrorResponse extends CventSDKError {
             return this;
         }
 
-
         /**
          * Additional details of cascading error messages.
          */
@@ -243,7 +222,6 @@ public class ErrorResponse extends CventSDKError {
             this.details = details;
             return this;
         }
-
 
         @Override
         public boolean equals(java.lang.Object o) {
@@ -254,31 +232,24 @@ public class ErrorResponse extends CventSDKError {
                 return false;
             }
             Data other = (Data) o;
-            return 
-                Utils.enhancedDeepEquals(this.code, other.code) &&
-                Utils.enhancedDeepEquals(this.message, other.message) &&
-                Utils.enhancedDeepEquals(this.target, other.target) &&
-                Utils.enhancedDeepEquals(this.details, other.details);
+            return Utils.enhancedDeepEquals(this.code, other.code)
+                    && Utils.enhancedDeepEquals(this.message, other.message)
+                    && Utils.enhancedDeepEquals(this.target, other.target)
+                    && Utils.enhancedDeepEquals(this.details, other.details);
         }
-        
+
         @Override
         public int hashCode() {
-            return Utils.enhancedHash(
-                code, message, target,
-                details);
+            return Utils.enhancedHash(code, message, target, details);
         }
-        
+
         @Override
         public String toString() {
-            return Utils.toString(Data.class,
-                    "code", code,
-                    "message", message,
-                    "target", target,
-                    "details", details);
+            return Utils.toString(Data.class, "code", code, "message", message, "target", target, "details", details);
         }
 
         @SuppressWarnings("UnusedReturnValue")
-        public final static class Builder {
+        public static final class Builder {
 
             private long code;
 
@@ -289,7 +260,7 @@ public class ErrorResponse extends CventSDKError {
             private List<ZeroAllOf1> details;
 
             private Builder() {
-              // force use of static builder() method
+                // force use of static builder() method
             }
 
             /**
@@ -325,13 +296,8 @@ public class ErrorResponse extends CventSDKError {
             }
 
             public Data build() {
-                return new Data(
-                    code, message, target,
-                    details);
+                return new Data(code, message, target, details);
             }
-
         }
     }
-
 }
-

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestDocumentJson
- * 
+ *
  * <p>Document attached to a meeting request that can be downloaded.
  */
 public class MeetingRequestDocumentJson {
@@ -104,8 +104,7 @@ public class MeetingRequestDocumentJson {
             @JsonProperty("mimeType") @Nullable String mimeType,
             @JsonProperty("referenceLink") @Nullable MeetingRequestDocumentReferenceLinkJson referenceLink,
             @JsonProperty("meetingRequest") @Nullable MeetingRequestDocumentJsonMeetingRequest meetingRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.size = size;
         this.uploaded = uploaded;
@@ -116,13 +115,9 @@ public class MeetingRequestDocumentJson {
         this.referenceLink = referenceLink;
         this.meetingRequest = meetingRequest;
     }
-    
-    public MeetingRequestDocumentJson(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public MeetingRequestDocumentJson(@Nonnull String id) {
+        this(id, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -200,7 +195,6 @@ public class MeetingRequestDocumentJson {
         return new Builder();
     }
 
-
     /**
      * Unique identifier of the document.
      */
@@ -208,7 +202,6 @@ public class MeetingRequestDocumentJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Name of the document.
@@ -218,7 +211,6 @@ public class MeetingRequestDocumentJson {
         return this;
     }
 
-
     /**
      * Size of the document in bytes
      */
@@ -226,7 +218,6 @@ public class MeetingRequestDocumentJson {
         this.size = size;
         return this;
     }
-
 
     /**
      * The ISO-8601 formatted date and time when the document was uploaded.
@@ -236,7 +227,6 @@ public class MeetingRequestDocumentJson {
         return this;
     }
 
-
     /**
      * The user who uploaded the document.
      */
@@ -244,7 +234,6 @@ public class MeetingRequestDocumentJson {
         this.uploadedBy = uploadedBy;
         return this;
     }
-
 
     /**
      * The ISO-8601 formatted date and time when this document was last updated.
@@ -254,7 +243,6 @@ public class MeetingRequestDocumentJson {
         return this;
     }
 
-
     /**
      * The user who last updated the document.
      */
@@ -262,7 +250,6 @@ public class MeetingRequestDocumentJson {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     /**
      * The MIME type of the document
@@ -272,25 +259,24 @@ public class MeetingRequestDocumentJson {
         return this;
     }
 
-
     /**
      * A reference link contains the URL that provides direct access to download the file for the document.
      * The expiration of the URL can be included if applicable.
      */
-    public MeetingRequestDocumentJson withReferenceLink(@Nullable MeetingRequestDocumentReferenceLinkJson referenceLink) {
+    public MeetingRequestDocumentJson withReferenceLink(
+            @Nullable MeetingRequestDocumentReferenceLinkJson referenceLink) {
         this.referenceLink = referenceLink;
         return this;
     }
 
-
     /**
      * The meeting request this document is attached to.
      */
-    public MeetingRequestDocumentJson withMeetingRequest(@Nullable MeetingRequestDocumentJsonMeetingRequest meetingRequest) {
+    public MeetingRequestDocumentJson withMeetingRequest(
+            @Nullable MeetingRequestDocumentJsonMeetingRequest meetingRequest) {
         this.meetingRequest = meetingRequest;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -301,45 +287,61 @@ public class MeetingRequestDocumentJson {
             return false;
         }
         MeetingRequestDocumentJson other = (MeetingRequestDocumentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.size, other.size) &&
-            Utils.enhancedDeepEquals(this.uploaded, other.uploaded) &&
-            Utils.enhancedDeepEquals(this.uploadedBy, other.uploadedBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.mimeType, other.mimeType) &&
-            Utils.enhancedDeepEquals(this.referenceLink, other.referenceLink) &&
-            Utils.enhancedDeepEquals(this.meetingRequest, other.meetingRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.size, other.size)
+                && Utils.enhancedDeepEquals(this.uploaded, other.uploaded)
+                && Utils.enhancedDeepEquals(this.uploadedBy, other.uploadedBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.mimeType, other.mimeType)
+                && Utils.enhancedDeepEquals(this.referenceLink, other.referenceLink)
+                && Utils.enhancedDeepEquals(this.meetingRequest, other.meetingRequest);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, name, size,
-            uploaded, uploadedBy, lastModified,
-            lastModifiedBy, mimeType, referenceLink,
-            meetingRequest);
+                id,
+                name,
+                size,
+                uploaded,
+                uploadedBy,
+                lastModified,
+                lastModifiedBy,
+                mimeType,
+                referenceLink,
+                meetingRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestDocumentJson.class,
-                "id", id,
-                "name", name,
-                "size", size,
-                "uploaded", uploaded,
-                "uploadedBy", uploadedBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "mimeType", mimeType,
-                "referenceLink", referenceLink,
-                "meetingRequest", meetingRequest);
+        return Utils.toString(
+                MeetingRequestDocumentJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "size",
+                size,
+                "uploaded",
+                uploaded,
+                "uploadedBy",
+                uploadedBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "mimeType",
+                mimeType,
+                "referenceLink",
+                referenceLink,
+                "meetingRequest",
+                meetingRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -362,7 +364,7 @@ public class MeetingRequestDocumentJson {
         private MeetingRequestDocumentJsonMeetingRequest meetingRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -448,11 +450,16 @@ public class MeetingRequestDocumentJson {
 
         public MeetingRequestDocumentJson build() {
             return new MeetingRequestDocumentJson(
-                id, name, size,
-                uploaded, uploadedBy, lastModified,
-                lastModifiedBy, mimeType, referenceLink,
-                meetingRequest);
+                    id,
+                    name,
+                    size,
+                    uploaded,
+                    uploadedBy,
+                    lastModified,
+                    lastModifiedBy,
+                    mimeType,
+                    referenceLink,
+                    meetingRequest);
         }
-
     }
 }

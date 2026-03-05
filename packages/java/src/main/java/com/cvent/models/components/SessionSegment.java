@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * SessionSegment
- * 
+ *
  * <p>Represents a mapping between a session and an audience segment, which is used to enforce session
  * visibility to only those in certain audience segments.
  */
@@ -101,23 +101,17 @@ public class SessionSegment {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
-        this.segment = Optional.ofNullable(segment)
-            .orElseThrow(() -> new IllegalArgumentException("segment cannot be null"));
-        this.active = Optional.ofNullable(active)
-            .orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.segment =
+                Optional.ofNullable(segment).orElseThrow(() -> new IllegalArgumentException("segment cannot be null"));
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
     }
-    
+
     public SessionSegment(
-            @Nonnull EventLiteJson1 event,
-            @Nonnull SessionLiteJson1 session,
-            @Nonnull SegmentLiteJson segment) {
-        this(null, null, null,
-            null, null, event,
-            session, segment, null);
+            @Nonnull EventLiteJson1 event, @Nonnull SessionLiteJson1 session, @Nonnull SegmentLiteJson segment) {
+        this(null, null, null, null, null, event, session, segment, null);
     }
 
     /**
@@ -187,7 +181,6 @@ public class SessionSegment {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -195,7 +188,6 @@ public class SessionSegment {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -205,7 +197,6 @@ public class SessionSegment {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -213,7 +204,6 @@ public class SessionSegment {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -223,7 +213,6 @@ public class SessionSegment {
         return this;
     }
 
-
     /**
      * ID of the session segment.
      */
@@ -231,7 +220,6 @@ public class SessionSegment {
         this.id = id;
         return this;
     }
-
 
     /**
      * The related event object.
@@ -241,7 +229,6 @@ public class SessionSegment {
         return this;
     }
 
-
     /**
      * The related session object.
      */
@@ -249,7 +236,6 @@ public class SessionSegment {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
-
 
     /**
      * The audience segment associated with the session.
@@ -259,7 +245,6 @@ public class SessionSegment {
         return this;
     }
 
-
     /**
      * True indicates the session segment is active.
      */
@@ -267,7 +252,6 @@ public class SessionSegment {
         this.active = active;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -278,42 +262,49 @@ public class SessionSegment {
             return false;
         }
         SessionSegment other = (SessionSegment) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.segment, other.segment) &&
-            Utils.enhancedDeepEquals(this.active, other.active);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.segment, other.segment)
+                && Utils.enhancedDeepEquals(this.active, other.active);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            session, segment, active);
+                created, createdBy, lastModified, lastModifiedBy, id, event, session, segment, active);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionSegment.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "session", session,
-                "segment", segment,
-                "active", active);
+        return Utils.toString(
+                SessionSegment.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "session",
+                session,
+                "segment",
+                segment,
+                "active",
+                active);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -334,7 +325,7 @@ public class SessionSegment {
         private Boolean active;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -411,16 +402,10 @@ public class SessionSegment {
 
         public SessionSegment build() {
             return new SessionSegment(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                session, segment, active);
+                    created, createdBy, lastModified, lastModifiedBy, id, event, session, segment, active);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
-                new LazySingletonValue<>(
-                        "active",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("active", "true", new TypeReference<Boolean>() {});
     }
 }

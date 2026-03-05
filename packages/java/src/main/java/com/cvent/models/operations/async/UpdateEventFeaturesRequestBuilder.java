@@ -30,7 +30,7 @@ public class UpdateEventFeaturesRequestBuilder {
     private UpdateEventFeaturesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateEventFeaturesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateEventFeaturesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateEventFeaturesResponse> call() {
-        AsyncRequestOperation<UpdateEventFeaturesRequest, UpdateEventFeaturesResponse> operation
-              = new UpdateEventFeatures.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateEventFeaturesRequest, UpdateEventFeaturesResponse> operation =
+                new UpdateEventFeatures.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

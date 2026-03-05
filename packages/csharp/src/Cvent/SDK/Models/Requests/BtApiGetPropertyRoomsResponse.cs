@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class BtApiGetPropertyRoomsResponse
     {
-        public Func<Task<BtApiGetPropertyRoomsResponse?>>? Next {get;set;}
+        public Func<Task<BtApiGetPropertyRoomsResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

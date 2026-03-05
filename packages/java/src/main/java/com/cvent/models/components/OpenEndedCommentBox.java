@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * OpenEndedCommentBox
- * 
+ *
  * <p>This is used to denote the open ended comment box type of custom field.
  */
 public class OpenEndedCommentBox {
@@ -36,12 +36,11 @@ public class OpenEndedCommentBox {
 
     @JsonCreator
     public OpenEndedCommentBox(
-            @JsonProperty("minimum") @Nullable Long minimum,
-            @JsonProperty("maximum") @Nullable Long maximum) {
+            @JsonProperty("minimum") @Nullable Long minimum, @JsonProperty("maximum") @Nullable Long maximum) {
         this.minimum = minimum;
         this.maximum = maximum;
     }
-    
+
     public OpenEndedCommentBox() {
         this(null, null);
     }
@@ -64,7 +63,6 @@ public class OpenEndedCommentBox {
         return new Builder();
     }
 
-
     /**
      * Minimum number/characters allowed.
      */
@@ -73,7 +71,6 @@ public class OpenEndedCommentBox {
         return this;
     }
 
-
     /**
      * Maximum number/characters allowed.
      */
@@ -81,7 +78,6 @@ public class OpenEndedCommentBox {
         this.maximum = maximum;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +88,29 @@ public class OpenEndedCommentBox {
             return false;
         }
         OpenEndedCommentBox other = (OpenEndedCommentBox) o;
-        return 
-            Utils.enhancedDeepEquals(this.minimum, other.minimum) &&
-            Utils.enhancedDeepEquals(this.maximum, other.maximum);
+        return Utils.enhancedDeepEquals(this.minimum, other.minimum)
+                && Utils.enhancedDeepEquals(this.maximum, other.maximum);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            minimum, maximum);
+        return Utils.enhancedHash(minimum, maximum);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OpenEndedCommentBox.class,
-                "minimum", minimum,
-                "maximum", maximum);
+        return Utils.toString(OpenEndedCommentBox.class, "minimum", minimum, "maximum", maximum);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long minimum;
 
         private Long maximum;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class OpenEndedCommentBox {
         }
 
         public OpenEndedCommentBox build() {
-            return new OpenEndedCommentBox(
-                minimum, maximum);
+            return new OpenEndedCommentBox(minimum, maximum);
         }
-
     }
 }

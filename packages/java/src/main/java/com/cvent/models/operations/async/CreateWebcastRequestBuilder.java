@@ -30,7 +30,7 @@ public class CreateWebcastRequestBuilder {
     private Webcast _buildRequest() {
         return this.request;
     }
-    
+
     public CreateWebcastRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateWebcastRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateWebcastResponse> call() {
-        AsyncRequestOperation<Webcast, CreateWebcastResponse> operation
-              = new CreateWebcast.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<Webcast, CreateWebcastResponse> operation =
+                new CreateWebcast.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

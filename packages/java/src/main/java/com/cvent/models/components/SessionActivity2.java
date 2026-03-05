@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionActivity2
- * 
+ *
  * <p>The activity session.
  */
 public class SessionActivity2 {
@@ -49,7 +49,7 @@ public class SessionActivity2 {
         this.title = title;
         this.code = code;
     }
-    
+
     public SessionActivity2() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class SessionActivity2 {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -87,7 +86,6 @@ public class SessionActivity2 {
         this.id = id;
         return this;
     }
-
 
     /**
      * The title of the session.
@@ -97,7 +95,6 @@ public class SessionActivity2 {
         return this;
     }
 
-
     /**
      * The code of the session.
      */
@@ -105,7 +102,6 @@ public class SessionActivity2 {
         this.code = code;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class SessionActivity2 {
             return false;
         }
         SessionActivity2 other = (SessionActivity2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, title, code);
+        return Utils.enhancedHash(id, title, code);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionActivity2.class,
-                "id", id,
-                "title", title,
-                "code", code);
+        return Utils.toString(SessionActivity2.class, "id", id, "title", title, "code", code);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class SessionActivity2 {
         private String code;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class SessionActivity2 {
         }
 
         public SessionActivity2 build() {
-            return new SessionActivity2(
-                id, title, code);
+            return new SessionActivity2(id, title, code);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 These are the types of features used in the event container events.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.FeatureTypeJson;
+
+FeatureTypeJson value = FeatureTypeJson.WEBSITE;
+```
+
 
 ## Values
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ActivityTypeJson
- * 
+ *
  * <p>This is used to denote the type of the attendee activity.
  */
 public enum ActivityTypeJson {
@@ -73,13 +73,13 @@ public enum ActivityTypeJson {
     ActivityTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ActivityTypeJson> fromValue(String value) {
-        for (ActivityTypeJson o: ActivityTypeJson.values()) {
+        for (ActivityTypeJson o : ActivityTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -87,4 +87,3 @@ public enum ActivityTypeJson {
         return Optional.empty();
     }
 }
-

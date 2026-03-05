@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * FeeItemJson
- * 
+ *
  * <p>A fee item is a fee associated with something an agenda item at the event. A given agenda item can
  * have one or more fee items associated.
  */
@@ -168,21 +168,15 @@ public class FeeItemJson {
         this.product = product;
         this.earlyBirdPricing = earlyBirdPricing;
         this.refundPolicy = refundPolicy;
-        this.active = Optional.ofNullable(active)
-            .orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
         this.display = display;
         this.default_ = default_;
         this.generalLedgerCodes = generalLedgerCodes;
         this.registrationTypes = registrationTypes;
     }
-    
+
     public FeeItemJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -302,7 +296,6 @@ public class FeeItemJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -310,7 +303,6 @@ public class FeeItemJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -320,7 +312,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -328,7 +319,6 @@ public class FeeItemJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -338,7 +328,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * A unique identifier of the fee item.
      */
@@ -346,7 +335,6 @@ public class FeeItemJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Name of the fee.
@@ -356,7 +344,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * The total fee amount.
      */
@@ -364,7 +351,6 @@ public class FeeItemJson {
         this.amount = amount;
         return this;
     }
-
 
     /**
      * Denotes the ISO 4217 currency code for this fee item.
@@ -374,7 +360,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * Represents a product. Products are items that can be purchased during registration.
      */
@@ -382,7 +367,6 @@ public class FeeItemJson {
         this.product = product;
         return this;
     }
-
 
     /**
      * Early bird pricing associated with the fee.
@@ -392,7 +376,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * Refund policy for the fee.
      */
@@ -400,7 +383,6 @@ public class FeeItemJson {
         this.refundPolicy = refundPolicy;
         return this;
     }
-
 
     /**
      * True indicates that the fee is active.
@@ -410,7 +392,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * True indicates that the fee displays in the fee widget.
      */
@@ -418,7 +399,6 @@ public class FeeItemJson {
         this.display = display;
         return this;
     }
-
 
     /**
      * True indicates this is the default fee. Default fees apply to attendees without a registration type.
@@ -429,7 +409,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * General ledger codes for the fee.
      */
@@ -438,7 +417,6 @@ public class FeeItemJson {
         return this;
     }
 
-
     /**
      * The registration types this fee is applies to, represented by their IDs.
      */
@@ -446,7 +424,6 @@ public class FeeItemJson {
         this.registrationTypes = registrationTypes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -457,59 +434,85 @@ public class FeeItemJson {
             return false;
         }
         FeeItemJson other = (FeeItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.product, other.product) &&
-            Utils.enhancedDeepEquals(this.earlyBirdPricing, other.earlyBirdPricing) &&
-            Utils.enhancedDeepEquals(this.refundPolicy, other.refundPolicy) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.display, other.display) &&
-            Utils.enhancedDeepEquals(this.default_, other.default_) &&
-            Utils.enhancedDeepEquals(this.generalLedgerCodes, other.generalLedgerCodes) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.product, other.product)
+                && Utils.enhancedDeepEquals(this.earlyBirdPricing, other.earlyBirdPricing)
+                && Utils.enhancedDeepEquals(this.refundPolicy, other.refundPolicy)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.display, other.display)
+                && Utils.enhancedDeepEquals(this.default_, other.default_)
+                && Utils.enhancedDeepEquals(this.generalLedgerCodes, other.generalLedgerCodes)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            amount, currency, product,
-            earlyBirdPricing, refundPolicy, active,
-            display, default_, generalLedgerCodes,
-            registrationTypes);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                name,
+                amount,
+                currency,
+                product,
+                earlyBirdPricing,
+                refundPolicy,
+                active,
+                display,
+                default_,
+                generalLedgerCodes,
+                registrationTypes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FeeItemJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "amount", amount,
-                "currency", currency,
-                "product", product,
-                "earlyBirdPricing", earlyBirdPricing,
-                "refundPolicy", refundPolicy,
-                "active", active,
-                "display", display,
-                "default_", default_,
-                "generalLedgerCodes", generalLedgerCodes,
-                "registrationTypes", registrationTypes);
+        return Utils.toString(
+                FeeItemJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "amount",
+                amount,
+                "currency",
+                currency,
+                "product",
+                product,
+                "earlyBirdPricing",
+                earlyBirdPricing,
+                "refundPolicy",
+                refundPolicy,
+                "active",
+                active,
+                "display",
+                display,
+                "default_",
+                default_,
+                "generalLedgerCodes",
+                generalLedgerCodes,
+                "registrationTypes",
+                registrationTypes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -544,7 +547,7 @@ public class FeeItemJson {
         private List<String> registrationTypes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -678,19 +681,25 @@ public class FeeItemJson {
 
         public FeeItemJson build() {
             return new FeeItemJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                amount, currency, product,
-                earlyBirdPricing, refundPolicy, active,
-                display, default_, generalLedgerCodes,
-                registrationTypes);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    name,
+                    amount,
+                    currency,
+                    product,
+                    earlyBirdPricing,
+                    refundPolicy,
+                    active,
+                    display,
+                    default_,
+                    generalLedgerCodes,
+                    registrationTypes);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
-                new LazySingletonValue<>(
-                        "active",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("active", "false", new TypeReference<Boolean>() {});
     }
 }

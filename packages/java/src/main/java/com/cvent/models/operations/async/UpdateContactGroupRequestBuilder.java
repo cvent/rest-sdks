@@ -30,7 +30,7 @@ public class UpdateContactGroupRequestBuilder {
     private UpdateContactGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateContactGroupResponse> call() {
-        AsyncRequestOperation<UpdateContactGroupRequest, UpdateContactGroupResponse> operation
-              = new UpdateContactGroup.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateContactGroupRequest, UpdateContactGroupResponse> operation =
+                new UpdateContactGroup.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

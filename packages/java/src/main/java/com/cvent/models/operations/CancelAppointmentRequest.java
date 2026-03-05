@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CancelAppointmentRequest {
     /**
      * The unique identifier of an appointment event.
@@ -39,20 +38,15 @@ public class CancelAppointmentRequest {
 
     @JsonCreator
     public CancelAppointmentRequest(
-            @Nonnull String id,
-            @Nonnull String apptId,
-            @Nullable Boolean suppressNotifications) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.apptId = Optional.ofNullable(apptId)
-            .orElseThrow(() -> new IllegalArgumentException("apptId cannot be null"));
+            @Nonnull String id, @Nonnull String apptId, @Nullable Boolean suppressNotifications) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.apptId =
+                Optional.ofNullable(apptId).orElseThrow(() -> new IllegalArgumentException("apptId cannot be null"));
         this.suppressNotifications = Optional.ofNullable(suppressNotifications)
-            .orElse(Builder._SINGLETON_VALUE_SuppressNotifications.value());
+                .orElse(Builder._SINGLETON_VALUE_SuppressNotifications.value());
     }
-    
-    public CancelAppointmentRequest(
-            @Nonnull String id,
-            @Nonnull String apptId) {
+
+    public CancelAppointmentRequest(@Nonnull String id, @Nonnull String apptId) {
         this(id, apptId, null);
     }
 
@@ -83,7 +77,6 @@ public class CancelAppointmentRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of an appointment event.
      */
@@ -92,7 +85,6 @@ public class CancelAppointmentRequest {
         return this;
     }
 
-
     /**
      * The unique identifier of an appointment.
      */
@@ -100,7 +92,6 @@ public class CancelAppointmentRequest {
         this.apptId = Utils.checkNotNull(apptId, "apptId");
         return this;
     }
-
 
     /**
      * Flag to choose whether to suppress notifications on successful completion of operation.
@@ -112,7 +103,6 @@ public class CancelAppointmentRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -122,28 +112,30 @@ public class CancelAppointmentRequest {
             return false;
         }
         CancelAppointmentRequest other = (CancelAppointmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.apptId, other.apptId) &&
-            Utils.enhancedDeepEquals(this.suppressNotifications, other.suppressNotifications);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.apptId, other.apptId)
+                && Utils.enhancedDeepEquals(this.suppressNotifications, other.suppressNotifications);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, apptId, suppressNotifications);
+        return Utils.enhancedHash(id, apptId, suppressNotifications);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CancelAppointmentRequest.class,
-                "id", id,
-                "apptId", apptId,
-                "suppressNotifications", suppressNotifications);
+        return Utils.toString(
+                CancelAppointmentRequest.class,
+                "id",
+                id,
+                "apptId",
+                apptId,
+                "suppressNotifications",
+                suppressNotifications);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -152,7 +144,7 @@ public class CancelAppointmentRequest {
         private Boolean suppressNotifications;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -182,15 +174,10 @@ public class CancelAppointmentRequest {
         }
 
         public CancelAppointmentRequest build() {
-            return new CancelAppointmentRequest(
-                id, apptId, suppressNotifications);
+            return new CancelAppointmentRequest(id, apptId, suppressNotifications);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SuppressNotifications =
-                new LazySingletonValue<>(
-                        "suppressNotifications",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("suppressNotifications", "false", new TypeReference<Boolean>() {});
     }
 }

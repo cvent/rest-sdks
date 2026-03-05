@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ContactEvent
- * 
+ *
  * <p>Event ID
  */
 public class ContactEvent {
@@ -28,11 +28,10 @@ public class ContactEvent {
     private String id;
 
     @JsonCreator
-    public ContactEvent(
-            @JsonProperty("id") @Nullable String id) {
+    public ContactEvent(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public ContactEvent() {
         this(null);
     }
@@ -49,7 +48,6 @@ public class ContactEvent {
         return new Builder();
     }
 
-
     /**
      * ID of the event where the contact was created, applicable when contact snapshot is enabled for an
      * event.
@@ -58,7 +56,6 @@ public class ContactEvent {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -69,29 +66,26 @@ public class ContactEvent {
             return false;
         }
         ContactEvent other = (ContactEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactEvent.class,
-                "id", id);
+        return Utils.toString(ContactEvent.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,9 +98,7 @@ public class ContactEvent {
         }
 
         public ContactEvent build() {
-            return new ContactEvent(
-                id);
+            return new ContactEvent(id);
         }
-
     }
 }

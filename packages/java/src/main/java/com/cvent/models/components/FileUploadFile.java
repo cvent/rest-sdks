@@ -11,24 +11,20 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class FileUploadFile {
 
     @SpeakeasyMetadata("multipartForm:name=fileName")
     private String fileName;
 
-
     @SpeakeasyMetadata("multipartForm:content")
     private byte[] content;
 
     @JsonCreator
-    public FileUploadFile(
-            @Nonnull String fileName,
-            @Nonnull byte[] content) {
+    public FileUploadFile(@Nonnull String fileName, @Nonnull byte[] content) {
         this.fileName = Optional.ofNullable(fileName)
-            .orElseThrow(() -> new IllegalArgumentException("fileName cannot be null"));
-        this.content = Optional.ofNullable(content)
-            .orElseThrow(() -> new IllegalArgumentException("content cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("fileName cannot be null"));
+        this.content =
+                Optional.ofNullable(content).orElseThrow(() -> new IllegalArgumentException("content cannot be null"));
     }
 
     public String fileName() {
@@ -43,18 +39,15 @@ public class FileUploadFile {
         return new Builder();
     }
 
-
     public FileUploadFile withFileName(@Nonnull String fileName) {
         this.fileName = Utils.checkNotNull(fileName, "fileName");
         return this;
     }
 
-
     public FileUploadFile withContent(@Nonnull byte[] content) {
         this.content = Utils.checkNotNull(content, "content");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -65,33 +58,29 @@ public class FileUploadFile {
             return false;
         }
         FileUploadFile other = (FileUploadFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.fileName, other.fileName) &&
-            Utils.enhancedDeepEquals(this.content, other.content);
+        return Utils.enhancedDeepEquals(this.fileName, other.fileName)
+                && Utils.enhancedDeepEquals(this.content, other.content);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            fileName, content);
+        return Utils.enhancedHash(fileName, content);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FileUploadFile.class,
-                "fileName", fileName,
-                "content", content);
+        return Utils.toString(FileUploadFile.class, "fileName", fileName, "content", content);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String fileName;
 
         private byte[] content;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder fileName(@Nonnull String fileName) {
@@ -105,9 +94,7 @@ public class FileUploadFile {
         }
 
         public FileUploadFile build() {
-            return new FileUploadFile(
-                fileName, content);
+            return new FileUploadFile(fileName, content);
         }
-
     }
 }

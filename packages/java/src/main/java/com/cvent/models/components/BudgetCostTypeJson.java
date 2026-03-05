@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BudgetCostTypeJson
- * 
+ *
  * <p>Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
  * costs are based on a quantity.
  */
@@ -24,13 +24,13 @@ public enum BudgetCostTypeJson {
     BudgetCostTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BudgetCostTypeJson> fromValue(String value) {
-        for (BudgetCostTypeJson o: BudgetCostTypeJson.values()) {
+        for (BudgetCostTypeJson o : BudgetCostTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum BudgetCostTypeJson {
         return Optional.empty();
     }
 }
-

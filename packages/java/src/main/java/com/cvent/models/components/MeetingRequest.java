@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequest
- * 
+ *
  * <p>A meeting request.
  */
 public class MeetingRequest {
@@ -139,30 +139,22 @@ public class MeetingRequest {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.status = status;
         this.statusNote = statusNote;
         this.meetingRequestForm = Optional.ofNullable(meetingRequestForm)
-            .orElseThrow(() -> new IllegalArgumentException("meetingRequestForm cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("meetingRequestForm cannot be null"));
         this.questions = questions;
         this.event = event;
         this.sourceId = sourceId;
         this.code = code;
         this.archiveDate = archiveDate;
     }
-    
+
     public MeetingRequest(
-            @Nonnull String id,
-            @Nonnull String name,
-            @Nonnull MeetingRequestMeetingRequestForm meetingRequestForm) {
-        this(null, null, null,
-            null, id, name,
-            null, null, meetingRequestForm,
-            null, null, null,
-            null, null);
+            @Nonnull String id, @Nonnull String name, @Nonnull MeetingRequestMeetingRequestForm meetingRequestForm) {
+        this(null, null, null, null, id, name, null, null, meetingRequestForm, null, null, null, null, null);
     }
 
     /**
@@ -269,7 +261,6 @@ public class MeetingRequest {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -277,7 +268,6 @@ public class MeetingRequest {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -287,7 +277,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -295,7 +284,6 @@ public class MeetingRequest {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -305,7 +293,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The unique ID representing the meeting request.
      */
@@ -314,7 +301,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The name of the specific meeting request.
      */
@@ -322,7 +308,6 @@ public class MeetingRequest {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The user-defined status of the meeting request. Possible statuses for requests are defined by the
@@ -333,7 +318,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The note about the status.
      */
@@ -341,7 +325,6 @@ public class MeetingRequest {
         this.statusNote = statusNote;
         return this;
     }
-
 
     /**
      * The meeting request form the request is associated with.
@@ -351,7 +334,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The list of possible answers to a question.
      */
@@ -360,7 +342,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The event the request is associated with.
      */
@@ -368,7 +349,6 @@ public class MeetingRequest {
         this.event = event;
         return this;
     }
-
 
     /**
      * The ID for the meeting request in an external system. NOTE: This value is expected to be unique for
@@ -379,7 +359,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The meeting request code for reference.
      */
@@ -388,7 +367,6 @@ public class MeetingRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this request was archived.
      */
@@ -396,7 +374,6 @@ public class MeetingRequest {
         this.archiveDate = archiveDate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -407,54 +384,77 @@ public class MeetingRequest {
             return false;
         }
         MeetingRequest other = (MeetingRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.statusNote, other.statusNote) &&
-            Utils.enhancedDeepEquals(this.meetingRequestForm, other.meetingRequestForm) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.archiveDate, other.archiveDate);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.statusNote, other.statusNote)
+                && Utils.enhancedDeepEquals(this.meetingRequestForm, other.meetingRequestForm)
+                && Utils.enhancedDeepEquals(this.questions, other.questions)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.archiveDate, other.archiveDate);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            status, statusNote, meetingRequestForm,
-            questions, event, sourceId,
-            code, archiveDate);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                name,
+                status,
+                statusNote,
+                meetingRequestForm,
+                questions,
+                event,
+                sourceId,
+                code,
+                archiveDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequest.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "status", status,
-                "statusNote", statusNote,
-                "meetingRequestForm", meetingRequestForm,
-                "questions", questions,
-                "event", event,
-                "sourceId", sourceId,
-                "code", code,
-                "archiveDate", archiveDate);
+        return Utils.toString(
+                MeetingRequest.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "status",
+                status,
+                "statusNote",
+                statusNote,
+                "meetingRequestForm",
+                meetingRequestForm,
+                "questions",
+                questions,
+                "event",
+                event,
+                "sourceId",
+                sourceId,
+                "code",
+                code,
+                "archiveDate",
+                archiveDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -485,7 +485,7 @@ public class MeetingRequest {
         private String archiveDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -604,12 +604,20 @@ public class MeetingRequest {
 
         public MeetingRequest build() {
             return new MeetingRequest(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                status, statusNote, meetingRequestForm,
-                questions, event, sourceId,
-                code, archiveDate);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    name,
+                    status,
+                    statusNote,
+                    meetingRequestForm,
+                    questions,
+                    event,
+                    sourceId,
+                    code,
+                    archiveDate);
         }
-
     }
 }

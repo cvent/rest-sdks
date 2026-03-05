@@ -40,7 +40,7 @@ public class GetTableAssignmentRequestBuilder {
     private GetTableAssignmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetTableAssignmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetTableAssignmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetTableAssignmentResponse> call() {
-        AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation
-              = new GetTableAssignment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
+                new GetTableAssignment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetTableAssignmentRequestBuilder {
      */
     public Publisher<GetTableAssignmentResponse> callAsPublisher() {
         GetTableAssignmentRequest request = this.request;
-        AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation
-              = new GetTableAssignment.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
+                new GetTableAssignment.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetTableAssignmentRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetTableAssignmentRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetTableAssignmentResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

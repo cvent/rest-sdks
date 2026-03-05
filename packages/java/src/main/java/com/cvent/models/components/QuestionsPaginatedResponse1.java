@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * QuestionsPaginatedResponse1
- * 
+ *
  * <p>A paginated list of Questions.
  */
 public class QuestionsPaginatedResponse1 {
@@ -41,7 +41,7 @@ public class QuestionsPaginatedResponse1 {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public QuestionsPaginatedResponse1() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class QuestionsPaginatedResponse1 {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +72,6 @@ public class QuestionsPaginatedResponse1 {
         return this;
     }
 
-
     /**
      * Collection of Questions.
      */
@@ -81,7 +79,6 @@ public class QuestionsPaginatedResponse1 {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class QuestionsPaginatedResponse1 {
             return false;
         }
         QuestionsPaginatedResponse1 other = (QuestionsPaginatedResponse1) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionsPaginatedResponse1.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(QuestionsPaginatedResponse1.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<QuestionWithProgramIdJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class QuestionsPaginatedResponse1 {
         }
 
         public QuestionsPaginatedResponse1 build() {
-            return new QuestionsPaginatedResponse1(
-                paging, data);
+            return new QuestionsPaginatedResponse1(paging, data);
         }
-
     }
 }

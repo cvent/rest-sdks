@@ -19,13 +19,13 @@ public enum SeatingAssignmentExpand {
     SeatingAssignmentExpand(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SeatingAssignmentExpand> fromValue(String value) {
-        for (SeatingAssignmentExpand o: SeatingAssignmentExpand.values()) {
+        for (SeatingAssignmentExpand o : SeatingAssignmentExpand.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -33,4 +33,3 @@ public enum SeatingAssignmentExpand {
         return Optional.empty();
     }
 }
-

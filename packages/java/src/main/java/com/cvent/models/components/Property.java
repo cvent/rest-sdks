@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * Property
- * 
+ *
  * <p>Details of the property
  */
 public class Property {
@@ -140,20 +140,14 @@ public class Property {
         this.chain = chain;
         this.brand = brand;
         this.code = code;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
-        this.currencyCode = Optional.ofNullable(currencyCode)
-            .orElse(Builder._SINGLETON_VALUE_CurrencyCode.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.currencyCode = Optional.ofNullable(currencyCode).orElse(Builder._SINGLETON_VALUE_CurrencyCode.value());
         this.address = address;
         this.externalCodes = externalCodes;
     }
-    
+
     public Property() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -252,7 +246,6 @@ public class Property {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -260,7 +253,6 @@ public class Property {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -270,7 +262,6 @@ public class Property {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -278,7 +269,6 @@ public class Property {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -288,7 +278,6 @@ public class Property {
         return this;
     }
 
-
     /**
      * The ID of the property.
      */
@@ -296,7 +285,6 @@ public class Property {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the property.
@@ -306,7 +294,6 @@ public class Property {
         return this;
     }
 
-
     /**
      * The chain that the property belongs to.
      */
@@ -314,7 +301,6 @@ public class Property {
         this.chain = chain;
         return this;
     }
-
 
     /**
      * The brand that the property belongs to.
@@ -324,7 +310,6 @@ public class Property {
         return this;
     }
 
-
     /**
      * The property code for the property.
      */
@@ -332,7 +317,6 @@ public class Property {
         this.code = code;
         return this;
     }
-
 
     /**
      * True indicates that the property is deleted.
@@ -342,7 +326,6 @@ public class Property {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code specified for the property.
      */
@@ -351,7 +334,6 @@ public class Property {
         return this;
     }
 
-
     /**
      * A physical address.
      */
@@ -359,7 +341,6 @@ public class Property {
         this.address = address;
         return this;
     }
-
 
     /**
      * Collection of external codes for a property. This includes GDS nd other codes used to identify a
@@ -370,7 +351,6 @@ public class Property {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -380,52 +360,73 @@ public class Property {
             return false;
         }
         Property other = (Property) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.chain, other.chain) &&
-            Utils.enhancedDeepEquals(this.brand, other.brand) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.address, other.address) &&
-            Utils.enhancedDeepEquals(this.externalCodes, other.externalCodes);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.chain, other.chain)
+                && Utils.enhancedDeepEquals(this.brand, other.brand)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.externalCodes, other.externalCodes);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            chain, brand, code,
-            deleted, currencyCode, address,
-            externalCodes);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                name,
+                chain,
+                brand,
+                code,
+                deleted,
+                currencyCode,
+                address,
+                externalCodes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Property.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "chain", chain,
-                "brand", brand,
-                "code", code,
-                "deleted", deleted,
-                "currencyCode", currencyCode,
-                "address", address,
-                "externalCodes", externalCodes);
+        return Utils.toString(
+                Property.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "chain",
+                chain,
+                "brand",
+                brand,
+                "code",
+                code,
+                "deleted",
+                deleted,
+                "currencyCode",
+                currencyCode,
+                "address",
+                address,
+                "externalCodes",
+                externalCodes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -454,7 +455,7 @@ public class Property {
         private List<PropertyExternalCodeJson> externalCodes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -564,24 +565,25 @@ public class Property {
 
         public Property build() {
             return new Property(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                chain, brand, code,
-                deleted, currencyCode, address,
-                externalCodes);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    name,
+                    chain,
+                    brand,
+                    code,
+                    deleted,
+                    currencyCode,
+                    address,
+                    externalCodes);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<String> _SINGLETON_VALUE_CurrencyCode =
-                new LazySingletonValue<>(
-                        "currencyCode",
-                        "\"USD\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("currencyCode", "\"USD\"", new TypeReference<String>() {});
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttributeReturnedTypeJson
- * 
+ *
  * <p>This is used to denote the returned type of the attribute.
  */
 public enum AttributeReturnedTypeJson {
@@ -25,13 +25,13 @@ public enum AttributeReturnedTypeJson {
     AttributeReturnedTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttributeReturnedTypeJson> fromValue(String value) {
-        for (AttributeReturnedTypeJson o: AttributeReturnedTypeJson.values()) {
+        for (AttributeReturnedTypeJson o : AttributeReturnedTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum AttributeReturnedTypeJson {
         return Optional.empty();
     }
 }
-

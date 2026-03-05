@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateCustomFieldTranslationRequest {
     /**
      * The unique identifier of a custom field.
@@ -27,13 +26,11 @@ public class CreateCustomFieldTranslationRequest {
     private Translation1 translation1;
 
     @JsonCreator
-    public CreateCustomFieldTranslationRequest(
-            @Nonnull String customFieldId,
-            @Nonnull Translation1 translation1) {
+    public CreateCustomFieldTranslationRequest(@Nonnull String customFieldId, @Nonnull Translation1 translation1) {
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.translation1 = Optional.ofNullable(translation1)
-            .orElseThrow(() -> new IllegalArgumentException("translation1 cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("translation1 cannot be null"));
     }
 
     /**
@@ -54,7 +51,6 @@ public class CreateCustomFieldTranslationRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a custom field.
      */
@@ -63,7 +59,6 @@ public class CreateCustomFieldTranslationRequest {
         return this;
     }
 
-
     /**
      * Translation details to be created for the custom field.
      */
@@ -71,7 +66,6 @@ public class CreateCustomFieldTranslationRequest {
         this.translation1 = Utils.checkNotNull(translation1, "translation1");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +76,34 @@ public class CreateCustomFieldTranslationRequest {
             return false;
         }
         CreateCustomFieldTranslationRequest other = (CreateCustomFieldTranslationRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.translation1, other.translation1);
+        return Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.translation1, other.translation1);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            customFieldId, translation1);
+        return Utils.enhancedHash(customFieldId, translation1);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateCustomFieldTranslationRequest.class,
-                "customFieldId", customFieldId,
-                "translation1", translation1);
+        return Utils.toString(
+                CreateCustomFieldTranslationRequest.class,
+                "customFieldId",
+                customFieldId,
+                "translation1",
+                translation1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String customFieldId;
 
         private Translation1 translation1;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +123,7 @@ public class CreateCustomFieldTranslationRequest {
         }
 
         public CreateCustomFieldTranslationRequest build() {
-            return new CreateCustomFieldTranslationRequest(
-                customFieldId, translation1);
+            return new CreateCustomFieldTranslationRequest(customFieldId, translation1);
         }
-
     }
 }

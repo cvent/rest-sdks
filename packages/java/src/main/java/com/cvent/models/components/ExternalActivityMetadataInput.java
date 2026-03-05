@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ExternalActivityMetadataInput
- * 
+ *
  * <p>Metadata for an activity.
  */
 public class ExternalActivityMetadataInput {
@@ -53,19 +53,14 @@ public class ExternalActivityMetadataInput {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("fields") @Nullable List<ExternalActivitiesAdditionalFieldsMetadataJson> fields) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.fields = fields;
     }
-    
-    public ExternalActivityMetadataInput(
-            @Nonnull ExternalActivityTypeJson type,
-            @Nonnull String name) {
-        this(type, name, null,
-            null);
+
+    public ExternalActivityMetadataInput(@Nonnull ExternalActivityTypeJson type, @Nonnull String name) {
+        this(type, name, null, null);
     }
 
     /**
@@ -100,7 +95,6 @@ public class ExternalActivityMetadataInput {
         return new Builder();
     }
 
-
     /**
      * This is used to denote the type of the external attendee activity.
      */
@@ -108,7 +102,6 @@ public class ExternalActivityMetadataInput {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * Name of an external attendee activity.
@@ -118,7 +111,6 @@ public class ExternalActivityMetadataInput {
         return this;
     }
 
-
     /**
      * Description of an external attendee activity.
      */
@@ -127,15 +119,14 @@ public class ExternalActivityMetadataInput {
         return this;
     }
 
-
     /**
      * Metadata for the fields.
      */
-    public ExternalActivityMetadataInput withFields(@Nullable List<ExternalActivitiesAdditionalFieldsMetadataJson> fields) {
+    public ExternalActivityMetadataInput withFields(
+            @Nullable List<ExternalActivitiesAdditionalFieldsMetadataJson> fields) {
         this.fields = fields;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +137,33 @@ public class ExternalActivityMetadataInput {
             return false;
         }
         ExternalActivityMetadataInput other = (ExternalActivityMetadataInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.fields, other.fields);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.fields, other.fields);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, name, description,
-            fields);
+        return Utils.enhancedHash(type, name, description, fields);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivityMetadataInput.class,
-                "type", type,
-                "name", name,
-                "description", description,
-                "fields", fields);
+        return Utils.toString(
+                ExternalActivityMetadataInput.class,
+                "type",
+                type,
+                "name",
+                name,
+                "description",
+                description,
+                "fields",
+                fields);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExternalActivityTypeJson type;
 
@@ -181,7 +174,7 @@ public class ExternalActivityMetadataInput {
         private List<ExternalActivitiesAdditionalFieldsMetadataJson> fields;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +210,7 @@ public class ExternalActivityMetadataInput {
         }
 
         public ExternalActivityMetadataInput build() {
-            return new ExternalActivityMetadataInput(
-                type, name, description,
-                fields);
+            return new ExternalActivityMetadataInput(type, name, description, fields);
         }
-
     }
 }

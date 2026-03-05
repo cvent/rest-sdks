@@ -17,7 +17,6 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
 public class ListProcessFormSubmissionRequest {
     /**
      * The maximum number of requests or forms that can be fetched at once.
@@ -49,11 +48,11 @@ public class ListProcessFormSubmissionRequest {
      * This endpoint enables users to request the process form name in an extended response by utilizing
      * the expand query parameter. The expanded process form including the name is fetched and presented
      * inline for each specified expand value.
-     * 
+     *
      * <p>A process form submission includes the ID of a corresponding process form in its response
      * properties. By employing the expand query parameter, users can access the process form name within
      * the process form submission.
-     * 
+     *
      * <p>The following fields are expandable:
      * * process-form
      */
@@ -65,7 +64,7 @@ public class ListProcessFormSubmissionRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq)
      * * process-form.id (eq)
@@ -82,18 +81,16 @@ public class ListProcessFormSubmissionRequest {
             @Nullable OffsetDateTime before,
             @Nullable List<ProcessFormExpand> expand,
             @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.after = after;
         this.before = before;
         this.expand = expand;
         this.filter = filter;
     }
-    
+
     public ListProcessFormSubmissionRequest() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -130,11 +127,11 @@ public class ListProcessFormSubmissionRequest {
      * This endpoint enables users to request the process form name in an extended response by utilizing
      * the expand query parameter. The expanded process form including the name is fetched and presented
      * inline for each specified expand value.
-     * 
+     *
      * <p>A process form submission includes the ID of a corresponding process form in its response
      * properties. By employing the expand query parameter, users can access the process form name within
      * the process form submission.
-     * 
+     *
      * <p>The following fields are expandable:
      * * process-form
      */
@@ -147,7 +144,7 @@ public class ListProcessFormSubmissionRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq)
      * * process-form.id (eq)
@@ -161,7 +158,6 @@ public class ListProcessFormSubmissionRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of requests or forms that can be fetched at once.
      */
@@ -169,7 +165,6 @@ public class ListProcessFormSubmissionRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -180,7 +175,6 @@ public class ListProcessFormSubmissionRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -190,7 +184,6 @@ public class ListProcessFormSubmissionRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -199,16 +192,15 @@ public class ListProcessFormSubmissionRequest {
         return this;
     }
 
-
     /**
      * This endpoint enables users to request the process form name in an extended response by utilizing
      * the expand query parameter. The expanded process form including the name is fetched and presented
      * inline for each specified expand value.
-     * 
+     *
      * <p>A process form submission includes the ID of a corresponding process form in its response
      * properties. By employing the expand query parameter, users can access the process form name within
      * the process form submission.
-     * 
+     *
      * <p>The following fields are expandable:
      * * process-form
      */
@@ -217,13 +209,12 @@ public class ListProcessFormSubmissionRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq)
      * * process-form.id (eq)
@@ -234,7 +225,6 @@ public class ListProcessFormSubmissionRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -244,35 +234,39 @@ public class ListProcessFormSubmissionRequest {
             return false;
         }
         ListProcessFormSubmissionRequest other = (ListProcessFormSubmissionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.expand, other.expand)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, after,
-            before, expand, filter);
+        return Utils.enhancedHash(limit, token, after, before, expand, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListProcessFormSubmissionRequest.class,
-                "limit", limit,
-                "token", token,
-                "after", after,
-                "before", before,
-                "expand", expand,
-                "filter", filter);
+        return Utils.toString(
+                ListProcessFormSubmissionRequest.class,
+                "limit",
+                limit,
+                "token",
+                token,
+                "after",
+                after,
+                "before",
+                before,
+                "expand",
+                expand,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -287,7 +281,7 @@ public class ListProcessFormSubmissionRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -328,11 +322,11 @@ public class ListProcessFormSubmissionRequest {
          * This endpoint enables users to request the process form name in an extended response by utilizing
          * the expand query parameter. The expanded process form including the name is fetched and presented
          * inline for each specified expand value.
-         * 
+         *
          * <p>A process form submission includes the ID of a corresponding process form in its response
          * properties. By employing the expand query parameter, users can access the process form name within
          * the process form submission.
-         * 
+         *
          * <p>The following fields are expandable:
          * * process-form
          */
@@ -346,7 +340,7 @@ public class ListProcessFormSubmissionRequest {
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
          * This is the comparison type that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * event.id (eq)
          * * process-form.id (eq)
@@ -358,16 +352,10 @@ public class ListProcessFormSubmissionRequest {
         }
 
         public ListProcessFormSubmissionRequest build() {
-            return new ListProcessFormSubmissionRequest(
-                limit, token, after,
-                before, expand, filter);
+            return new ListProcessFormSubmissionRequest(limit, token, after, before, expand, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "10",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "10", new TypeReference<Long>() {});
     }
 }

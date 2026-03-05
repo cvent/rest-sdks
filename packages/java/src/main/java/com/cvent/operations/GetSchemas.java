@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 import static com.cvent.operations.Operations.RequestlessOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -33,10 +33,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class GetSchemas {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -45,7 +44,7 @@ public class GetSchemas {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -81,13 +80,11 @@ public class GetSchemas {
                     java.util.Optional.of(java.util.List.of("account/users:read")),
                     securitySource());
         }
+
         HttpRequest buildRequest() throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/scim/v2/Schemas");
+            String url = Utils.generateURL(this.baseUrl, "/scim/v2/Schemas");
             HTTPRequest req = new HTTPRequest(url, "GET");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -95,8 +92,7 @@ public class GetSchemas {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestlessOperation<GetSchemasResponse> {
+    public static class Sync extends Base implements RequestlessOperation<GetSchemasResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -106,11 +102,11 @@ public class GetSchemas {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -135,22 +131,16 @@ public class GetSchemas {
             return httpRes;
         }
 
-
         @Override
         public GetSchemasResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            GetSchemasResponse.Builder resBuilder =
-                    GetSchemasResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            GetSchemasResponse.Builder resBuilder = GetSchemasResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             GetSchemasResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withUsersSchemas(Utils.unmarshal(response, new TypeReference<UsersSchemas>() {}));
@@ -176,6 +166,7 @@ public class GetSchemas {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
             implements AsyncRequestlessOperation<com.cvent.models.operations.async.GetSchemasResponse> {
 
@@ -198,7 +189,9 @@ public class GetSchemas {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest() {
-            return unchecked(() -> onBuildRequest()).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest())
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -215,19 +208,15 @@ public class GetSchemas {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.GetSchemasResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.GetSchemasResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.GetSchemasResponse
-                            .builder()
+                    com.cvent.models.operations.async.GetSchemasResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.GetSchemasResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<UsersSchemas>() {})
@@ -238,8 +227,7 @@ public class GetSchemas {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponseJson20.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponseJson20.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum StatusJson
     {
-        [JsonProperty("Not Started")]
-        NotStarted,
-        [JsonProperty("In Progress")]
-        InProgress,
-        [JsonProperty("Complete")]
-        Complete,
+        [JsonProperty("Not Started")] NotStarted,
+        [JsonProperty("In Progress")] InProgress,
+        [JsonProperty("Complete")] Complete,
     }
 
     public static class StatusJsonExtension
     {
         public static string Value(this StatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static StatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(StatusJson).GetFields())
+            foreach (var field in typeof(StatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

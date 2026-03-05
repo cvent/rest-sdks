@@ -2,6 +2,14 @@
 
 This is used to denote how a contact is opt'd out of Cvent system.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = OptoutByJson.AbuseComplaint;
+```
+
 
 ## Values
 

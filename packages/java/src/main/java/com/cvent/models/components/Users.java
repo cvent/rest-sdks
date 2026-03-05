@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * Users
- * 
+ *
  * <p>A page in a paginated list of SCIM users. This would return the list of users.
  */
 public class Users {
@@ -69,10 +69,9 @@ public class Users {
         this.totalResults = totalResults;
         this.resources = resources;
     }
-    
+
     public Users() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -114,7 +113,6 @@ public class Users {
         return new Builder();
     }
 
-
     /**
      * The collection of user schemas.
      */
@@ -122,7 +120,6 @@ public class Users {
         this.schemas = schemas;
         return this;
     }
-
 
     /**
      * The number of users per page.
@@ -132,7 +129,6 @@ public class Users {
         return this;
     }
 
-
     /**
      * Starting index of the response.
      */
@@ -140,7 +136,6 @@ public class Users {
         this.startIndex = startIndex;
         return this;
     }
-
 
     /**
      * The total count of users.
@@ -150,7 +145,6 @@ public class Users {
         return this;
     }
 
-
     /**
      * The collection of user resources.
      */
@@ -158,7 +152,6 @@ public class Users {
         this.resources = resources;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -169,33 +162,36 @@ public class Users {
             return false;
         }
         Users other = (Users) o;
-        return 
-            Utils.enhancedDeepEquals(this.schemas, other.schemas) &&
-            Utils.enhancedDeepEquals(this.itemsPerPage, other.itemsPerPage) &&
-            Utils.enhancedDeepEquals(this.startIndex, other.startIndex) &&
-            Utils.enhancedDeepEquals(this.totalResults, other.totalResults) &&
-            Utils.enhancedDeepEquals(this.resources, other.resources);
+        return Utils.enhancedDeepEquals(this.schemas, other.schemas)
+                && Utils.enhancedDeepEquals(this.itemsPerPage, other.itemsPerPage)
+                && Utils.enhancedDeepEquals(this.startIndex, other.startIndex)
+                && Utils.enhancedDeepEquals(this.totalResults, other.totalResults)
+                && Utils.enhancedDeepEquals(this.resources, other.resources);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            schemas, itemsPerPage, startIndex,
-            totalResults, resources);
+        return Utils.enhancedHash(schemas, itemsPerPage, startIndex, totalResults, resources);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Users.class,
-                "schemas", schemas,
-                "itemsPerPage", itemsPerPage,
-                "startIndex", startIndex,
-                "totalResults", totalResults,
-                "resources", resources);
+        return Utils.toString(
+                Users.class,
+                "schemas",
+                schemas,
+                "itemsPerPage",
+                itemsPerPage,
+                "startIndex",
+                startIndex,
+                "totalResults",
+                totalResults,
+                "resources",
+                resources);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<String> schemas;
 
@@ -208,7 +204,7 @@ public class Users {
         private List<UserJson> resources;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -252,10 +248,7 @@ public class Users {
         }
 
         public Users build() {
-            return new Users(
-                schemas, itemsPerPage, startIndex,
-                totalResults, resources);
+            return new Users(schemas, itemsPerPage, startIndex, totalResults, resources);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ContactTypeJson1
- * 
+ *
  * <p>The contact types used for the proposal.
  */
 public enum ContactTypeJson1 {
@@ -23,13 +23,13 @@ public enum ContactTypeJson1 {
     ContactTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ContactTypeJson1> fromValue(String value) {
-        for (ContactTypeJson1 o: ContactTypeJson1.values()) {
+        for (ContactTypeJson1 o : ContactTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ContactTypeJson1 {
         return Optional.empty();
     }
 }
-

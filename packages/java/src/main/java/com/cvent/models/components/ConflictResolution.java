@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ConflictResolution
- * 
+ *
  * <p>Represents choices in resolving conflicts in the contacts to be merged or to optionally select
  * fields to keep from a secondary contact, overriding default behavior.
  */
@@ -65,10 +65,9 @@ public class ConflictResolution {
         this.relatedContacts = relatedContacts;
         this.contactFields = contactFields;
     }
-    
+
     public ConflictResolution() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -108,7 +107,6 @@ public class ConflictResolution {
         return new Builder();
     }
 
-
     /**
      * For each event (designated by event id), choose a contact id whose linked attendee will be
      * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
@@ -118,7 +116,6 @@ public class ConflictResolution {
         this.events = events;
         return this;
     }
-
 
     /**
      * For each survey (designated by survey id), choose a contact id whose linked respondent will be
@@ -130,7 +127,6 @@ public class ConflictResolution {
         return this;
     }
 
-
     /**
      * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact
      * can be chosen, and relationships of the other contact(s) will be discarded.
@@ -140,7 +136,6 @@ public class ConflictResolution {
         return this;
     }
 
-
     /**
      * Specify which contact to use values from for any contact field.
      */
@@ -148,7 +143,6 @@ public class ConflictResolution {
         this.contactFields = contactFields;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -159,31 +153,33 @@ public class ConflictResolution {
             return false;
         }
         ConflictResolution other = (ConflictResolution) o;
-        return 
-            Utils.enhancedDeepEquals(this.events, other.events) &&
-            Utils.enhancedDeepEquals(this.surveys, other.surveys) &&
-            Utils.enhancedDeepEquals(this.relatedContacts, other.relatedContacts) &&
-            Utils.enhancedDeepEquals(this.contactFields, other.contactFields);
+        return Utils.enhancedDeepEquals(this.events, other.events)
+                && Utils.enhancedDeepEquals(this.surveys, other.surveys)
+                && Utils.enhancedDeepEquals(this.relatedContacts, other.relatedContacts)
+                && Utils.enhancedDeepEquals(this.contactFields, other.contactFields);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            events, surveys, relatedContacts,
-            contactFields);
+        return Utils.enhancedHash(events, surveys, relatedContacts, contactFields);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ConflictResolution.class,
-                "events", events,
-                "surveys", surveys,
-                "relatedContacts", relatedContacts,
-                "contactFields", contactFields);
+        return Utils.toString(
+                ConflictResolution.class,
+                "events",
+                events,
+                "surveys",
+                surveys,
+                "relatedContacts",
+                relatedContacts,
+                "contactFields",
+                contactFields);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<EventContactIdJson> events;
 
@@ -194,7 +190,7 @@ public class ConflictResolution {
         private List<ContactMergeFieldJson> contactFields;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -235,10 +231,7 @@ public class ConflictResolution {
         }
 
         public ConflictResolution build() {
-            return new ConflictResolution(
-                events, surveys, relatedContacts,
-                contactFields);
+            return new ConflictResolution(events, surveys, relatedContacts, contactFields);
         }
-
     }
 }

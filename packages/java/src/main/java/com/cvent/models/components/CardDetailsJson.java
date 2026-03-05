@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * CardDetailsJson
- * 
+ *
  * <p>Card details associated with an event.
  */
 public class CardDetailsJson {
@@ -205,15 +205,29 @@ public class CardDetailsJson {
         this.cardHolderName = cardHolderName;
         this.last7 = last7;
     }
-    
+
     public CardDetailsJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -360,7 +374,6 @@ public class CardDetailsJson {
         return new Builder();
     }
 
-
     /**
      * The identifier of the Event.
      */
@@ -368,7 +381,6 @@ public class CardDetailsJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The identifier of the Card.
@@ -378,7 +390,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Card's first six digits.
      */
@@ -386,7 +397,6 @@ public class CardDetailsJson {
         this.first6 = first6;
         return this;
     }
-
 
     /**
      * Card's last four digits.
@@ -396,7 +406,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * This is used to denote the card type for a card.
      */
@@ -404,7 +413,6 @@ public class CardDetailsJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * This is used to denote the card status for a card.
@@ -414,7 +422,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Card issuer name.
      */
@@ -422,7 +429,6 @@ public class CardDetailsJson {
         this.issuer = issuer;
         return this;
     }
-
 
     /**
      * Card spending limit.
@@ -432,7 +438,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Total cleared transaction amount.
      */
@@ -440,7 +445,6 @@ public class CardDetailsJson {
         this.totalTransactionAmount = totalTransactionAmount;
         return this;
     }
-
 
     /**
      * Card available balance.
@@ -450,7 +454,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Description of the card.
      */
@@ -458,7 +461,6 @@ public class CardDetailsJson {
         this.description = description;
         return this;
     }
-
 
     /**
      * The company/organization the contact belongs to.
@@ -468,7 +470,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Name of the purchase template.
      */
@@ -476,7 +477,6 @@ public class CardDetailsJson {
         this.purchaseTemplate = purchaseTemplate;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time for card start date.
@@ -486,7 +486,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time for card end date.
      */
@@ -494,7 +493,6 @@ public class CardDetailsJson {
         this.end = end;
         return this;
     }
-
 
     /**
      * The billing account id for the virtual card.
@@ -504,7 +502,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * First and last name of the user who requested the card.
      */
@@ -512,7 +509,6 @@ public class CardDetailsJson {
         this.fullName = fullName;
         return this;
     }
-
 
     /**
      * The list of report fields and their values for a virtual card.
@@ -522,7 +518,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Name as it appears on card.
      */
@@ -531,7 +526,6 @@ public class CardDetailsJson {
         return this;
     }
 
-
     /**
      * Card's last seven digits.
      */
@@ -539,7 +533,6 @@ public class CardDetailsJson {
         this.last7 = last7;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -550,68 +543,101 @@ public class CardDetailsJson {
             return false;
         }
         CardDetailsJson other = (CardDetailsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.first6, other.first6) &&
-            Utils.enhancedDeepEquals(this.last4, other.last4) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.issuer, other.issuer) &&
-            Utils.enhancedDeepEquals(this.spendLimit, other.spendLimit) &&
-            Utils.enhancedDeepEquals(this.totalTransactionAmount, other.totalTransactionAmount) &&
-            Utils.enhancedDeepEquals(this.availableBalance, other.availableBalance) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.purchaseTemplate, other.purchaseTemplate) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.billingAccountId, other.billingAccountId) &&
-            Utils.enhancedDeepEquals(this.fullName, other.fullName) &&
-            Utils.enhancedDeepEquals(this.reportingFields, other.reportingFields) &&
-            Utils.enhancedDeepEquals(this.cardHolderName, other.cardHolderName) &&
-            Utils.enhancedDeepEquals(this.last7, other.last7);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.first6, other.first6)
+                && Utils.enhancedDeepEquals(this.last4, other.last4)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.issuer, other.issuer)
+                && Utils.enhancedDeepEquals(this.spendLimit, other.spendLimit)
+                && Utils.enhancedDeepEquals(this.totalTransactionAmount, other.totalTransactionAmount)
+                && Utils.enhancedDeepEquals(this.availableBalance, other.availableBalance)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.purchaseTemplate, other.purchaseTemplate)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.billingAccountId, other.billingAccountId)
+                && Utils.enhancedDeepEquals(this.fullName, other.fullName)
+                && Utils.enhancedDeepEquals(this.reportingFields, other.reportingFields)
+                && Utils.enhancedDeepEquals(this.cardHolderName, other.cardHolderName)
+                && Utils.enhancedDeepEquals(this.last7, other.last7);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, id, first6,
-            last4, type, status,
-            issuer, spendLimit, totalTransactionAmount,
-            availableBalance, description, company,
-            purchaseTemplate, start, end,
-            billingAccountId, fullName, reportingFields,
-            cardHolderName, last7);
+                event,
+                id,
+                first6,
+                last4,
+                type,
+                status,
+                issuer,
+                spendLimit,
+                totalTransactionAmount,
+                availableBalance,
+                description,
+                company,
+                purchaseTemplate,
+                start,
+                end,
+                billingAccountId,
+                fullName,
+                reportingFields,
+                cardHolderName,
+                last7);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CardDetailsJson.class,
-                "event", event,
-                "id", id,
-                "first6", first6,
-                "last4", last4,
-                "type", type,
-                "status", status,
-                "issuer", issuer,
-                "spendLimit", spendLimit,
-                "totalTransactionAmount", totalTransactionAmount,
-                "availableBalance", availableBalance,
-                "description", description,
-                "company", company,
-                "purchaseTemplate", purchaseTemplate,
-                "start", start,
-                "end", end,
-                "billingAccountId", billingAccountId,
-                "fullName", fullName,
-                "reportingFields", reportingFields,
-                "cardHolderName", cardHolderName,
-                "last7", last7);
+        return Utils.toString(
+                CardDetailsJson.class,
+                "event",
+                event,
+                "id",
+                id,
+                "first6",
+                first6,
+                "last4",
+                last4,
+                "type",
+                type,
+                "status",
+                status,
+                "issuer",
+                issuer,
+                "spendLimit",
+                spendLimit,
+                "totalTransactionAmount",
+                totalTransactionAmount,
+                "availableBalance",
+                availableBalance,
+                "description",
+                description,
+                "company",
+                company,
+                "purchaseTemplate",
+                purchaseTemplate,
+                "start",
+                start,
+                "end",
+                end,
+                "billingAccountId",
+                billingAccountId,
+                "fullName",
+                fullName,
+                "reportingFields",
+                reportingFields,
+                "cardHolderName",
+                cardHolderName,
+                "last7",
+                last7);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CardDetailsJsonEvent event;
 
@@ -654,7 +680,7 @@ public class CardDetailsJson {
         private String last7;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -819,14 +845,26 @@ public class CardDetailsJson {
 
         public CardDetailsJson build() {
             return new CardDetailsJson(
-                event, id, first6,
-                last4, type, status,
-                issuer, spendLimit, totalTransactionAmount,
-                availableBalance, description, company,
-                purchaseTemplate, start, end,
-                billingAccountId, fullName, reportingFields,
-                cardHolderName, last7);
+                    event,
+                    id,
+                    first6,
+                    last4,
+                    type,
+                    status,
+                    issuer,
+                    spendLimit,
+                    totalTransactionAmount,
+                    availableBalance,
+                    description,
+                    company,
+                    purchaseTemplate,
+                    start,
+                    end,
+                    billingAccountId,
+                    fullName,
+                    reportingFields,
+                    cardHolderName,
+                    last7);
         }
-
     }
 }

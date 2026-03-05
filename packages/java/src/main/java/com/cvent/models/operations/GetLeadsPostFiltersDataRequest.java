@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetLeadsPostFiltersDataRequest {
     /**
      * The maximum number of records to return per page.
@@ -58,17 +57,15 @@ public class GetLeadsPostFiltersDataRequest {
             @Nullable OffsetDateTime before,
             @Nullable OffsetDateTime after,
             @Nullable Filter filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.before = before;
         this.after = after;
         this.filter = filter;
     }
-    
+
     public GetLeadsPostFiltersDataRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -113,7 +110,6 @@ public class GetLeadsPostFiltersDataRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -121,7 +117,6 @@ public class GetLeadsPostFiltersDataRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -132,7 +127,6 @@ public class GetLeadsPostFiltersDataRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -140,7 +134,6 @@ public class GetLeadsPostFiltersDataRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -151,7 +144,6 @@ public class GetLeadsPostFiltersDataRequest {
         return this;
     }
 
-
     /**
      * See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of
      * leads</a> for full filtering information
@@ -160,7 +152,6 @@ public class GetLeadsPostFiltersDataRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,33 +162,36 @@ public class GetLeadsPostFiltersDataRequest {
             return false;
         }
         GetLeadsPostFiltersDataRequest other = (GetLeadsPostFiltersDataRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, before,
-            after, filter);
+        return Utils.enhancedHash(limit, token, before, after, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetLeadsPostFiltersDataRequest.class,
-                "limit", limit,
-                "token", token,
-                "before", before,
-                "after", after,
-                "filter", filter);
+        return Utils.toString(
+                GetLeadsPostFiltersDataRequest.class,
+                "limit",
+                limit,
+                "token",
+                token,
+                "before",
+                before,
+                "after",
+                after,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -210,7 +204,7 @@ public class GetLeadsPostFiltersDataRequest {
         private Filter filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -257,16 +251,10 @@ public class GetLeadsPostFiltersDataRequest {
         }
 
         public GetLeadsPostFiltersDataRequest build() {
-            return new GetLeadsPostFiltersDataRequest(
-                limit, token, before,
-                after, filter);
+            return new GetLeadsPostFiltersDataRequest(limit, token, before, after, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

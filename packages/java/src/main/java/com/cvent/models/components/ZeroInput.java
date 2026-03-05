@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ZeroInput
- * 
+ *
  * <p>An attendee link.
  */
 public class ZeroInput {
@@ -68,21 +68,18 @@ public class ZeroInput {
             @JsonProperty("attendee") @Nonnull UuidJson attendee,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("join") @Nullable WebcastLinkJson join) {
-        this.webcast = Optional.ofNullable(webcast)
-            .orElseThrow(() -> new IllegalArgumentException("webcast cannot be null"));
+        this.webcast =
+                Optional.ofNullable(webcast).orElseThrow(() -> new IllegalArgumentException("webcast cannot be null"));
         this.event = event;
         this.session = session;
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.sourceId = sourceId;
         this.join = join;
     }
-    
-    public ZeroInput(
-            @Nonnull UuidJson webcast,
-            @Nonnull UuidJson attendee) {
-        this(webcast, null, null,
-            attendee, null, null);
+
+    public ZeroInput(@Nonnull UuidJson webcast, @Nonnull UuidJson attendee) {
+        this(webcast, null, null, attendee, null, null);
     }
 
     /**
@@ -131,7 +128,6 @@ public class ZeroInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -139,7 +135,6 @@ public class ZeroInput {
         this.webcast = Utils.checkNotNull(webcast, "webcast");
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -149,7 +144,6 @@ public class ZeroInput {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -157,7 +151,6 @@ public class ZeroInput {
         this.session = session;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -167,7 +160,6 @@ public class ZeroInput {
         return this;
     }
 
-
     /**
      * Source Id of the webcast provider
      */
@@ -176,7 +168,6 @@ public class ZeroInput {
         return this;
     }
 
-
     /**
      * Link details for a webcast.
      */
@@ -184,7 +175,6 @@ public class ZeroInput {
         this.join = join;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -195,35 +185,39 @@ public class ZeroInput {
             return false;
         }
         ZeroInput other = (ZeroInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.webcast, other.webcast) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.join, other.join);
+        return Utils.enhancedDeepEquals(this.webcast, other.webcast)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.join, other.join);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            webcast, event, session,
-            attendee, sourceId, join);
+        return Utils.enhancedHash(webcast, event, session, attendee, sourceId, join);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroInput.class,
-                "webcast", webcast,
-                "event", event,
-                "session", session,
-                "attendee", attendee,
-                "sourceId", sourceId,
-                "join", join);
+        return Utils.toString(
+                ZeroInput.class,
+                "webcast",
+                webcast,
+                "event",
+                event,
+                "session",
+                session,
+                "attendee",
+                attendee,
+                "sourceId",
+                sourceId,
+                "join",
+                join);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson webcast;
 
@@ -238,7 +232,7 @@ public class ZeroInput {
         private WebcastLinkJson join;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -290,10 +284,7 @@ public class ZeroInput {
         }
 
         public ZeroInput build() {
-            return new ZeroInput(
-                webcast, event, session,
-                attendee, sourceId, join);
+            return new ZeroInput(webcast, event, session, attendee, sourceId, join);
         }
-
     }
 }

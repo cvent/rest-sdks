@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ConnectionResponse
- * 
+ *
  * <p>Connection response.
  */
 public class ConnectionResponse {
@@ -26,7 +26,7 @@ public class ConnectionResponse {
     /**
      * Status of the connection. `REQUESTED` indicates the connection request is being processed.
      * `NOT_CONNECTED` indicates there is no current connection.
-     * 
+     *
      * <p>`CONNECTED` indicates this housing event is connected to a registration event.
      */
     @JsonProperty("status")
@@ -44,8 +44,8 @@ public class ConnectionResponse {
             @JsonProperty("status") @Nonnull ConnectionResponseStatus status,
             @JsonProperty("defaultCallbacks") boolean defaultCallbacks) {
         this.eventId = eventId;
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.defaultCallbacks = defaultCallbacks;
     }
 
@@ -59,7 +59,7 @@ public class ConnectionResponse {
     /**
      * Status of the connection. `REQUESTED` indicates the connection request is being processed.
      * `NOT_CONNECTED` indicates there is no current connection.
-     * 
+     *
      * <p>`CONNECTED` indicates this housing event is connected to a registration event.
      */
     public ConnectionResponseStatus status() {
@@ -77,7 +77,6 @@ public class ConnectionResponse {
         return new Builder();
     }
 
-
     /**
      * ID for a housing event in Passkey.
      */
@@ -86,18 +85,16 @@ public class ConnectionResponse {
         return this;
     }
 
-
     /**
      * Status of the connection. `REQUESTED` indicates the connection request is being processed.
      * `NOT_CONNECTED` indicates there is no current connection.
-     * 
+     *
      * <p>`CONNECTED` indicates this housing event is connected to a registration event.
      */
     public ConnectionResponse withStatus(@Nonnull ConnectionResponseStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     /**
      * True indicates the integrated partner has callbacks enabled by default.
@@ -106,7 +103,6 @@ public class ConnectionResponse {
         this.defaultCallbacks = defaultCallbacks;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,24 @@ public class ConnectionResponse {
             return false;
         }
         ConnectionResponse other = (ConnectionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.defaultCallbacks, other.defaultCallbacks);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.defaultCallbacks, other.defaultCallbacks);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, status, defaultCallbacks);
+        return Utils.enhancedHash(eventId, status, defaultCallbacks);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ConnectionResponse.class,
-                "eventId", eventId,
-                "status", status,
-                "defaultCallbacks", defaultCallbacks);
+        return Utils.toString(
+                ConnectionResponse.class, "eventId", eventId, "status", status, "defaultCallbacks", defaultCallbacks);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long eventId;
 
@@ -147,7 +139,7 @@ public class ConnectionResponse {
         private boolean defaultCallbacks;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -161,7 +153,7 @@ public class ConnectionResponse {
         /**
          * Status of the connection. `REQUESTED` indicates the connection request is being processed.
          * `NOT_CONNECTED` indicates there is no current connection.
-         * 
+         *
          * <p>`CONNECTED` indicates this housing event is connected to a registration event.
          */
         public Builder status(@Nonnull ConnectionResponseStatus status) {
@@ -178,9 +170,7 @@ public class ConnectionResponse {
         }
 
         public ConnectionResponse build() {
-            return new ConnectionResponse(
-                eventId, status, defaultCallbacks);
+            return new ConnectionResponse(eventId, status, defaultCallbacks);
         }
-
     }
 }

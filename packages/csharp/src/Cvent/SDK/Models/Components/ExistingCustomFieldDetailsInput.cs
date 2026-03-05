@@ -20,27 +20,63 @@ namespace Cvent.SDK.Models.Components
 
     public class ExistingCustomFieldDetailsInputType
     {
-        private ExistingCustomFieldDetailsInputType(string value) { Value = value; }
+        private ExistingCustomFieldDetailsInputType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static ExistingCustomFieldDetailsInputType ZeroOneOf1 { get { return new ExistingCustomFieldDetailsInputType("0_OneOf_1"); } }
+        public static ExistingCustomFieldDetailsInputType ZeroOneOf1
+        {
+            get {
+                return new ExistingCustomFieldDetailsInputType("0_OneOf_1");
+            }
+        }
 
-        public static ExistingCustomFieldDetailsInputType OneOneOf { get { return new ExistingCustomFieldDetailsInputType("1_OneOf"); } }
+        public static ExistingCustomFieldDetailsInputType OneOneOf
+        {
+            get {
+                return new ExistingCustomFieldDetailsInputType("1_OneOf");
+            }
+        }
 
-        public static ExistingCustomFieldDetailsInputType Two { get { return new ExistingCustomFieldDetailsInputType("2"); } }
+        public static ExistingCustomFieldDetailsInputType Two
+        {
+            get {
+                return new ExistingCustomFieldDetailsInputType("2");
+            }
+        }
 
-        public static ExistingCustomFieldDetailsInputType ThreeInput { get { return new ExistingCustomFieldDetailsInputType("3_input"); } }
+        public static ExistingCustomFieldDetailsInputType ThreeInput
+        {
+            get {
+                return new ExistingCustomFieldDetailsInputType("3_input");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(ExistingCustomFieldDetailsInputType v) { return v.Value; }
-        public static ExistingCustomFieldDetailsInputType FromString(string v) {
-            switch(v) {
-                case "0_OneOf_1": return ZeroOneOf1;
-                case "1_OneOf": return OneOneOf;
-                case "2": return Two;
-                case "3_input": return ThreeInput;
-                default: throw new ArgumentException("Invalid value for ExistingCustomFieldDetailsInputType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(ExistingCustomFieldDetailsInputType v)
+        {
+            return v.Value;
+        }
+        public static ExistingCustomFieldDetailsInputType FromString(string v)
+        {
+            switch (v)
+            {
+                case "0_OneOf_1":
+                    return ZeroOneOf1;
+                case "1_OneOf":
+                    return OneOneOf;
+                case "2":
+                    return Two;
+                case "3_input":
+                    return ThreeInput;
+                default:
+                    throw new ArgumentException("Invalid value for ExistingCustomFieldDetailsInputType");
             }
         }
         public override bool Equals(object? obj)
@@ -133,8 +169,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.Two)
-                    {
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.Two) {
                         Two = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Two>(json)
                     };
                 }
@@ -153,8 +188,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ThreeInput)
-                    {
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ThreeInput) {
                         ThreeInput = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ThreeInput>(json)
                     };
                 }
@@ -173,8 +207,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ZeroOneOf1)
-                    {
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ZeroOneOf1) {
                         ZeroOneOf1 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf1>(json)
                     };
                 }
@@ -193,8 +226,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OneOneOf)
-                    {
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OneOneOf) {
                         OneOneOf = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OneOneOf>(json)
                     };
                 }
@@ -214,7 +246,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -267,8 +299,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

@@ -117,7 +117,7 @@ public class Surveys {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncSurveys async() {
@@ -126,9 +126,9 @@ public class Surveys {
 
     /**
      * List All Event Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for all events and surveys.
-     * 
+     *
      * @return The call builder
      */
     public GetAllEventSurveyResponsesRequestBuilder getAllEventSurveyResponses() {
@@ -137,25 +137,26 @@ public class Surveys {
 
     /**
      * List All Event Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for all events and surveys.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetAllEventSurveyResponsesResponse getAllEventSurveyResponses(@Nonnull GetAllEventSurveyResponsesRequest request) {
-        RequestOperation<GetAllEventSurveyResponsesRequest, GetAllEventSurveyResponsesResponse> operation
-              = new GetAllEventSurveyResponses.Sync(sdkConfiguration, _headers);
+    public GetAllEventSurveyResponsesResponse getAllEventSurveyResponses(
+            @Nonnull GetAllEventSurveyResponsesRequest request) {
+        RequestOperation<GetAllEventSurveyResponsesRequest, GetAllEventSurveyResponsesResponse> operation =
+                new GetAllEventSurveyResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Surveys
-     * 
+     *
      * <p>Gets a paginated list of surveys (id refers to chapter id and parentId is the survey id) associated
      * to a single event.
-     * 
+     *
      * @return The call builder
      */
     public GetEventSurveysRequestBuilder getEventSurveys() {
@@ -164,27 +165,27 @@ public class Surveys {
 
     /**
      * List Event Surveys
-     * 
+     *
      * <p>Gets a paginated list of surveys (id refers to chapter id and parentId is the survey id) associated
      * to a single event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventSurveysResponse getEventSurveys(@Nonnull GetEventSurveysRequest request) {
-        RequestOperation<GetEventSurveysRequest, GetEventSurveysResponse> operation
-              = new GetEventSurveys.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventSurveysRequest, GetEventSurveysResponse> operation =
+                new GetEventSurveys.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of event survey questions for a given event and survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @return The call builder
      */
     public GetEventSurveyQuestionsRequestBuilder getEventSurveyQuestions() {
@@ -193,26 +194,26 @@ public class Surveys {
 
     /**
      * List Event Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of event survey questions for a given event and survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventSurveyQuestionsResponse getEventSurveyQuestions(@Nonnull GetEventSurveyQuestionsRequest request) {
-        RequestOperation<GetEventSurveyQuestionsRequest, GetEventSurveyQuestionsResponse> operation
-              = new GetEventSurveyQuestions.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventSurveyQuestionsRequest, GetEventSurveyQuestionsResponse> operation =
+                new GetEventSurveyQuestions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of event survey respondents for a single event and survey.
-     * 
+     *
      * @return The call builder
      */
     public GetEventSurveyRespondentsRequestBuilder getEventSurveyRespondents() {
@@ -221,24 +222,25 @@ public class Surveys {
 
     /**
      * List Event Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of event survey respondents for a single event and survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetEventSurveyRespondentsResponse getEventSurveyRespondents(@Nonnull GetEventSurveyRespondentsRequest request) {
-        RequestOperation<GetEventSurveyRespondentsRequest, GetEventSurveyRespondentsResponse> operation
-              = new GetEventSurveyRespondents.Sync(sdkConfiguration, _headers);
+    public GetEventSurveyRespondentsResponse getEventSurveyRespondents(
+            @Nonnull GetEventSurveyRespondentsRequest request) {
+        RequestOperation<GetEventSurveyRespondentsRequest, GetEventSurveyRespondentsResponse> operation =
+                new GetEventSurveyRespondents.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Event Survey Respondent
-     * 
+     *
      * <p>Create a respondent for an event survey.
-     * 
+     *
      * @return The call builder
      */
     public CreateEventSurveyRespondentRequestBuilder createEventSurveyRespondent() {
@@ -247,24 +249,25 @@ public class Surveys {
 
     /**
      * Create Event Survey Respondent
-     * 
+     *
      * <p>Create a respondent for an event survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateEventSurveyRespondentResponse createEventSurveyRespondent(@Nonnull CreateEventSurveyRespondentRequest request) {
-        RequestOperation<CreateEventSurveyRespondentRequest, CreateEventSurveyRespondentResponse> operation
-              = new CreateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
+    public CreateEventSurveyRespondentResponse createEventSurveyRespondent(
+            @Nonnull CreateEventSurveyRespondentRequest request) {
+        RequestOperation<CreateEventSurveyRespondentRequest, CreateEventSurveyRespondentResponse> operation =
+                new CreateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Event Survey Respondent
-     * 
+     *
      * <p>Update respondent for an event survey.
-     * 
+     *
      * @return The call builder
      */
     public UpdateEventSurveyRespondentRequestBuilder updateEventSurveyRespondent() {
@@ -273,24 +276,25 @@ public class Surveys {
 
     /**
      * Update Event Survey Respondent
-     * 
+     *
      * <p>Update respondent for an event survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateEventSurveyRespondentResponse updateEventSurveyRespondent(@Nonnull UpdateEventSurveyRespondentRequest request) {
-        RequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation
-              = new UpdateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
+    public UpdateEventSurveyRespondentResponse updateEventSurveyRespondent(
+            @Nonnull UpdateEventSurveyRespondentRequest request) {
+        RequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation =
+                new UpdateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Event Survey Responses
-     * 
+     *
      * <p>Create responses for a particular respondent in an event survey.
-     * 
+     *
      * @return The call builder
      */
     public CreateEventSurveyResponsesRequestBuilder createEventSurveyResponses() {
@@ -299,24 +303,25 @@ public class Surveys {
 
     /**
      * Create Event Survey Responses
-     * 
+     *
      * <p>Create responses for a particular respondent in an event survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateEventSurveyResponsesResponse createEventSurveyResponses(@Nonnull CreateEventSurveyResponsesRequest request) {
-        RequestOperation<CreateEventSurveyResponsesRequest, CreateEventSurveyResponsesResponse> operation
-              = new CreateEventSurveyResponses.Sync(sdkConfiguration, _headers);
+    public CreateEventSurveyResponsesResponse createEventSurveyResponses(
+            @Nonnull CreateEventSurveyResponsesRequest request) {
+        RequestOperation<CreateEventSurveyResponsesRequest, CreateEventSurveyResponsesResponse> operation =
+                new CreateEventSurveyResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Event Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for a single event and survey.
-     * 
+     *
      * @return The call builder
      */
     public GetEventSurveyResponsesRequestBuilder getEventSurveyResponses() {
@@ -325,24 +330,24 @@ public class Surveys {
 
     /**
      * List Event Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for a single event and survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventSurveyResponsesResponse getEventSurveyResponses(@Nonnull GetEventSurveyResponsesRequest request) {
-        RequestOperation<GetEventSurveyResponsesRequest, GetEventSurveyResponsesResponse> operation
-              = new GetEventSurveyResponses.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventSurveyResponsesRequest, GetEventSurveyResponsesResponse> operation =
+                new GetEventSurveyResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Large Choices
-     * 
+     *
      * <p>Gets a paginated list of choices for large choice question`type` (`LargeChoices`).
-     * 
+     *
      * @return The call builder
      */
     public GetLargeChoicesRequestBuilder getLargeChoices() {
@@ -351,26 +356,26 @@ public class Surveys {
 
     /**
      * List Large Choices
-     * 
+     *
      * <p>Gets a paginated list of choices for large choice question`type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetLargeChoicesResponse getLargeChoices(@Nonnull GetLargeChoicesRequest request) {
-        RequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation
-              = new GetLargeChoices.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation =
+                new GetLargeChoices.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Questions
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey questions. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @return The call builder
      */
     public GetQuestionsRequestBuilder getQuestions() {
@@ -379,26 +384,26 @@ public class Surveys {
 
     /**
      * List Questions
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey questions. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetQuestionsResponse getQuestions(@Nonnull GetQuestionsRequest request) {
-        RequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation
-              = new GetQuestions.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation =
+                new GetQuestions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Respondents
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys respondents.
-     * 
+     *
      * @return The call builder
      */
     public GetRespondentsRequestBuilder getRespondents() {
@@ -407,24 +412,24 @@ public class Surveys {
 
     /**
      * List Respondents
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys respondents.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetRespondentsResponse getRespondents(@Nonnull GetRespondentsRequest request) {
-        RequestOperation<GetRespondentsRequest, GetRespondentsResponse> operation
-              = new GetRespondents.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetRespondentsRequest, GetRespondentsResponse> operation =
+                new GetRespondents.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Responses
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey responses.
-     * 
+     *
      * @return The call builder
      */
     public GetResponsesRequestBuilder getResponses() {
@@ -433,24 +438,24 @@ public class Surveys {
 
     /**
      * List Responses
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey responses.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetResponsesResponse getResponses(@Nonnull GetResponsesRequest request) {
-        RequestOperation<GetResponsesRequest, GetResponsesResponse> operation
-              = new GetResponses.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetResponsesRequest, GetResponsesResponse> operation =
+                new GetResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Standalone Surveys
-     * 
+     *
      * <p>Gets a paginated list of standalone surveys not associated with an event.
-     * 
+     *
      * @return The call builder
      */
     public GetStandardSurveysRequestBuilder getStandardSurveys() {
@@ -459,24 +464,24 @@ public class Surveys {
 
     /**
      * List Standalone Surveys
-     * 
+     *
      * <p>Gets a paginated list of standalone surveys not associated with an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetStandardSurveysResponse getStandardSurveys(@Nonnull GetStandardSurveysRequest request) {
-        RequestOperation<GetStandardSurveysRequest, GetStandardSurveysResponse> operation
-              = new GetStandardSurveys.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetStandardSurveysRequest, GetStandardSurveysResponse> operation =
+                new GetStandardSurveys.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Stdl. Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of standalone survey responses.
-     * 
+     *
      * @return The call builder
      */
     public GetStandardSurveyResponsesRequestBuilder getStandardSurveyResponses() {
@@ -485,24 +490,25 @@ public class Surveys {
 
     /**
      * List Stdl. Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of standalone survey responses.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetStandardSurveyResponsesResponse getStandardSurveyResponses(@Nonnull GetStandardSurveyResponsesRequest request) {
-        RequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation
-              = new GetStandardSurveyResponses.Sync(sdkConfiguration, _headers);
+    public GetStandardSurveyResponsesResponse getStandardSurveyResponses(
+            @Nonnull GetStandardSurveyResponsesRequest request) {
+        RequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation =
+                new GetStandardSurveyResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Stdl. Survey Email Templ.
-     * 
+     *
      * <p>Gets a paginated list of standalone survey email templates for a single survey.
-     * 
+     *
      * @return The call builder
      */
     public GetStandardSurveyEmailTemplatesRequestBuilder getStandardSurveyEmailTemplates() {
@@ -511,26 +517,27 @@ public class Surveys {
 
     /**
      * List Stdl. Survey Email Templ.
-     * 
+     *
      * <p>Gets a paginated list of standalone survey email templates for a single survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetStandardSurveyEmailTemplatesResponse getStandardSurveyEmailTemplates(@Nonnull GetStandardSurveyEmailTemplatesRequest request) {
-        RequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation
-              = new GetStandardSurveyEmailTemplates.Sync(sdkConfiguration, _headers);
+    public GetStandardSurveyEmailTemplatesResponse getStandardSurveyEmailTemplates(
+            @Nonnull GetStandardSurveyEmailTemplatesRequest request) {
+        RequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation =
+                new GetStandardSurveyEmailTemplates.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Stdl. Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of standalone survey questions for a single standalone survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @return The call builder
      */
     public GetStandardSurveyQuestionsRequestBuilder getStandardSurveyQuestions() {
@@ -539,26 +546,27 @@ public class Surveys {
 
     /**
      * List Stdl. Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of standalone survey questions for a single standalone survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetStandardSurveyQuestionsResponse getStandardSurveyQuestions(@Nonnull GetStandardSurveyQuestionsRequest request) {
-        RequestOperation<GetStandardSurveyQuestionsRequest, GetStandardSurveyQuestionsResponse> operation
-              = new GetStandardSurveyQuestions.Sync(sdkConfiguration, _headers);
+    public GetStandardSurveyQuestionsResponse getStandardSurveyQuestions(
+            @Nonnull GetStandardSurveyQuestionsRequest request) {
+        RequestOperation<GetStandardSurveyQuestionsRequest, GetStandardSurveyQuestionsResponse> operation =
+                new GetStandardSurveyQuestions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Stdl. Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of standalone survey respondents for a single standalone survey.
-     * 
+     *
      * @return The call builder
      */
     public GetStandardSurveyRespondentsRequestBuilder getStandardSurveyRespondents() {
@@ -567,24 +575,25 @@ public class Surveys {
 
     /**
      * List Stdl. Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of standalone survey respondents for a single standalone survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetStandardSurveyRespondentsResponse getStandardSurveyRespondents(@Nonnull GetStandardSurveyRespondentsRequest request) {
-        RequestOperation<GetStandardSurveyRespondentsRequest, GetStandardSurveyRespondentsResponse> operation
-              = new GetStandardSurveyRespondents.Sync(sdkConfiguration, _headers);
+    public GetStandardSurveyRespondentsResponse getStandardSurveyRespondents(
+            @Nonnull GetStandardSurveyRespondentsRequest request) {
+        RequestOperation<GetStandardSurveyRespondentsRequest, GetStandardSurveyRespondentsResponse> operation =
+                new GetStandardSurveyRespondents.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Stdl. Survey Respondent
-     * 
+     *
      * <p>Creates a respondent for a standalone survey.
-     * 
+     *
      * @return The call builder
      */
     public CreateStandardSurveyRespondentRequestBuilder createStandardSurveyRespondent() {
@@ -593,24 +602,25 @@ public class Surveys {
 
     /**
      * Create Stdl. Survey Respondent
-     * 
+     *
      * <p>Creates a respondent for a standalone survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateStandardSurveyRespondentResponse createStandardSurveyRespondent(@Nonnull CreateStandardSurveyRespondentRequest request) {
-        RequestOperation<CreateStandardSurveyRespondentRequest, CreateStandardSurveyRespondentResponse> operation
-              = new CreateStandardSurveyRespondent.Sync(sdkConfiguration, _headers);
+    public CreateStandardSurveyRespondentResponse createStandardSurveyRespondent(
+            @Nonnull CreateStandardSurveyRespondentRequest request) {
+        RequestOperation<CreateStandardSurveyRespondentRequest, CreateStandardSurveyRespondentResponse> operation =
+                new CreateStandardSurveyRespondent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Stdl. Survey Respondent
-     * 
+     *
      * <p>Update respondent for a standalone survey.
-     * 
+     *
      * @return The call builder
      */
     public UpdateStandardSurveyRespondentRequestBuilder updateStandardSurveyRespondent() {
@@ -619,24 +629,25 @@ public class Surveys {
 
     /**
      * Update Stdl. Survey Respondent
-     * 
+     *
      * <p>Update respondent for a standalone survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateStandardSurveyRespondentResponse updateStandardSurveyRespondent(@Nonnull UpdateStandardSurveyRespondentRequest request) {
-        RequestOperation<UpdateStandardSurveyRespondentRequest, UpdateStandardSurveyRespondentResponse> operation
-              = new UpdateStandardSurveyRespondent.Sync(sdkConfiguration, _headers);
+    public UpdateStandardSurveyRespondentResponse updateStandardSurveyRespondent(
+            @Nonnull UpdateStandardSurveyRespondentRequest request) {
+        RequestOperation<UpdateStandardSurveyRespondentRequest, UpdateStandardSurveyRespondentResponse> operation =
+                new UpdateStandardSurveyRespondent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Send Standalone Survey Email
-     * 
+     *
      * <p>Sends standalone survey email.
-     * 
+     *
      * @return The call builder
      */
     public SendStandardSurveyEmailRequestBuilder sendStandardSurveyEmail() {
@@ -645,24 +656,24 @@ public class Surveys {
 
     /**
      * Send Standalone Survey Email
-     * 
+     *
      * <p>Sends standalone survey email.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public SendStandardSurveyEmailResponse sendStandardSurveyEmail(@Nonnull SendStandardSurveyEmailRequest request) {
-        RequestOperation<SendStandardSurveyEmailRequest, SendStandardSurveyEmailResponse> operation
-              = new SendStandardSurveyEmail.Sync(sdkConfiguration, _headers);
+        RequestOperation<SendStandardSurveyEmailRequest, SendStandardSurveyEmailResponse> operation =
+                new SendStandardSurveyEmail.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Stdl. Survey Responses
-     * 
+     *
      * <p>Create responses for a particular standalone survey respondent.
-     * 
+     *
      * @return The call builder
      */
     public CreateStandardSurveyResponsesRequestBuilder createStandardSurveyResponses() {
@@ -671,24 +682,25 @@ public class Surveys {
 
     /**
      * Create Stdl. Survey Responses
-     * 
+     *
      * <p>Create responses for a particular standalone survey respondent.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateStandardSurveyResponsesResponse createStandardSurveyResponses(@Nonnull CreateStandardSurveyResponsesRequest request) {
-        RequestOperation<CreateStandardSurveyResponsesRequest, CreateStandardSurveyResponsesResponse> operation
-              = new CreateStandardSurveyResponses.Sync(sdkConfiguration, _headers);
+    public CreateStandardSurveyResponsesResponse createStandardSurveyResponses(
+            @Nonnull CreateStandardSurveyResponsesRequest request) {
+        RequestOperation<CreateStandardSurveyResponsesRequest, CreateStandardSurveyResponsesResponse> operation =
+                new CreateStandardSurveyResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Stdl. Survey Responses
-     * 
+     *
      * <p>Update responses for a particular standalone survey respondent.
-     * 
+     *
      * @return The call builder
      */
     public UpdateStandardSurveyResponsesRequestBuilder updateStandardSurveyResponses() {
@@ -697,24 +709,25 @@ public class Surveys {
 
     /**
      * Update Stdl. Survey Responses
-     * 
+     *
      * <p>Update responses for a particular standalone survey respondent.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateStandardSurveyResponsesResponse updateStandardSurveyResponses(@Nonnull UpdateStandardSurveyResponsesRequest request) {
-        RequestOperation<UpdateStandardSurveyResponsesRequest, UpdateStandardSurveyResponsesResponse> operation
-              = new UpdateStandardSurveyResponses.Sync(sdkConfiguration, _headers);
+    public UpdateStandardSurveyResponsesResponse updateStandardSurveyResponses(
+            @Nonnull UpdateStandardSurveyResponsesRequest request) {
+        RequestOperation<UpdateStandardSurveyResponsesRequest, UpdateStandardSurveyResponsesResponse> operation =
+                new UpdateStandardSurveyResponses.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Surveys
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys associated to an account.
-     * 
+     *
      * @return The call builder
      */
     public GetSurveyRequestBuilder getSurvey() {
@@ -723,17 +736,16 @@ public class Surveys {
 
     /**
      * List Surveys
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys associated to an account.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSurveyResponse getSurvey(@Nonnull GetSurveyRequest request) {
-        RequestOperation<GetSurveyRequest, GetSurveyResponse> operation
-              = new GetSurvey.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSurveyRequest, GetSurveyResponse> operation =
+                new GetSurvey.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

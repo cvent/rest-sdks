@@ -18,56 +18,37 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum MeetingRoomAgendaItemTypeJson
     {
-        [JsonProperty("Break")]
-        Break,
-        [JsonProperty("Breakfast")]
-        Breakfast,
-        [JsonProperty("Breakout")]
-        Breakout,
-        [JsonProperty("Dinner")]
-        Dinner,
-        [JsonProperty("Exhibit")]
-        Exhibit,
-        [JsonProperty("General Session")]
-        GeneralSession,
-        [JsonProperty("Hospitality Desk")]
-        HospitalityDesk,
-        [JsonProperty("Hospitality Suite")]
-        HospitalitySuite,
-        [JsonProperty("Lunch")]
-        Lunch,
-        [JsonProperty("Meeting")]
-        Meeting,
-        [JsonProperty("Office")]
-        Office,
-        [JsonProperty("Other")]
-        Other,
-        [JsonProperty("Reception")]
-        Reception,
-        [JsonProperty("Registration")]
-        Registration,
-        [JsonProperty("Setup")]
-        Setup,
-        [JsonProperty("Snack")]
-        Snack,
-        [JsonProperty("Speaker Room")]
-        SpeakerRoom,
-        [JsonProperty("Storage Room")]
-        StorageRoom,
-        [JsonProperty("Teardown")]
-        Teardown,
+        [JsonProperty("Break")] Break,
+        [JsonProperty("Breakfast")] Breakfast,
+        [JsonProperty("Breakout")] Breakout,
+        [JsonProperty("Dinner")] Dinner,
+        [JsonProperty("Exhibit")] Exhibit,
+        [JsonProperty("General Session")] GeneralSession,
+        [JsonProperty("Hospitality Desk")] HospitalityDesk,
+        [JsonProperty("Hospitality Suite")] HospitalitySuite,
+        [JsonProperty("Lunch")] Lunch,
+        [JsonProperty("Meeting")] Meeting,
+        [JsonProperty("Office")] Office,
+        [JsonProperty("Other")] Other,
+        [JsonProperty("Reception")] Reception,
+        [JsonProperty("Registration")] Registration,
+        [JsonProperty("Setup")] Setup,
+        [JsonProperty("Snack")] Snack,
+        [JsonProperty("Speaker Room")] SpeakerRoom,
+        [JsonProperty("Storage Room")] StorageRoom,
+        [JsonProperty("Teardown")] Teardown,
     }
 
     public static class MeetingRoomAgendaItemTypeJsonExtension
     {
         public static string Value(this MeetingRoomAgendaItemTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static MeetingRoomAgendaItemTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(MeetingRoomAgendaItemTypeJson).GetFields())
+            foreach (var field in typeof(MeetingRoomAgendaItemTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

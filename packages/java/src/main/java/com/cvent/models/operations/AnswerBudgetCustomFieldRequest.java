@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AnswerBudgetCustomFieldRequest {
     /**
      * Unique ID of an event.
@@ -44,14 +43,13 @@ public class AnswerBudgetCustomFieldRequest {
             @Nonnull String budgetItemId,
             @Nonnull String customFieldId,
             @Nonnull CustomFieldInput customField) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.customField = Optional.ofNullable(customField)
-            .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
     }
 
     /**
@@ -86,7 +84,6 @@ public class AnswerBudgetCustomFieldRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -94,7 +91,6 @@ public class AnswerBudgetCustomFieldRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a budget item.
@@ -104,7 +100,6 @@ public class AnswerBudgetCustomFieldRequest {
         return this;
     }
 
-
     /**
      * Unique ID of the custom field.
      */
@@ -113,7 +108,6 @@ public class AnswerBudgetCustomFieldRequest {
         return this;
     }
 
-
     /**
      * Custom field answer to be updated.
      */
@@ -121,7 +115,6 @@ public class AnswerBudgetCustomFieldRequest {
         this.customField = Utils.checkNotNull(customField, "customField");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +125,33 @@ public class AnswerBudgetCustomFieldRequest {
             return false;
         }
         AnswerBudgetCustomFieldRequest other = (AnswerBudgetCustomFieldRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId) &&
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.customField, other.customField);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
+                && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.customField, other.customField);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId, customFieldId,
-            customField);
+        return Utils.enhancedHash(id, budgetItemId, customFieldId, customField);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AnswerBudgetCustomFieldRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId,
-                "customFieldId", customFieldId,
-                "customField", customField);
+        return Utils.toString(
+                AnswerBudgetCustomFieldRequest.class,
+                "id",
+                id,
+                "budgetItemId",
+                budgetItemId,
+                "customFieldId",
+                customFieldId,
+                "customField",
+                customField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +162,7 @@ public class AnswerBudgetCustomFieldRequest {
         private CustomFieldInput customField;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +198,7 @@ public class AnswerBudgetCustomFieldRequest {
         }
 
         public AnswerBudgetCustomFieldRequest build() {
-            return new AnswerBudgetCustomFieldRequest(
-                id, budgetItemId, customFieldId,
-                customField);
+            return new AnswerBudgetCustomFieldRequest(id, budgetItemId, customFieldId, customField);
         }
-
     }
 }

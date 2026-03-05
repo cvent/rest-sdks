@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelProgramPaginatedResponse
- * 
+ *
  * <p>A paginated list of travel programs.
  */
 public class TravelProgramPaginatedResponse {
@@ -41,7 +41,7 @@ public class TravelProgramPaginatedResponse {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public TravelProgramPaginatedResponse() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class TravelProgramPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +72,6 @@ public class TravelProgramPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of travel programs and their related details.
      */
@@ -81,7 +79,6 @@ public class TravelProgramPaginatedResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class TravelProgramPaginatedResponse {
             return false;
         }
         TravelProgramPaginatedResponse other = (TravelProgramPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelProgramPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(TravelProgramPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<TravelProgram> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class TravelProgramPaginatedResponse {
         }
 
         public TravelProgramPaginatedResponse build() {
-            return new TravelProgramPaginatedResponse(
-                paging, data);
+            return new TravelProgramPaginatedResponse(paging, data);
         }
-
     }
 }

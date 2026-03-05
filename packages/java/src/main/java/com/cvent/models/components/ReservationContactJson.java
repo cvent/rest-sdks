@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ReservationContactJson
- * 
+ *
  * <p>Reservation contact details for this event.
  */
 public class ReservationContactJson {
@@ -58,10 +58,9 @@ public class ReservationContactJson {
         this.tollFree = tollFree;
         this.email = email;
     }
-    
+
     public ReservationContactJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ReservationContactJson {
         return new Builder();
     }
 
-
     /**
      * Phone number.
      */
@@ -104,7 +102,6 @@ public class ReservationContactJson {
         this.phone = phone;
         return this;
     }
-
 
     /**
      * Fax number.
@@ -114,7 +111,6 @@ public class ReservationContactJson {
         return this;
     }
 
-
     /**
      * Toll-free number.
      */
@@ -123,7 +119,6 @@ public class ReservationContactJson {
         return this;
     }
 
-
     /**
      * Email address.
      */
@@ -131,7 +126,6 @@ public class ReservationContactJson {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,25 @@ public class ReservationContactJson {
             return false;
         }
         ReservationContactJson other = (ReservationContactJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.phone, other.phone) &&
-            Utils.enhancedDeepEquals(this.fax, other.fax) &&
-            Utils.enhancedDeepEquals(this.tollFree, other.tollFree) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.fax, other.fax)
+                && Utils.enhancedDeepEquals(this.tollFree, other.tollFree)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            phone, fax, tollFree,
-            email);
+        return Utils.enhancedHash(phone, fax, tollFree, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationContactJson.class,
-                "phone", phone,
-                "fax", fax,
-                "tollFree", tollFree,
-                "email", email);
+        return Utils.toString(
+                ReservationContactJson.class, "phone", phone, "fax", fax, "tollFree", tollFree, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String phone;
 
@@ -177,7 +165,7 @@ public class ReservationContactJson {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +201,7 @@ public class ReservationContactJson {
         }
 
         public ReservationContactJson build() {
-            return new ReservationContactJson(
-                phone, fax, tollFree,
-                email);
+            return new ReservationContactJson(phone, fax, tollFree, email);
         }
-
     }
 }

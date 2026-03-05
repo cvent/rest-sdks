@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * VideoJson
- * 
+ *
  * <p>The details of a video
  */
 public class VideoJson {
@@ -27,11 +27,10 @@ public class VideoJson {
     private String id;
 
     @JsonCreator
-    public VideoJson(
-            @JsonProperty("id") @Nullable String id) {
+    public VideoJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public VideoJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class VideoJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the video.
      */
@@ -55,7 +53,6 @@ public class VideoJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class VideoJson {
             return false;
         }
         VideoJson other = (VideoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoJson.class,
-                "id", id);
+        return Utils.toString(VideoJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class VideoJson {
         }
 
         public VideoJson build() {
-            return new VideoJson(
-                id);
+            return new VideoJson(id);
         }
-
     }
 }

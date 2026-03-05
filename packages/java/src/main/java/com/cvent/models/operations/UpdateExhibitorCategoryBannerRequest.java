@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorCategoryBannerRequest {
     /**
      * ID of an event.
@@ -33,15 +32,12 @@ public class UpdateExhibitorCategoryBannerRequest {
 
     @JsonCreator
     public UpdateExhibitorCategoryBannerRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorCategoryId,
-            @Nonnull String fileId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorCategoryId, @Nonnull String fileId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorCategoryId = Optional.ofNullable(exhibitorCategoryId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
-        this.fileId = Optional.ofNullable(fileId)
-            .orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
+        this.fileId =
+                Optional.ofNullable(fileId).orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
     }
 
     /**
@@ -69,7 +65,6 @@ public class UpdateExhibitorCategoryBannerRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +72,6 @@ public class UpdateExhibitorCategoryBannerRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor category.
@@ -87,7 +81,6 @@ public class UpdateExhibitorCategoryBannerRequest {
         return this;
     }
 
-
     /**
      * ID of a file.
      */
@@ -95,7 +88,6 @@ public class UpdateExhibitorCategoryBannerRequest {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +98,30 @@ public class UpdateExhibitorCategoryBannerRequest {
             return false;
         }
         UpdateExhibitorCategoryBannerRequest other = (UpdateExhibitorCategoryBannerRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId) &&
-            Utils.enhancedDeepEquals(this.fileId, other.fileId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId)
+                && Utils.enhancedDeepEquals(this.fileId, other.fileId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorCategoryId, fileId);
+        return Utils.enhancedHash(id, exhibitorCategoryId, fileId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorCategoryBannerRequest.class,
-                "id", id,
-                "exhibitorCategoryId", exhibitorCategoryId,
-                "fileId", fileId);
+        return Utils.toString(
+                UpdateExhibitorCategoryBannerRequest.class,
+                "id",
+                id,
+                "exhibitorCategoryId",
+                exhibitorCategoryId,
+                "fileId",
+                fileId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +130,7 @@ public class UpdateExhibitorCategoryBannerRequest {
         private String fileId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +158,7 @@ public class UpdateExhibitorCategoryBannerRequest {
         }
 
         public UpdateExhibitorCategoryBannerRequest build() {
-            return new UpdateExhibitorCategoryBannerRequest(
-                id, exhibitorCategoryId, fileId);
+            return new UpdateExhibitorCategoryBannerRequest(id, exhibitorCategoryId, fileId);
         }
-
     }
 }

@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetAlternateTravelAnswersRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -48,15 +47,15 @@ public class GetAlternateTravelAnswersRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -79,18 +78,14 @@ public class GetAlternateTravelAnswersRequest {
             @Nonnull String id) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
-    public GetAlternateTravelAnswersRequest(
-            @Nonnull String id) {
-        this(null, null, null,
-            null, null, id);
+
+    public GetAlternateTravelAnswersRequest(@Nonnull String id) {
+        this(null, null, null, null, null, id);
     }
 
     /**
@@ -127,15 +122,15 @@ public class GetAlternateTravelAnswersRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -154,7 +149,6 @@ public class GetAlternateTravelAnswersRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -164,7 +158,6 @@ public class GetAlternateTravelAnswersRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -173,7 +166,6 @@ public class GetAlternateTravelAnswersRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -181,7 +173,6 @@ public class GetAlternateTravelAnswersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -192,20 +183,19 @@ public class GetAlternateTravelAnswersRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -214,7 +204,6 @@ public class GetAlternateTravelAnswersRequest {
         return this;
     }
 
-
     /**
      * ID of an event.
      */
@@ -222,7 +211,6 @@ public class GetAlternateTravelAnswersRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -233,35 +221,39 @@ public class GetAlternateTravelAnswersRequest {
             return false;
         }
         GetAlternateTravelAnswersRequest other = (GetAlternateTravelAnswersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter, id);
+        return Utils.enhancedHash(after, before, limit, token, filter, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAlternateTravelAnswersRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "id", id);
+        return Utils.toString(
+                GetAlternateTravelAnswersRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -276,7 +268,7 @@ public class GetAlternateTravelAnswersRequest {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -317,15 +309,15 @@ public class GetAlternateTravelAnswersRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field            | Operators                          | Notes
          * |
          * |------------------|-------------------------------------|------------------------------------------------|
          * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
          * filter     |
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * or
          */
@@ -343,16 +335,10 @@ public class GetAlternateTravelAnswersRequest {
         }
 
         public GetAlternateTravelAnswersRequest build() {
-            return new GetAlternateTravelAnswersRequest(
-                after, before, limit,
-                token, filter, id);
+            return new GetAlternateTravelAnswersRequest(after, before, limit, token, filter, id);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

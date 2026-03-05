@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CreatedBy
- * 
+ *
  * <p>Denotes how the compliance request was created.
  */
 public enum CreatedBy {
@@ -31,13 +31,13 @@ public enum CreatedBy {
     CreatedBy(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CreatedBy> fromValue(String value) {
-        for (CreatedBy o: CreatedBy.values()) {
+        for (CreatedBy o : CreatedBy.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -45,4 +45,3 @@ public enum CreatedBy {
         return Optional.empty();
     }
 }
-

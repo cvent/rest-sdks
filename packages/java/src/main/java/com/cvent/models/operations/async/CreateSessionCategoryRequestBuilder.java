@@ -30,7 +30,7 @@ public class CreateSessionCategoryRequestBuilder {
     private SessionCategoryInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateSessionCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateSessionCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateSessionCategoryResponse> call() {
-        AsyncRequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation
-              = new CreateSessionCategory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation =
+                new CreateSessionCategory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

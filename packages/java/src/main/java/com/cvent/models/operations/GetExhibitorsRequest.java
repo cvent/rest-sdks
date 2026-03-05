@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetExhibitorsRequest {
     /**
      * ID of an event.
@@ -54,11 +53,11 @@ public class GetExhibitorsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * hidden (eq)
      * * deleted (eq)
@@ -75,20 +74,16 @@ public class GetExhibitorsRequest {
             @Nullable OffsetDateTime before,
             @Nullable OffsetDateTime after,
             @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.before = before;
         this.after = after;
         this.filter = filter;
     }
-    
-    public GetExhibitorsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null);
+
+    public GetExhibitorsRequest(@Nonnull String id) {
+        this(id, null, null, null, null, null);
     }
 
     /**
@@ -132,11 +127,11 @@ public class GetExhibitorsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * hidden (eq)
      * * deleted (eq)
@@ -150,7 +145,6 @@ public class GetExhibitorsRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -159,7 +153,6 @@ public class GetExhibitorsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -167,7 +160,6 @@ public class GetExhibitorsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -178,7 +170,6 @@ public class GetExhibitorsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -186,7 +177,6 @@ public class GetExhibitorsRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -197,16 +187,15 @@ public class GetExhibitorsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * hidden (eq)
      * * deleted (eq)
@@ -217,7 +206,6 @@ public class GetExhibitorsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -227,35 +215,39 @@ public class GetExhibitorsRequest {
             return false;
         }
         GetExhibitorsRequest other = (GetExhibitorsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            before, after, filter);
+        return Utils.enhancedHash(id, limit, token, before, after, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorsRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "before", before,
-                "after", after,
-                "filter", filter);
+        return Utils.toString(
+                GetExhibitorsRequest.class,
+                "id",
+                id,
+                "limit",
+                limit,
+                "token",
+                token,
+                "before",
+                before,
+                "after",
+                after,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -270,7 +262,7 @@ public class GetExhibitorsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -319,11 +311,11 @@ public class GetExhibitorsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * hidden (eq)
          * * deleted (eq)
@@ -335,16 +327,10 @@ public class GetExhibitorsRequest {
         }
 
         public GetExhibitorsRequest build() {
-            return new GetExhibitorsRequest(
-                id, limit, token,
-                before, after, filter);
+            return new GetExhibitorsRequest(id, limit, token, before, after, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

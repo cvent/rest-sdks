@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * DisplayInDataTagJson
- * 
+ *
  * <p>This option allows you to choose whether to display the custom field in emails. The field name and
  * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
  * display always or only when answered.
- * 
+ *
  * <p>Only applicable to session custom fields.
  */
 public enum DisplayInDataTagJson {
@@ -28,13 +28,13 @@ public enum DisplayInDataTagJson {
     DisplayInDataTagJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DisplayInDataTagJson> fromValue(String value) {
-        for (DisplayInDataTagJson o: DisplayInDataTagJson.values()) {
+        for (DisplayInDataTagJson o : DisplayInDataTagJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum DisplayInDataTagJson {
         return Optional.empty();
     }
 }
-

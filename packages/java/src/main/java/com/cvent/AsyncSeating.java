@@ -62,21 +62,20 @@ public class AsyncSeating {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Seating sync() {
         return syncSDK;
     }
 
-
     /**
      * List Seating
-     * 
+     *
      * <p>Get seating details for the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSeatingRequestBuilder listSeating() {
@@ -85,29 +84,27 @@ public class AsyncSeating {
 
     /**
      * List Seating
-     * 
+     *
      * <p>Get seating details for the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSeatingResponse>} - The async response
      */
     public CompletableFuture<ListSeatingResponse> listSeating(@Nonnull ListSeatingRequest request) {
-        AsyncRequestOperation<ListSeatingRequest, ListSeatingResponse> operation
-              = new ListSeating.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSeatingRequest, ListSeatingResponse> operation =
+                new ListSeating.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List All Seating Assignments
-     * 
+     *
      * <p>Gets all the table assignments across all the seatings in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetEventTableAssignmentsRequestBuilder getEventTableAssignments() {
@@ -116,29 +113,28 @@ public class AsyncSeating {
 
     /**
      * List All Seating Assignments
-     * 
+     *
      * <p>Gets all the table assignments across all the seatings in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEventTableAssignmentsResponse>} - The async response
      */
-    public CompletableFuture<GetEventTableAssignmentsResponse> getEventTableAssignments(@Nonnull GetEventTableAssignmentsRequest request) {
-        AsyncRequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation
-              = new GetEventTableAssignments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetEventTableAssignmentsResponse> getEventTableAssignments(
+            @Nonnull GetEventTableAssignmentsRequest request) {
+        AsyncRequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation =
+                new GetEventTableAssignments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Seating
-     * 
+     *
      * <p>Get seating details for the given event by seating ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSeatingRequestBuilder getSeating() {
@@ -147,29 +143,27 @@ public class AsyncSeating {
 
     /**
      * Get Seating
-     * 
+     *
      * <p>Get seating details for the given event by seating ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSeatingResponse>} - The async response
      */
     public CompletableFuture<GetSeatingResponse> getSeating(@Nonnull GetSeatingRequest request) {
-        AsyncRequestOperation<GetSeatingRequest, GetSeatingResponse> operation
-              = new GetSeating.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSeatingRequest, GetSeatingResponse> operation =
+                new GetSeating.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Seating Assignments
-     * 
+     *
      * <p>Gets the table assignments for a given seating ID in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetTableAssignmentRequestBuilder getTableAssignment() {
@@ -178,29 +172,28 @@ public class AsyncSeating {
 
     /**
      * List Seating Assignments
-     * 
+     *
      * <p>Gets the table assignments for a given seating ID in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTableAssignmentResponse>} - The async response
      */
-    public CompletableFuture<GetTableAssignmentResponse> getTableAssignment(@Nonnull GetTableAssignmentRequest request) {
-        AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation
-              = new GetTableAssignment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetTableAssignmentResponse> getTableAssignment(
+            @Nonnull GetTableAssignmentRequest request) {
+        AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
+                new GetTableAssignment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Tables
-     * 
+     *
      * <p>Get table details for a given seating.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListTablesRequestBuilder listTables() {
@@ -209,29 +202,27 @@ public class AsyncSeating {
 
     /**
      * List Tables
-     * 
+     *
      * <p>Get table details for a given seating.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTablesResponse>} - The async response
      */
     public CompletableFuture<ListTablesResponse> listTables(@Nonnull ListTablesRequest request) {
-        AsyncRequestOperation<ListTablesRequest, ListTablesResponse> operation
-              = new ListTables.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListTablesRequest, ListTablesResponse> operation =
+                new ListTables.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Table
-     * 
+     *
      * <p>Get table info for given event by seating ID and table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetTableRequestBuilder getTable() {
@@ -240,29 +231,27 @@ public class AsyncSeating {
 
     /**
      * Get Table
-     * 
+     *
      * <p>Get table info for given event by seating ID and table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTableResponse>} - The async response
      */
     public CompletableFuture<GetTableResponse> getTable(@Nonnull GetTableRequest request) {
-        AsyncRequestOperation<GetTableRequest, GetTableResponse> operation
-              = new GetTable.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTableRequest, GetTableResponse> operation =
+                new GetTable.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Seats
-     * 
+     *
      * <p>Get seat details for given table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSeatsRequestBuilder listSeats() {
@@ -271,29 +260,27 @@ public class AsyncSeating {
 
     /**
      * List Seats
-     * 
+     *
      * <p>Get seat details for given table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSeatsResponse>} - The async response
      */
     public CompletableFuture<ListSeatsResponse> listSeats(@Nonnull ListSeatsRequest request) {
-        AsyncRequestOperation<ListSeatsRequest, ListSeatsResponse> operation
-              = new ListSeats.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSeatsRequest, ListSeatsResponse> operation =
+                new ListSeats.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Seat
-     * 
+     *
      * <p>Get seat info for given event by seating ID, table ID, and seat ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSeatRequestBuilder getSeat() {
@@ -302,19 +289,17 @@ public class AsyncSeating {
 
     /**
      * Get Seat
-     * 
+     *
      * <p>Get seat info for given event by seating ID, table ID, and seat ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSeatResponse>} - The async response
      */
     public CompletableFuture<GetSeatResponse> getSeat(@Nonnull GetSeatRequest request) {
-        AsyncRequestOperation<GetSeatRequest, GetSeatResponse> operation
-              = new GetSeat.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSeatRequest, GetSeatResponse> operation =
+                new GetSeat.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

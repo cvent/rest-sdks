@@ -2,6 +2,14 @@
 
 Denotes the format of an event.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = EventFormatJson.InPerson;
+```
+
 
 ## Values
 

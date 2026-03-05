@@ -22,7 +22,8 @@ public class UpdateContactCustomFieldAnswersRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public UpdateContactCustomFieldAnswersRequestBuilder request(@Nonnull UpdateContactCustomFieldAnswersRequest request) {
+    public UpdateContactCustomFieldAnswersRequestBuilder request(
+            @Nonnull UpdateContactCustomFieldAnswersRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class UpdateContactCustomFieldAnswersRequestBuilder {
     private UpdateContactCustomFieldAnswersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateContactCustomFieldAnswersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class UpdateContactCustomFieldAnswersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateContactCustomFieldAnswersResponse> call() {
-        AsyncRequestOperation<UpdateContactCustomFieldAnswersRequest, UpdateContactCustomFieldAnswersResponse> operation
-              = new UpdateContactCustomFieldAnswers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateContactCustomFieldAnswersRequest, UpdateContactCustomFieldAnswersResponse> operation =
+                new UpdateContactCustomFieldAnswers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

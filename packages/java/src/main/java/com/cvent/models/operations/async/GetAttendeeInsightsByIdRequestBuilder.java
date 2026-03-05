@@ -30,7 +30,7 @@ public class GetAttendeeInsightsByIdRequestBuilder {
     private GetAttendeeInsightsByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAttendeeInsightsByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetAttendeeInsightsByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAttendeeInsightsByIdResponse> call() {
-        AsyncRequestOperation<GetAttendeeInsightsByIdRequest, GetAttendeeInsightsByIdResponse> operation
-              = new GetAttendeeInsightsById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAttendeeInsightsByIdRequest, GetAttendeeInsightsByIdResponse> operation =
+                new GetAttendeeInsightsById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestCustomFieldJsonCustomFieldType
- * 
+ *
  * <p>The type of data collected by a custom field.
  */
 public enum MeetingRequestCustomFieldJsonCustomFieldType {
@@ -40,13 +40,13 @@ public enum MeetingRequestCustomFieldJsonCustomFieldType {
     MeetingRequestCustomFieldJsonCustomFieldType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<MeetingRequestCustomFieldJsonCustomFieldType> fromValue(String value) {
-        for (MeetingRequestCustomFieldJsonCustomFieldType o: MeetingRequestCustomFieldJsonCustomFieldType.values()) {
+        for (MeetingRequestCustomFieldJsonCustomFieldType o : MeetingRequestCustomFieldJsonCustomFieldType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -54,4 +54,3 @@ public enum MeetingRequestCustomFieldJsonCustomFieldType {
         return Optional.empty();
     }
 }
-

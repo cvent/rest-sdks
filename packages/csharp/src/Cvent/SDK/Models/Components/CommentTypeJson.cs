@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CommentTypeJson
     {
-        [JsonProperty("promotions")]
-        Promotions,
-        [JsonProperty("special_offers")]
-        SpecialOffers,
-        [JsonProperty("child_policies")]
-        ChildPolicies,
-        [JsonProperty("other_information")]
-        OtherInformation,
-        [JsonProperty("internal_comments")]
-        InternalComments,
+        [JsonProperty("promotions")] Promotions,
+        [JsonProperty("special_offers")] SpecialOffers,
+        [JsonProperty("child_policies")] ChildPolicies,
+        [JsonProperty("other_information")] OtherInformation,
+        [JsonProperty("internal_comments")] InternalComments,
     }
 
     public static class CommentTypeJsonExtension
     {
         public static string Value(this CommentTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CommentTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(CommentTypeJson).GetFields())
+            foreach (var field in typeof(CommentTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DeviceTypeJson
- * 
+ *
  * <p>The device used to watch the video. Videos can be viewed on desktop, mobile or tablet.
  */
 public enum DeviceTypeJson {
@@ -24,13 +24,13 @@ public enum DeviceTypeJson {
     DeviceTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DeviceTypeJson> fromValue(String value) {
-        for (DeviceTypeJson o: DeviceTypeJson.values()) {
+        for (DeviceTypeJson o : DeviceTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum DeviceTypeJson {
         return Optional.empty();
     }
 }
-

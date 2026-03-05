@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -22,7 +22,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyQuestionJson
- * 
+ *
  * <p>An event survey question.
  */
 public class EventSurveyQuestionJson {
@@ -220,24 +220,38 @@ public class EventSurveyQuestionJson {
         this.notApplicableAnswer = notApplicableAnswer;
         this.otherAnswer = otherAnswer;
         this.comments = comments;
-        this.required = Optional.ofNullable(required)
-            .orElse(Builder._SINGLETON_VALUE_Required.value());
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
         this.fields = fields;
         this.maxScore = maxScore;
         this.totalSum = totalSum;
         this.survey = survey;
         this.event = event;
     }
-    
+
     public EventSurveyQuestionJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -398,7 +412,6 @@ public class EventSurveyQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -406,7 +419,6 @@ public class EventSurveyQuestionJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -416,7 +428,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -424,7 +435,6 @@ public class EventSurveyQuestionJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -434,7 +444,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * Text field ID.
      */
@@ -442,7 +451,6 @@ public class EventSurveyQuestionJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * text Value of the Field
@@ -452,7 +460,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * Reporting value of the Category, Its like a custom abbreviation
      */
@@ -460,7 +467,6 @@ public class EventSurveyQuestionJson {
         this.shortText = shortText;
         return this;
     }
-
 
     /**
      * Html of the question
@@ -470,7 +476,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * Question Code
      */
@@ -478,7 +483,6 @@ public class EventSurveyQuestionJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * Question Type.
@@ -488,7 +492,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * List of choices for the question.
      */
@@ -496,7 +499,6 @@ public class EventSurveyQuestionJson {
         this.choices = choices;
         return this;
     }
-
 
     /**
      * List of categories for the question.
@@ -506,7 +508,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * List of sub categories for matrix side-by-side questions
      */
@@ -514,7 +515,6 @@ public class EventSurveyQuestionJson {
         this.subCategories = subCategories;
         return this;
     }
-
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
@@ -524,7 +524,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
@@ -532,7 +531,6 @@ public class EventSurveyQuestionJson {
         this.otherAnswer = otherAnswer;
         return this;
     }
-
 
     /**
      * Text Value of Comments Input box placeholder
@@ -542,7 +540,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * Is this a mandatory question
      */
@@ -550,7 +547,6 @@ public class EventSurveyQuestionJson {
         this.required = required;
         return this;
     }
-
 
     /**
      * List of fields for form/matrix questions
@@ -560,7 +556,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * Max possible score
      */
@@ -568,7 +563,6 @@ public class EventSurveyQuestionJson {
         this.maxScore = maxScore;
         return this;
     }
-
 
     /**
      * Total configured sum of all choices for number allocation question
@@ -578,7 +572,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -587,7 +580,6 @@ public class EventSurveyQuestionJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -595,7 +587,6 @@ public class EventSurveyQuestionJson {
         this.event = event;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -606,73 +597,109 @@ public class EventSurveyQuestionJson {
             return false;
         }
         EventSurveyQuestionJson other = (EventSurveyQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.shortText, other.shortText) &&
-            Utils.enhancedDeepEquals(this.htmlText, other.htmlText) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.choices, other.choices) &&
-            Utils.enhancedDeepEquals(this.categories, other.categories) &&
-            Utils.enhancedDeepEquals(this.subCategories, other.subCategories) &&
-            Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer) &&
-            Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer) &&
-            Utils.enhancedDeepEquals(this.comments, other.comments) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.fields, other.fields) &&
-            Utils.enhancedDeepEquals(this.maxScore, other.maxScore) &&
-            Utils.enhancedDeepEquals(this.totalSum, other.totalSum) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.htmlText, other.htmlText)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.choices, other.choices)
+                && Utils.enhancedDeepEquals(this.categories, other.categories)
+                && Utils.enhancedDeepEquals(this.subCategories, other.subCategories)
+                && Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer)
+                && Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer)
+                && Utils.enhancedDeepEquals(this.comments, other.comments)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.fields, other.fields)
+                && Utils.enhancedDeepEquals(this.maxScore, other.maxScore)
+                && Utils.enhancedDeepEquals(this.totalSum, other.totalSum)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, text,
-            shortText, htmlText, code,
-            type, choices, categories,
-            subCategories, notApplicableAnswer, otherAnswer,
-            comments, required, fields,
-            maxScore, totalSum, survey,
-            event);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                text,
+                shortText,
+                htmlText,
+                code,
+                type,
+                choices,
+                categories,
+                subCategories,
+                notApplicableAnswer,
+                otherAnswer,
+                comments,
+                required,
+                fields,
+                maxScore,
+                totalSum,
+                survey,
+                event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyQuestionJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "text", text,
-                "shortText", shortText,
-                "htmlText", htmlText,
-                "code", code,
-                "type", type,
-                "choices", choices,
-                "categories", categories,
-                "subCategories", subCategories,
-                "notApplicableAnswer", notApplicableAnswer,
-                "otherAnswer", otherAnswer,
-                "comments", comments,
-                "required", required,
-                "fields", fields,
-                "maxScore", maxScore,
-                "totalSum", totalSum,
-                "survey", survey,
-                "event", event);
+        return Utils.toString(
+                EventSurveyQuestionJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "text",
+                text,
+                "shortText",
+                shortText,
+                "htmlText",
+                htmlText,
+                "code",
+                code,
+                "type",
+                type,
+                "choices",
+                choices,
+                "categories",
+                categories,
+                "subCategories",
+                subCategories,
+                "notApplicableAnswer",
+                notApplicableAnswer,
+                "otherAnswer",
+                otherAnswer,
+                "comments",
+                comments,
+                "required",
+                required,
+                "fields",
+                fields,
+                "maxScore",
+                maxScore,
+                "totalSum",
+                totalSum,
+                "survey",
+                survey,
+                "event",
+                event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -719,7 +746,7 @@ public class EventSurveyQuestionJson {
         private UuidJson event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -900,21 +927,31 @@ public class EventSurveyQuestionJson {
 
         public EventSurveyQuestionJson build() {
             return new EventSurveyQuestionJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, text,
-                shortText, htmlText, code,
-                type, choices, categories,
-                subCategories, notApplicableAnswer, otherAnswer,
-                comments, required, fields,
-                maxScore, totalSum, survey,
-                event);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    text,
+                    shortText,
+                    htmlText,
+                    code,
+                    type,
+                    choices,
+                    categories,
+                    subCategories,
+                    notApplicableAnswer,
+                    otherAnswer,
+                    comments,
+                    required,
+                    fields,
+                    maxScore,
+                    totalSum,
+                    survey,
+                    event);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
-                new LazySingletonValue<>(
-                        "required",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("required", "false", new TypeReference<Boolean>() {});
     }
 }

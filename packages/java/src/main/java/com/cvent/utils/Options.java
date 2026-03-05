@@ -3,8 +3,8 @@
  */
 package com.cvent.utils;
 
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
 
 public class Options {
 
@@ -29,11 +29,11 @@ public class Options {
         }
     }
 
-    public final static Builder builder() {
+    public static final Builder builder() {
         return new Builder();
     }
 
-    public final static class Builder {
+    public static final class Builder {
 
         private Optional<RetryConfig> retryConfig = Optional.empty();
 

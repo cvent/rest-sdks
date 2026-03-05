@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Action
- * 
+ *
  * <p>Action to take for a compliance request.
  */
 public enum Action {
@@ -23,13 +23,13 @@ public enum Action {
     Action(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Action> fromValue(String value) {
-        for (Action o: Action.values()) {
+        for (Action o : Action.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum Action {
         return Optional.empty();
     }
 }
-

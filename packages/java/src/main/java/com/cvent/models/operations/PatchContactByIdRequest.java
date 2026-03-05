@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PatchContactByIdRequest {
     /**
      * ID of a contact.
@@ -27,13 +26,10 @@ public class PatchContactByIdRequest {
     private ContactPatch contactPatch;
 
     @JsonCreator
-    public PatchContactByIdRequest(
-            @Nonnull String id,
-            @Nonnull ContactPatch contactPatch) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public PatchContactByIdRequest(@Nonnull String id, @Nonnull ContactPatch contactPatch) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.contactPatch = Optional.ofNullable(contactPatch)
-            .orElseThrow(() -> new IllegalArgumentException("contactPatch cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactPatch cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class PatchContactByIdRequest {
         return new Builder();
     }
 
-
     /**
      * ID of a contact.
      */
@@ -63,7 +58,6 @@ public class PatchContactByIdRequest {
         return this;
     }
 
-
     /**
      * Contact to be updated
      */
@@ -71,7 +65,6 @@ public class PatchContactByIdRequest {
         this.contactPatch = Utils.checkNotNull(contactPatch, "contactPatch");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,29 @@ public class PatchContactByIdRequest {
             return false;
         }
         PatchContactByIdRequest other = (PatchContactByIdRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.contactPatch, other.contactPatch);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.contactPatch, other.contactPatch);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, contactPatch);
+        return Utils.enhancedHash(id, contactPatch);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PatchContactByIdRequest.class,
-                "id", id,
-                "contactPatch", contactPatch);
+        return Utils.toString(PatchContactByIdRequest.class, "id", id, "contactPatch", contactPatch);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ContactPatch contactPatch;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +117,7 @@ public class PatchContactByIdRequest {
         }
 
         public PatchContactByIdRequest build() {
-            return new PatchContactByIdRequest(
-                id, contactPatch);
+            return new PatchContactByIdRequest(id, contactPatch);
         }
-
     }
 }

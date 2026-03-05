@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListAudienceSegmentsRequest {
     /**
      * The maximum number of records to return per page.
@@ -34,11 +33,11 @@ public class ListAudienceSegmentsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts. By default, data is sorted by lastModified ASC.
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * name
      * * lastModified
@@ -52,17 +51,17 @@ public class ListAudienceSegmentsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq/in) *(filters the list of all segments present in an event).*
      * * id (eq/in)
      * * deleted (eq)
      * * creationType (eq/in)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      */
@@ -90,20 +89,17 @@ public class ListAudienceSegmentsRequest {
             @Nonnull String filter,
             @Nullable OffsetDateTime before,
             @Nullable OffsetDateTime after) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
-        this.filter = Optional.ofNullable(filter)
-            .orElseThrow(() -> new IllegalArgumentException("filter cannot be null"));
+        this.filter =
+                Optional.ofNullable(filter).orElseThrow(() -> new IllegalArgumentException("filter cannot be null"));
         this.before = before;
         this.after = after;
     }
-    
-    public ListAudienceSegmentsRequest(
-            @Nonnull String filter) {
-        this(null, null, null,
-            filter, null, null);
+
+    public ListAudienceSegmentsRequest(@Nonnull String filter) {
+        this(null, null, null, filter, null, null);
     }
 
     /**
@@ -124,11 +120,11 @@ public class ListAudienceSegmentsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts. By default, data is sorted by lastModified ASC.
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * name
      * * lastModified
@@ -143,17 +139,17 @@ public class ListAudienceSegmentsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq/in) *(filters the list of all segments present in an event).*
      * * id (eq/in)
      * * deleted (eq)
      * * creationType (eq/in)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      */
@@ -180,7 +176,6 @@ public class ListAudienceSegmentsRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -188,7 +183,6 @@ public class ListAudienceSegmentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -199,15 +193,14 @@ public class ListAudienceSegmentsRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts. By default, data is sorted by lastModified ASC.
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * name
      * * lastModified
@@ -219,22 +212,21 @@ public class ListAudienceSegmentsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are comparison types that can be used in filter expressions:
      * * equal: eq
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq/in) *(filters the list of all segments present in an event).*
      * * id (eq/in)
      * * deleted (eq)
      * * creationType (eq/in)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      */
@@ -243,7 +235,6 @@ public class ListAudienceSegmentsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -251,7 +242,6 @@ public class ListAudienceSegmentsRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -262,7 +252,6 @@ public class ListAudienceSegmentsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -272,35 +261,39 @@ public class ListAudienceSegmentsRequest {
             return false;
         }
         ListAudienceSegmentsRequest other = (ListAudienceSegmentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, sort,
-            filter, before, after);
+        return Utils.enhancedHash(limit, token, sort, filter, before, after);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAudienceSegmentsRequest.class,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "filter", filter,
-                "before", before,
-                "after", after);
+        return Utils.toString(
+                ListAudienceSegmentsRequest.class,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "filter",
+                filter,
+                "before",
+                before,
+                "after",
+                after);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -315,7 +308,7 @@ public class ListAudienceSegmentsRequest {
         private OffsetDateTime after;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -338,11 +331,11 @@ public class ListAudienceSegmentsRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts. By default, data is sorted by lastModified ASC.
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * name
          * * lastModified
@@ -358,17 +351,17 @@ public class ListAudienceSegmentsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are comparison types that can be used in filter expressions:
          * * equal: eq
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * event.id (eq/in) *(filters the list of all segments present in an event).*
          * * id (eq/in)
          * * deleted (eq)
          * * creationType (eq/in)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          */
@@ -395,16 +388,10 @@ public class ListAudienceSegmentsRequest {
         }
 
         public ListAudienceSegmentsRequest build() {
-            return new ListAudienceSegmentsRequest(
-                limit, token, sort,
-                filter, before, after);
+            return new ListAudienceSegmentsRequest(limit, token, sort, filter, before, after);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

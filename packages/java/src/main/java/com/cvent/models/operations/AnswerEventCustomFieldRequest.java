@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AnswerEventCustomFieldRequest {
     /**
      * Unique ID of an event.
@@ -34,15 +33,12 @@ public class AnswerEventCustomFieldRequest {
 
     @JsonCreator
     public AnswerEventCustomFieldRequest(
-            @Nonnull String id,
-            @Nonnull String customFieldId,
-            @Nonnull CustomFieldInput customField) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomFieldInput customField) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.customField = Optional.ofNullable(customField)
-            .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class AnswerEventCustomFieldRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -78,7 +73,6 @@ public class AnswerEventCustomFieldRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of the custom field.
@@ -88,7 +82,6 @@ public class AnswerEventCustomFieldRequest {
         return this;
     }
 
-
     /**
      * Custom field answer you're updating.
      */
@@ -96,7 +89,6 @@ public class AnswerEventCustomFieldRequest {
         this.customField = Utils.checkNotNull(customField, "customField");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +99,30 @@ public class AnswerEventCustomFieldRequest {
             return false;
         }
         AnswerEventCustomFieldRequest other = (AnswerEventCustomFieldRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.customField, other.customField);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.customField, other.customField);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, customFieldId, customField);
+        return Utils.enhancedHash(id, customFieldId, customField);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AnswerEventCustomFieldRequest.class,
-                "id", id,
-                "customFieldId", customFieldId,
-                "customField", customField);
+        return Utils.toString(
+                AnswerEventCustomFieldRequest.class,
+                "id",
+                id,
+                "customFieldId",
+                customFieldId,
+                "customField",
+                customField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +131,7 @@ public class AnswerEventCustomFieldRequest {
         private CustomFieldInput customField;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +159,7 @@ public class AnswerEventCustomFieldRequest {
         }
 
         public AnswerEventCustomFieldRequest build() {
-            return new AnswerEventCustomFieldRequest(
-                id, customFieldId, customField);
+            return new AnswerEventCustomFieldRequest(id, customFieldId, customField);
         }
-
     }
 }

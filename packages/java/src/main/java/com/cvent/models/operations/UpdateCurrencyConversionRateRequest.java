@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateCurrencyConversionRateRequest {
     /**
      * The ISO 4217 standard format currency code.
@@ -38,11 +37,11 @@ public class UpdateCurrencyConversionRateRequest {
             @Nonnull String conversionRateId,
             @Nonnull CurrencyConversionRateRequest currencyConversionRateRequest) {
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.conversionRateId = Optional.ofNullable(conversionRateId)
-            .orElseThrow(() -> new IllegalArgumentException("conversionRateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("conversionRateId cannot be null"));
         this.currencyConversionRateRequest = Optional.ofNullable(currencyConversionRateRequest)
-            .orElseThrow(() -> new IllegalArgumentException("currencyConversionRateRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currencyConversionRateRequest cannot be null"));
     }
 
     /**
@@ -70,7 +69,6 @@ public class UpdateCurrencyConversionRateRequest {
         return new Builder();
     }
 
-
     /**
      * The ISO 4217 standard format currency code.
      */
@@ -78,7 +76,6 @@ public class UpdateCurrencyConversionRateRequest {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     /**
      * Unique ID of currency conversion rate.
@@ -88,15 +85,15 @@ public class UpdateCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * The currency conversion rate to be updated.
      */
-    public UpdateCurrencyConversionRateRequest withCurrencyConversionRateRequest(@Nonnull CurrencyConversionRateRequest currencyConversionRateRequest) {
-        this.currencyConversionRateRequest = Utils.checkNotNull(currencyConversionRateRequest, "currencyConversionRateRequest");
+    public UpdateCurrencyConversionRateRequest withCurrencyConversionRateRequest(
+            @Nonnull CurrencyConversionRateRequest currencyConversionRateRequest) {
+        this.currencyConversionRateRequest = Utils.checkNotNull(
+                currencyConversionRateRequest, "currencyConversionRateRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +104,30 @@ public class UpdateCurrencyConversionRateRequest {
             return false;
         }
         UpdateCurrencyConversionRateRequest other = (UpdateCurrencyConversionRateRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.conversionRateId, other.conversionRateId) &&
-            Utils.enhancedDeepEquals(this.currencyConversionRateRequest, other.currencyConversionRateRequest);
+        return Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.conversionRateId, other.conversionRateId)
+                && Utils.enhancedDeepEquals(this.currencyConversionRateRequest, other.currencyConversionRateRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            currency, conversionRateId, currencyConversionRateRequest);
+        return Utils.enhancedHash(currency, conversionRateId, currencyConversionRateRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateCurrencyConversionRateRequest.class,
-                "currency", currency,
-                "conversionRateId", conversionRateId,
-                "currencyConversionRateRequest", currencyConversionRateRequest);
+        return Utils.toString(
+                UpdateCurrencyConversionRateRequest.class,
+                "currency",
+                currency,
+                "conversionRateId",
+                conversionRateId,
+                "currencyConversionRateRequest",
+                currencyConversionRateRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String currency;
 
@@ -137,7 +136,7 @@ public class UpdateCurrencyConversionRateRequest {
         private CurrencyConversionRateRequest currencyConversionRateRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -159,15 +158,15 @@ public class UpdateCurrencyConversionRateRequest {
         /**
          * The currency conversion rate to be updated.
          */
-        public Builder currencyConversionRateRequest(@Nonnull CurrencyConversionRateRequest currencyConversionRateRequest) {
-            this.currencyConversionRateRequest = Utils.checkNotNull(currencyConversionRateRequest, "currencyConversionRateRequest");
+        public Builder currencyConversionRateRequest(
+                @Nonnull CurrencyConversionRateRequest currencyConversionRateRequest) {
+            this.currencyConversionRateRequest = Utils.checkNotNull(
+                    currencyConversionRateRequest, "currencyConversionRateRequest");
             return this;
         }
 
         public UpdateCurrencyConversionRateRequest build() {
-            return new UpdateCurrencyConversionRateRequest(
-                currency, conversionRateId, currencyConversionRateRequest);
+            return new UpdateCurrencyConversionRateRequest(currency, conversionRateId, currencyConversionRateRequest);
         }
-
     }
 }

@@ -18,34 +18,26 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ProposalStatusJson
     {
-        [JsonProperty("NOT_SENT")]
-        NotSent,
-        [JsonProperty("SUBMITTED")]
-        Submitted,
-        [JsonProperty("AWARDED")]
-        Awarded,
-        [JsonProperty("DECLINED")]
-        Declined,
-        [JsonProperty("DELETED")]
-        Deleted,
-        [JsonProperty("NO_RESPONSE")]
-        NoResponse,
-        [JsonProperty("CANCELLED")]
-        Cancelled,
-        [JsonProperty("WITHDRAWN")]
-        Withdrawn,
+        [JsonProperty("NOT_SENT")] NotSent,
+        [JsonProperty("SUBMITTED")] Submitted,
+        [JsonProperty("AWARDED")] Awarded,
+        [JsonProperty("DECLINED")] Declined,
+        [JsonProperty("DELETED")] Deleted,
+        [JsonProperty("NO_RESPONSE")] NoResponse,
+        [JsonProperty("CANCELLED")] Cancelled,
+        [JsonProperty("WITHDRAWN")] Withdrawn,
     }
 
     public static class ProposalStatusJsonExtension
     {
         public static string Value(this ProposalStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ProposalStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ProposalStatusJson).GetFields())
+            foreach (var field in typeof(ProposalStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

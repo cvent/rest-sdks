@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionNoShow
- * 
+ *
  * <p>A session activity.
  */
 public class SessionNoShow {
@@ -27,11 +27,10 @@ public class SessionNoShow {
     private SessionActivity5 session;
 
     @JsonCreator
-    public SessionNoShow(
-            @JsonProperty("session") @Nullable SessionActivity5 session) {
+    public SessionNoShow(@JsonProperty("session") @Nullable SessionActivity5 session) {
         this.session = session;
     }
-    
+
     public SessionNoShow() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class SessionNoShow {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -55,7 +53,6 @@ public class SessionNoShow {
         this.session = session;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class SessionNoShow {
             return false;
         }
         SessionNoShow other = (SessionNoShow) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session);
+        return Utils.enhancedDeepEquals(this.session, other.session);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session);
+        return Utils.enhancedHash(session);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionNoShow.class,
-                "session", session);
+        return Utils.toString(SessionNoShow.class, "session", session);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity5 session;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class SessionNoShow {
         }
 
         public SessionNoShow build() {
-            return new SessionNoShow(
-                session);
+            return new SessionNoShow(session);
         }
-
     }
 }

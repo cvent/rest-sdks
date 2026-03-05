@@ -20,58 +20,56 @@ import java.util.function.BiPredicate;
 public final class Helpers {
 
     /**
-     * Returns an {@link HttpRequest.Builder} which is initialized with the 
-     * state of the given {@link HttpRequest}. 
-     * 
-     * <p>Note that headers can be added and modified but not removed. To 
+     * Returns an {@link HttpRequest.Builder} which is initialized with the
+     * state of the given {@link HttpRequest}.
+     *
+     * <p>Note that headers can be added and modified but not removed. To
      * remove headers use {@link #copy(HttpRequest, BiPredicate)} (which applies
      * a filter to the headers while copying).
-     * 
-     * <p>Note also that this method is redundant from JDK 16 because the 
+     *
+     * <p>Note also that this method is redundant from JDK 16 because the
      * method {@code HttpRequest.newBuilder(HttpRequest)} is available.
-     * 
+     *
      * @param request request to copy
      * @return a builder initialized with values from {@code request}
      */
     public static HttpRequest.Builder copy(HttpRequest request) {
         return Utils.copy(request);
     }
-    
+
     /**
-     * Returns an {@link HttpRequest.Builder} which is initialized with the 
+     * Returns an {@link HttpRequest.Builder} which is initialized with the
      * state of the given {@link HttpRequest}.
      *
-     * <p>Note that this method is redundant from JDK 16 because the 
+     * <p>Note that this method is redundant from JDK 16 because the
      * method {@code HttpRequest.newBuilder(HttpRequest, BiPredicate)} is available.
-      
+     *
      * @param request request to copy
      * @param filter selects which header key-values to include in the copied request
      * @return a builder initialized with values from {@code request}
      */
     public static HttpRequest.Builder copy(HttpRequest request, BiPredicate<String, String> filter) {
-        return Utils.copy(request, filter); 
+        return Utils.copy(request, filter);
     }
-    
-    
+
     /**
      * Returns the request body as a byte array.
-     * 
+     *
      * @param request http request to extract from
      * @return byte array
      */
     public static byte[] bodyBytes(HttpRequest request) {
-        return request.bodyPublisher() //
-                .map(p -> {
-                    ByteBufferSubscriber sub = new ByteBufferSubscriber();
-                    p.subscribe(sub);
-                    return sub.bytes();
-                }).orElse(new byte[] {});
+        return request.bodyPublisher().map(p -> {
+            ByteBufferSubscriber sub = new ByteBufferSubscriber();
+            p.subscribe(sub);
+            return sub.bytes();
+        }).orElse(new byte[] {});
     }
 
     /**
      * Returns the request body as a String assuming that the bytes of the request
      * body are encoded with UTF-8.
-     * 
+     *
      * @param request http request to extract from
      * @return request body as a String
      */
@@ -97,7 +95,7 @@ public final class Helpers {
             try {
                 bytes.write(buffer);
             } catch (IOException e) {
-               onError(e);
+                onError(e);
             }
         }
 
@@ -123,5 +121,4 @@ public final class Helpers {
             return bytes.toByteArray();
         }
     }
-
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEventBudgetTotalsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetEventBudgetTotalsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventBudgetPaginatedResponse = eventBudgetPaginatedResponse;
     }
-    
+
     public GetEventBudgetTotalsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetEventBudgetTotalsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetEventBudgetTotalsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetEventBudgetTotalsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetEventBudgetTotalsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a Paginated list of Event Budget Totals.
      */
-    public GetEventBudgetTotalsResponse withEventBudgetPaginatedResponse(@Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {
+    public GetEventBudgetTotalsResponse withEventBudgetPaginatedResponse(
+            @Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {
         this.eventBudgetPaginatedResponse = eventBudgetPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetEventBudgetTotalsResponse implements Response {
             return false;
         }
         GetEventBudgetTotalsResponse other = (GetEventBudgetTotalsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventBudgetPaginatedResponse, other.eventBudgetPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventBudgetPaginatedResponse, other.eventBudgetPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventBudgetPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventBudgetPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventBudgetTotalsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventBudgetPaginatedResponse", eventBudgetPaginatedResponse);
+        return Utils.toString(
+                GetEventBudgetTotalsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventBudgetPaginatedResponse",
+                eventBudgetPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetEventBudgetTotalsResponse implements Response {
         private EventBudgetPaginatedResponse eventBudgetPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class GetEventBudgetTotalsResponse implements Response {
         /**
          * Successfully retrieved a Paginated list of Event Budget Totals.
          */
-        public Builder eventBudgetPaginatedResponse(@Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {
+        public Builder eventBudgetPaginatedResponse(
+                @Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {
             this.eventBudgetPaginatedResponse = eventBudgetPaginatedResponse;
             return this;
         }
 
         public GetEventBudgetTotalsResponse build() {
-            return new GetEventBudgetTotalsResponse(
-                contentType, statusCode, rawResponse,
-                eventBudgetPaginatedResponse);
+            return new GetEventBudgetTotalsResponse(contentType, statusCode, rawResponse, eventBudgetPaginatedResponse);
         }
-
     }
 }

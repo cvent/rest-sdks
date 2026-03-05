@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingFile
- * 
+ *
  * <p>Content of existing exhibitor file
  */
 public class ExistingFile {
@@ -106,27 +106,19 @@ public class ExistingFile {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
         this.displayName = Optional.ofNullable(displayName)
-            .orElseThrow(() -> new IllegalArgumentException("displayName cannot be null"));
-        this.hidden = Optional.ofNullable(hidden)
-            .orElse(Builder._SINGLETON_VALUE_Hidden.value());
+                .orElseThrow(() -> new IllegalArgumentException("displayName cannot be null"));
+        this.hidden = Optional.ofNullable(hidden).orElse(Builder._SINGLETON_VALUE_Hidden.value());
         this.order = order;
         this.id = id;
     }
-    
+
     public ExistingFile(
-            @Nonnull EventJson5 event,
-            @Nonnull ExhibitorJson exhibitor,
-            @Nonnull String displayName,
-            long order) {
-        this(null, null, null,
-            null, event, exhibitor,
-            displayName, null, order,
-            null);
+            @Nonnull EventJson5 event, @Nonnull ExhibitorJson exhibitor, @Nonnull String displayName, long order) {
+        this(null, null, null, null, event, exhibitor, displayName, null, order, null);
     }
 
     /**
@@ -203,7 +195,6 @@ public class ExistingFile {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -211,7 +202,6 @@ public class ExistingFile {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -221,7 +211,6 @@ public class ExistingFile {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -229,7 +218,6 @@ public class ExistingFile {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -239,7 +227,6 @@ public class ExistingFile {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -247,7 +234,6 @@ public class ExistingFile {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -257,7 +243,6 @@ public class ExistingFile {
         return this;
     }
 
-
     /**
      * Display name of the file.
      */
@@ -265,7 +250,6 @@ public class ExistingFile {
         this.displayName = Utils.checkNotNull(displayName, "displayName");
         return this;
     }
-
 
     /**
      * True indicates the file is hidden from attendees.
@@ -275,7 +259,6 @@ public class ExistingFile {
         return this;
     }
 
-
     /**
      * Display order for exhibitor file content.
      */
@@ -284,7 +267,6 @@ public class ExistingFile {
         return this;
     }
 
-
     /**
      * Unique ID of the file.
      */
@@ -292,7 +274,6 @@ public class ExistingFile {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -303,45 +284,52 @@ public class ExistingFile {
             return false;
         }
         ExistingFile other = (ExistingFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.displayName, other.displayName) &&
-            Utils.enhancedDeepEquals(this.hidden, other.hidden) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.displayName, other.displayName)
+                && Utils.enhancedDeepEquals(this.hidden, other.hidden)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, exhibitor,
-            displayName, hidden, order,
-            id);
+                created, createdBy, lastModified, lastModifiedBy, event, exhibitor, displayName, hidden, order, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingFile.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "exhibitor", exhibitor,
-                "displayName", displayName,
-                "hidden", hidden,
-                "order", order,
-                "id", id);
+        return Utils.toString(
+                ExistingFile.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "displayName",
+                displayName,
+                "hidden",
+                hidden,
+                "order",
+                order,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -364,7 +352,7 @@ public class ExistingFile {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -449,17 +437,10 @@ public class ExistingFile {
 
         public ExistingFile build() {
             return new ExistingFile(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, exhibitor,
-                displayName, hidden, order,
-                id);
+                    created, createdBy, lastModified, lastModifiedBy, event, exhibitor, displayName, hidden, order, id);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Hidden =
-                new LazySingletonValue<>(
-                        "hidden",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("hidden", "false", new TypeReference<Boolean>() {});
     }
 }

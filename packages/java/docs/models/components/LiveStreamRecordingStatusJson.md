@@ -2,6 +2,14 @@
 
 This is used to denote the status of the live stream recording job
 
+## Example Usage
+
+```java
+import com.cvent.models.components.LiveStreamRecordingStatusJson;
+
+LiveStreamRecordingStatusJson value = LiveStreamRecordingStatusJson.ERROR;
+```
+
 
 ## Values
 

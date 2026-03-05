@@ -18,56 +18,37 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CustomField1CustomFieldType
     {
-        [JsonProperty("AutoIncrement")]
-        AutoIncrement,
-        [JsonProperty("ConsentQuestion")]
-        ConsentQuestion,
-        [JsonProperty("Currency")]
-        Currency,
-        [JsonProperty("Decimal")]
-        Decimal,
-        [JsonProperty("Date")]
-        Date,
-        [JsonProperty("DateTime")]
-        DateTime,
-        [JsonProperty("Email")]
-        Email,
-        [JsonProperty("FileUpload")]
-        FileUpload,
-        [JsonProperty("FreeText")]
-        FreeText,
-        [JsonProperty("General")]
-        General,
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
-        [JsonProperty("MultiSelect")]
-        MultiSelect,
-        [JsonProperty("Number")]
-        Number,
-        [JsonProperty("OpenEndedDateTime")]
-        OpenEndedDateTime,
-        [JsonProperty("OpenEndedText")]
-        OpenEndedText,
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("SingleSelect")]
-        SingleSelect,
-        [JsonProperty("USPhoneNumber")]
-        USPhoneNumber,
-        [JsonProperty("Unknown")]
-        Unknown,
+        [JsonProperty("AutoIncrement")] AutoIncrement,
+        [JsonProperty("ConsentQuestion")] ConsentQuestion,
+        [JsonProperty("Currency")] Currency,
+        [JsonProperty("Decimal")] Decimal,
+        [JsonProperty("Date")] Date,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Email")] Email,
+        [JsonProperty("FileUpload")] FileUpload,
+        [JsonProperty("FreeText")] FreeText,
+        [JsonProperty("General")] General,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("MultiSelect")] MultiSelect,
+        [JsonProperty("Number")] Number,
+        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
+        [JsonProperty("OpenEndedText")] OpenEndedText,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("SingleSelect")] SingleSelect,
+        [JsonProperty("USPhoneNumber")] USPhoneNumber,
+        [JsonProperty("Unknown")] Unknown,
     }
 
     public static class CustomField1CustomFieldTypeExtension
     {
         public static string Value(this CustomField1CustomFieldType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CustomField1CustomFieldType ToEnum(this string value)
         {
-            foreach(var field in typeof(CustomField1CustomFieldType).GetFields())
+            foreach (var field in typeof(CustomField1CustomFieldType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

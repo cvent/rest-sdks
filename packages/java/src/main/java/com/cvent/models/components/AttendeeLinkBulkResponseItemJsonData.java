@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -20,43 +20,45 @@ public class AttendeeLinkBulkResponseItemJsonData {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private AttendeeLinkBulkResponseItemJsonData(TypedObject value) {
         this.value = value;
     }
 
     public static AttendeeLinkBulkResponseItemJsonData of(ExistingAttendeeLink value) {
         Utils.checkNotNull(value, "value");
-        return new AttendeeLinkBulkResponseItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new AttendeeLinkBulkResponseItemJsonData(
+                TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static AttendeeLinkBulkResponseItemJsonData of(ErrorResponse value) {
         Utils.checkNotNull(value, "value");
-        return new AttendeeLinkBulkResponseItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new AttendeeLinkBulkResponseItemJsonData(
+                TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.ExistingAttendeeLink}</li>
      * <li>{@code com.cvent.models.components.ErrorResponse}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -68,27 +70,26 @@ public class AttendeeLinkBulkResponseItemJsonData {
         AttendeeLinkBulkResponseItemJsonData other = (AttendeeLinkBulkResponseItemJsonData) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<AttendeeLinkBulkResponseItemJsonData> {
 
         public _Deserializer() {
-            super(AttendeeLinkBulkResponseItemJsonData.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<ExistingAttendeeLink>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ErrorResponse>() {}, JsonShape.DEFAULT));
+            super(
+                    AttendeeLinkBulkResponseItemJsonData.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<ExistingAttendeeLink>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeLinkBulkResponseItemJsonData.class,
-                "value", value);
+        return Utils.toString(AttendeeLinkBulkResponseItemJsonData.class, "value", value);
     }
-
 }
-

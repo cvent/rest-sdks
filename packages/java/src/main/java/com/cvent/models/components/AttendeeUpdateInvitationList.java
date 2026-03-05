@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AttendeeUpdateInvitationList
- * 
+ *
  * <p>The ID of the invitation list associated with the attendee.
  */
 public class AttendeeUpdateInvitationList {
@@ -27,11 +27,10 @@ public class AttendeeUpdateInvitationList {
     private String id;
 
     @JsonCreator
-    public AttendeeUpdateInvitationList(
-            @JsonProperty("id") @Nullable String id) {
+    public AttendeeUpdateInvitationList(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public AttendeeUpdateInvitationList() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class AttendeeUpdateInvitationList {
         return new Builder();
     }
 
-
     /**
      * The invitation list ID.
      */
@@ -55,7 +53,6 @@ public class AttendeeUpdateInvitationList {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class AttendeeUpdateInvitationList {
             return false;
         }
         AttendeeUpdateInvitationList other = (AttendeeUpdateInvitationList) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeUpdateInvitationList.class,
-                "id", id);
+        return Utils.toString(AttendeeUpdateInvitationList.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class AttendeeUpdateInvitationList {
         }
 
         public AttendeeUpdateInvitationList build() {
-            return new AttendeeUpdateInvitationList(
-                id);
+            return new AttendeeUpdateInvitationList(id);
         }
-
     }
 }

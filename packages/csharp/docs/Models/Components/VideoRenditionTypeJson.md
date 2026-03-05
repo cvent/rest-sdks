@@ -2,6 +2,14 @@
 
 Denotes the type of rendition.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = VideoRenditionTypeJson.Hls;
+```
+
 
 ## Values
 

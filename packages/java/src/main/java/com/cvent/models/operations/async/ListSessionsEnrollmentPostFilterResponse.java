@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable SessionsEnrollmentPaginatedResponse sessionsEnrollmentPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.sessionsEnrollmentPaginatedResponse = sessionsEnrollmentPaginatedResponse;
     }
-    
+
     public ListSessionsEnrollmentPostFilterResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of sessions registrant.
      */
-    public ListSessionsEnrollmentPostFilterResponse withSessionsEnrollmentPaginatedResponse(@Nullable SessionsEnrollmentPaginatedResponse sessionsEnrollmentPaginatedResponse) {
+    public ListSessionsEnrollmentPostFilterResponse withSessionsEnrollmentPaginatedResponse(
+            @Nullable SessionsEnrollmentPaginatedResponse sessionsEnrollmentPaginatedResponse) {
         this.sessionsEnrollmentPaginatedResponse = sessionsEnrollmentPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
             return false;
         }
         ListSessionsEnrollmentPostFilterResponse other = (ListSessionsEnrollmentPostFilterResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.sessionsEnrollmentPaginatedResponse, other.sessionsEnrollmentPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.sessionsEnrollmentPaginatedResponse, other.sessionsEnrollmentPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            sessionsEnrollmentPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, sessionsEnrollmentPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsEnrollmentPostFilterResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "sessionsEnrollmentPaginatedResponse", sessionsEnrollmentPaginatedResponse);
+        return Utils.toString(
+                ListSessionsEnrollmentPostFilterResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "sessionsEnrollmentPaginatedResponse",
+                sessionsEnrollmentPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
         private SessionsEnrollmentPaginatedResponse sessionsEnrollmentPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class ListSessionsEnrollmentPostFilterResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of sessions registrant.
          */
-        public Builder sessionsEnrollmentPaginatedResponse(@Nullable SessionsEnrollmentPaginatedResponse sessionsEnrollmentPaginatedResponse) {
+        public Builder sessionsEnrollmentPaginatedResponse(
+                @Nullable SessionsEnrollmentPaginatedResponse sessionsEnrollmentPaginatedResponse) {
             this.sessionsEnrollmentPaginatedResponse = sessionsEnrollmentPaginatedResponse;
             return this;
         }
 
         public ListSessionsEnrollmentPostFilterResponse build() {
             return new ListSessionsEnrollmentPostFilterResponse(
-                contentType, statusCode, rawResponse,
-                sessionsEnrollmentPaginatedResponse);
+                    contentType, statusCode, rawResponse, sessionsEnrollmentPaginatedResponse);
         }
-
     }
 }

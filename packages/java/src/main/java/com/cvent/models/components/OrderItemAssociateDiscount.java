@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * OrderItemAssociateDiscount
- * 
+ *
  * <p>Details for order item update while associating a discount code
  */
 public class OrderItemAssociateDiscount {
@@ -47,12 +47,9 @@ public class OrderItemAssociateDiscount {
             @JsonProperty("order") @Nonnull OrderJson order,
             @JsonProperty("item") @Nonnull OrderItemJson0 item,
             @JsonProperty("amountOrdered") double amountOrdered) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.order = Optional.ofNullable(order)
-            .orElseThrow(() -> new IllegalArgumentException("order cannot be null"));
-        this.item = Optional.ofNullable(item)
-            .orElseThrow(() -> new IllegalArgumentException("item cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.order = Optional.ofNullable(order).orElseThrow(() -> new IllegalArgumentException("order cannot be null"));
+        this.item = Optional.ofNullable(item).orElseThrow(() -> new IllegalArgumentException("item cannot be null"));
         this.amountOrdered = amountOrdered;
     }
 
@@ -88,7 +85,6 @@ public class OrderItemAssociateDiscount {
         return new Builder();
     }
 
-
     /**
      * The reference to the event. Contains only the ID of the event.
      */
@@ -96,7 +92,6 @@ public class OrderItemAssociateDiscount {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Represents an order. Contains only the ID of the order.
@@ -106,7 +101,6 @@ public class OrderItemAssociateDiscount {
         return this;
     }
 
-
     /**
      * Represents an order item. Contains only the ID of the order item.
      */
@@ -115,7 +109,6 @@ public class OrderItemAssociateDiscount {
         return this;
     }
 
-
     /**
      * New order amount for the charge order item.
      */
@@ -123,7 +116,6 @@ public class OrderItemAssociateDiscount {
         this.amountOrdered = amountOrdered;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -134,31 +126,33 @@ public class OrderItemAssociateDiscount {
             return false;
         }
         OrderItemAssociateDiscount other = (OrderItemAssociateDiscount) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.item, other.item) &&
-            Utils.enhancedDeepEquals(this.amountOrdered, other.amountOrdered);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.item, other.item)
+                && Utils.enhancedDeepEquals(this.amountOrdered, other.amountOrdered);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, order, item,
-            amountOrdered);
+        return Utils.enhancedHash(event, order, item, amountOrdered);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderItemAssociateDiscount.class,
-                "event", event,
-                "order", order,
-                "item", item,
-                "amountOrdered", amountOrdered);
+        return Utils.toString(
+                OrderItemAssociateDiscount.class,
+                "event",
+                event,
+                "order",
+                order,
+                "item",
+                item,
+                "amountOrdered",
+                amountOrdered);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson event;
 
@@ -169,7 +163,7 @@ public class OrderItemAssociateDiscount {
         private double amountOrdered;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -205,10 +199,7 @@ public class OrderItemAssociateDiscount {
         }
 
         public OrderItemAssociateDiscount build() {
-            return new OrderItemAssociateDiscount(
-                event, order, item,
-                amountOrdered);
+            return new OrderItemAssociateDiscount(event, order, item, amountOrdered);
         }
-
     }
 }

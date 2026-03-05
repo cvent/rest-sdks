@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SleepingRoomTypeJson
- * 
+ *
  * <p>Sleeping room type
  */
 public enum SleepingRoomTypeJson {
@@ -26,13 +26,13 @@ public enum SleepingRoomTypeJson {
     SleepingRoomTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SleepingRoomTypeJson> fromValue(String value) {
-        for (SleepingRoomTypeJson o: SleepingRoomTypeJson.values()) {
+        for (SleepingRoomTypeJson o : SleepingRoomTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum SleepingRoomTypeJson {
         return Optional.empty();
     }
 }
-

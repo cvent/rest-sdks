@@ -2,6 +2,14 @@
 
 This is used to denote the returned type of the attribute.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AttributeReturnedTypeJson.Always;
+```
+
 
 ## Values
 

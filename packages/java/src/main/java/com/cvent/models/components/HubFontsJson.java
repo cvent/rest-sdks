@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * HubFontsJson
- * 
+ *
  * <p>The fonts of the Events+ hub.
  */
 public class HubFontsJson {
@@ -37,12 +37,11 @@ public class HubFontsJson {
 
     @JsonCreator
     public HubFontsJson(
-            @JsonProperty("headingId") @Nullable String headingId,
-            @JsonProperty("bodyId") @Nullable String bodyId) {
+            @JsonProperty("headingId") @Nullable String headingId, @JsonProperty("bodyId") @Nullable String bodyId) {
         this.headingId = headingId;
         this.bodyId = bodyId;
     }
-    
+
     public HubFontsJson() {
         this(null, null);
     }
@@ -67,7 +66,6 @@ public class HubFontsJson {
         return new Builder();
     }
 
-
     /**
      * The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the
      * account.
@@ -76,7 +74,6 @@ public class HubFontsJson {
         this.headingId = headingId;
         return this;
     }
-
 
     /**
      * The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in
@@ -87,7 +84,6 @@ public class HubFontsJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -97,33 +93,29 @@ public class HubFontsJson {
             return false;
         }
         HubFontsJson other = (HubFontsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.headingId, other.headingId) &&
-            Utils.enhancedDeepEquals(this.bodyId, other.bodyId);
+        return Utils.enhancedDeepEquals(this.headingId, other.headingId)
+                && Utils.enhancedDeepEquals(this.bodyId, other.bodyId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            headingId, bodyId);
+        return Utils.enhancedHash(headingId, bodyId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubFontsJson.class,
-                "headingId", headingId,
-                "bodyId", bodyId);
+        return Utils.toString(HubFontsJson.class, "headingId", headingId, "bodyId", bodyId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String headingId;
 
         private String bodyId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -145,9 +137,7 @@ public class HubFontsJson {
         }
 
         public HubFontsJson build() {
-            return new HubFontsJson(
-                headingId, bodyId);
+            return new HubFontsJson(headingId, bodyId);
         }
-
     }
 }

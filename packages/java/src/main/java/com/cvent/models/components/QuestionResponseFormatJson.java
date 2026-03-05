@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * QuestionResponseFormatJson
- * 
+ *
  * <p>Code representing the format the text of the response will be in.
  */
 public enum QuestionResponseFormatJson {
@@ -24,13 +24,13 @@ public enum QuestionResponseFormatJson {
     QuestionResponseFormatJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<QuestionResponseFormatJson> fromValue(String value) {
-        for (QuestionResponseFormatJson o: QuestionResponseFormatJson.values()) {
+        for (QuestionResponseFormatJson o : QuestionResponseFormatJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum QuestionResponseFormatJson {
         return Optional.empty();
     }
 }
-

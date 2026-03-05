@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CommunicationLogMessageTypeJson
     {
-        [JsonProperty("email")]
-        Email,
-        [JsonProperty("chat")]
-        Chat,
-        [JsonProperty("session_qa")]
-        SessionQa,
+        [JsonProperty("email")] Email,
+        [JsonProperty("chat")] Chat,
+        [JsonProperty("session_qa")] SessionQa,
     }
 
     public static class CommunicationLogMessageTypeJsonExtension
     {
         public static string Value(this CommunicationLogMessageTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CommunicationLogMessageTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(CommunicationLogMessageTypeJson).GetFields())
+            foreach (var field in typeof(CommunicationLogMessageTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

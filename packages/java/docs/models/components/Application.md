@@ -2,6 +2,14 @@
 
 The application used to capture lead.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.Application;
+
+Application value = Application.LEADCAPTURE;
+```
+
 
 ## Values
 

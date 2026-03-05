@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteExhibitorWeblinkRequest {
     /**
      * ID of an event.
@@ -32,16 +31,12 @@ public class DeleteExhibitorWeblinkRequest {
     private String weblinkId;
 
     @JsonCreator
-    public DeleteExhibitorWeblinkRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String weblinkId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeleteExhibitorWeblinkRequest(@Nonnull String id, @Nonnull String exhibitorId, @Nonnull String weblinkId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.weblinkId = Optional.ofNullable(weblinkId)
-            .orElseThrow(() -> new IllegalArgumentException("weblinkId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("weblinkId cannot be null"));
     }
 
     /**
@@ -69,7 +64,6 @@ public class DeleteExhibitorWeblinkRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +71,6 @@ public class DeleteExhibitorWeblinkRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -87,7 +80,6 @@ public class DeleteExhibitorWeblinkRequest {
         return this;
     }
 
-
     /**
      * ID of an exhibitor weblink.
      */
@@ -95,7 +87,6 @@ public class DeleteExhibitorWeblinkRequest {
         this.weblinkId = Utils.checkNotNull(weblinkId, "weblinkId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,24 @@ public class DeleteExhibitorWeblinkRequest {
             return false;
         }
         DeleteExhibitorWeblinkRequest other = (DeleteExhibitorWeblinkRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.weblinkId, other.weblinkId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.weblinkId, other.weblinkId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, weblinkId);
+        return Utils.enhancedHash(id, exhibitorId, weblinkId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteExhibitorWeblinkRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "weblinkId", weblinkId);
+        return Utils.toString(
+                DeleteExhibitorWeblinkRequest.class, "id", id, "exhibitorId", exhibitorId, "weblinkId", weblinkId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +123,7 @@ public class DeleteExhibitorWeblinkRequest {
         private String weblinkId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +151,7 @@ public class DeleteExhibitorWeblinkRequest {
         }
 
         public DeleteExhibitorWeblinkRequest build() {
-            return new DeleteExhibitorWeblinkRequest(
-                id, exhibitorId, weblinkId);
+            return new DeleteExhibitorWeblinkRequest(id, exhibitorId, weblinkId);
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExistingBadgePrinterPool
- * 
+ *
  * <p>Badge Printer Pool.
  */
 public class ExistingBadgePrinterPool {
@@ -40,10 +40,8 @@ public class ExistingBadgePrinterPool {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("disabled") boolean disabled) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.disabled = disabled;
     }
 
@@ -72,7 +70,6 @@ public class ExistingBadgePrinterPool {
         return new Builder();
     }
 
-
     /**
      * The name of the badge printer pool.
      */
@@ -80,7 +77,6 @@ public class ExistingBadgePrinterPool {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * A string that has to be a format matching the industry standard uuid
@@ -90,7 +86,6 @@ public class ExistingBadgePrinterPool {
         return this;
     }
 
-
     /**
      * A flag to indicate if the pool is disabled.
      */
@@ -98,7 +93,6 @@ public class ExistingBadgePrinterPool {
         this.disabled = disabled;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -109,28 +103,23 @@ public class ExistingBadgePrinterPool {
             return false;
         }
         ExistingBadgePrinterPool other = (ExistingBadgePrinterPool) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.disabled, other.disabled);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.disabled, other.disabled);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, id, disabled);
+        return Utils.enhancedHash(name, id, disabled);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingBadgePrinterPool.class,
-                "name", name,
-                "id", id,
-                "disabled", disabled);
+        return Utils.toString(ExistingBadgePrinterPool.class, "name", name, "id", id, "disabled", disabled);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -139,7 +128,7 @@ public class ExistingBadgePrinterPool {
         private boolean disabled;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -167,9 +156,7 @@ public class ExistingBadgePrinterPool {
         }
 
         public ExistingBadgePrinterPool build() {
-            return new ExistingBadgePrinterPool(
-                name, id, disabled);
+            return new ExistingBadgePrinterPool(name, id, disabled);
         }
-
     }
 }

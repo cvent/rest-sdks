@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * GroupJson0
- * 
+ *
  * <p>Generic sample name. Not a real model used by any Cvent service.
  */
 public class GroupJson0 {
@@ -55,16 +55,13 @@ public class GroupJson0 {
             @JsonProperty("displayName") @Nullable String displayName,
             @JsonProperty("meta") @Nullable MetaJson meta) {
         this.schemas = schemas;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.displayName = displayName;
         this.meta = meta;
     }
-    
-    public GroupJson0(
-            @Nonnull String id) {
-        this(null, id, null,
-            null);
+
+    public GroupJson0(@Nonnull String id) {
+        this(null, id, null, null);
     }
 
     /**
@@ -99,7 +96,6 @@ public class GroupJson0 {
         return new Builder();
     }
 
-
     /**
      * The list of schemas using this resource.
      */
@@ -107,7 +103,6 @@ public class GroupJson0 {
         this.schemas = schemas;
         return this;
     }
-
 
     /**
      * The unique ID of the SCIM group.
@@ -117,7 +112,6 @@ public class GroupJson0 {
         return this;
     }
 
-
     /**
      * The name of the user role.
      */
@@ -126,7 +120,6 @@ public class GroupJson0 {
         return this;
     }
 
-
     /**
      * Metadata of the resource.
      */
@@ -134,7 +127,6 @@ public class GroupJson0 {
         this.meta = meta;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -145,31 +137,24 @@ public class GroupJson0 {
             return false;
         }
         GroupJson0 other = (GroupJson0) o;
-        return 
-            Utils.enhancedDeepEquals(this.schemas, other.schemas) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.displayName, other.displayName) &&
-            Utils.enhancedDeepEquals(this.meta, other.meta);
+        return Utils.enhancedDeepEquals(this.schemas, other.schemas)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.displayName, other.displayName)
+                && Utils.enhancedDeepEquals(this.meta, other.meta);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            schemas, id, displayName,
-            meta);
+        return Utils.enhancedHash(schemas, id, displayName, meta);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GroupJson0.class,
-                "schemas", schemas,
-                "id", id,
-                "displayName", displayName,
-                "meta", meta);
+        return Utils.toString(GroupJson0.class, "schemas", schemas, "id", id, "displayName", displayName, "meta", meta);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<String> schemas;
 
@@ -180,7 +165,7 @@ public class GroupJson0 {
         private MetaJson meta;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,10 +201,7 @@ public class GroupJson0 {
         }
 
         public GroupJson0 build() {
-            return new GroupJson0(
-                schemas, id, displayName,
-                meta);
+            return new GroupJson0(schemas, id, displayName, meta);
         }
-
     }
 }

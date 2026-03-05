@@ -2,6 +2,14 @@
 
 Type of the external Code.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ExternalCodeTypeJson.AmadeusGds;
+```
+
 
 ## Values
 

@@ -5,15 +5,14 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
-
 
 public class FacebookUrl {
 
@@ -22,11 +21,10 @@ public class FacebookUrl {
     private Object href;
 
     @JsonCreator
-    public FacebookUrl(
-            @JsonProperty("href") @Nullable Object href) {
+    public FacebookUrl(@JsonProperty("href") @Nullable Object href) {
         this.href = href;
     }
-    
+
     public FacebookUrl() {
         this(null);
     }
@@ -39,12 +37,10 @@ public class FacebookUrl {
         return new Builder();
     }
 
-
     public FacebookUrl withHref(@Nullable Object href) {
         this.href = href;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,29 +51,26 @@ public class FacebookUrl {
             return false;
         }
         FacebookUrl other = (FacebookUrl) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FacebookUrl.class,
-                "href", href);
+        return Utils.toString(FacebookUrl.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Object href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder href(@Nullable Object href) {
@@ -86,9 +79,7 @@ public class FacebookUrl {
         }
 
         public FacebookUrl build() {
-            return new FacebookUrl(
-                href);
+            return new FacebookUrl(href);
         }
-
     }
 }

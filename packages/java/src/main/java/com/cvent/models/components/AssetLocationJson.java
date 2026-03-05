@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AssetLocationJson
- * 
+ *
  * <p>A URL associated with the asset.
  */
 public class AssetLocationJson {
@@ -24,10 +24,8 @@ public class AssetLocationJson {
     private String href;
 
     @JsonCreator
-    public AssetLocationJson(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public AssetLocationJson(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class AssetLocationJson {
         return new Builder();
     }
 
-
     /**
      * A pre-signed URL with an expiration of 2 hours to the asset's location.
      */
@@ -49,7 +46,6 @@ public class AssetLocationJson {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class AssetLocationJson {
             return false;
         }
         AssetLocationJson other = (AssetLocationJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssetLocationJson.class,
-                "href", href);
+        return Utils.toString(AssetLocationJson.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class AssetLocationJson {
         }
 
         public AssetLocationJson build() {
-            return new AssetLocationJson(
-                href);
+            return new AssetLocationJson(href);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 The status of the proposal
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ProposalStatusTypeJson;
+
+ProposalStatusTypeJson value = ProposalStatusTypeJson.PARTICIPATION_REQUESTED;
+```
+
 
 ## Values
 

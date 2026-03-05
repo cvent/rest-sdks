@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum FieldTypeJson1
     {
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
-        [JsonProperty("DateTime")]
-        DateTime,
-        [JsonProperty("Number")]
-        Number,
-        [JsonProperty("Text")]
-        Text,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Number")] Number,
+        [JsonProperty("Text")] Text,
     }
 
     public static class FieldTypeJson1Extension
     {
         public static string Value(this FieldTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static FieldTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(FieldTypeJson1).GetFields())
+            foreach (var field in typeof(FieldTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

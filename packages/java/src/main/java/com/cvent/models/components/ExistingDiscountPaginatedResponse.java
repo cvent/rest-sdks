@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ExistingDiscountPaginatedResponse
- * 
+ *
  * <p>Returns a paginated list of all discounts used in an event, including both event-specific and
  * account-level discount codes used in an event.
  */
@@ -35,10 +35,9 @@ public class ExistingDiscountPaginatedResponse {
     public ExistingDiscountPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
             @JsonProperty("data") @Nonnull List<ExistingDiscountPaginatedResponseData> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -59,7 +58,6 @@ public class ExistingDiscountPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -68,7 +66,6 @@ public class ExistingDiscountPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of discounts.
      */
@@ -76,7 +73,6 @@ public class ExistingDiscountPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -87,33 +83,28 @@ public class ExistingDiscountPaginatedResponse {
             return false;
         }
         ExistingDiscountPaginatedResponse other = (ExistingDiscountPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingDiscountPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(ExistingDiscountPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<ExistingDiscountPaginatedResponseData> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -133,9 +124,7 @@ public class ExistingDiscountPaginatedResponse {
         }
 
         public ExistingDiscountPaginatedResponse build() {
-            return new ExistingDiscountPaginatedResponse(
-                paging, data);
+            return new ExistingDiscountPaginatedResponse(paging, data);
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ChoiceJson4Input
- * 
+ *
  * <p>This is used to denote the choice of custom field.
  */
 public class ChoiceJson4Input {
@@ -24,10 +24,8 @@ public class ChoiceJson4Input {
     private String text;
 
     @JsonCreator
-    public ChoiceJson4Input(
-            @JsonProperty("text") @Nonnull String text) {
-        this.text = Optional.ofNullable(text)
-            .orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
+    public ChoiceJson4Input(@JsonProperty("text") @Nonnull String text) {
+        this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ChoiceJson4Input {
         return new Builder();
     }
 
-
     /**
      * The text for the custom field choice.
      */
@@ -49,7 +46,6 @@ public class ChoiceJson4Input {
         this.text = Utils.checkNotNull(text, "text");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ChoiceJson4Input {
             return false;
         }
         ChoiceJson4Input other = (ChoiceJson4Input) o;
-        return 
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            text);
+        return Utils.enhancedHash(text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChoiceJson4Input.class,
-                "text", text);
+        return Utils.toString(ChoiceJson4Input.class, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ChoiceJson4Input {
         }
 
         public ChoiceJson4Input build() {
-            return new ChoiceJson4Input(
-                text);
+            return new ChoiceJson4Input(text);
         }
-
     }
 }

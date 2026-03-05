@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BadgePrintJobErrorCodeJson
- * 
+ *
  * <p>This is used to indicate the error code returned from a badge printer.
  */
 public enum BadgePrintJobErrorCodeJson {
@@ -27,13 +27,13 @@ public enum BadgePrintJobErrorCodeJson {
     BadgePrintJobErrorCodeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BadgePrintJobErrorCodeJson> fromValue(String value) {
-        for (BadgePrintJobErrorCodeJson o: BadgePrintJobErrorCodeJson.values()) {
+        for (BadgePrintJobErrorCodeJson o : BadgePrintJobErrorCodeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum BadgePrintJobErrorCodeJson {
         return Optional.empty();
     }
 }
-

@@ -28,7 +28,7 @@ public class GetHousingEventsSummariesRequestBuilder {
     private GetHousingEventsSummariesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingEventsSummariesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetHousingEventsSummariesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetHousingEventsSummariesResponse call() {
-        RequestOperation<GetHousingEventsSummariesRequest, GetHousingEventsSummariesResponse> operation
-              = new GetHousingEventsSummaries.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetHousingEventsSummariesRequest, GetHousingEventsSummariesResponse> operation =
+                new GetHousingEventsSummaries.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

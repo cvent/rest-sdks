@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * AppointmentEvent
- * 
+ *
  * <p>An event appointment.
  */
 public class AppointmentEvent {
@@ -186,31 +186,26 @@ public class AppointmentEvent {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
         this.event = event;
         this.apptEventType = Optional.ofNullable(apptEventType)
-            .orElseThrow(() -> new IllegalArgumentException("apptEventType cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("apptEventType cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.deleted = deleted;
         this.archived = archived;
         this.defaultLocale = defaultLocale;
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.description = description;
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
         this.timezone = timezone;
         this.venues = venues;
         this.phone = phone;
         this.planners = planners;
     }
-    
+
     public AppointmentEvent(
             @Nonnull String id,
             @Nonnull String code,
@@ -219,13 +214,27 @@ public class AppointmentEvent {
             @Nonnull String title,
             @Nonnull OffsetDateTime start,
             @Nonnull OffsetDateTime end) {
-        this(null, null, null,
-            null, id, code,
-            null, apptEventType, status,
-            null, null, null,
-            title, null, start,
-            end, null, null,
-            null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                id,
+                code,
+                null,
+                apptEventType,
+                status,
+                null,
+                null,
+                null,
+                title,
+                null,
+                start,
+                end,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -376,7 +385,6 @@ public class AppointmentEvent {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -384,7 +392,6 @@ public class AppointmentEvent {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -394,7 +401,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -402,7 +408,6 @@ public class AppointmentEvent {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -412,7 +417,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The unique ID representing the appointment event.
      */
@@ -420,7 +424,6 @@ public class AppointmentEvent {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The system generated code for this appointment event.
@@ -430,7 +433,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -438,7 +440,6 @@ public class AppointmentEvent {
         this.event = event;
         return this;
     }
-
 
     /**
      * Denotes the type of appointment event.<br/>STANDARD: You or attendees can manage schedules based on
@@ -452,7 +453,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * Denotes the status of appointment event.
      */
@@ -460,7 +460,6 @@ public class AppointmentEvent {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     /**
      * True indicates the appointment event has been logically deleted.
@@ -470,7 +469,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * True indicates the appointment event has been archived.
      */
@@ -478,7 +476,6 @@ public class AppointmentEvent {
         this.archived = archived;
         return this;
     }
-
 
     /**
      * The appointment event default local using the IETF Language Tag format.
@@ -488,7 +485,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The title of the appointment event.
      */
@@ -496,7 +492,6 @@ public class AppointmentEvent {
         this.title = Utils.checkNotNull(title, "title");
         return this;
     }
-
 
     /**
      * The description of the appointment event.
@@ -506,7 +501,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted start date/time of the appointment.
      */
@@ -514,7 +508,6 @@ public class AppointmentEvent {
         this.start = Utils.checkNotNull(start, "start");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted end date/time of the appointment.
@@ -524,7 +517,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The event timezone from the IANA specification.
      */
@@ -532,7 +524,6 @@ public class AppointmentEvent {
         this.timezone = timezone;
         return this;
     }
-
 
     /**
      * Collection of venues and their associated details.
@@ -542,7 +533,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * The phone number for the event.
      */
@@ -551,7 +541,6 @@ public class AppointmentEvent {
         return this;
     }
 
-
     /**
      * Collection of information about planners.
      */
@@ -559,7 +548,6 @@ public class AppointmentEvent {
         this.planners = planners;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -570,68 +558,101 @@ public class AppointmentEvent {
             return false;
         }
         AppointmentEvent other = (AppointmentEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.apptEventType, other.apptEventType) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.archived, other.archived) &&
-            Utils.enhancedDeepEquals(this.defaultLocale, other.defaultLocale) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.venues, other.venues) &&
-            Utils.enhancedDeepEquals(this.phone, other.phone) &&
-            Utils.enhancedDeepEquals(this.planners, other.planners);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.apptEventType, other.apptEventType)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.archived, other.archived)
+                && Utils.enhancedDeepEquals(this.defaultLocale, other.defaultLocale)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.venues, other.venues)
+                && Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.planners, other.planners);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, code,
-            event, apptEventType, status,
-            deleted, archived, defaultLocale,
-            title, description, start,
-            end, timezone, venues,
-            phone, planners);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                code,
+                event,
+                apptEventType,
+                status,
+                deleted,
+                archived,
+                defaultLocale,
+                title,
+                description,
+                start,
+                end,
+                timezone,
+                venues,
+                phone,
+                planners);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentEvent.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "code", code,
-                "event", event,
-                "apptEventType", apptEventType,
-                "status", status,
-                "deleted", deleted,
-                "archived", archived,
-                "defaultLocale", defaultLocale,
-                "title", title,
-                "description", description,
-                "start", start,
-                "end", end,
-                "timezone", timezone,
-                "venues", venues,
-                "phone", phone,
-                "planners", planners);
+        return Utils.toString(
+                AppointmentEvent.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "code",
+                code,
+                "event",
+                event,
+                "apptEventType",
+                apptEventType,
+                "status",
+                status,
+                "deleted",
+                deleted,
+                "archived",
+                archived,
+                "defaultLocale",
+                defaultLocale,
+                "title",
+                title,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "timezone",
+                timezone,
+                "venues",
+                venues,
+                "phone",
+                phone,
+                "planners",
+                planners);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -674,7 +695,7 @@ public class AppointmentEvent {
         private List<PlannerJson> planners;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -843,14 +864,26 @@ public class AppointmentEvent {
 
         public AppointmentEvent build() {
             return new AppointmentEvent(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, code,
-                event, apptEventType, status,
-                deleted, archived, defaultLocale,
-                title, description, start,
-                end, timezone, venues,
-                phone, planners);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    code,
+                    event,
+                    apptEventType,
+                    status,
+                    deleted,
+                    archived,
+                    defaultLocale,
+                    title,
+                    description,
+                    start,
+                    end,
+                    timezone,
+                    venues,
+                    phone,
+                    planners);
         }
-
     }
 }

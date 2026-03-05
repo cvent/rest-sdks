@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class BtApiGetPropertyRoomsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class BtApiGetPropertyRoomsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable PropertyRoomPaginatedResponse propertyRoomPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.propertyRoomPaginatedResponse = propertyRoomPaginatedResponse;
     }
-    
+
     public BtApiGetPropertyRoomsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class BtApiGetPropertyRoomsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class BtApiGetPropertyRoomsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class BtApiGetPropertyRoomsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class BtApiGetPropertyRoomsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of property rooms.
      */
-    public BtApiGetPropertyRoomsResponse withPropertyRoomPaginatedResponse(@Nullable PropertyRoomPaginatedResponse propertyRoomPaginatedResponse) {
+    public BtApiGetPropertyRoomsResponse withPropertyRoomPaginatedResponse(
+            @Nullable PropertyRoomPaginatedResponse propertyRoomPaginatedResponse) {
         this.propertyRoomPaginatedResponse = propertyRoomPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class BtApiGetPropertyRoomsResponse implements Response {
             return false;
         }
         BtApiGetPropertyRoomsResponse other = (BtApiGetPropertyRoomsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.propertyRoomPaginatedResponse, other.propertyRoomPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.propertyRoomPaginatedResponse, other.propertyRoomPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            propertyRoomPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, propertyRoomPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BtApiGetPropertyRoomsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "propertyRoomPaginatedResponse", propertyRoomPaginatedResponse);
+        return Utils.toString(
+                BtApiGetPropertyRoomsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "propertyRoomPaginatedResponse",
+                propertyRoomPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class BtApiGetPropertyRoomsResponse implements Response {
         private PropertyRoomPaginatedResponse propertyRoomPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class BtApiGetPropertyRoomsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of property rooms.
          */
-        public Builder propertyRoomPaginatedResponse(@Nullable PropertyRoomPaginatedResponse propertyRoomPaginatedResponse) {
+        public Builder propertyRoomPaginatedResponse(
+                @Nullable PropertyRoomPaginatedResponse propertyRoomPaginatedResponse) {
             this.propertyRoomPaginatedResponse = propertyRoomPaginatedResponse;
             return this;
         }
 
         public BtApiGetPropertyRoomsResponse build() {
             return new BtApiGetPropertyRoomsResponse(
-                contentType, statusCode, rawResponse,
-                propertyRoomPaginatedResponse);
+                    contentType, statusCode, rawResponse, propertyRoomPaginatedResponse);
         }
-
     }
 }

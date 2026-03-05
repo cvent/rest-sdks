@@ -30,7 +30,7 @@ public class UploadBulkJobDataRequestBuilder {
     private UploadBulkJobDataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UploadBulkJobDataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UploadBulkJobDataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UploadBulkJobDataResponse> call() {
-        AsyncRequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation
-              = new UploadBulkJobData.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
+                new UploadBulkJobData.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

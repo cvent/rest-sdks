@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteSessionAttendanceRequest {
     /**
      * Unique ID of a session.
@@ -26,13 +25,10 @@ public class DeleteSessionAttendanceRequest {
     private String attendeeId;
 
     @JsonCreator
-    public DeleteSessionAttendanceRequest(
-            @Nonnull String id,
-            @Nonnull String attendeeId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeleteSessionAttendanceRequest(@Nonnull String id, @Nonnull String attendeeId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.attendeeId = Optional.ofNullable(attendeeId)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DeleteSessionAttendanceRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a session.
      */
@@ -62,7 +57,6 @@ public class DeleteSessionAttendanceRequest {
         return this;
     }
 
-
     /**
      * Unique ID of an attendee.
      */
@@ -70,7 +64,6 @@ public class DeleteSessionAttendanceRequest {
         this.attendeeId = Utils.checkNotNull(attendeeId, "attendeeId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class DeleteSessionAttendanceRequest {
             return false;
         }
         DeleteSessionAttendanceRequest other = (DeleteSessionAttendanceRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendeeId, other.attendeeId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.attendeeId, other.attendeeId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendeeId);
+        return Utils.enhancedHash(id, attendeeId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteSessionAttendanceRequest.class,
-                "id", id,
-                "attendeeId", attendeeId);
+        return Utils.toString(DeleteSessionAttendanceRequest.class, "id", id, "attendeeId", attendeeId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String attendeeId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class DeleteSessionAttendanceRequest {
         }
 
         public DeleteSessionAttendanceRequest build() {
-            return new DeleteSessionAttendanceRequest(
-                id, attendeeId);
+            return new DeleteSessionAttendanceRequest(id, attendeeId);
         }
-
     }
 }

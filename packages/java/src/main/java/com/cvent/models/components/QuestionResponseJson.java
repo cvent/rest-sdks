@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * QuestionResponseJson
- * 
+ *
  * <p>A Question response.
  */
 public class QuestionResponseJson {
@@ -41,7 +41,7 @@ public class QuestionResponseJson {
         this.question = question;
         this.answers = answers;
     }
-    
+
     public QuestionResponseJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class QuestionResponseJson {
         return new Builder();
     }
 
-
     /**
      * The question that was answered.
      */
@@ -73,7 +72,6 @@ public class QuestionResponseJson {
         return this;
     }
 
-
     /**
      * List of answers.
      */
@@ -81,7 +79,6 @@ public class QuestionResponseJson {
         this.answers = answers;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,29 @@ public class QuestionResponseJson {
             return false;
         }
         QuestionResponseJson other = (QuestionResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers);
+        return Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answers, other.answers);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, answers);
+        return Utils.enhancedHash(question, answers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionResponseJson.class,
-                "question", question,
-                "answers", answers);
+        return Utils.toString(QuestionResponseJson.class, "question", question, "answers", answers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private QuestionJson3 question;
 
         private List<AnswerJson2> answers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +131,7 @@ public class QuestionResponseJson {
         }
 
         public QuestionResponseJson build() {
-            return new QuestionResponseJson(
-                question, answers);
+            return new QuestionResponseJson(question, answers);
         }
-
     }
 }

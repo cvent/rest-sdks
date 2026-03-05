@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * TaxStructureJson
- * 
+ *
  * <p>Details about taxes and fees applicable to a room.
  */
 public class TaxStructureJson {
@@ -35,9 +35,8 @@ public class TaxStructureJson {
             @JsonProperty("disclosureStatement") @Nonnull String disclosureStatement,
             @JsonProperty("items") @Nonnull List<TaxAndFeeJson> items) {
         this.disclosureStatement = Optional.ofNullable(disclosureStatement)
-            .orElseThrow(() -> new IllegalArgumentException("disclosureStatement cannot be null"));
-        this.items = Optional.ofNullable(items)
-            .orElseThrow(() -> new IllegalArgumentException("items cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("disclosureStatement cannot be null"));
+        this.items = Optional.ofNullable(items).orElseThrow(() -> new IllegalArgumentException("items cannot be null"));
     }
 
     /**
@@ -58,7 +57,6 @@ public class TaxStructureJson {
         return new Builder();
     }
 
-
     /**
      * Statement disclosing tax and fee information.
      */
@@ -67,7 +65,6 @@ public class TaxStructureJson {
         return this;
     }
 
-
     /**
      * List of tax or fee items.
      */
@@ -75,7 +72,6 @@ public class TaxStructureJson {
         this.items = Utils.checkNotNull(items, "items");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +82,29 @@ public class TaxStructureJson {
             return false;
         }
         TaxStructureJson other = (TaxStructureJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.disclosureStatement, other.disclosureStatement) &&
-            Utils.enhancedDeepEquals(this.items, other.items);
+        return Utils.enhancedDeepEquals(this.disclosureStatement, other.disclosureStatement)
+                && Utils.enhancedDeepEquals(this.items, other.items);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            disclosureStatement, items);
+        return Utils.enhancedHash(disclosureStatement, items);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TaxStructureJson.class,
-                "disclosureStatement", disclosureStatement,
-                "items", items);
+        return Utils.toString(TaxStructureJson.class, "disclosureStatement", disclosureStatement, "items", items);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String disclosureStatement;
 
         private List<TaxAndFeeJson> items;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +124,7 @@ public class TaxStructureJson {
         }
 
         public TaxStructureJson build() {
-            return new TaxStructureJson(
-                disclosureStatement, items);
+            return new TaxStructureJson(disclosureStatement, items);
         }
-
     }
 }

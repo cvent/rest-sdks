@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * HotelRequestJson
- * 
+ *
  * <p>Representation of a hotel request.
  */
 public class HotelRequestJson {
@@ -393,22 +393,49 @@ public class HotelRequestJson {
         this.hotelRoomRates = hotelRoomRates;
         this.hotelRequestAnswers = hotelRequestAnswers;
     }
-    
+
     public HotelRequestJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -701,7 +728,6 @@ public class HotelRequestJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -709,7 +735,6 @@ public class HotelRequestJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -719,7 +744,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -727,7 +751,6 @@ public class HotelRequestJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -737,7 +760,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * ID of the hotel request.
      */
@@ -745,7 +767,6 @@ public class HotelRequestJson {
         this.hotelRequestId = hotelRequestId;
         return this;
     }
-
 
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
@@ -756,7 +777,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
      * means the attendee is accompanying another attendee.
@@ -766,7 +786,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * First name of the hotel requester.
      */
@@ -774,7 +793,6 @@ public class HotelRequestJson {
         this.requesterFirstName = requesterFirstName;
         return this;
     }
-
 
     /**
      * Last name of the hotel requester.
@@ -784,7 +802,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Name of the hotel.
      */
@@ -792,7 +809,6 @@ public class HotelRequestJson {
         this.hotelName = hotelName;
         return this;
     }
-
 
     /**
      * Code of the hotel.
@@ -802,7 +818,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Name of the room.
      */
@@ -810,7 +825,6 @@ public class HotelRequestJson {
         this.roomName = roomName;
         return this;
     }
-
 
     /**
      * Code of the room.
@@ -820,7 +834,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Number of hotel requests made by requester.
      */
@@ -828,7 +841,6 @@ public class HotelRequestJson {
         this.quantity = quantity;
         return this;
     }
-
 
     /**
      * Name of the roommate requested by requester.
@@ -838,7 +850,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Any special requests the requester asks of the hotel.
      */
@@ -846,7 +857,6 @@ public class HotelRequestJson {
         this.specialRequest = specialRequest;
         return this;
     }
-
 
     /**
      * Requesters' reward code for the hotel's loyalty program.
@@ -856,7 +866,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time (in UTC) when the guest will check in to the hotel.
      */
@@ -864,7 +873,6 @@ public class HotelRequestJson {
         this.checkinDate = checkinDate;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time (in UTC) when the guest will check out of the hotel.
@@ -874,7 +882,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * True indicates smoking should be allowed in the room.
      */
@@ -882,7 +889,6 @@ public class HotelRequestJson {
         this.smoking = smoking;
         return this;
     }
-
 
     /**
      * True indicates this hotel request is cancelled.
@@ -892,7 +898,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Status of the travel request done by attendee.
      */
@@ -901,7 +906,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * The hotel's confirmation number.
      */
@@ -909,7 +913,6 @@ public class HotelRequestJson {
         this.confirmationNumber = confirmationNumber;
         return this;
     }
-
 
     /**
      * True indicate the room should meet the Americans with Disabilities Act (ADA) accessibility
@@ -920,7 +923,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * True indicates the requester wants a roommate.
      */
@@ -928,7 +930,6 @@ public class HotelRequestJson {
         this.shareRoom = shareRoom;
         return this;
     }
-
 
     /**
      * True indicates the requester is the roommate in charge of the room.
@@ -938,7 +939,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Gender of the requester.
      */
@@ -946,7 +946,6 @@ public class HotelRequestJson {
         this.gender = gender;
         return this;
     }
-
 
     /**
      * Total cost of the hotel stay.
@@ -956,7 +955,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code for the cost of the hotel stay.
      */
@@ -964,7 +962,6 @@ public class HotelRequestJson {
         this.currencyCode = currencyCode;
         return this;
     }
-
 
     /**
      * Specifies if the planner will charge for the hotel.
@@ -974,7 +971,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Specifies who the hotel will charge for the room rate's tax.
      */
@@ -982,7 +978,6 @@ public class HotelRequestJson {
         this.roomTaxBillingInstructions = roomTaxBillingInstructions;
         return this;
     }
-
 
     /**
      * Specifies who the hotel will charge incidental (extra) room expenses, like room service or
@@ -993,7 +988,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Additional note by, or intended for, event planners.
      */
@@ -1001,7 +995,6 @@ public class HotelRequestJson {
         this.plannerMemo = plannerMemo;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time (in UTC) when the requester is requesting for an earliest shoulder
@@ -1012,7 +1005,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time (in UTC) when the requester is requesting for an latest shoulder date.
      */
@@ -1021,7 +1013,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Specifies who the hotel will charge for the room rate's tax.
      */
@@ -1029,7 +1020,6 @@ public class HotelRequestJson {
         this.roomTaxBillingExceptions = roomTaxBillingExceptions;
         return this;
     }
-
 
     /**
      * Specifies who the hotel will charge incidental (extra) room expenses, like room service or
@@ -1040,7 +1030,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Address of the hotel.
      */
@@ -1048,7 +1037,6 @@ public class HotelRequestJson {
         this.hotelAddress = hotelAddress;
         return this;
     }
-
 
     /**
      * Collection of hotel room rates the requester has taken.
@@ -1058,7 +1046,6 @@ public class HotelRequestJson {
         return this;
     }
 
-
     /**
      * Answer provided by requester to the hotel request related question.
      */
@@ -1066,7 +1053,6 @@ public class HotelRequestJson {
         this.hotelRequestAnswers = hotelRequestAnswers;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1077,115 +1063,181 @@ public class HotelRequestJson {
             return false;
         }
         HotelRequestJson other = (HotelRequestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.hotelRequestId, other.hotelRequestId) &&
-            Utils.enhancedDeepEquals(this.requesterId, other.requesterId) &&
-            Utils.enhancedDeepEquals(this.requesterType, other.requesterType) &&
-            Utils.enhancedDeepEquals(this.requesterFirstName, other.requesterFirstName) &&
-            Utils.enhancedDeepEquals(this.requesterLastName, other.requesterLastName) &&
-            Utils.enhancedDeepEquals(this.hotelName, other.hotelName) &&
-            Utils.enhancedDeepEquals(this.hotelCode, other.hotelCode) &&
-            Utils.enhancedDeepEquals(this.roomName, other.roomName) &&
-            Utils.enhancedDeepEquals(this.roomCode, other.roomCode) &&
-            Utils.enhancedDeepEquals(this.quantity, other.quantity) &&
-            Utils.enhancedDeepEquals(this.roommateRequested, other.roommateRequested) &&
-            Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest) &&
-            Utils.enhancedDeepEquals(this.rewardsCode, other.rewardsCode) &&
-            Utils.enhancedDeepEquals(this.checkinDate, other.checkinDate) &&
-            Utils.enhancedDeepEquals(this.checkoutDate, other.checkoutDate) &&
-            Utils.enhancedDeepEquals(this.smoking, other.smoking) &&
-            Utils.enhancedDeepEquals(this.cancelled, other.cancelled) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber) &&
-            Utils.enhancedDeepEquals(this.isADAAccessible, other.isADAAccessible) &&
-            Utils.enhancedDeepEquals(this.shareRoom, other.shareRoom) &&
-            Utils.enhancedDeepEquals(this.roommateLeader, other.roommateLeader) &&
-            Utils.enhancedDeepEquals(this.gender, other.gender) &&
-            Utils.enhancedDeepEquals(this.totalAmount, other.totalAmount) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.roomCharge, other.roomCharge) &&
-            Utils.enhancedDeepEquals(this.roomTaxBillingInstructions, other.roomTaxBillingInstructions) &&
-            Utils.enhancedDeepEquals(this.incidentalBillingInstructions, other.incidentalBillingInstructions) &&
-            Utils.enhancedDeepEquals(this.plannerMemo, other.plannerMemo) &&
-            Utils.enhancedDeepEquals(this.earliestShoulderDate, other.earliestShoulderDate) &&
-            Utils.enhancedDeepEquals(this.latestShoulderDate, other.latestShoulderDate) &&
-            Utils.enhancedDeepEquals(this.roomTaxBillingExceptions, other.roomTaxBillingExceptions) &&
-            Utils.enhancedDeepEquals(this.incidentalBillingExceptions, other.incidentalBillingExceptions) &&
-            Utils.enhancedDeepEquals(this.hotelAddress, other.hotelAddress) &&
-            Utils.enhancedDeepEquals(this.hotelRoomRates, other.hotelRoomRates) &&
-            Utils.enhancedDeepEquals(this.hotelRequestAnswers, other.hotelRequestAnswers);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.hotelRequestId, other.hotelRequestId)
+                && Utils.enhancedDeepEquals(this.requesterId, other.requesterId)
+                && Utils.enhancedDeepEquals(this.requesterType, other.requesterType)
+                && Utils.enhancedDeepEquals(this.requesterFirstName, other.requesterFirstName)
+                && Utils.enhancedDeepEquals(this.requesterLastName, other.requesterLastName)
+                && Utils.enhancedDeepEquals(this.hotelName, other.hotelName)
+                && Utils.enhancedDeepEquals(this.hotelCode, other.hotelCode)
+                && Utils.enhancedDeepEquals(this.roomName, other.roomName)
+                && Utils.enhancedDeepEquals(this.roomCode, other.roomCode)
+                && Utils.enhancedDeepEquals(this.quantity, other.quantity)
+                && Utils.enhancedDeepEquals(this.roommateRequested, other.roommateRequested)
+                && Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest)
+                && Utils.enhancedDeepEquals(this.rewardsCode, other.rewardsCode)
+                && Utils.enhancedDeepEquals(this.checkinDate, other.checkinDate)
+                && Utils.enhancedDeepEquals(this.checkoutDate, other.checkoutDate)
+                && Utils.enhancedDeepEquals(this.smoking, other.smoking)
+                && Utils.enhancedDeepEquals(this.cancelled, other.cancelled)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber)
+                && Utils.enhancedDeepEquals(this.isADAAccessible, other.isADAAccessible)
+                && Utils.enhancedDeepEquals(this.shareRoom, other.shareRoom)
+                && Utils.enhancedDeepEquals(this.roommateLeader, other.roommateLeader)
+                && Utils.enhancedDeepEquals(this.gender, other.gender)
+                && Utils.enhancedDeepEquals(this.totalAmount, other.totalAmount)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.roomCharge, other.roomCharge)
+                && Utils.enhancedDeepEquals(this.roomTaxBillingInstructions, other.roomTaxBillingInstructions)
+                && Utils.enhancedDeepEquals(this.incidentalBillingInstructions, other.incidentalBillingInstructions)
+                && Utils.enhancedDeepEquals(this.plannerMemo, other.plannerMemo)
+                && Utils.enhancedDeepEquals(this.earliestShoulderDate, other.earliestShoulderDate)
+                && Utils.enhancedDeepEquals(this.latestShoulderDate, other.latestShoulderDate)
+                && Utils.enhancedDeepEquals(this.roomTaxBillingExceptions, other.roomTaxBillingExceptions)
+                && Utils.enhancedDeepEquals(this.incidentalBillingExceptions, other.incidentalBillingExceptions)
+                && Utils.enhancedDeepEquals(this.hotelAddress, other.hotelAddress)
+                && Utils.enhancedDeepEquals(this.hotelRoomRates, other.hotelRoomRates)
+                && Utils.enhancedDeepEquals(this.hotelRequestAnswers, other.hotelRequestAnswers);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, hotelRequestId, requesterId,
-            requesterType, requesterFirstName, requesterLastName,
-            hotelName, hotelCode, roomName,
-            roomCode, quantity, roommateRequested,
-            specialRequest, rewardsCode, checkinDate,
-            checkoutDate, smoking, cancelled,
-            status, confirmationNumber, isADAAccessible,
-            shareRoom, roommateLeader, gender,
-            totalAmount, currencyCode, roomCharge,
-            roomTaxBillingInstructions, incidentalBillingInstructions, plannerMemo,
-            earliestShoulderDate, latestShoulderDate, roomTaxBillingExceptions,
-            incidentalBillingExceptions, hotelAddress, hotelRoomRates,
-            hotelRequestAnswers);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                hotelRequestId,
+                requesterId,
+                requesterType,
+                requesterFirstName,
+                requesterLastName,
+                hotelName,
+                hotelCode,
+                roomName,
+                roomCode,
+                quantity,
+                roommateRequested,
+                specialRequest,
+                rewardsCode,
+                checkinDate,
+                checkoutDate,
+                smoking,
+                cancelled,
+                status,
+                confirmationNumber,
+                isADAAccessible,
+                shareRoom,
+                roommateLeader,
+                gender,
+                totalAmount,
+                currencyCode,
+                roomCharge,
+                roomTaxBillingInstructions,
+                incidentalBillingInstructions,
+                plannerMemo,
+                earliestShoulderDate,
+                latestShoulderDate,
+                roomTaxBillingExceptions,
+                incidentalBillingExceptions,
+                hotelAddress,
+                hotelRoomRates,
+                hotelRequestAnswers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HotelRequestJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "hotelRequestId", hotelRequestId,
-                "requesterId", requesterId,
-                "requesterType", requesterType,
-                "requesterFirstName", requesterFirstName,
-                "requesterLastName", requesterLastName,
-                "hotelName", hotelName,
-                "hotelCode", hotelCode,
-                "roomName", roomName,
-                "roomCode", roomCode,
-                "quantity", quantity,
-                "roommateRequested", roommateRequested,
-                "specialRequest", specialRequest,
-                "rewardsCode", rewardsCode,
-                "checkinDate", checkinDate,
-                "checkoutDate", checkoutDate,
-                "smoking", smoking,
-                "cancelled", cancelled,
-                "status", status,
-                "confirmationNumber", confirmationNumber,
-                "isADAAccessible", isADAAccessible,
-                "shareRoom", shareRoom,
-                "roommateLeader", roommateLeader,
-                "gender", gender,
-                "totalAmount", totalAmount,
-                "currencyCode", currencyCode,
-                "roomCharge", roomCharge,
-                "roomTaxBillingInstructions", roomTaxBillingInstructions,
-                "incidentalBillingInstructions", incidentalBillingInstructions,
-                "plannerMemo", plannerMemo,
-                "earliestShoulderDate", earliestShoulderDate,
-                "latestShoulderDate", latestShoulderDate,
-                "roomTaxBillingExceptions", roomTaxBillingExceptions,
-                "incidentalBillingExceptions", incidentalBillingExceptions,
-                "hotelAddress", hotelAddress,
-                "hotelRoomRates", hotelRoomRates,
-                "hotelRequestAnswers", hotelRequestAnswers);
+        return Utils.toString(
+                HotelRequestJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "hotelRequestId",
+                hotelRequestId,
+                "requesterId",
+                requesterId,
+                "requesterType",
+                requesterType,
+                "requesterFirstName",
+                requesterFirstName,
+                "requesterLastName",
+                requesterLastName,
+                "hotelName",
+                hotelName,
+                "hotelCode",
+                hotelCode,
+                "roomName",
+                roomName,
+                "roomCode",
+                roomCode,
+                "quantity",
+                quantity,
+                "roommateRequested",
+                roommateRequested,
+                "specialRequest",
+                specialRequest,
+                "rewardsCode",
+                rewardsCode,
+                "checkinDate",
+                checkinDate,
+                "checkoutDate",
+                checkoutDate,
+                "smoking",
+                smoking,
+                "cancelled",
+                cancelled,
+                "status",
+                status,
+                "confirmationNumber",
+                confirmationNumber,
+                "isADAAccessible",
+                isADAAccessible,
+                "shareRoom",
+                shareRoom,
+                "roommateLeader",
+                roommateLeader,
+                "gender",
+                gender,
+                "totalAmount",
+                totalAmount,
+                "currencyCode",
+                currencyCode,
+                "roomCharge",
+                roomCharge,
+                "roomTaxBillingInstructions",
+                roomTaxBillingInstructions,
+                "incidentalBillingInstructions",
+                incidentalBillingInstructions,
+                "plannerMemo",
+                plannerMemo,
+                "earliestShoulderDate",
+                earliestShoulderDate,
+                "latestShoulderDate",
+                latestShoulderDate,
+                "roomTaxBillingExceptions",
+                roomTaxBillingExceptions,
+                "incidentalBillingExceptions",
+                incidentalBillingExceptions,
+                "hotelAddress",
+                hotelAddress,
+                "hotelRoomRates",
+                hotelRoomRates,
+                "hotelRequestAnswers",
+                hotelRequestAnswers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -1268,7 +1320,7 @@ public class HotelRequestJson {
         private List<AttendeeAnswerJson1> hotelRequestAnswers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1599,21 +1651,46 @@ public class HotelRequestJson {
 
         public HotelRequestJson build() {
             return new HotelRequestJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, hotelRequestId, requesterId,
-                requesterType, requesterFirstName, requesterLastName,
-                hotelName, hotelCode, roomName,
-                roomCode, quantity, roommateRequested,
-                specialRequest, rewardsCode, checkinDate,
-                checkoutDate, smoking, cancelled,
-                status, confirmationNumber, isADAAccessible,
-                shareRoom, roommateLeader, gender,
-                totalAmount, currencyCode, roomCharge,
-                roomTaxBillingInstructions, incidentalBillingInstructions, plannerMemo,
-                earliestShoulderDate, latestShoulderDate, roomTaxBillingExceptions,
-                incidentalBillingExceptions, hotelAddress, hotelRoomRates,
-                hotelRequestAnswers);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    hotelRequestId,
+                    requesterId,
+                    requesterType,
+                    requesterFirstName,
+                    requesterLastName,
+                    hotelName,
+                    hotelCode,
+                    roomName,
+                    roomCode,
+                    quantity,
+                    roommateRequested,
+                    specialRequest,
+                    rewardsCode,
+                    checkinDate,
+                    checkoutDate,
+                    smoking,
+                    cancelled,
+                    status,
+                    confirmationNumber,
+                    isADAAccessible,
+                    shareRoom,
+                    roommateLeader,
+                    gender,
+                    totalAmount,
+                    currencyCode,
+                    roomCharge,
+                    roomTaxBillingInstructions,
+                    incidentalBillingInstructions,
+                    plannerMemo,
+                    earliestShoulderDate,
+                    latestShoulderDate,
+                    roomTaxBillingExceptions,
+                    incidentalBillingExceptions,
+                    hotelAddress,
+                    hotelRoomRates,
+                    hotelRequestAnswers);
         }
-
     }
 }

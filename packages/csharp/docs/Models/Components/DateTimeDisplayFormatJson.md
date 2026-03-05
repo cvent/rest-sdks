@@ -2,6 +2,14 @@
 
 This is used to denote the display format type of date time type custom field.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = DateTimeDisplayFormatJson.DateAndTimeMonthFirst12HourTime;
+```
+
 
 ## Values
 

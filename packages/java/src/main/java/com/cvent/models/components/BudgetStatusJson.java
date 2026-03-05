@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BudgetStatusJson
- * 
+ *
  * <p>Denotes the status assigned to a budget item.
  */
 public enum BudgetStatusJson {
@@ -27,13 +27,13 @@ public enum BudgetStatusJson {
     BudgetStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BudgetStatusJson> fromValue(String value) {
-        for (BudgetStatusJson o: BudgetStatusJson.values()) {
+        for (BudgetStatusJson o : BudgetStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum BudgetStatusJson {
         return Optional.empty();
     }
 }
-

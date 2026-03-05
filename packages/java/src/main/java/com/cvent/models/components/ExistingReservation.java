@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -22,7 +22,7 @@ import java.util.Optional;
 
 /**
  * ExistingReservation
- * 
+ *
  * <p>Details about existing reservation.
  */
 public class ExistingReservation {
@@ -174,7 +174,7 @@ public class ExistingReservation {
 
     /**
      * True indicates this reservation is cancelled. DEPRECATED - use `isCanceled` instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -287,7 +287,7 @@ public class ExistingReservation {
 
     /**
      * Block Code. DEPRECATED - use attendee type and room type to identify block code instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -340,58 +340,51 @@ public class ExistingReservation {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.confirmationNumber = confirmationNumber;
         this.hotelConfirmationNumber = hotelConfirmationNumber;
         this.reservationRequest = reservationRequest;
         this.attendeeTypeCode = attendeeTypeCode;
         this.attendeeType = Optional.ofNullable(attendeeType)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
         this.roomType = Optional.ofNullable(roomType)
-            .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
-        this.sendAcknowledgement = Optional.ofNullable(sendAcknowledgement)
-            .orElse(Builder._SINGLETON_VALUE_SendAcknowledgement.value());
+                .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
+        this.sendAcknowledgement =
+                Optional.ofNullable(sendAcknowledgement).orElse(Builder._SINGLETON_VALUE_SendAcknowledgement.value());
         this.splitFolio = splitFolio;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
-        this.endDate = Optional.ofNullable(endDate)
-            .orElseThrow(() -> new IllegalArgumentException("endDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+        this.endDate =
+                Optional.ofNullable(endDate).orElseThrow(() -> new IllegalArgumentException("endDate cannot be null"));
         this.numberOfAdults = numberOfAdults;
         this.numberOfChildren = numberOfChildren;
         this.nights = nights;
-        this.guests = Optional.ofNullable(guests)
-            .orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
+        this.guests =
+                Optional.ofNullable(guests).orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
         this.customFields = customFields;
         this.accessible = accessible;
         this.specialRequest = specialRequest;
-        this.isCancelled = Optional.ofNullable(isCancelled)
-            .orElse(Builder._SINGLETON_VALUE_IsCancelled.value());
-        this.isCanceled = Optional.ofNullable(isCanceled)
-            .orElse(Builder._SINGLETON_VALUE_IsCanceled.value());
-        this.noShow = Optional.ofNullable(noShow)
-            .orElse(Builder._SINGLETON_VALUE_NoShow.value());
-        this.isModified = Optional.ofNullable(isModified)
-            .orElse(Builder._SINGLETON_VALUE_IsModified.value());
-        this.isWaitListed = Optional.ofNullable(isWaitListed)
-            .orElse(Builder._SINGLETON_VALUE_IsWaitListed.value());
+        this.isCancelled = Optional.ofNullable(isCancelled).orElse(Builder._SINGLETON_VALUE_IsCancelled.value());
+        this.isCanceled = Optional.ofNullable(isCanceled).orElse(Builder._SINGLETON_VALUE_IsCanceled.value());
+        this.noShow = Optional.ofNullable(noShow).orElse(Builder._SINGLETON_VALUE_NoShow.value());
+        this.isModified = Optional.ofNullable(isModified).orElse(Builder._SINGLETON_VALUE_IsModified.value());
+        this.isWaitListed = Optional.ofNullable(isWaitListed).orElse(Builder._SINGLETON_VALUE_IsWaitListed.value());
         this.cancelled = cancelled;
         this.rewardProgram = rewardProgram;
         this.membershipId = membershipId;
         this.travelDetails = travelDetails;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
-        this.hotel = Optional.ofNullable(hotel)
-            .orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+        this.hotel = Optional.ofNullable(hotel).orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
         this.totalCharges = totalCharges;
         this.bookingSite = Optional.ofNullable(bookingSite)
-            .orElseThrow(() -> new IllegalArgumentException("bookingSite cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("bookingSite cannot be null"));
         this.callCenter = callCenter;
         this.bookingContact = bookingContact;
         this.addOns = addOns;
         this.blockCode = blockCode;
     }
-    
+
     public ExistingReservation(
             @Nonnull String id,
             @Nonnull AttendeeTypeIdJson attendeeType,
@@ -404,19 +397,46 @@ public class ExistingReservation {
             @Nonnull ExistingReservationHousingEventId housingEvent,
             @Nonnull HotelInfoJson hotel,
             @Nonnull BookingWebsiteLinkJson bookingSite) {
-        this(null, null, null,
-            null, id, null,
-            null, null, null,
-            attendeeType, roomType, null,
-            null, startDate, endDate,
-            numberOfAdults, numberOfChildren, null,
-            guests, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, housingEvent, hotel,
-            null, bookingSite, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                id,
+                null,
+                null,
+                null,
+                null,
+                attendeeType,
+                roomType,
+                null,
+                null,
+                startDate,
+                endDate,
+                numberOfAdults,
+                numberOfChildren,
+                null,
+                guests,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                housingEvent,
+                hotel,
+                null,
+                bookingSite,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -575,7 +595,7 @@ public class ExistingReservation {
 
     /**
      * True indicates this reservation is cancelled. DEPRECATED - use `isCanceled` instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -691,7 +711,7 @@ public class ExistingReservation {
 
     /**
      * Block Code. DEPRECATED - use attendee type and room type to identify block code instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -703,7 +723,6 @@ public class ExistingReservation {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -711,7 +730,6 @@ public class ExistingReservation {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -721,7 +739,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -729,7 +746,6 @@ public class ExistingReservation {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -739,7 +755,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Reservation identifier.
      */
@@ -747,7 +762,6 @@ public class ExistingReservation {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Housing system confirmation number.
@@ -757,7 +771,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Hotel system confirmation number.
      */
@@ -766,15 +779,14 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Reservation request information.
      */
-    public ExistingReservation withReservationRequest(@Nullable ExistingReservationReservationRequest reservationRequest) {
+    public ExistingReservation withReservationRequest(
+            @Nullable ExistingReservationReservationRequest reservationRequest) {
         this.reservationRequest = reservationRequest;
         return this;
     }
-
 
     /**
      * Attendee type code.
@@ -784,7 +796,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Contains the unique ID of the attendee type.
      */
@@ -792,7 +803,6 @@ public class ExistingReservation {
         this.attendeeType = Utils.checkNotNull(attendeeType, "attendeeType");
         return this;
     }
-
 
     /**
      * Room information.
@@ -802,7 +812,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * True indicates an email acknowledgement after reservation creation will be sent.
      */
@@ -810,7 +819,6 @@ public class ExistingReservation {
         this.sendAcknowledgement = sendAcknowledgement;
         return this;
     }
-
 
     /**
      * True indicates each guest in this reservation would pay separately.
@@ -820,7 +828,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when the reservation starts.
      */
@@ -828,7 +835,6 @@ public class ExistingReservation {
         this.startDate = Utils.checkNotNull(startDate, "startDate");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when the reservation ends.
@@ -838,7 +844,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Number of adults for this reservation.
      */
@@ -846,7 +851,6 @@ public class ExistingReservation {
         this.numberOfAdults = numberOfAdults;
         return this;
     }
-
 
     /**
      * Number of children for this reservation.
@@ -856,7 +860,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Array of nights for this reservation.
      */
@@ -864,7 +867,6 @@ public class ExistingReservation {
         this.nights = nights;
         return this;
     }
-
 
     /**
      * Array of reservation guest details.
@@ -874,7 +876,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Custom fields.
      */
@@ -882,7 +883,6 @@ public class ExistingReservation {
         this.customFields = customFields;
         return this;
     }
-
 
     /**
      * True indicates this reservation requires an accessible room.
@@ -892,7 +892,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Special requests.
      */
@@ -901,10 +900,9 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * True indicates this reservation is cancelled. DEPRECATED - use `isCanceled` instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -912,7 +910,6 @@ public class ExistingReservation {
         this.isCancelled = isCancelled;
         return this;
     }
-
 
     /**
      * True indicates this reservation is cancelled.
@@ -922,7 +919,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * True indicates this reservation is a NO SHOW.
      */
@@ -930,7 +926,6 @@ public class ExistingReservation {
         this.noShow = noShow;
         return this;
     }
-
 
     /**
      * True indicates this reservation was modified.
@@ -940,7 +935,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * True indicates this reservation is on the wait list.
      */
@@ -948,7 +942,6 @@ public class ExistingReservation {
         this.isWaitListed = isWaitListed;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when the reservation was cancelled.
@@ -958,7 +951,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Represents reward program information.
      */
@@ -966,7 +958,6 @@ public class ExistingReservation {
         this.rewardProgram = rewardProgram;
         return this;
     }
-
 
     /**
      * Reward program membership number.
@@ -976,7 +967,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Common object that holds travel details information.
      */
@@ -984,7 +974,6 @@ public class ExistingReservation {
         this.travelDetails = travelDetails;
         return this;
     }
-
 
     /**
      * Information about Passkey event for this reservation.
@@ -994,7 +983,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Hotel information.
      */
@@ -1002,7 +990,6 @@ public class ExistingReservation {
         this.hotel = Utils.checkNotNull(hotel, "hotel");
         return this;
     }
-
 
     /**
      * Calculated total charges for this reservation.
@@ -1012,7 +999,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Unique URL for a guest to access a reservation in Passkey's booking tool.
      */
@@ -1020,7 +1006,6 @@ public class ExistingReservation {
         this.bookingSite = Utils.checkNotNull(bookingSite, "bookingSite");
         return this;
     }
-
 
     /**
      * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
@@ -1031,7 +1016,6 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Booking contact information.
      */
@@ -1039,7 +1023,6 @@ public class ExistingReservation {
         this.bookingContact = bookingContact;
         return this;
     }
-
 
     /**
      * List of room add-ons.
@@ -1049,10 +1032,9 @@ public class ExistingReservation {
         return this;
     }
 
-
     /**
      * Block Code. DEPRECATED - use attendee type and room type to identify block code instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1060,7 +1042,6 @@ public class ExistingReservation {
         this.blockCode = blockCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1071,112 +1052,177 @@ public class ExistingReservation {
             return false;
         }
         ExistingReservation other = (ExistingReservation) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber) &&
-            Utils.enhancedDeepEquals(this.hotelConfirmationNumber, other.hotelConfirmationNumber) &&
-            Utils.enhancedDeepEquals(this.reservationRequest, other.reservationRequest) &&
-            Utils.enhancedDeepEquals(this.attendeeTypeCode, other.attendeeTypeCode) &&
-            Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType) &&
-            Utils.enhancedDeepEquals(this.roomType, other.roomType) &&
-            Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement) &&
-            Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.numberOfAdults, other.numberOfAdults) &&
-            Utils.enhancedDeepEquals(this.numberOfChildren, other.numberOfChildren) &&
-            Utils.enhancedDeepEquals(this.nights, other.nights) &&
-            Utils.enhancedDeepEquals(this.guests, other.guests) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.accessible, other.accessible) &&
-            Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest) &&
-            Utils.enhancedDeepEquals(this.isCancelled, other.isCancelled) &&
-            Utils.enhancedDeepEquals(this.isCanceled, other.isCanceled) &&
-            Utils.enhancedDeepEquals(this.noShow, other.noShow) &&
-            Utils.enhancedDeepEquals(this.isModified, other.isModified) &&
-            Utils.enhancedDeepEquals(this.isWaitListed, other.isWaitListed) &&
-            Utils.enhancedDeepEquals(this.cancelled, other.cancelled) &&
-            Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram) &&
-            Utils.enhancedDeepEquals(this.membershipId, other.membershipId) &&
-            Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.totalCharges, other.totalCharges) &&
-            Utils.enhancedDeepEquals(this.bookingSite, other.bookingSite) &&
-            Utils.enhancedDeepEquals(this.callCenter, other.callCenter) &&
-            Utils.enhancedDeepEquals(this.bookingContact, other.bookingContact) &&
-            Utils.enhancedDeepEquals(this.addOns, other.addOns) &&
-            Utils.enhancedDeepEquals(this.blockCode, other.blockCode);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber)
+                && Utils.enhancedDeepEquals(this.hotelConfirmationNumber, other.hotelConfirmationNumber)
+                && Utils.enhancedDeepEquals(this.reservationRequest, other.reservationRequest)
+                && Utils.enhancedDeepEquals(this.attendeeTypeCode, other.attendeeTypeCode)
+                && Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType)
+                && Utils.enhancedDeepEquals(this.roomType, other.roomType)
+                && Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement)
+                && Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.numberOfAdults, other.numberOfAdults)
+                && Utils.enhancedDeepEquals(this.numberOfChildren, other.numberOfChildren)
+                && Utils.enhancedDeepEquals(this.nights, other.nights)
+                && Utils.enhancedDeepEquals(this.guests, other.guests)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.accessible, other.accessible)
+                && Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest)
+                && Utils.enhancedDeepEquals(this.isCancelled, other.isCancelled)
+                && Utils.enhancedDeepEquals(this.isCanceled, other.isCanceled)
+                && Utils.enhancedDeepEquals(this.noShow, other.noShow)
+                && Utils.enhancedDeepEquals(this.isModified, other.isModified)
+                && Utils.enhancedDeepEquals(this.isWaitListed, other.isWaitListed)
+                && Utils.enhancedDeepEquals(this.cancelled, other.cancelled)
+                && Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram)
+                && Utils.enhancedDeepEquals(this.membershipId, other.membershipId)
+                && Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.totalCharges, other.totalCharges)
+                && Utils.enhancedDeepEquals(this.bookingSite, other.bookingSite)
+                && Utils.enhancedDeepEquals(this.callCenter, other.callCenter)
+                && Utils.enhancedDeepEquals(this.bookingContact, other.bookingContact)
+                && Utils.enhancedDeepEquals(this.addOns, other.addOns)
+                && Utils.enhancedDeepEquals(this.blockCode, other.blockCode);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, confirmationNumber,
-            hotelConfirmationNumber, reservationRequest, attendeeTypeCode,
-            attendeeType, roomType, sendAcknowledgement,
-            splitFolio, startDate, endDate,
-            numberOfAdults, numberOfChildren, nights,
-            guests, customFields, accessible,
-            specialRequest, isCancelled, isCanceled,
-            noShow, isModified, isWaitListed,
-            cancelled, rewardProgram, membershipId,
-            travelDetails, housingEvent, hotel,
-            totalCharges, bookingSite, callCenter,
-            bookingContact, addOns, blockCode);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                confirmationNumber,
+                hotelConfirmationNumber,
+                reservationRequest,
+                attendeeTypeCode,
+                attendeeType,
+                roomType,
+                sendAcknowledgement,
+                splitFolio,
+                startDate,
+                endDate,
+                numberOfAdults,
+                numberOfChildren,
+                nights,
+                guests,
+                customFields,
+                accessible,
+                specialRequest,
+                isCancelled,
+                isCanceled,
+                noShow,
+                isModified,
+                isWaitListed,
+                cancelled,
+                rewardProgram,
+                membershipId,
+                travelDetails,
+                housingEvent,
+                hotel,
+                totalCharges,
+                bookingSite,
+                callCenter,
+                bookingContact,
+                addOns,
+                blockCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingReservation.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "confirmationNumber", confirmationNumber,
-                "hotelConfirmationNumber", hotelConfirmationNumber,
-                "reservationRequest", reservationRequest,
-                "attendeeTypeCode", attendeeTypeCode,
-                "attendeeType", attendeeType,
-                "roomType", roomType,
-                "sendAcknowledgement", sendAcknowledgement,
-                "splitFolio", splitFolio,
-                "startDate", startDate,
-                "endDate", endDate,
-                "numberOfAdults", numberOfAdults,
-                "numberOfChildren", numberOfChildren,
-                "nights", nights,
-                "guests", guests,
-                "customFields", customFields,
-                "accessible", accessible,
-                "specialRequest", specialRequest,
-                "isCancelled", isCancelled,
-                "isCanceled", isCanceled,
-                "noShow", noShow,
-                "isModified", isModified,
-                "isWaitListed", isWaitListed,
-                "cancelled", cancelled,
-                "rewardProgram", rewardProgram,
-                "membershipId", membershipId,
-                "travelDetails", travelDetails,
-                "housingEvent", housingEvent,
-                "hotel", hotel,
-                "totalCharges", totalCharges,
-                "bookingSite", bookingSite,
-                "callCenter", callCenter,
-                "bookingContact", bookingContact,
-                "addOns", addOns,
-                "blockCode", blockCode);
+        return Utils.toString(
+                ExistingReservation.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "confirmationNumber",
+                confirmationNumber,
+                "hotelConfirmationNumber",
+                hotelConfirmationNumber,
+                "reservationRequest",
+                reservationRequest,
+                "attendeeTypeCode",
+                attendeeTypeCode,
+                "attendeeType",
+                attendeeType,
+                "roomType",
+                roomType,
+                "sendAcknowledgement",
+                sendAcknowledgement,
+                "splitFolio",
+                splitFolio,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "numberOfAdults",
+                numberOfAdults,
+                "numberOfChildren",
+                numberOfChildren,
+                "nights",
+                nights,
+                "guests",
+                guests,
+                "customFields",
+                customFields,
+                "accessible",
+                accessible,
+                "specialRequest",
+                specialRequest,
+                "isCancelled",
+                isCancelled,
+                "isCanceled",
+                isCanceled,
+                "noShow",
+                noShow,
+                "isModified",
+                isModified,
+                "isWaitListed",
+                isWaitListed,
+                "cancelled",
+                cancelled,
+                "rewardProgram",
+                rewardProgram,
+                "membershipId",
+                membershipId,
+                "travelDetails",
+                travelDetails,
+                "housingEvent",
+                housingEvent,
+                "hotel",
+                hotel,
+                "totalCharges",
+                totalCharges,
+                "bookingSite",
+                bookingSite,
+                "callCenter",
+                callCenter,
+                "bookingContact",
+                bookingContact,
+                "addOns",
+                addOns,
+                "blockCode",
+                blockCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -1259,7 +1305,7 @@ public class ExistingReservation {
         private String blockCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1440,7 +1486,7 @@ public class ExistingReservation {
 
         /**
          * True indicates this reservation is cancelled. DEPRECATED - use `isCanceled` instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1572,7 +1618,7 @@ public class ExistingReservation {
 
         /**
          * Block Code. DEPRECATED - use attendee type and room type to identify block code instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1583,56 +1629,63 @@ public class ExistingReservation {
 
         public ExistingReservation build() {
             return new ExistingReservation(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, confirmationNumber,
-                hotelConfirmationNumber, reservationRequest, attendeeTypeCode,
-                attendeeType, roomType, sendAcknowledgement,
-                splitFolio, startDate, endDate,
-                numberOfAdults, numberOfChildren, nights,
-                guests, customFields, accessible,
-                specialRequest, isCancelled, isCanceled,
-                noShow, isModified, isWaitListed,
-                cancelled, rewardProgram, membershipId,
-                travelDetails, housingEvent, hotel,
-                totalCharges, bookingSite, callCenter,
-                bookingContact, addOns, blockCode);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    confirmationNumber,
+                    hotelConfirmationNumber,
+                    reservationRequest,
+                    attendeeTypeCode,
+                    attendeeType,
+                    roomType,
+                    sendAcknowledgement,
+                    splitFolio,
+                    startDate,
+                    endDate,
+                    numberOfAdults,
+                    numberOfChildren,
+                    nights,
+                    guests,
+                    customFields,
+                    accessible,
+                    specialRequest,
+                    isCancelled,
+                    isCanceled,
+                    noShow,
+                    isModified,
+                    isWaitListed,
+                    cancelled,
+                    rewardProgram,
+                    membershipId,
+                    travelDetails,
+                    housingEvent,
+                    hotel,
+                    totalCharges,
+                    bookingSite,
+                    callCenter,
+                    bookingContact,
+                    addOns,
+                    blockCode);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SendAcknowledgement =
-                new LazySingletonValue<>(
-                        "sendAcknowledgement",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("sendAcknowledgement", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IsCancelled =
-                new LazySingletonValue<>(
-                        "isCancelled",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("isCancelled", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IsCanceled =
-                new LazySingletonValue<>(
-                        "isCanceled",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("isCanceled", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_NoShow =
-                new LazySingletonValue<>(
-                        "noShow",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("noShow", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IsModified =
-                new LazySingletonValue<>(
-                        "isModified",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("isModified", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IsWaitListed =
-                new LazySingletonValue<>(
-                        "isWaitListed",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("isWaitListed", "false", new TypeReference<Boolean>() {});
     }
 }

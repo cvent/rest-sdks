@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ExistingExhibitorAnswerJsonInput
- * 
+ *
  * <p>Existing Exhibitor Answer schema
  */
 public class ExistingExhibitorAnswerJsonInput {
@@ -49,13 +49,12 @@ public class ExistingExhibitorAnswerJsonInput {
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("answers") @Nonnull List<AnswerJson0> answers) {
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
-        this.answers = Optional.ofNullable(answers)
-            .orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+        this.answers =
+                Optional.ofNullable(answers).orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
     }
 
     /**
@@ -90,7 +89,6 @@ public class ExistingExhibitorAnswerJsonInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -98,7 +96,6 @@ public class ExistingExhibitorAnswerJsonInput {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
-
 
     /**
      * The Associated Event.
@@ -108,7 +105,6 @@ public class ExistingExhibitorAnswerJsonInput {
         return this;
     }
 
-
     /**
      * The Associated Exhibitor.
      */
@@ -117,7 +113,6 @@ public class ExistingExhibitorAnswerJsonInput {
         return this;
     }
 
-
     /**
      * List of answers
      */
@@ -125,7 +120,6 @@ public class ExistingExhibitorAnswerJsonInput {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -136,31 +130,33 @@ public class ExistingExhibitorAnswerJsonInput {
             return false;
         }
         ExistingExhibitorAnswerJsonInput other = (ExistingExhibitorAnswerJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers);
+        return Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.answers, other.answers);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, event, exhibitor,
-            answers);
+        return Utils.enhancedHash(question, event, exhibitor, answers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingExhibitorAnswerJsonInput.class,
-                "question", question,
-                "event", event,
-                "exhibitor", exhibitor,
-                "answers", answers);
+        return Utils.toString(
+                ExistingExhibitorAnswerJsonInput.class,
+                "question",
+                question,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "answers",
+                answers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson question;
 
@@ -171,7 +167,7 @@ public class ExistingExhibitorAnswerJsonInput {
         private List<AnswerJson0> answers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -207,10 +203,7 @@ public class ExistingExhibitorAnswerJsonInput {
         }
 
         public ExistingExhibitorAnswerJsonInput build() {
-            return new ExistingExhibitorAnswerJsonInput(
-                question, event, exhibitor,
-                answers);
+            return new ExistingExhibitorAnswerJsonInput(question, event, exhibitor, answers);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BudgetTaxJson
- * 
+ *
  * <p>Budget item tax details.
  */
 public class BudgetTaxJson {
@@ -60,21 +60,16 @@ public class BudgetTaxJson {
             @JsonProperty("taxType") @Nonnull BudgetTaxGratuityTypeJson taxType,
             @JsonProperty("tax") double tax,
             @JsonProperty("appliedTaxValue") @Nullable Double appliedTaxValue) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
-        this.taxType = Optional.ofNullable(taxType)
-            .orElseThrow(() -> new IllegalArgumentException("taxType cannot be null"));
+        this.taxType =
+                Optional.ofNullable(taxType).orElseThrow(() -> new IllegalArgumentException("taxType cannot be null"));
         this.tax = tax;
         this.appliedTaxValue = appliedTaxValue;
     }
-    
-    public BudgetTaxJson(
-            @Nonnull String id,
-            @Nonnull BudgetTaxGratuityTypeJson taxType,
-            double tax) {
-        this(id, null, taxType,
-            tax, null);
+
+    public BudgetTaxJson(@Nonnull String id, @Nonnull BudgetTaxGratuityTypeJson taxType, double tax) {
+        this(id, null, taxType, tax, null);
     }
 
     /**
@@ -116,7 +111,6 @@ public class BudgetTaxJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -124,7 +118,6 @@ public class BudgetTaxJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Tax name.
@@ -134,7 +127,6 @@ public class BudgetTaxJson {
         return this;
     }
 
-
     /**
      * Denotes the type of tax or gratuity.
      */
@@ -142,7 +134,6 @@ public class BudgetTaxJson {
         this.taxType = Utils.checkNotNull(taxType, "taxType");
         return this;
     }
-
 
     /**
      * Tax applied to the budget item. This value can be a percentage of the cost or a flat dollar amount.
@@ -152,7 +143,6 @@ public class BudgetTaxJson {
         return this;
     }
 
-
     /**
      * Calculated tax amount based on tax field.
      */
@@ -160,7 +150,6 @@ public class BudgetTaxJson {
         this.appliedTaxValue = appliedTaxValue;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,33 +160,36 @@ public class BudgetTaxJson {
             return false;
         }
         BudgetTaxJson other = (BudgetTaxJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.taxType, other.taxType) &&
-            Utils.enhancedDeepEquals(this.tax, other.tax) &&
-            Utils.enhancedDeepEquals(this.appliedTaxValue, other.appliedTaxValue);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.taxType, other.taxType)
+                && Utils.enhancedDeepEquals(this.tax, other.tax)
+                && Utils.enhancedDeepEquals(this.appliedTaxValue, other.appliedTaxValue);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, taxType,
-            tax, appliedTaxValue);
+        return Utils.enhancedHash(id, name, taxType, tax, appliedTaxValue);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetTaxJson.class,
-                "id", id,
-                "name", name,
-                "taxType", taxType,
-                "tax", tax,
-                "appliedTaxValue", appliedTaxValue);
+        return Utils.toString(
+                BudgetTaxJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "taxType",
+                taxType,
+                "tax",
+                tax,
+                "appliedTaxValue",
+                appliedTaxValue);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -210,7 +202,7 @@ public class BudgetTaxJson {
         private Double appliedTaxValue;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +246,7 @@ public class BudgetTaxJson {
         }
 
         public BudgetTaxJson build() {
-            return new BudgetTaxJson(
-                id, name, taxType,
-                tax, appliedTaxValue);
+            return new BudgetTaxJson(id, name, taxType, tax, appliedTaxValue);
         }
-
     }
 }

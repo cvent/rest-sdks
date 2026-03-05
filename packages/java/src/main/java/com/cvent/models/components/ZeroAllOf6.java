@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf6
- * 
+ *
  * <p>A transaction reconciliation record.
  */
 public class ZeroAllOf6 {
@@ -69,10 +69,9 @@ public class ZeroAllOf6 {
         this.reconciledBy = reconciledBy;
         this.reconciledDate = reconciledDate;
     }
-    
+
     public ZeroAllOf6() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -114,7 +113,6 @@ public class ZeroAllOf6 {
         return new Builder();
     }
 
-
     /**
      * The identifier of reconciled budget item.
      */
@@ -122,7 +120,6 @@ public class ZeroAllOf6 {
         this.budgetItem = budgetItem;
         return this;
     }
-
 
     /**
      * This is used to denote the reconciliation status for a transaction.
@@ -132,7 +129,6 @@ public class ZeroAllOf6 {
         return this;
     }
 
-
     /**
      * Reconciliation amount.
      */
@@ -140,7 +136,6 @@ public class ZeroAllOf6 {
         this.amount = amount;
         return this;
     }
-
 
     /**
      * Reconciled by user.
@@ -150,7 +145,6 @@ public class ZeroAllOf6 {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time for Reconciled date.
      */
@@ -158,7 +152,6 @@ public class ZeroAllOf6 {
         this.reconciledDate = reconciledDate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -169,33 +162,36 @@ public class ZeroAllOf6 {
             return false;
         }
         ZeroAllOf6 other = (ZeroAllOf6) o;
-        return 
-            Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy) &&
-            Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
+        return Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy)
+                && Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            budgetItem, status, amount,
-            reconciledBy, reconciledDate);
+        return Utils.enhancedHash(budgetItem, status, amount, reconciledBy, reconciledDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf6.class,
-                "budgetItem", budgetItem,
-                "status", status,
-                "amount", amount,
-                "reconciledBy", reconciledBy,
-                "reconciledDate", reconciledDate);
+        return Utils.toString(
+                ZeroAllOf6.class,
+                "budgetItem",
+                budgetItem,
+                "status",
+                status,
+                "amount",
+                amount,
+                "reconciledBy",
+                reconciledBy,
+                "reconciledDate",
+                reconciledDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BudgetItemAllOf budgetItem;
 
@@ -208,7 +204,7 @@ public class ZeroAllOf6 {
         private OffsetDateTime reconciledDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -252,10 +248,7 @@ public class ZeroAllOf6 {
         }
 
         public ZeroAllOf6 build() {
-            return new ZeroAllOf6(
-                budgetItem, status, amount,
-                reconciledBy, reconciledDate);
+            return new ZeroAllOf6(budgetItem, status, amount, reconciledBy, reconciledDate);
         }
-
     }
 }

@@ -28,7 +28,7 @@ public class GetStatsRequestBuilder {
     private GetStatsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetStatsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,12 @@ public class GetStatsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetStatsResponse call() {
-        RequestOperation<GetStatsRequest, GetStatsResponse> operation
-              = new GetStats.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetStatsRequest, GetStatsResponse> operation = new GetStats.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

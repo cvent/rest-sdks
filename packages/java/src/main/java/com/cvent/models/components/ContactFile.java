@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ContactFile
- * 
+ *
  * <p>A contact's file, such as a profile image.
  */
 public class ContactFile {
@@ -29,12 +29,9 @@ public class ContactFile {
 
     @JsonCreator
     public ContactFile(
-            @JsonProperty("file") @Nonnull ContactFileFile file,
-            @JsonProperty("href") @Nonnull String href) {
-        this.file = Optional.ofNullable(file)
-            .orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+            @JsonProperty("file") @Nonnull ContactFileFile file, @JsonProperty("href") @Nonnull String href) {
+        this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     public ContactFileFile file() {
@@ -52,12 +49,10 @@ public class ContactFile {
         return new Builder();
     }
 
-
     public ContactFile withFile(@Nonnull ContactFileFile file) {
         this.file = Utils.checkNotNull(file, "file");
         return this;
     }
-
 
     /**
      * URL of the contact's file.
@@ -66,7 +61,6 @@ public class ContactFile {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,33 +71,28 @@ public class ContactFile {
             return false;
         }
         ContactFile other = (ContactFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file) &&
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.file, other.file) && Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file, href);
+        return Utils.enhancedHash(file, href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactFile.class,
-                "file", file,
-                "href", href);
+        return Utils.toString(ContactFile.class, "file", file, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ContactFileFile file;
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder file(@Nonnull ContactFileFile file) {
@@ -120,9 +109,7 @@ public class ContactFile {
         }
 
         public ContactFile build() {
-            return new ContactFile(
-                file, href);
+            return new ContactFile(file, href);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * CustomDuration
- * 
+ *
  * <p>Represents a custom membership duration. Required when the duration property is set to 'Custom'.
  */
 public class CustomDuration {
@@ -28,11 +28,10 @@ public class CustomDuration {
     private Long days;
 
     @JsonCreator
-    public CustomDuration(
-            @JsonProperty("days") @Nullable Long days) {
+    public CustomDuration(@JsonProperty("days") @Nullable Long days) {
         this.days = days;
     }
-    
+
     public CustomDuration() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class CustomDuration {
         return new Builder();
     }
 
-
     /**
      * The custom duration in days for the membership.
      */
@@ -56,7 +54,6 @@ public class CustomDuration {
         this.days = days;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class CustomDuration {
             return false;
         }
         CustomDuration other = (CustomDuration) o;
-        return 
-            Utils.enhancedDeepEquals(this.days, other.days);
+        return Utils.enhancedDeepEquals(this.days, other.days);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            days);
+        return Utils.enhancedHash(days);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomDuration.class,
-                "days", days);
+        return Utils.toString(CustomDuration.class, "days", days);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long days;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class CustomDuration {
         }
 
         public CustomDuration build() {
-            return new CustomDuration(
-                days);
+            return new CustomDuration(days);
         }
-
     }
 }

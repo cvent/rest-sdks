@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BudgetAllocationsPaginatedResponseJson
- * 
+ *
  * <p>Information about an allocation.
  */
 public class BudgetAllocationsPaginatedResponseJson {
@@ -98,11 +98,9 @@ public class BudgetAllocationsPaginatedResponseJson {
         this.value = value;
         this.note = note;
     }
-    
+
     public BudgetAllocationsPaginatedResponseJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -168,15 +166,14 @@ public class BudgetAllocationsPaginatedResponseJson {
         return new Builder();
     }
 
-
     /**
      * This is the budget version where this allocation was made.
      */
-    public BudgetAllocationsPaginatedResponseJson withBudgetVersion(@Nullable BudgetAllocationsPaginatedResponseJsonBudgetVersion budgetVersion) {
+    public BudgetAllocationsPaginatedResponseJson withBudgetVersion(
+            @Nullable BudgetAllocationsPaginatedResponseJsonBudgetVersion budgetVersion) {
         this.budgetVersion = budgetVersion;
         return this;
     }
-
 
     /**
      * Represents the budget item where the allocation was made.
@@ -186,7 +183,6 @@ public class BudgetAllocationsPaginatedResponseJson {
         return this;
     }
 
-
     /**
      * Allocation category in which budget item cost is allocated.
      */
@@ -194,7 +190,6 @@ public class BudgetAllocationsPaginatedResponseJson {
         this.category = category;
         return this;
     }
-
 
     /**
      * Allocation subcategory in which budget item cost is allocated.
@@ -204,15 +199,14 @@ public class BudgetAllocationsPaginatedResponseJson {
         return this;
     }
 
-
     /**
      * General Ledger to which the budget of a budget item is allocated.
      */
-    public BudgetAllocationsPaginatedResponseJson withGeneralLedger(@Nullable AllocationGeneralLedgerJson generalLedger) {
+    public BudgetAllocationsPaginatedResponseJson withGeneralLedger(
+            @Nullable AllocationGeneralLedgerJson generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
-
 
     /**
      * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
@@ -224,7 +218,6 @@ public class BudgetAllocationsPaginatedResponseJson {
         return this;
     }
 
-
     /**
      * Amount from the actual budget allocated to this category/subcategory or general ledger. Note: The
      * sum of amounts for all allocations should equal the total actual amount for that budget item.
@@ -234,7 +227,6 @@ public class BudgetAllocationsPaginatedResponseJson {
         return this;
     }
 
-
     /**
      * Remark by an allocator for an allocation.
      */
@@ -242,7 +234,6 @@ public class BudgetAllocationsPaginatedResponseJson {
         this.note = note;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -253,40 +244,45 @@ public class BudgetAllocationsPaginatedResponseJson {
             return false;
         }
         BudgetAllocationsPaginatedResponseJson other = (BudgetAllocationsPaginatedResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.budgetVersion, other.budgetVersion) &&
-            Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subcategory, other.subcategory) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.method, other.method) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.note, other.note);
+        return Utils.enhancedDeepEquals(this.budgetVersion, other.budgetVersion)
+                && Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subcategory, other.subcategory)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.method, other.method)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.note, other.note);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            budgetVersion, budgetItem, category,
-            subcategory, generalLedger, method,
-            value, note);
+        return Utils.enhancedHash(budgetVersion, budgetItem, category, subcategory, generalLedger, method, value, note);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetAllocationsPaginatedResponseJson.class,
-                "budgetVersion", budgetVersion,
-                "budgetItem", budgetItem,
-                "category", category,
-                "subcategory", subcategory,
-                "generalLedger", generalLedger,
-                "method", method,
-                "value", value,
-                "note", note);
+        return Utils.toString(
+                BudgetAllocationsPaginatedResponseJson.class,
+                "budgetVersion",
+                budgetVersion,
+                "budgetItem",
+                budgetItem,
+                "category",
+                category,
+                "subcategory",
+                subcategory,
+                "generalLedger",
+                generalLedger,
+                "method",
+                method,
+                "value",
+                value,
+                "note",
+                note);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BudgetAllocationsPaginatedResponseJsonBudgetVersion budgetVersion;
 
@@ -305,7 +301,7 @@ public class BudgetAllocationsPaginatedResponseJson {
         private String note;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -377,10 +373,7 @@ public class BudgetAllocationsPaginatedResponseJson {
 
         public BudgetAllocationsPaginatedResponseJson build() {
             return new BudgetAllocationsPaginatedResponseJson(
-                budgetVersion, budgetItem, category,
-                subcategory, generalLedger, method,
-                value, note);
+                    budgetVersion, budgetItem, category, subcategory, generalLedger, method, value, note);
         }
-
     }
 }

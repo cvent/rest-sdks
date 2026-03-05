@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ProductLineJson
- * 
+ *
  * <p>Cvent product lines or additional features.
  */
 public enum ProductLineJson {
@@ -52,13 +52,13 @@ public enum ProductLineJson {
     ProductLineJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ProductLineJson> fromValue(String value) {
-        for (ProductLineJson o: ProductLineJson.values()) {
+        for (ProductLineJson o : ProductLineJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -66,4 +66,3 @@ public enum ProductLineJson {
         return Optional.empty();
     }
 }
-

@@ -18,34 +18,26 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttendeeInvitedByJson
     {
-        [JsonProperty("Planner-Invited")]
-        PlannerInvited,
-        [JsonProperty("No Invitation")]
-        NoInvitation,
-        [JsonProperty("Guest-Invited")]
-        GuestInvited,
-        [JsonProperty("Alternate Campaign")]
-        AlternateCampaign,
-        [JsonProperty("Weblink")]
-        Weblink,
-        [JsonProperty("Import")]
-        Import,
-        [JsonProperty("Historical Import")]
-        HistoricalImport,
-        [JsonProperty("API Invited")]
-        APIInvited,
+        [JsonProperty("Planner-Invited")] PlannerInvited,
+        [JsonProperty("No Invitation")] NoInvitation,
+        [JsonProperty("Guest-Invited")] GuestInvited,
+        [JsonProperty("Alternate Campaign")] AlternateCampaign,
+        [JsonProperty("Weblink")] Weblink,
+        [JsonProperty("Import")] Import,
+        [JsonProperty("Historical Import")] HistoricalImport,
+        [JsonProperty("API Invited")] APIInvited,
     }
 
     public static class AttendeeInvitedByJsonExtension
     {
         public static string Value(this AttendeeInvitedByJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttendeeInvitedByJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttendeeInvitedByJson).GetFields())
+            foreach (var field in typeof(AttendeeInvitedByJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

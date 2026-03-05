@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSessionsAttendanceResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListSessionsAttendanceResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SessionsCheckinPaginatedResponse sessionsCheckinPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.sessionsCheckinPaginatedResponse = sessionsCheckinPaginatedResponse;
     }
-    
+
     public ListSessionsAttendanceResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListSessionsAttendanceResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListSessionsAttendanceResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListSessionsAttendanceResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListSessionsAttendanceResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of sessions attendance.
      */
-    public ListSessionsAttendanceResponse withSessionsCheckinPaginatedResponse(@Nullable SessionsCheckinPaginatedResponse sessionsCheckinPaginatedResponse) {
+    public ListSessionsAttendanceResponse withSessionsCheckinPaginatedResponse(
+            @Nullable SessionsCheckinPaginatedResponse sessionsCheckinPaginatedResponse) {
         this.sessionsCheckinPaginatedResponse = sessionsCheckinPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListSessionsAttendanceResponse implements Response {
             return false;
         }
         ListSessionsAttendanceResponse other = (ListSessionsAttendanceResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.sessionsCheckinPaginatedResponse, other.sessionsCheckinPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.sessionsCheckinPaginatedResponse, other.sessionsCheckinPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            sessionsCheckinPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, sessionsCheckinPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsAttendanceResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "sessionsCheckinPaginatedResponse", sessionsCheckinPaginatedResponse);
+        return Utils.toString(
+                ListSessionsAttendanceResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "sessionsCheckinPaginatedResponse",
+                sessionsCheckinPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListSessionsAttendanceResponse implements Response {
         private SessionsCheckinPaginatedResponse sessionsCheckinPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListSessionsAttendanceResponse implements Response {
         /**
          * Successfully retrieved a paginated list of sessions attendance.
          */
-        public Builder sessionsCheckinPaginatedResponse(@Nullable SessionsCheckinPaginatedResponse sessionsCheckinPaginatedResponse) {
+        public Builder sessionsCheckinPaginatedResponse(
+                @Nullable SessionsCheckinPaginatedResponse sessionsCheckinPaginatedResponse) {
             this.sessionsCheckinPaginatedResponse = sessionsCheckinPaginatedResponse;
             return this;
         }
 
         public ListSessionsAttendanceResponse build() {
             return new ListSessionsAttendanceResponse(
-                contentType, statusCode, rawResponse,
-                sessionsCheckinPaginatedResponse);
+                    contentType, statusCode, rawResponse, sessionsCheckinPaginatedResponse);
         }
-
     }
 }

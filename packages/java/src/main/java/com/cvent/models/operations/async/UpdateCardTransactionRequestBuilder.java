@@ -30,7 +30,7 @@ public class UpdateCardTransactionRequestBuilder {
     private UpdateCardTransactionRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateCardTransactionRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateCardTransactionRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateCardTransactionResponse> call() {
-        AsyncRequestOperation<UpdateCardTransactionRequest, UpdateCardTransactionResponse> operation
-              = new UpdateCardTransaction.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateCardTransactionRequest, UpdateCardTransactionResponse> operation =
+                new UpdateCardTransaction.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

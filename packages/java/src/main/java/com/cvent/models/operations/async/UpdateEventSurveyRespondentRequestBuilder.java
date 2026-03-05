@@ -30,7 +30,7 @@ public class UpdateEventSurveyRespondentRequestBuilder {
     private UpdateEventSurveyRespondentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateEventSurveyRespondentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateEventSurveyRespondentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateEventSurveyRespondentResponse> call() {
-        AsyncRequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation
-              = new UpdateEventSurveyRespondent.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation =
+                new UpdateEventSurveyRespondent.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -2,6 +2,14 @@
 
 The proposal transaction type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TransactionTypeJson;
+
+TransactionTypeJson value = TransactionTypeJson.AWARD;
+```
+
 
 ## Values
 

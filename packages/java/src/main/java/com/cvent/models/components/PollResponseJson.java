@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * PollResponseJson
- * 
+ *
  * <p>This is used to denote the poll details.
  */
 public class PollResponseJson {
@@ -41,7 +41,7 @@ public class PollResponseJson {
         this.name = name;
         this.responses = responses;
     }
-    
+
     public PollResponseJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class PollResponseJson {
         return new Builder();
     }
 
-
     /**
      * The name of the poll.
      */
@@ -73,7 +72,6 @@ public class PollResponseJson {
         return this;
     }
 
-
     /**
      * The list of question and answers for a poll.
      */
@@ -81,7 +79,6 @@ public class PollResponseJson {
         this.responses = responses;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class PollResponseJson {
             return false;
         }
         PollResponseJson other = (PollResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.responses, other.responses);
+        return Utils.enhancedDeepEquals(this.name, other.name) && Utils.enhancedDeepEquals(this.responses, other.responses);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, responses);
+        return Utils.enhancedHash(name, responses);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PollResponseJson.class,
-                "name", name,
-                "responses", responses);
+        return Utils.toString(PollResponseJson.class, "name", name, "responses", responses);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private List<BaseQuestionResponseJson> responses;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class PollResponseJson {
         }
 
         public PollResponseJson build() {
-            return new PollResponseJson(
-                name, responses);
+            return new PollResponseJson(name, responses);
         }
-
     }
 }

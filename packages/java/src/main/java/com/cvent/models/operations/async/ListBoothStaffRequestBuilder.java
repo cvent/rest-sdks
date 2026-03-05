@@ -40,7 +40,7 @@ public class ListBoothStaffRequestBuilder {
     private ListBoothStaffRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListBoothStaffRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListBoothStaffRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListBoothStaffResponse> call() {
-        AsyncRequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation
-              = new ListBoothStaff.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation =
+                new ListBoothStaff.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListBoothStaffRequestBuilder {
      */
     public Publisher<ListBoothStaffResponse> callAsPublisher() {
         ListBoothStaffRequest request = this.request;
-        AsyncRequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation
-              = new ListBoothStaff.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation =
+                new ListBoothStaff.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListBoothStaffRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListBoothStaffRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListBoothStaffResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

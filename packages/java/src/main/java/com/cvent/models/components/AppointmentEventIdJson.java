@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AppointmentEventIdJson
- * 
+ *
  * <p>Represents an appointment event ID.
  */
 public class AppointmentEventIdJson {
@@ -24,10 +24,8 @@ public class AppointmentEventIdJson {
     private String id;
 
     @JsonCreator
-    public AppointmentEventIdJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AppointmentEventIdJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class AppointmentEventIdJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of an appointment event.
      */
@@ -49,7 +46,6 @@ public class AppointmentEventIdJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class AppointmentEventIdJson {
             return false;
         }
         AppointmentEventIdJson other = (AppointmentEventIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentEventIdJson.class,
-                "id", id);
+        return Utils.toString(AppointmentEventIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class AppointmentEventIdJson {
         }
 
         public AppointmentEventIdJson build() {
-            return new AppointmentEventIdJson(
-                id);
+            return new AppointmentEventIdJson(id);
         }
-
     }
 }

@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorWeblinkRequest {
     /**
      * ID of an event.
@@ -40,18 +39,14 @@ public class UpdateExhibitorWeblinkRequest {
 
     @JsonCreator
     public UpdateExhibitorWeblinkRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String weblinkId,
-            @Nonnull Weblink weblink) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull String weblinkId, @Nonnull Weblink weblink) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.weblinkId = Optional.ofNullable(weblinkId)
-            .orElseThrow(() -> new IllegalArgumentException("weblinkId cannot be null"));
-        this.weblink = Optional.ofNullable(weblink)
-            .orElseThrow(() -> new IllegalArgumentException("weblink cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("weblinkId cannot be null"));
+        this.weblink =
+                Optional.ofNullable(weblink).orElseThrow(() -> new IllegalArgumentException("weblink cannot be null"));
     }
 
     /**
@@ -86,7 +81,6 @@ public class UpdateExhibitorWeblinkRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -94,7 +88,6 @@ public class UpdateExhibitorWeblinkRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -104,7 +97,6 @@ public class UpdateExhibitorWeblinkRequest {
         return this;
     }
 
-
     /**
      * ID of an exhibitor weblink.
      */
@@ -113,7 +105,6 @@ public class UpdateExhibitorWeblinkRequest {
         return this;
     }
 
-
     /**
      * Exhibitor content to be updated.
      */
@@ -121,7 +112,6 @@ public class UpdateExhibitorWeblinkRequest {
         this.weblink = Utils.checkNotNull(weblink, "weblink");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +122,33 @@ public class UpdateExhibitorWeblinkRequest {
             return false;
         }
         UpdateExhibitorWeblinkRequest other = (UpdateExhibitorWeblinkRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.weblinkId, other.weblinkId) &&
-            Utils.enhancedDeepEquals(this.weblink, other.weblink);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.weblinkId, other.weblinkId)
+                && Utils.enhancedDeepEquals(this.weblink, other.weblink);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, weblinkId,
-            weblink);
+        return Utils.enhancedHash(id, exhibitorId, weblinkId, weblink);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorWeblinkRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "weblinkId", weblinkId,
-                "weblink", weblink);
+        return Utils.toString(
+                UpdateExhibitorWeblinkRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "weblinkId",
+                weblinkId,
+                "weblink",
+                weblink);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +159,7 @@ public class UpdateExhibitorWeblinkRequest {
         private Weblink weblink;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +195,7 @@ public class UpdateExhibitorWeblinkRequest {
         }
 
         public UpdateExhibitorWeblinkRequest build() {
-            return new UpdateExhibitorWeblinkRequest(
-                id, exhibitorId, weblinkId,
-                weblink);
+            return new UpdateExhibitorWeblinkRequest(id, exhibitorId, weblinkId, weblink);
         }
-
     }
 }

@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListVideosRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -48,7 +47,7 @@ public class ListVideosRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -56,7 +55,7 @@ public class ListVideosRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * events (eq|ne)
@@ -67,7 +66,7 @@ public class ListVideosRequest {
      * * status (eq|ne)
      * * tags (eq|ne)
      * * recording.id (eq|ne)
-     * 
+     *
      * <p>The following filterable fields have been deprecated, use the plural form above:
      * * event.id (eq|ne)
      */
@@ -91,17 +90,14 @@ public class ListVideosRequest {
             @Nullable Boolean deleted) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
-    
+
     public ListVideosRequest() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -138,7 +134,7 @@ public class ListVideosRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -146,7 +142,7 @@ public class ListVideosRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * events (eq|ne)
@@ -157,7 +153,7 @@ public class ListVideosRequest {
      * * status (eq|ne)
      * * tags (eq|ne)
      * * recording.id (eq|ne)
-     * 
+     *
      * <p>The following filterable fields have been deprecated, use the plural form above:
      * * event.id (eq|ne)
      */
@@ -177,7 +173,6 @@ public class ListVideosRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -187,7 +182,6 @@ public class ListVideosRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -196,7 +190,6 @@ public class ListVideosRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -204,7 +197,6 @@ public class ListVideosRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -215,12 +207,11 @@ public class ListVideosRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -228,7 +219,7 @@ public class ListVideosRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * events (eq|ne)
@@ -239,7 +230,7 @@ public class ListVideosRequest {
      * * status (eq|ne)
      * * tags (eq|ne)
      * * recording.id (eq|ne)
-     * 
+     *
      * <p>The following filterable fields have been deprecated, use the plural form above:
      * * event.id (eq|ne)
      */
@@ -247,7 +238,6 @@ public class ListVideosRequest {
         this.filter = filter;
         return this;
     }
-
 
     /**
      * True means only videos marked as deleted will be queried. False means only non-deleted videos will
@@ -258,7 +248,6 @@ public class ListVideosRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -268,35 +257,39 @@ public class ListVideosRequest {
             return false;
         }
         ListVideosRequest other = (ListVideosRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter, deleted);
+        return Utils.enhancedHash(after, before, limit, token, filter, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListVideosRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "deleted", deleted);
+        return Utils.toString(
+                ListVideosRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -311,7 +304,7 @@ public class ListVideosRequest {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -352,7 +345,7 @@ public class ListVideosRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are six comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -360,7 +353,7 @@ public class ListVideosRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq|ne)
          * * events (eq|ne)
@@ -371,7 +364,7 @@ public class ListVideosRequest {
          * * status (eq|ne)
          * * tags (eq|ne)
          * * recording.id (eq|ne)
-         * 
+         *
          * <p>The following filterable fields have been deprecated, use the plural form above:
          * * event.id (eq|ne)
          */
@@ -390,22 +383,13 @@ public class ListVideosRequest {
         }
 
         public ListVideosRequest build() {
-            return new ListVideosRequest(
-                after, before, limit,
-                token, filter, deleted);
+            return new ListVideosRequest(after, before, limit, token, filter, deleted);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -38,28 +38,23 @@ namespace Cvent.SDK.Models.Errors
     /// </summary>
     public enum Error
     {
-        [JsonProperty("invalid_request")]
-        InvalidRequest,
-        [JsonProperty("invalid_client")]
-        InvalidClient,
-        [JsonProperty("invalid_grant")]
-        InvalidGrant,
-        [JsonProperty("unauthorized_client")]
-        UnauthorizedClient,
-        [JsonProperty("unsupported_grant_type")]
-        UnsupportedGrantType,
+        [JsonProperty("invalid_request")] InvalidRequest,
+        [JsonProperty("invalid_client")] InvalidClient,
+        [JsonProperty("invalid_grant")] InvalidGrant,
+        [JsonProperty("unauthorized_client")] UnauthorizedClient,
+        [JsonProperty("unsupported_grant_type")] UnsupportedGrantType,
     }
 
     public static class ErrorExtension
     {
         public static string Value(this Error value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Error ToEnum(this string value)
         {
-            foreach(var field in typeof(Error).GetFields())
+            foreach (var field in typeof(Error).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

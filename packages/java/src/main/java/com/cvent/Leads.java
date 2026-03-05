@@ -27,10 +27,10 @@ import jakarta.annotation.Nonnull;
 /**
  * * **Leads -** Leads include leads gathered by LeadCapture, Appointments, and Inbound Leads. Use this
  * API to get information for the lead and how it was captured.
- * 
+ *
  * <p>* **Lead Qualification Question -** Custom questions created by each exhibitor to qualify a lead.
  * Questions and answers are their own endpoints.
- * 
+ *
  * <p>* **Eliterature Requests -** List of E-literature requests data sent to lead.
  */
 public class Leads {
@@ -45,7 +45,7 @@ public class Leads {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncLeads async() {
@@ -54,11 +54,11 @@ public class Leads {
 
     /**
      * List E-literature Requests
-     * 
+     *
      * <p>Gets a paginated list of eliterature requests data
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEliteratureRequestsRequestBuilder getEliteratureRequests() {
@@ -67,28 +67,28 @@ public class Leads {
 
     /**
      * List E-literature Requests
-     * 
+     *
      * <p>Gets a paginated list of eliterature requests data
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEliteratureRequestsResponse getEliteratureRequests(@Nonnull GetEliteratureRequestsRequest request) {
-        RequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation
-              = new GetEliteratureRequests.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation =
+                new GetEliteratureRequests.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Qualification Answers
-     * 
+     *
      * <p>Gets a list of answers to lead qualification questions for a given lead id.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetLeadQualificationAnswersRequestBuilder getLeadQualificationAnswers() {
@@ -97,28 +97,29 @@ public class Leads {
 
     /**
      * List Qualification Answers
-     * 
+     *
      * <p>Gets a list of answers to lead qualification questions for a given lead id.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetLeadQualificationAnswersResponse getLeadQualificationAnswers(@Nonnull GetLeadQualificationAnswersRequest request) {
-        RequestOperation<GetLeadQualificationAnswersRequest, GetLeadQualificationAnswersResponse> operation
-              = new GetLeadQualificationAnswers.Sync(sdkConfiguration, _headers);
+    public GetLeadQualificationAnswersResponse getLeadQualificationAnswers(
+            @Nonnull GetLeadQualificationAnswersRequest request) {
+        RequestOperation<GetLeadQualificationAnswersRequest, GetLeadQualificationAnswersResponse> operation =
+                new GetLeadQualificationAnswers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Leads
-     * 
+     *
      * <p>Gets a paginated list of leads
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetLeadsRequestBuilder getLeads() {
@@ -127,28 +128,27 @@ public class Leads {
 
     /**
      * List Leads
-     * 
+     *
      * <p>Gets a paginated list of leads
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetLeadsResponse getLeads(@Nonnull GetLeadsRequest request) {
-        RequestOperation<GetLeadsRequest, GetLeadsResponse> operation
-              = new GetLeads.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetLeadsRequest, GetLeadsResponse> operation = new GetLeads.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Leads
-     * 
+     *
      * <p>Gets a paginated list of leads
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetLeadsPostFiltersDataRequestBuilder getLeadsPostFiltersData() {
@@ -157,19 +157,18 @@ public class Leads {
 
     /**
      * List Leads
-     * 
+     *
      * <p>Gets a paginated list of leads
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetLeadsPostFiltersDataResponse getLeadsPostFiltersData(@Nonnull GetLeadsPostFiltersDataRequest request) {
-        RequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation
-              = new GetLeadsPostFiltersData.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation =
+                new GetLeadsPostFiltersData.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

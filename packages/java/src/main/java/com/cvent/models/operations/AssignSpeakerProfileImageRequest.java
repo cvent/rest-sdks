@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AssignSpeakerProfileImageRequest {
     /**
      * The unique identifier of a speaker.
@@ -27,13 +26,10 @@ public class AssignSpeakerProfileImageRequest {
     private SpeakerFileInput speakerFile;
 
     @JsonCreator
-    public AssignSpeakerProfileImageRequest(
-            @Nonnull String id,
-            @Nonnull SpeakerFileInput speakerFile) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AssignSpeakerProfileImageRequest(@Nonnull String id, @Nonnull SpeakerFileInput speakerFile) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.speakerFile = Optional.ofNullable(speakerFile)
-            .orElseThrow(() -> new IllegalArgumentException("speakerFile cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("speakerFile cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class AssignSpeakerProfileImageRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a speaker.
      */
@@ -63,7 +58,6 @@ public class AssignSpeakerProfileImageRequest {
         return this;
     }
 
-
     /**
      * The file id provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
      */
@@ -71,7 +65,6 @@ public class AssignSpeakerProfileImageRequest {
         this.speakerFile = Utils.checkNotNull(speakerFile, "speakerFile");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,28 @@ public class AssignSpeakerProfileImageRequest {
             return false;
         }
         AssignSpeakerProfileImageRequest other = (AssignSpeakerProfileImageRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.speakerFile, other.speakerFile);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.speakerFile, other.speakerFile);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, speakerFile);
+        return Utils.enhancedHash(id, speakerFile);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssignSpeakerProfileImageRequest.class,
-                "id", id,
-                "speakerFile", speakerFile);
+        return Utils.toString(AssignSpeakerProfileImageRequest.class, "id", id, "speakerFile", speakerFile);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private SpeakerFileInput speakerFile;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +116,7 @@ public class AssignSpeakerProfileImageRequest {
         }
 
         public AssignSpeakerProfileImageRequest build() {
-            return new AssignSpeakerProfileImageRequest(
-                id, speakerFile);
+            return new AssignSpeakerProfileImageRequest(id, speakerFile);
         }
-
     }
 }

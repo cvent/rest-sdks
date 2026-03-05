@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ErrorScimTypeJson
     {
-        [JsonProperty("invalidFilter")]
-        InvalidFilter,
-        [JsonProperty("uniqueness")]
-        Uniqueness,
-        [JsonProperty("invalidSyntax")]
-        InvalidSyntax,
-        [JsonProperty("invalidValue")]
-        InvalidValue,
+        [JsonProperty("invalidFilter")] InvalidFilter,
+        [JsonProperty("uniqueness")] Uniqueness,
+        [JsonProperty("invalidSyntax")] InvalidSyntax,
+        [JsonProperty("invalidValue")] InvalidValue,
     }
 
     public static class ErrorScimTypeJsonExtension
     {
         public static string Value(this ErrorScimTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ErrorScimTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ErrorScimTypeJson).GetFields())
+            foreach (var field in typeof(ErrorScimTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

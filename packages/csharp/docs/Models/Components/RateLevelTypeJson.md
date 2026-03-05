@@ -2,6 +2,14 @@
 
 Rate level
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = RateLevelTypeJson.Corporate;
+```
+
 
 ## Values
 

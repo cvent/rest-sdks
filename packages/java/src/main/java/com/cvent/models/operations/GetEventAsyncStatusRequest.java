@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetEventAsyncStatusRequest {
     /**
      * Process ID for the async process for creating events.
@@ -20,10 +19,9 @@ public class GetEventAsyncStatusRequest {
     private String eventCreationId;
 
     @JsonCreator
-    public GetEventAsyncStatusRequest(
-            @Nonnull String eventCreationId) {
+    public GetEventAsyncStatusRequest(@Nonnull String eventCreationId) {
         this.eventCreationId = Optional.ofNullable(eventCreationId)
-            .orElseThrow(() -> new IllegalArgumentException("eventCreationId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("eventCreationId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetEventAsyncStatusRequest {
         return new Builder();
     }
 
-
     /**
      * Process ID for the async process for creating events.
      */
@@ -45,7 +42,6 @@ public class GetEventAsyncStatusRequest {
         this.eventCreationId = Utils.checkNotNull(eventCreationId, "eventCreationId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetEventAsyncStatusRequest {
             return false;
         }
         GetEventAsyncStatusRequest other = (GetEventAsyncStatusRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventCreationId, other.eventCreationId);
+        return Utils.enhancedDeepEquals(this.eventCreationId, other.eventCreationId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventCreationId);
+        return Utils.enhancedHash(eventCreationId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventAsyncStatusRequest.class,
-                "eventCreationId", eventCreationId);
+        return Utils.toString(GetEventAsyncStatusRequest.class, "eventCreationId", eventCreationId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventCreationId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetEventAsyncStatusRequest {
         }
 
         public GetEventAsyncStatusRequest build() {
-            return new GetEventAsyncStatusRequest(
-                eventCreationId);
+            return new GetEventAsyncStatusRequest(eventCreationId);
         }
-
     }
 }

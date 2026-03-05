@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * ExistingReservationRequest
- * 
+ *
  * <p>Contains information about existing reservation request record.
  */
 public class ExistingReservationRequest {
@@ -59,7 +59,7 @@ public class ExistingReservationRequest {
 
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -215,7 +215,7 @@ public class ExistingReservationRequest {
         this.confirmationNumber = confirmationNumber;
         this.locale = locale;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
         this.block = block;
         this.attendeeType = attendeeType;
         this.roomType = roomType;
@@ -223,35 +223,50 @@ public class ExistingReservationRequest {
         this.sendAcknowledgement = sendAcknowledgement;
         this.splitFolio = splitFolio;
         this.redirectURL = redirectURL;
-        this.guests = Optional.ofNullable(guests)
-            .orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
+        this.guests =
+                Optional.ofNullable(guests).orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
         this.customFields = customFields;
         this.accessible = accessible;
         this.specialRequest = specialRequest;
         this.rewardProgram = rewardProgram;
         this.membershipId = membershipId;
         this.travelDetails = travelDetails;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.bookingSite = bookingSite;
         this.callCenter = callCenter;
     }
-    
+
     public ExistingReservationRequest(
             @Nonnull HousingEventIdJson housingEvent,
             @Nonnull List<GuestJson> guests,
             @Nonnull String id,
             @Nonnull ReservationRequestStatusesJson status) {
-        this(null, null, null,
-            null, housingEvent, null,
-            null, null, null,
-            null, null, null,
-            guests, null, null,
-            null, null, null,
-            null, id, status,
-            null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                housingEvent,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                guests,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                id,
+                status,
+                null,
+                null);
     }
 
     /**
@@ -291,7 +306,7 @@ public class ExistingReservationRequest {
 
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -424,7 +439,6 @@ public class ExistingReservationRequest {
         return new Builder();
     }
 
-
     /**
      * Optional ID field you can use to attach ID's from your system to a reservation.
      */
@@ -432,7 +446,6 @@ public class ExistingReservationRequest {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Attendee Type Code. If attendeeType is also included, the ID is used and this code is ignored.
@@ -442,7 +455,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Reservation request confirmation number in the Passkey housing event.
      */
@@ -450,7 +462,6 @@ public class ExistingReservationRequest {
         this.confirmationNumber = confirmationNumber;
         return this;
     }
-
 
     /**
      * Locale code in IETF language tag format.
@@ -460,7 +471,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Contains unique ID of the housing event.
      */
@@ -469,10 +479,9 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -480,7 +489,6 @@ public class ExistingReservationRequest {
         this.block = block;
         return this;
     }
-
 
     /**
      * Contains the unique ID of the attendee type.
@@ -490,7 +498,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Contains unique ID of the room type.
      */
@@ -498,7 +505,6 @@ public class ExistingReservationRequest {
         this.roomType = roomType;
         return this;
     }
-
 
     /**
      * Contains unique ID of the hotel.
@@ -508,7 +514,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * True indicates the system will send email acknowledgement after reservation creation.
      */
@@ -517,7 +522,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * True indicates if each guest should have own payment.
      */
@@ -525,7 +529,6 @@ public class ExistingReservationRequest {
         this.splitFolio = splitFolio;
         return this;
     }
-
 
     /**
      * URL used to redirect a guest to another site after they create or update their reservation
@@ -536,7 +539,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Guests information.
      */
@@ -544,7 +546,6 @@ public class ExistingReservationRequest {
         this.guests = Utils.checkNotNull(guests, "guests");
         return this;
     }
-
 
     /**
      * Custom fields.
@@ -554,7 +555,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * True indicates this reservation request is for an accessible room.
      */
@@ -562,7 +562,6 @@ public class ExistingReservationRequest {
         this.accessible = accessible;
         return this;
     }
-
 
     /**
      * Special requests for room.
@@ -572,7 +571,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Represents reward program information.
      */
@@ -580,7 +578,6 @@ public class ExistingReservationRequest {
         this.rewardProgram = rewardProgram;
         return this;
     }
-
 
     /**
      * Reward program membership number.
@@ -590,7 +587,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Common object that holds travel details information.
      */
@@ -598,7 +594,6 @@ public class ExistingReservationRequest {
         this.travelDetails = travelDetails;
         return this;
     }
-
 
     /**
      * Reservation request ID.
@@ -608,7 +603,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Reservation request status.
      */
@@ -617,7 +611,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     /**
      * Unique URL for a guest to access a reservation in Passkey's booking tool.
      */
@@ -625,7 +618,6 @@ public class ExistingReservationRequest {
         this.bookingSite = bookingSite;
         return this;
     }
-
 
     /**
      * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
@@ -636,7 +628,6 @@ public class ExistingReservationRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -646,75 +637,113 @@ public class ExistingReservationRequest {
             return false;
         }
         ExistingReservationRequest other = (ExistingReservationRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.attendeeTypeCode, other.attendeeTypeCode) &&
-            Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.block, other.block) &&
-            Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType) &&
-            Utils.enhancedDeepEquals(this.roomType, other.roomType) &&
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement) &&
-            Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio) &&
-            Utils.enhancedDeepEquals(this.redirectURL, other.redirectURL) &&
-            Utils.enhancedDeepEquals(this.guests, other.guests) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.accessible, other.accessible) &&
-            Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest) &&
-            Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram) &&
-            Utils.enhancedDeepEquals(this.membershipId, other.membershipId) &&
-            Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.bookingSite, other.bookingSite) &&
-            Utils.enhancedDeepEquals(this.callCenter, other.callCenter);
+        return Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.attendeeTypeCode, other.attendeeTypeCode)
+                && Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.block, other.block)
+                && Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType)
+                && Utils.enhancedDeepEquals(this.roomType, other.roomType)
+                && Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement)
+                && Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio)
+                && Utils.enhancedDeepEquals(this.redirectURL, other.redirectURL)
+                && Utils.enhancedDeepEquals(this.guests, other.guests)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.accessible, other.accessible)
+                && Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest)
+                && Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram)
+                && Utils.enhancedDeepEquals(this.membershipId, other.membershipId)
+                && Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.bookingSite, other.bookingSite)
+                && Utils.enhancedDeepEquals(this.callCenter, other.callCenter);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            sourceId, attendeeTypeCode, confirmationNumber,
-            locale, housingEvent, block,
-            attendeeType, roomType, hotel,
-            sendAcknowledgement, splitFolio, redirectURL,
-            guests, customFields, accessible,
-            specialRequest, rewardProgram, membershipId,
-            travelDetails, id, status,
-            bookingSite, callCenter);
+                sourceId,
+                attendeeTypeCode,
+                confirmationNumber,
+                locale,
+                housingEvent,
+                block,
+                attendeeType,
+                roomType,
+                hotel,
+                sendAcknowledgement,
+                splitFolio,
+                redirectURL,
+                guests,
+                customFields,
+                accessible,
+                specialRequest,
+                rewardProgram,
+                membershipId,
+                travelDetails,
+                id,
+                status,
+                bookingSite,
+                callCenter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingReservationRequest.class,
-                "sourceId", sourceId,
-                "attendeeTypeCode", attendeeTypeCode,
-                "confirmationNumber", confirmationNumber,
-                "locale", locale,
-                "housingEvent", housingEvent,
-                "block", block,
-                "attendeeType", attendeeType,
-                "roomType", roomType,
-                "hotel", hotel,
-                "sendAcknowledgement", sendAcknowledgement,
-                "splitFolio", splitFolio,
-                "redirectURL", redirectURL,
-                "guests", guests,
-                "customFields", customFields,
-                "accessible", accessible,
-                "specialRequest", specialRequest,
-                "rewardProgram", rewardProgram,
-                "membershipId", membershipId,
-                "travelDetails", travelDetails,
-                "id", id,
-                "status", status,
-                "bookingSite", bookingSite,
-                "callCenter", callCenter);
+        return Utils.toString(
+                ExistingReservationRequest.class,
+                "sourceId",
+                sourceId,
+                "attendeeTypeCode",
+                attendeeTypeCode,
+                "confirmationNumber",
+                confirmationNumber,
+                "locale",
+                locale,
+                "housingEvent",
+                housingEvent,
+                "block",
+                block,
+                "attendeeType",
+                attendeeType,
+                "roomType",
+                roomType,
+                "hotel",
+                hotel,
+                "sendAcknowledgement",
+                sendAcknowledgement,
+                "splitFolio",
+                splitFolio,
+                "redirectURL",
+                redirectURL,
+                "guests",
+                guests,
+                "customFields",
+                customFields,
+                "accessible",
+                accessible,
+                "specialRequest",
+                specialRequest,
+                "rewardProgram",
+                rewardProgram,
+                "membershipId",
+                membershipId,
+                "travelDetails",
+                travelDetails,
+                "id",
+                id,
+                "status",
+                status,
+                "bookingSite",
+                bookingSite,
+                "callCenter",
+                callCenter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String sourceId;
 
@@ -764,7 +793,7 @@ public class ExistingReservationRequest {
         private CallCenterLinkJson callCenter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -809,7 +838,7 @@ public class ExistingReservationRequest {
 
         /**
          * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -958,15 +987,29 @@ public class ExistingReservationRequest {
 
         public ExistingReservationRequest build() {
             return new ExistingReservationRequest(
-                sourceId, attendeeTypeCode, confirmationNumber,
-                locale, housingEvent, block,
-                attendeeType, roomType, hotel,
-                sendAcknowledgement, splitFolio, redirectURL,
-                guests, customFields, accessible,
-                specialRequest, rewardProgram, membershipId,
-                travelDetails, id, status,
-                bookingSite, callCenter);
+                    sourceId,
+                    attendeeTypeCode,
+                    confirmationNumber,
+                    locale,
+                    housingEvent,
+                    block,
+                    attendeeType,
+                    roomType,
+                    hotel,
+                    sendAcknowledgement,
+                    splitFolio,
+                    redirectURL,
+                    guests,
+                    customFields,
+                    accessible,
+                    specialRequest,
+                    rewardProgram,
+                    membershipId,
+                    travelDetails,
+                    id,
+                    status,
+                    bookingSite,
+                    callCenter);
         }
-
     }
 }

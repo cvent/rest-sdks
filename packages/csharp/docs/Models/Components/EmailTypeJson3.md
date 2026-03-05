@@ -2,6 +2,14 @@
 
 Denotes the type of the email.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = EmailTypeJson3.Invitation;
+```
+
 
 ## Values
 

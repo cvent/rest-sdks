@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExternalAttendeeActivityMetadataRequest {
     /**
      * ID of the activity metadata.
@@ -20,18 +19,15 @@ public class UpdateExternalAttendeeActivityMetadataRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExternalActivityMetadataInput externalActivityMetadata;
 
     @JsonCreator
     public UpdateExternalAttendeeActivityMetadataRequest(
-            @Nonnull String id,
-            @Nonnull ExternalActivityMetadataInput externalActivityMetadata) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull ExternalActivityMetadataInput externalActivityMetadata) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.externalActivityMetadata = Optional.ofNullable(externalActivityMetadata)
-            .orElseThrow(() -> new IllegalArgumentException("externalActivityMetadata cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("externalActivityMetadata cannot be null"));
     }
 
     /**
@@ -49,7 +45,6 @@ public class UpdateExternalAttendeeActivityMetadataRequest {
         return new Builder();
     }
 
-
     /**
      * ID of the activity metadata.
      */
@@ -58,12 +53,11 @@ public class UpdateExternalAttendeeActivityMetadataRequest {
         return this;
     }
 
-
-    public UpdateExternalAttendeeActivityMetadataRequest withExternalActivityMetadata(@Nonnull ExternalActivityMetadataInput externalActivityMetadata) {
+    public UpdateExternalAttendeeActivityMetadataRequest withExternalActivityMetadata(
+            @Nonnull ExternalActivityMetadataInput externalActivityMetadata) {
         this.externalActivityMetadata = Utils.checkNotNull(externalActivityMetadata, "externalActivityMetadata");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +68,34 @@ public class UpdateExternalAttendeeActivityMetadataRequest {
             return false;
         }
         UpdateExternalAttendeeActivityMetadataRequest other = (UpdateExternalAttendeeActivityMetadataRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.externalActivityMetadata, other.externalActivityMetadata);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.externalActivityMetadata, other.externalActivityMetadata);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, externalActivityMetadata);
+        return Utils.enhancedHash(id, externalActivityMetadata);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExternalAttendeeActivityMetadataRequest.class,
-                "id", id,
-                "externalActivityMetadata", externalActivityMetadata);
+        return Utils.toString(
+                UpdateExternalAttendeeActivityMetadataRequest.class,
+                "id",
+                id,
+                "externalActivityMetadata",
+                externalActivityMetadata);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ExternalActivityMetadataInput externalActivityMetadata;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +112,7 @@ public class UpdateExternalAttendeeActivityMetadataRequest {
         }
 
         public UpdateExternalAttendeeActivityMetadataRequest build() {
-            return new UpdateExternalAttendeeActivityMetadataRequest(
-                id, externalActivityMetadata);
+            return new UpdateExternalAttendeeActivityMetadataRequest(id, externalActivityMetadata);
         }
-
     }
 }

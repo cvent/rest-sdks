@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * QuestionTypeJson3
- * 
+ *
  * <p>This object represents the type of a question
  */
 public enum QuestionTypeJson3 {
@@ -30,13 +30,13 @@ public enum QuestionTypeJson3 {
     QuestionTypeJson3(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<QuestionTypeJson3> fromValue(String value) {
-        for (QuestionTypeJson3 o: QuestionTypeJson3.values()) {
+        for (QuestionTypeJson3 o : QuestionTypeJson3.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -44,4 +44,3 @@ public enum QuestionTypeJson3 {
         return Optional.empty();
     }
 }
-

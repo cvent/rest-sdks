@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttendeeVisibilityJson
- * 
+ *
  * <p>Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
  * visible. Public: Their profile is visible.
  */
@@ -24,13 +24,13 @@ public enum AttendeeVisibilityJson {
     AttendeeVisibilityJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeVisibilityJson> fromValue(String value) {
-        for (AttendeeVisibilityJson o: AttendeeVisibilityJson.values()) {
+        for (AttendeeVisibilityJson o : AttendeeVisibilityJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AttendeeVisibilityJson {
         return Optional.empty();
     }
 }
-

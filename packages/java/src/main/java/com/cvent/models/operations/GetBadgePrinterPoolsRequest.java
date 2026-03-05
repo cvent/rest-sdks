@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetBadgePrinterPoolsRequest {
     /**
      * Id of an event
@@ -39,11 +38,11 @@ public class GetBadgePrinterPoolsRequest {
     /**
      * A filter query string narrows search results.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * disabled (eq|ne)
      */
@@ -52,22 +51,16 @@ public class GetBadgePrinterPoolsRequest {
 
     @JsonCreator
     public GetBadgePrinterPoolsRequest(
-            @Nonnull String eventId,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.eventId = Optional.ofNullable(eventId)
-            .orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String eventId, @Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.eventId =
+                Optional.ofNullable(eventId).orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetBadgePrinterPoolsRequest(
-            @Nonnull String eventId) {
-        this(eventId, null, null,
-            null);
+
+    public GetBadgePrinterPoolsRequest(@Nonnull String eventId) {
+        this(eventId, null, null, null);
     }
 
     /**
@@ -95,11 +88,11 @@ public class GetBadgePrinterPoolsRequest {
     /**
      * A filter query string narrows search results.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * disabled (eq|ne)
      */
@@ -111,7 +104,6 @@ public class GetBadgePrinterPoolsRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -120,7 +112,6 @@ public class GetBadgePrinterPoolsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -128,7 +119,6 @@ public class GetBadgePrinterPoolsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -139,15 +129,14 @@ public class GetBadgePrinterPoolsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * disabled (eq|ne)
      */
@@ -155,7 +144,6 @@ public class GetBadgePrinterPoolsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -166,31 +154,33 @@ public class GetBadgePrinterPoolsRequest {
             return false;
         }
         GetBadgePrinterPoolsRequest other = (GetBadgePrinterPoolsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, limit, token,
-            filter);
+        return Utils.enhancedHash(eventId, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBadgePrinterPoolsRequest.class,
-                "eventId", eventId,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetBadgePrinterPoolsRequest.class,
+                "eventId",
+                eventId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventId;
 
@@ -201,7 +191,7 @@ public class GetBadgePrinterPoolsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -232,11 +222,11 @@ public class GetBadgePrinterPoolsRequest {
         /**
          * A filter query string narrows search results.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
          * * disabled (eq|ne)
          */
@@ -246,16 +236,10 @@ public class GetBadgePrinterPoolsRequest {
         }
 
         public GetBadgePrinterPoolsRequest build() {
-            return new GetBadgePrinterPoolsRequest(
-                eventId, limit, token,
-                filter);
+            return new GetBadgePrinterPoolsRequest(eventId, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -2,6 +2,14 @@
 
 The method of the discount. All methods use the `value` field to determine the amount discounted. `BY_PERCENTAGE`: Discounts the item by a percentage. `BY_AMOUNT`: Discount the item by a specific amount. `FLAT_PRICE`: Set the price of the item to a specific value.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = DiscountMethodTypeJson.ByAmount;
+```
+
 
 ## Values
 

@@ -3,6 +3,7 @@
  */
 package com.cvent.utils;
 
+import com.cvent.utils.Blob;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.http.HttpResponse;
@@ -11,7 +12,6 @@ import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.function.Supplier;
-import com.cvent.utils.Blob;
 
 public class AsyncRetries {
 
@@ -21,9 +21,8 @@ public class AsyncRetries {
     private final List<String> retriableStatusCodes;
     private final ScheduledExecutorService scheduler;
 
-    private AsyncRetries(RetryConfig retryConfig,
-                         List<String> retriableStatusCodes,
-                         ScheduledExecutorService scheduler) {
+    private AsyncRetries(
+            RetryConfig retryConfig, List<String> retriableStatusCodes, ScheduledExecutorService scheduler) {
         Utils.checkNotNull(retryConfig, "retryConfig");
         Utils.checkNotNull(retriableStatusCodes, "statusCodes");
         if (retriableStatusCodes.isEmpty()) {
@@ -34,14 +33,12 @@ public class AsyncRetries {
         this.scheduler = scheduler;
     }
 
-    public CompletableFuture<HttpResponse<Blob>> retry(
-            Supplier<CompletableFuture<HttpResponse<Blob>>> task
-    ) {
+    public CompletableFuture<HttpResponse<Blob>> retry(Supplier<CompletableFuture<HttpResponse<Blob>>> task) {
         switch (retryConfig.strategy()) {
             case BACKOFF:
                 CompletableFuture<HttpResponse<Blob>> future = new CompletableFuture<>();
-                BackoffStrategy backoff = retryConfig.backoff()
-                        // We want to fail fast during misconfigurations.
+                BackoffStrategy backoff = retryConfig
+                        .backoff()
                         .orElseThrow(() -> new IllegalArgumentException("Backoff strategy is not defined"));
                 attempt(task, future, backoff, new State(0, Instant.now()));
                 return future;
@@ -52,10 +49,11 @@ public class AsyncRetries {
         }
     }
 
-    private <T> void attempt(Supplier<CompletableFuture<HttpResponse<Blob>>> task,
-                             CompletableFuture<HttpResponse<Blob>> result,
-                             BackoffStrategy backoff,
-                             State state) {
+    private <T> void attempt(
+            Supplier<CompletableFuture<HttpResponse<Blob>>> task,
+            CompletableFuture<HttpResponse<Blob>> result,
+            BackoffStrategy backoff,
+            State state) {
         if (state.count() > 0) {
             logger.debug("Async retry attempt {} after backoff", state.count());
         }
@@ -95,11 +93,12 @@ public class AsyncRetries {
                 || (message.contains("Read timed out") && backoff.retryReadTimeoutError());
     }
 
-    private void maybeRetry(Supplier<CompletableFuture<HttpResponse<Blob>>> task,
-                            CompletableFuture<HttpResponse<Blob>> result,
-                            BackoffStrategy backoff,
-                            State state,
-                            Throwable e) {
+    private void maybeRetry(
+            Supplier<CompletableFuture<HttpResponse<Blob>>> task,
+            CompletableFuture<HttpResponse<Blob>> result,
+            BackoffStrategy backoff,
+            State state,
+            Throwable e) {
         Duration timeSinceStart = Duration.between(state.startedAt(), Instant.now());
         if (timeSinceStart.toMillis() > backoff.maxElapsedTimeMs()) {
             // retry exhausted
@@ -119,15 +118,17 @@ public class AsyncRetries {
 
         if (logger.isTraceEnabled()) {
             String reason = e instanceof AsyncRetryableException
-                ? "status " + ((AsyncRetryableException) e).response().statusCode()
-                : e.getClass().getSimpleName();
-            logger.trace("Async retrying due to {} - waiting {}ms before attempt {}", reason, (long) intervalMs, state.count() + 1);
+                    ? "status " + ((AsyncRetryableException) e).response().statusCode()
+                    : e.getClass().getSimpleName();
+            logger.trace(
+                    "Async retrying due to {} - waiting {}ms before attempt {}",
+                    reason,
+                    (long) intervalMs,
+                    state.count() + 1);
         }
 
         scheduler.schedule(
-                () -> attempt(task, result, backoff, state.countAttempt()),
-                (long) intervalMs,
-                TimeUnit.MILLISECONDS);
+                () -> attempt(task, result, backoff, state.countAttempt()), (long) intervalMs, TimeUnit.MILLISECONDS);
     }
 
     public void shutdown() {
@@ -138,14 +139,13 @@ public class AsyncRetries {
         return new Builder();
     }
 
-    public final static class Builder {
+    public static final class Builder {
 
         private RetryConfig retryConfig;
         private List<String> statusCodes;
         private ScheduledExecutorService scheduler;
 
-        private Builder() {
-        }
+        private Builder() {}
 
         /**
          * Defines the retry configuration.
@@ -214,5 +214,4 @@ public class AsyncRetries {
             return this;
         }
     }
-
 }

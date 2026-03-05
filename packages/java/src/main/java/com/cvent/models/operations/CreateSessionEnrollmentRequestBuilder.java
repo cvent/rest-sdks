@@ -28,7 +28,7 @@ public class CreateSessionEnrollmentRequestBuilder {
     private CreateSessionEnrollmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateSessionEnrollmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class CreateSessionEnrollmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateSessionEnrollmentResponse call() {
-        RequestOperation<CreateSessionEnrollmentRequest, CreateSessionEnrollmentResponse> operation
-              = new CreateSessionEnrollment.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateSessionEnrollmentRequest, CreateSessionEnrollmentResponse> operation =
+                new CreateSessionEnrollment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

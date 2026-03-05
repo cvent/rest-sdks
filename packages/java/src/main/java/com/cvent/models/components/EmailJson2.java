@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EmailJson2
- * 
+ *
  * <p>Details of an email to be send.
  */
 public class EmailJson2 {
@@ -24,10 +24,8 @@ public class EmailJson2 {
     private String id;
 
     @JsonCreator
-    public EmailJson2(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public EmailJson2(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class EmailJson2 {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the email to be sent.
      */
@@ -49,7 +46,6 @@ public class EmailJson2 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class EmailJson2 {
             return false;
         }
         EmailJson2 other = (EmailJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailJson2.class,
-                "id", id);
+        return Utils.toString(EmailJson2.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class EmailJson2 {
         }
 
         public EmailJson2 build() {
-            return new EmailJson2(
-                id);
+            return new EmailJson2(id);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * Badge
- * 
+ *
  * <p>A JSON Schema for Badge object.
  */
 public class Badge {
@@ -94,27 +94,22 @@ public class Badge {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
     }
-    
+
     public Badge(
             @Nonnull String id,
             @Nonnull BadgeStatusJson status,
             @Nonnull BadgeTypeJson type,
             @Nonnull AttendeeJson3 attendee,
             @Nonnull EventJson5 event) {
-        this(null, null, null,
-            null, id, status,
-            type, attendee, event);
+        this(null, null, null, null, id, status, type, attendee, event);
     }
 
     /**
@@ -184,7 +179,6 @@ public class Badge {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -192,7 +186,6 @@ public class Badge {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -202,7 +195,6 @@ public class Badge {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -210,7 +202,6 @@ public class Badge {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -220,7 +211,6 @@ public class Badge {
         return this;
     }
 
-
     /**
      * Id of a badge
      */
@@ -228,7 +218,6 @@ public class Badge {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Badge status
@@ -238,7 +227,6 @@ public class Badge {
         return this;
     }
 
-
     /**
      * Badge type
      */
@@ -246,7 +234,6 @@ public class Badge {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * A JSON Schema for an Attendee object
@@ -256,7 +243,6 @@ public class Badge {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -264,7 +250,6 @@ public class Badge {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -275,42 +260,48 @@ public class Badge {
             return false;
         }
         Badge other = (Badge) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, status,
-            type, attendee, event);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, id, status, type, attendee, event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Badge.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "status", status,
-                "type", type,
-                "attendee", attendee,
-                "event", event);
+        return Utils.toString(
+                Badge.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "status",
+                status,
+                "type",
+                type,
+                "attendee",
+                attendee,
+                "event",
+                event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -331,7 +322,7 @@ public class Badge {
         private EventJson5 event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -407,11 +398,7 @@ public class Badge {
         }
 
         public Badge build() {
-            return new Badge(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, status,
-                type, attendee, event);
+            return new Badge(created, createdBy, lastModified, lastModifiedBy, id, status, type, attendee, event);
         }
-
     }
 }

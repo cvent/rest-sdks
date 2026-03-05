@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CardStatusJson
- * 
+ *
  * <p>This is used to denote the card status for a card.
  */
 public enum CardStatusJson {
@@ -26,13 +26,13 @@ public enum CardStatusJson {
     CardStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CardStatusJson> fromValue(String value) {
-        for (CardStatusJson o: CardStatusJson.values()) {
+        for (CardStatusJson o : CardStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum CardStatusJson {
         return Optional.empty();
     }
 }
-

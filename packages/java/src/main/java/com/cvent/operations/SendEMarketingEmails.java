@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -37,10 +37,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class SendEMarketingEmails {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -49,7 +48,7 @@ public class SendEMarketingEmails {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -85,23 +84,14 @@ public class SendEMarketingEmails {
                     java.util.Optional.of(java.util.List.of("eMarketing/eMarketing-send-emails:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/emarketing/emails");
+
+        <T, U> HttpRequest buildRequest(T request, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(this.baseUrl, "/emarketing/emails");
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody = Utils.serializeRequestBody(convertedRequest, "", "json", false);
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -109,8 +99,7 @@ public class SendEMarketingEmails {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> {
+    public static class Sync extends Base implements RequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -120,11 +109,11 @@ public class SendEMarketingEmails {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -149,25 +138,20 @@ public class SendEMarketingEmails {
             return httpRes;
         }
 
-
         @Override
         public SendEMarketingEmailsResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            SendEMarketingEmailsResponse.Builder resBuilder =
-                    SendEMarketingEmailsResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            SendEMarketingEmailsResponse.Builder resBuilder = SendEMarketingEmailsResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             SendEMarketingEmailsResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "202")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withSendEmailResponse(Utils.unmarshal(response, new TypeReference<SendEmailResponse>() {}));
+                    return res.withSendEmailResponse(
+                            Utils.unmarshal(response, new TypeReference<SendEmailResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -190,8 +174,10 @@ public class SendEMarketingEmails {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<SendEmailRequest, com.cvent.models.operations.async.SendEMarketingEmailsResponse> {
+            implements AsyncRequestOperation<
+                    SendEmailRequest, com.cvent.models.operations.async.SendEMarketingEmailsResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
@@ -212,7 +198,9 @@ public class SendEMarketingEmails {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(SendEmailRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -229,19 +217,15 @@ public class SendEMarketingEmails {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.SendEMarketingEmailsResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.SendEMarketingEmailsResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.SendEMarketingEmailsResponse
-                            .builder()
+                    com.cvent.models.operations.async.SendEMarketingEmailsResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.SendEMarketingEmailsResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "202")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<SendEmailResponse>() {})
@@ -252,8 +236,7 @@ public class SendEMarketingEmails {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

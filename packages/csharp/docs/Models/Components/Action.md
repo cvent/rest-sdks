@@ -2,6 +2,14 @@
 
 Action to take for a compliance request.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = Action.DoNotSell;
+```
+
 
 ## Values
 

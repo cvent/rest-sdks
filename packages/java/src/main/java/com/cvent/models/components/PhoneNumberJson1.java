@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * PhoneNumberJson1
- * 
+ *
  * <p>Phone Number
  */
 public class PhoneNumberJson1 {
@@ -31,12 +31,9 @@ public class PhoneNumberJson1 {
 
     @JsonCreator
     public PhoneNumberJson1(
-            @JsonProperty("type") @Nonnull PhoneTypeJson type,
-            @JsonProperty("value") @Nonnull String value) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+            @JsonProperty("type") @Nonnull PhoneTypeJson type, @JsonProperty("value") @Nonnull String value) {
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
     }
 
     /**
@@ -57,7 +54,6 @@ public class PhoneNumberJson1 {
         return new Builder();
     }
 
-
     /**
      * The type of the phone number.
      */
@@ -66,7 +62,6 @@ public class PhoneNumberJson1 {
         return this;
     }
 
-
     /**
      * The phone number of the user.
      */
@@ -74,7 +69,6 @@ public class PhoneNumberJson1 {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +79,28 @@ public class PhoneNumberJson1 {
             return false;
         }
         PhoneNumberJson1 other = (PhoneNumberJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, value);
+        return Utils.enhancedHash(type, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PhoneNumberJson1.class,
-                "type", type,
-                "value", value);
+        return Utils.toString(PhoneNumberJson1.class, "type", type, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PhoneTypeJson type;
 
         private String value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +120,7 @@ public class PhoneNumberJson1 {
         }
 
         public PhoneNumberJson1 build() {
-            return new PhoneNumberJson1(
-                type, value);
+            return new PhoneNumberJson1(type, value);
         }
-
     }
 }

@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class PostTransactionsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class PostTransactionsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable CreateTransactionResponse createTransactionResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.createTransactionResponse = createTransactionResponse;
     }
-    
+
     public PostTransactionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class PostTransactionsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class PostTransactionsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class PostTransactionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class PostTransactionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Response of the create transaction request.
      */
-    public PostTransactionsResponse withCreateTransactionResponse(@Nullable CreateTransactionResponse createTransactionResponse) {
+    public PostTransactionsResponse withCreateTransactionResponse(
+            @Nullable CreateTransactionResponse createTransactionResponse) {
         this.createTransactionResponse = createTransactionResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class PostTransactionsResponse implements AsyncResponse {
             return false;
         }
         PostTransactionsResponse other = (PostTransactionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.createTransactionResponse, other.createTransactionResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.createTransactionResponse, other.createTransactionResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            createTransactionResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, createTransactionResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PostTransactionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "createTransactionResponse", createTransactionResponse);
+        return Utils.toString(
+                PostTransactionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "createTransactionResponse",
+                createTransactionResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class PostTransactionsResponse implements AsyncResponse {
         private CreateTransactionResponse createTransactionResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +203,7 @@ public class PostTransactionsResponse implements AsyncResponse {
         }
 
         public PostTransactionsResponse build() {
-            return new PostTransactionsResponse(
-                contentType, statusCode, rawResponse,
-                createTransactionResponse);
+            return new PostTransactionsResponse(contentType, statusCode, rawResponse, createTransactionResponse);
         }
-
     }
 }

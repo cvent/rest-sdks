@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum HubStatusPropertyJson
     {
-        [JsonProperty("Inactive")]
-        Inactive,
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Deleted")]
-        Deleted,
+        [JsonProperty("Inactive")] Inactive,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Deleted")] Deleted,
     }
 
     public static class HubStatusPropertyJsonExtension
     {
         public static string Value(this HubStatusPropertyJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static HubStatusPropertyJson ToEnum(this string value)
         {
-            foreach(var field in typeof(HubStatusPropertyJson).GetFields())
+            foreach (var field in typeof(HubStatusPropertyJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAvailableTimesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -46,19 +45,16 @@ public class ListAvailableTimesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable AvailableTimesPaginatedResponse availableTimesPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.availableTimesPaginatedResponse = availableTimesPaginatedResponse;
     }
-    
+
     public ListAvailableTimesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -94,7 +90,6 @@ public class ListAvailableTimesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -102,7 +97,6 @@ public class ListAvailableTimesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -112,7 +106,6 @@ public class ListAvailableTimesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -121,16 +114,15 @@ public class ListAvailableTimesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of times and locations available to schedule appointments in
      * a particular appointment event.
      */
-    public ListAvailableTimesResponse withAvailableTimesPaginatedResponse(@Nullable AvailableTimesPaginatedResponse availableTimesPaginatedResponse) {
+    public ListAvailableTimesResponse withAvailableTimesPaginatedResponse(
+            @Nullable AvailableTimesPaginatedResponse availableTimesPaginatedResponse) {
         this.availableTimesPaginatedResponse = availableTimesPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -141,31 +133,33 @@ public class ListAvailableTimesResponse implements AsyncResponse {
             return false;
         }
         ListAvailableTimesResponse other = (ListAvailableTimesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.availableTimesPaginatedResponse, other.availableTimesPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.availableTimesPaginatedResponse, other.availableTimesPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            availableTimesPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, availableTimesPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAvailableTimesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "availableTimesPaginatedResponse", availableTimesPaginatedResponse);
+        return Utils.toString(
+                ListAvailableTimesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "availableTimesPaginatedResponse",
+                availableTimesPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -176,7 +170,7 @@ public class ListAvailableTimesResponse implements AsyncResponse {
         private AvailableTimesPaginatedResponse availableTimesPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -207,16 +201,15 @@ public class ListAvailableTimesResponse implements AsyncResponse {
          * Successfully retrieved a paginated list of times and locations available to schedule appointments in
          * a particular appointment event.
          */
-        public Builder availableTimesPaginatedResponse(@Nullable AvailableTimesPaginatedResponse availableTimesPaginatedResponse) {
+        public Builder availableTimesPaginatedResponse(
+                @Nullable AvailableTimesPaginatedResponse availableTimesPaginatedResponse) {
             this.availableTimesPaginatedResponse = availableTimesPaginatedResponse;
             return this;
         }
 
         public ListAvailableTimesResponse build() {
             return new ListAvailableTimesResponse(
-                contentType, statusCode, rawResponse,
-                availableTimesPaginatedResponse);
+                    contentType, statusCode, rawResponse, availableTimesPaginatedResponse);
         }
-
     }
 }

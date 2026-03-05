@@ -30,7 +30,7 @@ public class GetTableRequestBuilder {
     private GetTableRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetTableRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetTableRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetTableResponse> call() {
-        AsyncRequestOperation<GetTableRequest, GetTableResponse> operation
-              = new GetTable.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTableRequest, GetTableResponse> operation =
+                new GetTable.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

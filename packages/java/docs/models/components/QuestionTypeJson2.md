@@ -2,6 +2,14 @@
 
 Question Type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.QuestionTypeJson2;
+
+QuestionTypeJson2 value = QuestionTypeJson2.SINGLE_CHOICE;
+```
+
 
 ## Values
 

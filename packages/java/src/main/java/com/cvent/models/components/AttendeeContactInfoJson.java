@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * AttendeeContactInfoJson
- * 
+ *
  * <p>Information about attendee contact added to an event.
  */
 public class AttendeeContactInfoJson {
@@ -29,7 +29,7 @@ public class AttendeeContactInfoJson {
      * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -41,7 +41,7 @@ public class AttendeeContactInfoJson {
      * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
      * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -53,7 +53,7 @@ public class AttendeeContactInfoJson {
      * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -65,7 +65,7 @@ public class AttendeeContactInfoJson {
      * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -160,7 +160,7 @@ public class AttendeeContactInfoJson {
     /**
      * Attendee's contact membership information. Note: This field is deprecated. Previous documentation
      * incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -297,7 +297,7 @@ public class AttendeeContactInfoJson {
 
     /**
      * Represents the preferred pronoun of a contact. Deprecated. Use `pronouns` instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -390,8 +390,7 @@ public class AttendeeContactInfoJson {
         this.compliance = compliance;
         this.prefix = prefix;
         this.pager = pager;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
         this.headline = headline;
         this.personalWebsite = personalWebsite;
         this.biography = biography;
@@ -399,28 +398,54 @@ public class AttendeeContactInfoJson {
         this.pronouns = pronouns;
         this.links = links;
     }
-    
+
     public AttendeeContactInfoJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
      * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -432,7 +457,7 @@ public class AttendeeContactInfoJson {
      * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
      * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -444,7 +469,7 @@ public class AttendeeContactInfoJson {
      * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -456,7 +481,7 @@ public class AttendeeContactInfoJson {
      * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -551,7 +576,7 @@ public class AttendeeContactInfoJson {
     /**
      * Attendee's contact membership information. Note: This field is deprecated. Previous documentation
      * incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -688,7 +713,7 @@ public class AttendeeContactInfoJson {
 
     /**
      * Represents the preferred pronoun of a contact. Deprecated. Use `pronouns` instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -714,12 +739,11 @@ public class AttendeeContactInfoJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -728,12 +752,11 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
      * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -742,12 +765,11 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -756,12 +778,11 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
      * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
      * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -769,7 +790,6 @@ public class AttendeeContactInfoJson {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     /**
      * The id of contact
@@ -779,7 +799,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The first name of the contact
      */
@@ -787,7 +806,6 @@ public class AttendeeContactInfoJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * The last name of the contact
@@ -797,7 +815,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The middle name of the contact
      */
@@ -805,7 +822,6 @@ public class AttendeeContactInfoJson {
         this.middleName = middleName;
         return this;
     }
-
 
     /**
      * The nickname of the contact.
@@ -815,7 +831,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The email address of the contact
      */
@@ -823,7 +838,6 @@ public class AttendeeContactInfoJson {
         this.email = email;
         return this;
     }
-
 
     /**
      * An alternate email address of the contact that will be cc'd on all email communications
@@ -833,7 +847,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The gender of the contact.
      */
@@ -841,7 +854,6 @@ public class AttendeeContactInfoJson {
         this.gender = gender;
         return this;
     }
-
 
     /**
      * The company/organization the contact belongs to.
@@ -851,7 +863,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * The designation of the contact
      */
@@ -859,7 +870,6 @@ public class AttendeeContactInfoJson {
         this.designation = designation;
         return this;
     }
-
 
     /**
      * The job title of the contact
@@ -869,7 +879,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Contains details related to the attendee's contact type.
      */
@@ -878,11 +887,10 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Attendee's contact membership information. Note: This field is deprecated. Previous documentation
      * incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -890,7 +898,6 @@ public class AttendeeContactInfoJson {
         this.membership = membership;
         return this;
     }
-
 
     /**
      * The type of address.
@@ -900,7 +907,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Address details
      */
@@ -908,7 +914,6 @@ public class AttendeeContactInfoJson {
         this.homeAddress = homeAddress;
         return this;
     }
-
 
     /**
      * Home phone number
@@ -918,7 +923,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Home FAX number
      */
@@ -926,7 +930,6 @@ public class AttendeeContactInfoJson {
         this.homeFax = homeFax;
         return this;
     }
-
 
     /**
      * Address details
@@ -936,7 +939,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Work phone number
      */
@@ -944,7 +946,6 @@ public class AttendeeContactInfoJson {
         this.workPhone = workPhone;
         return this;
     }
-
 
     /**
      * Work FAX number
@@ -954,7 +955,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Opt-out choices.
      */
@@ -963,7 +963,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Collection of custom fields.
      */
@@ -971,7 +970,6 @@ public class AttendeeContactInfoJson {
         this.customFields = customFields;
         return this;
     }
-
 
     /**
      * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
@@ -982,7 +980,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Mobile phone number
      */
@@ -990,7 +987,6 @@ public class AttendeeContactInfoJson {
         this.mobilePhone = mobilePhone;
         return this;
     }
-
 
     /**
      * Detail related to compliance with the contact's privacy rights under various legislation.
@@ -1000,7 +996,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Used to denote what is traditionally a title of an individual. For example, Mr., Mrs., Dr., etc.
      */
@@ -1008,7 +1003,6 @@ public class AttendeeContactInfoJson {
         this.prefix = prefix;
         return this;
     }
-
 
     /**
      * The pager number of the contact.
@@ -1018,7 +1012,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * True indicates a contact is deleted.
      */
@@ -1026,7 +1019,6 @@ public class AttendeeContactInfoJson {
         this.deleted = deleted;
         return this;
     }
-
 
     /**
      * The headline of the contact's profile, which summarizes their professional experience and qualities.
@@ -1036,7 +1028,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * A contact's personal website URL.
      */
@@ -1044,7 +1035,6 @@ public class AttendeeContactInfoJson {
         this.personalWebsite = personalWebsite;
         return this;
     }
-
 
     /**
      * A contact's biographical writeup.
@@ -1054,10 +1044,9 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Represents the preferred pronoun of a contact. Deprecated. Use `pronouns` instead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1065,7 +1054,6 @@ public class AttendeeContactInfoJson {
         this.pronoun = pronoun;
         return this;
     }
-
 
     /**
      * Represents the preferred pronouns of a contact.
@@ -1075,7 +1063,6 @@ public class AttendeeContactInfoJson {
         return this;
     }
 
-
     /**
      * Collection of social media links for the contact.
      */
@@ -1083,7 +1070,6 @@ public class AttendeeContactInfoJson {
         this.links = links;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1094,110 +1080,173 @@ public class AttendeeContactInfoJson {
             return false;
         }
         AttendeeContactInfoJson other = (AttendeeContactInfoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.nickname, other.nickname) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail) &&
-            Utils.enhancedDeepEquals(this.gender, other.gender) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.membership, other.membership) &&
-            Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.workFax, other.workFax) &&
-            Utils.enhancedDeepEquals(this.optOut, other.optOut) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone) &&
-            Utils.enhancedDeepEquals(this.compliance, other.compliance) &&
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.pager, other.pager) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.headline, other.headline) &&
-            Utils.enhancedDeepEquals(this.personalWebsite, other.personalWebsite) &&
-            Utils.enhancedDeepEquals(this.biography, other.biography) &&
-            Utils.enhancedDeepEquals(this.pronoun, other.pronoun) &&
-            Utils.enhancedDeepEquals(this.pronouns, other.pronouns) &&
-            Utils.enhancedDeepEquals(this.links, other.links);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.nickname, other.nickname)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail)
+                && Utils.enhancedDeepEquals(this.gender, other.gender)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.membership, other.membership)
+                && Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.workFax, other.workFax)
+                && Utils.enhancedDeepEquals(this.optOut, other.optOut)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone)
+                && Utils.enhancedDeepEquals(this.compliance, other.compliance)
+                && Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.pager, other.pager)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.headline, other.headline)
+                && Utils.enhancedDeepEquals(this.personalWebsite, other.personalWebsite)
+                && Utils.enhancedDeepEquals(this.biography, other.biography)
+                && Utils.enhancedDeepEquals(this.pronoun, other.pronoun)
+                && Utils.enhancedDeepEquals(this.pronouns, other.pronouns)
+                && Utils.enhancedDeepEquals(this.links, other.links);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, firstName,
-            lastName, middleName, nickname,
-            email, ccEmail, gender,
-            company, designation, title,
-            type, membership, primaryAddressType,
-            homeAddress, homePhone, homeFax,
-            workAddress, workPhone, workFax,
-            optOut, customFields, sourceId,
-            mobilePhone, compliance, prefix,
-            pager, deleted, headline,
-            personalWebsite, biography, pronoun,
-            pronouns, links);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                firstName,
+                lastName,
+                middleName,
+                nickname,
+                email,
+                ccEmail,
+                gender,
+                company,
+                designation,
+                title,
+                type,
+                membership,
+                primaryAddressType,
+                homeAddress,
+                homePhone,
+                homeFax,
+                workAddress,
+                workPhone,
+                workFax,
+                optOut,
+                customFields,
+                sourceId,
+                mobilePhone,
+                compliance,
+                prefix,
+                pager,
+                deleted,
+                headline,
+                personalWebsite,
+                biography,
+                pronoun,
+                pronouns,
+                links);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeContactInfoJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "firstName", firstName,
-                "lastName", lastName,
-                "middleName", middleName,
-                "nickname", nickname,
-                "email", email,
-                "ccEmail", ccEmail,
-                "gender", gender,
-                "company", company,
-                "designation", designation,
-                "title", title,
-                "type", type,
-                "membership", membership,
-                "primaryAddressType", primaryAddressType,
-                "homeAddress", homeAddress,
-                "homePhone", homePhone,
-                "homeFax", homeFax,
-                "workAddress", workAddress,
-                "workPhone", workPhone,
-                "workFax", workFax,
-                "optOut", optOut,
-                "customFields", customFields,
-                "sourceId", sourceId,
-                "mobilePhone", mobilePhone,
-                "compliance", compliance,
-                "prefix", prefix,
-                "pager", pager,
-                "deleted", deleted,
-                "headline", headline,
-                "personalWebsite", personalWebsite,
-                "biography", biography,
-                "pronoun", pronoun,
-                "pronouns", pronouns,
-                "links", links);
+        return Utils.toString(
+                AttendeeContactInfoJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "middleName",
+                middleName,
+                "nickname",
+                nickname,
+                "email",
+                email,
+                "ccEmail",
+                ccEmail,
+                "gender",
+                gender,
+                "company",
+                company,
+                "designation",
+                designation,
+                "title",
+                title,
+                "type",
+                type,
+                "membership",
+                membership,
+                "primaryAddressType",
+                primaryAddressType,
+                "homeAddress",
+                homeAddress,
+                "homePhone",
+                homePhone,
+                "homeFax",
+                homeFax,
+                "workAddress",
+                workAddress,
+                "workPhone",
+                workPhone,
+                "workFax",
+                workFax,
+                "optOut",
+                optOut,
+                "customFields",
+                customFields,
+                "sourceId",
+                sourceId,
+                "mobilePhone",
+                mobilePhone,
+                "compliance",
+                compliance,
+                "prefix",
+                prefix,
+                "pager",
+                pager,
+                "deleted",
+                deleted,
+                "headline",
+                headline,
+                "personalWebsite",
+                personalWebsite,
+                "biography",
+                biography,
+                "pronoun",
+                pronoun,
+                "pronouns",
+                pronouns,
+                "links",
+                links);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         @Deprecated
         private OffsetDateTime created;
@@ -1282,14 +1331,14 @@ public class AttendeeContactInfoJson {
         private ContactLinksJson links;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
          * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
          * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1302,7 +1351,7 @@ public class AttendeeContactInfoJson {
          * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
          * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
          * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1315,7 +1364,7 @@ public class AttendeeContactInfoJson {
          * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
          * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
          * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1328,7 +1377,7 @@ public class AttendeeContactInfoJson {
          * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
          * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
          * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1436,7 +1485,7 @@ public class AttendeeContactInfoJson {
         /**
          * Attendee's contact membership information. Note: This field is deprecated. Previous documentation
          * incorrectly listed support for this feature.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1592,7 +1641,7 @@ public class AttendeeContactInfoJson {
 
         /**
          * Represents the preferred pronoun of a contact. Deprecated. Use `pronouns` instead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1619,26 +1668,47 @@ public class AttendeeContactInfoJson {
 
         public AttendeeContactInfoJson build() {
             return new AttendeeContactInfoJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, firstName,
-                lastName, middleName, nickname,
-                email, ccEmail, gender,
-                company, designation, title,
-                type, membership, primaryAddressType,
-                homeAddress, homePhone, homeFax,
-                workAddress, workPhone, workFax,
-                optOut, customFields, sourceId,
-                mobilePhone, compliance, prefix,
-                pager, deleted, headline,
-                personalWebsite, biography, pronoun,
-                pronouns, links);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    firstName,
+                    lastName,
+                    middleName,
+                    nickname,
+                    email,
+                    ccEmail,
+                    gender,
+                    company,
+                    designation,
+                    title,
+                    type,
+                    membership,
+                    primaryAddressType,
+                    homeAddress,
+                    homePhone,
+                    homeFax,
+                    workAddress,
+                    workPhone,
+                    workFax,
+                    optOut,
+                    customFields,
+                    sourceId,
+                    mobilePhone,
+                    compliance,
+                    prefix,
+                    pager,
+                    deleted,
+                    headline,
+                    personalWebsite,
+                    biography,
+                    pronoun,
+                    pronouns,
+                    links);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

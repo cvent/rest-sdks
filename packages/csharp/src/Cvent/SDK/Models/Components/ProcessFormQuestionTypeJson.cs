@@ -18,40 +18,29 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ProcessFormQuestionTypeJson
     {
-        [JsonProperty("CommentBox")]
-        CommentBox,
-        [JsonProperty("Currency")]
-        Currency,
-        [JsonProperty("Decimal")]
-        Decimal,
-        [JsonProperty("DateTime")]
-        DateTime,
-        [JsonProperty("Email")]
-        Email,
-        [JsonProperty("General")]
-        General,
-        [JsonProperty("Number")]
-        Number,
-        [JsonProperty("MultiSelect")]
-        MultiSelect,
-        [JsonProperty("SingleSelect")]
-        SingleSelect,
-        [JsonProperty("USPhoneNumber")]
-        USPhoneNumber,
-        [JsonProperty("Unknown")]
-        Unknown,
+        [JsonProperty("CommentBox")] CommentBox,
+        [JsonProperty("Currency")] Currency,
+        [JsonProperty("Decimal")] Decimal,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Email")] Email,
+        [JsonProperty("General")] General,
+        [JsonProperty("Number")] Number,
+        [JsonProperty("MultiSelect")] MultiSelect,
+        [JsonProperty("SingleSelect")] SingleSelect,
+        [JsonProperty("USPhoneNumber")] USPhoneNumber,
+        [JsonProperty("Unknown")] Unknown,
     }
 
     public static class ProcessFormQuestionTypeJsonExtension
     {
         public static string Value(this ProcessFormQuestionTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ProcessFormQuestionTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ProcessFormQuestionTypeJson).GetFields())
+            foreach (var field in typeof(ProcessFormQuestionTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

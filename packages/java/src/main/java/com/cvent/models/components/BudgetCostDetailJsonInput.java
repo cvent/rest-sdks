@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BudgetCostDetailJsonInput
- * 
+ *
  * <p>Budget item cost details.
  */
 public class BudgetCostDetailJsonInput {
@@ -61,20 +61,15 @@ public class BudgetCostDetailJsonInput {
             @JsonProperty("cost") double cost,
             @JsonProperty("gratuityDetail") @Nullable BudgetGratuityJsonInput gratuityDetail,
             @JsonProperty("taxDetail") @Nullable List<BudgetTaxJsonInput> taxDetail) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.units = units;
         this.cost = cost;
         this.gratuityDetail = gratuityDetail;
         this.taxDetail = taxDetail;
     }
-    
-    public BudgetCostDetailJsonInput(
-            @Nonnull String id,
-            double units,
-            double cost) {
-        this(id, units, cost,
-            null, null);
+
+    public BudgetCostDetailJsonInput(@Nonnull String id, double units, double cost) {
+        this(id, units, cost, null, null);
     }
 
     /**
@@ -117,7 +112,6 @@ public class BudgetCostDetailJsonInput {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -125,7 +119,6 @@ public class BudgetCostDetailJsonInput {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The number of units associated with a budget item. This field can be any number if the budget item
@@ -136,7 +129,6 @@ public class BudgetCostDetailJsonInput {
         return this;
     }
 
-
     /**
      * Budget item cost amount.
      */
@@ -144,7 +136,6 @@ public class BudgetCostDetailJsonInput {
         this.cost = cost;
         return this;
     }
-
 
     /**
      * Budget item gratuity details.
@@ -154,7 +145,6 @@ public class BudgetCostDetailJsonInput {
         return this;
     }
 
-
     /**
      * Collection of tax related information.
      */
@@ -162,7 +152,6 @@ public class BudgetCostDetailJsonInput {
         this.taxDetail = taxDetail;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -173,33 +162,36 @@ public class BudgetCostDetailJsonInput {
             return false;
         }
         BudgetCostDetailJsonInput other = (BudgetCostDetailJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.units, other.units) &&
-            Utils.enhancedDeepEquals(this.cost, other.cost) &&
-            Utils.enhancedDeepEquals(this.gratuityDetail, other.gratuityDetail) &&
-            Utils.enhancedDeepEquals(this.taxDetail, other.taxDetail);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.units, other.units)
+                && Utils.enhancedDeepEquals(this.cost, other.cost)
+                && Utils.enhancedDeepEquals(this.gratuityDetail, other.gratuityDetail)
+                && Utils.enhancedDeepEquals(this.taxDetail, other.taxDetail);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, units, cost,
-            gratuityDetail, taxDetail);
+        return Utils.enhancedHash(id, units, cost, gratuityDetail, taxDetail);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetCostDetailJsonInput.class,
-                "id", id,
-                "units", units,
-                "cost", cost,
-                "gratuityDetail", gratuityDetail,
-                "taxDetail", taxDetail);
+        return Utils.toString(
+                BudgetCostDetailJsonInput.class,
+                "id",
+                id,
+                "units",
+                units,
+                "cost",
+                cost,
+                "gratuityDetail",
+                gratuityDetail,
+                "taxDetail",
+                taxDetail);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -212,7 +204,7 @@ public class BudgetCostDetailJsonInput {
         private List<BudgetTaxJsonInput> taxDetail;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -257,10 +249,7 @@ public class BudgetCostDetailJsonInput {
         }
 
         public BudgetCostDetailJsonInput build() {
-            return new BudgetCostDetailJsonInput(
-                id, units, cost,
-                gratuityDetail, taxDetail);
+            return new BudgetCostDetailJsonInput(id, units, cost, gratuityDetail, taxDetail);
         }
-
     }
 }

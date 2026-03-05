@@ -2,6 +2,14 @@
 
 This is used to denote the type of order made by an attendee.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = OrderTypeJson.Authorization;
+```
+
 
 ## Values
 

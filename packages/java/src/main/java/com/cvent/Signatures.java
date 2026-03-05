@@ -27,7 +27,7 @@ public class Signatures {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncSignatures async() {
@@ -36,11 +36,11 @@ public class Signatures {
 
     /**
      * List Signatures
-     * 
+     *
      * <p>Retrieves a paginated list of check-in &amp; check-out signatures associated with the account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetSignaturesRequestBuilder getSignatures() {
@@ -49,19 +49,18 @@ public class Signatures {
 
     /**
      * List Signatures
-     * 
+     *
      * <p>Retrieves a paginated list of check-in &amp; check-out signatures associated with the account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSignaturesResponse getSignatures(@Nonnull GetSignaturesRequest request) {
-        RequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation
-              = new GetSignatures.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation =
+                new GetSignatures.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

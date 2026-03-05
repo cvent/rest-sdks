@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetAttendeeMessagesMembersRequest {
     /**
      * Unique ID of an event
@@ -39,19 +38,19 @@ public class GetAttendeeMessagesMembersRequest {
     /**
      * Filters are used to narrow the results returned and support a combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * - equals to: eq
      * - match any of the values in the list: in
-     * 
+     *
      * <p>The following operators can be used:
      * - or
-     * 
+     *
      * <p>The following fields are filterable:
      * * `channel.id` (eq/in)
-     * 
+     *
      * <p>Examples:
      * - Filter channel IDs:
      * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
@@ -64,24 +63,17 @@ public class GetAttendeeMessagesMembersRequest {
 
     @JsonCreator
     public GetAttendeeMessagesMembersRequest(
-            @Nonnull String eventId,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nonnull String filter) {
-        this.eventId = Optional.ofNullable(eventId)
-            .orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String eventId, @Nullable Long limit, @Nullable String token, @Nonnull String filter) {
+        this.eventId =
+                Optional.ofNullable(eventId).orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
-        this.filter = Optional.ofNullable(filter)
-            .orElseThrow(() -> new IllegalArgumentException("filter cannot be null"));
+        this.filter =
+                Optional.ofNullable(filter).orElseThrow(() -> new IllegalArgumentException("filter cannot be null"));
     }
-    
-    public GetAttendeeMessagesMembersRequest(
-            @Nonnull String eventId,
-            @Nonnull String filter) {
-        this(eventId, null, null,
-            filter);
+
+    public GetAttendeeMessagesMembersRequest(@Nonnull String eventId, @Nonnull String filter) {
+        this(eventId, null, null, filter);
     }
 
     /**
@@ -109,19 +101,19 @@ public class GetAttendeeMessagesMembersRequest {
     /**
      * Filters are used to narrow the results returned and support a combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * - equals to: eq
      * - match any of the values in the list: in
-     * 
+     *
      * <p>The following operators can be used:
      * - or
-     * 
+     *
      * <p>The following fields are filterable:
      * * `channel.id` (eq/in)
-     * 
+     *
      * <p>Examples:
      * - Filter channel IDs:
      * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
@@ -137,7 +129,6 @@ public class GetAttendeeMessagesMembersRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event
      */
@@ -146,7 +137,6 @@ public class GetAttendeeMessagesMembersRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -154,7 +144,6 @@ public class GetAttendeeMessagesMembersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -165,23 +154,22 @@ public class GetAttendeeMessagesMembersRequest {
         return this;
     }
 
-
     /**
      * Filters are used to narrow the results returned and support a combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * - equals to: eq
      * - match any of the values in the list: in
-     * 
+     *
      * <p>The following operators can be used:
      * - or
-     * 
+     *
      * <p>The following fields are filterable:
      * * `channel.id` (eq/in)
-     * 
+     *
      * <p>Examples:
      * - Filter channel IDs:
      * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
@@ -194,7 +182,6 @@ public class GetAttendeeMessagesMembersRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -204,31 +191,33 @@ public class GetAttendeeMessagesMembersRequest {
             return false;
         }
         GetAttendeeMessagesMembersRequest other = (GetAttendeeMessagesMembersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, limit, token,
-            filter);
+        return Utils.enhancedHash(eventId, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAttendeeMessagesMembersRequest.class,
-                "eventId", eventId,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetAttendeeMessagesMembersRequest.class,
+                "eventId",
+                eventId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventId;
 
@@ -239,7 +228,7 @@ public class GetAttendeeMessagesMembersRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -270,19 +259,19 @@ public class GetAttendeeMessagesMembersRequest {
         /**
          * Filters are used to narrow the results returned and support a combination of logical and comparison
          * operators.
-         * 
+         *
          * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * - equals to: eq
          * - match any of the values in the list: in
-         * 
+         *
          * <p>The following operators can be used:
          * - or
-         * 
+         *
          * <p>The following fields are filterable:
          * * `channel.id` (eq/in)
-         * 
+         *
          * <p>Examples:
          * - Filter channel IDs:
          * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
@@ -296,16 +285,10 @@ public class GetAttendeeMessagesMembersRequest {
         }
 
         public GetAttendeeMessagesMembersRequest build() {
-            return new GetAttendeeMessagesMembersRequest(
-                eventId, limit, token,
-                filter);
+            return new GetAttendeeMessagesMembersRequest(eventId, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

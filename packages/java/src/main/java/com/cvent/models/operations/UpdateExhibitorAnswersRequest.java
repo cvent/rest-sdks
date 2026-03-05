@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorAnswersRequest {
     /**
      * ID of an event.
@@ -34,15 +33,12 @@ public class UpdateExhibitorAnswersRequest {
 
     @JsonCreator
     public UpdateExhibitorAnswersRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull ExhibitorAnswersRequest exhibitorAnswersRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull ExhibitorAnswersRequest exhibitorAnswersRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.exhibitorAnswersRequest = Optional.ofNullable(exhibitorAnswersRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorAnswersRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorAnswersRequest cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class UpdateExhibitorAnswersRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +73,6 @@ public class UpdateExhibitorAnswersRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -88,15 +82,14 @@ public class UpdateExhibitorAnswersRequest {
         return this;
     }
 
-
     /**
      * Exhibitor answers to be updated
      */
-    public UpdateExhibitorAnswersRequest withExhibitorAnswersRequest(@Nonnull ExhibitorAnswersRequest exhibitorAnswersRequest) {
+    public UpdateExhibitorAnswersRequest withExhibitorAnswersRequest(
+            @Nonnull ExhibitorAnswersRequest exhibitorAnswersRequest) {
         this.exhibitorAnswersRequest = Utils.checkNotNull(exhibitorAnswersRequest, "exhibitorAnswersRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +100,30 @@ public class UpdateExhibitorAnswersRequest {
             return false;
         }
         UpdateExhibitorAnswersRequest other = (UpdateExhibitorAnswersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.exhibitorAnswersRequest, other.exhibitorAnswersRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.exhibitorAnswersRequest, other.exhibitorAnswersRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, exhibitorAnswersRequest);
+        return Utils.enhancedHash(id, exhibitorId, exhibitorAnswersRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorAnswersRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "exhibitorAnswersRequest", exhibitorAnswersRequest);
+        return Utils.toString(
+                UpdateExhibitorAnswersRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "exhibitorAnswersRequest",
+                exhibitorAnswersRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +132,7 @@ public class UpdateExhibitorAnswersRequest {
         private ExhibitorAnswersRequest exhibitorAnswersRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +160,7 @@ public class UpdateExhibitorAnswersRequest {
         }
 
         public UpdateExhibitorAnswersRequest build() {
-            return new UpdateExhibitorAnswersRequest(
-                id, exhibitorId, exhibitorAnswersRequest);
+            return new UpdateExhibitorAnswersRequest(id, exhibitorId, exhibitorAnswersRequest);
         }
-
     }
 }

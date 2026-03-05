@@ -30,7 +30,7 @@ public class UpdateReservationSyncRequestBuilder {
     private UpdateReservationSyncRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateReservationSyncRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateReservationSyncRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateReservationSyncResponse> call() {
-        AsyncRequestOperation<UpdateReservationSyncRequest, UpdateReservationSyncResponse> operation
-              = new UpdateReservationSync.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateReservationSyncRequest, UpdateReservationSyncResponse> operation =
+                new UpdateReservationSync.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

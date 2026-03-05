@@ -28,7 +28,7 @@ public class CreateMeetingRequestRequestBuilder {
     private CreateMeetingRequestRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateMeetingRequestRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class CreateMeetingRequestRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateMeetingRequestResponse call() {
-        RequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation
-              = new CreateMeetingRequest.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation =
+                new CreateMeetingRequest.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

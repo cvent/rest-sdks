@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AccountBudgetItemListResponseJson
- * 
+ *
  * <p>The response from a request to retrieve list of budget items across all events linked to the
  * account.
  */
@@ -142,13 +142,9 @@ public class AccountBudgetItemListResponseJson {
         this.subCategory = subCategory;
         this.deleted = deleted;
     }
-    
+
     public AccountBudgetItemListResponseJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -246,7 +242,6 @@ public class AccountBudgetItemListResponseJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -254,7 +249,6 @@ public class AccountBudgetItemListResponseJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -264,7 +258,6 @@ public class AccountBudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -272,7 +265,6 @@ public class AccountBudgetItemListResponseJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -282,7 +274,6 @@ public class AccountBudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Event ID Information.
      */
@@ -290,7 +281,6 @@ public class AccountBudgetItemListResponseJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * RFP ID Information.
@@ -300,7 +290,6 @@ public class AccountBudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Budget Version ID Information.
      */
@@ -308,7 +297,6 @@ public class AccountBudgetItemListResponseJson {
         this.budgetVersion = budgetVersion;
         return this;
     }
-
 
     /**
      * The identifier of the budget item.
@@ -318,7 +306,6 @@ public class AccountBudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Name of the budget item.
      */
@@ -326,7 +313,6 @@ public class AccountBudgetItemListResponseJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * User defined code of the budget item.
@@ -336,7 +322,6 @@ public class AccountBudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * Denotes the category assigned to the budget item.
      */
@@ -344,7 +329,6 @@ public class AccountBudgetItemListResponseJson {
         this.category = category;
         return this;
     }
-
 
     /**
      * This is used to denote the sub category for a budget.
@@ -354,7 +338,6 @@ public class AccountBudgetItemListResponseJson {
         return this;
     }
 
-
     /**
      * True indicates the event budget item is deleted.
      */
@@ -362,7 +345,6 @@ public class AccountBudgetItemListResponseJson {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -373,52 +355,73 @@ public class AccountBudgetItemListResponseJson {
             return false;
         }
         AccountBudgetItemListResponseJson other = (AccountBudgetItemListResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.rfp, other.rfp) &&
-            Utils.enhancedDeepEquals(this.budgetVersion, other.budgetVersion) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subCategory, other.subCategory) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.rfp, other.rfp)
+                && Utils.enhancedDeepEquals(this.budgetVersion, other.budgetVersion)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, rfp,
-            budgetVersion, id, name,
-            code, category, subCategory,
-            deleted);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                rfp,
+                budgetVersion,
+                id,
+                name,
+                code,
+                category,
+                subCategory,
+                deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AccountBudgetItemListResponseJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "rfp", rfp,
-                "budgetVersion", budgetVersion,
-                "id", id,
-                "name", name,
-                "code", code,
-                "category", category,
-                "subCategory", subCategory,
-                "deleted", deleted);
+        return Utils.toString(
+                AccountBudgetItemListResponseJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "rfp",
+                rfp,
+                "budgetVersion",
+                budgetVersion,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "category",
+                category,
+                "subCategory",
+                subCategory,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -447,7 +450,7 @@ public class AccountBudgetItemListResponseJson {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -556,12 +559,19 @@ public class AccountBudgetItemListResponseJson {
 
         public AccountBudgetItemListResponseJson build() {
             return new AccountBudgetItemListResponseJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, rfp,
-                budgetVersion, id, name,
-                code, category, subCategory,
-                deleted);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    rfp,
+                    budgetVersion,
+                    id,
+                    name,
+                    code,
+                    category,
+                    subCategory,
+                    deleted);
         }
-
     }
 }

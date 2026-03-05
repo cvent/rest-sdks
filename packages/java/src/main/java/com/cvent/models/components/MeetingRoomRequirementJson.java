@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * MeetingRoomRequirementJson
- * 
+ *
  * <p>The requirement of a meeting room on the specified date.
  */
 public class MeetingRoomRequirementJson {
@@ -109,8 +109,7 @@ public class MeetingRoomRequirementJson {
             @JsonProperty("numberOfPeople") @Nullable Long numberOfPeople,
             @JsonProperty("twentyFourHourHold") @Nullable Boolean twentyFourHourHold,
             @JsonProperty("note") @Nullable String note) {
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.startTime = startTime;
         this.endTime = endTime;
         this.agendaItem = agendaItem;
@@ -121,13 +120,9 @@ public class MeetingRoomRequirementJson {
         this.twentyFourHourHold = twentyFourHourHold;
         this.note = note;
     }
-    
-    public MeetingRoomRequirementJson(
-            @Nonnull String date) {
-        this(date, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public MeetingRoomRequirementJson(@Nonnull String date) {
+        this(date, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -208,7 +203,6 @@ public class MeetingRoomRequirementJson {
         return new Builder();
     }
 
-
     /**
      * The date for the meeting room, in format of YYYY-MM-DD.
      */
@@ -216,7 +210,6 @@ public class MeetingRoomRequirementJson {
         this.date = Utils.checkNotNull(date, "date");
         return this;
     }
-
 
     /**
      * The start time for the meeting room, in format of HH:MM:SS.
@@ -226,7 +219,6 @@ public class MeetingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The end time for the meeting room, in format of HH:MM:SS.
      */
@@ -235,7 +227,6 @@ public class MeetingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The agenda item for the meeting room.
      */
@@ -243,7 +234,6 @@ public class MeetingRoomRequirementJson {
         this.agendaItem = agendaItem;
         return this;
     }
-
 
     /**
      * For the meeting requests, this is the selection of agenda item type. In this case, up to one agenda
@@ -255,7 +245,6 @@ public class MeetingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * For the meeting requests, this is the selection of setup type. In this case, up to one setup type is
      * allowed. For the meeting request forms, this is the list of all the available setup types.
@@ -264,7 +253,6 @@ public class MeetingRoomRequirementJson {
         this.setupType = setupType;
         return this;
     }
-
 
     /**
      * The size of the meeting room. It can be in any measurement the user chooses, e.g., square feet,
@@ -275,7 +263,6 @@ public class MeetingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The number of people for the meeting room.
      */
@@ -283,7 +270,6 @@ public class MeetingRoomRequirementJson {
         this.numberOfPeople = numberOfPeople;
         return this;
     }
-
 
     /**
      * True indicates the meeting room is held for 24 hours.
@@ -293,7 +279,6 @@ public class MeetingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The meeting room requirement note.
      */
@@ -301,7 +286,6 @@ public class MeetingRoomRequirementJson {
         this.note = note;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -312,45 +296,61 @@ public class MeetingRoomRequirementJson {
             return false;
         }
         MeetingRoomRequirementJson other = (MeetingRoomRequirementJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.startTime, other.startTime) &&
-            Utils.enhancedDeepEquals(this.endTime, other.endTime) &&
-            Utils.enhancedDeepEquals(this.agendaItem, other.agendaItem) &&
-            Utils.enhancedDeepEquals(this.agendaItemType, other.agendaItemType) &&
-            Utils.enhancedDeepEquals(this.setupType, other.setupType) &&
-            Utils.enhancedDeepEquals(this.roomSize, other.roomSize) &&
-            Utils.enhancedDeepEquals(this.numberOfPeople, other.numberOfPeople) &&
-            Utils.enhancedDeepEquals(this.twentyFourHourHold, other.twentyFourHourHold) &&
-            Utils.enhancedDeepEquals(this.note, other.note);
+        return Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.startTime, other.startTime)
+                && Utils.enhancedDeepEquals(this.endTime, other.endTime)
+                && Utils.enhancedDeepEquals(this.agendaItem, other.agendaItem)
+                && Utils.enhancedDeepEquals(this.agendaItemType, other.agendaItemType)
+                && Utils.enhancedDeepEquals(this.setupType, other.setupType)
+                && Utils.enhancedDeepEquals(this.roomSize, other.roomSize)
+                && Utils.enhancedDeepEquals(this.numberOfPeople, other.numberOfPeople)
+                && Utils.enhancedDeepEquals(this.twentyFourHourHold, other.twentyFourHourHold)
+                && Utils.enhancedDeepEquals(this.note, other.note);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            date, startTime, endTime,
-            agendaItem, agendaItemType, setupType,
-            roomSize, numberOfPeople, twentyFourHourHold,
-            note);
+                date,
+                startTime,
+                endTime,
+                agendaItem,
+                agendaItemType,
+                setupType,
+                roomSize,
+                numberOfPeople,
+                twentyFourHourHold,
+                note);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRoomRequirementJson.class,
-                "date", date,
-                "startTime", startTime,
-                "endTime", endTime,
-                "agendaItem", agendaItem,
-                "agendaItemType", agendaItemType,
-                "setupType", setupType,
-                "roomSize", roomSize,
-                "numberOfPeople", numberOfPeople,
-                "twentyFourHourHold", twentyFourHourHold,
-                "note", note);
+        return Utils.toString(
+                MeetingRoomRequirementJson.class,
+                "date",
+                date,
+                "startTime",
+                startTime,
+                "endTime",
+                endTime,
+                "agendaItem",
+                agendaItem,
+                "agendaItemType",
+                agendaItemType,
+                "setupType",
+                setupType,
+                "roomSize",
+                roomSize,
+                "numberOfPeople",
+                numberOfPeople,
+                "twentyFourHourHold",
+                twentyFourHourHold,
+                "note",
+                note);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String date;
 
@@ -373,7 +373,7 @@ public class MeetingRoomRequirementJson {
         private String note;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -462,11 +462,16 @@ public class MeetingRoomRequirementJson {
 
         public MeetingRoomRequirementJson build() {
             return new MeetingRoomRequirementJson(
-                date, startTime, endTime,
-                agendaItem, agendaItemType, setupType,
-                roomSize, numberOfPeople, twentyFourHourHold,
-                note);
+                    date,
+                    startTime,
+                    endTime,
+                    agendaItem,
+                    agendaItemType,
+                    setupType,
+                    roomSize,
+                    numberOfPeople,
+                    twentyFourHourHold,
+                    note);
         }
-
     }
 }

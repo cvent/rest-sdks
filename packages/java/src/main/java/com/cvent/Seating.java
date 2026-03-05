@@ -61,7 +61,7 @@ public class Seating {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncSeating async() {
@@ -70,11 +70,11 @@ public class Seating {
 
     /**
      * List Seating
-     * 
+     *
      * <p>Get seating details for the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListSeatingRequestBuilder listSeating() {
@@ -83,28 +83,28 @@ public class Seating {
 
     /**
      * List Seating
-     * 
+     *
      * <p>Get seating details for the given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSeatingResponse listSeating(@Nonnull ListSeatingRequest request) {
-        RequestOperation<ListSeatingRequest, ListSeatingResponse> operation
-              = new ListSeating.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSeatingRequest, ListSeatingResponse> operation =
+                new ListSeating.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List All Seating Assignments
-     * 
+     *
      * <p>Gets all the table assignments across all the seatings in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventTableAssignmentsRequestBuilder getEventTableAssignments() {
@@ -113,28 +113,28 @@ public class Seating {
 
     /**
      * List All Seating Assignments
-     * 
+     *
      * <p>Gets all the table assignments across all the seatings in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventTableAssignmentsResponse getEventTableAssignments(@Nonnull GetEventTableAssignmentsRequest request) {
-        RequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation
-              = new GetEventTableAssignments.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation =
+                new GetEventTableAssignments.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Seating
-     * 
+     *
      * <p>Get seating details for the given event by seating ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetSeatingRequestBuilder getSeating() {
@@ -143,28 +143,28 @@ public class Seating {
 
     /**
      * Get Seating
-     * 
+     *
      * <p>Get seating details for the given event by seating ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSeatingResponse getSeating(@Nonnull GetSeatingRequest request) {
-        RequestOperation<GetSeatingRequest, GetSeatingResponse> operation
-              = new GetSeating.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSeatingRequest, GetSeatingResponse> operation =
+                new GetSeating.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Seating Assignments
-     * 
+     *
      * <p>Gets the table assignments for a given seating ID in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetTableAssignmentRequestBuilder getTableAssignment() {
@@ -173,28 +173,28 @@ public class Seating {
 
     /**
      * List Seating Assignments
-     * 
+     *
      * <p>Gets the table assignments for a given seating ID in an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTableAssignmentResponse getTableAssignment(@Nonnull GetTableAssignmentRequest request) {
-        RequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation
-              = new GetTableAssignment.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
+                new GetTableAssignment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Tables
-     * 
+     *
      * <p>Get table details for a given seating.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListTablesRequestBuilder listTables() {
@@ -203,28 +203,28 @@ public class Seating {
 
     /**
      * List Tables
-     * 
+     *
      * <p>Get table details for a given seating.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTablesResponse listTables(@Nonnull ListTablesRequest request) {
-        RequestOperation<ListTablesRequest, ListTablesResponse> operation
-              = new ListTables.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListTablesRequest, ListTablesResponse> operation =
+                new ListTables.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Table
-     * 
+     *
      * <p>Get table info for given event by seating ID and table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetTableRequestBuilder getTable() {
@@ -233,28 +233,27 @@ public class Seating {
 
     /**
      * Get Table
-     * 
+     *
      * <p>Get table info for given event by seating ID and table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTableResponse getTable(@Nonnull GetTableRequest request) {
-        RequestOperation<GetTableRequest, GetTableResponse> operation
-              = new GetTable.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTableRequest, GetTableResponse> operation = new GetTable.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Seats
-     * 
+     *
      * <p>Get seat details for given table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListSeatsRequestBuilder listSeats() {
@@ -263,28 +262,28 @@ public class Seating {
 
     /**
      * List Seats
-     * 
+     *
      * <p>Get seat details for given table ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSeatsResponse listSeats(@Nonnull ListSeatsRequest request) {
-        RequestOperation<ListSeatsRequest, ListSeatsResponse> operation
-              = new ListSeats.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSeatsRequest, ListSeatsResponse> operation =
+                new ListSeats.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Seat
-     * 
+     *
      * <p>Get seat info for given event by seating ID, table ID, and seat ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetSeatRequestBuilder getSeat() {
@@ -293,19 +292,17 @@ public class Seating {
 
     /**
      * Get Seat
-     * 
+     *
      * <p>Get seat info for given event by seating ID, table ID, and seat ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSeatResponse getSeat(@Nonnull GetSeatRequest request) {
-        RequestOperation<GetSeatRequest, GetSeatResponse> operation
-              = new GetSeat.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSeatRequest, GetSeatResponse> operation = new GetSeat.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

@@ -2,6 +2,14 @@
 
 Housing event status.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = HousingEventStatusesJson.Open;
+```
+
 
 ## Values
 

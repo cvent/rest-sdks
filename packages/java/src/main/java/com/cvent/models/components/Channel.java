@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * Channel
- * 
+ *
  * <p>The channel object
  */
 public class Channel {
@@ -24,10 +24,8 @@ public class Channel {
     private String id;
 
     @JsonCreator
-    public Channel(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public Channel(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class Channel {
         return new Builder();
     }
 
-
     /**
      * Identifier for the channel.
      */
@@ -49,7 +46,6 @@ public class Channel {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class Channel {
             return false;
         }
         Channel other = (Channel) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Channel.class,
-                "id", id);
+        return Utils.toString(Channel.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class Channel {
         }
 
         public Channel build() {
-            return new Channel(
-                id);
+            return new Channel(id);
         }
-
     }
 }

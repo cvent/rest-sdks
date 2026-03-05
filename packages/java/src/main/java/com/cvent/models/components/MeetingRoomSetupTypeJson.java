@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * MeetingRoomSetupTypeJson
- * 
+ *
  * <p>Defines the setup types of a meeting room requirement.
  */
 public enum MeetingRoomSetupTypeJson {
@@ -46,13 +46,13 @@ public enum MeetingRoomSetupTypeJson {
     MeetingRoomSetupTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<MeetingRoomSetupTypeJson> fromValue(String value) {
-        for (MeetingRoomSetupTypeJson o: MeetingRoomSetupTypeJson.values()) {
+        for (MeetingRoomSetupTypeJson o : MeetingRoomSetupTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -60,4 +60,3 @@ public enum MeetingRoomSetupTypeJson {
         return Optional.empty();
     }
 }
-

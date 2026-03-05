@@ -70,16 +70,16 @@ namespace Cvent.SDK.Models.Errors
             HttpRequestMessage request,
             HttpResponseMessage response,
             string body
-        ): base("API error occurred", request, response, body)
+        ) : base("API error occurred", request, response, body)
         {
-           Payload = payload;
+            Payload = payload;
 
-           #pragma warning disable CS0618
-           Schemas = payload.Schemas;
-           Status = payload.Status;
-           Detail = payload.Detail;
-           ScimType = payload.ScimType;
-           #pragma warning restore CS0618
+#pragma warning disable CS0618
+            Schemas = payload.Schemas;
+            Status = payload.Status;
+            Detail = payload.Detail;
+            ScimType = payload.ScimType;
+#pragma warning restore CS0618
         }
     }
 }

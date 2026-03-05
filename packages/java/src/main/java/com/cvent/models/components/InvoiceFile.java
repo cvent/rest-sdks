@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * InvoiceFile
- * 
+ *
  * <p>An invoice attached to the payment.
  */
 public class InvoiceFile {
@@ -29,12 +29,9 @@ public class InvoiceFile {
 
     @JsonCreator
     public InvoiceFile(
-            @JsonProperty("file") @Nonnull InvoiceFileFile file,
-            @JsonProperty("href") @Nonnull String href) {
-        this.file = Optional.ofNullable(file)
-            .orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+            @JsonProperty("file") @Nonnull InvoiceFileFile file, @JsonProperty("href") @Nonnull String href) {
+        this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     public InvoiceFileFile file() {
@@ -52,12 +49,10 @@ public class InvoiceFile {
         return new Builder();
     }
 
-
     public InvoiceFile withFile(@Nonnull InvoiceFileFile file) {
         this.file = Utils.checkNotNull(file, "file");
         return this;
     }
-
 
     /**
      * URL of the attached invoice.
@@ -66,7 +61,6 @@ public class InvoiceFile {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,33 +71,28 @@ public class InvoiceFile {
             return false;
         }
         InvoiceFile other = (InvoiceFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file) &&
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.file, other.file) && Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file, href);
+        return Utils.enhancedHash(file, href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(InvoiceFile.class,
-                "file", file,
-                "href", href);
+        return Utils.toString(InvoiceFile.class, "file", file, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private InvoiceFileFile file;
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder file(@Nonnull InvoiceFileFile file) {
@@ -120,9 +109,7 @@ public class InvoiceFile {
         }
 
         public InvoiceFile build() {
-            return new InvoiceFile(
-                file, href);
+            return new InvoiceFile(file, href);
         }
-
     }
 }

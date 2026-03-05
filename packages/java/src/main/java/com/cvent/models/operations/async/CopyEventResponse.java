@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 public class CopyEventResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -42,7 +41,6 @@ public class CopyEventResponse implements AsyncResponse {
      */
     private EventAsyncResponse eventAsyncResponse;
 
-
     private Map<String, List<String>> headers;
 
     @JsonCreator
@@ -54,22 +52,21 @@ public class CopyEventResponse implements AsyncResponse {
             @Nonnull Map<String, List<String>> headers) {
         headers = Utils.emptyMapIfNull(headers);
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventAsyncResponse = eventAsyncResponse;
-        this.headers = Optional.ofNullable(headers)
-            .orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
+        this.headers =
+                Optional.ofNullable(headers).orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
     }
-    
+
     public CopyEventResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nonnull Map<String, List<String>> headers) {
-        this(contentType, statusCode, rawResponse,
-            null, headers);
+        this(contentType, statusCode, rawResponse, null, headers);
     }
 
     /**
@@ -110,7 +107,6 @@ public class CopyEventResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -118,7 +114,6 @@ public class CopyEventResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -128,7 +123,6 @@ public class CopyEventResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -136,7 +130,6 @@ public class CopyEventResponse implements AsyncResponse {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
-
 
     /**
      * Successfully started the process to copy the event provided. Check the
@@ -148,12 +141,10 @@ public class CopyEventResponse implements AsyncResponse {
         return this;
     }
 
-
     public CopyEventResponse withHeaders(@Nonnull Map<String, List<String>> headers) {
         this.headers = Utils.checkNotNull(headers, "headers");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -164,33 +155,36 @@ public class CopyEventResponse implements AsyncResponse {
             return false;
         }
         CopyEventResponse other = (CopyEventResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventAsyncResponse, other.eventAsyncResponse) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventAsyncResponse, other.eventAsyncResponse)
+                && Utils.enhancedDeepEquals(this.headers, other.headers);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventAsyncResponse, headers);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventAsyncResponse, headers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CopyEventResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventAsyncResponse", eventAsyncResponse,
-                "headers", headers);
+        return Utils.toString(
+                CopyEventResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventAsyncResponse",
+                eventAsyncResponse,
+                "headers",
+                headers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -203,7 +197,7 @@ public class CopyEventResponse implements AsyncResponse {
         private Map<String, List<String>> headers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -246,10 +240,7 @@ public class CopyEventResponse implements AsyncResponse {
         }
 
         public CopyEventResponse build() {
-            return new CopyEventResponse(
-                contentType, statusCode, rawResponse,
-                eventAsyncResponse, headers);
+            return new CopyEventResponse(contentType, statusCode, rawResponse, eventAsyncResponse, headers);
         }
-
     }
 }

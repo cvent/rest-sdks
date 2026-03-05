@@ -28,7 +28,7 @@ public class GetBulkJobByIdRequestBuilder {
     private GetBulkJobByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetBulkJobByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetBulkJobByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetBulkJobByIdResponse call() {
-        RequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation
-              = new GetBulkJobById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation =
+                new GetBulkJobById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

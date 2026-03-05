@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ManagementLevelTypeJson1
- * 
+ *
  * <p>The management level of the travel account. Defined by the supply-side.
  */
 public enum ManagementLevelTypeJson1 {
@@ -25,13 +25,13 @@ public enum ManagementLevelTypeJson1 {
     ManagementLevelTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ManagementLevelTypeJson1> fromValue(String value) {
-        for (ManagementLevelTypeJson1 o: ManagementLevelTypeJson1.values()) {
+        for (ManagementLevelTypeJson1 o : ManagementLevelTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum ManagementLevelTypeJson1 {
         return Optional.empty();
     }
 }
-

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ZeroOneOf1
- * 
+ *
  * <p>This is used to denote the open ended one line type of custom field.
  */
 public class ZeroOneOf1 {
@@ -52,7 +52,7 @@ public class ZeroOneOf1 {
         this.minimum = minimum;
         this.maximum = maximum;
     }
-    
+
     public ZeroOneOf1() {
         this(null, null, null);
     }
@@ -84,7 +84,6 @@ public class ZeroOneOf1 {
         return new Builder();
     }
 
-
     /**
      * The supported answer formats are: General, Number, Currency, Decimal, USPhoneNumber, and
      * EmailAddress. Custom answer formats are also supported and can be created in the Admin section of
@@ -95,7 +94,6 @@ public class ZeroOneOf1 {
         return this;
     }
 
-
     /**
      * Minimum number/characters allowed.
      */
@@ -104,7 +102,6 @@ public class ZeroOneOf1 {
         return this;
     }
 
-
     /**
      * Maximum number/characters allowed.
      */
@@ -112,7 +109,6 @@ public class ZeroOneOf1 {
         this.maximum = maximum;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,28 +119,23 @@ public class ZeroOneOf1 {
             return false;
         }
         ZeroOneOf1 other = (ZeroOneOf1) o;
-        return 
-            Utils.enhancedDeepEquals(this.answerFormat, other.answerFormat) &&
-            Utils.enhancedDeepEquals(this.minimum, other.minimum) &&
-            Utils.enhancedDeepEquals(this.maximum, other.maximum);
+        return Utils.enhancedDeepEquals(this.answerFormat, other.answerFormat)
+                && Utils.enhancedDeepEquals(this.minimum, other.minimum)
+                && Utils.enhancedDeepEquals(this.maximum, other.maximum);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            answerFormat, minimum, maximum);
+        return Utils.enhancedHash(answerFormat, minimum, maximum);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroOneOf1.class,
-                "answerFormat", answerFormat,
-                "minimum", minimum,
-                "maximum", maximum);
+        return Utils.toString(ZeroOneOf1.class, "answerFormat", answerFormat, "minimum", minimum, "maximum", maximum);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String answerFormat;
 
@@ -153,7 +144,7 @@ public class ZeroOneOf1 {
         private Long maximum;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -183,9 +174,7 @@ public class ZeroOneOf1 {
         }
 
         public ZeroOneOf1 build() {
-            return new ZeroOneOf1(
-                answerFormat, minimum, maximum);
+            return new ZeroOneOf1(answerFormat, minimum, maximum);
         }
-
     }
 }

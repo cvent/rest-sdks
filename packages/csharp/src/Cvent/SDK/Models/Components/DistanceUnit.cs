@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DistanceUnit
     {
-        [JsonProperty("Kilometers")]
-        Kilometers,
-        [JsonProperty("Meters")]
-        Meters,
-        [JsonProperty("Miles")]
-        Miles,
-        [JsonProperty("Yards")]
-        Yards,
-        [JsonProperty("Blocks")]
-        Blocks,
+        [JsonProperty("Kilometers")] Kilometers,
+        [JsonProperty("Meters")] Meters,
+        [JsonProperty("Miles")] Miles,
+        [JsonProperty("Yards")] Yards,
+        [JsonProperty("Blocks")] Blocks,
     }
 
     public static class DistanceUnitExtension
     {
         public static string Value(this DistanceUnit value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DistanceUnit ToEnum(this string value)
         {
-            foreach(var field in typeof(DistanceUnit).GetFields())
+            foreach (var field in typeof(DistanceUnit).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

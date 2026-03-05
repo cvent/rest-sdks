@@ -39,24 +39,23 @@ public class AsyncEmails {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Emails sync() {
         return syncSDK;
     }
 
-
     /**
      * List Email Bounces
-     * 
+     *
      * <p>Returns a paginated list of email bounce details in your account.
-     * 
+     *
      * <p>Before/after filters can be used to retrieve email bounce data up to six months in the past.
      * If no date filter is provided, defaults to 1 month back from the current time.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBounceDetailsRequestBuilder getBounceDetails() {
@@ -65,33 +64,31 @@ public class AsyncEmails {
 
     /**
      * List Email Bounces
-     * 
+     *
      * <p>Returns a paginated list of email bounce details in your account.
-     * 
+     *
      * <p>Before/after filters can be used to retrieve email bounce data up to six months in the past.
      * If no date filter is provided, defaults to 1 month back from the current time.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBounceDetailsResponse>} - The async response
      */
     public CompletableFuture<GetBounceDetailsResponse> getBounceDetails(@Nonnull GetBounceDetailsRequest request) {
-        AsyncRequestOperation<GetBounceDetailsRequest, GetBounceDetailsResponse> operation
-              = new GetBounceDetails.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBounceDetailsRequest, GetBounceDetailsResponse> operation =
+                new GetBounceDetails.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Emails History Data
-     * 
+     *
      * <p>Returns the paginated list of sent emails. Default behaviour is to retrieve all emails for the
      * account. Maximum 6 months of records can be fetched.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetEmailsHistoryRequestBuilder getEmailsHistory() {
@@ -100,31 +97,29 @@ public class AsyncEmails {
 
     /**
      * Get Emails History Data
-     * 
+     *
      * <p>Returns the paginated list of sent emails. Default behaviour is to retrieve all emails for the
      * account. Maximum 6 months of records can be fetched.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEmailsHistoryResponse>} - The async response
      */
     public CompletableFuture<GetEmailsHistoryResponse> getEmailsHistory(@Nonnull GetEmailsHistoryRequest request) {
-        AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation
-              = new GetEmailsHistory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation =
+                new GetEmailsHistory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Email Status
-     * 
+     *
      * <p>Gets the status of emails using unique email request ID that was generated as a response of [Send
      * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -135,22 +130,20 @@ public class AsyncEmails {
 
     /**
      * List Email Status
-     * 
+     *
      * <p>Gets the status of emails using unique email request ID that was generated as a response of [Send
      * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEmailStatusResponse>} - The async response
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
     public CompletableFuture<GetEmailStatusResponse> getEmailStatus(@Nonnull GetEmailStatusRequest request) {
-        AsyncRequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation
-              = new GetEmailStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation =
+                new GetEmailStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

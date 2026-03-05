@@ -2,6 +2,14 @@
 
 Audience types of event surveys
 
+## Example Usage
+
+```java
+import com.cvent.models.components.EventSurveyAudienceTypeJson;
+
+EventSurveyAudienceTypeJson value = EventSurveyAudienceTypeJson.ATTENDEE;
+```
+
 
 ## Values
 

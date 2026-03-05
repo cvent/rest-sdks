@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHousingEventHotelsRequest {
     /**
      * ID for a Passkey housing event.
@@ -43,21 +42,15 @@ public class GetHousingEventHotelsRequest {
 
     @JsonCreator
     public GetHousingEventHotelsRequest(
-            long housingEventId,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String locale) {
+            long housingEventId, @Nullable Long limit, @Nullable String token, @Nullable String locale) {
         this.housingEventId = housingEventId;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
     }
-    
-    public GetHousingEventHotelsRequest(
-            long housingEventId) {
-        this(housingEventId, null, null,
-            null);
+
+    public GetHousingEventHotelsRequest(long housingEventId) {
+        this(housingEventId, null, null, null);
     }
 
     /**
@@ -93,7 +86,6 @@ public class GetHousingEventHotelsRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -102,7 +94,6 @@ public class GetHousingEventHotelsRequest {
         return this;
     }
 
-
     /**
      * Limit to this number of search results. Maximum of 200, default of 100.
      */
@@ -110,7 +101,6 @@ public class GetHousingEventHotelsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -121,7 +111,6 @@ public class GetHousingEventHotelsRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -129,7 +118,6 @@ public class GetHousingEventHotelsRequest {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -140,31 +128,33 @@ public class GetHousingEventHotelsRequest {
             return false;
         }
         GetHousingEventHotelsRequest other = (GetHousingEventHotelsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, limit, token,
-            locale);
+        return Utils.enhancedHash(housingEventId, limit, token, locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventHotelsRequest.class,
-                "housingEventId", housingEventId,
-                "limit", limit,
-                "token", token,
-                "locale", locale);
+        return Utils.toString(
+                GetHousingEventHotelsRequest.class,
+                "housingEventId",
+                housingEventId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "locale",
+                locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -175,7 +165,7 @@ public class GetHousingEventHotelsRequest {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -212,16 +202,10 @@ public class GetHousingEventHotelsRequest {
         }
 
         public GetHousingEventHotelsRequest build() {
-            return new GetHousingEventHotelsRequest(
-                housingEventId, limit, token,
-                locale);
+            return new GetHousingEventHotelsRequest(housingEventId, limit, token, locale);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

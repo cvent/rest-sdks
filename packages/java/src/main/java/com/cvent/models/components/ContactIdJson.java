@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ContactIdJson
- * 
+ *
  * <p>A contact id.
  */
 public class ContactIdJson {
@@ -24,10 +24,8 @@ public class ContactIdJson {
     private String id;
 
     @JsonCreator
-    public ContactIdJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public ContactIdJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ContactIdJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the contact.
      */
@@ -49,7 +46,6 @@ public class ContactIdJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ContactIdJson {
             return false;
         }
         ContactIdJson other = (ContactIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactIdJson.class,
-                "id", id);
+        return Utils.toString(ContactIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ContactIdJson {
         }
 
         public ContactIdJson build() {
-            return new ContactIdJson(
-                id);
+            return new ContactIdJson(id);
         }
-
     }
 }

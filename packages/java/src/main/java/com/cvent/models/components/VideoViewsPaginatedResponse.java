@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * VideoViewsPaginatedResponse
- * 
+ *
  * <p>Paginated list of video views.
  */
 public class VideoViewsPaginatedResponse {
@@ -41,7 +41,7 @@ public class VideoViewsPaginatedResponse {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public VideoViewsPaginatedResponse() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class VideoViewsPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +72,6 @@ public class VideoViewsPaginatedResponse {
         return this;
     }
 
-
     /**
      * List of unique video views.
      */
@@ -81,7 +79,6 @@ public class VideoViewsPaginatedResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class VideoViewsPaginatedResponse {
             return false;
         }
         VideoViewsPaginatedResponse other = (VideoViewsPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoViewsPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(VideoViewsPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<VideoViewJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class VideoViewsPaginatedResponse {
         }
 
         public VideoViewsPaginatedResponse build() {
-            return new VideoViewsPaginatedResponse(
-                paging, data);
+            return new VideoViewsPaginatedResponse(paging, data);
         }
-
     }
 }

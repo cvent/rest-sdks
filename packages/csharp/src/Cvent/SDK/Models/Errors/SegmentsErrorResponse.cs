@@ -91,17 +91,17 @@ namespace Cvent.SDK.Models.Errors
             HttpRequestMessage request,
             HttpResponseMessage response,
             string body
-        ): base(ErrorMessage(payload, body), request, response, body)
+        ) : base(ErrorMessage(payload, body), request, response, body)
         {
-           Payload = payload;
+            Payload = payload;
 
-           #pragma warning disable CS0618
-           Code = payload.Code;
-           _message = payload.Message;
-           Target = payload.Target;
-           Details = payload.Details;
-           ValidationCode = payload.ValidationCode;
-           #pragma warning restore CS0618
+#pragma warning disable CS0618
+            Code = payload.Code;
+            _message = payload.Message;
+            Target = payload.Target;
+            Details = payload.Details;
+            ValidationCode = payload.ValidationCode;
+#pragma warning restore CS0618
         }
     }
 }

@@ -20,7 +20,8 @@ public class RemoveExhibitorFromExhibitorCategoryRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public RemoveExhibitorFromExhibitorCategoryRequestBuilder request(@Nonnull RemoveExhibitorFromExhibitorCategoryRequest request) {
+    public RemoveExhibitorFromExhibitorCategoryRequestBuilder request(
+            @Nonnull RemoveExhibitorFromExhibitorCategoryRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class RemoveExhibitorFromExhibitorCategoryRequestBuilder {
     private RemoveExhibitorFromExhibitorCategoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public RemoveExhibitorFromExhibitorCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,13 @@ public class RemoveExhibitorFromExhibitorCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public RemoveExhibitorFromExhibitorCategoryResponse call() {
-        RequestOperation<RemoveExhibitorFromExhibitorCategoryRequest, RemoveExhibitorFromExhibitorCategoryResponse> operation
-              = new RemoveExhibitorFromExhibitorCategory.Sync(sdkConfiguration, _headers);
+        RequestOperation<RemoveExhibitorFromExhibitorCategoryRequest, RemoveExhibitorFromExhibitorCategoryResponse> operation =
+                new RemoveExhibitorFromExhibitorCategory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

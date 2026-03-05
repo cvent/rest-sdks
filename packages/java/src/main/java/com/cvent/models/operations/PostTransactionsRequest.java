@@ -16,7 +16,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PostTransactionsRequest {
     /**
      * Unique ID of an Event.
@@ -32,7 +31,6 @@ public class PostTransactionsRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=partialPayment")
     private Boolean partialPayment;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private CreateTransactionResponseInput createTransactionResponse;
 
@@ -41,15 +39,13 @@ public class PostTransactionsRequest {
             @Nonnull String id,
             @Nullable Boolean partialPayment,
             @Nullable CreateTransactionResponseInput createTransactionResponse) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.partialPayment = Optional.ofNullable(partialPayment)
-            .orElse(Builder._SINGLETON_VALUE_PartialPayment.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.partialPayment =
+                Optional.ofNullable(partialPayment).orElse(Builder._SINGLETON_VALUE_PartialPayment.value());
         this.createTransactionResponse = createTransactionResponse;
     }
-    
-    public PostTransactionsRequest(
-            @Nonnull String id) {
+
+    public PostTransactionsRequest(@Nonnull String id) {
         this(id, null, null);
     }
 
@@ -77,7 +73,6 @@ public class PostTransactionsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an Event.
      */
@@ -85,7 +80,6 @@ public class PostTransactionsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * True indicates this request will create an offline transaction based on the amount(s) you
@@ -97,12 +91,11 @@ public class PostTransactionsRequest {
         return this;
     }
 
-
-    public PostTransactionsRequest withCreateTransactionResponse(@Nullable CreateTransactionResponseInput createTransactionResponse) {
+    public PostTransactionsRequest withCreateTransactionResponse(
+            @Nullable CreateTransactionResponseInput createTransactionResponse) {
         this.createTransactionResponse = createTransactionResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -113,28 +106,30 @@ public class PostTransactionsRequest {
             return false;
         }
         PostTransactionsRequest other = (PostTransactionsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.partialPayment, other.partialPayment) &&
-            Utils.enhancedDeepEquals(this.createTransactionResponse, other.createTransactionResponse);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.partialPayment, other.partialPayment)
+                && Utils.enhancedDeepEquals(this.createTransactionResponse, other.createTransactionResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, partialPayment, createTransactionResponse);
+        return Utils.enhancedHash(id, partialPayment, createTransactionResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PostTransactionsRequest.class,
-                "id", id,
-                "partialPayment", partialPayment,
-                "createTransactionResponse", createTransactionResponse);
+        return Utils.toString(
+                PostTransactionsRequest.class,
+                "id",
+                id,
+                "partialPayment",
+                partialPayment,
+                "createTransactionResponse",
+                createTransactionResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -143,7 +138,7 @@ public class PostTransactionsRequest {
         private CreateTransactionResponseInput createTransactionResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -170,15 +165,10 @@ public class PostTransactionsRequest {
         }
 
         public PostTransactionsRequest build() {
-            return new PostTransactionsRequest(
-                id, partialPayment, createTransactionResponse);
+            return new PostTransactionsRequest(id, partialPayment, createTransactionResponse);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_PartialPayment =
-                new LazySingletonValue<>(
-                        "partialPayment",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("partialPayment", "false", new TypeReference<Boolean>() {});
     }
 }

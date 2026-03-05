@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * DistributionListInfoJson
- * 
+ *
  * <p>Model representing a distribution list info. Only required if the contact group type is
  * DISTRIBUTION_LIST.
  */
@@ -24,7 +24,7 @@ public class DistributionListInfoJson {
      * Type of distribution list security. For a public list, contacts can sign up themselves. For a
      * semi-private list, contacts can add themselves, but a planner must approve their membership before
      * they can receive emails.
-     * 
+     *
      * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
      * on the Manage Profile page.
      */
@@ -55,7 +55,7 @@ public class DistributionListInfoJson {
         this.internalNote = internalNote;
         this.status = status;
     }
-    
+
     public DistributionListInfoJson() {
         this(null, null, null);
     }
@@ -64,7 +64,7 @@ public class DistributionListInfoJson {
      * Type of distribution list security. For a public list, contacts can sign up themselves. For a
      * semi-private list, contacts can add themselves, but a planner must approve their membership before
      * they can receive emails.
-     * 
+     *
      * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
      * on the Manage Profile page.
      */
@@ -90,12 +90,11 @@ public class DistributionListInfoJson {
         return new Builder();
     }
 
-
     /**
      * Type of distribution list security. For a public list, contacts can sign up themselves. For a
      * semi-private list, contacts can add themselves, but a planner must approve their membership before
      * they can receive emails.
-     * 
+     *
      * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
      * on the Manage Profile page.
      */
@@ -103,7 +102,6 @@ public class DistributionListInfoJson {
         this.securityType = securityType;
         return this;
     }
-
 
     /**
      * Internal note for Distribution Lists.
@@ -113,7 +111,6 @@ public class DistributionListInfoJson {
         return this;
     }
 
-
     /**
      * Type of distribution list status.
      */
@@ -121,7 +118,6 @@ public class DistributionListInfoJson {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,28 +128,30 @@ public class DistributionListInfoJson {
             return false;
         }
         DistributionListInfoJson other = (DistributionListInfoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.securityType, other.securityType) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.securityType, other.securityType)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            securityType, internalNote, status);
+        return Utils.enhancedHash(securityType, internalNote, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DistributionListInfoJson.class,
-                "securityType", securityType,
-                "internalNote", internalNote,
-                "status", status);
+        return Utils.toString(
+                DistributionListInfoJson.class,
+                "securityType",
+                securityType,
+                "internalNote",
+                internalNote,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DistributionListSecurityTypeJson securityType;
 
@@ -162,14 +160,14 @@ public class DistributionListInfoJson {
         private DistributionListStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Type of distribution list security. For a public list, contacts can sign up themselves. For a
          * semi-private list, contacts can add themselves, but a planner must approve their membership before
          * they can receive emails.
-         * 
+         *
          * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
          * on the Manage Profile page.
          */
@@ -195,9 +193,7 @@ public class DistributionListInfoJson {
         }
 
         public DistributionListInfoJson build() {
-            return new DistributionListInfoJson(
-                securityType, internalNote, status);
+            return new DistributionListInfoJson(securityType, internalNote, status);
         }
-
     }
 }

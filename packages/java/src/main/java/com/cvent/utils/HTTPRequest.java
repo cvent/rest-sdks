@@ -33,12 +33,12 @@ public class HTTPRequest {
         this.baseURL = baseURL;
         this.method = method;
     }
-    
+
     public void setBody(Optional<SerializedBody> body) {
         Utils.checkNotNull(body, "body");
         this.body = body;
     }
-    
+
     public HTTPRequest addHeader(String key, String value) {
         List<String> headerValues = headers.get(key);
         if (headerValues == null) {
@@ -50,27 +50,27 @@ public class HTTPRequest {
         }
         return this;
     }
-    
+
     public HTTPRequest addHeaders(Map<String, List<String>> map) {
         map.forEach((key, list) -> list.forEach(v -> addHeader(key, v)));
         return this;
     }
-    
+
     public HTTPRequest addQueryParam(QueryParameter param) {
         this.queryParams.add(param);
         return this;
     }
-    
+
     public HTTPRequest addQueryParam(String key, String value, boolean allowReserved) {
         this.queryParams.add(QueryParameter.of(key, value, allowReserved));
         return this;
     }
-    
+
     public HTTPRequest addQueryParams(Collection<QueryParameter> params) {
         params.forEach(p -> addQueryParam(p));
         return this;
     }
-    
+
     public HttpRequest build() {
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
 
@@ -90,7 +90,7 @@ public class HTTPRequest {
         headers.forEach((k, list) -> list.forEach(v -> requestBuilder.header(k, v)));
         return requestBuilder.build();
     }
-    
+
     // VisibleForTesting
     public static String buildUrl(String baseURL, Collection<QueryParameter> queryParams) {
         if (queryParams.isEmpty()) {
@@ -114,18 +114,17 @@ public class HTTPRequest {
             }
             boolean first = true;
             for (QueryParameter p : queryParams) {
-                 if (!first) {
-                     b.append(QUERY_PARAMETER_DELIMITER);
-                 }
-                 first = false;
-                 // don't allow reserved characters to be unencoded in key (??)
-                 b.append(Utf8UrlEncoder.DEFAULT.encode(p.name()));
-                 b.append(QUERY_NAME_VALUE_DELIMITER);
-                 b.append(Utf8UrlEncoder.allowReserved(p.allowReserved()).encode(p.value()));
+                if (!first) {
+                    b.append(QUERY_PARAMETER_DELIMITER);
+                }
+                first = false;
+                // don't allow reserved characters to be unencoded in key (??)
+                b.append(Utf8UrlEncoder.DEFAULT.encode(p.name()));
+                b.append(QUERY_NAME_VALUE_DELIMITER);
+                b.append(Utf8UrlEncoder.allowReserved(p.allowReserved()).encode(p.value()));
             }
             b.append(fragment);
             return b.toString();
         }
     }
-    
 }

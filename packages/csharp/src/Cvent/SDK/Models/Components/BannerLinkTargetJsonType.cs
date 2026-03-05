@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BannerLinkTargetJsonType
     {
-        [JsonProperty("Attendee Hub Page")]
-        AttendeeHubPage,
-        [JsonProperty("Discussion Topic")]
-        DiscussionTopic,
-        [JsonProperty("External Url")]
-        ExternalUrl,
-        [JsonProperty("Floor Plan Details")]
-        FloorPlanDetails,
-        [JsonProperty("Session Details")]
-        SessionDetails,
-        [JsonProperty("Speaker Details")]
-        SpeakerDetails,
-        [JsonProperty("Virtual Booth")]
-        VirtualBooth,
+        [JsonProperty("Attendee Hub Page")] AttendeeHubPage,
+        [JsonProperty("Discussion Topic")] DiscussionTopic,
+        [JsonProperty("External Url")] ExternalUrl,
+        [JsonProperty("Floor Plan Details")] FloorPlanDetails,
+        [JsonProperty("Session Details")] SessionDetails,
+        [JsonProperty("Speaker Details")] SpeakerDetails,
+        [JsonProperty("Virtual Booth")] VirtualBooth,
     }
 
     public static class BannerLinkTargetJsonTypeExtension
     {
         public static string Value(this BannerLinkTargetJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BannerLinkTargetJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(BannerLinkTargetJsonType).GetFields())
+            foreach (var field in typeof(BannerLinkTargetJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

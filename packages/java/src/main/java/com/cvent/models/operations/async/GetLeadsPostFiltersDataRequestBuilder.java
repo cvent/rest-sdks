@@ -40,7 +40,7 @@ public class GetLeadsPostFiltersDataRequestBuilder {
     private GetLeadsPostFiltersDataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetLeadsPostFiltersDataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetLeadsPostFiltersDataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetLeadsPostFiltersDataResponse> call() {
-        AsyncRequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation
-              = new GetLeadsPostFiltersData.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation =
+                new GetLeadsPostFiltersData.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetLeadsPostFiltersDataRequestBuilder {
      */
     public Publisher<GetLeadsPostFiltersDataResponse> callAsPublisher() {
         GetLeadsPostFiltersDataRequest request = this.request;
-        AsyncRequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation
-              = new GetLeadsPostFiltersData.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation =
+                new GetLeadsPostFiltersData.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetLeadsPostFiltersDataRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetLeadsPostFiltersDataRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetLeadsPostFiltersDataResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetLeadsPostFiltersDataResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

@@ -2,6 +2,14 @@
 
 This is used to denote the category of a custom field.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CustomFieldCategoryJson.Contact;
+```
+
 
 ## Values
 

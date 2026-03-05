@@ -2,6 +2,14 @@
 
 Denotes the type of the email.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.EmailTypeJson3;
+
+EmailTypeJson3 value = EmailTypeJson3.INVITATION;
+```
+
 
 ## Values
 

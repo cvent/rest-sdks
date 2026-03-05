@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventCustomCardOpened
- * 
+ *
  * <p>This is used to denote the attendee activity fetched when a custom card is opened by an attendee.
  */
 public class EventCustomCardOpened {
@@ -60,10 +60,9 @@ public class EventCustomCardOpened {
         this.type = type;
         this.multipleLinks = multipleLinks;
     }
-    
+
     public EventCustomCardOpened() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -99,7 +98,6 @@ public class EventCustomCardOpened {
         return new Builder();
     }
 
-
     /**
      * The name of the custom card.
      */
@@ -107,7 +105,6 @@ public class EventCustomCardOpened {
         this.name = name;
         return this;
     }
-
 
     /**
      * The URL associated with the custom card.
@@ -117,7 +114,6 @@ public class EventCustomCardOpened {
         return this;
     }
 
-
     /**
      * The type of the custom card. This value can be Link, Video, Appointment etc.
      */
@@ -125,7 +121,6 @@ public class EventCustomCardOpened {
         this.type = type;
         return this;
     }
-
 
     /**
      * True indicates the custom card contains multiple links. An attendee uses only one link at a time in
@@ -136,7 +131,6 @@ public class EventCustomCardOpened {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -146,31 +140,25 @@ public class EventCustomCardOpened {
             return false;
         }
         EventCustomCardOpened other = (EventCustomCardOpened) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.multipleLinks, other.multipleLinks);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.multipleLinks, other.multipleLinks);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, url, type,
-            multipleLinks);
+        return Utils.enhancedHash(name, url, type, multipleLinks);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCustomCardOpened.class,
-                "name", name,
-                "url", url,
-                "type", type,
-                "multipleLinks", multipleLinks);
+        return Utils.toString(
+                EventCustomCardOpened.class, "name", name, "url", url, "type", type, "multipleLinks", multipleLinks);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -181,7 +169,7 @@ public class EventCustomCardOpened {
         private Boolean multipleLinks;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -218,10 +206,7 @@ public class EventCustomCardOpened {
         }
 
         public EventCustomCardOpened build() {
-            return new EventCustomCardOpened(
-                name, url, type,
-                multipleLinks);
+            return new EventCustomCardOpened(name, url, type, multipleLinks);
         }
-
     }
 }

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingAudienceSegment
- * 
+ *
  * <p>Details of an audience segment.
  */
 public class ExistingAudienceSegment {
@@ -110,22 +110,15 @@ public class ExistingAudienceSegment {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.event = event;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.id = id;
-        this.creationType = Optional.ofNullable(creationType)
-            .orElse(Builder._SINGLETON_VALUE_CreationType.value());
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.creationType = Optional.ofNullable(creationType).orElse(Builder._SINGLETON_VALUE_CreationType.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
-    
-    public ExistingAudienceSegment(
-            @Nonnull String name) {
-        this(null, null, null,
-            null, null, name,
-            null, null, null,
-            null);
+
+    public ExistingAudienceSegment(@Nonnull String name) {
+        this(null, null, null, null, null, name, null, null, null, null);
     }
 
     /**
@@ -202,7 +195,6 @@ public class ExistingAudienceSegment {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -210,7 +202,6 @@ public class ExistingAudienceSegment {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -220,7 +211,6 @@ public class ExistingAudienceSegment {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -228,7 +218,6 @@ public class ExistingAudienceSegment {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -238,7 +227,6 @@ public class ExistingAudienceSegment {
         return this;
     }
 
-
     /**
      * ID of the event.
      */
@@ -246,7 +234,6 @@ public class ExistingAudienceSegment {
         this.event = event;
         return this;
     }
-
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -256,7 +243,6 @@ public class ExistingAudienceSegment {
         return this;
     }
 
-
     /**
      * Description of the audience segment.
      */
@@ -264,7 +250,6 @@ public class ExistingAudienceSegment {
         this.description = description;
         return this;
     }
-
 
     /**
      * ID of the audience segment.
@@ -274,7 +259,6 @@ public class ExistingAudienceSegment {
         return this;
     }
 
-
     /**
      * Creation type of the audience segment.
      */
@@ -283,7 +267,6 @@ public class ExistingAudienceSegment {
         return this;
     }
 
-
     /**
      * Boolean representing whether segment is deleted or not.
      */
@@ -291,7 +274,6 @@ public class ExistingAudienceSegment {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -302,45 +284,52 @@ public class ExistingAudienceSegment {
             return false;
         }
         ExistingAudienceSegment other = (ExistingAudienceSegment) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.creationType, other.creationType) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.creationType, other.creationType)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, name,
-            description, id, creationType,
-            deleted);
+                created, createdBy, lastModified, lastModifiedBy, event, name, description, id, creationType, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingAudienceSegment.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "name", name,
-                "description", description,
-                "id", id,
-                "creationType", creationType,
-                "deleted", deleted);
+        return Utils.toString(
+                ExistingAudienceSegment.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "name",
+                name,
+                "description",
+                description,
+                "id",
+                id,
+                "creationType",
+                creationType,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -363,7 +352,7 @@ public class ExistingAudienceSegment {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -448,23 +437,22 @@ public class ExistingAudienceSegment {
 
         public ExistingAudienceSegment build() {
             return new ExistingAudienceSegment(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, name,
-                description, id, creationType,
-                deleted);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    name,
+                    description,
+                    id,
+                    creationType,
+                    deleted);
         }
 
-
         private static final LazySingletonValue<AudienceSegmentCreationTypeJson> _SINGLETON_VALUE_CreationType =
-                new LazySingletonValue<>(
-                        "creationType",
-                        "\"MANUAL\"",
-                        new TypeReference<AudienceSegmentCreationTypeJson>() {});
+                new LazySingletonValue<>("creationType", "\"MANUAL\"", new TypeReference<AudienceSegmentCreationTypeJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

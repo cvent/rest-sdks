@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RoomsSortTypeJson
     {
-        [JsonProperty("CustomOrder")]
-        CustomOrder,
-        [JsonProperty("PriceAscending")]
-        PriceAscending,
-        [JsonProperty("PriceDescending")]
-        PriceDescending,
+        [JsonProperty("CustomOrder")] CustomOrder,
+        [JsonProperty("PriceAscending")] PriceAscending,
+        [JsonProperty("PriceDescending")] PriceDescending,
     }
 
     public static class RoomsSortTypeJsonExtension
     {
         public static string Value(this RoomsSortTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RoomsSortTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RoomsSortTypeJson).GetFields())
+            foreach (var field in typeof(RoomsSortTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

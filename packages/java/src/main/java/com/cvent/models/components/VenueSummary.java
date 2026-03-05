@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * VenueSummary
- * 
+ *
  * <p>Represents a summary of venue information associated with current proposal.
  */
 public class VenueSummary implements Supplier {
@@ -48,12 +48,11 @@ public class VenueSummary implements Supplier {
             @JsonProperty("type") @Nullable SupplierTypeJson1 type,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name) {
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.id = id;
         this.name = name;
     }
-    
+
     public VenueSummary() {
         this(null, null, null);
     }
@@ -85,7 +84,6 @@ public class VenueSummary implements Supplier {
         return new Builder();
     }
 
-
     /**
      * The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an
      * event.
@@ -95,7 +93,6 @@ public class VenueSummary implements Supplier {
         return this;
     }
 
-
     /**
      * The unique ID of the venue.
      */
@@ -104,7 +101,6 @@ public class VenueSummary implements Supplier {
         return this;
     }
 
-
     /**
      * The name of the venue.
      */
@@ -112,7 +108,6 @@ public class VenueSummary implements Supplier {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,28 +118,23 @@ public class VenueSummary implements Supplier {
             return false;
         }
         VenueSummary other = (VenueSummary) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, id, name);
+        return Utils.enhancedHash(type, id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VenueSummary.class,
-                "type", type,
-                "id", id,
-                "name", name);
+        return Utils.toString(VenueSummary.class, "type", type, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SupplierTypeJson1 type;
 
@@ -153,7 +143,7 @@ public class VenueSummary implements Supplier {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -182,15 +172,10 @@ public class VenueSummary implements Supplier {
         }
 
         public VenueSummary build() {
-            return new VenueSummary(
-                type, id, name);
+            return new VenueSummary(type, id, name);
         }
 
-
         private static final LazySingletonValue<SupplierTypeJson1> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"VENUE\"",
-                        new TypeReference<SupplierTypeJson1>() {});
+                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<SupplierTypeJson1>() {});
     }
 }

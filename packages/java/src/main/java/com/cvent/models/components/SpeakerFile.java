@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * SpeakerFile
- * 
+ *
  * <p>A file reference related to a speaker.
  */
 public class SpeakerFile {
@@ -68,21 +68,16 @@ public class SpeakerFile {
             @JsonProperty("type") @Nullable String type,
             @JsonProperty("size") @Nullable Long size,
             @JsonProperty("displayEnabled") @Nullable Boolean displayEnabled) {
-        this.file = Optional.ofNullable(file)
-            .orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+        this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
         this.friendlyName = friendlyName;
         this.type = type;
         this.size = size;
         this.displayEnabled = displayEnabled;
     }
-    
-    public SpeakerFile(
-            @Nonnull SpeakerFileFile file,
-            @Nonnull String href) {
-        this(file, href, null,
-            null, null, null);
+
+    public SpeakerFile(@Nonnull SpeakerFileFile file, @Nonnull String href) {
+        this(file, href, null, null, null, null);
     }
 
     public SpeakerFileFile file() {
@@ -128,12 +123,10 @@ public class SpeakerFile {
         return new Builder();
     }
 
-
     public SpeakerFile withFile(@Nonnull SpeakerFileFile file) {
         this.file = Utils.checkNotNull(file, "file");
         return this;
     }
-
 
     /**
      * URL of the speaker's image.
@@ -143,7 +136,6 @@ public class SpeakerFile {
         return this;
     }
 
-
     /**
      * Friendly name of the file
      */
@@ -151,7 +143,6 @@ public class SpeakerFile {
         this.friendlyName = friendlyName;
         return this;
     }
-
 
     /**
      * Mime type of the file
@@ -161,7 +152,6 @@ public class SpeakerFile {
         return this;
     }
 
-
     /**
      * Size of the file in bytes
      */
@@ -170,7 +160,6 @@ public class SpeakerFile {
         return this;
     }
 
-
     /**
      * Display this file to the public
      */
@@ -178,7 +167,6 @@ public class SpeakerFile {
         this.displayEnabled = displayEnabled;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -189,35 +177,39 @@ public class SpeakerFile {
             return false;
         }
         SpeakerFile other = (SpeakerFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file) &&
-            Utils.enhancedDeepEquals(this.href, other.href) &&
-            Utils.enhancedDeepEquals(this.friendlyName, other.friendlyName) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.size, other.size) &&
-            Utils.enhancedDeepEquals(this.displayEnabled, other.displayEnabled);
+        return Utils.enhancedDeepEquals(this.file, other.file)
+                && Utils.enhancedDeepEquals(this.href, other.href)
+                && Utils.enhancedDeepEquals(this.friendlyName, other.friendlyName)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.size, other.size)
+                && Utils.enhancedDeepEquals(this.displayEnabled, other.displayEnabled);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file, href, friendlyName,
-            type, size, displayEnabled);
+        return Utils.enhancedHash(file, href, friendlyName, type, size, displayEnabled);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerFile.class,
-                "file", file,
-                "href", href,
-                "friendlyName", friendlyName,
-                "type", type,
-                "size", size,
-                "displayEnabled", displayEnabled);
+        return Utils.toString(
+                SpeakerFile.class,
+                "file",
+                file,
+                "href",
+                href,
+                "friendlyName",
+                friendlyName,
+                "type",
+                type,
+                "size",
+                size,
+                "displayEnabled",
+                displayEnabled);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SpeakerFileFile file;
 
@@ -232,7 +224,7 @@ public class SpeakerFile {
         private Boolean displayEnabled;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder file(@Nonnull SpeakerFileFile file) {
@@ -281,10 +273,7 @@ public class SpeakerFile {
         }
 
         public SpeakerFile build() {
-            return new SpeakerFile(
-                file, href, friendlyName,
-                type, size, displayEnabled);
+            return new SpeakerFile(file, href, friendlyName, type, size, displayEnabled);
         }
-
     }
 }

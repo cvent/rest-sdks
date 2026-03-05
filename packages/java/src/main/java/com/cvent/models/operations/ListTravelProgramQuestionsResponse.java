@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListTravelProgramQuestionsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListTravelProgramQuestionsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable QuestionPaginatedResponse questionPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.questionPaginatedResponse = questionPaginatedResponse;
     }
-    
+
     public ListTravelProgramQuestionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListTravelProgramQuestionsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListTravelProgramQuestionsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListTravelProgramQuestionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListTravelProgramQuestionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of travel program questions.
      */
-    public ListTravelProgramQuestionsResponse withQuestionPaginatedResponse(@Nullable QuestionPaginatedResponse questionPaginatedResponse) {
+    public ListTravelProgramQuestionsResponse withQuestionPaginatedResponse(
+            @Nullable QuestionPaginatedResponse questionPaginatedResponse) {
         this.questionPaginatedResponse = questionPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListTravelProgramQuestionsResponse implements Response {
             return false;
         }
         ListTravelProgramQuestionsResponse other = (ListTravelProgramQuestionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.questionPaginatedResponse, other.questionPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.questionPaginatedResponse, other.questionPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            questionPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, questionPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelProgramQuestionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "questionPaginatedResponse", questionPaginatedResponse);
+        return Utils.toString(
+                ListTravelProgramQuestionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "questionPaginatedResponse",
+                questionPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListTravelProgramQuestionsResponse implements Response {
         private QuestionPaginatedResponse questionPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,9 +203,7 @@ public class ListTravelProgramQuestionsResponse implements Response {
 
         public ListTravelProgramQuestionsResponse build() {
             return new ListTravelProgramQuestionsResponse(
-                contentType, statusCode, rawResponse,
-                questionPaginatedResponse);
+                    contentType, statusCode, rawResponse, questionPaginatedResponse);
         }
-
     }
 }

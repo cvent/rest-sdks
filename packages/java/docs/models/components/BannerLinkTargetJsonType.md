@@ -2,6 +2,14 @@
 
 The type of target associated with the banner link.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.BannerLinkTargetJsonType;
+
+BannerLinkTargetJsonType value = BannerLinkTargetJsonType.ATTENDEE_HUB_PAGE;
+```
+
 
 ## Values
 

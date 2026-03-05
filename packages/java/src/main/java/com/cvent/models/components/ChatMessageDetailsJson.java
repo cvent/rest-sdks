@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ChatMessageDetailsJson
- * 
+ *
  * <p>Chat message details such as the ID of this message
  */
 public class ChatMessageDetailsJson {
@@ -35,15 +35,12 @@ public class ChatMessageDetailsJson {
 
     @JsonCreator
     public ChatMessageDetailsJson(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("textHtml") @Nullable String textHtml) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @JsonProperty("id") @Nonnull String id, @JsonProperty("textHtml") @Nullable String textHtml) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.textHtml = textHtml;
     }
-    
-    public ChatMessageDetailsJson(
-            @Nonnull String id) {
+
+    public ChatMessageDetailsJson(@Nonnull String id) {
         this(id, null);
     }
 
@@ -65,7 +62,6 @@ public class ChatMessageDetailsJson {
         return new Builder();
     }
 
-
     /**
      * The message ID within the messaging system.
      */
@@ -74,7 +70,6 @@ public class ChatMessageDetailsJson {
         return this;
     }
 
-
     /**
      * The HTML content of the chat message.
      */
@@ -82,7 +77,6 @@ public class ChatMessageDetailsJson {
         this.textHtml = textHtml;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +87,28 @@ public class ChatMessageDetailsJson {
             return false;
         }
         ChatMessageDetailsJson other = (ChatMessageDetailsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.textHtml, other.textHtml);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.textHtml, other.textHtml);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, textHtml);
+        return Utils.enhancedHash(id, textHtml);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChatMessageDetailsJson.class,
-                "id", id,
-                "textHtml", textHtml);
+        return Utils.toString(ChatMessageDetailsJson.class, "id", id, "textHtml", textHtml);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String textHtml;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +128,7 @@ public class ChatMessageDetailsJson {
         }
 
         public ChatMessageDetailsJson build() {
-            return new ChatMessageDetailsJson(
-                id, textHtml);
+            return new ChatMessageDetailsJson(id, textHtml);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * DiscountAgendaItemJson
- * 
+ *
  * <p>Represents the associated agenda item of a discount.
  */
 public class DiscountAgendaItemJson {
@@ -49,7 +49,7 @@ public class DiscountAgendaItemJson {
         this.type = type;
         this.discount = discount;
     }
-    
+
     public DiscountAgendaItemJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class DiscountAgendaItemJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier of the agenda item.
      */
@@ -87,7 +86,6 @@ public class DiscountAgendaItemJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Specifies the type of agenda item that a discount is associated with.
@@ -97,7 +95,6 @@ public class DiscountAgendaItemJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -105,7 +102,6 @@ public class DiscountAgendaItemJson {
         this.discount = discount;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class DiscountAgendaItemJson {
             return false;
         }
         DiscountAgendaItemJson other = (DiscountAgendaItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.discount, other.discount);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.discount, other.discount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, discount);
+        return Utils.enhancedHash(id, type, discount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DiscountAgendaItemJson.class,
-                "id", id,
-                "type", type,
-                "discount", discount);
+        return Utils.toString(DiscountAgendaItemJson.class, "id", id, "type", type, "discount", discount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class DiscountAgendaItemJson {
         private UuidJson discount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class DiscountAgendaItemJson {
         }
 
         public DiscountAgendaItemJson build() {
-            return new DiscountAgendaItemJson(
-                id, type, discount);
+            return new DiscountAgendaItemJson(id, type, discount);
         }
-
     }
 }

@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.lang.Override;
 import java.lang.String;
 
-
 public class GetHousingEventInfoRequest {
     /**
      * ID for a Passkey housing event.
@@ -18,8 +17,7 @@ public class GetHousingEventInfoRequest {
     private long housingEventId;
 
     @JsonCreator
-    public GetHousingEventInfoRequest(
-            long housingEventId) {
+    public GetHousingEventInfoRequest(long housingEventId) {
         this.housingEventId = housingEventId;
     }
 
@@ -34,7 +32,6 @@ public class GetHousingEventInfoRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -42,7 +39,6 @@ public class GetHousingEventInfoRequest {
         this.housingEventId = housingEventId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -53,29 +49,26 @@ public class GetHousingEventInfoRequest {
             return false;
         }
         GetHousingEventInfoRequest other = (GetHousingEventInfoRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId);
+        return Utils.enhancedHash(housingEventId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventInfoRequest.class,
-                "housingEventId", housingEventId);
+        return Utils.toString(GetHousingEventInfoRequest.class, "housingEventId", housingEventId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -87,9 +80,7 @@ public class GetHousingEventInfoRequest {
         }
 
         public GetHousingEventInfoRequest build() {
-            return new GetHousingEventInfoRequest(
-                housingEventId);
+            return new GetHousingEventInfoRequest(housingEventId);
         }
-
     }
 }

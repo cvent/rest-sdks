@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -19,9 +19,9 @@ import java.util.Optional;
 
 /**
  * PlannerJson2ContactMembership
- * 
+ *
  * <p>Contact Membership information
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -92,11 +92,9 @@ public class PlannerJson2ContactMembership {
         this.amountDue = amountDue;
         this.listInDirectory = listInDirectory;
     }
-    
+
     public PlannerJson2ContactMembership() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -152,7 +150,6 @@ public class PlannerJson2ContactMembership {
         return new Builder();
     }
 
-
     /**
      * The type of membership the contact has signed up for.
      */
@@ -160,7 +157,6 @@ public class PlannerJson2ContactMembership {
         this.type = type;
         return this;
     }
-
 
     /**
      * Describes the specific plan the contact has signed up for.
@@ -170,7 +166,6 @@ public class PlannerJson2ContactMembership {
         return this;
     }
 
-
     /**
      * The ISO-8601 formatted date the contact began their membership.
      */
@@ -178,7 +173,6 @@ public class PlannerJson2ContactMembership {
         this.joined = joined;
         return this;
     }
-
 
     /**
      * The ISO-8601 formatted date the contact's membership will expire.
@@ -188,7 +182,6 @@ public class PlannerJson2ContactMembership {
         return this;
     }
 
-
     /**
      * The ISO-8601 formatted date the contact last renewed their membership.
      */
@@ -196,7 +189,6 @@ public class PlannerJson2ContactMembership {
         this.lastRenewal = lastRenewal;
         return this;
     }
-
 
     /**
      * The amount currently due for this membership.
@@ -206,7 +198,6 @@ public class PlannerJson2ContactMembership {
         return this;
     }
 
-
     /**
      * Indicates if the member details should be included in the member directory.
      */
@@ -214,7 +205,6 @@ public class PlannerJson2ContactMembership {
         this.listInDirectory = listInDirectory;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -225,38 +215,42 @@ public class PlannerJson2ContactMembership {
             return false;
         }
         PlannerJson2ContactMembership other = (PlannerJson2ContactMembership) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.plan, other.plan) &&
-            Utils.enhancedDeepEquals(this.joined, other.joined) &&
-            Utils.enhancedDeepEquals(this.expiration, other.expiration) &&
-            Utils.enhancedDeepEquals(this.lastRenewal, other.lastRenewal) &&
-            Utils.enhancedDeepEquals(this.amountDue, other.amountDue) &&
-            Utils.enhancedDeepEquals(this.listInDirectory, other.listInDirectory);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.plan, other.plan)
+                && Utils.enhancedDeepEquals(this.joined, other.joined)
+                && Utils.enhancedDeepEquals(this.expiration, other.expiration)
+                && Utils.enhancedDeepEquals(this.lastRenewal, other.lastRenewal)
+                && Utils.enhancedDeepEquals(this.amountDue, other.amountDue)
+                && Utils.enhancedDeepEquals(this.listInDirectory, other.listInDirectory);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, plan, joined,
-            expiration, lastRenewal, amountDue,
-            listInDirectory);
+        return Utils.enhancedHash(type, plan, joined, expiration, lastRenewal, amountDue, listInDirectory);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PlannerJson2ContactMembership.class,
-                "type", type,
-                "plan", plan,
-                "joined", joined,
-                "expiration", expiration,
-                "lastRenewal", lastRenewal,
-                "amountDue", amountDue,
-                "listInDirectory", listInDirectory);
+        return Utils.toString(
+                PlannerJson2ContactMembership.class,
+                "type",
+                type,
+                "plan",
+                plan,
+                "joined",
+                joined,
+                "expiration",
+                expiration,
+                "lastRenewal",
+                lastRenewal,
+                "amountDue",
+                amountDue,
+                "listInDirectory",
+                listInDirectory);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
@@ -273,7 +267,7 @@ public class PlannerJson2ContactMembership {
         private Boolean listInDirectory;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -334,10 +328,7 @@ public class PlannerJson2ContactMembership {
 
         public PlannerJson2ContactMembership build() {
             return new PlannerJson2ContactMembership(
-                type, plan, joined,
-                expiration, lastRenewal, amountDue,
-                listInDirectory);
+                    type, plan, joined, expiration, lastRenewal, amountDue, listInDirectory);
         }
-
     }
 }

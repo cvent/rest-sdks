@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 public class CreateProposalDraftResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -39,7 +38,6 @@ public class CreateProposalDraftResponse implements Response {
      */
     private ProposalResponse proposalResponse;
 
-
     private Map<String, List<String>> headers;
 
     @JsonCreator
@@ -51,22 +49,21 @@ public class CreateProposalDraftResponse implements Response {
             @Nonnull Map<String, List<String>> headers) {
         headers = Utils.emptyMapIfNull(headers);
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.proposalResponse = proposalResponse;
-        this.headers = Optional.ofNullable(headers)
-            .orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
+        this.headers =
+                Optional.ofNullable(headers).orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
     }
-    
+
     public CreateProposalDraftResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nonnull Map<String, List<String>> headers) {
-        this(contentType, statusCode, rawResponse,
-            null, headers);
+        this(contentType, statusCode, rawResponse, null, headers);
     }
 
     /**
@@ -105,7 +102,6 @@ public class CreateProposalDraftResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -113,7 +109,6 @@ public class CreateProposalDraftResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -123,7 +118,6 @@ public class CreateProposalDraftResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -131,7 +125,6 @@ public class CreateProposalDraftResponse implements Response {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
-
 
     /**
      * Successfully created a proposal draft.
@@ -141,12 +134,10 @@ public class CreateProposalDraftResponse implements Response {
         return this;
     }
 
-
     public CreateProposalDraftResponse withHeaders(@Nonnull Map<String, List<String>> headers) {
         this.headers = Utils.checkNotNull(headers, "headers");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -157,33 +148,36 @@ public class CreateProposalDraftResponse implements Response {
             return false;
         }
         CreateProposalDraftResponse other = (CreateProposalDraftResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.proposalResponse, other.proposalResponse) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.proposalResponse, other.proposalResponse)
+                && Utils.enhancedDeepEquals(this.headers, other.headers);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            proposalResponse, headers);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, proposalResponse, headers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateProposalDraftResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "proposalResponse", proposalResponse,
-                "headers", headers);
+        return Utils.toString(
+                CreateProposalDraftResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "proposalResponse",
+                proposalResponse,
+                "headers",
+                headers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -196,7 +190,7 @@ public class CreateProposalDraftResponse implements Response {
         private Map<String, List<String>> headers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -237,10 +231,7 @@ public class CreateProposalDraftResponse implements Response {
         }
 
         public CreateProposalDraftResponse build() {
-            return new CreateProposalDraftResponse(
-                contentType, statusCode, rawResponse,
-                proposalResponse, headers);
+            return new CreateProposalDraftResponse(contentType, statusCode, rawResponse, proposalResponse, headers);
         }
-
     }
 }

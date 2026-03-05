@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * PageVisibilityJson
- * 
+ *
  * <p>Visibility of the custom field on various pages/forms.
  */
 public class PageVisibilityJson {
@@ -57,18 +57,17 @@ public class PageVisibilityJson {
             @JsonProperty("webinarCreationForm") @Nullable Boolean webinarCreationForm,
             @JsonProperty("webinarDetailsForm") @Nullable Boolean webinarDetailsForm) {
         this.essentialEventCreationForm = Optional.ofNullable(essentialEventCreationForm)
-            .orElse(Builder._SINGLETON_VALUE_EssentialEventCreationForm.value());
+                .orElse(Builder._SINGLETON_VALUE_EssentialEventCreationForm.value());
         this.essentialEventDetailsForm = Optional.ofNullable(essentialEventDetailsForm)
-            .orElse(Builder._SINGLETON_VALUE_EssentialEventDetailsForm.value());
-        this.webinarCreationForm = Optional.ofNullable(webinarCreationForm)
-            .orElse(Builder._SINGLETON_VALUE_WebinarCreationForm.value());
-        this.webinarDetailsForm = Optional.ofNullable(webinarDetailsForm)
-            .orElse(Builder._SINGLETON_VALUE_WebinarDetailsForm.value());
+                .orElse(Builder._SINGLETON_VALUE_EssentialEventDetailsForm.value());
+        this.webinarCreationForm =
+                Optional.ofNullable(webinarCreationForm).orElse(Builder._SINGLETON_VALUE_WebinarCreationForm.value());
+        this.webinarDetailsForm =
+                Optional.ofNullable(webinarDetailsForm).orElse(Builder._SINGLETON_VALUE_WebinarDetailsForm.value());
     }
-    
+
     public PageVisibilityJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -103,7 +102,6 @@ public class PageVisibilityJson {
         return new Builder();
     }
 
-
     /**
      * True indicates it's visible on the event essentials event creation form.
      */
@@ -111,7 +109,6 @@ public class PageVisibilityJson {
         this.essentialEventCreationForm = essentialEventCreationForm;
         return this;
     }
-
 
     /**
      * True indicates it's visible on the event essentials event details form.
@@ -121,7 +118,6 @@ public class PageVisibilityJson {
         return this;
     }
 
-
     /**
      * True indicates it's visible on webinar creation form.
      */
@@ -130,7 +126,6 @@ public class PageVisibilityJson {
         return this;
     }
 
-
     /**
      * True indicates it's visible on the webinar details form.
      */
@@ -138,7 +133,6 @@ public class PageVisibilityJson {
         this.webinarDetailsForm = webinarDetailsForm;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -149,31 +143,34 @@ public class PageVisibilityJson {
             return false;
         }
         PageVisibilityJson other = (PageVisibilityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.essentialEventCreationForm, other.essentialEventCreationForm) &&
-            Utils.enhancedDeepEquals(this.essentialEventDetailsForm, other.essentialEventDetailsForm) &&
-            Utils.enhancedDeepEquals(this.webinarCreationForm, other.webinarCreationForm) &&
-            Utils.enhancedDeepEquals(this.webinarDetailsForm, other.webinarDetailsForm);
+        return Utils.enhancedDeepEquals(this.essentialEventCreationForm, other.essentialEventCreationForm)
+                && Utils.enhancedDeepEquals(this.essentialEventDetailsForm, other.essentialEventDetailsForm)
+                && Utils.enhancedDeepEquals(this.webinarCreationForm, other.webinarCreationForm)
+                && Utils.enhancedDeepEquals(this.webinarDetailsForm, other.webinarDetailsForm);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            essentialEventCreationForm, essentialEventDetailsForm, webinarCreationForm,
-            webinarDetailsForm);
+                essentialEventCreationForm, essentialEventDetailsForm, webinarCreationForm, webinarDetailsForm);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PageVisibilityJson.class,
-                "essentialEventCreationForm", essentialEventCreationForm,
-                "essentialEventDetailsForm", essentialEventDetailsForm,
-                "webinarCreationForm", webinarCreationForm,
-                "webinarDetailsForm", webinarDetailsForm);
+        return Utils.toString(
+                PageVisibilityJson.class,
+                "essentialEventCreationForm",
+                essentialEventCreationForm,
+                "essentialEventDetailsForm",
+                essentialEventDetailsForm,
+                "webinarCreationForm",
+                webinarCreationForm,
+                "webinarDetailsForm",
+                webinarDetailsForm);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean essentialEventCreationForm;
 
@@ -184,7 +181,7 @@ public class PageVisibilityJson {
         private Boolean webinarDetailsForm;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -221,33 +218,19 @@ public class PageVisibilityJson {
 
         public PageVisibilityJson build() {
             return new PageVisibilityJson(
-                essentialEventCreationForm, essentialEventDetailsForm, webinarCreationForm,
-                webinarDetailsForm);
+                    essentialEventCreationForm, essentialEventDetailsForm, webinarCreationForm, webinarDetailsForm);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_EssentialEventCreationForm =
-                new LazySingletonValue<>(
-                        "essentialEventCreationForm",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("essentialEventCreationForm", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_EssentialEventDetailsForm =
-                new LazySingletonValue<>(
-                        "essentialEventDetailsForm",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("essentialEventDetailsForm", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_WebinarCreationForm =
-                new LazySingletonValue<>(
-                        "webinarCreationForm",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("webinarCreationForm", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_WebinarDetailsForm =
-                new LazySingletonValue<>(
-                        "webinarDetailsForm",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("webinarDetailsForm", "false", new TypeReference<Boolean>() {});
     }
 }

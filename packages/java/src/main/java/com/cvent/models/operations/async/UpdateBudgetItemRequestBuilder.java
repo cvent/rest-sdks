@@ -30,7 +30,7 @@ public class UpdateBudgetItemRequestBuilder {
     private UpdateBudgetItemRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateBudgetItemRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateBudgetItemRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateBudgetItemResponse> call() {
-        AsyncRequestOperation<UpdateBudgetItemRequest, UpdateBudgetItemResponse> operation
-              = new UpdateBudgetItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateBudgetItemRequest, UpdateBudgetItemResponse> operation =
+                new UpdateBudgetItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

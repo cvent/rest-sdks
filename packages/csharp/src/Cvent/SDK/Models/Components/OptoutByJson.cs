@@ -18,42 +18,30 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum OptoutByJson
     {
-        [JsonProperty("Abuse Complaint")]
-        AbuseComplaint,
-        [JsonProperty("Account User")]
-        AccountUser,
-        [JsonProperty("API")]
-        Api,
-        [JsonProperty("Contact Self Opt-Out")]
-        ContactSelfOptOut,
-        [JsonProperty("Cvent Support")]
-        CventSupport,
-        [JsonProperty("Hard Bounce")]
-        HardBounce,
-        [JsonProperty("Import")]
-        Import,
-        [JsonProperty("Invitee Self Unsubscribe")]
-        InviteeSelfUnsubscribe,
-        [JsonProperty("Multiple Bounce")]
-        MultipleBounce,
-        [JsonProperty("Respondent Self Unsubscribe")]
-        RespondentSelfUnsubscribe,
-        [JsonProperty("Temporary Block")]
-        TemporaryBlock,
-        [JsonProperty("Cvent Salesforce App")]
-        CventSalesforceApp,
+        [JsonProperty("Abuse Complaint")] AbuseComplaint,
+        [JsonProperty("Account User")] AccountUser,
+        [JsonProperty("API")] Api,
+        [JsonProperty("Contact Self Opt-Out")] ContactSelfOptOut,
+        [JsonProperty("Cvent Support")] CventSupport,
+        [JsonProperty("Hard Bounce")] HardBounce,
+        [JsonProperty("Import")] Import,
+        [JsonProperty("Invitee Self Unsubscribe")] InviteeSelfUnsubscribe,
+        [JsonProperty("Multiple Bounce")] MultipleBounce,
+        [JsonProperty("Respondent Self Unsubscribe")] RespondentSelfUnsubscribe,
+        [JsonProperty("Temporary Block")] TemporaryBlock,
+        [JsonProperty("Cvent Salesforce App")] CventSalesforceApp,
     }
 
     public static class OptoutByJsonExtension
     {
         public static string Value(this OptoutByJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static OptoutByJson ToEnum(this string value)
         {
-            foreach(var field in typeof(OptoutByJson).GetFields())
+            foreach (var field in typeof(OptoutByJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

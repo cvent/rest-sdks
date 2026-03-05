@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * VideoSourceJsonStatus
- * 
+ *
  * <p>Denotes the status of the video in the third-party system.
  */
 public enum VideoSourceJsonStatus {
@@ -25,13 +25,13 @@ public enum VideoSourceJsonStatus {
     VideoSourceJsonStatus(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VideoSourceJsonStatus> fromValue(String value) {
-        for (VideoSourceJsonStatus o: VideoSourceJsonStatus.values()) {
+        for (VideoSourceJsonStatus o : VideoSourceJsonStatus.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum VideoSourceJsonStatus {
         return Optional.empty();
     }
 }
-

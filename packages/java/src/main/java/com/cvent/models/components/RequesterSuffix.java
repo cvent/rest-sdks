@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * RequesterSuffix
- * 
+ *
  * <p>Suffix of the flight requester.
  */
 public enum RequesterSuffix {
@@ -27,13 +27,13 @@ public enum RequesterSuffix {
     RequesterSuffix(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RequesterSuffix> fromValue(String value) {
-        for (RequesterSuffix o: RequesterSuffix.values()) {
+        for (RequesterSuffix o : RequesterSuffix.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum RequesterSuffix {
         return Optional.empty();
     }
 }
-

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DistanceUnit
- * 
+ *
  * <p>Unit of measurement for the distance.
  */
 public enum DistanceUnit {
@@ -26,13 +26,13 @@ public enum DistanceUnit {
     DistanceUnit(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DistanceUnit> fromValue(String value) {
-        for (DistanceUnit o: DistanceUnit.values()) {
+        for (DistanceUnit o : DistanceUnit.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum DistanceUnit {
         return Optional.empty();
     }
 }
-

@@ -2,6 +2,14 @@
 
 The grant type.
 
+## Example Usage
+
+```java
+import com.cvent.models.operations.GrantType;
+
+GrantType value = GrantType.CLIENT_CREDENTIALS;
+```
+
 
 ## Values
 

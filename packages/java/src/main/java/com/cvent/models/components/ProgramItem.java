@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ProgramItem
- * 
+ *
  * <p>Represents a program item object that will be added to a session.
  */
 public class ProgramItem {
@@ -116,26 +116,17 @@ public class ProgramItem {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.duration = Optional.ofNullable(duration)
-            .orElse(Builder._SINGLETON_VALUE_Duration.value());
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.duration = Optional.ofNullable(duration).orElse(Builder._SINGLETON_VALUE_Duration.value());
         this.description = description;
         this.rteDescription = rteDescription;
     }
-    
-    public ProgramItem(
-            @Nonnull EventLiteJson1 event,
-            @Nonnull SessionLiteJson1 session,
-            @Nonnull String name) {
-        this(null, null, null,
-            null, null, event,
-            session, name, null,
-            null, null);
+
+    public ProgramItem(@Nonnull EventLiteJson1 event, @Nonnull SessionLiteJson1 session, @Nonnull String name) {
+        this(null, null, null, null, null, event, session, name, null, null, null);
     }
 
     /**
@@ -219,7 +210,6 @@ public class ProgramItem {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -227,7 +217,6 @@ public class ProgramItem {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -237,7 +226,6 @@ public class ProgramItem {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -245,7 +233,6 @@ public class ProgramItem {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -255,7 +242,6 @@ public class ProgramItem {
         return this;
     }
 
-
     /**
      * ID of the program item.
      */
@@ -263,7 +249,6 @@ public class ProgramItem {
         this.id = id;
         return this;
     }
-
 
     /**
      * The related event object.
@@ -273,7 +258,6 @@ public class ProgramItem {
         return this;
     }
 
-
     /**
      * The related session object.
      */
@@ -281,7 +265,6 @@ public class ProgramItem {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
-
 
     /**
      * Name of the program item.
@@ -291,7 +274,6 @@ public class ProgramItem {
         return this;
     }
 
-
     /**
      * The duration of the program item in minutes.
      */
@@ -299,7 +281,6 @@ public class ProgramItem {
         this.duration = duration;
         return this;
     }
-
 
     /**
      * Description of the program item.
@@ -309,7 +290,6 @@ public class ProgramItem {
         return this;
     }
 
-
     /**
      * Rich-text-editor description in json formatting.
      */
@@ -317,7 +297,6 @@ public class ProgramItem {
         this.rteDescription = rteDescription;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -328,47 +307,65 @@ public class ProgramItem {
             return false;
         }
         ProgramItem other = (ProgramItem) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.rteDescription, other.rteDescription);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.rteDescription, other.rteDescription);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            session, name, duration,
-            description, rteDescription);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                session,
+                name,
+                duration,
+                description,
+                rteDescription);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProgramItem.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "session", session,
-                "name", name,
-                "duration", duration,
-                "description", description,
-                "rteDescription", rteDescription);
+        return Utils.toString(
+                ProgramItem.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "session",
+                session,
+                "name",
+                name,
+                "duration",
+                duration,
+                "description",
+                description,
+                "rteDescription",
+                rteDescription);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -393,7 +390,7 @@ public class ProgramItem {
         private String rteDescription;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -486,17 +483,20 @@ public class ProgramItem {
 
         public ProgramItem build() {
             return new ProgramItem(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                session, name, duration,
-                description, rteDescription);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    session,
+                    name,
+                    duration,
+                    description,
+                    rteDescription);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Duration =
-                new LazySingletonValue<>(
-                        "duration",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("duration", "0", new TypeReference<Long>() {});
     }
 }

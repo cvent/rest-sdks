@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RateReviewStatusTypeJson
     {
-        [JsonProperty("requested")]
-        Requested,
-        [JsonProperty("not_required")]
-        NotRequired,
-        [JsonProperty("approved")]
-        Approved,
-        [JsonProperty("rejected")]
-        Rejected,
+        [JsonProperty("requested")] Requested,
+        [JsonProperty("not_required")] NotRequired,
+        [JsonProperty("approved")] Approved,
+        [JsonProperty("rejected")] Rejected,
     }
 
     public static class RateReviewStatusTypeJsonExtension
     {
         public static string Value(this RateReviewStatusTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RateReviewStatusTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RateReviewStatusTypeJson).GetFields())
+            foreach (var field in typeof(RateReviewStatusTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

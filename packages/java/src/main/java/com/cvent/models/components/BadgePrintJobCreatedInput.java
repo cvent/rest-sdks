@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BadgePrintJobCreatedInput
- * 
+ *
  * <p>The Badge Print Job that was created.
  */
 public class BadgePrintJobCreatedInput {
@@ -46,15 +46,12 @@ public class BadgePrintJobCreatedInput {
             @JsonProperty("pool") @Nonnull BadgePrinterPoolReferenceJson pool,
             @JsonProperty("badgeId") @Nonnull String badgeId) {
         this.status = status;
-        this.pool = Optional.ofNullable(pool)
-            .orElseThrow(() -> new IllegalArgumentException("pool cannot be null"));
-        this.badgeId = Optional.ofNullable(badgeId)
-            .orElseThrow(() -> new IllegalArgumentException("badgeId cannot be null"));
+        this.pool = Optional.ofNullable(pool).orElseThrow(() -> new IllegalArgumentException("pool cannot be null"));
+        this.badgeId =
+                Optional.ofNullable(badgeId).orElseThrow(() -> new IllegalArgumentException("badgeId cannot be null"));
     }
-    
-    public BadgePrintJobCreatedInput(
-            @Nonnull BadgePrinterPoolReferenceJson pool,
-            @Nonnull String badgeId) {
+
+    public BadgePrintJobCreatedInput(@Nonnull BadgePrinterPoolReferenceJson pool, @Nonnull String badgeId) {
         this(null, pool, badgeId);
     }
 
@@ -84,7 +81,6 @@ public class BadgePrintJobCreatedInput {
         return new Builder();
     }
 
-
     /**
      * This is used to indicate the status of the badge print job.
      */
@@ -93,7 +89,6 @@ public class BadgePrintJobCreatedInput {
         return this;
     }
 
-
     /**
      * Reference to a Badge Print Pool.
      */
@@ -101,7 +96,6 @@ public class BadgePrintJobCreatedInput {
         this.pool = Utils.checkNotNull(pool, "pool");
         return this;
     }
-
 
     /**
      * A unique id of the attendee for badge printing, which could be confirmation number or secured badge
@@ -112,7 +106,6 @@ public class BadgePrintJobCreatedInput {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -122,28 +115,23 @@ public class BadgePrintJobCreatedInput {
             return false;
         }
         BadgePrintJobCreatedInput other = (BadgePrintJobCreatedInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.pool, other.pool) &&
-            Utils.enhancedDeepEquals(this.badgeId, other.badgeId);
+        return Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.pool, other.pool)
+                && Utils.enhancedDeepEquals(this.badgeId, other.badgeId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            status, pool, badgeId);
+        return Utils.enhancedHash(status, pool, badgeId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BadgePrintJobCreatedInput.class,
-                "status", status,
-                "pool", pool,
-                "badgeId", badgeId);
+        return Utils.toString(BadgePrintJobCreatedInput.class, "status", status, "pool", pool, "badgeId", badgeId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BadgePrintJobStatusJson status;
 
@@ -152,7 +140,7 @@ public class BadgePrintJobCreatedInput {
         private String badgeId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -181,9 +169,7 @@ public class BadgePrintJobCreatedInput {
         }
 
         public BadgePrintJobCreatedInput build() {
-            return new BadgePrintJobCreatedInput(
-                status, pool, badgeId);
+            return new BadgePrintJobCreatedInput(status, pool, badgeId);
         }
-
     }
 }

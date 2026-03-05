@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateSpeakerResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class UpdateSpeakerResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ExistingSpeaker existingSpeaker) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.existingSpeaker = existingSpeaker;
     }
-    
-    public UpdateSpeakerResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public UpdateSpeakerResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +111,6 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully updated the speaker.
      */
@@ -127,7 +118,6 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         this.existingSpeaker = existingSpeaker;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +128,33 @@ public class UpdateSpeakerResponse implements AsyncResponse {
             return false;
         }
         UpdateSpeakerResponse other = (UpdateSpeakerResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.existingSpeaker, other.existingSpeaker);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.existingSpeaker, other.existingSpeaker);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            existingSpeaker);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, existingSpeaker);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateSpeakerResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "existingSpeaker", existingSpeaker);
+        return Utils.toString(
+                UpdateSpeakerResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "existingSpeaker",
+                existingSpeaker);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +165,7 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         private ExistingSpeaker existingSpeaker;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +201,7 @@ public class UpdateSpeakerResponse implements AsyncResponse {
         }
 
         public UpdateSpeakerResponse build() {
-            return new UpdateSpeakerResponse(
-                contentType, statusCode, rawResponse,
-                existingSpeaker);
+            return new UpdateSpeakerResponse(contentType, statusCode, rawResponse, existingSpeaker);
         }
-
     }
 }

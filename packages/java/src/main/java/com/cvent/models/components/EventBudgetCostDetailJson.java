@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventBudgetCostDetailJson
- * 
+ *
  * <p>Event Budget cost detail information.
  */
 public class EventBudgetCostDetailJson {
@@ -68,10 +68,9 @@ public class EventBudgetCostDetailJson {
         this.totalAppliedTax = totalAppliedTax;
         this.totalAppliedGratuity = totalAppliedGratuity;
     }
-    
+
     public EventBudgetCostDetailJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -113,7 +112,6 @@ public class EventBudgetCostDetailJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -121,7 +119,6 @@ public class EventBudgetCostDetailJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Denotes the name of the budget column associated to this cost.
@@ -131,7 +128,6 @@ public class EventBudgetCostDetailJson {
         return this;
     }
 
-
     /**
      * The total cost amount of the budget version in an event.
      */
@@ -139,7 +135,6 @@ public class EventBudgetCostDetailJson {
         this.totalCostValue = totalCostValue;
         return this;
     }
-
 
     /**
      * The total tax amount of the budget version in an event for the cost column.
@@ -149,7 +144,6 @@ public class EventBudgetCostDetailJson {
         return this;
     }
 
-
     /**
      * The total gratuity amount of the budget version in an event for the cost column.
      */
@@ -157,7 +151,6 @@ public class EventBudgetCostDetailJson {
         this.totalAppliedGratuity = totalAppliedGratuity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -168,33 +161,36 @@ public class EventBudgetCostDetailJson {
             return false;
         }
         EventBudgetCostDetailJson other = (EventBudgetCostDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.totalCostValue, other.totalCostValue) &&
-            Utils.enhancedDeepEquals(this.totalAppliedTax, other.totalAppliedTax) &&
-            Utils.enhancedDeepEquals(this.totalAppliedGratuity, other.totalAppliedGratuity);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.totalCostValue, other.totalCostValue)
+                && Utils.enhancedDeepEquals(this.totalAppliedTax, other.totalAppliedTax)
+                && Utils.enhancedDeepEquals(this.totalAppliedGratuity, other.totalAppliedGratuity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, totalCostValue,
-            totalAppliedTax, totalAppliedGratuity);
+        return Utils.enhancedHash(id, name, totalCostValue, totalAppliedTax, totalAppliedGratuity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventBudgetCostDetailJson.class,
-                "id", id,
-                "name", name,
-                "totalCostValue", totalCostValue,
-                "totalAppliedTax", totalAppliedTax,
-                "totalAppliedGratuity", totalAppliedGratuity);
+        return Utils.toString(
+                EventBudgetCostDetailJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "totalCostValue",
+                totalCostValue,
+                "totalAppliedTax",
+                totalAppliedTax,
+                "totalAppliedGratuity",
+                totalAppliedGratuity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -207,7 +203,7 @@ public class EventBudgetCostDetailJson {
         private Double totalAppliedGratuity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -251,10 +247,7 @@ public class EventBudgetCostDetailJson {
         }
 
         public EventBudgetCostDetailJson build() {
-            return new EventBudgetCostDetailJson(
-                id, name, totalCostValue,
-                totalAppliedTax, totalAppliedGratuity);
+            return new EventBudgetCostDetailJson(id, name, totalCostValue, totalAppliedTax, totalAppliedGratuity);
         }
-
     }
 }

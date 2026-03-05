@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class AttendeesType
     {
-        private AttendeesType(string value) { Value = value; }
+        private AttendeesType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static AttendeesType AttendeeAddResponse { get { return new AttendeesType("AttendeeAddResponse"); } }
+        public static AttendeesType AttendeeAddResponse
+        {
+            get {
+                return new AttendeesType("AttendeeAddResponse");
+            }
+        }
 
-        public static AttendeesType AttendeeAddBulkItemErrorResponse { get { return new AttendeesType("attendee-add-bulk-item_ErrorResponse"); } }
+        public static AttendeesType AttendeeAddBulkItemErrorResponse
+        {
+            get {
+                return new AttendeesType("attendee-add-bulk-item_ErrorResponse");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(AttendeesType v) { return v.Value; }
-        public static AttendeesType FromString(string v) {
-            switch(v) {
-                case "AttendeeAddResponse": return AttendeeAddResponse;
-                case "attendee-add-bulk-item_ErrorResponse": return AttendeeAddBulkItemErrorResponse;
-                default: throw new ArgumentException("Invalid value for AttendeesType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(AttendeesType v)
+        {
+            return v.Value;
+        }
+        public static AttendeesType FromString(string v)
+        {
+            switch (v)
+            {
+                case "AttendeeAddResponse":
+                    return AttendeeAddResponse;
+                case "attendee-add-bulk-item_ErrorResponse":
+                    return AttendeeAddBulkItemErrorResponse;
+                default:
+                    throw new ArgumentException("Invalid value for AttendeesType");
             }
         }
         public override bool Equals(object? obj)
@@ -102,8 +126,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Attendees(AttendeesType.AttendeeAddResponse)
-                    {
+                    return new Attendees(AttendeesType.AttendeeAddResponse) {
                         AttendeeAddResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AttendeeAddResponse>(json)
                     };
                 }
@@ -122,8 +145,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Attendees(AttendeesType.AttendeeAddBulkItemErrorResponse)
-                    {
+                    return new Attendees(AttendeesType.AttendeeAddBulkItemErrorResponse) {
                         AttendeeAddBulkItemErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AttendeeAddBulkItemErrorResponse>(json)
                     };
                 }
@@ -143,7 +165,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -184,8 +206,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

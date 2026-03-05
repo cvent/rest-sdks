@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DurationType
     {
-        [JsonProperty("session")]
-        Session,
-        [JsonProperty("appointment")]
-        Appointment,
-        [JsonProperty("exhibitor")]
-        Exhibitor,
+        [JsonProperty("session")] Session,
+        [JsonProperty("appointment")] Appointment,
+        [JsonProperty("exhibitor")] Exhibitor,
     }
 
     public static class DurationTypeExtension
     {
         public static string Value(this DurationType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DurationType ToEnum(this string value)
         {
-            foreach(var field in typeof(DurationType).GetFields())
+            foreach (var field in typeof(DurationType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

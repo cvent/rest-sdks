@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventSurveySessionMatchJson
     {
-        [JsonProperty("Only certain sessions")]
-        OnlyCertainSessions,
-        [JsonProperty("All sessions")]
-        AllSessions,
+        [JsonProperty("Only certain sessions")] OnlyCertainSessions,
+        [JsonProperty("All sessions")] AllSessions,
     }
 
     public static class EventSurveySessionMatchJsonExtension
     {
         public static string Value(this EventSurveySessionMatchJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventSurveySessionMatchJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EventSurveySessionMatchJson).GetFields())
+            foreach (var field in typeof(EventSurveySessionMatchJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

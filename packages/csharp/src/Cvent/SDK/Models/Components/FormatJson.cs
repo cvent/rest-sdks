@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum FormatJson
     {
-        [JsonProperty("Live")]
-        Live,
-        [JsonProperty("Pre-recorded")]
-        PreRecorded,
+        [JsonProperty("Live")] Live,
+        [JsonProperty("Pre-recorded")] PreRecorded,
     }
 
     public static class FormatJsonExtension
     {
         public static string Value(this FormatJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static FormatJson ToEnum(this string value)
         {
-            foreach(var field in typeof(FormatJson).GetFields())
+            foreach (var field in typeof(FormatJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

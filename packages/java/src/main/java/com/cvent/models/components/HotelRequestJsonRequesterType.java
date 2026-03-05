@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * HotelRequestJsonRequesterType
- * 
+ *
  * <p>Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
  * means the attendee is accompanying another attendee.
  */
@@ -24,13 +24,13 @@ public enum HotelRequestJsonRequesterType {
     HotelRequestJsonRequesterType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<HotelRequestJsonRequesterType> fromValue(String value) {
-        for (HotelRequestJsonRequesterType o: HotelRequestJsonRequesterType.values()) {
+        for (HotelRequestJsonRequesterType o : HotelRequestJsonRequesterType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum HotelRequestJsonRequesterType {
         return Optional.empty();
     }
 }
-

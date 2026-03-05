@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * MutabilityJson
- * 
+ *
  * <p>This is used to denote the mutability of the attribute.
  */
 public enum MutabilityJson {
@@ -25,13 +25,13 @@ public enum MutabilityJson {
     MutabilityJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<MutabilityJson> fromValue(String value) {
-        for (MutabilityJson o: MutabilityJson.values()) {
+        for (MutabilityJson o : MutabilityJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum MutabilityJson {
         return Optional.empty();
     }
 }
-

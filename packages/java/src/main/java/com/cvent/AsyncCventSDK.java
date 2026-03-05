@@ -10,7 +10,7 @@ import com.cvent.utils.Headers;
  * contacts, attendees, and more using OAuth2 authentication.
  * For documentation, see the README and USAGE. To get credentials, visit
  * https://developers.cvent.com/docs/rest-api/overview.
- * 
+ *
  * <p><a href="https://developers.cvent.com/docs">Cvent Developer Documentation</a>
  */
 public class AsyncCventSDK {
@@ -30,19 +30,19 @@ public class AsyncCventSDK {
      * An appointment is a meeting scheduled between two or more parties. These APIs allow you to get
      * information about your Cvent Appointments: appointment attendees, their interests, and
      * availabilities.
-     * 
+     *
      * <p>* **Appointment Events** - Appointment events help planners facilitate meetings between attendees.
      * Attendees express their interest and availability to schedule appointments. Use this API to get
      * information about appointments and appointment attendees.
-     * 
+     *
      * <p>* **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees
      * of either events or appointment events. Get information about these participants or use their
      * appointment attendee ID to get their availabilities and interests.
-     * 
+     *
      * <p>* **Availability** - Appointment availabilities describe an appointment attendees' preference in
      * meeting dates and times. Availability information is only available for *Planner Coordinated
      * Appointments*.
-     * 
+     *
      * <p>* **Interests** - Appointment interests describe appointment attendees' preferences in meeting with
      * another organization or individual. Interest information is only available for *Planner Coordinated
      * Appointments*.
@@ -62,7 +62,7 @@ public class AsyncCventSDK {
      * Event Credits reward attendees for participating in your events. Planners can award credits for the
      * entire event, specific sessions, or both. You can also award credits after attendees complete
      * surveys.
-     * 
+     *
      * <p>Use these APIs to retrieve credit details for your attendees.
      */
     private final AsyncEventCredits eventCredits;
@@ -71,11 +71,11 @@ public class AsyncCventSDK {
      * planners, marketers, and exhibitors in targeting customers effectively, thereby enhancing engagement
      * and conversion rates for marketing campaigns. Utilize these APIs to fetch engagement score data from
      * your event and integrate it into your marketing systems.
-     * 
+     *
      * <p>**Engagement Score** - Engagement scores are a container that track individual attendees' engagement
      * with your event. Attendees earn points by performing actions, which indicates their relative
      * engagement with your content.
-     * 
+     *
      * <p>**Actions** - These are distinct, trackable activities that attendees can perform during an event.
      * Points are awarded for these actions and contribute to the engagement score.
      */
@@ -88,7 +88,7 @@ public class AsyncCventSDK {
      * breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified
      * customer
      * profile that integrates with your external systems and data.
-     * 
+     *
      * <p>By gathering all this info into a single interface, the API allows you to see your customer's
      * engagement
      * at every step of the journey, create engagement models, and integrate that data with your external
@@ -96,10 +96,10 @@ public class AsyncCventSDK {
      * You can use this data to understand what your customers are looking for, keep them engaged, build
      * loyalty,
      * drive upsell, and increase the long-term value of your events.
-     * 
+     *
      * <p>Please note that attendee activities data is retained for a maximum of 2 years and is purged
      * thereafter.
-     * 
+     *
      * <p>For more details on [attendee
      * activities](https://developers.cvent.com/docs/rest-api/explanation/attendee-activities).
      */
@@ -127,7 +127,7 @@ public class AsyncCventSDK {
     /**
      * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
      * processes the uploaded data asynchronously making API calls on behalf of the caller.
-     * 
+     *
      * <p>Consumers of the bulk API will do the following:
      * * [Create a bulk job](#operation/createBulkJob) with or without data
      * * *(Optional)* If a bulk job was created without data, then [upload bulk job
@@ -135,9 +135,9 @@ public class AsyncCventSDK {
      * * *(Optional)* [Run bulk job](#operation/runBulkJob)
      * * Use [get bulk job](#operation/getBulkJobById) to track status
      * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
-     * 
+     *
      * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
-     * 
+     *
      * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
      * will expire
      * 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The
@@ -178,11 +178,11 @@ public class AsyncCventSDK {
      * system.
      * * **Manage Reservations.** The ability for an external system to create, modify or cancel a
      * registrant's hotel reservation directly or indirectly.
-     * 
+     *
      * <p>If you need authentication credentials or have any questions regarding the RegLink APIs, contact the
      * [Cvent Passkey Integrations
      * Team](https://web.cvent.com/survey/c6a60a30-d981-4ae8-af28-686af0eeb9b7/welcome).
-     * 
+     *
      * <p>* **Passkey.** A software solution allowing your invitees to book room reservations directly with
      * hotels.
      * * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.
@@ -203,7 +203,7 @@ public class AsyncCventSDK {
     /**
      * These APIs allow you to create hooks. When triggered, a hook sends a request to your service to
      * get updated data related to the related Cvent object.
-     * 
+     *
      * <p>For more information on using hooks, see the
      * [getting started guide](https://developers.cvent.com/docs/cid/attendee-identification-service).
      */
@@ -217,10 +217,10 @@ public class AsyncCventSDK {
     /**
      * * **Leads -** Leads include leads gathered by LeadCapture, Appointments, and Inbound Leads. Use this
      * API to get information for the lead and how it was captured.
-     * 
+     *
      * <p>* **Lead Qualification Question -** Custom questions created by each exhibitor to qualify a lead.
      * Questions and answers are their own endpoints.
-     * 
+     *
      * <p>* **Eliterature Requests -** List of E-literature requests data sent to lead.
      */
     private final AsyncLeads leads;
@@ -261,24 +261,24 @@ public class AsyncCventSDK {
      * air, hotel, housing reservation request and alternate travel answers data from your events.
      * **Housing Reservation Request** - An association between an attendee's information in a registration
      * event and a Cvent Passkey event.
-     * 
+     *
      * <p>Also known as a Passkey bridge.
      */
     private final AsyncEventTravel eventTravel;
     /**
      * * **Exhibitor -** An exhibitor is an organization that is sponsoring or exhibiting at your event.
      * This API allows you to get information about your exhibitors.
-     * 
+     *
      * <p>* **Registration Pack -** Registration Pack provides capacities of different registration types
      * allocated by the planner to a specific exhibitor.
-     * 
+     *
      * <p>* **Exhibitor Questions -** Set of questions for an exhibitor.
-     * 
+     *
      * <p>* **Exhibitor Answers -** Set of answers to exhibitor questions for an exhibitor.
-     * 
+     *
      * <p>* **Exhibitor Categories -** Set of exhibitor categories for an event. Exhibitor Categories are used
      * in Attendee Hub and Event App to differentiate exhibitors.
-     * 
+     *
      * <p>* **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get
      * details of existing sponsorship levels defined within the event. To assign sponsorship levels to
      * exhibitors, use the Exhibitor endpoints.
@@ -289,7 +289,7 @@ public class AsyncCventSDK {
      * portal. In the portal, they are able to complete pre-event tasks, manage their team, purchase
      * LeadCapture (if applicable), and download leads. Use this API to get details for existing admins,
      * create new admins, and update admin details.
-     * 
+     *
      * <p>* **Exhibitor Booth Staff -** Exhibitor booth staff is someone that manages the frontline of the
      * exhibitor's booth onsite or virtually. Booth staff needs to be registered for the event in order to
      * be associated with an exhibitor. Use this API to get details for the existing booth staff(s) for a
@@ -311,7 +311,7 @@ public class AsyncCventSDK {
      * information about the event and facilitate the approval of events. When a meeting request form is
      * submitted it becomes a meeting request. Use this API to view forms, create meeting requests and
      * track the status of meeting requests.
-     * 
+     *
      * <p>**Legacy meeting request forms are not supported by this API.**
      */
     private final AsyncMeetingRequest meetingRequest;
@@ -353,7 +353,7 @@ public class AsyncCventSDK {
     private final AsyncEventsPlusHub eventsPlusHub;
     /**
      * These API's provide compliance support for regulated industries.
-     * 
+     *
      * <p>**Communication Compliance** lets you view communication activities across your account.
      * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
      * push notifications
@@ -418,7 +418,7 @@ public class AsyncCventSDK {
      * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
      * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
      * and audio files.
-     * 
+     *
      * <p>Use these APIs also to get insight into video viewership.
      */
     private final AsyncVideo video;
@@ -447,19 +447,19 @@ public class AsyncCventSDK {
      * An appointment is a meeting scheduled between two or more parties. These APIs allow you to get
      * information about your Cvent Appointments: appointment attendees, their interests, and
      * availabilities.
-     * 
+     *
      * <p>* **Appointment Events** - Appointment events help planners facilitate meetings between attendees.
      * Attendees express their interest and availability to schedule appointments. Use this API to get
      * information about appointments and appointment attendees.
-     * 
+     *
      * <p>* **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees
      * of either events or appointment events. Get information about these participants or use their
      * appointment attendee ID to get their availabilities and interests.
-     * 
+     *
      * <p>* **Availability** - Appointment availabilities describe an appointment attendees' preference in
      * meeting dates and times. Availability information is only available for *Planner Coordinated
      * Appointments*.
-     * 
+     *
      * <p>* **Interests** - Appointment interests describe appointment attendees' preferences in meeting with
      * another organization or individual. Interest information is only available for *Planner Coordinated
      * Appointments*.
@@ -483,7 +483,7 @@ public class AsyncCventSDK {
      * Event Credits reward attendees for participating in your events. Planners can award credits for the
      * entire event, specific sessions, or both. You can also award credits after attendees complete
      * surveys.
-     * 
+     *
      * <p>Use these APIs to retrieve credit details for your attendees.
      */
     public AsyncEventCredits eventCredits() {
@@ -494,11 +494,11 @@ public class AsyncCventSDK {
      * planners, marketers, and exhibitors in targeting customers effectively, thereby enhancing engagement
      * and conversion rates for marketing campaigns. Utilize these APIs to fetch engagement score data from
      * your event and integrate it into your marketing systems.
-     * 
+     *
      * <p>**Engagement Score** - Engagement scores are a container that track individual attendees' engagement
      * with your event. Attendees earn points by performing actions, which indicates their relative
      * engagement with your content.
-     * 
+     *
      * <p>**Actions** - These are distinct, trackable activities that attendees can perform during an event.
      * Points are awarded for these actions and contribute to the engagement score.
      */
@@ -513,7 +513,7 @@ public class AsyncCventSDK {
      * breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified
      * customer
      * profile that integrates with your external systems and data.
-     * 
+     *
      * <p>By gathering all this info into a single interface, the API allows you to see your customer's
      * engagement
      * at every step of the journey, create engagement models, and integrate that data with your external
@@ -521,10 +521,10 @@ public class AsyncCventSDK {
      * You can use this data to understand what your customers are looking for, keep them engaged, build
      * loyalty,
      * drive upsell, and increase the long-term value of your events.
-     * 
+     *
      * <p>Please note that attendee activities data is retained for a maximum of 2 years and is purged
      * thereafter.
-     * 
+     *
      * <p>For more details on [attendee
      * activities](https://developers.cvent.com/docs/rest-api/explanation/attendee-activities).
      */
@@ -560,7 +560,7 @@ public class AsyncCventSDK {
     /**
      * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
      * processes the uploaded data asynchronously making API calls on behalf of the caller.
-     * 
+     *
      * <p>Consumers of the bulk API will do the following:
      * * [Create a bulk job](#operation/createBulkJob) with or without data
      * * *(Optional)* If a bulk job was created without data, then [upload bulk job
@@ -568,9 +568,9 @@ public class AsyncCventSDK {
      * * *(Optional)* [Run bulk job](#operation/runBulkJob)
      * * Use [get bulk job](#operation/getBulkJobById) to track status
      * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
-     * 
+     *
      * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
-     * 
+     *
      * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
      * will expire
      * 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The
@@ -617,11 +617,11 @@ public class AsyncCventSDK {
      * system.
      * * **Manage Reservations.** The ability for an external system to create, modify or cancel a
      * registrant's hotel reservation directly or indirectly.
-     * 
+     *
      * <p>If you need authentication credentials or have any questions regarding the RegLink APIs, contact the
      * [Cvent Passkey Integrations
      * Team](https://web.cvent.com/survey/c6a60a30-d981-4ae8-af28-686af0eeb9b7/welcome).
-     * 
+     *
      * <p>* **Passkey.** A software solution allowing your invitees to book room reservations directly with
      * hotels.
      * * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.
@@ -646,7 +646,7 @@ public class AsyncCventSDK {
     /**
      * These APIs allow you to create hooks. When triggered, a hook sends a request to your service to
      * get updated data related to the related Cvent object.
-     * 
+     *
      * <p>For more information on using hooks, see the
      * [getting started guide](https://developers.cvent.com/docs/cid/attendee-identification-service).
      */
@@ -664,10 +664,10 @@ public class AsyncCventSDK {
     /**
      * * **Leads -** Leads include leads gathered by LeadCapture, Appointments, and Inbound Leads. Use this
      * API to get information for the lead and how it was captured.
-     * 
+     *
      * <p>* **Lead Qualification Question -** Custom questions created by each exhibitor to qualify a lead.
      * Questions and answers are their own endpoints.
-     * 
+     *
      * <p>* **Eliterature Requests -** List of E-literature requests data sent to lead.
      */
     public AsyncLeads leads() {
@@ -722,7 +722,7 @@ public class AsyncCventSDK {
      * air, hotel, housing reservation request and alternate travel answers data from your events.
      * **Housing Reservation Request** - An association between an attendee's information in a registration
      * event and a Cvent Passkey event.
-     * 
+     *
      * <p>Also known as a Passkey bridge.
      */
     public AsyncEventTravel eventTravel() {
@@ -731,17 +731,17 @@ public class AsyncCventSDK {
     /**
      * * **Exhibitor -** An exhibitor is an organization that is sponsoring or exhibiting at your event.
      * This API allows you to get information about your exhibitors.
-     * 
+     *
      * <p>* **Registration Pack -** Registration Pack provides capacities of different registration types
      * allocated by the planner to a specific exhibitor.
-     * 
+     *
      * <p>* **Exhibitor Questions -** Set of questions for an exhibitor.
-     * 
+     *
      * <p>* **Exhibitor Answers -** Set of answers to exhibitor questions for an exhibitor.
-     * 
+     *
      * <p>* **Exhibitor Categories -** Set of exhibitor categories for an event. Exhibitor Categories are used
      * in Attendee Hub and Event App to differentiate exhibitors.
-     * 
+     *
      * <p>* **Sponsorship Levels -** Sponsorship levels are defined by the planner. Use this API to get
      * details of existing sponsorship levels defined within the event. To assign sponsorship levels to
      * exhibitors, use the Exhibitor endpoints.
@@ -754,7 +754,7 @@ public class AsyncCventSDK {
      * portal. In the portal, they are able to complete pre-event tasks, manage their team, purchase
      * LeadCapture (if applicable), and download leads. Use this API to get details for existing admins,
      * create new admins, and update admin details.
-     * 
+     *
      * <p>* **Exhibitor Booth Staff -** Exhibitor booth staff is someone that manages the frontline of the
      * exhibitor's booth onsite or virtually. Booth staff needs to be registered for the event in order to
      * be associated with an exhibitor. Use this API to get details for the existing booth staff(s) for a
@@ -782,7 +782,7 @@ public class AsyncCventSDK {
      * information about the event and facilitate the approval of events. When a meeting request form is
      * submitted it becomes a meeting request. Use this API to view forms, create meeting requests and
      * track the status of meeting requests.
-     * 
+     *
      * <p>**Legacy meeting request forms are not supported by this API.**
      */
     public AsyncMeetingRequest meetingRequest() {
@@ -836,7 +836,7 @@ public class AsyncCventSDK {
     }
     /**
      * These API's provide compliance support for regulated industries.
-     * 
+     *
      * <p>**Communication Compliance** lets you view communication activities across your account.
      * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
      * push notifications
@@ -923,7 +923,7 @@ public class AsyncCventSDK {
      * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
      * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
      * and audio files.
-     * 
+     *
      * <p>Use these APIs also to get insight into video viewership.
      */
     public AsyncVideo video() {
@@ -996,7 +996,7 @@ public class AsyncCventSDK {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public CventSDK sync() {

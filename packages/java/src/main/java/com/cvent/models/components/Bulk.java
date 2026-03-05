@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * Bulk
- * 
+ *
  * <p>Config details for bulk operations.
  */
 public class Bulk {
@@ -51,7 +51,7 @@ public class Bulk {
         this.maxOperations = maxOperations;
         this.maxPayloadSize = maxPayloadSize;
     }
-    
+
     public Bulk() {
         this(null, null, null);
     }
@@ -81,7 +81,6 @@ public class Bulk {
         return new Builder();
     }
 
-
     /**
      * Indicates if the bulk operation is supported.
      */
@@ -89,7 +88,6 @@ public class Bulk {
         this.supported = supported;
         return this;
     }
-
 
     /**
      * An integer value specifying the maximum number of operations.
@@ -99,7 +97,6 @@ public class Bulk {
         return this;
     }
 
-
     /**
      * An integer value specifying the maximum payload size in bytes.
      */
@@ -107,7 +104,6 @@ public class Bulk {
         this.maxPayloadSize = maxPayloadSize;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -118,28 +114,24 @@ public class Bulk {
             return false;
         }
         Bulk other = (Bulk) o;
-        return 
-            Utils.enhancedDeepEquals(this.supported, other.supported) &&
-            Utils.enhancedDeepEquals(this.maxOperations, other.maxOperations) &&
-            Utils.enhancedDeepEquals(this.maxPayloadSize, other.maxPayloadSize);
+        return Utils.enhancedDeepEquals(this.supported, other.supported)
+                && Utils.enhancedDeepEquals(this.maxOperations, other.maxOperations)
+                && Utils.enhancedDeepEquals(this.maxPayloadSize, other.maxPayloadSize);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            supported, maxOperations, maxPayloadSize);
+        return Utils.enhancedHash(supported, maxOperations, maxPayloadSize);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Bulk.class,
-                "supported", supported,
-                "maxOperations", maxOperations,
-                "maxPayloadSize", maxPayloadSize);
+        return Utils.toString(
+                Bulk.class, "supported", supported, "maxOperations", maxOperations, "maxPayloadSize", maxPayloadSize);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean supported;
 
@@ -148,7 +140,7 @@ public class Bulk {
         private Long maxPayloadSize;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,9 +168,7 @@ public class Bulk {
         }
 
         public Bulk build() {
-            return new Bulk(
-                supported, maxOperations, maxPayloadSize);
+            return new Bulk(supported, maxOperations, maxPayloadSize);
         }
-
     }
 }

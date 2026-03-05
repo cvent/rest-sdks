@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ContactJson1
- * 
+ *
  * <p>The contact details.
  */
 public class ContactJson1 {
@@ -175,8 +175,7 @@ public class ContactJson1 {
             @JsonProperty("postalCode") @Nullable String postalCode,
             @JsonProperty("country") @Nullable CountryJson country,
             @JsonProperty("notes") @Nullable String notes) {
-        this.contactType = Optional.ofNullable(contactType)
-            .orElse(Builder._SINGLETON_VALUE_ContactType.value());
+        this.contactType = Optional.ofNullable(contactType).orElse(Builder._SINGLETON_VALUE_ContactType.value());
         this.firstName = firstName;
         this.lastName = lastName;
         this.organizationWebsite = organizationWebsite;
@@ -196,15 +195,28 @@ public class ContactJson1 {
         this.country = country;
         this.notes = notes;
     }
-    
+
     public ContactJson1() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -344,7 +356,6 @@ public class ContactJson1 {
         return new Builder();
     }
 
-
     /**
      * The contact types used for the proposal.
      */
@@ -352,7 +363,6 @@ public class ContactJson1 {
         this.contactType = contactType;
         return this;
     }
-
 
     /**
      * The first name of the contact.
@@ -362,7 +372,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The last name of the contact.
      */
@@ -370,7 +379,6 @@ public class ContactJson1 {
         this.lastName = lastName;
         return this;
     }
-
 
     /**
      * The URL of the organization's website.
@@ -380,7 +388,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The name of the organization.
      */
@@ -388,7 +395,6 @@ public class ContactJson1 {
         this.organization = organization;
         return this;
     }
-
 
     /**
      * Designation of the contact.
@@ -398,7 +404,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The email address of the contact.
      */
@@ -406,7 +411,6 @@ public class ContactJson1 {
         this.email = email;
         return this;
     }
-
 
     /**
      * The country code for the contact's phone number.
@@ -416,7 +420,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The phone number of the organization.
      */
@@ -424,7 +427,6 @@ public class ContactJson1 {
         this.phone = phone;
         return this;
     }
-
 
     /**
      * The organization's fax number.
@@ -434,7 +436,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The mobile number of the contact.
      */
@@ -442,7 +443,6 @@ public class ContactJson1 {
         this.mobile = mobile;
         return this;
     }
-
 
     /**
      * Address line 1 of contact's street address.
@@ -452,7 +452,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * Address line 2 of contact's street address.
      */
@@ -460,7 +459,6 @@ public class ContactJson1 {
         this.streetAddress2 = streetAddress2;
         return this;
     }
-
 
     /**
      * Address line 3 of contact's street address.
@@ -470,7 +468,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The city of the contact.
      */
@@ -478,7 +475,6 @@ public class ContactJson1 {
         this.city = city;
         return this;
     }
-
 
     /**
      * The state province code used for contact information.
@@ -488,7 +484,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * The postal code of the contact.
      */
@@ -496,7 +491,6 @@ public class ContactJson1 {
         this.postalCode = postalCode;
         return this;
     }
-
 
     /**
      * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
@@ -506,7 +500,6 @@ public class ContactJson1 {
         return this;
     }
 
-
     /**
      * Additional notes of the contact.
      */
@@ -514,7 +507,6 @@ public class ContactJson1 {
         this.notes = notes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -525,66 +517,97 @@ public class ContactJson1 {
             return false;
         }
         ContactJson1 other = (ContactJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.contactType, other.contactType) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.organizationWebsite, other.organizationWebsite) &&
-            Utils.enhancedDeepEquals(this.organization, other.organization) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode) &&
-            Utils.enhancedDeepEquals(this.phone, other.phone) &&
-            Utils.enhancedDeepEquals(this.fax, other.fax) &&
-            Utils.enhancedDeepEquals(this.mobile, other.mobile) &&
-            Utils.enhancedDeepEquals(this.streetAddress1, other.streetAddress1) &&
-            Utils.enhancedDeepEquals(this.streetAddress2, other.streetAddress2) &&
-            Utils.enhancedDeepEquals(this.streetAddress3, other.streetAddress3) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.stateProvince, other.stateProvince) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.notes, other.notes);
+        return Utils.enhancedDeepEquals(this.contactType, other.contactType)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.organizationWebsite, other.organizationWebsite)
+                && Utils.enhancedDeepEquals(this.organization, other.organization)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.fax, other.fax)
+                && Utils.enhancedDeepEquals(this.mobile, other.mobile)
+                && Utils.enhancedDeepEquals(this.streetAddress1, other.streetAddress1)
+                && Utils.enhancedDeepEquals(this.streetAddress2, other.streetAddress2)
+                && Utils.enhancedDeepEquals(this.streetAddress3, other.streetAddress3)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.stateProvince, other.stateProvince)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.notes, other.notes);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            contactType, firstName, lastName,
-            organizationWebsite, organization, title,
-            email, countryCode, phone,
-            fax, mobile, streetAddress1,
-            streetAddress2, streetAddress3, city,
-            stateProvince, postalCode, country,
-            notes);
+                contactType,
+                firstName,
+                lastName,
+                organizationWebsite,
+                organization,
+                title,
+                email,
+                countryCode,
+                phone,
+                fax,
+                mobile,
+                streetAddress1,
+                streetAddress2,
+                streetAddress3,
+                city,
+                stateProvince,
+                postalCode,
+                country,
+                notes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactJson1.class,
-                "contactType", contactType,
-                "firstName", firstName,
-                "lastName", lastName,
-                "organizationWebsite", organizationWebsite,
-                "organization", organization,
-                "title", title,
-                "email", email,
-                "countryCode", countryCode,
-                "phone", phone,
-                "fax", fax,
-                "mobile", mobile,
-                "streetAddress1", streetAddress1,
-                "streetAddress2", streetAddress2,
-                "streetAddress3", streetAddress3,
-                "city", city,
-                "stateProvince", stateProvince,
-                "postalCode", postalCode,
-                "country", country,
-                "notes", notes);
+        return Utils.toString(
+                ContactJson1.class,
+                "contactType",
+                contactType,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "organizationWebsite",
+                organizationWebsite,
+                "organization",
+                organization,
+                "title",
+                title,
+                "email",
+                email,
+                "countryCode",
+                countryCode,
+                "phone",
+                phone,
+                "fax",
+                fax,
+                "mobile",
+                mobile,
+                "streetAddress1",
+                streetAddress1,
+                "streetAddress2",
+                streetAddress2,
+                "streetAddress3",
+                streetAddress3,
+                "city",
+                city,
+                "stateProvince",
+                stateProvince,
+                "postalCode",
+                postalCode,
+                "country",
+                country,
+                "notes",
+                notes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ContactTypeJson1 contactType;
 
@@ -625,7 +648,7 @@ public class ContactJson1 {
         private String notes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -782,20 +805,28 @@ public class ContactJson1 {
 
         public ContactJson1 build() {
             return new ContactJson1(
-                contactType, firstName, lastName,
-                organizationWebsite, organization, title,
-                email, countryCode, phone,
-                fax, mobile, streetAddress1,
-                streetAddress2, streetAddress3, city,
-                stateProvince, postalCode, country,
-                notes);
+                    contactType,
+                    firstName,
+                    lastName,
+                    organizationWebsite,
+                    organization,
+                    title,
+                    email,
+                    countryCode,
+                    phone,
+                    fax,
+                    mobile,
+                    streetAddress1,
+                    streetAddress2,
+                    streetAddress3,
+                    city,
+                    stateProvince,
+                    postalCode,
+                    country,
+                    notes);
         }
 
-
         private static final LazySingletonValue<ContactTypeJson1> _SINGLETON_VALUE_ContactType =
-                new LazySingletonValue<>(
-                        "contactType",
-                        "\"PRIMARY\"",
-                        new TypeReference<ContactTypeJson1>() {});
+                new LazySingletonValue<>("contactType", "\"PRIMARY\"", new TypeReference<ContactTypeJson1>() {});
     }
 }

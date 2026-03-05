@@ -20,18 +20,36 @@ namespace Cvent.SDK.Models.Components
 
     public class SupplierType
     {
-        private SupplierType(string value) { Value = value; }
+        private SupplierType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static SupplierType Venue { get { return new SupplierType("VENUE"); } }
+        public static SupplierType Venue
+        {
+            get {
+                return new SupplierType("VENUE");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(SupplierType v) { return v.Value; }
-        public static SupplierType FromString(string v) {
-            switch(v) {
-                case "VENUE": return Venue;
-                default: throw new ArgumentException("Invalid value for SupplierType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(SupplierType v)
+        {
+            return v.Value;
+        }
+        public static SupplierType FromString(string v)
+        {
+            switch (v)
+            {
+                case "VENUE":
+                    return Venue;
+                default:
+                    throw new ArgumentException("Invalid value for SupplierType");
             }
         }
         public override bool Equals(object? obj)
@@ -114,8 +132,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

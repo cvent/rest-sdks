@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LocationJson2
- * 
+ *
  * <p>Used to denote a locations name and abbreviation.
  */
 public class LocationJson2 {
@@ -49,7 +49,7 @@ public class LocationJson2 {
         this.code = code;
         this.name = name;
     }
-    
+
     public LocationJson2() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class LocationJson2 {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -87,7 +86,6 @@ public class LocationJson2 {
         this.id = id;
         return this;
     }
-
 
     /**
      * Code / Abbreviation of the location.
@@ -97,7 +95,6 @@ public class LocationJson2 {
         return this;
     }
 
-
     /**
      * Name of the location.
      */
@@ -105,7 +102,6 @@ public class LocationJson2 {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class LocationJson2 {
             return false;
         }
         LocationJson2 other = (LocationJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, name);
+        return Utils.enhancedHash(id, code, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LocationJson2.class,
-                "id", id,
-                "code", code,
-                "name", name);
+        return Utils.toString(LocationJson2.class, "id", id, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class LocationJson2 {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class LocationJson2 {
         }
 
         public LocationJson2 build() {
-            return new LocationJson2(
-                id, code, name);
+            return new LocationJson2(id, code, name);
         }
-
     }
 }

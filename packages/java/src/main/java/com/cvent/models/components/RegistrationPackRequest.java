@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * RegistrationPackRequest
- * 
+ *
  * <p>A registration pack containing event, exhibitor, and capacities information.
  */
 public class RegistrationPackRequest {
@@ -41,12 +41,11 @@ public class RegistrationPackRequest {
             @JsonProperty("event") @Nonnull EventJson5 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("capacities") @Nonnull List<CapacityJson> capacities) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
         this.capacities = Optional.ofNullable(capacities)
-            .orElseThrow(() -> new IllegalArgumentException("capacities cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("capacities cannot be null"));
     }
 
     /**
@@ -74,7 +73,6 @@ public class RegistrationPackRequest {
         return new Builder();
     }
 
-
     /**
      * The Associated Event.
      */
@@ -82,7 +80,6 @@ public class RegistrationPackRequest {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -92,7 +89,6 @@ public class RegistrationPackRequest {
         return this;
     }
 
-
     /**
      * An array of capacities for the registration pack.
      */
@@ -100,7 +96,6 @@ public class RegistrationPackRequest {
         this.capacities = Utils.checkNotNull(capacities, "capacities");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -111,28 +106,24 @@ public class RegistrationPackRequest {
             return false;
         }
         RegistrationPackRequest other = (RegistrationPackRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.capacities, other.capacities);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.capacities, other.capacities);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, exhibitor, capacities);
+        return Utils.enhancedHash(event, exhibitor, capacities);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RegistrationPackRequest.class,
-                "event", event,
-                "exhibitor", exhibitor,
-                "capacities", capacities);
+        return Utils.toString(
+                RegistrationPackRequest.class, "event", event, "exhibitor", exhibitor, "capacities", capacities);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson5 event;
 
@@ -141,7 +132,7 @@ public class RegistrationPackRequest {
         private List<CapacityJson> capacities;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -169,9 +160,7 @@ public class RegistrationPackRequest {
         }
 
         public RegistrationPackRequest build() {
-            return new RegistrationPackRequest(
-                event, exhibitor, capacities);
+            return new RegistrationPackRequest(event, exhibitor, capacities);
         }
-
     }
 }

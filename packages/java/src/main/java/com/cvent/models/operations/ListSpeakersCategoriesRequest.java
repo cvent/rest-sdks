@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSpeakersCategoriesRequest {
     /**
      * The maximum number of records to return per page.
@@ -33,11 +32,11 @@ public class ListSpeakersCategoriesRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following field is filterable:
      * * active (eq|ne)
      */
@@ -45,16 +44,12 @@ public class ListSpeakersCategoriesRequest {
     private String filter;
 
     @JsonCreator
-    public ListSpeakersCategoriesRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public ListSpeakersCategoriesRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListSpeakersCategoriesRequest() {
         this(null, null, null);
     }
@@ -78,11 +73,11 @@ public class ListSpeakersCategoriesRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following field is filterable:
      * * active (eq|ne)
      */
@@ -94,7 +89,6 @@ public class ListSpeakersCategoriesRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -102,7 +96,6 @@ public class ListSpeakersCategoriesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -113,16 +106,15 @@ public class ListSpeakersCategoriesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following field is filterable:
      * * active (eq|ne)
      */
@@ -130,7 +122,6 @@ public class ListSpeakersCategoriesRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -141,28 +132,23 @@ public class ListSpeakersCategoriesRequest {
             return false;
         }
         ListSpeakersCategoriesRequest other = (ListSpeakersCategoriesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSpeakersCategoriesRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(ListSpeakersCategoriesRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -171,7 +157,7 @@ public class ListSpeakersCategoriesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -195,11 +181,11 @@ public class ListSpeakersCategoriesRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>The following can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following field is filterable:
          * * active (eq|ne)
          */
@@ -209,15 +195,10 @@ public class ListSpeakersCategoriesRequest {
         }
 
         public ListSpeakersCategoriesRequest build() {
-            return new ListSpeakersCategoriesRequest(
-                limit, token, filter);
+            return new ListSpeakersCategoriesRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

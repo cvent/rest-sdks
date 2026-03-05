@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SolutionTypeJson
- * 
+ *
  * <p>This is used to denote the solution type to be used for webcast. The 'Cvent Video Conferencing'
  * refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video
  * Conferencing' refers to the video experience within the Attendee hub.
@@ -29,13 +29,13 @@ public enum SolutionTypeJson {
     SolutionTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SolutionTypeJson> fromValue(String value) {
-        for (SolutionTypeJson o: SolutionTypeJson.values()) {
+        for (SolutionTypeJson o : SolutionTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum SolutionTypeJson {
         return Optional.empty();
     }
 }
-

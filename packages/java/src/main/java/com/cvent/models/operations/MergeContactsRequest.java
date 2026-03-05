@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class MergeContactsRequest {
     /**
      * ID of a contact.
@@ -24,14 +23,14 @@ public class MergeContactsRequest {
      * Merge the 'main' contact with one or two other 'secondary' contacts. By default, the main contact's
      * values will be used for the merged contact if present. Otherwise, the secondary contact's value is
      * used.
-     * 
+     *
      * <p>For contact memberships and contact profile image, only the main contact's data is used.
-     * 
+     *
      * <p>When merging contacts that contain secure fields, the `event/contacts:write-sensitive` scope is
      * required.
-     * 
+     *
      * <p>**Conflict Resolution**
-     * 
+     *
      * <p>* **contactFields**: A conflict arises for a contact field if it is empty in the main contact, two
      * secondary contacts are provided, and both secondary contacts have values for the field.
      * - You must provide the fieldName of the conflicted field and the ID of the contact whose value is to
@@ -79,7 +78,7 @@ public class MergeContactsRequest {
      * - Attendees with a 'No Response' or 'Visited' status whose linked contacts are not chosen in this
      * step will be deleted. Attendees with other statuses will be kept but will be associated with an
      * inactive contact.
-     * 
+     *
      * <p>* **surveys**: A conflict arises for a survey containing respondents associated with at least two of
      * the provided contacts.
      * - You must provide the ID of the conflicted survey and the ID of the contact whose respondent will
@@ -98,13 +97,10 @@ public class MergeContactsRequest {
     private ContactMerge contactMerge;
 
     @JsonCreator
-    public MergeContactsRequest(
-            @Nonnull String id,
-            @Nonnull ContactMerge contactMerge) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public MergeContactsRequest(@Nonnull String id, @Nonnull ContactMerge contactMerge) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.contactMerge = Optional.ofNullable(contactMerge)
-            .orElseThrow(() -> new IllegalArgumentException("contactMerge cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactMerge cannot be null"));
     }
 
     /**
@@ -118,14 +114,14 @@ public class MergeContactsRequest {
      * Merge the 'main' contact with one or two other 'secondary' contacts. By default, the main contact's
      * values will be used for the merged contact if present. Otherwise, the secondary contact's value is
      * used.
-     * 
+     *
      * <p>For contact memberships and contact profile image, only the main contact's data is used.
-     * 
+     *
      * <p>When merging contacts that contain secure fields, the `event/contacts:write-sensitive` scope is
      * required.
-     * 
+     *
      * <p>**Conflict Resolution**
-     * 
+     *
      * <p>* **contactFields**: A conflict arises for a contact field if it is empty in the main contact, two
      * secondary contacts are provided, and both secondary contacts have values for the field.
      * - You must provide the fieldName of the conflicted field and the ID of the contact whose value is to
@@ -173,7 +169,7 @@ public class MergeContactsRequest {
      * - Attendees with a 'No Response' or 'Visited' status whose linked contacts are not chosen in this
      * step will be deleted. Attendees with other statuses will be kept but will be associated with an
      * inactive contact.
-     * 
+     *
      * <p>* **surveys**: A conflict arises for a survey containing respondents associated with at least two of
      * the provided contacts.
      * - You must provide the ID of the conflicted survey and the ID of the contact whose respondent will
@@ -196,7 +192,6 @@ public class MergeContactsRequest {
         return new Builder();
     }
 
-
     /**
      * ID of a contact.
      */
@@ -205,19 +200,18 @@ public class MergeContactsRequest {
         return this;
     }
 
-
     /**
      * Merge the 'main' contact with one or two other 'secondary' contacts. By default, the main contact's
      * values will be used for the merged contact if present. Otherwise, the secondary contact's value is
      * used.
-     * 
+     *
      * <p>For contact memberships and contact profile image, only the main contact's data is used.
-     * 
+     *
      * <p>When merging contacts that contain secure fields, the `event/contacts:write-sensitive` scope is
      * required.
-     * 
+     *
      * <p>**Conflict Resolution**
-     * 
+     *
      * <p>* **contactFields**: A conflict arises for a contact field if it is empty in the main contact, two
      * secondary contacts are provided, and both secondary contacts have values for the field.
      * - You must provide the fieldName of the conflicted field and the ID of the contact whose value is to
@@ -265,7 +259,7 @@ public class MergeContactsRequest {
      * - Attendees with a 'No Response' or 'Visited' status whose linked contacts are not chosen in this
      * step will be deleted. Attendees with other statuses will be kept but will be associated with an
      * inactive contact.
-     * 
+     *
      * <p>* **surveys**: A conflict arises for a survey containing respondents associated with at least two of
      * the provided contacts.
      * - You must provide the ID of the conflicted survey and the ID of the contact whose respondent will
@@ -285,7 +279,6 @@ public class MergeContactsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -295,33 +288,29 @@ public class MergeContactsRequest {
             return false;
         }
         MergeContactsRequest other = (MergeContactsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.contactMerge, other.contactMerge);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.contactMerge, other.contactMerge);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, contactMerge);
+        return Utils.enhancedHash(id, contactMerge);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MergeContactsRequest.class,
-                "id", id,
-                "contactMerge", contactMerge);
+        return Utils.toString(MergeContactsRequest.class, "id", id, "contactMerge", contactMerge);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ContactMerge contactMerge;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -336,14 +325,14 @@ public class MergeContactsRequest {
          * Merge the 'main' contact with one or two other 'secondary' contacts. By default, the main contact's
          * values will be used for the merged contact if present. Otherwise, the secondary contact's value is
          * used.
-         * 
+         *
          * <p>For contact memberships and contact profile image, only the main contact's data is used.
-         * 
+         *
          * <p>When merging contacts that contain secure fields, the `event/contacts:write-sensitive` scope is
          * required.
-         * 
+         *
          * <p>**Conflict Resolution**
-         * 
+         *
          * <p>* **contactFields**: A conflict arises for a contact field if it is empty in the main contact, two
          * secondary contacts are provided, and both secondary contacts have values for the field.
          * - You must provide the fieldName of the conflicted field and the ID of the contact whose value is to
@@ -391,7 +380,7 @@ public class MergeContactsRequest {
          * - Attendees with a 'No Response' or 'Visited' status whose linked contacts are not chosen in this
          * step will be deleted. Attendees with other statuses will be kept but will be associated with an
          * inactive contact.
-         * 
+         *
          * <p>* **surveys**: A conflict arises for a survey containing respondents associated with at least two of
          * the provided contacts.
          * - You must provide the ID of the conflicted survey and the ID of the contact whose respondent will
@@ -412,9 +401,7 @@ public class MergeContactsRequest {
         }
 
         public MergeContactsRequest build() {
-            return new MergeContactsRequest(
-                id, contactMerge);
+            return new MergeContactsRequest(id, contactMerge);
         }
-
     }
 }

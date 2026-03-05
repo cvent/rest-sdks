@@ -2,6 +2,14 @@
 
 Defines the agenda item types of a meeting room requirement.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.MeetingRoomAgendaItemTypeJson;
+
+MeetingRoomAgendaItemTypeJson value = MeetingRoomAgendaItemTypeJson.BREAK;
+```
+
 
 ## Values
 

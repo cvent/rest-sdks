@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityContactJson
- * 
+ *
  * <p>An activity contact.
  */
 public class ActivityContactJson {
@@ -49,7 +49,7 @@ public class ActivityContactJson {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public ActivityContactJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class ActivityContactJson {
         return new Builder();
     }
 
-
     /**
      * The first name of the attendee.
      */
@@ -87,7 +86,6 @@ public class ActivityContactJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * The last name of the attendee.
@@ -97,7 +95,6 @@ public class ActivityContactJson {
         return this;
     }
 
-
     /**
      * The email address of the attendee.
      */
@@ -105,7 +102,6 @@ public class ActivityContactJson {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class ActivityContactJson {
             return false;
         }
         ActivityContactJson other = (ActivityContactJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, email);
+        return Utils.enhancedHash(firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityContactJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(ActivityContactJson.class, "firstName", firstName, "lastName", lastName, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -146,7 +137,7 @@ public class ActivityContactJson {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class ActivityContactJson {
         }
 
         public ActivityContactJson build() {
-            return new ActivityContactJson(
-                firstName, lastName, email);
+            return new ActivityContactJson(firstName, lastName, email);
         }
-
     }
 }

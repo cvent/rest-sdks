@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetCustomFieldRequest {
     /**
      * The unique identifier of a custom field.
@@ -20,10 +19,9 @@ public class GetCustomFieldRequest {
     private String customFieldId;
 
     @JsonCreator
-    public GetCustomFieldRequest(
-            @Nonnull String customFieldId) {
+    public GetCustomFieldRequest(@Nonnull String customFieldId) {
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetCustomFieldRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a custom field.
      */
@@ -45,7 +42,6 @@ public class GetCustomFieldRequest {
         this.customFieldId = Utils.checkNotNull(customFieldId, "customFieldId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetCustomFieldRequest {
             return false;
         }
         GetCustomFieldRequest other = (GetCustomFieldRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId);
+        return Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            customFieldId);
+        return Utils.enhancedHash(customFieldId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCustomFieldRequest.class,
-                "customFieldId", customFieldId);
+        return Utils.toString(GetCustomFieldRequest.class, "customFieldId", customFieldId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String customFieldId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetCustomFieldRequest {
         }
 
         public GetCustomFieldRequest build() {
-            return new GetCustomFieldRequest(
-                customFieldId);
+            return new GetCustomFieldRequest(customFieldId);
         }
-
     }
 }

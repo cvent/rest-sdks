@@ -2,6 +2,14 @@
 
 Describes the availability of the event survey
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = EventSurveyAvailabilityJson.EventRegistrants;
+```
+
 
 ## Values
 

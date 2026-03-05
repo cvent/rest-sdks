@@ -3,12 +3,11 @@
  */
 package com.cvent.utils;
 
-
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Utility class for defining async hook interfaces.
@@ -56,9 +55,10 @@ public final class AsyncHook {
          * @param response response to be transformed
          * @return transformed response
          */
-        CompletableFuture<HttpResponse<Blob>> afterSuccess(Hook.AfterSuccessContext context, HttpResponse<Blob> response);
+        CompletableFuture<HttpResponse<Blob>> afterSuccess(
+                Hook.AfterSuccessContext context, HttpResponse<Blob> response);
 
-        AfterSuccess DEFAULT = (context, response) ->  CompletableFuture.completedFuture(response);
+        AfterSuccess DEFAULT = (context, response) -> CompletableFuture.completedFuture(response);
     }
 
     /**
@@ -79,13 +79,11 @@ public final class AsyncHook {
          * @return HTTP response if method decides that an exception is not to be thrown
          */
         CompletableFuture<HttpResponse<Blob>> afterError(
-                Hook.AfterErrorContext context,
-                HttpResponse<Blob> response,
-                Throwable error);
+                Hook.AfterErrorContext context, HttpResponse<Blob> response, Throwable error);
 
         AfterError DEFAULT = (context, response, error) -> Optional.ofNullable(response)
-                    .map(CompletableFuture::completedFuture)
-                    .orElse(CompletableFuture.failedFuture(error));
+                .map(CompletableFuture::completedFuture)
+                .orElse(CompletableFuture.failedFuture(error));
     }
 
     public static final class IdempotencyHook implements BeforeRequest {

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListDonationItemsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListDonationItemsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable DonationItemsPaginatedResponse donationItemsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.donationItemsPaginatedResponse = donationItemsPaginatedResponse;
     }
-    
+
     public ListDonationItemsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListDonationItemsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListDonationItemsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListDonationItemsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListDonationItemsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of donation items.
      */
-    public ListDonationItemsResponse withDonationItemsPaginatedResponse(@Nullable DonationItemsPaginatedResponse donationItemsPaginatedResponse) {
+    public ListDonationItemsResponse withDonationItemsPaginatedResponse(
+            @Nullable DonationItemsPaginatedResponse donationItemsPaginatedResponse) {
         this.donationItemsPaginatedResponse = donationItemsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListDonationItemsResponse implements Response {
             return false;
         }
         ListDonationItemsResponse other = (ListDonationItemsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.donationItemsPaginatedResponse, other.donationItemsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.donationItemsPaginatedResponse, other.donationItemsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            donationItemsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, donationItemsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListDonationItemsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "donationItemsPaginatedResponse", donationItemsPaginatedResponse);
+        return Utils.toString(
+                ListDonationItemsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "donationItemsPaginatedResponse",
+                donationItemsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListDonationItemsResponse implements Response {
         private DonationItemsPaginatedResponse donationItemsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class ListDonationItemsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of donation items.
          */
-        public Builder donationItemsPaginatedResponse(@Nullable DonationItemsPaginatedResponse donationItemsPaginatedResponse) {
+        public Builder donationItemsPaginatedResponse(
+                @Nullable DonationItemsPaginatedResponse donationItemsPaginatedResponse) {
             this.donationItemsPaginatedResponse = donationItemsPaginatedResponse;
             return this;
         }
 
         public ListDonationItemsResponse build() {
-            return new ListDonationItemsResponse(
-                contentType, statusCode, rawResponse,
-                donationItemsPaginatedResponse);
+            return new ListDonationItemsResponse(contentType, statusCode, rawResponse, donationItemsPaginatedResponse);
         }
-
     }
 }

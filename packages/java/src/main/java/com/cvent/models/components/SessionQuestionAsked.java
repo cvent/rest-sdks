@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SessionQuestionAsked
- * 
+ *
  * <p>The question asked activity details for the session.
  */
 public class SessionQuestionAsked {
@@ -69,10 +69,9 @@ public class SessionQuestionAsked {
         this.votes = votes;
         this.anonymous = anonymous;
     }
-    
+
     public SessionQuestionAsked() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -114,7 +113,6 @@ public class SessionQuestionAsked {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -122,7 +120,6 @@ public class SessionQuestionAsked {
         this.session = session;
         return this;
     }
-
 
     /**
      * The question asked in a session.
@@ -132,7 +129,6 @@ public class SessionQuestionAsked {
         return this;
     }
 
-
     /**
      * The platform used by the user.
      */
@@ -140,7 +136,6 @@ public class SessionQuestionAsked {
         this.platform = platform;
         return this;
     }
-
 
     /**
      * The number of votes for a question.
@@ -150,7 +145,6 @@ public class SessionQuestionAsked {
         return this;
     }
 
-
     /**
      * True indicates the question was posted anonymously.
      */
@@ -158,7 +152,6 @@ public class SessionQuestionAsked {
         this.anonymous = anonymous;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -169,33 +162,36 @@ public class SessionQuestionAsked {
             return false;
         }
         SessionQuestionAsked other = (SessionQuestionAsked) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.votes, other.votes) &&
-            Utils.enhancedDeepEquals(this.anonymous, other.anonymous);
+        return Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.votes, other.votes)
+                && Utils.enhancedDeepEquals(this.anonymous, other.anonymous);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session, question, platform,
-            votes, anonymous);
+        return Utils.enhancedHash(session, question, platform, votes, anonymous);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionQuestionAsked.class,
-                "session", session,
-                "question", question,
-                "platform", platform,
-                "votes", votes,
-                "anonymous", anonymous);
+        return Utils.toString(
+                SessionQuestionAsked.class,
+                "session",
+                session,
+                "question",
+                question,
+                "platform",
+                platform,
+                "votes",
+                votes,
+                "anonymous",
+                anonymous);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity7 session;
 
@@ -208,7 +204,7 @@ public class SessionQuestionAsked {
         private Boolean anonymous;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -252,10 +248,7 @@ public class SessionQuestionAsked {
         }
 
         public SessionQuestionAsked build() {
-            return new SessionQuestionAsked(
-                session, question, platform,
-                votes, anonymous);
+            return new SessionQuestionAsked(session, question, platform, votes, anonymous);
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AssociatedRegistrationPathJson
- * 
+ *
  * <p>Represents the details of a registration path.
  */
 public class AssociatedRegistrationPathJson {
@@ -24,10 +24,8 @@ public class AssociatedRegistrationPathJson {
     private String id;
 
     @JsonCreator
-    public AssociatedRegistrationPathJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AssociatedRegistrationPathJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class AssociatedRegistrationPathJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier of the registration path.
      */
@@ -49,7 +46,6 @@ public class AssociatedRegistrationPathJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class AssociatedRegistrationPathJson {
             return false;
         }
         AssociatedRegistrationPathJson other = (AssociatedRegistrationPathJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssociatedRegistrationPathJson.class,
-                "id", id);
+        return Utils.toString(AssociatedRegistrationPathJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class AssociatedRegistrationPathJson {
         }
 
         public AssociatedRegistrationPathJson build() {
-            return new AssociatedRegistrationPathJson(
-                id);
+            return new AssociatedRegistrationPathJson(id);
         }
-
     }
 }

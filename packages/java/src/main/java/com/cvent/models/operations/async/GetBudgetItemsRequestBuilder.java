@@ -40,7 +40,7 @@ public class GetBudgetItemsRequestBuilder {
     private GetBudgetItemsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetBudgetItemsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetBudgetItemsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetBudgetItemsResponse> call() {
-        AsyncRequestOperation<GetBudgetItemsRequest, GetBudgetItemsResponse> operation
-              = new GetBudgetItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBudgetItemsRequest, GetBudgetItemsResponse> operation =
+                new GetBudgetItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetBudgetItemsRequestBuilder {
      */
     public Publisher<GetBudgetItemsResponse> callAsPublisher() {
         GetBudgetItemsRequest request = this.request;
-        AsyncRequestOperation<GetBudgetItemsRequest, GetBudgetItemsResponse> operation
-              = new GetBudgetItems.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetBudgetItemsRequest, GetBudgetItemsResponse> operation =
+                new GetBudgetItems.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetBudgetItemsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetBudgetItemsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetBudgetItemsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

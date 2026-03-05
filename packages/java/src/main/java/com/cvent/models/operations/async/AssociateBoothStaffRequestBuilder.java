@@ -30,7 +30,7 @@ public class AssociateBoothStaffRequestBuilder {
     private AssociateBoothStaffRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AssociateBoothStaffRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AssociateBoothStaffRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AssociateBoothStaffResponse> call() {
-        AsyncRequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation
-              = new AssociateBoothStaff.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation =
+                new AssociateBoothStaff.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * AttendeeAddJson
- * 
+ *
  * <p>Model representing an attendee to be added to an event. The attendee's assigned status determines if
  * this add action is a registration or an invite.
  */
@@ -101,7 +101,7 @@ public class AttendeeAddJson {
     /**
      * Denotes the status of an attendee being added. No Response: The attendee was added to an invitation
      * list but hasn't taken any action. Accepted: The attendee is registered for the event.
-     * 
+     *
      * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
      * waiting to be approved by the planner.
      */
@@ -149,7 +149,7 @@ public class AttendeeAddJson {
 
     /**
      * Represents the method by which an attendee registered for the event.
-     * 
+     *
      * <p>- Administrator Responded: The invitee was registered by another contact acting as their
      * administrator.
      * - API-Responded: The invitee was registered through a custom process configured via an API
@@ -169,7 +169,7 @@ public class AttendeeAddJson {
      * - Post Event: The invitee was registered by an account user after the event's end date or while the
      * event was in Completed status.
      * - Self-Responded: The invitee registered themselves through a weblink or invitation.
-     * 
+     *
      * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -195,10 +195,9 @@ public class AttendeeAddJson {
             @JsonProperty("primaryId") @Nullable String primaryId,
             @JsonProperty("invitedBy") @Nullable AttendeeInvitedByJson invitedBy,
             @JsonProperty("responseMethod") @Nullable AttendeeResponseMethodJson responseMethod) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.contact = Optional.ofNullable(contact)
-            .orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.contact =
+                Optional.ofNullable(contact).orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
         this.invitationList = invitationList;
         this.referenceId = referenceId;
         this.note = note;
@@ -207,8 +206,7 @@ public class AttendeeAddJson {
         this.visibility = visibility;
         this.answers = answers;
         this.sendEmail = sendEmail;
-        this.status = Optional.ofNullable(status)
-            .orElse(Builder._SINGLETON_VALUE_Status.value());
+        this.status = Optional.ofNullable(status).orElse(Builder._SINGLETON_VALUE_Status.value());
         this.registrationPath = registrationPath;
         this.registrationType = registrationType;
         this.guest = guest;
@@ -216,16 +214,9 @@ public class AttendeeAddJson {
         this.invitedBy = invitedBy;
         this.responseMethod = responseMethod;
     }
-    
-    public AttendeeAddJson(
-            @Nonnull AttendeeAddJsonEvent event,
-            @Nonnull AttendeeAddJsonContact contact) {
-        this(event, contact, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+
+    public AttendeeAddJson(@Nonnull AttendeeAddJsonEvent event, @Nonnull AttendeeAddJsonContact contact) {
+        this(event, contact, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -306,7 +297,7 @@ public class AttendeeAddJson {
     /**
      * Denotes the status of an attendee being added. No Response: The attendee was added to an invitation
      * list but hasn't taken any action. Accepted: The attendee is registered for the event.
-     * 
+     *
      * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
      * waiting to be approved by the planner.
      */
@@ -354,7 +345,7 @@ public class AttendeeAddJson {
 
     /**
      * Represents the method by which an attendee registered for the event.
-     * 
+     *
      * <p>- Administrator Responded: The invitee was registered by another contact acting as their
      * administrator.
      * - API-Responded: The invitee was registered through a custom process configured via an API
@@ -374,7 +365,7 @@ public class AttendeeAddJson {
      * - Post Event: The invitee was registered by an account user after the event's end date or while the
      * event was in Completed status.
      * - Self-Responded: The invitee registered themselves through a weblink or invitation.
-     * 
+     *
      * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
      */
     public Optional<AttendeeResponseMethodJson> responseMethod() {
@@ -385,7 +376,6 @@ public class AttendeeAddJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the event associated with the attendee.
      */
@@ -393,7 +383,6 @@ public class AttendeeAddJson {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The ID of the address book contact associated with the attendee.
@@ -403,7 +392,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * The ID of the invitation list associated with the attendee.
      */
@@ -411,7 +399,6 @@ public class AttendeeAddJson {
         this.invitationList = invitationList;
         return this;
     }
-
 
     /**
      * The reference ID of an attendee. A planner determined string used to track which link attendee's
@@ -422,7 +409,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * A planner created note for an attendee, used to track details about the attendee.
      */
@@ -431,7 +417,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * The ID of the administrator contact whom registered this attendee.
      */
@@ -439,7 +424,6 @@ public class AttendeeAddJson {
         this.administrator = administrator;
         return this;
     }
-
 
     /**
      * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
@@ -450,7 +434,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
      * visible. Public: Their profile is visible.
@@ -460,7 +443,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * The list of answers to the attendee's registration questions.
      */
@@ -468,7 +450,6 @@ public class AttendeeAddJson {
         this.answers = answers;
         return this;
     }
-
 
     /**
      * True indicates a confirmation email should be sent to the attendee. Cancelled attendees will not
@@ -480,11 +461,10 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * Denotes the status of an attendee being added. No Response: The attendee was added to an invitation
      * list but hasn't taken any action. Accepted: The attendee is registered for the event.
-     * 
+     *
      * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
      * waiting to be approved by the planner.
      */
@@ -492,7 +472,6 @@ public class AttendeeAddJson {
         this.status = status;
         return this;
     }
-
 
     /**
      * The attendee's registration path. Registration paths control the registration experience of the
@@ -503,7 +482,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * The attendee's registration type. Registration type controls pricing, agenda item availability, and
      * registration experience.
@@ -513,7 +491,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * True indicates the attendee is a guest of another attendee.
      */
@@ -521,7 +498,6 @@ public class AttendeeAddJson {
         this.guest = guest;
         return this;
     }
-
 
     /**
      * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
@@ -532,7 +508,6 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * Method by which the attendee was invited to the event.
      */
@@ -541,10 +516,9 @@ public class AttendeeAddJson {
         return this;
     }
 
-
     /**
      * Represents the method by which an attendee registered for the event.
-     * 
+     *
      * <p>- Administrator Responded: The invitee was registered by another contact acting as their
      * administrator.
      * - API-Responded: The invitee was registered through a custom process configured via an API
@@ -564,14 +538,13 @@ public class AttendeeAddJson {
      * - Post Event: The invitee was registered by an account user after the event's end date or while the
      * event was in Completed status.
      * - Self-Responded: The invitee registered themselves through a weblink or invitation.
-     * 
+     *
      * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
      */
     public AttendeeAddJson withResponseMethod(@Nullable AttendeeResponseMethodJson responseMethod) {
         this.responseMethod = responseMethod;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -582,61 +555,89 @@ public class AttendeeAddJson {
             return false;
         }
         AttendeeAddJson other = (AttendeeAddJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.invitationList, other.invitationList) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.administrator, other.administrator) &&
-            Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem) &&
-            Utils.enhancedDeepEquals(this.visibility, other.visibility) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.sendEmail, other.sendEmail) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.registrationPath, other.registrationPath) &&
-            Utils.enhancedDeepEquals(this.registrationType, other.registrationType) &&
-            Utils.enhancedDeepEquals(this.guest, other.guest) &&
-            Utils.enhancedDeepEquals(this.primaryId, other.primaryId) &&
-            Utils.enhancedDeepEquals(this.invitedBy, other.invitedBy) &&
-            Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.administrator, other.administrator)
+                && Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem)
+                && Utils.enhancedDeepEquals(this.visibility, other.visibility)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.sendEmail, other.sendEmail)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.registrationPath, other.registrationPath)
+                && Utils.enhancedDeepEquals(this.registrationType, other.registrationType)
+                && Utils.enhancedDeepEquals(this.guest, other.guest)
+                && Utils.enhancedDeepEquals(this.primaryId, other.primaryId)
+                && Utils.enhancedDeepEquals(this.invitedBy, other.invitedBy)
+                && Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, contact, invitationList,
-            referenceId, note, administrator,
-            admissionItem, visibility, answers,
-            sendEmail, status, registrationPath,
-            registrationType, guest, primaryId,
-            invitedBy, responseMethod);
+                event,
+                contact,
+                invitationList,
+                referenceId,
+                note,
+                administrator,
+                admissionItem,
+                visibility,
+                answers,
+                sendEmail,
+                status,
+                registrationPath,
+                registrationType,
+                guest,
+                primaryId,
+                invitedBy,
+                responseMethod);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAddJson.class,
-                "event", event,
-                "contact", contact,
-                "invitationList", invitationList,
-                "referenceId", referenceId,
-                "note", note,
-                "administrator", administrator,
-                "admissionItem", admissionItem,
-                "visibility", visibility,
-                "answers", answers,
-                "sendEmail", sendEmail,
-                "status", status,
-                "registrationPath", registrationPath,
-                "registrationType", registrationType,
-                "guest", guest,
-                "primaryId", primaryId,
-                "invitedBy", invitedBy,
-                "responseMethod", responseMethod);
+        return Utils.toString(
+                AttendeeAddJson.class,
+                "event",
+                event,
+                "contact",
+                contact,
+                "invitationList",
+                invitationList,
+                "referenceId",
+                referenceId,
+                "note",
+                note,
+                "administrator",
+                administrator,
+                "admissionItem",
+                admissionItem,
+                "visibility",
+                visibility,
+                "answers",
+                answers,
+                "sendEmail",
+                sendEmail,
+                "status",
+                status,
+                "registrationPath",
+                registrationPath,
+                "registrationType",
+                registrationType,
+                "guest",
+                guest,
+                "primaryId",
+                primaryId,
+                "invitedBy",
+                invitedBy,
+                "responseMethod",
+                responseMethod);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeAddJsonEvent event;
 
@@ -673,7 +674,7 @@ public class AttendeeAddJson {
         private AttendeeResponseMethodJson responseMethod;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -764,7 +765,7 @@ public class AttendeeAddJson {
         /**
          * Denotes the status of an attendee being added. No Response: The attendee was added to an invitation
          * list but hasn't taken any action. Accepted: The attendee is registered for the event.
-         * 
+         *
          * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
          * waiting to be approved by the planner.
          */
@@ -818,7 +819,7 @@ public class AttendeeAddJson {
 
         /**
          * Represents the method by which an attendee registered for the event.
-         * 
+         *
          * <p>- Administrator Responded: The invitee was registered by another contact acting as their
          * administrator.
          * - API-Responded: The invitee was registered through a custom process configured via an API
@@ -838,7 +839,7 @@ public class AttendeeAddJson {
          * - Post Event: The invitee was registered by an account user after the event's end date or while the
          * event was in Completed status.
          * - Self-Responded: The invitee registered themselves through a weblink or invitation.
-         * 
+         *
          * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
          */
         public Builder responseMethod(@Nullable AttendeeResponseMethodJson responseMethod) {
@@ -848,19 +849,26 @@ public class AttendeeAddJson {
 
         public AttendeeAddJson build() {
             return new AttendeeAddJson(
-                event, contact, invitationList,
-                referenceId, note, administrator,
-                admissionItem, visibility, answers,
-                sendEmail, status, registrationPath,
-                registrationType, guest, primaryId,
-                invitedBy, responseMethod);
+                    event,
+                    contact,
+                    invitationList,
+                    referenceId,
+                    note,
+                    administrator,
+                    admissionItem,
+                    visibility,
+                    answers,
+                    sendEmail,
+                    status,
+                    registrationPath,
+                    registrationType,
+                    guest,
+                    primaryId,
+                    invitedBy,
+                    responseMethod);
         }
 
-
         private static final LazySingletonValue<AttendeeAddStatusJson> _SINGLETON_VALUE_Status =
-                new LazySingletonValue<>(
-                        "status",
-                        "\"No Response\"",
-                        new TypeReference<AttendeeAddStatusJson>() {});
+                new LazySingletonValue<>("status", "\"No Response\"", new TypeReference<AttendeeAddStatusJson>() {});
     }
 }

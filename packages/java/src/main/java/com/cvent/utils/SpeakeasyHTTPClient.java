@@ -4,7 +4,6 @@
 package com.cvent.utils;
 
 import com.cvent.utils.Blob;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
@@ -18,9 +17,9 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
-import java.util.concurrent.CompletableFuture;
 
 public class SpeakeasyHTTPClient implements HTTPClient {
 
@@ -33,7 +32,7 @@ public class SpeakeasyHTTPClient implements HTTPClient {
 
     // uppercase
     private static Set<String> redactedHeaders = Set.of("AUTHORIZATION", "X-API-KEY");
-    
+
     private static Consumer<? super String> logger = System.out::println;
 
     private final HttpClient client = HttpClient.newHttpClient();
@@ -83,9 +82,8 @@ public class SpeakeasyHTTPClient implements HTTPClient {
      * @see #setDebugLogging(boolean)
      */
     public static void setRedactedHeaders(Collection<String> headerNames) {
-        redactedHeaders = headerNames.stream() //
-                .map(x -> x.toUpperCase(Locale.ENGLISH)) //
-                .collect(Collectors.toSet());
+        redactedHeaders =
+                headerNames.stream().map(x -> x.toUpperCase(Locale.ENGLISH)).collect(Collectors.toSet());
     }
 
     /**
@@ -94,8 +92,8 @@ public class SpeakeasyHTTPClient implements HTTPClient {
      * <p>
      * By default, {@code Authorization} headers are redacted in the logs (printed with a value
      * of {@code [*******]}).
-     * 
-     * @param headerName the name (case-insensitive) of the header whose value 
+     *
+     * @param headerName the name (case-insensitive) of the header whose value
      *                   will be redacted in the logs
      * @see #setDebugLogging(boolean)
      * @see #setRedactedHeaders(Collection)
@@ -129,24 +127,25 @@ public class SpeakeasyHTTPClient implements HTTPClient {
             request = logRequest(request, true);
         }
         return client.sendAsync(request, HttpResponse.BodyHandlers.ofPublisher())
-                .thenApply(response ->
-                        // TODO: log responses when helper for Blob is setup
-                        new ResponseWithBody<>(response, Blob::from));
+                .thenApply(response -> // TODO: log responses when helper for Blob is setup
+                new ResponseWithBody<>(response, Blob::from));
     }
 
     private HttpRequest logRequest(HttpRequest request, boolean logBody) {
         log("Sending request: " + request);
         log("Request headers: " + redactHeaders(request.headers()));
         // only log the body if logBody is true and the body is present and the content type is JSON
-        if (logBody && request.bodyPublisher().isPresent() && request.headers() //
-                .firstValue("Content-Type") //
-                .filter(x -> x.equals("application/json") || x.equals("text/plain")).isPresent()) {
+        if (logBody
+                && request.bodyPublisher().isPresent()
+                && request.headers()
+                        .firstValue("Content-Type")
+                        .filter(x -> x.equals("application/json") || x.equals("text/plain"))
+                        .isPresent()) {
             // we read the body and ensure that the BodyPublisher is rebuilt to pass to the
             // http client
             byte[] body = Helpers.bodyBytes(request);
-            request = Helpers //
-                    .copy(request) //
-                    .method(request.method(), BodyPublishers.ofByteArray(body)) //
+            request = Helpers.copy(request)
+                    .method(request.method(), BodyPublishers.ofByteArray(body))
                     .build();
             // note that in the case of text/plain a different encoding from UTF-8
             // may be in use but we just log the bytes as UTF-8. Unexpected encodings
@@ -156,7 +155,8 @@ public class SpeakeasyHTTPClient implements HTTPClient {
         return request;
     }
 
-    private static HttpResponse<InputStream> logResponse(HttpResponse<InputStream> response, boolean logBody) throws IOException {
+    private static HttpResponse<InputStream> logResponse(HttpResponse<InputStream> response, boolean logBody)
+            throws IOException {
         String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
         log("Received response: " + response);
         log("Response headers: " + redactHeaders(response.headers()));
@@ -184,10 +184,8 @@ public class SpeakeasyHTTPClient implements HTTPClient {
     }
 
     private static String redactHeaders(HttpHeaders headers) {
-        return "{" + headers.map() //
-                .entrySet() //
-                .stream() //
-                .map(entry -> {
+        return "{"
+                + headers.map().entrySet().stream().map(entry -> {
                     final String value;
                     if (redactedHeaders.contains(entry.getKey().toUpperCase(Locale.ENGLISH))) {
                         value = "[******]";
@@ -195,8 +193,8 @@ public class SpeakeasyHTTPClient implements HTTPClient {
                         value = String.valueOf(entry.getValue());
                     }
                     return entry.getKey() + "=" + value;
-                }) //
-                .collect(Collectors.joining(", ")) + "}";
+                }).collect(Collectors.joining(", "))
+                + "}";
     }
 
     private static void log(String message) {

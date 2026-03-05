@@ -14,9 +14,9 @@ import java.util.Optional;
 
 /**
  * ExistingVideoResponseUUID
- * 
+ *
  * <p>Event video asset was created with. This field has been deprecated. Use events instead.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -28,10 +28,8 @@ public class ExistingVideoResponseUUID {
     private String id;
 
     @JsonCreator
-    public ExistingVideoResponseUUID(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public ExistingVideoResponseUUID(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -45,7 +43,6 @@ public class ExistingVideoResponseUUID {
         return new Builder();
     }
 
-
     /**
      * The ID of an event.
      */
@@ -53,7 +50,6 @@ public class ExistingVideoResponseUUID {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -64,29 +60,26 @@ public class ExistingVideoResponseUUID {
             return false;
         }
         ExistingVideoResponseUUID other = (ExistingVideoResponseUUID) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingVideoResponseUUID.class,
-                "id", id);
+        return Utils.toString(ExistingVideoResponseUUID.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -98,9 +91,7 @@ public class ExistingVideoResponseUUID {
         }
 
         public ExistingVideoResponseUUID build() {
-            return new ExistingVideoResponseUUID(
-                id);
+            return new ExistingVideoResponseUUID(id);
         }
-
     }
 }

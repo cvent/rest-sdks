@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEmailTemplatesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable EmailTemplatePaginatedResponse emailTemplatePaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.emailTemplatePaginatedResponse = emailTemplatePaginatedResponse;
     }
-    
+
     public GetEmailTemplatesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of email templates for a campaign.
      */
-    public GetEmailTemplatesResponse withEmailTemplatePaginatedResponse(@Nullable EmailTemplatePaginatedResponse emailTemplatePaginatedResponse) {
+    public GetEmailTemplatesResponse withEmailTemplatePaginatedResponse(
+            @Nullable EmailTemplatePaginatedResponse emailTemplatePaginatedResponse) {
         this.emailTemplatePaginatedResponse = emailTemplatePaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
             return false;
         }
         GetEmailTemplatesResponse other = (GetEmailTemplatesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.emailTemplatePaginatedResponse, other.emailTemplatePaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.emailTemplatePaginatedResponse, other.emailTemplatePaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            emailTemplatePaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, emailTemplatePaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEmailTemplatesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "emailTemplatePaginatedResponse", emailTemplatePaginatedResponse);
+        return Utils.toString(
+                GetEmailTemplatesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "emailTemplatePaginatedResponse",
+                emailTemplatePaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
         private EmailTemplatePaginatedResponse emailTemplatePaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class GetEmailTemplatesResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of email templates for a campaign.
          */
-        public Builder emailTemplatePaginatedResponse(@Nullable EmailTemplatePaginatedResponse emailTemplatePaginatedResponse) {
+        public Builder emailTemplatePaginatedResponse(
+                @Nullable EmailTemplatePaginatedResponse emailTemplatePaginatedResponse) {
             this.emailTemplatePaginatedResponse = emailTemplatePaginatedResponse;
             return this;
         }
 
         public GetEmailTemplatesResponse build() {
-            return new GetEmailTemplatesResponse(
-                contentType, statusCode, rawResponse,
-                emailTemplatePaginatedResponse);
+            return new GetEmailTemplatesResponse(contentType, statusCode, rawResponse, emailTemplatePaginatedResponse);
         }
-
     }
 }

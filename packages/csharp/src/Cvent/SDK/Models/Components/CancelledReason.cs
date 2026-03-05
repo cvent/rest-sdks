@@ -18,38 +18,28 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CancelledReason
     {
-        [JsonProperty("EVENT_CANCELLED")]
-        EventCancelled,
-        [JsonProperty("REQUIREMENTS_CHANGED")]
-        RequirementsChanged,
-        [JsonProperty("OTHER")]
-        Other,
-        [JsonProperty("BOOKED_ANOTHER_VENUE_DESTINATION")]
-        BookedAnotherVenueDestination,
-        [JsonProperty("CLIENT_BOOKED_DIRECTLY")]
-        ClientBookedDirectly,
-        [JsonProperty("EVENT_POSTPONED")]
-        EventPostponed,
-        [JsonProperty("MEDICAL_EMERGENCY")]
-        MedicalEmergency,
-        [JsonProperty("EPIDEMIC_OR_PANDEMIC")]
-        EpidemicOrPandemic,
-        [JsonProperty("NATURAL_DISASTER")]
-        NaturalDisaster,
-        [JsonProperty("POLITICAL_OR_CIVIL_UNREST")]
-        PoliticalOrCivilUnrest,
+        [JsonProperty("EVENT_CANCELLED")] EventCancelled,
+        [JsonProperty("REQUIREMENTS_CHANGED")] RequirementsChanged,
+        [JsonProperty("OTHER")] Other,
+        [JsonProperty("BOOKED_ANOTHER_VENUE_DESTINATION")] BookedAnotherVenueDestination,
+        [JsonProperty("CLIENT_BOOKED_DIRECTLY")] ClientBookedDirectly,
+        [JsonProperty("EVENT_POSTPONED")] EventPostponed,
+        [JsonProperty("MEDICAL_EMERGENCY")] MedicalEmergency,
+        [JsonProperty("EPIDEMIC_OR_PANDEMIC")] EpidemicOrPandemic,
+        [JsonProperty("NATURAL_DISASTER")] NaturalDisaster,
+        [JsonProperty("POLITICAL_OR_CIVIL_UNREST")] PoliticalOrCivilUnrest,
     }
 
     public static class CancelledReasonExtension
     {
         public static string Value(this CancelledReason value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CancelledReason ToEnum(this string value)
         {
-            foreach(var field in typeof(CancelledReason).GetFields())
+            foreach (var field in typeof(CancelledReason).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

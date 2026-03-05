@@ -2,6 +2,14 @@
 
 Denotes the status assigned to a budget item.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = BudgetStatusJson.Estimated;
+```
+
 
 ## Values
 

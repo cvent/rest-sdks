@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AppointmentAvailabilityTimeRangeJson
- * 
+ *
  * <p>Time range for an appointment availability.
  */
 public class AppointmentAvailabilityTimeRangeJson {
@@ -49,7 +49,7 @@ public class AppointmentAvailabilityTimeRangeJson {
         this.end = end;
         this.type = type;
     }
-    
+
     public AppointmentAvailabilityTimeRangeJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class AppointmentAvailabilityTimeRangeJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 formatted start datetime of the time range, in the event's timezone.
      */
@@ -87,7 +86,6 @@ public class AppointmentAvailabilityTimeRangeJson {
         this.start = start;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted end datetime of the time range, in the event's timezone.
@@ -97,7 +95,6 @@ public class AppointmentAvailabilityTimeRangeJson {
         return this;
     }
 
-
     /**
      * Denotes whether an availability time range represents when an attendee is available or unavailable.
      */
@@ -105,7 +102,6 @@ public class AppointmentAvailabilityTimeRangeJson {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class AppointmentAvailabilityTimeRangeJson {
             return false;
         }
         AppointmentAvailabilityTimeRangeJson other = (AppointmentAvailabilityTimeRangeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            start, end, type);
+        return Utils.enhancedHash(start, end, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentAvailabilityTimeRangeJson.class,
-                "start", start,
-                "end", end,
-                "type", type);
+        return Utils.toString(AppointmentAvailabilityTimeRangeJson.class, "start", start, "end", end, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String start;
 
@@ -146,7 +137,7 @@ public class AppointmentAvailabilityTimeRangeJson {
         private AppointmentAvailabilityTypeJson type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class AppointmentAvailabilityTimeRangeJson {
         }
 
         public AppointmentAvailabilityTimeRangeJson build() {
-            return new AppointmentAvailabilityTimeRangeJson(
-                start, end, type);
+            return new AppointmentAvailabilityTimeRangeJson(start, end, type);
         }
-
     }
 }

@@ -3,9 +3,9 @@
  */
 package com.cvent.utils.pagination;
 
-import com.jayway.jsonpath.ReadContext;
-
 import static com.cvent.utils.Utils.castLong;
+
+import com.jayway.jsonpath.ReadContext;
 
 // Internal API only
 
@@ -29,10 +29,7 @@ public class PageTracker<ProgressParamT extends Number> implements ProgressTrack
      * @param pageType           The class of the numeric type to use (e.g., Integer.class, Long.class)
      * @param fromPage           Page number to start pagination from (0-based or 1-based, depending on API)
      */
-    public PageTracker(
-            String numPagesExpression,
-            Class<ProgressParamT> pageType,
-            long fromPage) {
+    public PageTracker(String numPagesExpression, Class<ProgressParamT> pageType, long fromPage) {
         this.numPagesExpression = numPagesExpression;
         this.pageType = pageType;
         this.currentPage = fromPage;

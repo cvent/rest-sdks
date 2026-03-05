@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * HousingEventSummaryList
- * 
+ *
  * <p>List of housing events with key information, providing a summarized view of each event.
  */
 public class HousingEventSummaryList {
@@ -32,12 +32,10 @@ public class HousingEventSummaryList {
 
     @JsonCreator
     public HousingEventSummaryList(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ZeroAllOf9> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ZeroAllOf9> data) {
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -58,7 +56,6 @@ public class HousingEventSummaryList {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -67,7 +64,6 @@ public class HousingEventSummaryList {
         return this;
     }
 
-
     /**
      * List of housing events with key information, providing a summarized view of each event.
      */
@@ -75,7 +71,6 @@ public class HousingEventSummaryList {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +81,28 @@ public class HousingEventSummaryList {
             return false;
         }
         HousingEventSummaryList other = (HousingEventSummaryList) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HousingEventSummaryList.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(HousingEventSummaryList.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<ZeroAllOf9> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +122,7 @@ public class HousingEventSummaryList {
         }
 
         public HousingEventSummaryList build() {
-            return new HousingEventSummaryList(
-                paging, data);
+            return new HousingEventSummaryList(paging, data);
         }
-
     }
 }

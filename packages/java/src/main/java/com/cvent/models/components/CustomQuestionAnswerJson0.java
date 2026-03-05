@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * CustomQuestionAnswerJson0
- * 
+ *
  * <p>Represents custom question associated with a travel proposal.
  */
 public class CustomQuestionAnswerJson0 {
@@ -40,7 +40,7 @@ public class CustomQuestionAnswerJson0 {
         this.question = question;
         this.answer = answer;
     }
-    
+
     public CustomQuestionAnswerJson0() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class CustomQuestionAnswerJson0 {
         return new Builder();
     }
 
-
     /**
      * Travel account that the proposal is responding to.
      */
@@ -72,7 +71,6 @@ public class CustomQuestionAnswerJson0 {
         return this;
     }
 
-
     /**
      * Hotel's answer to the program's custom question.
      */
@@ -80,7 +78,6 @@ public class CustomQuestionAnswerJson0 {
         this.answer = answer;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,29 @@ public class CustomQuestionAnswerJson0 {
             return false;
         }
         CustomQuestionAnswerJson0 other = (CustomQuestionAnswerJson0) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answer, other.answer);
+        return Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answer, other.answer);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, answer);
+        return Utils.enhancedHash(question, answer);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomQuestionAnswerJson0.class,
-                "question", question,
-                "answer", answer);
+        return Utils.toString(CustomQuestionAnswerJson0.class, "question", question, "answer", answer);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CustomQuestionAnswerJson0Question question;
 
         private String answer;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +130,7 @@ public class CustomQuestionAnswerJson0 {
         }
 
         public CustomQuestionAnswerJson0 build() {
-            return new CustomQuestionAnswerJson0(
-                question, answer);
+            return new CustomQuestionAnswerJson0(question, answer);
         }
-
     }
 }

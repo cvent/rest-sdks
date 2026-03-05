@@ -45,7 +45,7 @@ import jakarta.annotation.Nonnull;
  * information about the event and facilitate the approval of events. When a meeting request form is
  * submitted it becomes a meeting request. Use this API to view forms, create meeting requests and
  * track the status of meeting requests.
- * 
+ *
  * <p>**Legacy meeting request forms are not supported by this API.**
  */
 public class MeetingRequest {
@@ -60,7 +60,7 @@ public class MeetingRequest {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncMeetingRequest async() {
@@ -69,11 +69,11 @@ public class MeetingRequest {
 
     /**
      * Get MR by Event ID
-     * 
+     *
      * <p>Gets a meeting request connected to a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetMeetingRequestByEventIdRequestBuilder getMeetingRequestByEventId() {
@@ -82,28 +82,29 @@ public class MeetingRequest {
 
     /**
      * Get MR by Event ID
-     * 
+     *
      * <p>Gets a meeting request connected to a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetMeetingRequestByEventIdResponse getMeetingRequestByEventId(@Nonnull GetMeetingRequestByEventIdRequest request) {
-        RequestOperation<GetMeetingRequestByEventIdRequest, GetMeetingRequestByEventIdResponse> operation
-              = new GetMeetingRequestByEventId.Sync(sdkConfiguration, _headers);
+    public GetMeetingRequestByEventIdResponse getMeetingRequestByEventId(
+            @Nonnull GetMeetingRequestByEventIdRequest request) {
+        RequestOperation<GetMeetingRequestByEventIdRequest, GetMeetingRequestByEventIdResponse> operation =
+                new GetMeetingRequestByEventId.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List MR Forms
-     * 
+     *
      * <p>Get a paginated list of meeting request forms.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListMRFRequestBuilder listMRF() {
@@ -112,28 +113,27 @@ public class MeetingRequest {
 
     /**
      * List MR Forms
-     * 
+     *
      * <p>Get a paginated list of meeting request forms.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListMRFResponse listMRF(@Nonnull ListMRFRequest request) {
-        RequestOperation<ListMRFRequest, ListMRFResponse> operation
-              = new ListMRF.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListMRFRequest, ListMRFResponse> operation = new ListMRF.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get MR Form
-     * 
+     *
      * <p>Get a single meeting request form by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetMRFByIdRequestBuilder getMRFById() {
@@ -142,28 +142,28 @@ public class MeetingRequest {
 
     /**
      * Get MR Form
-     * 
+     *
      * <p>Get a single meeting request form by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetMRFByIdResponse getMRFById(@Nonnull GetMRFByIdRequest request) {
-        RequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation
-              = new GetMRFById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation =
+                new GetMRFById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create MR (Bulk)
-     * 
+     *
      * <p>Creates a collection of meeting requests for a given active form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateMeetingRequestRequestBuilder createMeetingRequest() {
@@ -172,29 +172,29 @@ public class MeetingRequest {
 
     /**
      * Create MR (Bulk)
-     * 
+     *
      * <p>Creates a collection of meeting requests for a given active form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateMeetingRequestResponse createMeetingRequest(@Nonnull CreateMeetingRequestRequest request) {
-        RequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation
-              = new CreateMeetingRequest.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation =
+                new CreateMeetingRequest.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update MR (Bulk)
-     * 
+     *
      * <p>Updates a collection of meeting requests for a given form, adding information to the existing
      * meeting requests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateMeetingRequestRequestBuilder updateMeetingRequest() {
@@ -203,29 +203,29 @@ public class MeetingRequest {
 
     /**
      * Update MR (Bulk)
-     * 
+     *
      * <p>Updates a collection of meeting requests for a given form, adding information to the existing
      * meeting requests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateMeetingRequestResponse updateMeetingRequest(@Nonnull UpdateMeetingRequestRequest request) {
-        RequestOperation<UpdateMeetingRequestRequest, UpdateMeetingRequestResponse> operation
-              = new UpdateMeetingRequest.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateMeetingRequestRequest, UpdateMeetingRequestResponse> operation =
+                new UpdateMeetingRequest.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List MR
-     * 
+     *
      * <p>Gets a paginated list of meeting requests for a given form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListMeetingRequestRequestBuilder listMeetingRequest() {
@@ -234,28 +234,28 @@ public class MeetingRequest {
 
     /**
      * List MR
-     * 
+     *
      * <p>Gets a paginated list of meeting requests for a given form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListMeetingRequestResponse listMeetingRequest(@Nonnull ListMeetingRequestRequest request) {
-        RequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation
-              = new ListMeetingRequest.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation =
+                new ListMeetingRequest.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get MR
-     * 
+     *
      * <p>Gets a single meeting request by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetMeetingRequestByIdRequestBuilder getMeetingRequestById() {
@@ -264,27 +264,27 @@ public class MeetingRequest {
 
     /**
      * Get MR
-     * 
+     *
      * <p>Gets a single meeting request by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetMeetingRequestByIdResponse getMeetingRequestById(@Nonnull GetMeetingRequestByIdRequest request) {
-        RequestOperation<GetMeetingRequestByIdRequest, GetMeetingRequestByIdResponse> operation
-              = new GetMeetingRequestById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetMeetingRequestByIdRequest, GetMeetingRequestByIdResponse> operation =
+                new GetMeetingRequestById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List MR Documents
-     * 
+     *
      * <p>Gets a paginated list of documents for a given meeting request ID. When a meeting request form is
      * submitted, it becomes a meeting request. Some meeting requests have document attachments.
-     * 
+     *
      * @return The call builder
      */
     public ListMeetingRequestDocumentsRequestBuilder listMeetingRequestDocuments() {
@@ -293,18 +293,18 @@ public class MeetingRequest {
 
     /**
      * List MR Documents
-     * 
+     *
      * <p>Gets a paginated list of documents for a given meeting request ID. When a meeting request form is
      * submitted, it becomes a meeting request. Some meeting requests have document attachments.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListMeetingRequestDocumentsResponse listMeetingRequestDocuments(@Nonnull ListMeetingRequestDocumentsRequest request) {
-        RequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation
-              = new ListMeetingRequestDocuments.Sync(sdkConfiguration, _headers);
+    public ListMeetingRequestDocumentsResponse listMeetingRequestDocuments(
+            @Nonnull ListMeetingRequestDocumentsRequest request) {
+        RequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation =
+                new ListMeetingRequestDocuments.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

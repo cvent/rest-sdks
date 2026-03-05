@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * OptOutJsonInput
- * 
+ *
  * <p>Details of an opt-out for a Contact.
  */
 public class OptOutJsonInput {
@@ -30,12 +30,10 @@ public class OptOutJsonInput {
     private Boolean optedOut;
 
     @JsonCreator
-    public OptOutJsonInput(
-            @JsonProperty("optedOut") @Nullable Boolean optedOut) {
-        this.optedOut = Optional.ofNullable(optedOut)
-            .orElse(Builder._SINGLETON_VALUE_OptedOut.value());
+    public OptOutJsonInput(@JsonProperty("optedOut") @Nullable Boolean optedOut) {
+        this.optedOut = Optional.ofNullable(optedOut).orElse(Builder._SINGLETON_VALUE_OptedOut.value());
     }
-    
+
     public OptOutJsonInput() {
         this(null);
     }
@@ -51,7 +49,6 @@ public class OptOutJsonInput {
         return new Builder();
     }
 
-
     /**
      * Used to denote if a contact has opted-out of receiving system generated emails.
      */
@@ -59,7 +56,6 @@ public class OptOutJsonInput {
         this.optedOut = optedOut;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -70,29 +66,26 @@ public class OptOutJsonInput {
             return false;
         }
         OptOutJsonInput other = (OptOutJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.optedOut, other.optedOut);
+        return Utils.enhancedDeepEquals(this.optedOut, other.optedOut);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            optedOut);
+        return Utils.enhancedHash(optedOut);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OptOutJsonInput.class,
-                "optedOut", optedOut);
+        return Utils.toString(OptOutJsonInput.class, "optedOut", optedOut);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean optedOut;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -104,15 +97,10 @@ public class OptOutJsonInput {
         }
 
         public OptOutJsonInput build() {
-            return new OptOutJsonInput(
-                optedOut);
+            return new OptOutJsonInput(optedOut);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_OptedOut =
-                new LazySingletonValue<>(
-                        "optedOut",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("optedOut", "false", new TypeReference<Boolean>() {});
     }
 }

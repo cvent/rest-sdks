@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * SessionLookup
- * 
+ *
  * <p>Lookup response object
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -53,7 +53,7 @@ public class SessionLookup {
         this.code = code;
         this.name = name;
     }
-    
+
     public SessionLookup() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class SessionLookup {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -91,7 +90,6 @@ public class SessionLookup {
         this.id = id;
         return this;
     }
-
 
     /**
      * Code / Abbreviation of the lookup item.
@@ -101,7 +99,6 @@ public class SessionLookup {
         return this;
     }
 
-
     /**
      * Name of the lookup item.
      */
@@ -109,7 +106,6 @@ public class SessionLookup {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +116,23 @@ public class SessionLookup {
             return false;
         }
         SessionLookup other = (SessionLookup) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, name);
+        return Utils.enhancedHash(id, code, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionLookup.class,
-                "id", id,
-                "code", code,
-                "name", name);
+        return Utils.toString(SessionLookup.class, "id", id, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -150,7 +141,7 @@ public class SessionLookup {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,9 +169,7 @@ public class SessionLookup {
         }
 
         public SessionLookup build() {
-            return new SessionLookup(
-                id, code, name);
+            return new SessionLookup(id, code, name);
         }
-
     }
 }

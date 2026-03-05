@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * VideoErrorCodeJson
- * 
+ *
  * <p>This is used to denote the error codes for a video entity.
  */
 public enum VideoErrorCodeJson {
@@ -29,13 +29,13 @@ public enum VideoErrorCodeJson {
     VideoErrorCodeJson(long value) {
         this.value = value;
     }
-    
+
     public long value() {
         return value;
     }
-    
+
     public static Optional<VideoErrorCodeJson> fromValue(long value) {
-        for (VideoErrorCodeJson o: VideoErrorCodeJson.values()) {
+        for (VideoErrorCodeJson o : VideoErrorCodeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum VideoErrorCodeJson {
         return Optional.empty();
     }
 }
-

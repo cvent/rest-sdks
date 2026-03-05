@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelBidDispositionAcceptedRoomJson
- * 
+ *
  * <p>Represents bid disposition's accepted room.
  */
 public class TravelBidDispositionAcceptedRoomJson {
@@ -50,7 +50,7 @@ public class TravelBidDispositionAcceptedRoomJson {
         this.lraRateAccepted = lraRateAccepted;
         this.nlraRateAccepted = nlraRateAccepted;
     }
-    
+
     public TravelBidDispositionAcceptedRoomJson() {
         this(null, null, null);
     }
@@ -80,15 +80,14 @@ public class TravelBidDispositionAcceptedRoomJson {
         return new Builder();
     }
 
-
     /**
      * ID of the property's room.
      */
-    public TravelBidDispositionAcceptedRoomJson withPropertyRoom(@Nullable TravelBidDispositionAcceptedRoomJsonPropertyRoom propertyRoom) {
+    public TravelBidDispositionAcceptedRoomJson withPropertyRoom(
+            @Nullable TravelBidDispositionAcceptedRoomJsonPropertyRoom propertyRoom) {
         this.propertyRoom = propertyRoom;
         return this;
     }
-
 
     /**
      * Indicates whether the LRA rates are accepted.
@@ -98,7 +97,6 @@ public class TravelBidDispositionAcceptedRoomJson {
         return this;
     }
 
-
     /**
      * Indicates whether the NLRA rates are accepted.
      */
@@ -106,7 +104,6 @@ public class TravelBidDispositionAcceptedRoomJson {
         this.nlraRateAccepted = nlraRateAccepted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +114,30 @@ public class TravelBidDispositionAcceptedRoomJson {
             return false;
         }
         TravelBidDispositionAcceptedRoomJson other = (TravelBidDispositionAcceptedRoomJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom) &&
-            Utils.enhancedDeepEquals(this.lraRateAccepted, other.lraRateAccepted) &&
-            Utils.enhancedDeepEquals(this.nlraRateAccepted, other.nlraRateAccepted);
+        return Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom)
+                && Utils.enhancedDeepEquals(this.lraRateAccepted, other.lraRateAccepted)
+                && Utils.enhancedDeepEquals(this.nlraRateAccepted, other.nlraRateAccepted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            propertyRoom, lraRateAccepted, nlraRateAccepted);
+        return Utils.enhancedHash(propertyRoom, lraRateAccepted, nlraRateAccepted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidDispositionAcceptedRoomJson.class,
-                "propertyRoom", propertyRoom,
-                "lraRateAccepted", lraRateAccepted,
-                "nlraRateAccepted", nlraRateAccepted);
+        return Utils.toString(
+                TravelBidDispositionAcceptedRoomJson.class,
+                "propertyRoom",
+                propertyRoom,
+                "lraRateAccepted",
+                lraRateAccepted,
+                "nlraRateAccepted",
+                nlraRateAccepted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelBidDispositionAcceptedRoomJsonPropertyRoom propertyRoom;
 
@@ -147,7 +146,7 @@ public class TravelBidDispositionAcceptedRoomJson {
         private Boolean nlraRateAccepted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +174,7 @@ public class TravelBidDispositionAcceptedRoomJson {
         }
 
         public TravelBidDispositionAcceptedRoomJson build() {
-            return new TravelBidDispositionAcceptedRoomJson(
-                propertyRoom, lraRateAccepted, nlraRateAccepted);
+            return new TravelBidDispositionAcceptedRoomJson(propertyRoom, lraRateAccepted, nlraRateAccepted);
         }
-
     }
 }

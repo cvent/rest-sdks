@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExistingExhibitorAnswerJson
- * 
+ *
  * <p>Existing Exhibitor Answer schema
  */
 public class ExistingExhibitorAnswerJson {
@@ -96,26 +96,22 @@ public class ExistingExhibitorAnswerJson {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
-        this.answers = Optional.ofNullable(answers)
-            .orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+        this.answers =
+                Optional.ofNullable(answers).orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
+
     public ExistingExhibitorAnswerJson(
             @Nonnull UuidJson question,
             @Nonnull EventJson5 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull List<AnswerJson0> answers,
             @Nonnull String id) {
-        this(null, null, null,
-            null, question, event,
-            exhibitor, answers, id);
+        this(null, null, null, null, question, event, exhibitor, answers, id);
     }
 
     /**
@@ -185,7 +181,6 @@ public class ExistingExhibitorAnswerJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -193,7 +188,6 @@ public class ExistingExhibitorAnswerJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -203,7 +197,6 @@ public class ExistingExhibitorAnswerJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -211,7 +204,6 @@ public class ExistingExhibitorAnswerJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -221,7 +213,6 @@ public class ExistingExhibitorAnswerJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -229,7 +220,6 @@ public class ExistingExhibitorAnswerJson {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
-
 
     /**
      * The Associated Event.
@@ -239,7 +229,6 @@ public class ExistingExhibitorAnswerJson {
         return this;
     }
 
-
     /**
      * The Associated Exhibitor.
      */
@@ -247,7 +236,6 @@ public class ExistingExhibitorAnswerJson {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
-
 
     /**
      * List of answers
@@ -257,7 +245,6 @@ public class ExistingExhibitorAnswerJson {
         return this;
     }
 
-
     /**
      * Exhibitor Answer id
      */
@@ -265,7 +252,6 @@ public class ExistingExhibitorAnswerJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -276,42 +262,49 @@ public class ExistingExhibitorAnswerJson {
             return false;
         }
         ExistingExhibitorAnswerJson other = (ExistingExhibitorAnswerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, question, event,
-            exhibitor, answers, id);
+                created, createdBy, lastModified, lastModifiedBy, question, event, exhibitor, answers, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingExhibitorAnswerJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "question", question,
-                "event", event,
-                "exhibitor", exhibitor,
-                "answers", answers,
-                "id", id);
+        return Utils.toString(
+                ExistingExhibitorAnswerJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "question",
+                question,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "answers",
+                answers,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -332,7 +325,7 @@ public class ExistingExhibitorAnswerJson {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -409,10 +402,7 @@ public class ExistingExhibitorAnswerJson {
 
         public ExistingExhibitorAnswerJson build() {
             return new ExistingExhibitorAnswerJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, question, event,
-                exhibitor, answers, id);
+                    created, createdBy, lastModified, lastModifiedBy, question, event, exhibitor, answers, id);
         }
-
     }
 }

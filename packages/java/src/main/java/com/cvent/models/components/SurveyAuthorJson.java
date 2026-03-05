@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SurveyAuthorJson
- * 
+ *
  * <p>Author of the survey
  */
 public class SurveyAuthorJson {
@@ -67,10 +67,9 @@ public class SurveyAuthorJson {
         this.title = title;
         this.email = email;
     }
-    
+
     public SurveyAuthorJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -112,7 +111,6 @@ public class SurveyAuthorJson {
         return new Builder();
     }
 
-
     /**
      * First Name of Author
      */
@@ -120,7 +118,6 @@ public class SurveyAuthorJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * Last Name of Author
@@ -130,7 +127,6 @@ public class SurveyAuthorJson {
         return this;
     }
 
-
     /**
      * Company Name
      */
@@ -138,7 +134,6 @@ public class SurveyAuthorJson {
         this.company = company;
         return this;
     }
-
 
     /**
      * Designation
@@ -148,7 +143,6 @@ public class SurveyAuthorJson {
         return this;
     }
 
-
     /**
      * The email address of the author
      */
@@ -156,7 +150,6 @@ public class SurveyAuthorJson {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,33 +160,36 @@ public class SurveyAuthorJson {
             return false;
         }
         SurveyAuthorJson other = (SurveyAuthorJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, company,
-            title, email);
+        return Utils.enhancedHash(firstName, lastName, company, title, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SurveyAuthorJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "company", company,
-                "title", title,
-                "email", email);
+        return Utils.toString(
+                SurveyAuthorJson.class,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "company",
+                company,
+                "title",
+                title,
+                "email",
+                email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -206,7 +202,7 @@ public class SurveyAuthorJson {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -250,10 +246,7 @@ public class SurveyAuthorJson {
         }
 
         public SurveyAuthorJson build() {
-            return new SurveyAuthorJson(
-                firstName, lastName, company,
-                title, email);
+            return new SurveyAuthorJson(firstName, lastName, company, title, email);
         }
-
     }
 }

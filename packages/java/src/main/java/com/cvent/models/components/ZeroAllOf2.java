@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf2
- * 
+ *
  * <p>Details of a location.
  */
 public class ZeroAllOf2 {
@@ -30,13 +30,9 @@ public class ZeroAllOf2 {
     private String name;
 
     @JsonCreator
-    public ZeroAllOf2(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("name") @Nonnull String name) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+    public ZeroAllOf2(@JsonProperty("id") @Nonnull String id, @JsonProperty("name") @Nonnull String name) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
     }
 
     /**
@@ -57,7 +53,6 @@ public class ZeroAllOf2 {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the location.
      */
@@ -66,7 +61,6 @@ public class ZeroAllOf2 {
         return this;
     }
 
-
     /**
      * The name of the location.
      */
@@ -74,7 +68,6 @@ public class ZeroAllOf2 {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +78,28 @@ public class ZeroAllOf2 {
             return false;
         }
         ZeroAllOf2 other = (ZeroAllOf2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf2.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(ZeroAllOf2.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +119,7 @@ public class ZeroAllOf2 {
         }
 
         public ZeroAllOf2 build() {
-            return new ZeroAllOf2(
-                id, name);
+            return new ZeroAllOf2(id, name);
         }
-
     }
 }

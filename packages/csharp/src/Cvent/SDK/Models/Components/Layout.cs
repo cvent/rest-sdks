@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum Layout
     {
-        [JsonProperty("List")]
-        List,
-        [JsonProperty("Grid")]
-        Grid,
+        [JsonProperty("List")] List,
+        [JsonProperty("Grid")] Grid,
     }
 
     public static class LayoutExtension
     {
         public static string Value(this Layout value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Layout ToEnum(this string value)
         {
-            foreach(var field in typeof(Layout).GetFields())
+            foreach (var field in typeof(Layout).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -2,6 +2,14 @@
 
 Type of answer
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AnswerTypeJson1;
+
+AnswerTypeJson1 value = AnswerTypeJson1.CHOICE;
+```
+
 
 ## Values
 

@@ -18,7 +18,6 @@ public class GetConfigurationRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetConfigurationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -27,13 +26,13 @@ public class GetConfigurationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetConfigurationResponse call() {
-        RequestlessOperation<GetConfigurationResponse> operation
-            = new GetConfiguration.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<GetConfigurationResponse> operation =
+                new GetConfiguration.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

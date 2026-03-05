@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ProductJson
- * 
+ *
  * <p>Represents a product. Products are items that can be purchased during registration.
  */
 public class ProductJson {
@@ -29,11 +29,11 @@ public class ProductJson {
     /**
      * Represents a product's type. `AdmissionItem`: Product is a ticket to an event, typically denotes the
      * day(s) the individual is attending. Every attendee must have an admission item.
-     * 
+     *
      * <p>`Session`: Product is a agenda item at the event. Typically denotes a talk, presentation, or other
      * scheduled occurrence at the event. `SessionBundle`: Product is a session bundle that enrolls the
      * attendee into all the sessions included in the bundle, sometimes at a discounted rate.
-     * 
+     *
      * <p>`QuantityItem`: Product is a quantity of things an attendee is purchasing at an event, like t-shirts
      * or raffle tickets.
      */
@@ -57,7 +57,7 @@ public class ProductJson {
         this.type = type;
         this.name = name;
     }
-    
+
     public ProductJson() {
         this(null, null, null);
     }
@@ -72,11 +72,11 @@ public class ProductJson {
     /**
      * Represents a product's type. `AdmissionItem`: Product is a ticket to an event, typically denotes the
      * day(s) the individual is attending. Every attendee must have an admission item.
-     * 
+     *
      * <p>`Session`: Product is a agenda item at the event. Typically denotes a talk, presentation, or other
      * scheduled occurrence at the event. `SessionBundle`: Product is a session bundle that enrolls the
      * attendee into all the sessions included in the bundle, sometimes at a discounted rate.
-     * 
+     *
      * <p>`QuantityItem`: Product is a quantity of things an attendee is purchasing at an event, like t-shirts
      * or raffle tickets.
      */
@@ -95,7 +95,6 @@ public class ProductJson {
         return new Builder();
     }
 
-
     /**
      * ID of the associated product.
      */
@@ -104,15 +103,14 @@ public class ProductJson {
         return this;
     }
 
-
     /**
      * Represents a product's type. `AdmissionItem`: Product is a ticket to an event, typically denotes the
      * day(s) the individual is attending. Every attendee must have an admission item.
-     * 
+     *
      * <p>`Session`: Product is a agenda item at the event. Typically denotes a talk, presentation, or other
      * scheduled occurrence at the event. `SessionBundle`: Product is a session bundle that enrolls the
      * attendee into all the sessions included in the bundle, sometimes at a discounted rate.
-     * 
+     *
      * <p>`QuantityItem`: Product is a quantity of things an attendee is purchasing at an event, like t-shirts
      * or raffle tickets.
      */
@@ -121,7 +119,6 @@ public class ProductJson {
         return this;
     }
 
-
     /**
      * Name of the associated product.
      */
@@ -129,7 +126,6 @@ public class ProductJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -140,28 +136,23 @@ public class ProductJson {
             return false;
         }
         ProductJson other = (ProductJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, name);
+        return Utils.enhancedHash(id, type, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProductJson.class,
-                "id", id,
-                "type", type,
-                "name", name);
+        return Utils.toString(ProductJson.class, "id", id, "type", type, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -170,7 +161,7 @@ public class ProductJson {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -184,11 +175,11 @@ public class ProductJson {
         /**
          * Represents a product's type. `AdmissionItem`: Product is a ticket to an event, typically denotes the
          * day(s) the individual is attending. Every attendee must have an admission item.
-         * 
+         *
          * <p>`Session`: Product is a agenda item at the event. Typically denotes a talk, presentation, or other
          * scheduled occurrence at the event. `SessionBundle`: Product is a session bundle that enrolls the
          * attendee into all the sessions included in the bundle, sometimes at a discounted rate.
-         * 
+         *
          * <p>`QuantityItem`: Product is a quantity of things an attendee is purchasing at an event, like t-shirts
          * or raffle tickets.
          */
@@ -206,9 +197,7 @@ public class ProductJson {
         }
 
         public ProductJson build() {
-            return new ProductJson(
-                id, type, name);
+            return new ProductJson(id, type, name);
         }
-
     }
 }

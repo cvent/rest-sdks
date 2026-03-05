@@ -2,6 +2,14 @@
 
 This is used to denote the status of a webcast
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = WebcastStatusJson.NotStarted;
+```
+
 
 ## Values
 

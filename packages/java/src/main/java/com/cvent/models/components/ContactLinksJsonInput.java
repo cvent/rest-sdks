@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ContactLinksJsonInput
- * 
+ *
  * <p>Collection of social media links for the contact.
  */
 public class ContactLinksJsonInput {
@@ -49,7 +49,7 @@ public class ContactLinksJsonInput {
         this.facebookUrl = facebookUrl;
         this.linkedInUrl = linkedInUrl;
     }
-    
+
     public ContactLinksJsonInput() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class ContactLinksJsonInput {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -87,7 +86,6 @@ public class ContactLinksJsonInput {
         this.twitterUrl = twitterUrl;
         return this;
     }
-
 
     /**
      * Represents a link to a related resource.
@@ -97,7 +95,6 @@ public class ContactLinksJsonInput {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -105,7 +102,6 @@ public class ContactLinksJsonInput {
         this.linkedInUrl = linkedInUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,30 @@ public class ContactLinksJsonInput {
             return false;
         }
         ContactLinksJsonInput other = (ContactLinksJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl) &&
-            Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl) &&
-            Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl);
+        return Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl)
+                && Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl)
+                && Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            twitterUrl, facebookUrl, linkedInUrl);
+        return Utils.enhancedHash(twitterUrl, facebookUrl, linkedInUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactLinksJsonInput.class,
-                "twitterUrl", twitterUrl,
-                "facebookUrl", facebookUrl,
-                "linkedInUrl", linkedInUrl);
+        return Utils.toString(
+                ContactLinksJsonInput.class,
+                "twitterUrl",
+                twitterUrl,
+                "facebookUrl",
+                facebookUrl,
+                "linkedInUrl",
+                linkedInUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson twitterUrl;
 
@@ -146,7 +144,7 @@ public class ContactLinksJsonInput {
         private LinkJson linkedInUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +172,7 @@ public class ContactLinksJsonInput {
         }
 
         public ContactLinksJsonInput build() {
-            return new ContactLinksJsonInput(
-                twitterUrl, facebookUrl, linkedInUrl);
+            return new ContactLinksJsonInput(twitterUrl, facebookUrl, linkedInUrl);
         }
-
     }
 }

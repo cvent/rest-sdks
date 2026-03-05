@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +17,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * ExternalActivityDataJson
- * 
+ *
  * <p>This is used to denote the type of the external attendee activity.
  */
 @JsonDeserialize(using = ExternalActivityDataJson._Deserializer.class)
@@ -25,31 +25,31 @@ public class ExternalActivityDataJson {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private ExternalActivityDataJson(TypedObject value) {
         this.value = value;
     }
 
     public static ExternalActivityDataJson of(ExternalActivityDataJsonEventExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ExternalActivityDataJson of(ExternalActivityDataJsonSessionExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ExternalActivityDataJson of(ExternalActivityDataJsonAppointmentExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ExternalActivityDataJson of(ExternalActivityDataJsonExhibitorExternal value) {
         Utils.checkNotNull(value, "value");
-        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ExternalActivityDataJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
@@ -58,22 +58,22 @@ public class ExternalActivityDataJson {
      * <li>{@code com.cvent.models.components.ExternalActivityDataJsonAppointmentExternal}</li>
      * <li>{@code com.cvent.models.components.ExternalActivityDataJsonExhibitorExternal}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -85,29 +85,32 @@ public class ExternalActivityDataJson {
         ExternalActivityDataJson other = (ExternalActivityDataJson) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<ExternalActivityDataJson> {
 
         public _Deserializer() {
-            super(ExternalActivityDataJson.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonEventExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonSessionExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonAppointmentExternal>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ExternalActivityDataJsonExhibitorExternal>() {}, JsonShape.DEFAULT));
+            super(
+                    ExternalActivityDataJson.class,
+                    false,
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ExternalActivityDataJsonEventExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ExternalActivityDataJsonSessionExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ExternalActivityDataJsonAppointmentExternal>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<ExternalActivityDataJsonExhibitorExternal>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivityDataJson.class,
-                "value", value);
+        return Utils.toString(ExternalActivityDataJson.class, "value", value);
     }
-
 }
-

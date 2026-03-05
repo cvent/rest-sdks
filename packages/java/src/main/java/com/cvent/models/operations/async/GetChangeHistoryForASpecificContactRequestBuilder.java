@@ -32,7 +32,8 @@ public class GetChangeHistoryForASpecificContactRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public GetChangeHistoryForASpecificContactRequestBuilder request(@Nonnull GetChangeHistoryForASpecificContactRequest request) {
+    public GetChangeHistoryForASpecificContactRequestBuilder request(
+            @Nonnull GetChangeHistoryForASpecificContactRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class GetChangeHistoryForASpecificContactRequestBuilder {
     private GetChangeHistoryForASpecificContactRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetChangeHistoryForASpecificContactRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,16 @@ public class GetChangeHistoryForASpecificContactRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetChangeHistoryForASpecificContactResponse> call() {
-        AsyncRequestOperation<GetChangeHistoryForASpecificContactRequest, GetChangeHistoryForASpecificContactResponse> operation
-              = new GetChangeHistoryForASpecificContact.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetChangeHistoryForASpecificContactRequest, GetChangeHistoryForASpecificContactResponse> operation =
+                new GetChangeHistoryForASpecificContact.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +76,17 @@ public class GetChangeHistoryForASpecificContactRequestBuilder {
      */
     public Publisher<GetChangeHistoryForASpecificContactResponse> callAsPublisher() {
         GetChangeHistoryForASpecificContactRequest request = this.request;
-        AsyncRequestOperation<GetChangeHistoryForASpecificContactRequest, GetChangeHistoryForASpecificContactResponse> operation
-              = new GetChangeHistoryForASpecificContact.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetChangeHistoryForASpecificContactRequest, GetChangeHistoryForASpecificContactResponse> operation =
+                new GetChangeHistoryForASpecificContact.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetChangeHistoryForASpecificContactRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetChangeHistoryForASpecificContactRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetChangeHistoryForASpecificContactResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetChangeHistoryForASpecificContactResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

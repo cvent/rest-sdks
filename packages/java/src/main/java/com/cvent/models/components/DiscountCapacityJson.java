@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * DiscountCapacityJson
- * 
+ *
  * <p>Details about the discount capacity.
  */
 public class DiscountCapacityJson {
@@ -37,12 +37,11 @@ public class DiscountCapacityJson {
 
     @JsonCreator
     public DiscountCapacityJson(
-            @JsonProperty("total") @Nullable Long total,
-            @JsonProperty("used") @Nullable Long used) {
+            @JsonProperty("total") @Nullable Long total, @JsonProperty("used") @Nullable Long used) {
         this.total = total;
         this.used = used;
     }
-    
+
     public DiscountCapacityJson() {
         this(null, null);
     }
@@ -66,7 +65,6 @@ public class DiscountCapacityJson {
         return new Builder();
     }
 
-
     /**
      * The total number of instances the discount can be used event wide. Default value of -1 indicates
      * unlimited capacity.
@@ -76,7 +74,6 @@ public class DiscountCapacityJson {
         return this;
     }
 
-
     /**
      * The used capacity of the discount.
      */
@@ -84,7 +81,6 @@ public class DiscountCapacityJson {
         this.used = used;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -95,33 +91,28 @@ public class DiscountCapacityJson {
             return false;
         }
         DiscountCapacityJson other = (DiscountCapacityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.total, other.total) &&
-            Utils.enhancedDeepEquals(this.used, other.used);
+        return Utils.enhancedDeepEquals(this.total, other.total) && Utils.enhancedDeepEquals(this.used, other.used);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            total, used);
+        return Utils.enhancedHash(total, used);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DiscountCapacityJson.class,
-                "total", total,
-                "used", used);
+        return Utils.toString(DiscountCapacityJson.class, "total", total, "used", used);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long total;
 
         private Long used;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -142,9 +133,7 @@ public class DiscountCapacityJson {
         }
 
         public DiscountCapacityJson build() {
-            return new DiscountCapacityJson(
-                total, used);
+            return new DiscountCapacityJson(total, used);
         }
-
     }
 }

@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DistributionListSecurityTypeJson
     {
-        [JsonProperty("PRIVATE")]
-        Private,
-        [JsonProperty("SEMI_PRIVATE")]
-        SemiPrivate,
-        [JsonProperty("PUBLIC")]
-        Public,
+        [JsonProperty("PRIVATE")] Private,
+        [JsonProperty("SEMI_PRIVATE")] SemiPrivate,
+        [JsonProperty("PUBLIC")] Public,
     }
 
     public static class DistributionListSecurityTypeJsonExtension
     {
         public static string Value(this DistributionListSecurityTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DistributionListSecurityTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DistributionListSecurityTypeJson).GetFields())
+            foreach (var field in typeof(DistributionListSecurityTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

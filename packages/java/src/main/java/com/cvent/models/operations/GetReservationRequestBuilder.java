@@ -28,7 +28,7 @@ public class GetReservationRequestBuilder {
     private GetReservationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetReservationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetReservationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetReservationResponse call() {
-        RequestOperation<GetReservationRequest, GetReservationResponse> operation
-              = new GetReservation.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetReservationRequest, GetReservationResponse> operation =
+                new GetReservation.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

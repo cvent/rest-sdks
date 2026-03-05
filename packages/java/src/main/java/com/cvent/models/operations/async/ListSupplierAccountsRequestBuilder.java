@@ -40,7 +40,7 @@ public class ListSupplierAccountsRequestBuilder {
     private ListSupplierAccountsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSupplierAccountsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListSupplierAccountsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSupplierAccountsResponse> call() {
-        AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation
-              = new ListSupplierAccounts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation =
+                new ListSupplierAccounts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListSupplierAccountsRequestBuilder {
      */
     public Publisher<ListSupplierAccountsResponse> callAsPublisher() {
         ListSupplierAccountsRequest request = this.request;
-        AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation
-              = new ListSupplierAccounts.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation =
+                new ListSupplierAccounts.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSupplierAccountsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSupplierAccountsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListSupplierAccountsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListSupplierAccountsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

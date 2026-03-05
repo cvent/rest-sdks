@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * OrderItemJson0
- * 
+ *
  * <p>Represents an order item. Contains only the ID of the order item.
  */
 public class OrderItemJson0 {
@@ -24,10 +24,8 @@ public class OrderItemJson0 {
     private String id;
 
     @JsonCreator
-    public OrderItemJson0(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public OrderItemJson0(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class OrderItemJson0 {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the order item.
      */
@@ -49,7 +46,6 @@ public class OrderItemJson0 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class OrderItemJson0 {
             return false;
         }
         OrderItemJson0 other = (OrderItemJson0) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderItemJson0.class,
-                "id", id);
+        return Utils.toString(OrderItemJson0.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class OrderItemJson0 {
         }
 
         public OrderItemJson0 build() {
-            return new OrderItemJson0(
-                id);
+            return new OrderItemJson0(id);
         }
-
     }
 }

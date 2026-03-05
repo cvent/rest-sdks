@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetTravelProposalRequest {
     /**
      * Unique ID of a travel proposal.
@@ -20,10 +19,9 @@ public class GetTravelProposalRequest {
     private String travelProposalId;
 
     @JsonCreator
-    public GetTravelProposalRequest(
-            @Nonnull String travelProposalId) {
+    public GetTravelProposalRequest(@Nonnull String travelProposalId) {
         this.travelProposalId = Optional.ofNullable(travelProposalId)
-            .orElseThrow(() -> new IllegalArgumentException("travelProposalId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("travelProposalId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetTravelProposalRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a travel proposal.
      */
@@ -45,7 +42,6 @@ public class GetTravelProposalRequest {
         this.travelProposalId = Utils.checkNotNull(travelProposalId, "travelProposalId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetTravelProposalRequest {
             return false;
         }
         GetTravelProposalRequest other = (GetTravelProposalRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.travelProposalId, other.travelProposalId);
+        return Utils.enhancedDeepEquals(this.travelProposalId, other.travelProposalId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            travelProposalId);
+        return Utils.enhancedHash(travelProposalId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTravelProposalRequest.class,
-                "travelProposalId", travelProposalId);
+        return Utils.toString(GetTravelProposalRequest.class, "travelProposalId", travelProposalId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String travelProposalId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetTravelProposalRequest {
         }
 
         public GetTravelProposalRequest build() {
-            return new GetTravelProposalRequest(
-                travelProposalId);
+            return new GetTravelProposalRequest(travelProposalId);
         }
-
     }
 }

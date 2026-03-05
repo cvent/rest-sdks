@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetStandardSurveyRespondentsRequest {
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -53,11 +52,11 @@ public class GetStandardSurveyRespondentsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Following are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      */
@@ -73,19 +72,16 @@ public class GetStandardSurveyRespondentsRequest {
             @Nullable String token,
             @Nullable String filter) {
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetStandardSurveyRespondentsRequest(
-            @Nonnull String surveyId) {
-        this(surveyId, null, null,
-            null, null, null);
+
+    public GetStandardSurveyRespondentsRequest(@Nonnull String surveyId) {
+        this(surveyId, null, null, null, null, null);
     }
 
     /**
@@ -128,11 +124,11 @@ public class GetStandardSurveyRespondentsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Following are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      */
@@ -144,7 +140,6 @@ public class GetStandardSurveyRespondentsRequest {
         return new Builder();
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -152,7 +147,6 @@ public class GetStandardSurveyRespondentsRequest {
         this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -163,7 +157,6 @@ public class GetStandardSurveyRespondentsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -172,7 +165,6 @@ public class GetStandardSurveyRespondentsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -180,7 +172,6 @@ public class GetStandardSurveyRespondentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -191,15 +182,14 @@ public class GetStandardSurveyRespondentsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Following are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      */
@@ -207,7 +197,6 @@ public class GetStandardSurveyRespondentsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -218,35 +207,39 @@ public class GetStandardSurveyRespondentsRequest {
             return false;
         }
         GetStandardSurveyRespondentsRequest other = (GetStandardSurveyRespondentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            surveyId, after, before,
-            limit, token, filter);
+        return Utils.enhancedHash(surveyId, after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetStandardSurveyRespondentsRequest.class,
-                "surveyId", surveyId,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetStandardSurveyRespondentsRequest.class,
+                "surveyId",
+                surveyId,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String surveyId;
 
@@ -261,7 +254,7 @@ public class GetStandardSurveyRespondentsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -309,11 +302,11 @@ public class GetStandardSurveyRespondentsRequest {
         /**
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>Following are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq|ne)
          */
@@ -323,16 +316,10 @@ public class GetStandardSurveyRespondentsRequest {
         }
 
         public GetStandardSurveyRespondentsRequest build() {
-            return new GetStandardSurveyRespondentsRequest(
-                surveyId, after, before,
-                limit, token, filter);
+            return new GetStandardSurveyRespondentsRequest(surveyId, after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

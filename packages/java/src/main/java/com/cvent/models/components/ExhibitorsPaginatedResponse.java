@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorsPaginatedResponse
- * 
+ *
  * <p>A paginated response containing a list of exhibitors for an event.
  */
 public class ExhibitorsPaginatedResponse {
@@ -41,7 +41,7 @@ public class ExhibitorsPaginatedResponse {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public ExhibitorsPaginatedResponse() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class ExhibitorsPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +72,6 @@ public class ExhibitorsPaginatedResponse {
         return this;
     }
 
-
     /**
      * Paginated list of exhibitors for an event.
      */
@@ -81,7 +79,6 @@ public class ExhibitorsPaginatedResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class ExhibitorsPaginatedResponse {
             return false;
         }
         ExhibitorsPaginatedResponse other = (ExhibitorsPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorsPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(ExhibitorsPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<ExistingExhibitorJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class ExhibitorsPaginatedResponse {
         }
 
         public ExhibitorsPaginatedResponse build() {
-            return new ExhibitorsPaginatedResponse(
-                paging, data);
+            return new ExhibitorsPaginatedResponse(paging, data);
         }
-
     }
 }

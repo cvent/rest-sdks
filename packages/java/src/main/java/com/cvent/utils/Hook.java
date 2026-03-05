@@ -3,15 +3,14 @@
  */
 package com.cvent.utils;
 
+import com.cvent.SDKConfiguration;
+import com.cvent.SecuritySource;
 import java.io.InputStream;
-import java.net.http.HttpResponse;
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
-import com.cvent.SDKConfiguration;
-import com.cvent.SecuritySource;
 
 /**
  * Holder class for hook-associated types. This class does not get
@@ -28,39 +27,47 @@ public final class Hook {
      */
     public interface HookContext {
         SDKConfiguration sdkConfiguration();
+
         String baseUrl();
+
         String operationId();
+
         Optional<List<String>> oauthScopes();
+
         Optional<SecuritySource> securitySource();
     }
-    
+
     /**
      * Context for a BeforeRequest hook call.
      */
-    public interface BeforeRequestContext extends HookContext {
-    }
-    
+    public interface BeforeRequestContext extends HookContext {}
+
     public static final class BeforeRequestContextImpl implements BeforeRequestContext {
-        
+
         private final SDKConfiguration sdkConfiguration;
         private final String baseUrl;
         private final String operationId;
         private final Optional<List<String>> oauthScopes;
         private final Optional<SecuritySource> securitySource;
-        
-        public BeforeRequestContextImpl(SDKConfiguration sdkConfiguration, String baseUrl, String operationId, Optional<List<String>> oauthScopes, Optional<SecuritySource> securitySource) {
+
+        public BeforeRequestContextImpl(
+                SDKConfiguration sdkConfiguration,
+                String baseUrl,
+                String operationId,
+                Optional<List<String>> oauthScopes,
+                Optional<SecuritySource> securitySource) {
             this.sdkConfiguration = sdkConfiguration;
             this.baseUrl = baseUrl;
             this.operationId = operationId;
             this.oauthScopes = oauthScopes;
             this.securitySource = securitySource;
         }
-        
+
         @Override
         public SDKConfiguration sdkConfiguration() {
             return sdkConfiguration;
         }
-        
+
         @Override
         public String baseUrl() {
             return baseUrl;
@@ -70,33 +77,37 @@ public final class Hook {
         public String operationId() {
             return operationId;
         }
-        
+
         @Override
         public Optional<SecuritySource> securitySource() {
             return securitySource;
         }
-        
+
         @Override
         public Optional<List<String>> oauthScopes() {
             return oauthScopes;
         }
     }
-    
+
     /**
      * Context for an AfterSuccess hook call.
      */
-    public interface AfterSuccessContext extends HookContext {
-    }
-    
+    public interface AfterSuccessContext extends HookContext {}
+
     public static final class AfterSuccessContextImpl implements AfterSuccessContext {
-        
+
         private final SDKConfiguration sdkConfiguration;
         private final String baseUrl;
         private final String operationId;
         private final Optional<List<String>> oauthScopes;
         private final Optional<SecuritySource> securitySource;
-        
-        public AfterSuccessContextImpl(SDKConfiguration sdkConfiguration, String baseUrl, String operationId, Optional<List<String>> oauthScopes, Optional<SecuritySource> securitySource) {
+
+        public AfterSuccessContextImpl(
+                SDKConfiguration sdkConfiguration,
+                String baseUrl,
+                String operationId,
+                Optional<List<String>> oauthScopes,
+                Optional<SecuritySource> securitySource) {
             Utils.checkNotNull(securitySource, "securitySource");
             this.sdkConfiguration = sdkConfiguration;
             this.baseUrl = baseUrl;
@@ -104,12 +115,12 @@ public final class Hook {
             this.oauthScopes = oauthScopes;
             this.securitySource = securitySource;
         }
-        
+
         @Override
         public SDKConfiguration sdkConfiguration() {
             return sdkConfiguration;
         }
-        
+
         @Override
         public String baseUrl() {
             return baseUrl;
@@ -119,13 +130,13 @@ public final class Hook {
         public String operationId() {
             return operationId;
         }
-        
+
         @Override
         public Optional<SecuritySource> securitySource() {
             return securitySource;
         }
-        
-        @Override 
+
+        @Override
         public Optional<List<String>> oauthScopes() {
             return oauthScopes;
         }
@@ -134,18 +145,22 @@ public final class Hook {
     /**
      * Context for an AfterError hook call.
      */
-    public interface AfterErrorContext extends HookContext {
-    }
-    
+    public interface AfterErrorContext extends HookContext {}
+
     public static final class AfterErrorContextImpl implements AfterErrorContext {
-        
+
         private final SDKConfiguration sdkConfiguration;
         private final String baseUrl;
         private final String operationId;
         private final Optional<List<String>> oauthScopes;
         private final Optional<SecuritySource> securitySource;
-        
-        public AfterErrorContextImpl(SDKConfiguration sdkConfiguration, String baseUrl, String operationId, Optional<List<String>> oauthScopes, Optional<SecuritySource> securitySource) {
+
+        public AfterErrorContextImpl(
+                SDKConfiguration sdkConfiguration,
+                String baseUrl,
+                String operationId,
+                Optional<List<String>> oauthScopes,
+                Optional<SecuritySource> securitySource) {
             Utils.checkNotNull(securitySource, "securitySource");
             this.sdkConfiguration = sdkConfiguration;
             this.baseUrl = baseUrl;
@@ -158,22 +173,22 @@ public final class Hook {
         public SDKConfiguration sdkConfiguration() {
             return sdkConfiguration;
         }
-        
+
         @Override
         public String baseUrl() {
             return baseUrl;
         }
-        
+
         @Override
         public String operationId() {
             return operationId;
         }
-        
+
         @Override
         public Optional<SecuritySource> securitySource() {
             return securitySource;
         }
-        
+
         @Override
         public Optional<List<String>> oauthScopes() {
             return oauthScopes;
@@ -187,13 +202,13 @@ public final class Hook {
 
         /**
          * Transforms the given {@link HttpRequest} before sending.
-         * 
+         *
          * <p>Note that {@link HttpRequest} is immutable. To modify the request you can use
-         * {@code HttpRequest#newBuilder(HttpRequest, BiPredicate<String, String>)} with 
-         * JDK 16 and later (which will copy the request for modification in a builder). 
+         * {@code HttpRequest#newBuilder(HttpRequest, BiPredicate<String, String>)} with
+         * JDK 16 and later (which will copy the request for modification in a builder).
          * If that method is not available then use {@link Helpers#copy} (which also returns
          * a builder).
-         * 
+         *
          * @param context context for the hook call
          * @param request request to be transformed
          * @return transformed request
@@ -214,7 +229,7 @@ public final class Hook {
 
         /**
          * Transforms the given response before response processing occurs.
-         * 
+         *
          * @param context  context for the hook call
          * @param response response to be transformed
          * @return transformed response
@@ -235,29 +250,26 @@ public final class Hook {
     public interface AfterError {
 
         /**
-         * Either returns an HttpResponse or throws an Exception. Must be passed either 
+         * Either returns an HttpResponse or throws an Exception. Must be passed either
          * a response or an error (both can't be absent).
-         * 
+         *
          * @param context  context for the error
          * @param response response information if available.
          * @param error    the optional exception. If response present then the error is for-info
-         *                 only, it was the last error in the chain of AfterError hook 
+         *                 only, it was the last error in the chain of AfterError hook
          *                 calls leading to this one
          * @return HTTP response if method decides that an exception is not to be thrown
          * @throws Exception if error to be propagated
          */
         HttpResponse<InputStream> afterError(
-            AfterErrorContext context, 
-            Optional<HttpResponse<InputStream>> response, 
-            Optional<Exception> error) throws Exception;
+                AfterErrorContext context, Optional<HttpResponse<InputStream>> response, Optional<Exception> error) throws Exception;
 
         /**
          * The default action is to rethrow the given error.
          */
         static AfterError DEFAULT = (context, response, error) -> {
             Utils.checkArgument(
-               response.isPresent() ^ error.isPresent(),
-               "one and only one of response or error must be present");
+                    response.isPresent() ^ error.isPresent(), "one and only one of response or error must be present");
             if (error.isPresent()) {
                 throw error.get();
             } else {
@@ -265,30 +277,28 @@ public final class Hook {
             }
         };
     }
-    
+
     /**
      * Transforms the HTTPClient before use.
      */
     public interface SdkInit {
-        
+
         /**
          * Returns a transformed {@link SDKConfiguration} for use in initialized SDKs.
-         * 
+         *
          * @param config config to transform
          * @return the transformed config
          */
-        SDKConfiguration sdkInit(SDKConfiguration config); 
-        
+        SDKConfiguration sdkInit(SDKConfiguration config);
+
         /**
          * The default action is to return the config untouched.
          */
-        static SdkInit DEFAULT = config -> config;       
-        
-
+        static SdkInit DEFAULT = config -> config;
     }
-    
+
     public static final class IdempotencyHook implements BeforeRequest {
-    
+
         @Override
         public HttpRequest beforeRequest(BeforeRequestContext context, HttpRequest request) throws Exception {
             HttpRequest.Builder b = Helpers.copy(request);

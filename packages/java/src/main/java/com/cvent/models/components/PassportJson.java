@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,13 +15,13 @@ import java.util.Optional;
 
 /**
  * PassportJson
- * 
+ *
  * <p>This entity represents a contact's passport information.
  */
 public class PassportJson {
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -52,14 +52,14 @@ public class PassportJson {
         this.country = country;
         this.countryCode = countryCode;
     }
-    
+
     public PassportJson() {
         this(null, null, null);
     }
 
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -85,10 +85,9 @@ public class PassportJson {
         return new Builder();
     }
 
-
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -96,7 +95,6 @@ public class PassportJson {
         this.number = number;
         return this;
     }
-
 
     /**
      * The passport country of the contact.
@@ -106,7 +104,6 @@ public class PassportJson {
         return this;
     }
 
-
     /**
      * The passport country code of the contact.
      */
@@ -114,7 +111,6 @@ public class PassportJson {
         this.countryCode = countryCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -125,28 +121,23 @@ public class PassportJson {
             return false;
         }
         PassportJson other = (PassportJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.number, other.number) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
+        return Utils.enhancedDeepEquals(this.number, other.number)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            number, country, countryCode);
+        return Utils.enhancedHash(number, country, countryCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PassportJson.class,
-                "number", number,
-                "country", country,
-                "countryCode", countryCode);
+        return Utils.toString(PassportJson.class, "number", number, "country", country, "countryCode", countryCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String number;
 
@@ -155,12 +146,12 @@ public class PassportJson {
         private String countryCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * The passport number of the contact.
-         * 
+         *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
          * `event/contacts:write-sensitive` scopes respectively.
          */
@@ -186,9 +177,7 @@ public class PassportJson {
         }
 
         public PassportJson build() {
-            return new PassportJson(
-                number, country, countryCode);
+            return new PassportJson(number, country, countryCode);
         }
-
     }
 }

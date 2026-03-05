@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ProductTypeJson
     {
-        [JsonProperty("AdmissionItem")]
-        AdmissionItem,
-        [JsonProperty("Session")]
-        Session,
-        [JsonProperty("SessionBundle")]
-        SessionBundle,
-        [JsonProperty("QuantityItem")]
-        QuantityItem,
+        [JsonProperty("AdmissionItem")] AdmissionItem,
+        [JsonProperty("Session")] Session,
+        [JsonProperty("SessionBundle")] SessionBundle,
+        [JsonProperty("QuantityItem")] QuantityItem,
     }
 
     public static class ProductTypeJsonExtension
     {
         public static string Value(this ProductTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ProductTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ProductTypeJson).GetFields())
+            foreach (var field in typeof(ProductTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

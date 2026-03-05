@@ -2,6 +2,14 @@
 
 Denotes the status of an appointment.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AppointmentStatusJson.Active;
+```
+
 
 ## Values
 

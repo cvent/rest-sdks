@@ -5,8 +5,8 @@ package com.cvent.models.operations;
 
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.utils.Utils.transform;
 import static com.cvent.utils.Utils.toStream;
+import static com.cvent.utils.Utils.transform;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.ListSessionProgramSpeakersPostFilters;
@@ -31,7 +31,8 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public ListSessionProgramSpeakersPostFiltersRequestBuilder request(@Nonnull ListSessionProgramSpeakersPostFiltersRequest request) {
+    public ListSessionProgramSpeakersPostFiltersRequestBuilder request(
+            @Nonnull ListSessionProgramSpeakersPostFiltersRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -39,7 +40,7 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
     private ListSessionProgramSpeakersPostFiltersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSessionProgramSpeakersPostFiltersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -48,48 +49,48 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public ListSessionProgramSpeakersPostFiltersResponse call() {
-        RequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation
-              = new ListSessionProgramSpeakersPostFilters.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation =
+                new ListSessionProgramSpeakersPostFilters.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
-    
+
     /**
-    * Returns an iterable that performs next page calls till no more pages
-    * are returned.
-    *
-    * <p>The returned iterable can be used in a for-each loop:
-    * <pre><code>
-    * for (ListSessionProgramSpeakersPostFiltersResponse page : builder.callAsIterable()) {
-    *     // Process each page
-    * }
-    * </code></pre>
-    * 
-    * @return An iterable that can be used to iterate through all pages
-    */
+     * Returns an iterable that performs next page calls till no more pages
+     * are returned.
+     *
+     * <p>The returned iterable can be used in a for-each loop:
+     * <pre><code>
+     * for (ListSessionProgramSpeakersPostFiltersResponse page : builder.callAsIterable()) {
+     *     // Process each page
+     * }
+     * </code></pre>
+     *
+     * @return An iterable that can be used to iterate through all pages
+     */
     public Iterable<ListSessionProgramSpeakersPostFiltersResponse> callAsIterable() {
         ListSessionProgramSpeakersPostFiltersRequest request = this.request;
-        RequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation
-              = new ListSessionProgramSpeakersPostFilters.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation =
+                new ListSessionProgramSpeakersPostFilters.Sync(sdkConfiguration, _headers);
         // foobar
-        
+
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSessionProgramSpeakersPostFiltersRequest::withToken,
-            nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSessionProgramSpeakersPostFiltersRequest::withToken,
+                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
 
         return () -> transform(iterator, operation::handleResponse);
     }
 
     /**
-    * Returns a stream that performs next page calls till no more pages
-    * are returned.
-    **/  
+     * Returns a stream that performs next page calls till no more pages
+     * are returned.
+     **/
     public Stream<ListSessionProgramSpeakersPostFiltersResponse> callAsStream() {
         return toStream(callAsIterable());
     }

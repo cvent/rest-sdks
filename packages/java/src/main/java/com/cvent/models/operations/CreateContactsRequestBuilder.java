@@ -28,7 +28,7 @@ public class CreateContactsRequestBuilder {
     private CreateContactsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateContactsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class CreateContactsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateContactsResponse call() {
-        RequestOperation<CreateContactsRequest, CreateContactsResponse> operation
-              = new CreateContacts.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateContactsRequest, CreateContactsResponse> operation =
+                new CreateContacts.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

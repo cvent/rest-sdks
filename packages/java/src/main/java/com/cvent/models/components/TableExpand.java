@@ -17,13 +17,13 @@ public enum TableExpand {
     TableExpand(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TableExpand> fromValue(String value) {
-        for (TableExpand o: TableExpand.values()) {
+        for (TableExpand o : TableExpand.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -31,4 +31,3 @@ public enum TableExpand {
         return Optional.empty();
     }
 }
-

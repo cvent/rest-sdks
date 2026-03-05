@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * AddressJson6
- * 
+ *
  * <p>Address
  */
 public class AddressJson6 {
@@ -80,22 +80,17 @@ public class AddressJson6 {
             @JsonProperty("postalCode") @Nullable String postalCode,
             @JsonProperty("country") @Nullable String country,
             @JsonProperty("primary") @Nullable Boolean primary) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.streetAddress = streetAddress;
         this.locality = locality;
         this.region = region;
         this.postalCode = postalCode;
         this.country = country;
-        this.primary = Optional.ofNullable(primary)
-            .orElse(Builder._SINGLETON_VALUE_Primary.value());
+        this.primary = Optional.ofNullable(primary).orElse(Builder._SINGLETON_VALUE_Primary.value());
     }
-    
-    public AddressJson6(
-            @Nonnull AddressTypeJson1 type) {
-        this(type, null, null,
-            null, null, null,
-            null);
+
+    public AddressJson6(@Nonnull AddressTypeJson1 type) {
+        this(type, null, null, null, null, null, null);
     }
 
     /**
@@ -151,7 +146,6 @@ public class AddressJson6 {
         return new Builder();
     }
 
-
     /**
      * The type of the address.
      */
@@ -159,7 +153,6 @@ public class AddressJson6 {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * The street address of the user.
@@ -169,7 +162,6 @@ public class AddressJson6 {
         return this;
     }
 
-
     /**
      * The locality/city of the user.
      */
@@ -177,7 +169,6 @@ public class AddressJson6 {
         this.locality = locality;
         return this;
     }
-
 
     /**
      * The region/state/province of the user.
@@ -187,7 +178,6 @@ public class AddressJson6 {
         return this;
     }
 
-
     /**
      * Postal code (also known as zipcode) of the user.
      */
@@ -195,7 +185,6 @@ public class AddressJson6 {
         this.postalCode = postalCode;
         return this;
     }
-
 
     /**
      * The country of the user.
@@ -205,7 +194,6 @@ public class AddressJson6 {
         return this;
     }
 
-
     /**
      * True indicates the address is primary.
      */
@@ -213,7 +201,6 @@ public class AddressJson6 {
         this.primary = primary;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -224,38 +211,42 @@ public class AddressJson6 {
             return false;
         }
         AddressJson6 other = (AddressJson6) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.streetAddress, other.streetAddress) &&
-            Utils.enhancedDeepEquals(this.locality, other.locality) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.primary, other.primary);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.streetAddress, other.streetAddress)
+                && Utils.enhancedDeepEquals(this.locality, other.locality)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.primary, other.primary);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, streetAddress, locality,
-            region, postalCode, country,
-            primary);
+        return Utils.enhancedHash(type, streetAddress, locality, region, postalCode, country, primary);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddressJson6.class,
-                "type", type,
-                "streetAddress", streetAddress,
-                "locality", locality,
-                "region", region,
-                "postalCode", postalCode,
-                "country", country,
-                "primary", primary);
+        return Utils.toString(
+                AddressJson6.class,
+                "type",
+                type,
+                "streetAddress",
+                streetAddress,
+                "locality",
+                locality,
+                "region",
+                region,
+                "postalCode",
+                postalCode,
+                "country",
+                country,
+                "primary",
+                primary);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AddressTypeJson1 type;
 
@@ -272,7 +263,7 @@ public class AddressJson6 {
         private Boolean primary;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -332,17 +323,10 @@ public class AddressJson6 {
         }
 
         public AddressJson6 build() {
-            return new AddressJson6(
-                type, streetAddress, locality,
-                region, postalCode, country,
-                primary);
+            return new AddressJson6(type, streetAddress, locality, region, postalCode, country, primary);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Primary =
-                new LazySingletonValue<>(
-                        "primary",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("primary", "false", new TypeReference<Boolean>() {});
     }
 }

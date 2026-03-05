@@ -28,7 +28,7 @@ public class ListAudioTracksRequestBuilder {
     private ListAudioTracksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListAudioTracksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class ListAudioTracksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public ListAudioTracksResponse call() {
-        RequestOperation<ListAudioTracksRequest, ListAudioTracksResponse> operation
-              = new ListAudioTracks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAudioTracksRequest, ListAudioTracksResponse> operation =
+                new ListAudioTracks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

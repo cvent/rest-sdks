@@ -28,7 +28,7 @@ public class UpdateExhibitorLogoRequestBuilder {
     private UpdateExhibitorLogoRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateExhibitorLogoRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateExhibitorLogoRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateExhibitorLogoResponse call() {
-        RequestOperation<UpdateExhibitorLogoRequest, UpdateExhibitorLogoResponse> operation
-              = new UpdateExhibitorLogo.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateExhibitorLogoRequest, UpdateExhibitorLogoResponse> operation =
+                new UpdateExhibitorLogo.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class ResponseReasonType
     {
-        private ResponseReasonType(string value) { Value = value; }
+        private ResponseReasonType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static ResponseReasonType DeclinedReason { get { return new ResponseReasonType("DeclinedReason"); } }
+        public static ResponseReasonType DeclinedReason
+        {
+            get {
+                return new ResponseReasonType("DeclinedReason");
+            }
+        }
 
-        public static ResponseReasonType CancelledReason { get { return new ResponseReasonType("CancelledReason"); } }
+        public static ResponseReasonType CancelledReason
+        {
+            get {
+                return new ResponseReasonType("CancelledReason");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(ResponseReasonType v) { return v.Value; }
-        public static ResponseReasonType FromString(string v) {
-            switch(v) {
-                case "DeclinedReason": return DeclinedReason;
-                case "CancelledReason": return CancelledReason;
-                default: throw new ArgumentException("Invalid value for ResponseReasonType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(ResponseReasonType v)
+        {
+            return v.Value;
+        }
+        public static ResponseReasonType FromString(string v)
+        {
+            switch (v)
+            {
+                case "DeclinedReason":
+                    return DeclinedReason;
+                case "CancelledReason":
+                    return CancelledReason;
+                default:
+                    throw new ArgumentException("Invalid value for ResponseReasonType");
             }
         }
         public override bool Equals(object? obj)
@@ -105,8 +129,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ResponseReason(ResponseReasonType.DeclinedReason)
-                    {
+                    return new ResponseReason(ResponseReasonType.DeclinedReason) {
                         DeclinedReason = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<DeclinedReason>(json)
                     };
                 }
@@ -125,8 +148,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ResponseReason(ResponseReasonType.CancelledReason)
-                    {
+                    return new ResponseReason(ResponseReasonType.CancelledReason) {
                         CancelledReason = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<CancelledReason>(json)
                     };
                 }
@@ -146,7 +168,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -187,8 +209,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

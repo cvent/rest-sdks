@@ -30,7 +30,7 @@ public class UpdateRegistrationTypeRequestBuilder {
     private UpdateRegistrationTypeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateRegistrationTypeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateRegistrationTypeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateRegistrationTypeResponse> call() {
-        AsyncRequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation
-              = new UpdateRegistrationType.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation =
+                new UpdateRegistrationType.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -30,7 +30,7 @@ public class UpdateContactHookRequestBuilder {
     private UpdateContactHookRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateContactHookRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateContactHookRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateContactHookResponse> call() {
-        AsyncRequestOperation<UpdateContactHookRequest, UpdateContactHookResponse> operation
-              = new UpdateContactHook.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateContactHookRequest, UpdateContactHookResponse> operation =
+                new UpdateContactHook.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

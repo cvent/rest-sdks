@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListTravelProgramsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListTravelProgramsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable TravelProgramPaginatedResponse travelProgramPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.travelProgramPaginatedResponse = travelProgramPaginatedResponse;
     }
-    
+
     public ListTravelProgramsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListTravelProgramsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListTravelProgramsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListTravelProgramsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListTravelProgramsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of Travel Programs.
      */
-    public ListTravelProgramsResponse withTravelProgramPaginatedResponse(@Nullable TravelProgramPaginatedResponse travelProgramPaginatedResponse) {
+    public ListTravelProgramsResponse withTravelProgramPaginatedResponse(
+            @Nullable TravelProgramPaginatedResponse travelProgramPaginatedResponse) {
         this.travelProgramPaginatedResponse = travelProgramPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListTravelProgramsResponse implements Response {
             return false;
         }
         ListTravelProgramsResponse other = (ListTravelProgramsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.travelProgramPaginatedResponse, other.travelProgramPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.travelProgramPaginatedResponse, other.travelProgramPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            travelProgramPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, travelProgramPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelProgramsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "travelProgramPaginatedResponse", travelProgramPaginatedResponse);
+        return Utils.toString(
+                ListTravelProgramsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "travelProgramPaginatedResponse",
+                travelProgramPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListTravelProgramsResponse implements Response {
         private TravelProgramPaginatedResponse travelProgramPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class ListTravelProgramsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of Travel Programs.
          */
-        public Builder travelProgramPaginatedResponse(@Nullable TravelProgramPaginatedResponse travelProgramPaginatedResponse) {
+        public Builder travelProgramPaginatedResponse(
+                @Nullable TravelProgramPaginatedResponse travelProgramPaginatedResponse) {
             this.travelProgramPaginatedResponse = travelProgramPaginatedResponse;
             return this;
         }
 
         public ListTravelProgramsResponse build() {
-            return new ListTravelProgramsResponse(
-                contentType, statusCode, rawResponse,
-                travelProgramPaginatedResponse);
+            return new ListTravelProgramsResponse(contentType, statusCode, rawResponse, travelProgramPaginatedResponse);
         }
-
     }
 }

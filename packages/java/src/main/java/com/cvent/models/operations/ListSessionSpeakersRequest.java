@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSessionSpeakersRequest {
     /**
      * The unique identifier of a session.
@@ -37,19 +36,13 @@ public class ListSessionSpeakersRequest {
     private String token;
 
     @JsonCreator
-    public ListSessionSpeakersRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public ListSessionSpeakersRequest(@Nonnull String id, @Nullable Long limit, @Nullable String token) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public ListSessionSpeakersRequest(
-            @Nonnull String id) {
+
+    public ListSessionSpeakersRequest(@Nonnull String id) {
         this(id, null, null);
     }
 
@@ -79,7 +72,6 @@ public class ListSessionSpeakersRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a session.
      */
@@ -88,7 +80,6 @@ public class ListSessionSpeakersRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -96,7 +87,6 @@ public class ListSessionSpeakersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -107,7 +97,6 @@ public class ListSessionSpeakersRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -117,28 +106,23 @@ public class ListSessionSpeakersRequest {
             return false;
         }
         ListSessionSpeakersRequest other = (ListSessionSpeakersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token);
+        return Utils.enhancedHash(id, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionSpeakersRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(ListSessionSpeakersRequest.class, "id", id, "limit", limit, "token", token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -147,7 +131,7 @@ public class ListSessionSpeakersRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,15 +160,10 @@ public class ListSessionSpeakersRequest {
         }
 
         public ListSessionSpeakersRequest build() {
-            return new ListSessionSpeakersRequest(
-                id, limit, token);
+            return new ListSessionSpeakersRequest(id, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

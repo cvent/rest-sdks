@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum Application
     {
-        [JsonProperty("leadcapture")]
-        Leadcapture,
-        [JsonProperty("attendeehub_mobile")]
-        AttendeehubMobile,
-        [JsonProperty("attendeehub_web")]
-        AttendeehubWeb,
-        [JsonProperty("appointment_app")]
-        AppointmentApp,
+        [JsonProperty("leadcapture")] Leadcapture,
+        [JsonProperty("attendeehub_mobile")] AttendeehubMobile,
+        [JsonProperty("attendeehub_web")] AttendeehubWeb,
+        [JsonProperty("appointment_app")] AppointmentApp,
     }
 
     public static class ApplicationExtension
     {
         public static string Value(this Application value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Application ToEnum(this string value)
         {
-            foreach(var field in typeof(Application).GetFields())
+            foreach (var field in typeof(Application).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

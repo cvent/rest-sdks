@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ReconciliationStatusJson
     {
-        [JsonProperty("Reconciled")]
-        Reconciled,
-        [JsonProperty("Not Reconciled")]
-        NotReconciled,
+        [JsonProperty("Reconciled")] Reconciled,
+        [JsonProperty("Not Reconciled")] NotReconciled,
     }
 
     public static class ReconciliationStatusJsonExtension
     {
         public static string Value(this ReconciliationStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ReconciliationStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ReconciliationStatusJson).GetFields())
+            foreach (var field in typeof(ReconciliationStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

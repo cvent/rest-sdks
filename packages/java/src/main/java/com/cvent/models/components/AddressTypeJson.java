@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AddressTypeJson
- * 
+ *
  * <p>The type of address.
  */
 public enum AddressTypeJson {
@@ -23,13 +23,13 @@ public enum AddressTypeJson {
     AddressTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AddressTypeJson> fromValue(String value) {
-        for (AddressTypeJson o: AddressTypeJson.values()) {
+        for (AddressTypeJson o : AddressTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum AddressTypeJson {
         return Optional.empty();
     }
 }
-

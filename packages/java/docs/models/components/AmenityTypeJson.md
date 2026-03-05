@@ -2,6 +2,14 @@
 
 Amenity type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AmenityTypeJson;
+
+AmenityTypeJson value = AmenityTypeJson.INCLUDED_AMENITY;
+```
+
 
 ## Values
 

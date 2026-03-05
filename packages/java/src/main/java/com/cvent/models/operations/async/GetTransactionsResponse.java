@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetTransactionsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetTransactionsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable TransactionDetailsPaginatedResponse transactionDetailsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.transactionDetailsPaginatedResponse = transactionDetailsPaginatedResponse;
     }
-    
+
     public GetTransactionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetTransactionsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetTransactionsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetTransactionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetTransactionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a Paginated list of Transactions in event.
      */
-    public GetTransactionsResponse withTransactionDetailsPaginatedResponse(@Nullable TransactionDetailsPaginatedResponse transactionDetailsPaginatedResponse) {
+    public GetTransactionsResponse withTransactionDetailsPaginatedResponse(
+            @Nullable TransactionDetailsPaginatedResponse transactionDetailsPaginatedResponse) {
         this.transactionDetailsPaginatedResponse = transactionDetailsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetTransactionsResponse implements AsyncResponse {
             return false;
         }
         GetTransactionsResponse other = (GetTransactionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.transactionDetailsPaginatedResponse, other.transactionDetailsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.transactionDetailsPaginatedResponse, other.transactionDetailsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            transactionDetailsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, transactionDetailsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTransactionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "transactionDetailsPaginatedResponse", transactionDetailsPaginatedResponse);
+        return Utils.toString(
+                GetTransactionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "transactionDetailsPaginatedResponse",
+                transactionDetailsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetTransactionsResponse implements AsyncResponse {
         private TransactionDetailsPaginatedResponse transactionDetailsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class GetTransactionsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a Paginated list of Transactions in event.
          */
-        public Builder transactionDetailsPaginatedResponse(@Nullable TransactionDetailsPaginatedResponse transactionDetailsPaginatedResponse) {
+        public Builder transactionDetailsPaginatedResponse(
+                @Nullable TransactionDetailsPaginatedResponse transactionDetailsPaginatedResponse) {
             this.transactionDetailsPaginatedResponse = transactionDetailsPaginatedResponse;
             return this;
         }
 
         public GetTransactionsResponse build() {
             return new GetTransactionsResponse(
-                contentType, statusCode, rawResponse,
-                transactionDetailsPaginatedResponse);
+                    contentType, statusCode, rawResponse, transactionDetailsPaginatedResponse);
         }
-
     }
 }

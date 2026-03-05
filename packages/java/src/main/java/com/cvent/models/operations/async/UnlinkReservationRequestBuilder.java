@@ -30,7 +30,7 @@ public class UnlinkReservationRequestBuilder {
     private UnlinkReservationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UnlinkReservationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UnlinkReservationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UnlinkReservationResponse> call() {
-        AsyncRequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation
-              = new UnlinkReservation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation =
+                new UnlinkReservation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

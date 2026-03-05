@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class ListBulkJobResultResponse
     {
-        public Func<Task<ListBulkJobResultResponse?>>? Next {get;set;}
+        public Func<Task<ListBulkJobResultResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

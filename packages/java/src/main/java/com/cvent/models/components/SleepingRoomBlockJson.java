@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * SleepingRoomBlockJson
- * 
+ *
  * <p>The sleeping room block.
  */
 public class SleepingRoomBlockJson {
@@ -68,17 +68,16 @@ public class SleepingRoomBlockJson {
             @JsonProperty("date") @Nullable LocalDate date,
             @JsonProperty("quantity") @Nullable Long quantity,
             @JsonProperty("rate") @Nullable Double rate) {
-        this.proposalDateType = Optional.ofNullable(proposalDateType)
-            .orElse(Builder._SINGLETON_VALUE_ProposalDateType.value());
+        this.proposalDateType =
+                Optional.ofNullable(proposalDateType).orElse(Builder._SINGLETON_VALUE_ProposalDateType.value());
         this.sleepingRoomType = sleepingRoomType;
         this.date = date;
         this.quantity = quantity;
         this.rate = rate;
     }
-    
+
     public SleepingRoomBlockJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -122,7 +121,6 @@ public class SleepingRoomBlockJson {
         return new Builder();
     }
 
-
     /**
      * The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
@@ -133,7 +131,6 @@ public class SleepingRoomBlockJson {
         return this;
     }
 
-
     /**
      * Sleeping room type
      */
@@ -141,7 +138,6 @@ public class SleepingRoomBlockJson {
         this.sleepingRoomType = sleepingRoomType;
         return this;
     }
-
 
     /**
      * Date the rooms in the room block are available.
@@ -151,7 +147,6 @@ public class SleepingRoomBlockJson {
         return this;
     }
 
-
     /**
      * The total number of rooms for this room block.
      */
@@ -160,7 +155,6 @@ public class SleepingRoomBlockJson {
         return this;
     }
 
-
     /**
      * The nightly cost of rooms in this room block.
      */
@@ -168,7 +162,6 @@ public class SleepingRoomBlockJson {
         this.rate = rate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -179,33 +172,36 @@ public class SleepingRoomBlockJson {
             return false;
         }
         SleepingRoomBlockJson other = (SleepingRoomBlockJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.proposalDateType, other.proposalDateType) &&
-            Utils.enhancedDeepEquals(this.sleepingRoomType, other.sleepingRoomType) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.quantity, other.quantity) &&
-            Utils.enhancedDeepEquals(this.rate, other.rate);
+        return Utils.enhancedDeepEquals(this.proposalDateType, other.proposalDateType)
+                && Utils.enhancedDeepEquals(this.sleepingRoomType, other.sleepingRoomType)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.quantity, other.quantity)
+                && Utils.enhancedDeepEquals(this.rate, other.rate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            proposalDateType, sleepingRoomType, date,
-            quantity, rate);
+        return Utils.enhancedHash(proposalDateType, sleepingRoomType, date, quantity, rate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SleepingRoomBlockJson.class,
-                "proposalDateType", proposalDateType,
-                "sleepingRoomType", sleepingRoomType,
-                "date", date,
-                "quantity", quantity,
-                "rate", rate);
+        return Utils.toString(
+                SleepingRoomBlockJson.class,
+                "proposalDateType",
+                proposalDateType,
+                "sleepingRoomType",
+                sleepingRoomType,
+                "date",
+                date,
+                "quantity",
+                quantity,
+                "rate",
+                rate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DateTypeJson1 proposalDateType;
 
@@ -218,7 +214,7 @@ public class SleepingRoomBlockJson {
         private Double rate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -264,16 +260,10 @@ public class SleepingRoomBlockJson {
         }
 
         public SleepingRoomBlockJson build() {
-            return new SleepingRoomBlockJson(
-                proposalDateType, sleepingRoomType, date,
-                quantity, rate);
+            return new SleepingRoomBlockJson(proposalDateType, sleepingRoomType, date, quantity, rate);
         }
 
-
         private static final LazySingletonValue<DateTypeJson1> _SINGLETON_VALUE_ProposalDateType =
-                new LazySingletonValue<>(
-                        "proposalDateType",
-                        "\"PREFERRED\"",
-                        new TypeReference<DateTypeJson1>() {});
+                new LazySingletonValue<>("proposalDateType", "\"PREFERRED\"", new TypeReference<DateTypeJson1>() {});
     }
 }

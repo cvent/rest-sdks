@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SupplierSummaryJson
- * 
+ *
  * <p>Represents a summary of supplier information associated with current proposal.
  */
 public class SupplierSummaryJson {
@@ -27,11 +27,10 @@ public class SupplierSummaryJson {
     private Supplier supplier;
 
     @JsonCreator
-    public SupplierSummaryJson(
-            @JsonProperty("supplier") @Nullable Supplier supplier) {
+    public SupplierSummaryJson(@JsonProperty("supplier") @Nullable Supplier supplier) {
         this.supplier = supplier;
     }
-    
+
     public SupplierSummaryJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class SupplierSummaryJson {
         return new Builder();
     }
 
-
     /**
      * The supplier associated with current proposal.
      */
@@ -55,7 +53,6 @@ public class SupplierSummaryJson {
         this.supplier = supplier;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class SupplierSummaryJson {
             return false;
         }
         SupplierSummaryJson other = (SupplierSummaryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.supplier, other.supplier);
+        return Utils.enhancedDeepEquals(this.supplier, other.supplier);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            supplier);
+        return Utils.enhancedHash(supplier);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SupplierSummaryJson.class,
-                "supplier", supplier);
+        return Utils.toString(SupplierSummaryJson.class, "supplier", supplier);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Supplier supplier;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class SupplierSummaryJson {
         }
 
         public SupplierSummaryJson build() {
-            return new SupplierSummaryJson(
-                supplier);
+            return new SupplierSummaryJson(supplier);
         }
-
     }
 }

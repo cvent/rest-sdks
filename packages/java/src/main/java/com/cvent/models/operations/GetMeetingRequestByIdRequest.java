@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetMeetingRequestByIdRequest {
     /**
      * The meeting request form ID.
@@ -26,13 +25,10 @@ public class GetMeetingRequestByIdRequest {
     private String requestId;
 
     @JsonCreator
-    public GetMeetingRequestByIdRequest(
-            @Nonnull String id,
-            @Nonnull String requestId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetMeetingRequestByIdRequest(@Nonnull String id, @Nonnull String requestId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestId = Optional.ofNullable(requestId)
-            .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class GetMeetingRequestByIdRequest {
         return new Builder();
     }
 
-
     /**
      * The meeting request form ID.
      */
@@ -62,7 +57,6 @@ public class GetMeetingRequestByIdRequest {
         return this;
     }
 
-
     /**
      * The meeting request ID.
      */
@@ -70,7 +64,6 @@ public class GetMeetingRequestByIdRequest {
         this.requestId = Utils.checkNotNull(requestId, "requestId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class GetMeetingRequestByIdRequest {
             return false;
         }
         GetMeetingRequestByIdRequest other = (GetMeetingRequestByIdRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.requestId, other.requestId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.requestId, other.requestId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, requestId);
+        return Utils.enhancedHash(id, requestId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetMeetingRequestByIdRequest.class,
-                "id", id,
-                "requestId", requestId);
+        return Utils.toString(GetMeetingRequestByIdRequest.class, "id", id, "requestId", requestId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String requestId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class GetMeetingRequestByIdRequest {
         }
 
         public GetMeetingRequestByIdRequest build() {
-            return new GetMeetingRequestByIdRequest(
-                id, requestId);
+            return new GetMeetingRequestByIdRequest(id, requestId);
         }
-
     }
 }

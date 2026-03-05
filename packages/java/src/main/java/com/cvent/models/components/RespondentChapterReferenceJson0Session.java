@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * RespondentChapterReferenceJson0Session
- * 
+ *
  * <p>Associated session.
  */
 public class RespondentChapterReferenceJson0Session {
@@ -27,11 +27,10 @@ public class RespondentChapterReferenceJson0Session {
     private String id;
 
     @JsonCreator
-    public RespondentChapterReferenceJson0Session(
-            @JsonProperty("id") @Nullable String id) {
+    public RespondentChapterReferenceJson0Session(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public RespondentChapterReferenceJson0Session() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class RespondentChapterReferenceJson0Session {
         return new Builder();
     }
 
-
     /**
      * Session ID.
      */
@@ -55,7 +53,6 @@ public class RespondentChapterReferenceJson0Session {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class RespondentChapterReferenceJson0Session {
             return false;
         }
         RespondentChapterReferenceJson0Session other = (RespondentChapterReferenceJson0Session) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RespondentChapterReferenceJson0Session.class,
-                "id", id);
+        return Utils.toString(RespondentChapterReferenceJson0Session.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class RespondentChapterReferenceJson0Session {
         }
 
         public RespondentChapterReferenceJson0Session build() {
-            return new RespondentChapterReferenceJson0Session(
-                id);
+            return new RespondentChapterReferenceJson0Session(id);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ValidationCode
- * 
+ *
  * <p>Business validation code for bad requests.
  */
 public enum ValidationCode {
@@ -27,13 +27,13 @@ public enum ValidationCode {
     ValidationCode(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ValidationCode> fromValue(String value) {
-        for (ValidationCode o: ValidationCode.values()) {
+        for (ValidationCode o : ValidationCode.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum ValidationCode {
         return Optional.empty();
     }
 }
-
